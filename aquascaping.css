@@ -1,0 +1,25 @@
+#tweezers-button svg { width: 22px; height: 22px; }
+#tweezers-button[aria-pressed="true"] { background: #3b665a; color: #f7f4dd; }
+#aquascape-instructions {
+  position: absolute; left: 50%; bottom: 114px; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 16px; max-width: min(640px, calc(100% - 32px));
+  padding: 12px 16px; border: 1px solid #a1b6aa55; border-radius: 14px;
+  color: #eff0df; background: #183438ef; box-shadow: 0 8px 25px #061c2430;
+  font-size: 12px; line-height: 1.5; z-index: 12;
+}
+#aquascape-instructions[hidden] { display: none; }
+#aquascape-instructions strong { color: #ded4a0; white-space: nowrap; }
+#aquascape-instructions button { min-width: 44px; min-height: 44px; border: 1px solid #a1b6aa55; border-radius: 10px; }
+.at-start #tweezers-button, .at-start #aquascape-instructions { display: none; }
+#scene[data-tweezers="true"] + .brand { pointer-events: none; }
+.using-tweezers .camera-hint, .using-tweezers .camera-actions { visibility: hidden; }
+@media (max-width: 1100px) {
+  .toolbar { gap: 2px; }
+  .toolbar .tool { min-width: 72px; padding-left: 10px; padding-right: 10px; }
+}
+@media (max-width: 700px) {
+  .toolbar { width: calc(100% - 20px); justify-content: space-around; }
+  .toolbar .tool { min-width: 0; flex: 1; padding: 7px 3px; font-size: 9px; }
+  #aquascape-instructions { bottom: 116px; gap: 10px; width: calc(100% - 24px); font-size: 11px; }
+  #aquascape-instructions strong { display: none; }
+}

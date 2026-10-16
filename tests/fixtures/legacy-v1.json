@@ -1,0 +1,190 @@
+{
+  "version": 1,
+  "seed": 815551911,
+  "nextId": 3,
+  "day": 1,
+  "liters": 120,
+  "water": "fresh",
+  "filter": "none",
+  "light": "none",
+  "substrate": "bare",
+  "hours": 8,
+  "intensity": 80,
+  "flow": 75,
+  "heater": false,
+  "setTemp": 25,
+  "air": false,
+  "skimmer": false,
+  "co2Dose": 0,
+  "feedRate": 1,
+  "autoFeed": false,
+  "params": {
+    "nh4": 0.005056467531776595,
+    "no2": 0.04073770833333333,
+    "no3": 12.006330656249997,
+    "po4": 0.4000009409047315,
+    "co2": 4.807092907026091,
+    "fe": 0.08,
+    "oxygen": 7.836078250041397,
+    "ph": 7.193122899109164,
+    "temp": 22,
+    "salinity": 0,
+    "kh": 2.4996785312500003,
+    "gh": 8,
+    "calcium": 60
+  },
+  "bacteria": 0.03900000000000001,
+  "bacteria2": 0.0315,
+  "detritus": 0.004526779237361719,
+  "algae": 0,
+  "entities": [
+    {
+      "uid": 1,
+      "species": "anubias",
+      "x": 0.6752526538912207,
+      "z": -0.0743689581751823,
+      "rotation": 2.252151101007565,
+      "scale": 1,
+      "health": 93.5,
+      "biomass": 0.6626481435494497,
+      "age": 31,
+      "sex": "♀",
+      "genotype": null,
+      "pregnancy": 0,
+      "acclimation": 0,
+      "dead": false,
+      "cause": null
+    },
+    {
+      "uid": 2,
+      "species": "neon",
+      "x": -0.38636739912908524,
+      "z": -0.8276341047137975,
+      "rotation": 2.378223340308088,
+      "scale": 1,
+      "health": 93.80000000000001,
+      "biomass": 0.8809084190055727,
+      "age": 31,
+      "sex": "♀",
+      "genotype": null,
+      "pregnancy": 0,
+      "acclimation": 0,
+      "dead": false,
+      "cause": null
+    }
+  ],
+  "events": [
+    {
+      "day": 0,
+      "title": "1 × Neonsalmler eingesetzt",
+      "text": "Kleine Schwarmfische. Sie brauchen viele Artgenossen und ruhige Verstecke.",
+      "type": "info",
+      "cause": null
+    },
+    {
+      "day": 0,
+      "title": "1 × Anubias eingesetzt",
+      "text": "Wächst langsam. Das dicke Rhizom liegt auf Holz oder Stein, nicht tief im Boden.",
+      "type": "info",
+      "cause": null
+    },
+    {
+      "day": 0,
+      "title": "Dein Becken steht",
+      "text": "120 Liter Süßwasser. Wähle nun Boden, Technik und Lebewesen.",
+      "type": "info",
+      "cause": null
+    }
+  ],
+  "measurements": {
+    "nh4": {
+      "value": 0.015,
+      "day": 0
+    },
+    "no2": {
+      "value": 0.015,
+      "day": 0
+    },
+    "no3": {
+      "value": 12,
+      "day": 0
+    },
+    "po4": {
+      "value": 0.4,
+      "day": 0
+    },
+    "co2": {
+      "value": 5,
+      "day": 0
+    },
+    "fe": {
+      "value": 0.08,
+      "day": 0
+    },
+    "oxygen": {
+      "value": 7.5,
+      "day": 0
+    },
+    "ph": {
+      "value": 7.15,
+      "day": 0
+    },
+    "temp": {
+      "value": 22,
+      "day": 0
+    },
+    "salinity": {
+      "value": 0,
+      "day": 0
+    },
+    "kh": {
+      "value": 2.5,
+      "day": 0
+    },
+    "gh": {
+      "value": 8,
+      "day": 0
+    },
+    "calcium": {
+      "value": 60,
+      "day": 0
+    }
+  },
+  "history": [
+    {
+      "day": 1,
+      "nh4": 0.005056467531776595,
+      "no2": 0.04073770833333333,
+      "no3": 12.006330656249997,
+      "po4": 0.4000009409047315,
+      "co2": 4.807092907026091,
+      "fe": 0.08,
+      "oxygen": 7.836078250041397,
+      "ph": 7.193122899109164,
+      "temp": 22,
+      "salinity": 0,
+      "kh": 2.4996785312500003,
+      "gh": 8,
+      "calcium": 60,
+      "algae": 0,
+      "animals": 1
+    }
+  ],
+  "stableDays": 0,
+  "failed": false,
+  "won": false,
+  "hadLife": true,
+  "deaths": [],
+  "offspring": [],
+  "quizDone": false,
+  "feedReserve": 0,
+  "topup": true,
+  "selected": null,
+  "tankPlaced": true,
+  "mode": "free",
+  "tutorialStep": 0,
+  "tutorialReadSpecies": false,
+  "tutorialCompleted": false,
+  "ownedEquipment": [],
+  "foodType": null
+}

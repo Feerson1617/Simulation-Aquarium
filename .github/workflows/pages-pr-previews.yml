@@ -1,0 +1,131 @@
+# Deploy the public game plus separate static previews for open same-repository PRs.
+# IMPORTANT: The default GitHub Pages source must be switched to "GitHub Actions"
+# after merging this workflow; see docs/PR_PREVIEWS.md.
+name: Aquarium – Website und PR-Vorschauen
+
+on:
+  push:
+    branches: [main]
+  pull_request_target:
+    types: [opened, synchronize, reopened, closed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: aquarium-pages-deployment
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Website und offene PRs zusammenstellen
+    # Never deploy files from an external fork: only our own development branches.
+    if: >-
+      github.event_name != 'pull_request_target' ||
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      - name: Oeffentliche Version von main laden
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Hauptseite und PR-Vorschauen vorbereiten
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+
+          mkdir -p .pages-out/pr-preview
+
+          # Preserve the root website while omitting CI and development-only files.
+          rsync -a \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='.pages-out/' \
+            --exclude='tests/' \
+            --exclude='pr-preview/' \
+            ./ .pages-out/
+          touch .pages-out/.nojekyll
+
+          # Rebuild ALL previews with each deployment, so one PR cannot delete
+          # the previews of other open PRs and closed PRs disappear automatically.
+          gh api --paginate \
+            "/repos/${GITHUB_REPOSITORY}/pulls?state=open&per_page=100" \
+            --jq '.[] | select(.head.repo.full_name == .base.repo.full_name) | .number' \
+            > "${RUNNER_TEMP}/aquarium-open-prs.txt"
+
+          while IFS= read -r pr; do
+            [[ -z "$pr" ]] && continue
+            [[ "$pr" =~ ^[0-9]+$ ]] || { echo "Unexpected PR number: $pr" >&2; exit 1; }
+
+            echo "Preparing preview for PR #$pr"
+            if ! git fetch --quiet --no-tags --depth=1 origin "refs/pull/${pr}/head"; then
+              echo "Skipping PR #$pr: its head ref is no longer accessible"
+              continue
+            fi
+
+            staging="$(mktemp -d "${RUNNER_TEMP}/aquarium-pr-${pr}.XXXXXXXX")"
+            git archive --format=tar FETCH_HEAD | tar -xf - -C "$staging"
+
+            # Never follow links from PR content into the runner's filesystem.
+            find "$staging" -type l -delete
+
+            destination=".pages-out/pr-preview/pr-${pr}"
+            mkdir -p "$destination"
+            rsync -a \
+              --exclude='.git/' \
+              --exclude='.github/' \
+              --exclude='tests/' \
+              --exclude='pr-preview/' \
+              "$staging/" "$destination/"
+            rm -rf "$staging"
+          done < "${RUNNER_TEMP}/aquarium-open-prs.txt"
+
+          test -s .pages-out/index.html
+          echo "Public game and PR previews assembled."
+
+      - name: GitHub-Pages-Artefakt hochladen
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: .pages-out
+
+  deploy:
+    name: GitHub Pages aktualisieren
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+      pull-requests: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Oeffentliche Version mit PR-Vorschauen bereitstellen
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Vorschau-Link beim neuen Pull Request kommentieren
+        if: github.event_name == 'pull_request_target' && github.event.action == 'opened'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          preview_url="https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-${PR_NUMBER}/"
+          gh api -X POST \
+            "/repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" \
+            -f body="🐠 **Automatische Spielvorschau:** ${preview_url}
+
+          Diese Vorschau folgt Aktualisierungen des Pull Requests. Die öffentliche Version auf main bleibt bis zum Merge unverändert." \
+            > /dev/null

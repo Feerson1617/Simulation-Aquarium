@@ -1,0 +1,2720 @@
+[
+  {
+    "id": "neon",
+    "name": "Neonsalmler",
+    "category": "fish",
+    "original": "photo",
+    "references": [
+      "https://commons.wikimedia.org/wiki/File:Paracheirodon_innesi_neon_tetra.jpg"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "cardinal",
+    "name": "Roter Neon",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Paracheirodon-axelrodi.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "molly",
+    "name": "Molly",
+    "category": "fish",
+    "original": "photo",
+    "references": [
+      "https://commons.wikimedia.org/wiki/File:PoeciliaSphenops.jpg"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "guppy",
+    "name": "Guppy",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Poecilia-reticulata.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "platy",
+    "name": "Platy",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Xiphophorus-maculatus.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "swordtail",
+    "name": "Schwertträger",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Xiphophorus-hellerii.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "endler",
+    "name": "Endler-Guppy",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Poecilia-wingei.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "zebra",
+    "name": "Zebrabärbling",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Danio-rerio.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "pearl",
+    "name": "Perlhuhnbärbling",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Danio-margaritatus.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "harlequin",
+    "name": "Keilfleckbärbling",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Trigonostigma-heteromorpha.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "ember",
+    "name": "Funkensalmler",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Hyphessobrycon-amandae.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "rummy",
+    "name": "Rotkopfsalmler",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Petitella-bleheri.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "blackskirt",
+    "name": "Trauermantelsalmler",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Gymnocorymbus-ternetzi.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "congo",
+    "name": "Kongosalmler",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Phenacogrammus-interruptus.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "cherry",
+    "name": "Kirschbarbe",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Puntius-titteya.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "tiger",
+    "name": "Sumatrabarbe",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Puntigrus-tetrazona.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "betta",
+    "name": "Kampffisch",
+    "category": "fish",
+    "original": "model",
+    "references": [
+      "https://sketchfab.com/3d-models/betta-splendens-f4eeb7f50ad24873842bd954ad27d23b"
+    ],
+    "runtime": true,
+    "status": "Originales realistisches 3D-Modell integriert; visuelle Prüfung offen",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "honey",
+    "name": "Honiggurami",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Trichogaster-chuna.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "pearlgourami",
+    "name": "Mosaikfadenfisch",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Trichopodus-leerii.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "angelfish",
+    "name": "Skalar",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Pterophyllum-scalare.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "discus",
+    "name": "Diskus",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Symphysodon-aequifasciatus"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "ram",
+    "name": "Schmetterlingsbuntbarsch",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Mikrogeophagus-ramirezi.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "apisto",
+    "name": "Kakadu-Zwergbuntbarsch",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Apistogramma-cacatuoides.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "krib",
+    "name": "Purpurprachtbuntbarsch",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Pelvicachromis-pulcher.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "cory",
+    "name": "Metallpanzerwels",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Corydoras-aeneus.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "panda",
+    "name": "Panda-Panzerwels",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Corydoras-panda.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "oto",
+    "name": "Ohrgitterharnischwels",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Otocinclus-vittatus.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "ancistrus",
+    "name": "Antennenwels",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/identification/SpeciesList.php?genus=Ancistrus",
+      "https://www.fishbase.se/summary/Ancistrus-cirrhosus"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "kuhli",
+    "name": "Dornauge",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Pangio-kuhlii.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "rainbow",
+    "name": "Boesemans Regenbogenfisch",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Melanotaenia-boesemani.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "whitecloud",
+    "name": "Kardinalfisch",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Tanichthys-albonubes.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "goldfish",
+    "name": "Goldfisch",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Carassius-auratus.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "sae",
+    "name": "Siamesische Rüsselbarbe",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Crossocheilus-oblongus.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "dwarfbuffer",
+    "name": "Erbsenkugelfisch",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Carinotetraodon-travancoricus.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "clown",
+    "name": "Falscher Clownfisch",
+    "category": "fish",
+    "original": "photo",
+    "references": [
+      "https://commons.wikimedia.org/wiki/File:Amphiprion_ocellaris.002_-_Aquarium_Finisterrae.jpg"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "royal",
+    "name": "Königs-Feenbarsch",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Gramma-loreto.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "firefish",
+    "name": "Feuer-Schwertgrundel",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Nemateleotris-magnifica.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "purplefire",
+    "name": "Purpur-Schwertgrundel",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Nemateleotris-decora.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "goby",
+    "name": "Gelbe Wächtergrundel",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Cryptocentrus-cinctus.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "neongoby",
+    "name": "Neon-Putzgrundel",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Elacatinus-oceanops.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "clowngoby",
+    "name": "Gelbe Korallengrundel",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Gobiodon-okinawae.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "mandarin",
+    "name": "Mandarinfisch",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.org/summary/12644",
+      "https://animaldiversity.org/accounts/Synchiropus_splendidus/"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "blenny",
+    "name": "Algenblenny",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Salarias-fasciatus.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "bicolor",
+    "name": "Zweifarben-Schleimfisch",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Ecsenius-bicolor.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "chromis",
+    "name": "Grünes Schwalbenschwänzchen",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Chromis-viridis.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "damsel",
+    "name": "Gelbschwanz-Demoiselle",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Chrysiptera-parasema.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "banggai",
+    "name": "Banggai-Kardinalbarsch",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Pterapogon-kauderni",
+      "https://fishbase.se/physiology/MorphMetSummaryV2.php?genusname=Pterapogon&id=15426&picname=Ptkau_u4.jpg&speciesname=kauderni"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "pajama",
+    "name": "Pyjama-Kardinalbarsch",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Sphaeramia-nematoptera.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "yellowtang",
+    "name": "Gelber Segelflossendoktor",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Zebrasoma-flavescens.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "bluetang",
+    "name": "Paletten-Doktorfisch",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Paracanthurus-hepatus.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "kole",
+    "name": "Goldring-Borstenzahndoktor",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Ctenochaetus-strigosus.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "flame",
+    "name": "Flammen-Zwergkaiser",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Centropyge-loricula.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "beauty",
+    "name": "Korallen-Zwergkaiser",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Centropyge-bispinosa.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "sixline",
+    "name": "Sechsstreifen-Lippfisch",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Pseudocheilinus-hexataenia.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "cleanerwrasse",
+    "name": "Putzerlippfisch",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Labroides-dimidiatus.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "hawk",
+    "name": "Flammen-Büschelbarsch",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Neocirrhites-armatus.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "lion",
+    "name": "Zwerg-Feuerfisch",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Dendrochirus-brachypterus.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "anthias",
+    "name": "Juwelen-Fahnenbarsch",
+    "category": "fish",
+    "original": "authored",
+    "references": [
+      "https://www.fishbase.se/summary/Pseudanthias-squamipinnis.html"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "anubias",
+    "name": "Anubias",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Anubias_barteri"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "nana",
+    "name": "Zwerg-Anubias",
+    "category": "plant",
+    "original": "photo",
+    "references": [
+      "https://commons.wikimedia.org/wiki/File:Anubias_barteri_var._nana.jpg"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "javafern",
+    "name": "Javafarn",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/File:Microsorium_pteropus.JPG"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "trident",
+    "name": "Javafarn Trident",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://tropica.com/en/plants/plantdetails/Microsorumpteropus%27Trident%27%28008G%29/4424"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "javamoss",
+    "name": "Javamoos",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://tropica.com/en/plants/plantdetails/Taxiphyllumbarbieri%27BogorMoss%27%28003POR%29/4391"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "christmas",
+    "name": "Weihnachtsmoos",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://tropica.com/en/plants/plantdetails/Vesiculariamontagnei%27Christmas%27%28003APOR%29/4395"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "vallis",
+    "name": "Vallisnerie",
+    "category": "plant",
+    "original": "photo",
+    "references": [
+      "https://commons.wikimedia.org/wiki/File:Vallisneria_spiralis.jpg"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "vallisgiant",
+    "name": "Riesen-Vallisnerie",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Vallisneria_australis"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "swordplant",
+    "name": "Amazonas-Schwertpflanze",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Echinodorus_grisebachii"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "redflame",
+    "name": "Schwertpflanze Red Flame",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Echinodorus_grisebachii"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "crypt",
+    "name": "Wendts Wasserkelch",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/File:-Cryptocoryne_wendtii-_from_Tropica_farm.JPG"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "cryptparva",
+    "name": "Zwerg-Wasserkelch",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://tropica.com/en/plants/plantdetails/Cryptocoryneparva%28106%29/4558"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "waterweed",
+    "name": "Wasserpest",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Egeria_densa"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "hornwort",
+    "name": "Hornkraut",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Ceratophyllum_demersum"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "hygro",
+    "name": "Indischer Wasserfreund",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Hygrophila_polysperma"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "corymbosa",
+    "name": "Großer Wasserfreund",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Hygrophila_corymbosa"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "limno",
+    "name": "Kleine Ambulia",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Limnophila_sessiliflora"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "rotala",
+    "name": "Rotala",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Rotala_rotundifolia"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "ludwigia",
+    "name": "Rote Ludwigie",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/File:Ludwigia_repens.JPG"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "bacopa",
+    "name": "Kleines Fettblatt",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Bacopa_monnieri"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "cabomba",
+    "name": "Karolina-Haarnixe",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Cabomba_caroliniana"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "alternanthera",
+    "name": "Rotes Papageienblatt",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/File:Alternanthera_02.jpg"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "pearlweed",
+    "name": "Perlkraut",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Micranthemum_micranthemoides"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "montecarlo",
+    "name": "Monte Carlo",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://tropica.com/en/articles/micranthemum-monte-carlo/"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "hairgrass",
+    "name": "Zwerg-Nadelsimse",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Eleocharis_pusilla"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "stauro",
+    "name": "Staurogyne",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://tropica.com/en/plants/plantdetails/Staurogynerepens%28049G%29/4481"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "buce",
+    "name": "Bucephalandra",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Bucephalandra"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "lotus",
+    "name": "Roter Tigerlotus",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Nymphaea_lotus"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "frogbit",
+    "name": "Froschbiss",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Limnobium_laevigatum"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "salvinia",
+    "name": "Schwimmfarn",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Salvinia_auriculata"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "waterlettuce",
+    "name": "Muschelblume",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Pistia_stratiotes"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "aponogeton",
+    "name": "Madagaskar-Gitterpflanze",
+    "category": "plant",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/File:Aponogeton_madagascariensis_in_aquarium.jpg"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "softleather",
+    "name": "Pilzlederkoralle",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Sarcophyton_(Cnidaria)"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "sinularia",
+    "name": "Fingerlederkoralle",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Sinularia"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "kenya",
+    "name": "Kenia-Bäumchen",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Capnella"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "xenia",
+    "name": "Pumpende Xenie",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Xenia_(Xeniidae)"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "greenstar",
+    "name": "Grüne Sternpolypen",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Pachyclavularia"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "zoa",
+    "name": "Krustenanemonen",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Zoanthus"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "mushroom",
+    "name": "Scheibenanemone",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Discosoma"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "ricordea",
+    "name": "Ricordea",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Ricordea_florida"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "hammer",
+    "name": "Hammerkoralle",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Fimbriaphyllia_ancora"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "frogspawn",
+    "name": "Froschlaichkoralle",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Euphyllia_divisa"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "torch",
+    "name": "Fackelkoralle",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Euphyllia_glabrescens"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "candy",
+    "name": "Zuckerstangenkoralle",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Caulastraea_furcata"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "duncan",
+    "name": "Duncan-Koralle",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Duncanopsammia_axifuga"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "brain",
+    "name": "Hirnkoralle",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Lobophyllia"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "favites",
+    "name": "Wabenkoralle",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Favites"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "acanth",
+    "name": "Acan-Koralle",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Micromussa_lordhowensis"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "plate",
+    "name": "Pilzkoralle",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Fungia"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "chalice",
+    "name": "Kelchkoralle",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Echinophyllia"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "montidigi",
+    "name": "Finger-Montipora",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Montipora_digitata"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "montiplate",
+    "name": "Platten-Montipora",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Montipora_capricornis"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "acropora",
+    "name": "Geweihkoralle",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Acropora"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "pocillo",
+    "name": "Blumenkohlkoralle",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Pocillopora"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "stylo",
+    "name": "Griffelkoralle",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Stylophora_pistillata"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "birdsnest",
+    "name": "Vogelnestkoralle",
+    "category": "coral",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Seriatopora_hystrix"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "cherryshrimp",
+    "name": "Red-Cherry-Garnele",
+    "category": "invert",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Neocaridina_davidi"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "amanoshrimp",
+    "name": "Amano-Garnele",
+    "category": "invert",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Caridina_multidentata"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "crystal",
+    "name": "Bienengarnele",
+    "category": "invert",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Caridina_cantonensis"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "bambooshrimp",
+    "name": "Fächergarnele",
+    "category": "invert",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Atyopsis_moluccensis"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "ramshorn",
+    "name": "Posthornschnecke",
+    "category": "invert",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Planorbella"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "nerite",
+    "name": "Rennschnecke",
+    "category": "invert",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Neritina"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "trumpet",
+    "name": "Turmdeckelschnecke",
+    "category": "invert",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Melanoides_tuberculata"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "bladder",
+    "name": "Blasenschnecke",
+    "category": "invert",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Physella"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "assassin",
+    "name": "Raubschnecke",
+    "category": "invert",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Anentome_helena"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "freshclam",
+    "name": "Asiatische Körbchenmuschel",
+    "category": "invert",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Corbicula_fluminea"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "cleanershrimp",
+    "name": "Weißband-Putzergarnele",
+    "category": "invert",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Lysmata_amboinensis"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "fireshrimp",
+    "name": "Kardinalsgarnele",
+    "category": "invert",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Lysmata_debelius"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "peppermint",
+    "name": "Pfefferminzgarnele",
+    "category": "invert",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Lysmata_wurdemanni"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "trochus",
+    "name": "Kreiselschnecke",
+    "category": "invert",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Trochus"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "cerith",
+    "name": "Nadelschnecke",
+    "category": "invert",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Cerithium"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "nassarius",
+    "name": "Nassarius-Schnecke",
+    "category": "invert",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Nassarius"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "giantclam",
+    "name": "Riesenmuschel",
+    "category": "invert",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Tridacna_maxima"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "hermit",
+    "name": "Blaubein-Einsiedler",
+    "category": "invert",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Clibanarius_tricolor"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "urchin",
+    "name": "Kugel-Seeigel",
+    "category": "invert",
+    "original": "authored",
+    "references": [
+      "https://commons.wikimedia.org/wiki/Category:Mespilia_globulus"
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "root",
+    "name": "Mangrovenwurzel",
+    "category": "decor",
+    "original": "procedural",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "stone",
+    "name": "Flussstein",
+    "category": "decor",
+    "original": "procedural",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "reefrock",
+    "name": "Riffgestein",
+    "category": "decor",
+    "original": "procedural",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "cave",
+    "name": "Steinhöhle",
+    "category": "decor",
+    "original": "procedural",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "shell",
+    "name": "Leeres Muschelhaus",
+    "category": "decor",
+    "original": "procedural",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "spiderwood",
+    "name": "Verzweigte Fingerwurzel",
+    "category": "decor",
+    "original": "procedural",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "mopani",
+    "name": "Knorrige Savannenwurzel",
+    "category": "decor",
+    "original": "procedural",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "slate",
+    "name": "Geschichtete Schieferterrasse",
+    "category": "decor",
+    "original": "procedural",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "dragonstone",
+    "name": "Zerklüfteter Drachenstein",
+    "category": "decor",
+    "original": "procedural",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "basaltarch",
+    "name": "Dunkler Basaltbogen",
+    "category": "decor",
+    "original": "procedural",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "reefcave",
+    "name": "Poröse Riffhöhle",
+    "category": "decor",
+    "original": "procedural",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "tank-30",
+    "name": "30-Liter-Aquarium",
+    "category": "tank",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "tank-60",
+    "name": "60-Liter-Aquarium",
+    "category": "tank",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "tank-120",
+    "name": "120-Liter-Aquarium",
+    "category": "tank",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "tank-180",
+    "name": "180-Liter-Aquarium",
+    "category": "tank",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "tank-300",
+    "name": "300-Liter-Aquarium",
+    "category": "tank",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "tank-450",
+    "name": "450-Liter-Aquarium",
+    "category": "tank",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "tank-700",
+    "name": "700-Liter-Aquarium",
+    "category": "tank",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "filter-sponge",
+    "name": "Schwammfilter · 60 L",
+    "category": "filter",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "filter-internal120",
+    "name": "Innenfilter · 120 L",
+    "category": "filter",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "filter-internal240",
+    "name": "Innenfilter · 240 L",
+    "category": "filter",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "filter-external300",
+    "name": "Außenfilter · 300 L",
+    "category": "filter",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "filter-external600",
+    "name": "Außenfilter · 600 L",
+    "category": "filter",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "filter-sump",
+    "name": "Technikbecken · 900 L",
+    "category": "filter",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "light-basic",
+    "name": "Tageslicht-LED",
+    "category": "light",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "light-plant",
+    "name": "Pflanzen-LED",
+    "category": "light",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "light-weak",
+    "name": "Sanfte LED",
+    "category": "light",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "light-reef",
+    "name": "Riff-LED",
+    "category": "light",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "light-t5",
+    "name": "T5-Leuchtbalken",
+    "category": "light",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "equipment-heater",
+    "name": "Regelheizer",
+    "category": "equipment",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "equipment-air",
+    "name": "Luftpumpe",
+    "category": "equipment",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "equipment-skimmer",
+    "name": "Eiweißabschäumer",
+    "category": "equipment",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "substrate-sand",
+    "name": "Feiner Sand",
+    "category": "substrate",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "substrate-gravel",
+    "name": "Naturkies",
+    "category": "substrate",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "substrate-soil",
+    "name": "Aktiver Soil",
+    "category": "substrate",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "substrate-nutrient",
+    "name": "Nährboden + Sand",
+    "category": "substrate",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "substrate-coralsand",
+    "name": "Korallensand",
+    "category": "substrate",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": true,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "additive-fertilizer",
+    "name": "Pflanzendünger",
+    "category": "additive",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": false,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "additive-minerals",
+    "name": "Riff-Mineralien",
+    "category": "additive",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": false,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "additive-salt",
+    "name": "Meersalzmischung",
+    "category": "additive",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": false,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "additive-buffer",
+    "name": "KH-Mineralien",
+    "category": "additive",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": false,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "additive-co2",
+    "name": "CO₂-Set",
+    "category": "additive",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": false,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "food-flakes",
+    "name": "Flockenfutter",
+    "category": "food",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": false,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "food-granules",
+    "name": "Granulat",
+    "category": "food",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": false,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "food-herbivore",
+    "name": "Algen- & Pflanzenfutter",
+    "category": "food",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": false,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "food-protein",
+    "name": "Frostfutter-Portion",
+    "category": "food",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": false,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "food-bottom",
+    "name": "Bodentabletten",
+    "category": "food",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": false,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  },
+  {
+    "id": "food-plankton",
+    "name": "Feines Planktonfutter",
+    "category": "food",
+    "original": "schematic-product",
+    "references": [
+      ""
+    ],
+    "runtime": false,
+    "status": "Noch deutlich vereinfachtes Modell vorhanden",
+    "change": "Bestand erfasst; Überarbeitung in Arbeit",
+    "desktop": "offen",
+    "ipad": "offen",
+    "photorealisticAccepted": false
+  }
+]

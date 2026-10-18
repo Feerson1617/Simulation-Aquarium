@@ -1,0 +1,4281 @@
+{
+  "neon": {
+    "id": "neon",
+    "name": "Neonsalmler",
+    "latin": "Paracheirodon innesi",
+    "size": 4,
+    "minL": 60,
+    "temp": [
+      20,
+      26
+    ],
+    "ph": [
+      5.5,
+      7.5
+    ],
+    "group": 8,
+    "color": "#36bce5",
+    "description": "Kleine Schwarmfische. Sie brauchen viele Artgenossen und ruhige Verstecke.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.56,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "cardinal": {
+    "id": "cardinal",
+    "name": "Roter Neon",
+    "latin": "Paracheirodon axelrodi",
+    "size": 5,
+    "minL": 100,
+    "temp": [
+      24,
+      29
+    ],
+    "ph": [
+      5,
+      7.2
+    ],
+    "group": 10,
+    "color": "#dc4d63",
+    "description": "Sein rotes Band reicht fast über den ganzen Körper. Er mag warmes, weiches Wasser.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.8750000000000001,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "molly": {
+    "id": "molly",
+    "name": "Molly",
+    "latin": "Poecilia sphenops",
+    "size": 9,
+    "minL": 120,
+    "temp": [
+      24,
+      28
+    ],
+    "ph": [
+      7,
+      8.5
+    ],
+    "group": 4,
+    "color": "#b2aaa0",
+    "description": "Lebendgebärend. Frisst auch Algen. Im Lernmodell vererbt sich ein Farbmerkmal über A und a.",
+    "behavior": "live",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      36
+    ],
+    "gh": [
+      10,
+      28
+    ],
+    "load": 2.8350000000000004,
+    "reproduce": true,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "guppy": {
+    "id": "guppy",
+    "name": "Guppy",
+    "latin": "Poecilia reticulata",
+    "size": 5,
+    "minL": 60,
+    "temp": [
+      22,
+      28
+    ],
+    "ph": [
+      6.8,
+      8.3
+    ],
+    "group": 4,
+    "color": "#e9a459",
+    "description": "Lebendgebärend. Männchen haben auffällige Flossen. Nachwuchs erhöht den Platzbedarf.",
+    "behavior": "live",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      10,
+      28
+    ],
+    "load": 0.8750000000000001,
+    "reproduce": true,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "platy": {
+    "id": "platy",
+    "name": "Platy",
+    "latin": "Xiphophorus maculatus",
+    "size": 6,
+    "minL": 80,
+    "temp": [
+      22,
+      27
+    ],
+    "ph": [
+      7,
+      8.3
+    ],
+    "group": 4,
+    "color": "#ee7547",
+    "description": "Ein geselliger Allesfresser. Weibchen bringen fertig entwickelte Jungfische zur Welt.",
+    "behavior": "live",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      10,
+      28
+    ],
+    "load": 1.2600000000000002,
+    "reproduce": true,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "swordtail": {
+    "id": "swordtail",
+    "name": "Schwertträger",
+    "latin": "Xiphophorus hellerii",
+    "size": 12,
+    "minL": 160,
+    "temp": [
+      22,
+      28
+    ],
+    "ph": [
+      7,
+      8.3
+    ],
+    "group": 4,
+    "color": "#da653d",
+    "description": "Männchen besitzen ein verlängertes Stück der Schwanzflosse. Braucht viel Schwimmraum.",
+    "behavior": "live",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      10,
+      28
+    ],
+    "load": 5.040000000000001,
+    "reproduce": true,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "endler": {
+    "id": "endler",
+    "name": "Endler-Guppy",
+    "latin": "Poecilia wingei",
+    "size": 4,
+    "minL": 60,
+    "temp": [
+      23,
+      28
+    ],
+    "ph": [
+      7,
+      8.3
+    ],
+    "group": 6,
+    "color": "#7ece85",
+    "description": "Ein kleiner Lebendgebärender. Viele Nachkommen können ein kleines Becken überlasten.",
+    "behavior": "live",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      10,
+      28
+    ],
+    "load": 0.56,
+    "reproduce": true,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "zebra": {
+    "id": "zebra",
+    "name": "Zebrabärbling",
+    "latin": "Danio rerio",
+    "size": 5,
+    "minL": 100,
+    "temp": [
+      18,
+      25
+    ],
+    "ph": [
+      6.5,
+      8
+    ],
+    "group": 8,
+    "color": "#bea260",
+    "description": "Ein schneller Schwimmer mit Längsstreifen. Mag eher kühles Wasser.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.8750000000000001,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "pearl": {
+    "id": "pearl",
+    "name": "Perlhuhnbärbling",
+    "latin": "Danio margaritatus",
+    "size": 3,
+    "minL": 60,
+    "temp": [
+      20,
+      26
+    ],
+    "ph": [
+      6.5,
+      7.8
+    ],
+    "group": 10,
+    "color": "#8baba0",
+    "description": "Kleine helle Punkte erinnern an Perlen. Dichte Pflanzen geben Sicherheit.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.31500000000000006,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "harlequin": {
+    "id": "harlequin",
+    "name": "Keilfleckbärbling",
+    "latin": "Trigonostigma heteromorpha",
+    "size": 5,
+    "minL": 80,
+    "temp": [
+      23,
+      28
+    ],
+    "ph": [
+      6,
+      7.5
+    ],
+    "group": 8,
+    "color": "#d19068",
+    "description": "Ein dunkler Keil sitzt am Körper. Dieser Schwarmfisch mag weicheres Wasser.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.8750000000000001,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "ember": {
+    "id": "ember",
+    "name": "Funkensalmler",
+    "latin": "Hyphessobrycon amandae",
+    "size": 3,
+    "minL": 60,
+    "temp": [
+      23,
+      28
+    ],
+    "ph": [
+      5.5,
+      7.5
+    ],
+    "group": 10,
+    "color": "#e49647",
+    "description": "Ein winziger orangefarbener Schwarmfisch. Pflanzen bieten Schutz.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.31500000000000006,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "rummy": {
+    "id": "rummy",
+    "name": "Rotkopfsalmler",
+    "latin": "Petitella bleheri",
+    "size": 5,
+    "minL": 120,
+    "temp": [
+      24,
+      28
+    ],
+    "ph": [
+      5.5,
+      7.2
+    ],
+    "group": 10,
+    "color": "#a7c9bc",
+    "description": "Roter Kopf, gestreifter Schwanz. Als Gruppe schwimmt er eng zusammen.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.8750000000000001,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "blackskirt": {
+    "id": "blackskirt",
+    "name": "Trauermantelsalmler",
+    "latin": "Gymnocorymbus ternetzi",
+    "size": 6,
+    "minL": 100,
+    "temp": [
+      22,
+      27
+    ],
+    "ph": [
+      6,
+      7.8
+    ],
+    "group": 8,
+    "color": "#666e74",
+    "description": "Ein hoch gebauter Salmler. Zu kleine Gruppen können Stress und Flossenzupfen fördern.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 1.2600000000000002,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "congo": {
+    "id": "congo",
+    "name": "Kongosalmler",
+    "latin": "Phenacogrammus interruptus",
+    "size": 9,
+    "minL": 200,
+    "temp": [
+      23,
+      28
+    ],
+    "ph": [
+      6,
+      7.8
+    ],
+    "group": 8,
+    "color": "#91bbbc",
+    "description": "Schillernde Schuppen und lange Flossen. Braucht ein großes Schwimmbecken.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 2.8350000000000004,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "cherry": {
+    "id": "cherry",
+    "name": "Kirschbarbe",
+    "latin": "Puntius titteya",
+    "size": 5,
+    "minL": 80,
+    "temp": [
+      22,
+      27
+    ],
+    "ph": [
+      6,
+      7.8
+    ],
+    "group": 6,
+    "color": "#c96154",
+    "description": "Männchen werden kirschrot. Pflanzengruppen unterbrechen die Sicht und verringern Stress.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.8750000000000001,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "tiger": {
+    "id": "tiger",
+    "name": "Sumatrabarbe",
+    "latin": "Puntigrus tetrazona",
+    "size": 7,
+    "minL": 160,
+    "temp": [
+      23,
+      28
+    ],
+    "ph": [
+      6,
+      7.8
+    ],
+    "group": 10,
+    "color": "#c99855",
+    "description": "Lebhaft und neugierig. Lange Flossen anderer Fische können zum Zupfen verleiten.",
+    "behavior": "nipper",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 1.715,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "betta": {
+    "id": "betta",
+    "name": "Kampffisch",
+    "latin": "Betta splendens",
+    "size": 7,
+    "minL": 40,
+    "temp": [
+      24,
+      29
+    ],
+    "ph": [
+      6,
+      7.8
+    ],
+    "group": 1,
+    "color": "#5274af",
+    "description": "Männchen verteidigen ihr Revier. Mehrere Männchen können einander verletzen.",
+    "behavior": "territory",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 1.715,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "honey": {
+    "id": "honey",
+    "name": "Honiggurami",
+    "latin": "Trichogaster chuna",
+    "size": 5,
+    "minL": 80,
+    "temp": [
+      24,
+      28
+    ],
+    "ph": [
+      6,
+      7.8
+    ],
+    "group": 2,
+    "color": "#d7a34e",
+    "description": "Ein ruhiger Labyrinthfisch. Kann zusätzlich Luft an der Oberfläche atmen.",
+    "behavior": "labyrinth",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.8750000000000001,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "pearlgourami": {
+    "id": "pearlgourami",
+    "name": "Mosaikfadenfisch",
+    "latin": "Trichopodus leerii",
+    "size": 12,
+    "minL": 180,
+    "temp": [
+      24,
+      29
+    ],
+    "ph": [
+      6,
+      7.8
+    ],
+    "group": 2,
+    "color": "#a8b6a0",
+    "description": "Punktmuster und lange Tastfäden. Mag ruhige, dicht bepflanzte Bereiche.",
+    "behavior": "labyrinth",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 5.040000000000001,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "angelfish": {
+    "id": "angelfish",
+    "name": "Skalar",
+    "latin": "Pterophyllum scalare",
+    "size": 15,
+    "minL": 240,
+    "temp": [
+      24,
+      29
+    ],
+    "ph": [
+      6,
+      7.8
+    ],
+    "group": 2,
+    "color": "#c5bba7",
+    "description": "Hohe Flossen brauchen ein hohes Becken. Kleine Garnelen und Jungfische können Beute sein.",
+    "behavior": "predator",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 7.875000000000001,
+    "reproduce": false,
+    "diet": "Kleine Tiere",
+    "icon": "fish"
+  },
+  "discus": {
+    "id": "discus",
+    "name": "Diskus",
+    "latin": "Symphysodon spp.",
+    "size": 18,
+    "minL": 400,
+    "temp": [
+      27,
+      30
+    ],
+    "ph": [
+      5.5,
+      7.5
+    ],
+    "group": 5,
+    "color": "#c47757",
+    "description": "Sehr warmer Lebensraum. Als Gruppe braucht er viel Platz und stabile Werte.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 11.340000000000002,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "ram": {
+    "id": "ram",
+    "name": "Schmetterlingsbuntbarsch",
+    "latin": "Mikrogeophagus ramirezi",
+    "size": 6,
+    "minL": 80,
+    "temp": [
+      26,
+      30
+    ],
+    "ph": [
+      5.5,
+      7.5
+    ],
+    "group": 2,
+    "color": "#dbb859",
+    "description": "Ein kleiner Revierfisch. Reagiert empfindlich auf kaltes oder verschmutztes Wasser.",
+    "behavior": "territory",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 1.2600000000000002,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "apisto": {
+    "id": "apisto",
+    "name": "Kakadu-Zwergbuntbarsch",
+    "latin": "Apistogramma cacatuoides",
+    "size": 9,
+    "minL": 100,
+    "temp": [
+      23,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "group": 2,
+    "color": "#d69b58",
+    "description": "Höhlen und Sichtschutz sind wichtig. Erwachsene Tiere können kleine Garnelen fressen.",
+    "behavior": "predator",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 2.8350000000000004,
+    "reproduce": false,
+    "diet": "Kleine Tiere",
+    "icon": "fish"
+  },
+  "krib": {
+    "id": "krib",
+    "name": "Purpurprachtbuntbarsch",
+    "latin": "Pelvicachromis pulcher",
+    "size": 10,
+    "minL": 120,
+    "temp": [
+      24,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "group": 2,
+    "color": "#aa758b",
+    "description": "Eltern schützen ihre Jungen. Ihr Brutrevier führt zu Konkurrenz um Platz.",
+    "behavior": "territory",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 3.5000000000000004,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "cory": {
+    "id": "cory",
+    "name": "Metallpanzerwels",
+    "latin": "Corydoras aeneus",
+    "size": 7,
+    "minL": 100,
+    "temp": [
+      22,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "group": 6,
+    "color": "#b7a173",
+    "description": "Sucht am Boden nach Futter. Feiner Sand schützt seine empfindlichen Barteln.",
+    "behavior": "bottom",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 1.715,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "panda": {
+    "id": "panda",
+    "name": "Panda-Panzerwels",
+    "latin": "Corydoras panda",
+    "size": 5,
+    "minL": 80,
+    "temp": [
+      20,
+      26
+    ],
+    "ph": [
+      6,
+      7.8
+    ],
+    "group": 6,
+    "color": "#c3bfa8",
+    "description": "Dunkle Flecken wie ein Panda. Braucht eine Gruppe und weichen Boden.",
+    "behavior": "bottom",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.8750000000000001,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "oto": {
+    "id": "oto",
+    "name": "Ohrgitterharnischwels",
+    "latin": "Otocinclus spp.",
+    "size": 5,
+    "minL": 80,
+    "temp": [
+      22,
+      27
+    ],
+    "ph": [
+      6,
+      7.8
+    ],
+    "group": 6,
+    "color": "#a4a89a",
+    "description": "Frisst Aufwuchs. In ganz neuen Becken fehlt ihm oft natürliche Nahrung.",
+    "behavior": "grazer",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.8750000000000001,
+    "reproduce": false,
+    "diet": "Aufwuchs + Pflanzenfutter",
+    "icon": "fish"
+  },
+  "ancistrus": {
+    "id": "ancistrus",
+    "name": "Antennenwels",
+    "latin": "Ancistrus spp.",
+    "size": 13,
+    "minL": 120,
+    "temp": [
+      22,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "group": 1,
+    "color": "#776958",
+    "description": "Raspelt Aufwuchs und braucht Holz und eigenes Futter. Er beseitigt nicht jeden Abfall.",
+    "behavior": "grazer",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 5.915000000000001,
+    "reproduce": false,
+    "diet": "Aufwuchs + Pflanzenfutter",
+    "icon": "fish"
+  },
+  "kuhli": {
+    "id": "kuhli",
+    "name": "Dornauge",
+    "latin": "Pangio kuhlii",
+    "size": 10,
+    "minL": 100,
+    "temp": [
+      24,
+      29
+    ],
+    "ph": [
+      5.5,
+      7.5
+    ],
+    "group": 6,
+    "color": "#bd904e",
+    "description": "Ein schlanker Bodenfisch. Versteckt sich zwischen Wurzeln und weichem Boden.",
+    "behavior": "bottom",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 3.5000000000000004,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "rainbow": {
+    "id": "rainbow",
+    "name": "Boesemans Regenbogenfisch",
+    "latin": "Melanotaenia boesemani",
+    "size": 12,
+    "minL": 250,
+    "temp": [
+      24,
+      28
+    ],
+    "ph": [
+      7,
+      8.5
+    ],
+    "group": 6,
+    "color": "#d7a347",
+    "description": "Vorne bläulich, hinten orange. Ein lebhafter Gruppenfisch mit großem Platzbedarf.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 5.040000000000001,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "whitecloud": {
+    "id": "whitecloud",
+    "name": "Kardinalfisch",
+    "latin": "Tanichthys albonubes",
+    "size": 4,
+    "minL": 60,
+    "temp": [
+      16,
+      23
+    ],
+    "ph": [
+      6.5,
+      8
+    ],
+    "group": 8,
+    "color": "#acb49c",
+    "description": "Mag kühleres Wasser. Dauerhaft hohe Temperatur belastet ihn.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.56,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish"
+  },
+  "goldfish": {
+    "id": "goldfish",
+    "name": "Goldfisch",
+    "latin": "Carassius auratus",
+    "size": 25,
+    "minL": 300,
+    "temp": [
+      16,
+      23
+    ],
+    "ph": [
+      6.5,
+      8.5
+    ],
+    "group": 3,
+    "color": "#d7983e",
+    "description": "Wächst groß und erzeugt viel Abfall. Ein kleines Glas ist kein passender Lebensraum.",
+    "behavior": "grazer",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 21.875000000000004,
+    "reproduce": false,
+    "diet": "Aufwuchs + Pflanzenfutter",
+    "icon": "fish"
+  },
+  "sae": {
+    "id": "sae",
+    "name": "Siamesische Rüsselbarbe",
+    "latin": "Crossocheilus oblongus",
+    "size": 15,
+    "minL": 250,
+    "temp": [
+      23,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "group": 5,
+    "color": "#9d9a81",
+    "description": "Ein großer, aktiver Aufwuchsfresser. Frisst zusätzlich normales Futter.",
+    "behavior": "grazer",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 7.875000000000001,
+    "reproduce": false,
+    "diet": "Aufwuchs + Pflanzenfutter",
+    "icon": "fish"
+  },
+  "dwarfbuffer": {
+    "id": "dwarfbuffer",
+    "name": "Erbsenkugelfisch",
+    "latin": "Carinotetraodon travancoricus",
+    "size": 3,
+    "minL": 60,
+    "temp": [
+      24,
+      28
+    ],
+    "ph": [
+      6.5,
+      8
+    ],
+    "group": 1,
+    "color": "#c4b773",
+    "description": "Ein kleiner Räuber. Schnecken gehören zu seiner Nahrung; andere Tiere können Beute sein.",
+    "behavior": "snailpredator",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.31500000000000006,
+    "reproduce": false,
+    "diet": "Kleine Tiere",
+    "icon": "fish"
+  },
+  "clown": {
+    "id": "clown",
+    "name": "Falscher Clownfisch",
+    "latin": "Amphiprion ocellaris",
+    "size": 11,
+    "minL": 120,
+    "color": "#e89047",
+    "description": "Lebt paarweise. Eine Anemone ist im Aquarium nicht zwingend nötig.",
+    "behavior": "territory",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 2,
+    "load": 4.235,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish"
+  },
+  "royal": {
+    "id": "royal",
+    "name": "Königs-Feenbarsch",
+    "latin": "Gramma loreto",
+    "size": 8,
+    "minL": 120,
+    "color": "#9a64b5",
+    "description": "Vorne violett, hinten gelb. Nutzt Höhlen und verteidigt einen kleinen Wohnbereich.",
+    "behavior": "territory",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 2.24,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish"
+  },
+  "firefish": {
+    "id": "firefish",
+    "name": "Feuer-Schwertgrundel",
+    "latin": "Nemateleotris magnifica",
+    "size": 9,
+    "minL": 120,
+    "color": "#d7a58c",
+    "description": "Schlank und scheu. Eine Höhle und ruhige Mitbewohner geben Sicherheit.",
+    "behavior": "peaceful",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 2.8350000000000004,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish"
+  },
+  "purplefire": {
+    "id": "purplefire",
+    "name": "Purpur-Schwertgrundel",
+    "latin": "Nemateleotris decora",
+    "size": 9,
+    "minL": 150,
+    "color": "#b085be",
+    "description": "Eine Grundel mit violettem Kopf. Reagiert auf Stress durch Rückzug.",
+    "behavior": "peaceful",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 2.8350000000000004,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish"
+  },
+  "goby": {
+    "id": "goby",
+    "name": "Gelbe Wächtergrundel",
+    "latin": "Cryptocentrus cinctus",
+    "size": 10,
+    "minL": 150,
+    "color": "#d7bd57",
+    "description": "Lebt am Boden. Kann in der Natur mit einem Knallkrebs zusammenarbeiten.",
+    "behavior": "bottom",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 3.5000000000000004,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish"
+  },
+  "neongoby": {
+    "id": "neongoby",
+    "name": "Neon-Putzgrundel",
+    "latin": "Elacatinus oceanops",
+    "size": 5,
+    "minL": 60,
+    "color": "#4f9db2",
+    "description": "Ein kleiner Putzerfisch. Entfernt Parasiten von größeren Fischen in der Natur.",
+    "behavior": "peaceful",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 0.8750000000000001,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish"
+  },
+  "clowngoby": {
+    "id": "clowngoby",
+    "name": "Gelbe Korallengrundel",
+    "latin": "Gobiodon okinawae",
+    "size": 4,
+    "minL": 60,
+    "color": "#e1c24b",
+    "description": "Sitzt oft zwischen Korallenästen. Beansprucht dort einen kleinen Wohnplatz.",
+    "behavior": "peaceful",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 0.56,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish"
+  },
+  "mandarin": {
+    "id": "mandarin",
+    "name": "Mandarinfisch",
+    "latin": "Synchiropus splendidus",
+    "size": 8,
+    "minL": 200,
+    "color": "#4dafa3",
+    "description": "Braucht dauerhaft winzige Krebstiere als Futter. Ein junges Becken bietet davon zu wenig.",
+    "behavior": "specialist",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 2.24,
+    "diet": "Lebender Kleinsttier-Aufwuchs",
+    "icon": "fish"
+  },
+  "blenny": {
+    "id": "blenny",
+    "name": "Algenblenny",
+    "latin": "Salarias fasciatus",
+    "size": 13,
+    "minL": 200,
+    "color": "#9c9980",
+    "description": "Weidet Algenaufwuchs ab. Ohne passenden Aufwuchs kann er trotz sauberem Wasser hungern.",
+    "behavior": "grazer",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 5.915000000000001,
+    "diet": "Algen + Pflanzenfutter",
+    "icon": "fish"
+  },
+  "bicolor": {
+    "id": "bicolor",
+    "name": "Zweifarben-Schleimfisch",
+    "latin": "Ecsenius bicolor",
+    "size": 11,
+    "minL": 150,
+    "color": "#bb8b6b",
+    "description": "Sitzt gern in Felsspalten. Frisst Aufwuchs und verteidigt einen kleinen Platz.",
+    "behavior": "grazer",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 4.235,
+    "diet": "Algen + Pflanzenfutter",
+    "icon": "fish"
+  },
+  "chromis": {
+    "id": "chromis",
+    "name": "Grünes Schwalbenschwänzchen",
+    "latin": "Chromis viridis",
+    "size": 10,
+    "minL": 250,
+    "color": "#64b8ac",
+    "description": "Schwimmt in offenen Bereichen. Futter und Platz können Konkurrenz auslösen.",
+    "behavior": "school",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 5,
+    "load": 3.5000000000000004,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish"
+  },
+  "damsel": {
+    "id": "damsel",
+    "name": "Gelbschwanz-Demoiselle",
+    "latin": "Chrysiptera parasema",
+    "size": 7,
+    "minL": 120,
+    "color": "#4266b3",
+    "description": "Ein kleiner Riffbarsch, der sein Revier verteidigt. Größe allein sagt wenig über Verhalten.",
+    "behavior": "territory",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 1.715,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish"
+  },
+  "banggai": {
+    "id": "banggai",
+    "name": "Banggai-Kardinalbarsch",
+    "latin": "Pterapogon kauderni",
+    "size": 8,
+    "minL": 150,
+    "color": "#b8b7a7",
+    "description": "Das Männchen trägt Eier im Maul. Erwachsene Tiere leben eher in Paaren.",
+    "behavior": "mouthbrood",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 2,
+    "load": 2.24,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish"
+  },
+  "pajama": {
+    "id": "pajama",
+    "name": "Pyjama-Kardinalbarsch",
+    "latin": "Sphaeramia nematoptera",
+    "size": 8,
+    "minL": 180,
+    "color": "#b6a77e",
+    "description": "Ein ruhiger Gruppenfisch. Sein hinterer Körper trägt ein Punktmuster.",
+    "behavior": "school",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 5,
+    "load": 2.24,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish"
+  },
+  "yellowtang": {
+    "id": "yellowtang",
+    "name": "Gelber Segelflossendoktor",
+    "latin": "Zebrasoma flavescens",
+    "size": 20,
+    "minL": 450,
+    "color": "#d9c546",
+    "description": "Weidet Algen ab und braucht viel Schwimmraum. Kleine Becken erzeugen Stress.",
+    "behavior": "grazer",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 14.000000000000002,
+    "diet": "Algen + Pflanzenfutter",
+    "icon": "fish"
+  },
+  "bluetang": {
+    "id": "bluetang",
+    "name": "Paletten-Doktorfisch",
+    "latin": "Paracanthurus hepatus",
+    "size": 30,
+    "minL": 700,
+    "color": "#4779c6",
+    "description": "Wird sehr groß. Farbe und Bekanntheit ändern nichts an seinem Platzbedarf.",
+    "behavior": "school",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 5,
+    "load": 31.500000000000004,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish"
+  },
+  "kole": {
+    "id": "kole",
+    "name": "Goldring-Borstenzahndoktor",
+    "latin": "Ctenochaetus strigosus",
+    "size": 18,
+    "minL": 450,
+    "color": "#967b61",
+    "description": "Bürstet feinen Aufwuchs von Steinen. Benötigt ein gut entwickeltes Riffbecken.",
+    "behavior": "grazer",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 11.340000000000002,
+    "diet": "Algen + Pflanzenfutter",
+    "icon": "fish"
+  },
+  "flame": {
+    "id": "flame",
+    "name": "Flammen-Zwergkaiser",
+    "latin": "Centropyge loricula",
+    "size": 12,
+    "minL": 250,
+    "color": "#d67447",
+    "description": "Kann an Korallen und Muscheln zupfen. Eine schöne Kombination ist nicht immer verträglich.",
+    "behavior": "coralnipper",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 5.040000000000001,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish"
+  },
+  "beauty": {
+    "id": "beauty",
+    "name": "Korallen-Zwergkaiser",
+    "latin": "Centropyge bispinosa",
+    "size": 12,
+    "minL": 250,
+    "color": "#8571a3",
+    "description": "Frisst Aufwuchs und kleine Tiere. Kann empfindliche Korallen schädigen.",
+    "behavior": "coralnipper",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 5.040000000000001,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish"
+  },
+  "sixline": {
+    "id": "sixline",
+    "name": "Sechsstreifen-Lippfisch",
+    "latin": "Pseudocheilinus hexataenia",
+    "size": 10,
+    "minL": 200,
+    "color": "#b7728f",
+    "description": "Ein aktiver Räuber kleiner Wirbelloser. Verteidigt sein Revier.",
+    "behavior": "predator",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 3.5000000000000004,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish"
+  },
+  "cleanerwrasse": {
+    "id": "cleanerwrasse",
+    "name": "Putzerlippfisch",
+    "latin": "Labroides dimidiatus",
+    "size": 12,
+    "minL": 350,
+    "color": "#75a5af",
+    "description": "Spezialisierter Putzer. Sein natürlicher Speiseplan ist im Aquarium schwer zu ersetzen.",
+    "behavior": "specialist",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 5.040000000000001,
+    "diet": "Lebender Kleinsttier-Aufwuchs",
+    "icon": "fish"
+  },
+  "hawk": {
+    "id": "hawk",
+    "name": "Flammen-Büschelbarsch",
+    "latin": "Neocirrhites armatus",
+    "size": 9,
+    "minL": 200,
+    "color": "#ce6552",
+    "description": "Lauert auf Felsen. Kleine Garnelen können für ihn Nahrung sein.",
+    "behavior": "predator",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 2.8350000000000004,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish"
+  },
+  "lion": {
+    "id": "lion",
+    "name": "Zwerg-Feuerfisch",
+    "latin": "Dendrochirus brachypterus",
+    "size": 17,
+    "minL": 300,
+    "color": "#aa7a5c",
+    "description": "Ein Lauerjäger. Kleine Fische und Garnelen sind Beute. Seine Stacheln sind giftig.",
+    "behavior": "predator",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 10.115,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish"
+  },
+  "anthias": {
+    "id": "anthias",
+    "name": "Juwelen-Fahnenbarsch",
+    "latin": "Pseudanthias squamipinnis",
+    "size": 15,
+    "minL": 450,
+    "color": "#db9068",
+    "description": "Braucht häufig kleine Futterportionen und viel freien Schwimmraum.",
+    "behavior": "school",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 5,
+    "load": 7.875000000000001,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish"
+  },
+  "anubias": {
+    "id": "anubias",
+    "name": "Anubias",
+    "latin": "Anubias barteri",
+    "light": 0.3,
+    "growth": 0.016,
+    "color": "#507d44",
+    "shape": "broad",
+    "description": "Wächst langsam. Das dicke Rhizom liegt auf Holz oder Stein, nicht tief im Boden.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "nana": {
+    "id": "nana",
+    "name": "Zwerg-Anubias",
+    "latin": "Anubias barteri var. nana",
+    "light": 0.25,
+    "growth": 0.012,
+    "color": "#63874c",
+    "shape": "broad",
+    "description": "Kleine feste Blätter. Kommt mit wenig Licht aus.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "javafern": {
+    "id": "javafern",
+    "name": "Javafarn",
+    "latin": "Microsorum pteropus",
+    "light": 0.3,
+    "growth": 0.02,
+    "color": "#4d854b",
+    "shape": "fern",
+    "description": "Wird auf Holz oder Stein befestigt. Seine Blätter wachsen eher langsam.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "trident": {
+    "id": "trident",
+    "name": "Javafarn Trident",
+    "latin": "Microsorum pteropus Trident",
+    "light": 0.4,
+    "growth": 0.022,
+    "color": "#729551",
+    "shape": "fern",
+    "description": "Gegabelte Blätter bieten kleine Verstecke für Jungtiere.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "javamoss": {
+    "id": "javamoss",
+    "name": "Javamoos",
+    "latin": "Taxiphyllum barbieri",
+    "light": 0.25,
+    "growth": 0.035,
+    "color": "#56824b",
+    "shape": "moss",
+    "description": "Ein Moospolster bietet Garnelen Aufwuchs und Jungfischen Schutz.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "christmas": {
+    "id": "christmas",
+    "name": "Weihnachtsmoos",
+    "latin": "Vesicularia montagnei",
+    "light": 0.35,
+    "growth": 0.03,
+    "color": "#548c54",
+    "shape": "moss",
+    "description": "Verzweigte Triebe wachsen wie kleine Tannen. Regelmäßig auslichten.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "vallis": {
+    "id": "vallis",
+    "name": "Vallisnerie",
+    "latin": "Vallisneria spiralis",
+    "light": 0.4,
+    "growth": 0.075,
+    "color": "#73a458",
+    "shape": "ribbon",
+    "description": "Lange bandförmige Blätter. Bildet neue Pflanzen über Ausläufer.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 5,
+    "pNeed": 0.16,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "vallisgiant": {
+    "id": "vallisgiant",
+    "name": "Riesen-Vallisnerie",
+    "latin": "Vallisneria australis",
+    "light": 0.45,
+    "growth": 0.085,
+    "color": "#579451",
+    "shape": "ribbon",
+    "description": "Sehr lange Blätter beschatten die Oberfläche. Braucht Platz.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 5,
+    "pNeed": 0.16,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "swordplant": {
+    "id": "swordplant",
+    "name": "Amazonas-Schwertpflanze",
+    "latin": "Echinodorus grisebachii",
+    "light": 0.5,
+    "growth": 0.055,
+    "color": "#719954",
+    "shape": "broad",
+    "description": "Große Blattrosette. Nimmt viele Nährstoffe über ihre Wurzeln auf.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "redflame": {
+    "id": "redflame",
+    "name": "Schwertpflanze Red Flame",
+    "latin": "Echinodorus Red Flame",
+    "light": 0.65,
+    "growth": 0.04,
+    "color": "#8d6852",
+    "shape": "broad",
+    "description": "Junge Blätter tragen rötliche Flecken. Licht und Nährstoffe beeinflussen die Farbe.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 8,
+    "pigment": "red",
+    "nNeed": 3,
+    "pNeed": 0.08,
+    "feNeed": 0.045,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "crypt": {
+    "id": "crypt",
+    "name": "Wendts Wasserkelch",
+    "latin": "Cryptocoryne wendtii",
+    "light": 0.35,
+    "growth": 0.03,
+    "color": "#8d9159",
+    "shape": "broad",
+    "description": "Bei schnellen Änderungen können Blätter verloren gehen. Die Wurzel kann neu austreiben.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "cryptparva": {
+    "id": "cryptparva",
+    "name": "Zwerg-Wasserkelch",
+    "latin": "Cryptocoryne parva",
+    "light": 0.55,
+    "growth": 0.012,
+    "color": "#6b9b54",
+    "shape": "carpet",
+    "description": "Wächst sehr langsam. Als Vordergrundpflanze braucht er Geduld.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 8,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "waterweed": {
+    "id": "waterweed",
+    "name": "Wasserpest",
+    "latin": "Egeria densa",
+    "light": 0.45,
+    "growth": 0.12,
+    "color": "#6fa554",
+    "shape": "stem",
+    "description": "Wächst schnell und nimmt Nährstoffe auf. Lange Triebe müssen gekürzt werden.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 5,
+    "pNeed": 0.16,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "hornwort": {
+    "id": "hornwort",
+    "name": "Hornkraut",
+    "latin": "Ceratophyllum demersum",
+    "light": 0.35,
+    "growth": 0.11,
+    "color": "#527e41",
+    "shape": "fern",
+    "description": "Hat feine Blätter und keine echten Wurzeln. Kann frei im Wasser treiben.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 5,
+    "pNeed": 0.16,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "hygro": {
+    "id": "hygro",
+    "name": "Indischer Wasserfreund",
+    "latin": "Hygrophila polysperma",
+    "light": 0.4,
+    "growth": 0.1,
+    "color": "#8fa964",
+    "shape": "stem",
+    "description": "Eine schnell wachsende Stängelpflanze. Konkurrenz um Licht begrenzt den Wuchs.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 5,
+    "pNeed": 0.16,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "corymbosa": {
+    "id": "corymbosa",
+    "name": "Großer Wasserfreund",
+    "latin": "Hygrophila corymbosa",
+    "light": 0.55,
+    "growth": 0.065,
+    "color": "#7b9e60",
+    "shape": "stem",
+    "description": "Große Blätter und kräftige Stängel. Bildet nach dem Schnitt Seitentriebe.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 8,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "limno": {
+    "id": "limno",
+    "name": "Kleine Ambulia",
+    "latin": "Limnophila sessiliflora",
+    "light": 0.4,
+    "growth": 0.1,
+    "color": "#8daf68",
+    "shape": "fern",
+    "description": "Feine Blattquirle. Nimmt bei gutem Wachstum schnell Nährstoffe auf.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 5,
+    "pNeed": 0.16,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "rotala": {
+    "id": "rotala",
+    "name": "Rotala",
+    "latin": "Rotala rotundifolia",
+    "light": 0.6,
+    "growth": 0.075,
+    "color": "#b28d72",
+    "shape": "stem",
+    "description": "Bei stärkerem Licht können Blätter rötlicher werden. CO₂ unterstützt den Wuchs.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 8,
+    "pigment": "red",
+    "nNeed": 5,
+    "pNeed": 0.16,
+    "feNeed": 0.045,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "ludwigia": {
+    "id": "ludwigia",
+    "name": "Rote Ludwigie",
+    "latin": "Ludwigia repens",
+    "light": 0.6,
+    "growth": 0.06,
+    "color": "#af765f",
+    "shape": "stem",
+    "description": "Rötliche Stängelpflanze. Braucht genug Licht und Nährstoffe.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 8,
+    "pigment": "red",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.045,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "bacopa": {
+    "id": "bacopa",
+    "name": "Kleines Fettblatt",
+    "latin": "Bacopa monnieri",
+    "light": 0.45,
+    "growth": 0.045,
+    "color": "#82a667",
+    "shape": "stem",
+    "description": "Dicke Blätter speichern Stoffe. Wächst als aufrechter Stängel.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "cabomba": {
+    "id": "cabomba",
+    "name": "Karolina-Haarnixe",
+    "latin": "Cabomba caroliniana",
+    "light": 0.7,
+    "growth": 0.065,
+    "color": "#6b9661",
+    "shape": "fern",
+    "description": "Feine Fächerblätter. Lichtmangel lässt untere Blätter verkümmern.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 15,
+    "pigment": "green",
+    "nNeed": 3,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "alternanthera": {
+    "id": "alternanthera",
+    "name": "Rotes Papageienblatt",
+    "latin": "Alternanthera reineckii",
+    "light": 0.8,
+    "growth": 0.04,
+    "color": "#9d6860",
+    "shape": "stem",
+    "description": "Rote Blätter. Höhere Ansprüche an Licht, CO₂ und Nährstoffe.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 15,
+    "pigment": "red",
+    "nNeed": 3,
+    "pNeed": 0.08,
+    "feNeed": 0.045,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "pearlweed": {
+    "id": "pearlweed",
+    "name": "Perlkraut",
+    "latin": "Micranthemum micranthemoides",
+    "light": 0.65,
+    "growth": 0.07,
+    "color": "#88b46c",
+    "shape": "stem",
+    "description": "Sehr kleine Blätter. Kann durch regelmäßiges Schneiden einen dichten Busch bilden.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 8,
+    "pigment": "green",
+    "nNeed": 3,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "montecarlo": {
+    "id": "montecarlo",
+    "name": "Monte Carlo",
+    "latin": "Micranthemum tweediei",
+    "light": 0.7,
+    "growth": 0.05,
+    "color": "#8cb970",
+    "shape": "carpet",
+    "description": "Ein Bodendecker. Zusätzlicher Kohlenstoff hilft beim dichten Wuchs.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 15,
+    "pigment": "green",
+    "nNeed": 3,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "hairgrass": {
+    "id": "hairgrass",
+    "name": "Zwerg-Nadelsimse",
+    "latin": "Eleocharis pusilla",
+    "light": 0.65,
+    "growth": 0.05,
+    "color": "#749f53",
+    "shape": "ribbon",
+    "description": "Feine Halme bilden einen Rasen. Ausläufer vergrößern die Fläche.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 8,
+    "pigment": "green",
+    "nNeed": 3,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "stauro": {
+    "id": "stauro",
+    "name": "Staurogyne",
+    "latin": "Staurogyne repens",
+    "light": 0.55,
+    "growth": 0.04,
+    "color": "#8aa866",
+    "shape": "broad",
+    "description": "Kompakte Büsche für den Vordergrund. Nach dem Schnitt verzweigt sie sich.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 8,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "buce": {
+    "id": "buce",
+    "name": "Bucephalandra",
+    "latin": "Bucephalandra spp.",
+    "light": 0.3,
+    "growth": 0.012,
+    "color": "#546953",
+    "shape": "broad",
+    "description": "Kleine, feste Blätter. Wächst langsam auf Steinen oder Wurzeln.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "lotus": {
+    "id": "lotus",
+    "name": "Roter Tigerlotus",
+    "latin": "Nymphaea lotus",
+    "light": 0.55,
+    "growth": 0.045,
+    "color": "#987963",
+    "shape": "broad",
+    "description": "Große Blätter können andere Pflanzen beschatten. Lange Stiele lassen sich entfernen.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 8,
+    "pigment": "red",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.045,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "frogbit": {
+    "id": "frogbit",
+    "name": "Froschbiss",
+    "latin": "Limnobium laevigatum",
+    "light": 0.45,
+    "growth": 0.09,
+    "color": "#98ab65",
+    "shape": "floating",
+    "description": "Schwimmt oben. Seine Wurzeln bieten Verstecke, seine Blätter nehmen Licht weg.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 5,
+    "pNeed": 0.16,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "salvinia": {
+    "id": "salvinia",
+    "name": "Schwimmfarn",
+    "latin": "Salvinia auriculata",
+    "light": 0.4,
+    "growth": 0.1,
+    "color": "#819955",
+    "shape": "floating",
+    "description": "Vermehrt sich an der Oberfläche. Zu viel davon beschattet das ganze Becken.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 5,
+    "pNeed": 0.16,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "waterlettuce": {
+    "id": "waterlettuce",
+    "name": "Muschelblume",
+    "latin": "Pistia stratiotes",
+    "light": 0.6,
+    "growth": 0.075,
+    "color": "#a4b778",
+    "shape": "floating",
+    "description": "Eine schwimmende Rosette. Nimmt Nährstoffe auf und muss ausgedünnt werden.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 8,
+    "pigment": "green",
+    "nNeed": 5,
+    "pNeed": 0.16,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "aponogeton": {
+    "id": "aponogeton",
+    "name": "Madagaskar-Gitterpflanze",
+    "latin": "Aponogeton madagascariensis",
+    "light": 0.65,
+    "growth": 0.035,
+    "color": "#7d9970",
+    "shape": "broad",
+    "description": "Netzförmige Blätter. Empfindlicher als viele einfache Stängelpflanzen.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 8,
+    "pigment": "green",
+    "nNeed": 3,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf"
+  },
+  "softleather": {
+    "id": "softleather",
+    "name": "Pilzlederkoralle",
+    "latin": "Sarcophyton spp.",
+    "light": 0.45,
+    "growth": 0.026,
+    "color": "#b2a17c",
+    "shape": "soft",
+    "description": "Weiche Koralle. In ihrem Gewebe leben Algen, die mit Licht Nahrung herstellen.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": false,
+    "icon": "coral"
+  },
+  "sinularia": {
+    "id": "sinularia",
+    "name": "Fingerlederkoralle",
+    "latin": "Sinularia spp.",
+    "light": 0.45,
+    "growth": 0.025,
+    "color": "#c3ab8c",
+    "shape": "branch",
+    "description": "Fingerförmige Äste. Braucht Wasserbewegung und freien Platz.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": false,
+    "icon": "coral"
+  },
+  "kenya": {
+    "id": "kenya",
+    "name": "Kenia-Bäumchen",
+    "latin": "Capnella spp.",
+    "light": 0.4,
+    "growth": 0.05,
+    "color": "#b68e9e",
+    "shape": "branch",
+    "description": "Kann rasch neue Kolonien bilden. Dadurch entsteht Konkurrenz um Raum.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": false,
+    "icon": "coral"
+  },
+  "xenia": {
+    "id": "xenia",
+    "name": "Pumpende Xenie",
+    "latin": "Xenia spp.",
+    "light": 0.4,
+    "growth": 0.065,
+    "color": "#c89da9",
+    "shape": "soft",
+    "description": "Pulsierende Polypen. Kann bei passenden Bedingungen schnell Fläche besetzen.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": false,
+    "icon": "coral"
+  },
+  "greenstar": {
+    "id": "greenstar",
+    "name": "Grüne Sternpolypen",
+    "latin": "Pachyclavularia spp.",
+    "light": 0.45,
+    "growth": 0.05,
+    "color": "#87b378",
+    "shape": "mat",
+    "description": "Ein lebender Teppich aus Polypen. Überwächst bei gutem Wachstum Nachbarflächen.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": false,
+    "icon": "coral"
+  },
+  "zoa": {
+    "id": "zoa",
+    "name": "Krustenanemonen",
+    "latin": "Zoanthus spp.",
+    "light": 0.45,
+    "growth": 0.025,
+    "color": "#b8a471",
+    "shape": "mat",
+    "description": "Viele kleine Polypen bilden eine Kolonie. Gehören wie Korallen zu den Nesseltieren.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": false,
+    "icon": "coral"
+  },
+  "mushroom": {
+    "id": "mushroom",
+    "name": "Scheibenanemone",
+    "latin": "Discosoma spp.",
+    "light": 0.3,
+    "growth": 0.025,
+    "color": "#947fbd",
+    "shape": "disc",
+    "description": "Scheibenförmige Polypen. Brauchen oft weniger Licht als viele Steinkorallen.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": false,
+    "icon": "coral"
+  },
+  "ricordea": {
+    "id": "ricordea",
+    "name": "Ricordea",
+    "latin": "Ricordea florida",
+    "light": 0.45,
+    "growth": 0.018,
+    "color": "#a7b18a",
+    "shape": "disc",
+    "description": "Eine Scheibenanemone mit kugeligen Oberflächen. Teilung ist eine Form der Vermehrung.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": false,
+    "icon": "coral"
+  },
+  "hammer": {
+    "id": "hammer",
+    "name": "Hammerkoralle",
+    "latin": "Fimbriaphyllia ancora",
+    "light": 0.6,
+    "growth": 0.02,
+    "color": "#b7ab82",
+    "shape": "soft",
+    "description": "Polypen mit hammerförmigen Enden. Nesselarme brauchen Abstand zu Nachbarn.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": true,
+    "icon": "coral"
+  },
+  "frogspawn": {
+    "id": "frogspawn",
+    "name": "Froschlaichkoralle",
+    "latin": "Fimbriaphyllia divisa",
+    "light": 0.6,
+    "growth": 0.02,
+    "color": "#9db288",
+    "shape": "soft",
+    "description": "Verzweigte Polypenspitzen. Konkurrenz kann auch durch Nesseln entstehen.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": true,
+    "icon": "coral"
+  },
+  "torch": {
+    "id": "torch",
+    "name": "Fackelkoralle",
+    "latin": "Euphyllia glabrescens",
+    "light": 0.65,
+    "growth": 0.018,
+    "color": "#ad9dc0",
+    "shape": "soft",
+    "description": "Lange bewegliche Tentakel. Zu nahe Nachbarn können geschädigt werden.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": true,
+    "icon": "coral"
+  },
+  "candy": {
+    "id": "candy",
+    "name": "Zuckerstangenkoralle",
+    "latin": "Caulastrea furcata",
+    "light": 0.5,
+    "growth": 0.025,
+    "color": "#96bba4",
+    "shape": "disc",
+    "description": "Mehrere fleischige Köpfe sitzen auf einem Kalkskelett. Braucht Calcium.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": true,
+    "icon": "coral"
+  },
+  "duncan": {
+    "id": "duncan",
+    "name": "Duncan-Koralle",
+    "latin": "Duncanopsammia axifuga",
+    "light": 0.5,
+    "growth": 0.03,
+    "color": "#a8b7a1",
+    "shape": "soft",
+    "description": "Polypen können kleine Futterteilchen aufnehmen. Auch ihre Partneralgen liefern Nahrung.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": true,
+    "icon": "coral"
+  },
+  "brain": {
+    "id": "brain",
+    "name": "Hirnkoralle",
+    "latin": "Lobophyllia spp.",
+    "light": 0.55,
+    "growth": 0.015,
+    "color": "#b89291",
+    "shape": "brain",
+    "description": "Fleischige Rillen über einem Kalkskelett. Bekommt Energie von Algen und kleinen Nahrungstieren.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": true,
+    "icon": "coral"
+  },
+  "favites": {
+    "id": "favites",
+    "name": "Wabenkoralle",
+    "latin": "Favites spp.",
+    "light": 0.6,
+    "growth": 0.018,
+    "color": "#a79b83",
+    "shape": "brain",
+    "description": "Viele Polypen teilen Wände. Baut durch Wachstum ein festes Kalkskelett auf.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": true,
+    "icon": "coral"
+  },
+  "acanth": {
+    "id": "acanth",
+    "name": "Acan-Koralle",
+    "latin": "Micromussa lordhowensis",
+    "light": 0.5,
+    "growth": 0.018,
+    "color": "#b38d8c",
+    "shape": "brain",
+    "description": "Fleischige Polypen. Kann neben Lichtenergie auch Nahrungsteilchen nutzen.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": true,
+    "icon": "coral"
+  },
+  "plate": {
+    "id": "plate",
+    "name": "Pilzkoralle",
+    "latin": "Fungia spp.",
+    "light": 0.55,
+    "growth": 0.015,
+    "color": "#b9a790",
+    "shape": "disc",
+    "description": "Ein einzelner großer Polyp. Liegt oft auf dem Sand und braucht freie Fläche.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": true,
+    "icon": "coral"
+  },
+  "chalice": {
+    "id": "chalice",
+    "name": "Kelchkoralle",
+    "latin": "Echinophyllia spp.",
+    "light": 0.55,
+    "growth": 0.016,
+    "color": "#8da99e",
+    "shape": "plate",
+    "description": "Flache wachsende Platten. Lange Nesselarme können Nachbarn erreichen.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": true,
+    "icon": "coral"
+  },
+  "montidigi": {
+    "id": "montidigi",
+    "name": "Finger-Montipora",
+    "latin": "Montipora digitata",
+    "light": 0.75,
+    "growth": 0.035,
+    "color": "#be966f",
+    "shape": "branch",
+    "description": "Eine Steinkoralle mit verzweigten Ästen. Licht und stabile Wasserwerte sind wichtig.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": true,
+    "calcify": true,
+    "icon": "coral"
+  },
+  "montiplate": {
+    "id": "montiplate",
+    "name": "Platten-Montipora",
+    "latin": "Montipora capricornis",
+    "light": 0.75,
+    "growth": 0.035,
+    "color": "#ad8570",
+    "shape": "plate",
+    "description": "Wächst in Platten. Diese können andere Korallen beschatten.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": true,
+    "calcify": true,
+    "icon": "coral"
+  },
+  "acropora": {
+    "id": "acropora",
+    "name": "Geweihkoralle",
+    "latin": "Acropora spp.",
+    "light": 0.85,
+    "growth": 0.03,
+    "color": "#8aa3ad",
+    "shape": "branch",
+    "description": "Viele dünne Äste. Hohe Ansprüche an Strömung, Licht und stabile Wasserwerte.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": true,
+    "calcify": true,
+    "icon": "coral"
+  },
+  "pocillo": {
+    "id": "pocillo",
+    "name": "Blumenkohlkoralle",
+    "latin": "Pocillopora spp.",
+    "light": 0.8,
+    "growth": 0.028,
+    "color": "#bba0ac",
+    "shape": "branch",
+    "description": "Dichte verzweigte Kolonie. Empfindlich gegen starke Änderungen.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": true,
+    "calcify": true,
+    "icon": "coral"
+  },
+  "stylo": {
+    "id": "stylo",
+    "name": "Griffelkoralle",
+    "latin": "Stylophora pistillata",
+    "light": 0.75,
+    "growth": 0.03,
+    "color": "#bd9dab",
+    "shape": "branch",
+    "description": "Dicke rundliche Äste. Baut ihr Skelett aus Calcium und Carbonat.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": true,
+    "calcify": true,
+    "icon": "coral"
+  },
+  "birdsnest": {
+    "id": "birdsnest",
+    "name": "Vogelnestkoralle",
+    "latin": "Seriatopora hystrix",
+    "light": 0.8,
+    "growth": 0.032,
+    "color": "#c09aaf",
+    "shape": "branch",
+    "description": "Sehr feine Äste. Gute Strömung und freie Nachbarflächen unterstützen das Wachstum.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": true,
+    "calcify": true,
+    "icon": "coral"
+  },
+  "cherryshrimp": {
+    "id": "cherryshrimp",
+    "name": "Red-Cherry-Garnele",
+    "latin": "Neocaridina davidi",
+    "water": "fresh",
+    "shape": "shrimp",
+    "size": 3,
+    "minL": 20,
+    "color": "#c15a4c",
+    "description": "Frisst Aufwuchs. Kann sich im Süßwasser vermehren. Kleine Tiere werden leicht Beute.",
+    "reproduce": true,
+    "category": "invert",
+    "temp": [
+      20,
+      27
+    ],
+    "ph": [
+      6.5,
+      8.3
+    ],
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.18,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "shrimp"
+  },
+  "amanoshrimp": {
+    "id": "amanoshrimp",
+    "name": "Amano-Garnele",
+    "latin": "Caridina multidentata",
+    "water": "fresh",
+    "shape": "shrimp",
+    "size": 5,
+    "minL": 60,
+    "color": "#a3a597",
+    "description": "Frisst Algen und Aufwuchs. Ihre Larven brauchen Brackwasser; hier kein Nachwuchs.",
+    "reproduce": false,
+    "category": "invert",
+    "temp": [
+      20,
+      27
+    ],
+    "ph": [
+      6.5,
+      8.3
+    ],
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.3,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "shrimp"
+  },
+  "crystal": {
+    "id": "crystal",
+    "name": "Bienengarnele",
+    "latin": "Caridina cantonensis",
+    "water": "fresh",
+    "shape": "shrimp",
+    "size": 3,
+    "minL": 30,
+    "color": "#bd8b79",
+    "description": "Braucht eher weiches, stabiles Wasser. Kleine Änderungen können Stress auslösen.",
+    "reproduce": true,
+    "category": "invert",
+    "temp": [
+      20,
+      27
+    ],
+    "ph": [
+      5.8,
+      7.2
+    ],
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      4,
+      8
+    ],
+    "group": 1,
+    "load": 0.18,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "shrimp"
+  },
+  "bambooshrimp": {
+    "id": "bambooshrimp",
+    "name": "Fächergarnele",
+    "latin": "Atyopsis moluccensis",
+    "water": "fresh",
+    "shape": "shrimp",
+    "size": 10,
+    "minL": 100,
+    "color": "#ac8b6a",
+    "description": "Filtert winzige Nahrungsteilchen aus fließendem Wasser. Braucht Strömung.",
+    "reproduce": false,
+    "category": "invert",
+    "temp": [
+      20,
+      27
+    ],
+    "ph": [
+      6.5,
+      8.3
+    ],
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.6,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "shrimp"
+  },
+  "ramshorn": {
+    "id": "ramshorn",
+    "name": "Posthornschnecke",
+    "latin": "Planorbella spp.",
+    "water": "fresh",
+    "shape": "snail",
+    "size": 3,
+    "minL": 20,
+    "color": "#a47e61",
+    "description": "Frisst Aufwuchs und abgestorbene Reste. Viel Futter fördert ihre Vermehrung.",
+    "reproduce": true,
+    "category": "invert",
+    "temp": [
+      20,
+      27
+    ],
+    "ph": [
+      6.5,
+      8.3
+    ],
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.18,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "snail"
+  },
+  "nerite": {
+    "id": "nerite",
+    "name": "Rennschnecke",
+    "latin": "Neritina / Vittina spp.",
+    "water": "fresh",
+    "shape": "snail",
+    "size": 3,
+    "minL": 20,
+    "color": "#bca67b",
+    "description": "Weidet Beläge ab. Nachwuchs entwickelt sich meist nicht im reinen Süßwasser.",
+    "reproduce": false,
+    "category": "invert",
+    "temp": [
+      20,
+      27
+    ],
+    "ph": [
+      6.5,
+      8.3
+    ],
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.18,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "snail"
+  },
+  "trumpet": {
+    "id": "trumpet",
+    "name": "Turmdeckelschnecke",
+    "latin": "Melanoides tuberculata",
+    "water": "fresh",
+    "shape": "snail",
+    "size": 3,
+    "minL": 20,
+    "color": "#9b8e6a",
+    "description": "Durchwühlt den Boden. Viele Tiere zeigen oft ein großes Nahrungsangebot an.",
+    "reproduce": true,
+    "category": "invert",
+    "temp": [
+      20,
+      27
+    ],
+    "ph": [
+      6.5,
+      8.3
+    ],
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.18,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "snail"
+  },
+  "bladder": {
+    "id": "bladder",
+    "name": "Blasenschnecke",
+    "latin": "Physella spp.",
+    "water": "fresh",
+    "shape": "snail",
+    "size": 2,
+    "minL": 20,
+    "color": "#afa783",
+    "description": "Nutzt Algen und Reste. Ihre Zahl wächst bei reichlich Futter.",
+    "reproduce": true,
+    "category": "invert",
+    "temp": [
+      20,
+      27
+    ],
+    "ph": [
+      6.5,
+      8.3
+    ],
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.12,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "snail"
+  },
+  "assassin": {
+    "id": "assassin",
+    "name": "Raubschnecke",
+    "latin": "Anentome helena",
+    "water": "fresh",
+    "shape": "snail",
+    "size": 3,
+    "minL": 30,
+    "color": "#b5a169",
+    "description": "Frisst andere Schnecken. Auch ein langsames Tier kann ein Räuber sein.",
+    "reproduce": true,
+    "category": "invert",
+    "temp": [
+      20,
+      27
+    ],
+    "ph": [
+      6.5,
+      8.3
+    ],
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.18,
+    "diet": "Andere Schnecken",
+    "icon": "snail"
+  },
+  "freshclam": {
+    "id": "freshclam",
+    "name": "Asiatische Körbchenmuschel",
+    "latin": "Corbicula fluminea",
+    "water": "fresh",
+    "shape": "clam",
+    "size": 4,
+    "minL": 80,
+    "color": "#b6ad93",
+    "description": "Filtert schwebende Nahrung. In sehr sauberem Wasser kann sie hungern.",
+    "reproduce": false,
+    "category": "invert",
+    "temp": [
+      20,
+      27
+    ],
+    "ph": [
+      6.5,
+      8.3
+    ],
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.24,
+    "diet": "Schwebende Kleinstnahrung",
+    "icon": "clam"
+  },
+  "cleanershrimp": {
+    "id": "cleanershrimp",
+    "name": "Weißband-Putzergarnele",
+    "latin": "Lysmata amboinensis",
+    "water": "salt",
+    "shape": "shrimp",
+    "size": 7,
+    "minL": 80,
+    "color": "#d29378",
+    "description": "Kann größere Fische putzen. Winzige Larven überleben im Gemeinschaftsbecken selten.",
+    "reproduce": false,
+    "category": "invert",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.42,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "shrimp"
+  },
+  "fireshrimp": {
+    "id": "fireshrimp",
+    "name": "Kardinalsgarnele",
+    "latin": "Lysmata debelius",
+    "water": "salt",
+    "shape": "shrimp",
+    "size": 7,
+    "minL": 80,
+    "color": "#c46559",
+    "description": "Ein roter Riffbewohner. Braucht Verstecke und passende Wasserwerte.",
+    "reproduce": false,
+    "category": "invert",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.42,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "shrimp"
+  },
+  "peppermint": {
+    "id": "peppermint",
+    "name": "Pfefferminzgarnele",
+    "latin": "Lysmata wurdemanni",
+    "water": "salt",
+    "shape": "shrimp",
+    "size": 6,
+    "minL": 80,
+    "color": "#ce9a89",
+    "description": "Sucht nachts nach kleinen Nahrungsteilchen. Kann selbst Beute werden.",
+    "reproduce": false,
+    "category": "invert",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.36,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "shrimp"
+  },
+  "trochus": {
+    "id": "trochus",
+    "name": "Kreiselschnecke",
+    "latin": "Trochus spp.",
+    "water": "salt",
+    "shape": "snail",
+    "size": 5,
+    "minL": 60,
+    "color": "#b3a99c",
+    "description": "Raspelt Algen von Steinen. Braucht ein ausreichendes Nahrungsangebot.",
+    "reproduce": true,
+    "category": "invert",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.3,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "snail"
+  },
+  "cerith": {
+    "id": "cerith",
+    "name": "Nadelschnecke",
+    "latin": "Cerithium spp.",
+    "water": "salt",
+    "shape": "snail",
+    "size": 4,
+    "minL": 40,
+    "color": "#aaa08d",
+    "description": "Sucht im Sand und auf Steinen nach Belägen und organischen Resten.",
+    "reproduce": true,
+    "category": "invert",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.24,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "snail"
+  },
+  "nassarius": {
+    "id": "nassarius",
+    "name": "Nassarius-Schnecke",
+    "latin": "Nassarius spp.",
+    "water": "salt",
+    "shape": "snail",
+    "size": 3,
+    "minL": 40,
+    "color": "#b3a995",
+    "description": "Ein Aasfresser im Sand. Frisst keine großen Algenmengen.",
+    "reproduce": true,
+    "category": "invert",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.18,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "snail"
+  },
+  "giantclam": {
+    "id": "giantclam",
+    "name": "Riesenmuschel",
+    "latin": "Tridacna maxima",
+    "water": "salt",
+    "shape": "clam",
+    "size": 20,
+    "minL": 200,
+    "color": "#799da3",
+    "description": "Ihre Partneralgen brauchen starkes Licht. Zusätzlich filtert sie Nahrung.",
+    "reproduce": false,
+    "category": "invert",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 1.2,
+    "diet": "Schwebende Kleinstnahrung",
+    "icon": "clam"
+  },
+  "hermit": {
+    "id": "hermit",
+    "name": "Blaubein-Einsiedler",
+    "latin": "Clibanarius tricolor",
+    "water": "salt",
+    "shape": "crab",
+    "size": 3,
+    "minL": 60,
+    "color": "#8197a4",
+    "description": "Lebt in einem leeren Schneckenhaus. Konkurriert um Nahrung und passende Häuser.",
+    "reproduce": false,
+    "category": "invert",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.18,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "crab"
+  },
+  "urchin": {
+    "id": "urchin",
+    "name": "Kugel-Seeigel",
+    "latin": "Mespilia globulus",
+    "water": "salt",
+    "shape": "urchin",
+    "size": 8,
+    "minL": 150,
+    "color": "#8b818f",
+    "description": "Weidet Algen ab. Ein großer Appetit braucht dauerhaft genug Aufwuchs.",
+    "reproduce": false,
+    "category": "invert",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.48,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "urchin"
+  },
+  "root": {
+    "latin": "Einrichtung",
+    "category": "decor",
+    "water": "both",
+    "minL": 0,
+    "icon": "stone",
+    "id": "root",
+    "name": "Mangrovenwurzel",
+    "description": "Holz schafft Schatten und Verstecke. Mikroorganismen besiedeln die Oberfläche.",
+    "color": "#655044",
+    "shape": "root"
+  },
+  "stone": {
+    "latin": "Einrichtung",
+    "category": "decor",
+    "water": "both",
+    "minL": 0,
+    "icon": "stone",
+    "id": "stone",
+    "name": "Flussstein",
+    "description": "Ein glatter Stein. Trennt Reviere und bietet Platz für Aufsitzerpflanzen.",
+    "color": "#8f968d",
+    "shape": "stone"
+  },
+  "reefrock": {
+    "latin": "Einrichtung",
+    "category": "decor",
+    "water": "both",
+    "minL": 0,
+    "icon": "stone",
+    "id": "reefrock",
+    "name": "Riffgestein",
+    "description": "Poröses Gestein bietet große Oberflächen für Bakterien und Korallen.",
+    "color": "#b6b19f",
+    "shape": "reefrock"
+  },
+  "cave": {
+    "latin": "Einrichtung",
+    "category": "decor",
+    "water": "both",
+    "minL": 0,
+    "icon": "stone",
+    "id": "cave",
+    "name": "Steinhöhle",
+    "description": "Ein Versteck. Verkleinert den Sichtkontakt zwischen Revierfischen.",
+    "color": "#8b918b",
+    "shape": "cave"
+  },
+  "shell": {
+    "latin": "Einrichtung",
+    "category": "decor",
+    "water": "both",
+    "minL": 0,
+    "icon": "stone",
+    "id": "shell",
+    "name": "Leeres Muschelhaus",
+    "description": "Dekoration und kleiner Unterschlupf. Ein leeres Haus filtert kein Wasser.",
+    "color": "#cec5b0",
+    "shape": "shell"
+  },
+  "spiderwood": {
+    "latin": "Einrichtung",
+    "category": "decor",
+    "water": "fresh",
+    "minL": 60,
+    "icon": "stone",
+    "id": "spiderwood",
+    "name": "Verzweigte Fingerwurzel",
+    "shape": "spiderwood",
+    "color": "#846046",
+    "footprint": [
+      0.78,
+      0.49
+    ],
+    "description": "Fein verzweigtes Holz für Süßwasser. Zwischen den Ästen finden kleine Tiere Deckung; die Oberfläche kann Biofilme tragen. Holz vor dem Einsatz wässern.",
+    "aquascape": true
+  },
+  "mopani": {
+    "latin": "Einrichtung",
+    "category": "decor",
+    "water": "fresh",
+    "minL": 60,
+    "icon": "stone",
+    "id": "mopani",
+    "name": "Knorrige Savannenwurzel",
+    "shape": "mopani",
+    "color": "#5f4030",
+    "footprint": [
+      0.65,
+      0.44
+    ],
+    "description": "Eine schwere, knorrige Süßwasserwurzel mit ausgewaschenen Vertiefungen. Sie schafft Schatten und Aufsitzflächen. Abgegebene Huminstoffe werden im aktuellen Modell nicht zusätzlich berechnet.",
+    "aquascape": true
+  },
+  "slate": {
+    "latin": "Einrichtung",
+    "category": "decor",
+    "water": "both",
+    "minL": 30,
+    "icon": "stone",
+    "id": "slate",
+    "name": "Geschichtete Schieferterrasse",
+    "shape": "slate",
+    "color": "#66737a",
+    "footprint": [
+      0.7,
+      0.46
+    ],
+    "description": "Flache, versetzt geschichtete Steinplatten bilden Vorsprünge und geschützte Spalten. Die Struktur gliedert Reviere und bietet Aufsitzflächen; keine automatische Filterwirkung.",
+    "aquascape": true
+  },
+  "dragonstone": {
+    "latin": "Einrichtung",
+    "category": "decor",
+    "water": "fresh",
+    "minL": 60,
+    "icon": "stone",
+    "id": "dragonstone",
+    "name": "Zerklüfteter Drachenstein",
+    "shape": "dragonstone",
+    "color": "#a28a61",
+    "footprint": [
+      0.55,
+      0.4
+    ],
+    "description": "Warme Ockerfarben, markante Grate und ausgewaschene Mulden für Süßwasser-Aquascapes. Vor dem Einsetzen gründlich reinigen. Das Spiel leitet aus der Gesteinsform keine garantierten Wasserwerte ab.",
+    "aquascape": true
+  },
+  "basaltarch": {
+    "latin": "Einrichtung",
+    "category": "decor",
+    "water": "both",
+    "minL": 60,
+    "icon": "stone",
+    "id": "basaltarch",
+    "name": "Dunkler Basaltbogen",
+    "shape": "basaltarch",
+    "color": "#414b4d",
+    "footprint": [
+      0.77,
+      0.46
+    ],
+    "description": "Ein dunkler Felsbogen mit tatsächlich offenem Durchgang. Er schafft einen Unterschlupf und unterbricht Sichtachsen. Für Süß- und Meerwasser verwendbar.",
+    "aquascape": true
+  },
+  "reefcave": {
+    "latin": "Einrichtung",
+    "category": "decor",
+    "water": "salt",
+    "minL": 120,
+    "icon": "stone",
+    "id": "reefcave",
+    "name": "Poröse Riffhöhle",
+    "shape": "reefcave",
+    "color": "#c8c1a6",
+    "footprint": [
+      0.77,
+      0.49
+    ],
+    "description": "Helles, porös wirkendes Riffgestein mit einer offenen Höhle und Aufsitzflächen für Meerwasser. Die Oberfläche kann von Biofilmen besiedelt werden. Besiedlung und Mineralabgabe werden noch nicht gesondert simuliert.",
+    "aquascape": true
+  }
+}

@@ -103,14 +103,17 @@ test('standalone HTML bundles the module and CSS with valid JavaScript under a p
   const requests = [];
   const html = await createStandaloneDocument('https://example.test/Simulation-Aquarium/', async url => {
     requests.push(url.pathname);
-    const content = await readFile(new URL('../' + url.pathname.split('/').at(-1), import.meta.url), 'utf8');
-    return { ok: true, text: async () => content };
+    const content = await readFile(new URL('../' + url.pathname.replace('/Simulation-Aquarium/', ''), import.meta.url));
+    return { ok: true, text: async () => content.toString(), arrayBuffer: async () => content };
   });
-  assert.deepEqual(requests.sort(), ['/Simulation-Aquarium/aquascaping.css', '/Simulation-Aquarium/aquascaping.mjs', '/Simulation-Aquarium/index.html']);
+  assert.ok(requests.includes('/Simulation-Aquarium/ecology.mjs'));
+  assert.ok(requests.includes('/Simulation-Aquarium/assets/catalog/betta.webp'));
+  assert.ok(requests.every(path=>path.startsWith('/Simulation-Aquarium/')));
+  assert.ok(!html.includes('src=\"./assets/catalog/'));
   assert.ok(!html.split('</head>')[0].includes('<link rel="stylesheet" href="./aquascaping.css">'));
   assert.ok(!/import \{[^;]*\} from "\.\/aquascaping\.mjs";/.test(html));
   assert.ok(html.includes('class AquascapingController'));
-  const script = html.split('<script type="module">')[1].split('</script>')[0];
+  const script = html.match(/<script type="module">([\s\S]*?)<\/script>/)[1];
   const checked = spawnSync(process.execPath, ['--input-type=module', '--check'], { input: script, encoding: 'utf8' });
   assert.equal(checked.status, 0, checked.stderr);
 });

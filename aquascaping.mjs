@@ -71,22 +71,27 @@ export function substrateHeight(state, x, z) {
   return state.substrate === 'bare' ? .065 : .24 + Math.sin(x * 2) * .04 - z * .04;
 }
 
-/** Preserve the existing HTML-download workflow after adding a small local module. */
+/** Bundle named local modules, styles and catalog images into the existing download. */
 export async function createStandaloneDocument(baseURL, fetchResource = fetch) {
-  const read = async path => {
-    const response = await fetchResource(new URL(path, baseURL));
-    if (!response.ok) throw new Error('Die Spieldatei konnte nicht vollständig geladen werden.');
-    return response.text();
-  };
-  const [html, moduleSource, css] = await Promise.all(['./index.html', './aquascaping.mjs', './aquascaping.css'].map(read));
-  const inlineModule = moduleSource.replace(/^export (?=(?:const|function|class|async function)\b)/gm, '')
-    .replace(/<\/script/gi, '<\\/script');
-  const importLine = /import \{[^;]*\} from "\.\/aquascaping\.mjs";/;
-  if (!importLine.test(html) || !html.includes('<link rel="stylesheet" href="./aquascaping.css">')) {
-    throw new Error('Die Spieldateien passen nicht zusammen. Lade die Seite neu.');
+  const read = async path => { const response=await fetchResource(new URL(path,baseURL));if(!response.ok)throw new Error('Die Spieldatei konnte nicht vollständig geladen werden.');return response; };
+  let html=await (await read('./index.html')).text();
+  const script=html.match(/<script type="module">([\s\S]*?)<\/script>/);
+  if(!script)throw new Error('Spielmodul fehlt.');
+  const modules=new Map(),ordered=[],imports=/^import \{([^}]+)\} from ["'](\.\/[^"']+\.mjs)["'];?\s*$/gm;
+  const visit=async path=>{if(modules.has(path))return modules.get(path);let source=await (await read(path)).text();const id='__aquariumModule'+modules.size;modules.set(path,id);for(const match of [...source.matchAll(imports)])await visit(match[2]);ordered.push({path,id,source});return id;};
+  for(const match of [...script[1].matchAll(imports)])await visit(match[2]);
+  const rewrite=source=>source.replace(imports,(_all,names,path)=>'const {'+names.replace(/\bas\b/g,':')+'}='+modules.get(path)+';');
+  const chunks=[];
+  for(const module of ordered){let source=module.source;const exports=[...source.matchAll(/^export (?:async )?(?:function|class|const|let) (\w+)/gm)].map(m=>m[1]);
+    const assets=[...new Set([...source.matchAll(/["'](\.\/assets\/catalog\/[^"']+\.webp)["']/g)].map(m=>m[1]))];
+    for(let i=0;i<assets.length;i+=4)await Promise.all(assets.slice(i,i+4).map(async path=>{const bytes=new Uint8Array(await (await read(path)).arrayBuffer());let binary='';for(let j=0;j<bytes.length;j++)binary+=String.fromCharCode(bytes[j]);source=source.split(path).join('data:image/webp;base64,'+btoa(binary));}));
+    source=rewrite(source).replace(/^export (?=(?:async )?(?:function|class|const|let)\b)/gm,'');chunks.push('const '+module.id+'=(()=>{'+source+'\nreturn {'+exports.join(',')+'};})();');
   }
-  return html.replace(importLine, () => inlineModule)
-    .replace('<link rel="stylesheet" href="./aquascaping.css">', () => '<style>' + css + '</style>');
+  const bundled=(chunks.join('\n')+'\n'+rewrite(script[1])).replace(/<\/script/gi,'<\\/script');
+  html=html.replace(script[0],()=>'<script type="module">'+bundled+'</script>');
+  const links=[...html.matchAll(/<link rel="stylesheet" href="(\.\/[^" ]+\.css)">/g)];
+  for(const [tag,path] of links){const css=await (await read(path)).text();html=html.replace(tag,()=>'<style>'+css+'</style>');}
+  return html;
 }
 
 function surfaceTexture(T, kind, seed) {

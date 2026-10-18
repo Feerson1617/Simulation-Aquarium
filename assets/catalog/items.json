@@ -1,0 +1,6584 @@
+[
+  {
+    "id": "neon",
+    "name": "Neonsalmler",
+    "latin": "Paracheirodon innesi",
+    "size": 4,
+    "minL": 60,
+    "temp": [
+      20,
+      26
+    ],
+    "ph": [
+      5.5,
+      7.5
+    ],
+    "group": 8,
+    "color": "#36bce5",
+    "description": "Kleine Schwarmfische. Sie brauchen viele Artgenossen und ruhige Verstecke.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.56,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "author": "SOK",
+      "license": "CC-BY-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paracheirodon_innesi_neon_tetra.jpg",
+      "kind": "photo"
+    }
+  },
+  {
+    "id": "cardinal",
+    "name": "Roter Neon",
+    "latin": "Paracheirodon axelrodi",
+    "size": 5,
+    "minL": 100,
+    "temp": [
+      24,
+      29
+    ],
+    "ph": [
+      5,
+      7.2
+    ],
+    "group": 10,
+    "color": "#dc4d63",
+    "description": "Sein rotes Band reicht fast über den ganzen Körper. Er mag warmes, weiches Wasser.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.8750000000000001,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "kleiner spindelförmiger Körper",
+        "blaues Leuchtband",
+        "rotes Band fast über die gesamte Körperlänge",
+        "Fettflosse",
+        "gegabelte Schwanzflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Paracheirodon-axelrodi.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "molly",
+    "name": "Molly",
+    "latin": "Poecilia sphenops",
+    "size": 9,
+    "minL": 120,
+    "temp": [
+      24,
+      28
+    ],
+    "ph": [
+      7,
+      8.5
+    ],
+    "group": 4,
+    "color": "#b2aaa0",
+    "description": "Lebendgebärend. Frisst auch Algen. Im Lernmodell vererbt sich ein Farbmerkmal über A und a.",
+    "behavior": "live",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      36
+    ],
+    "gh": [
+      10,
+      28
+    ],
+    "load": 2.8350000000000004,
+    "reproduce": true,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "author": "Dnoerholm",
+      "license": "CC-BY-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:PoeciliaSphenops.jpg",
+      "kind": "photo"
+    }
+  },
+  {
+    "id": "guppy",
+    "name": "Guppy",
+    "latin": "Poecilia reticulata",
+    "size": 5,
+    "minL": 60,
+    "temp": [
+      22,
+      28
+    ],
+    "ph": [
+      6.8,
+      8.3
+    ],
+    "group": 4,
+    "color": "#e9a459",
+    "description": "Lebendgebärend. Männchen haben auffällige Flossen. Nachwuchs erhöht den Platzbedarf.",
+    "behavior": "live",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      10,
+      28
+    ],
+    "load": 0.8750000000000001,
+    "reproduce": true,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "kleiner schlanker Körper",
+        "große dreieckige Fächerschwanzflosse",
+        "orange und blaue Körperflecken",
+        "dunkle Schwanzpunkte",
+        "männliche Zuchtform"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Poecilia-reticulata.html"
+      ],
+      "note": "One common cultivated male form. Wild males, females, and other breeds have very different fin proportions and patterns."
+    }
+  },
+  {
+    "id": "platy",
+    "name": "Platy",
+    "latin": "Xiphophorus maculatus",
+    "size": 6,
+    "minL": 80,
+    "temp": [
+      22,
+      27
+    ],
+    "ph": [
+      7,
+      8.3
+    ],
+    "group": 4,
+    "color": "#ee7547",
+    "description": "Ein geselliger Allesfresser. Weibchen bringen fertig entwickelte Jungfische zur Welt.",
+    "behavior": "live",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      10,
+      28
+    ],
+    "load": 1.2600000000000002,
+    "reproduce": true,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "kurzer hoher Körper",
+        "roter Zuchtstamm",
+        "kleines oberständiges Maul",
+        "gerundete Schwanzflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Xiphophorus-maculatus.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "swordtail",
+    "name": "Schwertträger",
+    "latin": "Xiphophorus hellerii",
+    "size": 12,
+    "minL": 160,
+    "temp": [
+      22,
+      28
+    ],
+    "ph": [
+      7,
+      8.3
+    ],
+    "group": 4,
+    "color": "#da653d",
+    "description": "Männchen besitzen ein verlängertes Stück der Schwanzflosse. Braucht viel Schwimmraum.",
+    "behavior": "live",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      10,
+      28
+    ],
+    "load": 5.040000000000001,
+    "reproduce": true,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "schlanker grünlicher Körper",
+        "rotes seitliches Längsband",
+        "verlängerter unterer Schwanzstrahl",
+        "männliches Schwert"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Xiphophorus-hellerii.html"
+      ],
+      "note": "Male lower caudal sword is additional to reference total length. Many aquarium strains are red or hybridised."
+    }
+  },
+  {
+    "id": "endler",
+    "name": "Endler-Guppy",
+    "latin": "Poecilia wingei",
+    "size": 4,
+    "minL": 60,
+    "temp": [
+      23,
+      28
+    ],
+    "ph": [
+      7,
+      8.3
+    ],
+    "group": 6,
+    "color": "#7ece85",
+    "description": "Ein kleiner Lebendgebärender. Viele Nachkommen können ein kleines Becken überlasten.",
+    "behavior": "live",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      10,
+      28
+    ],
+    "load": 0.56,
+    "reproduce": true,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "winziger schlanker Lebendgebärender",
+        "orange Seitenflecken",
+        "schwarzer Flankenfleck",
+        "türkisgrüner Schimmer",
+        "kleine Schwanzflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Poecilia-wingei.html"
+      ],
+      "note": "Male locality patterns vary considerably; females are plainer. This profile does not identify a particular geographic strain."
+    }
+  },
+  {
+    "id": "zebra",
+    "name": "Zebrabärbling",
+    "latin": "Danio rerio",
+    "size": 5,
+    "minL": 100,
+    "temp": [
+      18,
+      25
+    ],
+    "ph": [
+      6.5,
+      8
+    ],
+    "group": 8,
+    "color": "#bea260",
+    "description": "Ein schneller Schwimmer mit Längsstreifen. Mag eher kühles Wasser.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.8750000000000001,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "torpedoförmiger Körper",
+        "mehrere blaue Längsstreifen",
+        "weit hinten liegende Rückenflosse",
+        "kurze Barteln",
+        "Streifen bis in die Schwanzflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Danio-rerio.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "pearl",
+    "name": "Perlhuhnbärbling",
+    "latin": "Danio margaritatus",
+    "size": 3,
+    "minL": 60,
+    "temp": [
+      20,
+      26
+    ],
+    "ph": [
+      6.5,
+      7.8
+    ],
+    "group": 10,
+    "color": "#8baba0",
+    "description": "Kleine helle Punkte erinnern an Perlen. Dichte Pflanzen geben Sicherheit.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.31500000000000006,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "kleiner blaugrauer Körper",
+        "viele helle Perlenpunkte",
+        "orange Flossen mit dunklen Bändern",
+        "kurze gegabelte Schwanzflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Danio-margaritatus.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "harlequin",
+    "name": "Keilfleckbärbling",
+    "latin": "Trigonostigma heteromorpha",
+    "size": 5,
+    "minL": 80,
+    "temp": [
+      23,
+      28
+    ],
+    "ph": [
+      6,
+      7.5
+    ],
+    "group": 8,
+    "color": "#d19068",
+    "description": "Ein dunkler Keil sitzt am Körper. Dieser Schwarmfisch mag weicheres Wasser.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.8750000000000001,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "hoher kupferfarbener Körper",
+        "großer schwarzer Keil an der hinteren Flanke",
+        "gegabelte Schwanzflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Trigonostigma-heteromorpha.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "ember",
+    "name": "Funkensalmler",
+    "latin": "Hyphessobrycon amandae",
+    "size": 3,
+    "minL": 60,
+    "temp": [
+      23,
+      28
+    ],
+    "ph": [
+      5.5,
+      7.5
+    ],
+    "group": 10,
+    "color": "#e49647",
+    "description": "Ein winziger orangefarbener Schwarmfisch. Pflanzen bieten Schutz.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.31500000000000006,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "sehr kleiner orangefarbener Salmler",
+        "leicht durchscheinende Flossen",
+        "kleine Fettflosse",
+        "gegabelte Schwanzflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Hyphessobrycon-amandae.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "rummy",
+    "name": "Rotkopfsalmler",
+    "latin": "Petitella bleheri",
+    "size": 5,
+    "minL": 120,
+    "temp": [
+      24,
+      28
+    ],
+    "ph": [
+      5.5,
+      7.2
+    ],
+    "group": 10,
+    "color": "#a7c9bc",
+    "description": "Roter Kopf, gestreifter Schwanz. Als Gruppe schwimmt er eng zusammen.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.8750000000000001,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "schlanker silberner Körper",
+        "roter Kopf",
+        "drei schwarze Schwanzbänder",
+        "Fettflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Petitella-bleheri.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "blackskirt",
+    "name": "Trauermantelsalmler",
+    "latin": "Gymnocorymbus ternetzi",
+    "size": 6,
+    "minL": 100,
+    "temp": [
+      22,
+      27
+    ],
+    "ph": [
+      6,
+      7.8
+    ],
+    "group": 8,
+    "color": "#666e74",
+    "description": "Ein hoch gebauter Salmler. Zu kleine Gruppen können Stress und Flossenzupfen fördern.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 1.2600000000000002,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "hoher seitlich flacher Körper",
+        "zwei dunkle vordere Querbänder",
+        "breite schwarze Afterflosse wie ein Rock",
+        "helle gegabelte Schwanzflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Gymnocorymbus-ternetzi.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "congo",
+    "name": "Kongosalmler",
+    "latin": "Phenacogrammus interruptus",
+    "size": 9,
+    "minL": 200,
+    "temp": [
+      23,
+      28
+    ],
+    "ph": [
+      6,
+      7.8
+    ],
+    "group": 8,
+    "color": "#91bbbc",
+    "description": "Schillernde Schuppen und lange Flossen. Braucht ein großes Schwimmbecken.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 2.8350000000000004,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "großer schillernder Salmler",
+        "kupferner und blauer Schimmer",
+        "lange violettgraue Flossensäume",
+        "verlängerte mittlere Schwanzstrahlen",
+        "Fettflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Phenacogrammus-interruptus.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "cherry",
+    "name": "Kirschbarbe",
+    "latin": "Puntius titteya",
+    "size": 5,
+    "minL": 80,
+    "temp": [
+      22,
+      27
+    ],
+    "ph": [
+      6,
+      7.8
+    ],
+    "group": 6,
+    "color": "#c96154",
+    "description": "Männchen werden kirschrot. Pflanzengruppen unterbrechen die Sicht und verringern Stress.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.8750000000000001,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "schlanker roter Körper",
+        "dunkles seitliches Längsband",
+        "ein Paar kurzer Barteln",
+        "gegabelte rötliche Schwanzflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Puntius-titteya.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "tiger",
+    "name": "Sumatrabarbe",
+    "latin": "Puntigrus tetrazona",
+    "size": 7,
+    "minL": 160,
+    "temp": [
+      23,
+      28
+    ],
+    "ph": [
+      6,
+      7.8
+    ],
+    "group": 10,
+    "color": "#c99855",
+    "description": "Lebhaft und neugierig. Lange Flossen anderer Fische können zum Zupfen verleiten.",
+    "behavior": "nipper",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 1.715,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "hoher goldbrauner Körper",
+        "vier schwarze Querbänder",
+        "rote Flossenränder",
+        "tief gegabelte Schwanzflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Puntigrus-tetrazona.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "betta",
+    "name": "Kampffisch",
+    "latin": "Betta splendens",
+    "size": 7,
+    "minL": 40,
+    "temp": [
+      24,
+      29
+    ],
+    "ph": [
+      6,
+      7.8
+    ],
+    "group": 1,
+    "color": "#5274af",
+    "description": "Männchen verteidigen ihr Revier. Mehrere Männchen können einander verletzen.",
+    "behavior": "territory",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 1.715,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "author": "BlueMesh",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "sourceUrl": "https://sketchfab.com/3d-models/betta-splendens-f4eeb7f50ad24873842bd954ad27d23b",
+      "kind": "model"
+    }
+  },
+  {
+    "id": "honey",
+    "name": "Honiggurami",
+    "latin": "Trichogaster chuna",
+    "size": 5,
+    "minL": 80,
+    "temp": [
+      24,
+      28
+    ],
+    "ph": [
+      6,
+      7.8
+    ],
+    "group": 2,
+    "color": "#d7a34e",
+    "description": "Ein ruhiger Labyrinthfisch. Kann zusätzlich Luft an der Oberfläche atmen.",
+    "behavior": "labyrinth",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.8750000000000001,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "hoher seitlich flacher Körper",
+        "honiggelbe Flanke",
+        "dunkle Kehle beim balzenden Männchen",
+        "lange Afterflosse",
+        "zwei tastende Bauchflossenfäden"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Trichogaster-chuna.html"
+      ],
+      "note": "Females and non-breeding males are paler and may show a lateral dark band."
+    }
+  },
+  {
+    "id": "pearlgourami",
+    "name": "Mosaikfadenfisch",
+    "latin": "Trichopodus leerii",
+    "size": 12,
+    "minL": 180,
+    "temp": [
+      24,
+      29
+    ],
+    "ph": [
+      6,
+      7.8
+    ],
+    "group": 2,
+    "color": "#a8b6a0",
+    "description": "Punktmuster und lange Tastfäden. Mag ruhige, dicht bepflanzte Bereiche.",
+    "behavior": "labyrinth",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 5.040000000000001,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "feine helle Mosaikpunkte",
+        "dunkles Längsband",
+        "orange Brust beim Männchen",
+        "lange Afterflosse",
+        "sehr lange Bauchflossenfäden"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Trichopodus-leerii.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "angelfish",
+    "name": "Skalar",
+    "latin": "Pterophyllum scalare",
+    "size": 15,
+    "minL": 240,
+    "temp": [
+      24,
+      29
+    ],
+    "ph": [
+      6,
+      7.8
+    ],
+    "group": 2,
+    "color": "#c5bba7",
+    "description": "Hohe Flossen brauchen ein hohes Becken. Kleine Garnelen und Jungfische können Beute sein.",
+    "behavior": "predator",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 7.875000000000001,
+    "reproduce": false,
+    "diet": "Kleine Tiere",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "sehr hoher scheibenförmiger Körper",
+        "silberne Flanke mit dunklen Querbändern",
+        "hohe dreieckige Rücken- und Afterflosse",
+        "lange Bauchflossenfäden"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Pterophyllum-scalare.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "discus",
+    "name": "Diskus",
+    "latin": "Symphysodon spp.",
+    "size": 18,
+    "minL": 400,
+    "temp": [
+      27,
+      30
+    ],
+    "ph": [
+      5.5,
+      7.5
+    ],
+    "group": 5,
+    "color": "#c47757",
+    "description": "Sehr warmer Lebensraum. Als Gruppe braucht er viel Platz und stabile Werte.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 11.340000000000002,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "runder scheibenförmiger Körper",
+        "schmale Körpertiefe",
+        "zahlreiche feine Querbänder",
+        "blaugrüne gewundene Linien",
+        "lange randständige Rücken- und Afterflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Symphysodon-aequifasciatus"
+      ],
+      "note": "Catalogue is genus-level. Uses a brown/blue Symphysodon aequifasciatus-like pattern; cultivated discus forms differ strongly."
+    }
+  },
+  {
+    "id": "ram",
+    "name": "Schmetterlingsbuntbarsch",
+    "latin": "Mikrogeophagus ramirezi",
+    "size": 6,
+    "minL": 80,
+    "temp": [
+      26,
+      30
+    ],
+    "ph": [
+      5.5,
+      7.5
+    ],
+    "group": 2,
+    "color": "#dbb859",
+    "description": "Ein kleiner Revierfisch. Reagiert empfindlich auf kaltes oder verschmutztes Wasser.",
+    "behavior": "territory",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 1.2600000000000002,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "hoher kleiner Buntbarsch",
+        "dunkles Augenband",
+        "schwarzer Flankenfleck",
+        "türkise Punkte",
+        "erhöhte vordere Rückenflossenstrahlen"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Mikrogeophagus-ramirezi.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "apisto",
+    "name": "Kakadu-Zwergbuntbarsch",
+    "latin": "Apistogramma cacatuoides",
+    "size": 9,
+    "minL": 100,
+    "temp": [
+      23,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "group": 2,
+    "color": "#d69b58",
+    "description": "Höhlen und Sichtschutz sind wichtig. Erwachsene Tiere können kleine Garnelen fressen.",
+    "behavior": "predator",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 2.8350000000000004,
+    "reproduce": false,
+    "diet": "Kleine Tiere",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "langgestreckter Zwergbuntbarsch",
+        "dunkles Flankenband",
+        "hohe vordere Rückenflossenstrahlen",
+        "orange Schwanzflosse mit roten Flecken",
+        "männliche Zuchtform"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Apistogramma-cacatuoides.html"
+      ],
+      "note": "Male crest and orange/red cultivated fin markings. Females are smaller, yellowish, and have shorter fins."
+    }
+  },
+  {
+    "id": "krib",
+    "name": "Purpurprachtbuntbarsch",
+    "latin": "Pelvicachromis pulcher",
+    "size": 10,
+    "minL": 120,
+    "temp": [
+      24,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "group": 2,
+    "color": "#aa758b",
+    "description": "Eltern schützen ihre Jungen. Ihr Brutrevier führt zu Konkurrenz um Platz.",
+    "behavior": "territory",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 3.5000000000000004,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "dunkles seitliches Längsband",
+        "purpurfarbener Bauch",
+        "goldener Rückenflossenrand",
+        "dunkle Flossenaugenflecken"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Pelvicachromis-pulcher.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "cory",
+    "name": "Metallpanzerwels",
+    "latin": "Corydoras aeneus",
+    "size": 7,
+    "minL": 100,
+    "temp": [
+      22,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "group": 6,
+    "color": "#b7a173",
+    "description": "Sucht am Boden nach Futter. Feiner Sand schützt seine empfindlichen Barteln.",
+    "behavior": "bottom",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 1.715,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "gepanzertes gedrungenes Welsprofil",
+        "bronzegrüner Flankenfleck",
+        "unterständiges Maul",
+        "sechs Barteln",
+        "dreieckige Rückenflosse und Fettflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Corydoras-aeneus.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "panda",
+    "name": "Panda-Panzerwels",
+    "latin": "Corydoras panda",
+    "size": 5,
+    "minL": 80,
+    "temp": [
+      20,
+      26
+    ],
+    "ph": [
+      6,
+      7.8
+    ],
+    "group": 6,
+    "color": "#c3bfa8",
+    "description": "Dunkle Flecken wie ein Panda. Braucht eine Gruppe und weichen Boden.",
+    "behavior": "bottom",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.8750000000000001,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "cremefarbener Panzerwels",
+        "schwarzes Augenband",
+        "schwarze Rückenflosse",
+        "dunkler Schwanzstiel",
+        "sechs kleine Barteln"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Corydoras-panda.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "oto",
+    "name": "Ohrgitterharnischwels",
+    "latin": "Otocinclus spp.",
+    "size": 5,
+    "minL": 80,
+    "temp": [
+      22,
+      27
+    ],
+    "ph": [
+      6,
+      7.8
+    ],
+    "group": 6,
+    "color": "#a4a89a",
+    "description": "Frisst Aufwuchs. In ganz neuen Becken fehlt ihm oft natürliche Nahrung.",
+    "behavior": "grazer",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.8750000000000001,
+    "reproduce": false,
+    "diet": "Aufwuchs + Pflanzenfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "kleiner schlanker Harnischwels",
+        "unterständige Saugmaulscheibe",
+        "dunkles Flankenband",
+        "gesprenkelter Rücken",
+        "gegabelte Schwanzflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Otocinclus-vittatus.html"
+      ],
+      "note": "Genus-level catalogue entry; a striped O. vittatus-like phenotype represents the group."
+    }
+  },
+  {
+    "id": "ancistrus",
+    "name": "Antennenwels",
+    "latin": "Ancistrus spp.",
+    "size": 13,
+    "minL": 120,
+    "temp": [
+      22,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "group": 1,
+    "color": "#776958",
+    "description": "Raspelt Aufwuchs und braucht Holz und eigenes Futter. Er beseitigt nicht jeden Abfall.",
+    "behavior": "grazer",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 5.915000000000001,
+    "reproduce": false,
+    "diet": "Aufwuchs + Pflanzenfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "breiter abgeflachter gepanzerter Kopf",
+        "Saugmaul unter dem Kopf",
+        "verzweigte Nasententakel beim Männchen",
+        "große segelartige Rückenflosse",
+        "helle Punkte auf braunem Grund"
+      ],
+      "references": [
+        "https://www.fishbase.se/identification/SpeciesList.php?genus=Ancistrus",
+        "https://www.fishbase.se/summary/Ancistrus-cirrhosus"
+      ],
+      "note": "Ancistrus aquarium stock is often not identified to species. Male snout tentacles are bristles, not long feeding barbels."
+    }
+  },
+  {
+    "id": "kuhli",
+    "name": "Dornauge",
+    "latin": "Pangio kuhlii",
+    "size": 10,
+    "minL": 100,
+    "temp": [
+      24,
+      29
+    ],
+    "ph": [
+      5.5,
+      7.5
+    ],
+    "group": 6,
+    "color": "#bd904e",
+    "description": "Ein schlanker Bodenfisch. Versteckt sich zwischen Wurzeln und weichem Boden.",
+    "behavior": "bottom",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 3.5000000000000004,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "aalartig sehr langer dünner Körper",
+        "viele dunkle Querbänder",
+        "winzige weit hinten sitzende Rückenflosse",
+        "sechs kurze Barteln",
+        "kleine gerundete Schwanzflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Pangio-kuhlii.html"
+      ],
+      "note": "Representative P. kuhlii pattern; other banded Pangio species sold as kuhli loaches vary in band width and number."
+    }
+  },
+  {
+    "id": "rainbow",
+    "name": "Boesemans Regenbogenfisch",
+    "latin": "Melanotaenia boesemani",
+    "size": 12,
+    "minL": 250,
+    "temp": [
+      24,
+      28
+    ],
+    "ph": [
+      7,
+      8.5
+    ],
+    "group": 6,
+    "color": "#d7a347",
+    "description": "Vorne bläulich, hinten orange. Ein lebhafter Gruppenfisch mit großem Platzbedarf.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 5.040000000000001,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "hoher ovaler Körper",
+        "vordere Körperhälfte blau",
+        "hintere Körperhälfte orange",
+        "zwei getrennte Rückenflossen",
+        "gegabelte Schwanzflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Melanotaenia-boesemani.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "whitecloud",
+    "name": "Kardinalfisch",
+    "latin": "Tanichthys albonubes",
+    "size": 4,
+    "minL": 60,
+    "temp": [
+      16,
+      23
+    ],
+    "ph": [
+      6.5,
+      8
+    ],
+    "group": 8,
+    "color": "#acb49c",
+    "description": "Mag kühleres Wasser. Dauerhaft hohe Temperatur belastet ihn.",
+    "behavior": "school",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.56,
+    "reproduce": false,
+    "diet": "Passendes Fischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "kleiner schlanker olivsilberner Körper",
+        "helles irisierendes Seitenband",
+        "dunkler Schwanzstiel",
+        "rote Schwanz- und Rückenflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Tanichthys-albonubes.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "goldfish",
+    "name": "Goldfisch",
+    "latin": "Carassius auratus",
+    "size": 25,
+    "minL": 300,
+    "temp": [
+      16,
+      23
+    ],
+    "ph": [
+      6.5,
+      8.5
+    ],
+    "group": 3,
+    "color": "#d7983e",
+    "description": "Wächst groß und erzeugt viel Abfall. Ein kleines Glas ist kein passender Lebensraum.",
+    "behavior": "grazer",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 21.875000000000004,
+    "reproduce": false,
+    "diet": "Aufwuchs + Pflanzenfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "kräftiger goldoranger Körper",
+        "durchgehende Rückenflosse",
+        "eine gegabelte Schwanzflosse",
+        "große sichtbare Schuppen",
+        "gewöhnliche einflossige Zuchtform"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Carassius-auratus.html"
+      ],
+      "note": "Body and tail represent ordinary single-tail stock. Fantail, telescope and other domestic forms require different anatomy."
+    }
+  },
+  {
+    "id": "sae",
+    "name": "Siamesische Rüsselbarbe",
+    "latin": "Crossocheilus oblongus",
+    "size": 15,
+    "minL": 250,
+    "temp": [
+      23,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "group": 5,
+    "color": "#9d9a81",
+    "description": "Ein großer, aktiver Aufwuchsfresser. Frisst zusätzlich normales Futter.",
+    "behavior": "grazer",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 7.875000000000001,
+    "reproduce": false,
+    "diet": "Aufwuchs + Pflanzenfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "langer kräftiger torpedoförmiger Körper",
+        "dunkles Band von der Schnauze bis in die Schwanzflosse",
+        "kleine Maulbarteln",
+        "unterständiges Maul",
+        "weitgehend klare Flossen"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Crossocheilus-oblongus.html"
+      ],
+      "note": "Aquarium trade identification among Crossocheilus species is inconsistent; this is a dark lateral-stripe representative of the catalogue species."
+    }
+  },
+  {
+    "id": "dwarfbuffer",
+    "name": "Erbsenkugelfisch",
+    "latin": "Carinotetraodon travancoricus",
+    "size": 3,
+    "minL": 60,
+    "temp": [
+      24,
+      28
+    ],
+    "ph": [
+      6.5,
+      8
+    ],
+    "group": 1,
+    "color": "#c4b773",
+    "description": "Ein kleiner Räuber. Schnecken gehören zu seiner Nahrung; andere Tiere können Beute sein.",
+    "behavior": "snailpredator",
+    "water": "fresh",
+    "category": "fish",
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      2,
+      18
+    ],
+    "load": 0.31500000000000006,
+    "reproduce": false,
+    "diet": "Kleine Tiere",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "runder sehr stumpfer Kopf",
+        "große bewegliche Augen",
+        "gelbgrüne Flanke mit dunklen Flecken",
+        "winzige hintere Rücken- und Afterflosse",
+        "keine Bauchflossen"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Carinotetraodon-travancoricus.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "clown",
+    "name": "Falscher Clownfisch",
+    "latin": "Amphiprion ocellaris",
+    "size": 11,
+    "minL": 120,
+    "color": "#e89047",
+    "description": "Lebt paarweise. Eine Anemone ist im Aquarium nicht zwingend nötig.",
+    "behavior": "territory",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 2,
+    "load": 4.235,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish",
+    "provenance": {
+      "author": "Fernando Losada Rodríguez",
+      "license": "CC-BY-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amphiprion_ocellaris.002_-_Aquarium_Finisterrae.jpg",
+      "kind": "photo"
+    }
+  },
+  {
+    "id": "royal",
+    "name": "Königs-Feenbarsch",
+    "latin": "Gramma loreto",
+    "size": 8,
+    "minL": 120,
+    "color": "#9a64b5",
+    "description": "Vorne violett, hinten gelb. Nutzt Höhlen und verteidigt einen kleinen Wohnbereich.",
+    "behavior": "territory",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 2.24,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "schlanker hochrückiger Körper",
+        "violette vordere Körperhälfte",
+        "gelbe hintere Körperhälfte",
+        "dunkler vorderer Rückenflossenfleck",
+        "weich gerundete Schwanzflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Gramma-loreto.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "firefish",
+    "name": "Feuer-Schwertgrundel",
+    "latin": "Nemateleotris magnifica",
+    "size": 9,
+    "minL": 120,
+    "color": "#d7a58c",
+    "description": "Schlank und scheu. Eine Höhle und ruhige Mitbewohner geben Sicherheit.",
+    "behavior": "peaceful",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 2.8350000000000004,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "sehr schlanker heller Körper",
+        "orange bis roter hinterer Körper",
+        "hoher erster Rückenflossenstrahl",
+        "zwei getrennte Rückenflossen",
+        "fast gerade Schwanzflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Nemateleotris-magnifica.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "purplefire",
+    "name": "Purpur-Schwertgrundel",
+    "latin": "Nemateleotris decora",
+    "size": 9,
+    "minL": 150,
+    "color": "#b085be",
+    "description": "Eine Grundel mit violettem Kopf. Reagiert auf Stress durch Rückzug.",
+    "behavior": "peaceful",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 2.8350000000000004,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "schlanker cremegelber Körper",
+        "violetter Kopf",
+        "purpurfarbene hintere Flossen",
+        "verlängerter erster Rückenflossenstrahl",
+        "zwei Rückenflossen"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Nemateleotris-decora.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "goby",
+    "name": "Gelbe Wächtergrundel",
+    "latin": "Cryptocentrus cinctus",
+    "size": 10,
+    "minL": 150,
+    "color": "#d7bd57",
+    "description": "Lebt am Boden. Kann in der Natur mit einem Knallkrebs zusammenarbeiten.",
+    "behavior": "bottom",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 3.5000000000000004,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "breiter stumpfer Grundelkopf",
+        "hoch sitzende Augen",
+        "gelbe Flanke mit kleinen hellblauen Punkten",
+        "zwei Rückenflossen",
+        "breite gerundete Schwanzflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Cryptocentrus-cinctus.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "neongoby",
+    "name": "Neon-Putzgrundel",
+    "latin": "Elacatinus oceanops",
+    "size": 5,
+    "minL": 60,
+    "color": "#4f9db2",
+    "description": "Ein kleiner Putzerfisch. Entfernt Parasiten von größeren Fischen in der Natur.",
+    "behavior": "peaceful",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 0.8750000000000001,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "sehr schlanker dunkler Körper",
+        "leuchtend blaues oberes Seitenband",
+        "helle Bauchseite",
+        "kleine getrennte Rückenflossen",
+        "kleiner gerundeter Schwanz"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Elacatinus-oceanops.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "clowngoby",
+    "name": "Gelbe Korallengrundel",
+    "latin": "Gobiodon okinawae",
+    "size": 4,
+    "minL": 60,
+    "color": "#e1c24b",
+    "description": "Sitzt oft zwischen Korallenästen. Beansprucht dort einen kleinen Wohnplatz.",
+    "behavior": "peaceful",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 0.56,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "sehr kurzer gedrungener Grundelkörper",
+        "großer runder Kopf",
+        "einheitlich gelbe Flanke",
+        "breite gerundete Brustflossen",
+        "zwei kurze Rückenflossen"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Gobiodon-okinawae.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "mandarin",
+    "name": "Mandarinfisch",
+    "latin": "Synchiropus splendidus",
+    "size": 8,
+    "minL": 200,
+    "color": "#4dafa3",
+    "description": "Braucht dauerhaft winzige Krebstiere als Futter. Ein junges Becken bietet davon zu wenig.",
+    "behavior": "specialist",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 2.24,
+    "diet": "Lebender Kleinsttier-Aufwuchs",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "breiter flacher Drachenfischkopf",
+        "orange-blaues gewundenes Muster",
+        "zwei Rückenflossen",
+        "breite Bauchflossen",
+        "schuppenlose Haut"
+      ],
+      "references": [
+        "https://www.fishbase.org/summary/12644",
+        "https://animaldiversity.org/accounts/Synchiropus_splendidus/"
+      ],
+      "note": "Broad depressed head and large pelvic fins are dragonet traits. Blue/orange labyrinth is artist-generated, not copied from a specimen."
+    }
+  },
+  {
+    "id": "blenny",
+    "name": "Algenblenny",
+    "latin": "Salarias fasciatus",
+    "size": 13,
+    "minL": 200,
+    "color": "#9c9980",
+    "description": "Weidet Algenaufwuchs ab. Ohne passenden Aufwuchs kann er trotz sauberem Wasser hungern.",
+    "behavior": "grazer",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 5.915000000000001,
+    "diet": "Algen + Pflanzenfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "großer stumpfer Schleimfischkopf",
+        "hoch sitzende Augen mit kleinen Hautbüscheln",
+        "marmorierte olive Flanke",
+        "lange durchgehende Rückenflosse",
+        "breite Brustflossen"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Salarias-fasciatus.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "bicolor",
+    "name": "Zweifarben-Schleimfisch",
+    "latin": "Ecsenius bicolor",
+    "size": 11,
+    "minL": 150,
+    "color": "#bb8b6b",
+    "description": "Sitzt gern in Felsspalten. Frisst Aufwuchs und verteidigt einen kleinen Platz.",
+    "behavior": "grazer",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 4.235,
+    "diet": "Algen + Pflanzenfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "stumpfer Schleimfischkopf",
+        "blaugraue vordere Körperhälfte",
+        "orange hintere Körperhälfte",
+        "durchgehende niedrige Rückenflosse",
+        "kleine Hauttentakel über den Augen"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Ecsenius-bicolor.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "chromis",
+    "name": "Grünes Schwalbenschwänzchen",
+    "latin": "Chromis viridis",
+    "size": 10,
+    "minL": 250,
+    "color": "#64b8ac",
+    "description": "Schwimmt in offenen Bereichen. Futter und Platz können Konkurrenz auslösen.",
+    "behavior": "school",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 5,
+    "load": 3.5000000000000004,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "hoher seitlich flacher Riffbarsch",
+        "blaugrüner Schimmer",
+        "lange spitz gegabelte Schwanzflosse",
+        "helle transparente Flossen"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Chromis-viridis.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "damsel",
+    "name": "Gelbschwanz-Demoiselle",
+    "latin": "Chrysiptera parasema",
+    "size": 7,
+    "minL": 120,
+    "color": "#4266b3",
+    "description": "Ein kleiner Riffbarsch, der sein Revier verteidigt. Größe allein sagt wenig über Verhalten.",
+    "behavior": "territory",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 1.715,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "kleiner hoher tiefblauer Riffbarsch",
+        "gelbe Schwanzflosse",
+        "gelber Schwanzstiel",
+        "lange stachelige Rückenflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Chrysiptera-parasema.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "banggai",
+    "name": "Banggai-Kardinalbarsch",
+    "latin": "Pterapogon kauderni",
+    "size": 8,
+    "minL": 150,
+    "color": "#b8b7a7",
+    "description": "Das Männchen trägt Eier im Maul. Erwachsene Tiere leben eher in Paaren.",
+    "behavior": "mouthbrood",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 2,
+    "load": 2.24,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "silberner gedrungener Körper",
+        "drei schwarze Querbänder",
+        "helle Punkte auf Körper und Flossen",
+        "zwei hohe Rückenflossen",
+        "sehr lange gegabelte Schwanzflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Pterapogon-kauderni",
+        "https://fishbase.se/physiology/MorphMetSummaryV2.php?genusname=Pterapogon&id=15426&picname=Ptkau_u4.jpg&speciesname=kauderni"
+      ],
+      "note": "Long fins strongly affect total length. Body-depth ratio near 0.33 is an artist estimate informed by the FishBase specimen image; not a fitted measurement."
+    }
+  },
+  {
+    "id": "pajama",
+    "name": "Pyjama-Kardinalbarsch",
+    "latin": "Sphaeramia nematoptera",
+    "size": 8,
+    "minL": 180,
+    "color": "#b6a77e",
+    "description": "Ein ruhiger Gruppenfisch. Sein hinterer Körper trägt ein Punktmuster.",
+    "behavior": "school",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 5,
+    "load": 2.24,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "hoher Kardinalbarschkörper",
+        "gelbgrüner Kopf mit roten Augen",
+        "dunkles mittleres Querband",
+        "rotbraune Punkte auf der hinteren Flanke",
+        "zwei Rückenflossen"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Sphaeramia-nematoptera.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "yellowtang",
+    "name": "Gelber Segelflossendoktor",
+    "latin": "Zebrasoma flavescens",
+    "size": 20,
+    "minL": 450,
+    "color": "#d9c546",
+    "description": "Weidet Algen ab und braucht viel Schwimmraum. Kleine Becken erzeugen Stress.",
+    "behavior": "grazer",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 14.000000000000002,
+    "diet": "Algen + Pflanzenfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "hoher ovaler seitlich flacher Körper",
+        "gelbe Flanke und Flossen",
+        "verlängerte kleine Schnauze",
+        "hohe segelartige Rücken- und Afterflosse",
+        "weißer Schwanzstielstachel"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Zebrasoma-flavescens.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "bluetang",
+    "name": "Paletten-Doktorfisch",
+    "latin": "Paracanthurus hepatus",
+    "size": 30,
+    "minL": 700,
+    "color": "#4779c6",
+    "description": "Wird sehr groß. Farbe und Bekanntheit ändern nichts an seinem Platzbedarf.",
+    "behavior": "school",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 5,
+    "load": 31.500000000000004,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "langer ovaler blauer Körper",
+        "schwarze palettenförmige Flankenzeichnung",
+        "gelbe Schwanzflosse mit dunklem Rand",
+        "kurze kleine Schnauze"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Paracanthurus-hepatus.html"
+      ],
+      "note": "Pacific palette surgeonfish P. hepatus. Not the Atlantic blue tang Acanthurus coeruleus, which has a different pattern."
+    }
+  },
+  {
+    "id": "kole",
+    "name": "Goldring-Borstenzahndoktor",
+    "latin": "Ctenochaetus strigosus",
+    "size": 18,
+    "minL": 450,
+    "color": "#967b61",
+    "description": "Bürstet feinen Aufwuchs von Steinen. Benötigt ein gut entwickeltes Riffbecken.",
+    "behavior": "grazer",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 11.340000000000002,
+    "diet": "Algen + Pflanzenfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "hoher bräunlicher Doktorfisch",
+        "gelber Augenring",
+        "viele feine blaue Längslinien",
+        "helle Punkte am Kopf",
+        "eingeschnittene Schwanzflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Ctenochaetus-strigosus.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "flame",
+    "name": "Flammen-Zwergkaiser",
+    "latin": "Centropyge loricula",
+    "size": 12,
+    "minL": 250,
+    "color": "#d67447",
+    "description": "Kann an Korallen und Muscheln zupfen. Eine schöne Kombination ist nicht immer verträglich.",
+    "behavior": "coralnipper",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 5.040000000000001,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "hoher rotoranger Zwergkaiser",
+        "mehrere schwarze Flankenbänder",
+        "blaue Rücken- und Afterflossenränder",
+        "kurze gerade Schwanzflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Centropyge-loricula.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "beauty",
+    "name": "Korallen-Zwergkaiser",
+    "latin": "Centropyge bispinosa",
+    "size": 12,
+    "minL": 250,
+    "color": "#8571a3",
+    "description": "Frisst Aufwuchs und kleine Tiere. Kann empfindliche Korallen schädigen.",
+    "behavior": "coralnipper",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 5.040000000000001,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "hoher blauvioletter Zwergkaiser",
+        "orange mittlere Flanke",
+        "feine blaue Querlinien",
+        "blaue Flossenränder",
+        "kurze Schwanzflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Centropyge-bispinosa.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "sixline",
+    "name": "Sechsstreifen-Lippfisch",
+    "latin": "Pseudocheilinus hexataenia",
+    "size": 10,
+    "minL": 200,
+    "color": "#b7728f",
+    "description": "Ein aktiver Räuber kleiner Wirbelloser. Verteidigt sein Revier.",
+    "behavior": "predator",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 3.5000000000000004,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "schlanker rosaroter Lippfisch",
+        "sechs orangefarbene Längsstreifen",
+        "zwei helle Linien am Auge",
+        "grüner Schwanzstiel mit dunklem Augenfleck",
+        "gerundete Schwanzflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Pseudocheilinus-hexataenia.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "cleanerwrasse",
+    "name": "Putzerlippfisch",
+    "latin": "Labroides dimidiatus",
+    "size": 12,
+    "minL": 350,
+    "color": "#75a5af",
+    "description": "Spezialisierter Putzer. Sein natürlicher Speiseplan ist im Aquarium schwer zu ersetzen.",
+    "behavior": "specialist",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 5.040000000000001,
+    "diet": "Lebender Kleinsttier-Aufwuchs",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "sehr schlanker weißblauer Lippfisch",
+        "breites hinten zunehmendes schwarzes Flankenband",
+        "kleines spitzes Maul",
+        "niedrige durchgehende Rückenflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Labroides-dimidiatus.html"
+      ],
+      "note": "Juveniles are almost black with a bright blue stripe; adults use the broader dark lateral band shown here."
+    }
+  },
+  {
+    "id": "hawk",
+    "name": "Flammen-Büschelbarsch",
+    "latin": "Neocirrhites armatus",
+    "size": 9,
+    "minL": 200,
+    "color": "#ce6552",
+    "description": "Lauert auf Felsen. Kleine Garnelen können für ihn Nahrung sein.",
+    "behavior": "predator",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 2.8350000000000004,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "kräftiger roter Kopf und Körper",
+        "dunkle obere Rückenzeichnung",
+        "große fächerförmige Brustflossen zum Aufsitzen",
+        "stachelige Rückenflosse",
+        "nahezu gerade Schwanzflosse"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Neocirrhites-armatus.html"
+      ],
+      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+    }
+  },
+  {
+    "id": "lion",
+    "name": "Zwerg-Feuerfisch",
+    "latin": "Dendrochirus brachypterus",
+    "size": 17,
+    "minL": 300,
+    "color": "#aa7a5c",
+    "description": "Ein Lauerjäger. Kleine Fische und Garnelen sind Beute. Seine Stacheln sind giftig.",
+    "behavior": "predator",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 1,
+    "load": 10.115,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "breiter großer Räuberkopf",
+        "braune und cremefarbene Querbänder",
+        "lange getrennte Rückenstacheln",
+        "sehr große fächerartige Brustflossen",
+        "gebänderte und gepunktete Flossen"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Dendrochirus-brachypterus.html"
+      ],
+      "note": "Broad-finned dwarf lionfish, not Pterois volitans. Separate dorsal spines and fan-shaped pectoral rays must be modelled; the normal fin sheet alone is insufficient."
+    }
+  },
+  {
+    "id": "anthias",
+    "name": "Juwelen-Fahnenbarsch",
+    "latin": "Pseudanthias squamipinnis",
+    "size": 15,
+    "minL": 450,
+    "color": "#db9068",
+    "description": "Braucht häufig kleine Futterportionen und viel freien Schwimmraum.",
+    "behavior": "school",
+    "water": "salt",
+    "category": "fish",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "group": 5,
+    "load": 7.875000000000001,
+    "diet": "Passendes Meeresfischfutter",
+    "icon": "fish",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "schlanker hochrückiger orangefarbener Fahnenbarsch",
+        "violetter Strich vom Auge zur Brustflosse",
+        "stark eingeschnittene Schwanzflosse",
+        "weibliche natürliche Farbphase"
+      ],
+      "references": [
+        "https://www.fishbase.se/summary/Pseudanthias-squamipinnis.html"
+      ],
+      "note": "Females are orange; mature males change toward pink/purple and can develop an elongated dorsal spine. This is deliberately a female profile."
+    }
+  },
+  {
+    "id": "anubias",
+    "name": "Anubias",
+    "latin": "Anubias barteri",
+    "light": 0.3,
+    "growth": 0.016,
+    "color": "#507d44",
+    "shape": "broad",
+    "description": "Wächst langsam. Das dicke Rhizom liegt auf Holz oder Stein, nicht tief im Boden.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Dicker kriechender Wurzelstock",
+        "Feste ovale Blätter",
+        "Verzweigte Haftwurzeln"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Anubias_barteri"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "nana",
+    "name": "Zwerg-Anubias",
+    "latin": "Anubias barteri var. nana",
+    "light": 0.25,
+    "growth": 0.012,
+    "color": "#63874c",
+    "shape": "broad",
+    "description": "Kleine feste Blätter. Kommt mit wenig Licht aus.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "author": "Abhik.Mazumdar.73",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anubias_barteri_var._nana.jpg",
+      "kind": "photo"
+    }
+  },
+  {
+    "id": "javafern",
+    "name": "Javafarn",
+    "latin": "Microsorum pteropus",
+    "light": 0.3,
+    "growth": 0.02,
+    "color": "#4d854b",
+    "shape": "fern",
+    "description": "Wird auf Holz oder Stein befestigt. Seine Blätter wachsen eher langsam.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Kriechender Wurzelstock",
+        "Lange lanzettliche Blätter",
+        "Deutliche Mittelrippe"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/File:Microsorium_pteropus.JPG"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "trident",
+    "name": "Javafarn Trident",
+    "latin": "Microsorum pteropus Trident",
+    "light": 0.4,
+    "growth": 0.022,
+    "color": "#729551",
+    "shape": "fern",
+    "description": "Gegabelte Blätter bieten kleine Verstecke für Jungtiere.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Schmale dreigeteilte Blattspitzen",
+        "Kriechender Wurzelstock",
+        "Seitlich ausladende Blätter"
+      ],
+      "references": [
+        "https://tropica.com/en/plants/plantdetails/Microsorumpteropus%27Trident%27%28008G%29/4424"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "javamoss",
+    "name": "Javamoos",
+    "latin": "Taxiphyllum barbieri",
+    "light": 0.25,
+    "growth": 0.035,
+    "color": "#56824b",
+    "shape": "moss",
+    "description": "Ein Moospolster bietet Garnelen Aufwuchs und Jungfischen Schutz.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Unregelmäßig verzweigte Triebe",
+        "Viele winzige spitze Blättchen",
+        "Lockeres Moospolster"
+      ],
+      "references": [
+        "https://tropica.com/en/plants/plantdetails/Taxiphyllumbarbieri%27BogorMoss%27%28003POR%29/4391"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "christmas",
+    "name": "Weihnachtsmoos",
+    "latin": "Vesicularia montagnei",
+    "light": 0.35,
+    "growth": 0.03,
+    "color": "#548c54",
+    "shape": "moss",
+    "description": "Verzweigte Triebe wachsen wie kleine Tannen. Regelmäßig auslichten.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Tannenförmige Seitenzweige",
+        "Flache dreieckige Wedel",
+        "Winzige spitze Blättchen"
+      ],
+      "references": [
+        "https://tropica.com/en/plants/plantdetails/Vesiculariamontagnei%27Christmas%27%28003APOR%29/4395"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "vallis",
+    "name": "Vallisnerie",
+    "latin": "Vallisneria spiralis",
+    "light": 0.4,
+    "growth": 0.075,
+    "color": "#73a458",
+    "shape": "ribbon",
+    "description": "Lange bandförmige Blätter. Bildet neue Pflanzen über Ausläufer.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 5,
+    "pNeed": 0.16,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "author": "LaraGudmundsdottir",
+      "license": "CC-BY-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vallisneria_spiralis.jpg",
+      "kind": "photo"
+    }
+  },
+  {
+    "id": "vallisgiant",
+    "name": "Riesen-Vallisnerie",
+    "latin": "Vallisneria australis",
+    "light": 0.45,
+    "growth": 0.085,
+    "color": "#579451",
+    "shape": "ribbon",
+    "description": "Sehr lange Blätter beschatten die Oberfläche. Braucht Platz.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 5,
+    "pNeed": 0.16,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Sehr lange breite Bänder",
+        "Überhängende Blattspitzen",
+        "Kräftige basale Rosette"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Vallisneria_australis"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "swordplant",
+    "name": "Amazonas-Schwertpflanze",
+    "latin": "Echinodorus grisebachii",
+    "light": 0.5,
+    "growth": 0.055,
+    "color": "#719954",
+    "shape": "broad",
+    "description": "Große Blattrosette. Nimmt viele Nährstoffe über ihre Wurzeln auf.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Große Blattrosette",
+        "Gestielte lanzettliche Blätter",
+        "Bogenförmige Längsadern"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Echinodorus_grisebachii"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "redflame",
+    "name": "Schwertpflanze Red Flame",
+    "latin": "Echinodorus Red Flame",
+    "light": 0.65,
+    "growth": 0.04,
+    "color": "#8d6852",
+    "shape": "broad",
+    "description": "Junge Blätter tragen rötliche Flecken. Licht und Nährstoffe beeinflussen die Farbe.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 8,
+    "pigment": "red",
+    "nNeed": 3,
+    "pNeed": 0.08,
+    "feNeed": 0.045,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Gestielte Schwertblatt-Rosette",
+        "Rötliche junge Blätter",
+        "Unregelmäßige Blattflecken"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Echinodorus_grisebachii"
+      ],
+      "note": "Red Flame ist eine Kulturform; Rosettenbau nach Echinodorus, Färbung nach Katalog. Keine Wildart-Rekonstruktion."
+    }
+  },
+  {
+    "id": "crypt",
+    "name": "Wendts Wasserkelch",
+    "latin": "Cryptocoryne wendtii",
+    "light": 0.35,
+    "growth": 0.03,
+    "color": "#8d9159",
+    "shape": "broad",
+    "description": "Bei schnellen Änderungen können Blätter verloren gehen. Die Wurzel kann neu austreiben.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Basale Rosette",
+        "Gewellte lanzettliche Blätter",
+        "Bronzefarbene Blattstruktur"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/File:-Cryptocoryne_wendtii-_from_Tropica_farm.JPG"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "cryptparva",
+    "name": "Zwerg-Wasserkelch",
+    "latin": "Cryptocoryne parva",
+    "light": 0.55,
+    "growth": 0.012,
+    "color": "#6b9b54",
+    "shape": "carpet",
+    "description": "Wächst sehr langsam. Als Vordergrundpflanze braucht er Geduld.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 8,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Sehr niedrige kleine Rosetten",
+        "Schmale gestielte Blätter",
+        "Feine Wurzeln und Ausläufer"
+      ],
+      "references": [
+        "https://tropica.com/en/plants/plantdetails/Cryptocoryneparva%28106%29/4558"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "waterweed",
+    "name": "Wasserpest",
+    "latin": "Egeria densa",
+    "light": 0.45,
+    "growth": 0.12,
+    "color": "#6fa554",
+    "shape": "stem",
+    "description": "Wächst schnell und nimmt Nährstoffe auf. Lange Triebe müssen gekürzt werden.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 5,
+    "pNeed": 0.16,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Schmale Blätter in Quirlen",
+        "Verzweigte aufrechte Stängel",
+        "Kleine Adventivwurzeln"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Egeria_densa"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "hornwort",
+    "name": "Hornkraut",
+    "latin": "Ceratophyllum demersum",
+    "light": 0.35,
+    "growth": 0.11,
+    "color": "#527e41",
+    "shape": "fern",
+    "description": "Hat feine Blätter und keine echten Wurzeln. Kann frei im Wasser treiben.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 5,
+    "pNeed": 0.16,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Gegabelte feine Blattquirle",
+        "Dichte weiche Triebspitze",
+        "Keine echten Wurzeln"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Ceratophyllum_demersum"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "hygro",
+    "name": "Indischer Wasserfreund",
+    "latin": "Hygrophila polysperma",
+    "light": 0.4,
+    "growth": 0.1,
+    "color": "#8fa964",
+    "shape": "stem",
+    "description": "Eine schnell wachsende Stängelpflanze. Konkurrenz um Licht begrenzt den Wuchs.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 5,
+    "pNeed": 0.16,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Gegenständige Blattpaare",
+        "Schmale Blätter",
+        "Seitentriebe und Knotenwurzeln"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Hygrophila_polysperma"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "corymbosa",
+    "name": "Großer Wasserfreund",
+    "latin": "Hygrophila corymbosa",
+    "light": 0.55,
+    "growth": 0.065,
+    "color": "#7b9e60",
+    "shape": "stem",
+    "description": "Große Blätter und kräftige Stängel. Bildet nach dem Schnitt Seitentriebe.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 8,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Große gegenständige Blätter",
+        "Kräftige Stängel",
+        "Lange Mittelrippen"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Hygrophila_corymbosa"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "limno",
+    "name": "Kleine Ambulia",
+    "latin": "Limnophila sessiliflora",
+    "light": 0.4,
+    "growth": 0.1,
+    "color": "#8daf68",
+    "shape": "fern",
+    "description": "Feine Blattquirle. Nimmt bei gutem Wachstum schnell Nährstoffe auf.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 5,
+    "pNeed": 0.16,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Fein gefiederte Blattquirle",
+        "Aufrechte dünne Triebe",
+        "Dichte hellgrüne Spitzen"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Limnophila_sessiliflora"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "rotala",
+    "name": "Rotala",
+    "latin": "Rotala rotundifolia",
+    "light": 0.6,
+    "growth": 0.075,
+    "color": "#b28d72",
+    "shape": "stem",
+    "description": "Bei stärkerem Licht können Blätter rötlicher werden. CO₂ unterstützt den Wuchs.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 8,
+    "pigment": "red",
+    "nNeed": 5,
+    "pNeed": 0.16,
+    "feNeed": 0.045,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Kleine schmale Unterwasserblätter",
+        "Gegenständige Blattpaare",
+        "Rötliche Triebspitzen"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Rotala_rotundifolia"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "ludwigia",
+    "name": "Rote Ludwigie",
+    "latin": "Ludwigia repens",
+    "light": 0.6,
+    "growth": 0.06,
+    "color": "#af765f",
+    "shape": "stem",
+    "description": "Rötliche Stängelpflanze. Braucht genug Licht und Nährstoffe.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 8,
+    "pigment": "red",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.045,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Gegenständige ovale Blätter",
+        "Rote Stängel",
+        "Rötliche Blattflächen"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/File:Ludwigia_repens.JPG"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "bacopa",
+    "name": "Kleines Fettblatt",
+    "latin": "Bacopa monnieri",
+    "light": 0.45,
+    "growth": 0.045,
+    "color": "#82a667",
+    "shape": "stem",
+    "description": "Dicke Blätter speichern Stoffe. Wächst als aufrechter Stängel.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Dicke rundlich spatelförmige Blätter",
+        "Kreuzweise Blattpaare",
+        "Aufrechte feste Stängel"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Bacopa_monnieri"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "cabomba",
+    "name": "Karolina-Haarnixe",
+    "latin": "Cabomba caroliniana",
+    "light": 0.7,
+    "growth": 0.065,
+    "color": "#6b9661",
+    "shape": "fern",
+    "description": "Feine Fächerblätter. Lichtmangel lässt untere Blätter verkümmern.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 15,
+    "pigment": "green",
+    "nNeed": 3,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Gegenständige Fächerblätter",
+        "Fein verzweigte Blattabschnitte",
+        "Dünne aufrechte Stängel"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Cabomba_caroliniana"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "alternanthera",
+    "name": "Rotes Papageienblatt",
+    "latin": "Alternanthera reineckii",
+    "light": 0.8,
+    "growth": 0.04,
+    "color": "#9d6860",
+    "shape": "stem",
+    "description": "Rote Blätter. Höhere Ansprüche an Licht, CO₂ und Nährstoffe.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 15,
+    "pigment": "red",
+    "nNeed": 3,
+    "pNeed": 0.08,
+    "feNeed": 0.045,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Rote lanzettliche Blätter",
+        "Gegenständige Blattpaare",
+        "Rote verzweigte Stängel"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/File:Alternanthera_02.jpg"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "pearlweed",
+    "name": "Perlkraut",
+    "latin": "Micranthemum micranthemoides",
+    "light": 0.65,
+    "growth": 0.07,
+    "color": "#88b46c",
+    "shape": "stem",
+    "description": "Sehr kleine Blätter. Kann durch regelmäßiges Schneiden einen dichten Busch bilden.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 8,
+    "pigment": "green",
+    "nNeed": 3,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Sehr kleine Blattquirle",
+        "Dicht verzweigte Triebe",
+        "Kompakter grüner Busch"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Micranthemum_micranthemoides"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "montecarlo",
+    "name": "Monte Carlo",
+    "latin": "Micranthemum tweediei",
+    "light": 0.7,
+    "growth": 0.05,
+    "color": "#8cb970",
+    "shape": "carpet",
+    "description": "Ein Bodendecker. Zusätzlicher Kohlenstoff hilft beim dichten Wuchs.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 15,
+    "pigment": "green",
+    "nNeed": 3,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Kleine rundliche Blätter",
+        "Kriechende Triebe",
+        "Dichter niedriger Teppich"
+      ],
+      "references": [
+        "https://tropica.com/en/articles/micranthemum-monte-carlo/"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "hairgrass",
+    "name": "Zwerg-Nadelsimse",
+    "latin": "Eleocharis pusilla",
+    "light": 0.65,
+    "growth": 0.05,
+    "color": "#749f53",
+    "shape": "ribbon",
+    "description": "Feine Halme bilden einen Rasen. Ausläufer vergrößern die Fläche.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 8,
+    "pigment": "green",
+    "nNeed": 3,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Feine nadelförmige Halme",
+        "Kleine Horste",
+        "Bodenausläufer"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Eleocharis_pusilla"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "stauro",
+    "name": "Staurogyne",
+    "latin": "Staurogyne repens",
+    "light": 0.55,
+    "growth": 0.04,
+    "color": "#8aa866",
+    "shape": "broad",
+    "description": "Kompakte Büsche für den Vordergrund. Nach dem Schnitt verzweigt sie sich.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 8,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Niedriger verzweigter Wuchs",
+        "Gegenständige lanzettliche Blätter",
+        "Kräftige Blattadern"
+      ],
+      "references": [
+        "https://tropica.com/en/plants/plantdetails/Staurogynerepens%28049G%29/4481"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "buce",
+    "name": "Bucephalandra",
+    "latin": "Bucephalandra spp.",
+    "light": 0.3,
+    "growth": 0.012,
+    "color": "#546953",
+    "shape": "broad",
+    "description": "Kleine, feste Blätter. Wächst langsam auf Steinen oder Wurzeln.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Kriechender Wurzelstock",
+        "Kleine gewellte Blätter",
+        "Punktierte dunkle Blattoberfläche"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Bucephalandra"
+      ],
+      "note": "Der Katalog nennt eine Gattung. Dargestellt ist eine kleine breitblättrige Aquarienform, keine bestimmte Art."
+    }
+  },
+  {
+    "id": "lotus",
+    "name": "Roter Tigerlotus",
+    "latin": "Nymphaea lotus",
+    "light": 0.55,
+    "growth": 0.045,
+    "color": "#987963",
+    "shape": "broad",
+    "description": "Große Blätter können andere Pflanzen beschatten. Lange Stiele lassen sich entfernen.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 8,
+    "pigment": "red",
+    "nNeed": 1.5,
+    "pNeed": 0.08,
+    "feNeed": 0.045,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Große herzförmig eingekerbte Blätter",
+        "Lange Blattstiele",
+        "Rote unregelmäßige Flecken"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Nymphaea_lotus"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "frogbit",
+    "name": "Froschbiss",
+    "latin": "Limnobium laevigatum",
+    "light": 0.45,
+    "growth": 0.09,
+    "color": "#98ab65",
+    "shape": "floating",
+    "description": "Schwimmt oben. Seine Wurzeln bieten Verstecke, seine Blätter nehmen Licht weg.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 5,
+    "pNeed": 0.16,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Rundliche Schwimmblätter",
+        "Kleine Oberflächenrosette",
+        "Lange hängende Wurzelbüschel"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Limnobium_laevigatum"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "salvinia",
+    "name": "Schwimmfarn",
+    "latin": "Salvinia auriculata",
+    "light": 0.4,
+    "growth": 0.1,
+    "color": "#819955",
+    "shape": "floating",
+    "description": "Vermehrt sich an der Oberfläche. Zu viel davon beschattet das ganze Becken.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 3,
+    "pigment": "green",
+    "nNeed": 5,
+    "pNeed": 0.16,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Paarige ovale Schwimmblätter",
+        "Gerippte behaarte Oberfläche",
+        "Geteilte Unterwasserblätter"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Salvinia_auriculata"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "waterlettuce",
+    "name": "Muschelblume",
+    "latin": "Pistia stratiotes",
+    "light": 0.6,
+    "growth": 0.075,
+    "color": "#a4b778",
+    "shape": "floating",
+    "description": "Eine schwimmende Rosette. Nimmt Nährstoffe auf und muss ausgedünnt werden.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 8,
+    "pigment": "green",
+    "nNeed": 5,
+    "pNeed": 0.16,
+    "feNeed": 0.025,
+    "root": false,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Fächerförmige gerippte Blätter",
+        "Schwimmende Rosette",
+        "Lange verzweigte Wurzeln"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Pistia_stratiotes"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "aponogeton",
+    "name": "Madagaskar-Gitterpflanze",
+    "latin": "Aponogeton madagascariensis",
+    "light": 0.65,
+    "growth": 0.035,
+    "color": "#7d9970",
+    "shape": "broad",
+    "description": "Netzförmige Blätter. Empfindlicher als viele einfache Stängelpflanzen.",
+    "category": "plant",
+    "water": "fresh",
+    "temp": [
+      20,
+      28
+    ],
+    "ph": [
+      6,
+      8
+    ],
+    "salinity": [
+      0,
+      0.8
+    ],
+    "co2": 8,
+    "pigment": "green",
+    "nNeed": 3,
+    "pNeed": 0.08,
+    "feNeed": 0.025,
+    "root": true,
+    "minL": 20,
+    "icon": "leaf",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Echte offene Blattfenster",
+        "Längsadern und Querstege",
+        "Gestielte lanzettliche Rosette"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/File:Aponogeton_madagascariensis_in_aquarium.jpg"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "softleather",
+    "name": "Pilzlederkoralle",
+    "latin": "Sarcophyton spp.",
+    "light": 0.45,
+    "growth": 0.026,
+    "color": "#b2a17c",
+    "shape": "soft",
+    "description": "Weiche Koralle. In ihrem Gewebe leben Algen, die mit Licht Nahrung herstellen.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": false,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Pilzförmige Kappe auf einem Stiel",
+        "Polypen mit acht gefiederten Tentakeln"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Sarcophyton_(Cnidaria)"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "sinularia",
+    "name": "Fingerlederkoralle",
+    "latin": "Sinularia spp.",
+    "light": 0.45,
+    "growth": 0.025,
+    "color": "#c3ab8c",
+    "shape": "branch",
+    "description": "Fingerförmige Äste. Braucht Wasserbewegung und freien Platz.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": false,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Kräftige fleischige Fingeräste",
+        "Kleine gefiederte Polypen"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Sinularia"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "kenya",
+    "name": "Kenia-Bäumchen",
+    "latin": "Capnella spp.",
+    "light": 0.4,
+    "growth": 0.05,
+    "color": "#b68e9e",
+    "shape": "branch",
+    "description": "Kann rasch neue Kolonien bilden. Dadurch entsteht Konkurrenz um Raum.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": false,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Baumförmiger Stamm mit Seitenästen",
+        "Polypen an den Astspitzen"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Capnella"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "xenia",
+    "name": "Pumpende Xenie",
+    "latin": "Xenia spp.",
+    "light": 0.4,
+    "growth": 0.065,
+    "color": "#c89da9",
+    "shape": "soft",
+    "description": "Pulsierende Polypen. Kann bei passenden Bedingungen schnell Fläche besetzen.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": false,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Lange Polypenstiele",
+        "Acht gefiederte Tentakel"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Xenia_(Xeniidae)"
+      ],
+      "note": "Die Polypen sind im Modell geöffnet; individuelles Pumpen ist nicht simuliert."
+    }
+  },
+  {
+    "id": "greenstar",
+    "name": "Grüne Sternpolypen",
+    "latin": "Pachyclavularia spp.",
+    "light": 0.45,
+    "growth": 0.05,
+    "color": "#87b378",
+    "shape": "mat",
+    "description": "Ein lebender Teppich aus Polypen. Überwächst bei gutem Wachstum Nachbarflächen.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": false,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Flache bewachsene Matte",
+        "Acht schmale gefiederte Tentakel"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Pachyclavularia"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "zoa",
+    "name": "Krustenanemonen",
+    "latin": "Zoanthus spp.",
+    "light": 0.45,
+    "growth": 0.025,
+    "color": "#b8a471",
+    "shape": "mat",
+    "description": "Viele kleine Polypen bilden eine Kolonie. Gehören wie Korallen zu den Nesseltieren.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": false,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Einzelne kurze Polypensäulen",
+        "Runder Mundteller mit Tentakelkranz"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Zoanthus"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "mushroom",
+    "name": "Scheibenanemone",
+    "latin": "Discosoma spp.",
+    "light": 0.3,
+    "growth": 0.025,
+    "color": "#947fbd",
+    "shape": "disc",
+    "description": "Scheibenförmige Polypen. Brauchen oft weniger Licht als viele Steinkorallen.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": false,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Fleischige gerippte Scheiben",
+        "Mundöffnung in der Mitte"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Discosoma"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "ricordea",
+    "name": "Ricordea",
+    "latin": "Ricordea florida",
+    "light": 0.45,
+    "growth": 0.018,
+    "color": "#a7b18a",
+    "shape": "disc",
+    "description": "Eine Scheibenanemone mit kugeligen Oberflächen. Teilung ist eine Form der Vermehrung.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": false,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Scheibenförmige Polypen",
+        "Dichte kugelige Bläschen auf der Oberfläche"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Ricordea_florida"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "hammer",
+    "name": "Hammerkoralle",
+    "latin": "Fimbriaphyllia ancora",
+    "light": 0.6,
+    "growth": 0.02,
+    "color": "#b7ab82",
+    "shape": "soft",
+    "description": "Polypen mit hammerförmigen Enden. Nesselarme brauchen Abstand zu Nachbarn.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": true,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Gewundener zusammenhängender Skelettwall",
+        "Hammerförmige Tentakelspitzen"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Fimbriaphyllia_ancora"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "frogspawn",
+    "name": "Froschlaichkoralle",
+    "latin": "Fimbriaphyllia divisa",
+    "light": 0.6,
+    "growth": 0.02,
+    "color": "#9db288",
+    "shape": "soft",
+    "description": "Verzweigte Polypenspitzen. Konkurrenz kann auch durch Nesseln entstehen.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": true,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Gewundener zusammenhängender Skelettwall",
+        "Mehrere runde Spitzen an einem Tentakelende"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Euphyllia_divisa"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "torch",
+    "name": "Fackelkoralle",
+    "latin": "Euphyllia glabrescens",
+    "light": 0.65,
+    "growth": 0.018,
+    "color": "#ad9dc0",
+    "shape": "soft",
+    "description": "Lange bewegliche Tentakel. Zu nahe Nachbarn können geschädigt werden.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": true,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Lange schlanke Tentakel",
+        "Einzelne kleine kugelige Tentakelspitzen"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Euphyllia_glabrescens"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "candy",
+    "name": "Zuckerstangenkoralle",
+    "latin": "Caulastrea furcata",
+    "light": 0.5,
+    "growth": 0.025,
+    "color": "#96bba4",
+    "shape": "disc",
+    "description": "Mehrere fleischige Köpfe sitzen auf einem Kalkskelett. Braucht Calcium.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": true,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Verzweigtes Kalkskelett",
+        "Getrennte rundliche fleischige Korallenköpfe"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Caulastraea_furcata"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "duncan",
+    "name": "Duncan-Koralle",
+    "latin": "Duncanopsammia axifuga",
+    "light": 0.5,
+    "growth": 0.03,
+    "color": "#a8b7a1",
+    "shape": "soft",
+    "description": "Polypen können kleine Futterteilchen aufnehmen. Auch ihre Partneralgen liefern Nahrung.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": true,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Großer Mundteller",
+        "Langer schmaler Tentakelkranz"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Duncanopsammia_axifuga"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "brain",
+    "name": "Hirnkoralle",
+    "latin": "Lobophyllia spp.",
+    "light": 0.55,
+    "growth": 0.015,
+    "color": "#b89291",
+    "shape": "brain",
+    "description": "Fleischige Rillen über einem Kalkskelett. Bekommt Energie von Algen und kleinen Nahrungstieren.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": true,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Gewundene fleischige Rillen",
+        "Mehrere verlängerte Täler"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Lobophyllia"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "favites",
+    "name": "Wabenkoralle",
+    "latin": "Favites spp.",
+    "light": 0.6,
+    "growth": 0.018,
+    "color": "#a79b83",
+    "shape": "brain",
+    "description": "Viele Polypen teilen Wände. Baut durch Wachstum ein festes Kalkskelett auf.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": true,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Wabenförmige Koralliten",
+        "Gemeinsame Wände zwischen Nachbarpolypen"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Favites"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "acanth",
+    "name": "Acan-Koralle",
+    "latin": "Micromussa lordhowensis",
+    "light": 0.5,
+    "growth": 0.018,
+    "color": "#b38d8c",
+    "shape": "brain",
+    "description": "Fleischige Polypen. Kann neben Lichtenergie auch Nahrungsteilchen nutzen.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": true,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Einzelne dicke fleischige Polypen",
+        "Radiale Rippen um die Mundöffnung"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Micromussa_lordhowensis"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "plate",
+    "name": "Pilzkoralle",
+    "latin": "Fungia spp.",
+    "light": 0.55,
+    "growth": 0.015,
+    "color": "#b9a790",
+    "shape": "disc",
+    "description": "Ein einzelner großer Polyp. Liegt oft auf dem Sand und braucht freie Fläche.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": true,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Einzelne große Scheibe auf dem Boden",
+        "Viele feine radial verlaufende Rippen"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Fungia"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "chalice",
+    "name": "Kelchkoralle",
+    "latin": "Echinophyllia spp.",
+    "light": 0.55,
+    "growth": 0.016,
+    "color": "#8da99e",
+    "shape": "plate",
+    "description": "Flache wachsende Platten. Lange Nesselarme können Nachbarn erreichen.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": false,
+    "calcify": true,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Flache geschichtete Platte",
+        "Verteilte erhöhte Mundöffnungen"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Echinophyllia"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "montidigi",
+    "name": "Finger-Montipora",
+    "latin": "Montipora digitata",
+    "light": 0.75,
+    "growth": 0.035,
+    "color": "#be966f",
+    "shape": "branch",
+    "description": "Eine Steinkoralle mit verzweigten Ästen. Licht und stabile Wasserwerte sind wichtig.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": true,
+    "calcify": true,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Aufrechte fingerförmige Äste",
+        "Kleine gleichmäßige Koralliten"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Montipora_digitata"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "montiplate",
+    "name": "Platten-Montipora",
+    "latin": "Montipora capricornis",
+    "light": 0.75,
+    "growth": 0.035,
+    "color": "#ad8570",
+    "shape": "plate",
+    "description": "Wächst in Platten. Diese können andere Korallen beschatten.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": true,
+    "calcify": true,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Dünne spiralförmig geschichtete Platten",
+        "Gewellte Plattenränder"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Montipora_capricornis"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "acropora",
+    "name": "Geweihkoralle",
+    "latin": "Acropora spp.",
+    "light": 0.85,
+    "growth": 0.03,
+    "color": "#8aa3ad",
+    "shape": "branch",
+    "description": "Viele dünne Äste. Hohe Ansprüche an Strömung, Licht und stabile Wasserwerte.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": true,
+    "calcify": true,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Dünne verzweigte Äste",
+        "Größere axiale Koralliten an den Spitzen"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Acropora"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "pocillo",
+    "name": "Blumenkohlkoralle",
+    "latin": "Pocillopora spp.",
+    "light": 0.8,
+    "growth": 0.028,
+    "color": "#bba0ac",
+    "shape": "branch",
+    "description": "Dichte verzweigte Kolonie. Empfindlich gegen starke Änderungen.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": true,
+    "calcify": true,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Dichte stumpfe Verzweigung",
+        "Knötchenartige Verrucae auf den Ästen"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Pocillopora"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "stylo",
+    "name": "Griffelkoralle",
+    "latin": "Stylophora pistillata",
+    "light": 0.75,
+    "growth": 0.03,
+    "color": "#bd9dab",
+    "shape": "branch",
+    "description": "Dicke rundliche Äste. Baut ihr Skelett aus Calcium und Carbonat.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": true,
+    "calcify": true,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Kräftige rundlich endende Äste",
+        "Kleine seitliche Koralliten"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Stylophora_pistillata"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "birdsnest",
+    "name": "Vogelnestkoralle",
+    "latin": "Seriatopora hystrix",
+    "light": 0.8,
+    "growth": 0.032,
+    "color": "#c09aaf",
+    "shape": "branch",
+    "description": "Sehr feine Äste. Gute Strömung und freie Nachbarflächen unterstützen das Wachstum.",
+    "category": "coral",
+    "water": "salt",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "minL": 60,
+    "sps": true,
+    "calcify": true,
+    "icon": "coral",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Viele sehr dünne nestartige Äste",
+        "Schmale zugespitzte Verzweigungen"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Seriatopora_hystrix"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "cherryshrimp",
+    "name": "Red-Cherry-Garnele",
+    "latin": "Neocaridina davidi",
+    "water": "fresh",
+    "shape": "shrimp",
+    "size": 3,
+    "minL": 20,
+    "color": "#c15a4c",
+    "description": "Frisst Aufwuchs. Kann sich im Süßwasser vermehren. Kleine Tiere werden leicht Beute.",
+    "reproduce": true,
+    "category": "invert",
+    "temp": [
+      20,
+      27
+    ],
+    "ph": [
+      6.5,
+      8.3
+    ],
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.18,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "shrimp",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Sechs Hinterleibsegmente und Schwanzfächer",
+        "Rote Zuchtform mit fünf Laufbeinpaaren"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Neocaridina_davidi"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "amanoshrimp",
+    "name": "Amano-Garnele",
+    "latin": "Caridina multidentata",
+    "water": "fresh",
+    "shape": "shrimp",
+    "size": 5,
+    "minL": 60,
+    "color": "#a3a597",
+    "description": "Frisst Algen und Aufwuchs. Ihre Larven brauchen Brackwasser; hier kein Nachwuchs.",
+    "reproduce": false,
+    "category": "invert",
+    "temp": [
+      20,
+      27
+    ],
+    "ph": [
+      6.5,
+      8.3
+    ],
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.3,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "shrimp",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Durchscheinender Panzer",
+        "Seitliche Punktreihen und lange Antennen"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Caridina_multidentata"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "crystal",
+    "name": "Bienengarnele",
+    "latin": "Caridina cantonensis",
+    "water": "fresh",
+    "shape": "shrimp",
+    "size": 3,
+    "minL": 30,
+    "color": "#bd8b79",
+    "description": "Braucht eher weiches, stabiles Wasser. Kleine Änderungen können Stress auslösen.",
+    "reproduce": true,
+    "category": "invert",
+    "temp": [
+      20,
+      27
+    ],
+    "ph": [
+      5.8,
+      7.2
+    ],
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      4,
+      8
+    ],
+    "group": 1,
+    "load": 0.18,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "shrimp",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Rotweiße Querbänder",
+        "Segmentierter Hinterleib und Antennen"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Caridina_cantonensis"
+      ],
+      "note": "Die Darstellung zeigt die im Hobby typische rotweiße Zuchtform, keine Garantie der im Katalog breiten Artzuordnung."
+    }
+  },
+  {
+    "id": "bambooshrimp",
+    "name": "Fächergarnele",
+    "latin": "Atyopsis moluccensis",
+    "water": "fresh",
+    "shape": "shrimp",
+    "size": 10,
+    "minL": 100,
+    "color": "#ac8b6a",
+    "description": "Filtert winzige Nahrungsteilchen aus fließendem Wasser. Braucht Strömung.",
+    "reproduce": false,
+    "category": "invert",
+    "temp": [
+      20,
+      27
+    ],
+    "ph": [
+      6.5,
+      8.3
+    ],
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.6,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "shrimp",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Vier fein gefächerte Filterhände",
+        "Heller Längsstreifen auf dem Rücken"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Atyopsis_moluccensis"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "ramshorn",
+    "name": "Posthornschnecke",
+    "latin": "Planorbella spp.",
+    "water": "fresh",
+    "shape": "snail",
+    "size": 3,
+    "minL": 20,
+    "color": "#a47e61",
+    "description": "Frisst Aufwuchs und abgestorbene Reste. Viel Futter fördert ihre Vermehrung.",
+    "reproduce": true,
+    "category": "invert",
+    "temp": [
+      20,
+      27
+    ],
+    "ph": [
+      6.5,
+      8.3
+    ],
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.18,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "snail",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "In einer Ebene aufgerolltes Gehäuse",
+        "Breiter Kriechfuß und dünne Fühler"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Planorbella"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "nerite",
+    "name": "Rennschnecke",
+    "latin": "Neritina / Vittina spp.",
+    "water": "fresh",
+    "shape": "snail",
+    "size": 3,
+    "minL": 20,
+    "color": "#bca67b",
+    "description": "Weidet Beläge ab. Nachwuchs entwickelt sich meist nicht im reinen Süßwasser.",
+    "reproduce": false,
+    "category": "invert",
+    "temp": [
+      20,
+      27
+    ],
+    "ph": [
+      6.5,
+      8.3
+    ],
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.18,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "snail",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Niedrige rundliche Gehäusekappe",
+        "Dunkle unregelmäßige Streifen"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Neritina"
+      ],
+      "note": "Der Katalog fasst mehrere Rennschnecken zusammen; ein gestreifter Vertreter wird gezeigt."
+    }
+  },
+  {
+    "id": "trumpet",
+    "name": "Turmdeckelschnecke",
+    "latin": "Melanoides tuberculata",
+    "water": "fresh",
+    "shape": "snail",
+    "size": 3,
+    "minL": 20,
+    "color": "#9b8e6a",
+    "description": "Durchwühlt den Boden. Viele Tiere zeigen oft ein großes Nahrungsangebot an.",
+    "reproduce": true,
+    "category": "invert",
+    "temp": [
+      20,
+      27
+    ],
+    "ph": [
+      6.5,
+      8.3
+    ],
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.18,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "snail",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Sehr langes konisches Spiralgehäuse",
+        "Viele sichtbare Windungen"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Melanoides_tuberculata"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "bladder",
+    "name": "Blasenschnecke",
+    "latin": "Physella spp.",
+    "water": "fresh",
+    "shape": "snail",
+    "size": 2,
+    "minL": 20,
+    "color": "#afa783",
+    "description": "Nutzt Algen und Reste. Ihre Zahl wächst bei reichlich Futter.",
+    "reproduce": true,
+    "category": "invert",
+    "temp": [
+      20,
+      27
+    ],
+    "ph": [
+      6.5,
+      8.3
+    ],
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.12,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "snail",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Kleines dünnschaliges Gehäuse",
+        "Schmale Fadenfühler"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Physella"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "assassin",
+    "name": "Raubschnecke",
+    "latin": "Anentome helena",
+    "water": "fresh",
+    "shape": "snail",
+    "size": 3,
+    "minL": 30,
+    "color": "#b5a169",
+    "description": "Frisst andere Schnecken. Auch ein langsames Tier kann ein Räuber sein.",
+    "reproduce": true,
+    "category": "invert",
+    "temp": [
+      20,
+      27
+    ],
+    "ph": [
+      6.5,
+      8.3
+    ],
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.18,
+    "diet": "Andere Schnecken",
+    "icon": "snail",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Konisches Gehäuse mit dunklen Bändern",
+        "Schlanker Kriechfuß"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Anentome_helena"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "freshclam",
+    "name": "Asiatische Körbchenmuschel",
+    "latin": "Corbicula fluminea",
+    "water": "fresh",
+    "shape": "clam",
+    "size": 4,
+    "minL": 80,
+    "color": "#b6ad93",
+    "description": "Filtert schwebende Nahrung. In sehr sauberem Wasser kann sie hungern.",
+    "reproduce": false,
+    "category": "invert",
+    "temp": [
+      20,
+      27
+    ],
+    "ph": [
+      6.5,
+      8.3
+    ],
+    "salinity": [
+      0,
+      1
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.24,
+    "diet": "Schwebende Kleinstnahrung",
+    "icon": "clam",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Zwei gerippte Muschelklappen",
+        "Kleine Körperöffnung zwischen den Klappen"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Corbicula_fluminea"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "cleanershrimp",
+    "name": "Weißband-Putzergarnele",
+    "latin": "Lysmata amboinensis",
+    "water": "salt",
+    "shape": "shrimp",
+    "size": 7,
+    "minL": 80,
+    "color": "#d29378",
+    "description": "Kann größere Fische putzen. Winzige Larven überleben im Gemeinschaftsbecken selten.",
+    "reproduce": false,
+    "category": "invert",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.42,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "shrimp",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Roter Körper mit weißem Rückenstreifen",
+        "Sehr lange helle Antennen"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Lysmata_amboinensis"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "fireshrimp",
+    "name": "Kardinalsgarnele",
+    "latin": "Lysmata debelius",
+    "water": "salt",
+    "shape": "shrimp",
+    "size": 7,
+    "minL": 80,
+    "color": "#c46559",
+    "description": "Ein roter Riffbewohner. Braucht Verstecke und passende Wasserwerte.",
+    "reproduce": false,
+    "category": "invert",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.42,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "shrimp",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Roter Körper und helle Beine",
+        "Weiße Punkte auf dem Panzer"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Lysmata_debelius"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "peppermint",
+    "name": "Pfefferminzgarnele",
+    "latin": "Lysmata wurdemanni",
+    "water": "salt",
+    "shape": "shrimp",
+    "size": 6,
+    "minL": 80,
+    "color": "#ce9a89",
+    "description": "Sucht nachts nach kleinen Nahrungsteilchen. Kann selbst Beute werden.",
+    "reproduce": false,
+    "category": "invert",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.36,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "shrimp",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Durchscheinender Körper",
+        "Feine rote Zeichnung und lange Antennen"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Lysmata_wurdemanni"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "trochus",
+    "name": "Kreiselschnecke",
+    "latin": "Trochus spp.",
+    "water": "salt",
+    "shape": "snail",
+    "size": 5,
+    "minL": 60,
+    "color": "#b3a99c",
+    "description": "Raspelt Algen von Steinen. Braucht ein ausreichendes Nahrungsangebot.",
+    "reproduce": true,
+    "category": "invert",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.3,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "snail",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Breites kreiselförmiges Spiralgehäuse",
+        "Kriechfuß mit Fühlern"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Trochus"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "cerith",
+    "name": "Nadelschnecke",
+    "latin": "Cerithium spp.",
+    "water": "salt",
+    "shape": "snail",
+    "size": 4,
+    "minL": 40,
+    "color": "#aaa08d",
+    "description": "Sucht im Sand und auf Steinen nach Belägen und organischen Resten.",
+    "reproduce": true,
+    "category": "invert",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.24,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "snail",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Langgestrecktes gewundenes Gehäuse",
+        "Feine Rippen an den Windungen"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Cerithium"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "nassarius",
+    "name": "Nassarius-Schnecke",
+    "latin": "Nassarius spp.",
+    "water": "salt",
+    "shape": "snail",
+    "size": 3,
+    "minL": 40,
+    "color": "#b3a995",
+    "description": "Ein Aasfresser im Sand. Frisst keine großen Algenmengen.",
+    "reproduce": true,
+    "category": "invert",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.18,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "snail",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Kurzes gewundenes Gehäuse",
+        "Aufragender Atemsipho am Kopf"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Nassarius"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "giantclam",
+    "name": "Riesenmuschel",
+    "latin": "Tridacna maxima",
+    "water": "salt",
+    "shape": "clam",
+    "size": 20,
+    "minL": 200,
+    "color": "#799da3",
+    "description": "Ihre Partneralgen brauchen starkes Licht. Zusätzlich filtert sie Nahrung.",
+    "reproduce": false,
+    "category": "invert",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 1.2,
+    "diet": "Schwebende Kleinstnahrung",
+    "icon": "clam",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Große gefaltete Muschelklappen",
+        "Blauer gemusterter Mantel mit zwei Siphonen"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Tridacna_maxima"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "hermit",
+    "name": "Blaubein-Einsiedler",
+    "latin": "Clibanarius tricolor",
+    "water": "salt",
+    "shape": "crab",
+    "size": 3,
+    "minL": 60,
+    "color": "#8197a4",
+    "description": "Lebt in einem leeren Schneckenhaus. Konkurriert um Nahrung und passende Häuser.",
+    "reproduce": false,
+    "category": "invert",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.18,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "crab",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Schneckenhaus mit herausragendem Krebs",
+        "Blaue gegliederte Beine und zwei Scheren"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Clibanarius_tricolor"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "id": "urchin",
+    "name": "Kugel-Seeigel",
+    "latin": "Mespilia globulus",
+    "water": "salt",
+    "shape": "urchin",
+    "size": 8,
+    "minL": 150,
+    "color": "#8b818f",
+    "description": "Weidet Algen ab. Ein großer Appetit braucht dauerhaft genug Aufwuchs.",
+    "reproduce": false,
+    "category": "invert",
+    "temp": [
+      24,
+      27
+    ],
+    "ph": [
+      7.9,
+      8.5
+    ],
+    "salinity": [
+      32,
+      36
+    ],
+    "gh": [
+      5,
+      22
+    ],
+    "group": 1,
+    "load": 0.48,
+    "diet": "Aufwuchs + passendes Futter",
+    "icon": "urchin",
+    "provenance": {
+      "kind": "authored",
+      "author": "Ökosystem-Werkstatt",
+      "license": "Eigenmodell",
+      "features": [
+        "Fünf blaue kahle Bänder",
+        "Viele kurze feine Stacheln"
+      ],
+      "references": [
+        "https://commons.wikimedia.org/wiki/Category:Mespilia_globulus"
+      ],
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+    }
+  },
+  {
+    "latin": "Einrichtung",
+    "category": "decor",
+    "water": "both",
+    "minL": 0,
+    "icon": "stone",
+    "id": "root",
+    "name": "Mangrovenwurzel",
+    "description": "Holz schafft Schatten und Verstecke. Mikroorganismen besiedeln die Oberfläche.",
+    "color": "#655044",
+    "shape": "root"
+  },
+  {
+    "latin": "Einrichtung",
+    "category": "decor",
+    "water": "both",
+    "minL": 0,
+    "icon": "stone",
+    "id": "stone",
+    "name": "Flussstein",
+    "description": "Ein glatter Stein. Trennt Reviere und bietet Platz für Aufsitzerpflanzen.",
+    "color": "#8f968d",
+    "shape": "stone"
+  },
+  {
+    "latin": "Einrichtung",
+    "category": "decor",
+    "water": "both",
+    "minL": 0,
+    "icon": "stone",
+    "id": "reefrock",
+    "name": "Riffgestein",
+    "description": "Poröses Gestein bietet große Oberflächen für Bakterien und Korallen.",
+    "color": "#b6b19f",
+    "shape": "reefrock"
+  },
+  {
+    "latin": "Einrichtung",
+    "category": "decor",
+    "water": "both",
+    "minL": 0,
+    "icon": "stone",
+    "id": "cave",
+    "name": "Steinhöhle",
+    "description": "Ein Versteck. Verkleinert den Sichtkontakt zwischen Revierfischen.",
+    "color": "#8b918b",
+    "shape": "cave"
+  },
+  {
+    "latin": "Einrichtung",
+    "category": "decor",
+    "water": "both",
+    "minL": 0,
+    "icon": "stone",
+    "id": "shell",
+    "name": "Leeres Muschelhaus",
+    "description": "Dekoration und kleiner Unterschlupf. Ein leeres Haus filtert kein Wasser.",
+    "color": "#cec5b0",
+    "shape": "shell"
+  },
+  {
+    "latin": "Einrichtung",
+    "category": "decor",
+    "water": "fresh",
+    "minL": 60,
+    "icon": "stone",
+    "id": "spiderwood",
+    "name": "Verzweigte Fingerwurzel",
+    "shape": "spiderwood",
+    "color": "#846046",
+    "footprint": [
+      0.78,
+      0.49
+    ],
+    "description": "Fein verzweigtes Holz für Süßwasser. Zwischen den Ästen finden kleine Tiere Deckung; die Oberfläche kann Biofilme tragen. Holz vor dem Einsatz wässern.",
+    "aquascape": true
+  },
+  {
+    "latin": "Einrichtung",
+    "category": "decor",
+    "water": "fresh",
+    "minL": 60,
+    "icon": "stone",
+    "id": "mopani",
+    "name": "Knorrige Savannenwurzel",
+    "shape": "mopani",
+    "color": "#5f4030",
+    "footprint": [
+      0.65,
+      0.44
+    ],
+    "description": "Eine schwere, knorrige Süßwasserwurzel mit ausgewaschenen Vertiefungen. Sie schafft Schatten und Aufsitzflächen. Abgegebene Huminstoffe werden im aktuellen Modell nicht zusätzlich berechnet.",
+    "aquascape": true
+  },
+  {
+    "latin": "Einrichtung",
+    "category": "decor",
+    "water": "both",
+    "minL": 30,
+    "icon": "stone",
+    "id": "slate",
+    "name": "Geschichtete Schieferterrasse",
+    "shape": "slate",
+    "color": "#66737a",
+    "footprint": [
+      0.7,
+      0.46
+    ],
+    "description": "Flache, versetzt geschichtete Steinplatten bilden Vorsprünge und geschützte Spalten. Die Struktur gliedert Reviere und bietet Aufsitzflächen; keine automatische Filterwirkung.",
+    "aquascape": true
+  },
+  {
+    "latin": "Einrichtung",
+    "category": "decor",
+    "water": "fresh",
+    "minL": 60,
+    "icon": "stone",
+    "id": "dragonstone",
+    "name": "Zerklüfteter Drachenstein",
+    "shape": "dragonstone",
+    "color": "#a28a61",
+    "footprint": [
+      0.55,
+      0.4
+    ],
+    "description": "Warme Ockerfarben, markante Grate und ausgewaschene Mulden für Süßwasser-Aquascapes. Vor dem Einsetzen gründlich reinigen. Das Spiel leitet aus der Gesteinsform keine garantierten Wasserwerte ab.",
+    "aquascape": true
+  },
+  {
+    "latin": "Einrichtung",
+    "category": "decor",
+    "water": "both",
+    "minL": 60,
+    "icon": "stone",
+    "id": "basaltarch",
+    "name": "Dunkler Basaltbogen",
+    "shape": "basaltarch",
+    "color": "#414b4d",
+    "footprint": [
+      0.77,
+      0.46
+    ],
+    "description": "Ein dunkler Felsbogen mit tatsächlich offenem Durchgang. Er schafft einen Unterschlupf und unterbricht Sichtachsen. Für Süß- und Meerwasser verwendbar.",
+    "aquascape": true
+  },
+  {
+    "latin": "Einrichtung",
+    "category": "decor",
+    "water": "salt",
+    "minL": 120,
+    "icon": "stone",
+    "id": "reefcave",
+    "name": "Poröse Riffhöhle",
+    "shape": "reefcave",
+    "color": "#c8c1a6",
+    "footprint": [
+      0.77,
+      0.49
+    ],
+    "description": "Helles, porös wirkendes Riffgestein mit einer offenen Höhle und Aufsitzflächen für Meerwasser. Die Oberfläche kann von Biofilmen besiedelt werden. Besiedlung und Mineralabgabe werden noch nicht gesondert simuliert.",
+    "aquascape": true
+  },
+  {
+    "id": "tank-30",
+    "type": "tank",
+    "section": "aquarien",
+    "department": "becken",
+    "name": "30-Liter-Aquarium",
+    "subtitle": "Nano · 40 × 25 × 30 cm",
+    "description": "Ein Glasbecken für deinen eigenen Lebensraum. Wasserart wählst du vor dem Aufstellen.",
+    "liters": 30,
+    "unit": "1 Glasbecken",
+    "color": "#aec6c2"
+  },
+  {
+    "id": "tank-60",
+    "type": "tank",
+    "section": "aquarien",
+    "department": "becken",
+    "name": "60-Liter-Aquarium",
+    "subtitle": "Kompakt · 60 × 30 × 35 cm",
+    "description": "Ein Glasbecken für deinen eigenen Lebensraum. Wasserart wählst du vor dem Aufstellen.",
+    "liters": 60,
+    "unit": "1 Glasbecken",
+    "color": "#aec6c2"
+  },
+  {
+    "id": "tank-120",
+    "type": "tank",
+    "section": "aquarien",
+    "department": "becken",
+    "name": "120-Liter-Aquarium",
+    "subtitle": "Klassisch · 80 × 40 × 40 cm",
+    "description": "Ein Glasbecken für deinen eigenen Lebensraum. Wasserart wählst du vor dem Aufstellen.",
+    "liters": 120,
+    "unit": "1 Glasbecken",
+    "color": "#aec6c2"
+  },
+  {
+    "id": "tank-180",
+    "type": "tank",
+    "section": "aquarien",
+    "department": "becken",
+    "name": "180-Liter-Aquarium",
+    "subtitle": "Panorama · 100 × 40 × 45 cm",
+    "description": "Ein Glasbecken für deinen eigenen Lebensraum. Wasserart wählst du vor dem Aufstellen.",
+    "liters": 180,
+    "unit": "1 Glasbecken",
+    "color": "#aec6c2"
+  },
+  {
+    "id": "tank-300",
+    "type": "tank",
+    "section": "aquarien",
+    "department": "becken",
+    "name": "300-Liter-Aquarium",
+    "subtitle": "Landschaft · 120 × 50 × 50 cm",
+    "description": "Ein Glasbecken für deinen eigenen Lebensraum. Wasserart wählst du vor dem Aufstellen.",
+    "liters": 300,
+    "unit": "1 Glasbecken",
+    "color": "#aec6c2"
+  },
+  {
+    "id": "tank-450",
+    "type": "tank",
+    "section": "aquarien",
+    "department": "becken",
+    "name": "450-Liter-Aquarium",
+    "subtitle": "Großes Riff · 150 × 50 × 60 cm",
+    "description": "Ein Glasbecken für deinen eigenen Lebensraum. Wasserart wählst du vor dem Aufstellen.",
+    "liters": 450,
+    "unit": "1 Glasbecken",
+    "color": "#aec6c2"
+  },
+  {
+    "id": "tank-700",
+    "type": "tank",
+    "section": "aquarien",
+    "department": "becken",
+    "name": "700-Liter-Aquarium",
+    "subtitle": "Lebensraum XL · 200 × 60 × 60 cm",
+    "description": "Ein Glasbecken für deinen eigenen Lebensraum. Wasserart wählst du vor dem Aufstellen.",
+    "liters": 700,
+    "unit": "1 Glasbecken",
+    "color": "#aec6c2"
+  },
+  {
+    "id": "filter-sponge",
+    "value": "sponge",
+    "type": "filter",
+    "section": "filter",
+    "department": "becken",
+    "name": "Schwammfilter · 60 L",
+    "subtitle": "180 L/h · bis 60 L",
+    "description": "Filtermaterial bietet Bakterien Platz. Nach dem Einsetzen braucht der Filter Zeit zum Reifen.",
+    "unit": "1 Filterset",
+    "color": "#637f77"
+  },
+  {
+    "id": "filter-internal120",
+    "value": "internal120",
+    "type": "filter",
+    "section": "filter",
+    "department": "becken",
+    "name": "Innenfilter · 120 L",
+    "subtitle": "450 L/h · bis 120 L",
+    "description": "Filtermaterial bietet Bakterien Platz. Nach dem Einsetzen braucht der Filter Zeit zum Reifen.",
+    "unit": "1 Filterset",
+    "color": "#637f77"
+  },
+  {
+    "id": "filter-internal240",
+    "value": "internal240",
+    "type": "filter",
+    "section": "filter",
+    "department": "becken",
+    "name": "Innenfilter · 240 L",
+    "subtitle": "750 L/h · bis 240 L",
+    "description": "Filtermaterial bietet Bakterien Platz. Nach dem Einsetzen braucht der Filter Zeit zum Reifen.",
+    "unit": "1 Filterset",
+    "color": "#637f77"
+  },
+  {
+    "id": "filter-external300",
+    "value": "external300",
+    "type": "filter",
+    "section": "filter",
+    "department": "becken",
+    "name": "Außenfilter · 300 L",
+    "subtitle": "1000 L/h · bis 300 L",
+    "description": "Filtermaterial bietet Bakterien Platz. Nach dem Einsetzen braucht der Filter Zeit zum Reifen.",
+    "unit": "1 Filterset",
+    "color": "#637f77"
+  },
+  {
+    "id": "filter-external600",
+    "value": "external600",
+    "type": "filter",
+    "section": "filter",
+    "department": "becken",
+    "name": "Außenfilter · 600 L",
+    "subtitle": "1600 L/h · bis 600 L",
+    "description": "Filtermaterial bietet Bakterien Platz. Nach dem Einsetzen braucht der Filter Zeit zum Reifen.",
+    "unit": "1 Filterset",
+    "color": "#637f77"
+  },
+  {
+    "id": "filter-sump",
+    "value": "sump",
+    "type": "filter",
+    "section": "filter",
+    "department": "becken",
+    "name": "Technikbecken · 900 L",
+    "subtitle": "2400 L/h · bis 900 L",
+    "description": "Filtermaterial bietet Bakterien Platz. Nach dem Einsetzen braucht der Filter Zeit zum Reifen.",
+    "unit": "1 Filterset",
+    "color": "#637f77"
+  },
+  {
+    "id": "light-basic",
+    "value": "basic",
+    "type": "light",
+    "section": "licht",
+    "department": "becken",
+    "name": "Tageslicht-LED",
+    "subtitle": "6500 K · mittleres Licht",
+    "description": "Licht versorgt Pflanzen und Partneralgen mit Energie. Lichtdauer und Stärke stellst du am Becken ein.",
+    "unit": "1 Leuchte",
+    "color": "#d2cf8f"
+  },
+  {
+    "id": "light-plant",
+    "value": "plant",
+    "type": "light",
+    "section": "licht",
+    "department": "becken",
+    "name": "Pflanzen-LED",
+    "subtitle": "7000 K · kräftiges Licht",
+    "description": "Licht versorgt Pflanzen und Partneralgen mit Energie. Lichtdauer und Stärke stellst du am Becken ein.",
+    "unit": "1 Leuchte",
+    "color": "#d2cf8f"
+  },
+  {
+    "id": "light-weak",
+    "value": "weak",
+    "type": "light",
+    "section": "licht",
+    "department": "becken",
+    "name": "Sanfte LED",
+    "subtitle": "5000 K · sanftes Licht",
+    "description": "Licht versorgt Pflanzen und Partneralgen mit Energie. Lichtdauer und Stärke stellst du am Becken ein.",
+    "unit": "1 Leuchte",
+    "color": "#d2cf8f"
+  },
+  {
+    "id": "light-reef",
+    "value": "reef",
+    "type": "light",
+    "section": "licht",
+    "department": "becken",
+    "name": "Riff-LED",
+    "subtitle": "15000 K · kräftiges Licht",
+    "description": "Licht versorgt Pflanzen und Partneralgen mit Energie. Lichtdauer und Stärke stellst du am Becken ein.",
+    "unit": "1 Leuchte",
+    "color": "#91b9dc"
+  },
+  {
+    "id": "light-t5",
+    "value": "t5",
+    "type": "light",
+    "section": "licht",
+    "department": "becken",
+    "name": "T5-Leuchtbalken",
+    "subtitle": "8000 K · mittleres Licht",
+    "description": "Licht versorgt Pflanzen und Partneralgen mit Energie. Lichtdauer und Stärke stellst du am Becken ein.",
+    "unit": "1 Leuchte",
+    "color": "#d2cf8f"
+  },
+  {
+    "id": "equipment-heater",
+    "value": "heater",
+    "type": "equipment",
+    "section": "zubehoer",
+    "department": "becken",
+    "name": "Regelheizer",
+    "subtitle": "Wärme für passende Temperaturen",
+    "description": "Heizregler nach dem Kauf passend einstellen.",
+    "unit": "1 Gerät",
+    "color": "#829c92"
+  },
+  {
+    "id": "equipment-air",
+    "value": "air",
+    "type": "equipment",
+    "section": "zubehoer",
+    "department": "becken",
+    "name": "Luftpumpe",
+    "subtitle": "Bewegung an der Wasseroberfläche",
+    "description": "Fördert den Gasaustausch zwischen Luft und Wasser.",
+    "unit": "1 Gerät",
+    "color": "#829c92"
+  },
+  {
+    "id": "equipment-skimmer",
+    "value": "skimmer",
+    "type": "equipment",
+    "section": "zubehoer",
+    "department": "becken",
+    "name": "Eiweißabschäumer",
+    "subtitle": "Technik für Meerwasser",
+    "description": "Entfernt einen Teil organischer Stoffe, bevor sie zerfallen.",
+    "unit": "1 Gerät",
+    "color": "#829c92"
+  },
+  {
+    "id": "substrate-sand",
+    "value": "sand",
+    "type": "substrate",
+    "department": "boden",
+    "name": "Feiner Sand",
+    "subtitle": "5-kg-Sack · Bodengrund",
+    "description": "Bedeckt den Boden. Wurzeln und Mikroorganismen finden hier Platz.",
+    "unit": "5 kg pro Sack",
+    "color": "#c9b798"
+  },
+  {
+    "id": "substrate-gravel",
+    "value": "gravel",
+    "type": "substrate",
+    "department": "boden",
+    "name": "Naturkies",
+    "subtitle": "5-kg-Sack · Bodengrund",
+    "description": "Bedeckt den Boden. Wurzeln und Mikroorganismen finden hier Platz.",
+    "unit": "5 kg pro Sack",
+    "color": "#9a8c79"
+  },
+  {
+    "id": "substrate-soil",
+    "value": "soil",
+    "type": "substrate",
+    "department": "boden",
+    "name": "Aktiver Soil",
+    "subtitle": "5-kg-Sack · Bodengrund",
+    "description": "Nährstoffe im Boden unterstützen Wurzelpflanzen.",
+    "unit": "5 kg pro Sack",
+    "color": "#51483c"
+  },
+  {
+    "id": "substrate-nutrient",
+    "value": "nutrient",
+    "type": "substrate",
+    "department": "boden",
+    "name": "Nährboden + Sand",
+    "subtitle": "5-kg-Sack · Bodengrund",
+    "description": "Nährstoffe im Boden unterstützen Wurzelpflanzen.",
+    "unit": "5 kg pro Sack",
+    "color": "#a59375"
+  },
+  {
+    "id": "substrate-coralsand",
+    "value": "coralsand",
+    "type": "substrate",
+    "department": "boden",
+    "name": "Korallensand",
+    "subtitle": "5-kg-Sack · Bodengrund",
+    "description": "Mineralischer Boden, der die Pufferung des Wassers erhöht.",
+    "unit": "5 kg pro Sack",
+    "color": "#d7d2ba"
+  },
+  {
+    "id": "additive-fertilizer",
+    "value": "fertilizer",
+    "type": "additive",
+    "department": "wasser",
+    "name": "Pflanzendünger",
+    "subtitle": "Eine abgemessene Portion",
+    "description": "Ergänzt Eisen, Stickstoff und Phosphat.",
+    "unit": "Eine abgemessene Portion",
+    "color": "#95b49a"
+  },
+  {
+    "id": "additive-minerals",
+    "value": "minerals",
+    "type": "additive",
+    "department": "wasser",
+    "name": "Riff-Mineralien",
+    "subtitle": "Eine abgemessene Portion",
+    "description": "Ergänzt Calcium und Karbonathärte.",
+    "unit": "Eine abgemessene Portion",
+    "color": "#95b49a"
+  },
+  {
+    "id": "additive-salt",
+    "value": "salt",
+    "type": "additive",
+    "department": "wasser",
+    "name": "Meersalzmischung",
+    "subtitle": "1-kg-Beutel",
+    "description": "Erhöht den Salzgehalt. Die Wirkung hängt von der Wassermenge ab.",
+    "unit": "1-kg-Beutel",
+    "color": "#bfced4"
+  },
+  {
+    "id": "additive-buffer",
+    "value": "buffer",
+    "type": "additive",
+    "department": "wasser",
+    "name": "KH-Mineralien",
+    "subtitle": "Eine abgemessene Portion",
+    "description": "Erhöht die Karbonathärte um eine Spielstufe.",
+    "unit": "Eine abgemessene Portion",
+    "color": "#95b49a"
+  },
+  {
+    "id": "additive-co2",
+    "value": "co2",
+    "type": "additive",
+    "department": "wasser",
+    "name": "CO₂-Set",
+    "subtitle": "Flasche mit Dosierventil",
+    "description": "Ermöglicht eine laufende CO₂-Zugabe für Pflanzen.",
+    "unit": "Flasche mit Dosierventil",
+    "color": "#95b49a"
+  },
+  {
+    "id": "food-flakes",
+    "value": "flakes",
+    "type": "food",
+    "diet": "mixed",
+    "department": "bedarf",
+    "name": "Flockenfutter",
+    "subtitle": "Für Allesfresser",
+    "description": "Eine kleine Portion füttern. Nicht gefressenes Futter belastet das Wasser.",
+    "unit": "1 Futterportion",
+    "color": "#c5a481"
+  },
+  {
+    "id": "food-granules",
+    "value": "granules",
+    "type": "food",
+    "diet": "mixed",
+    "department": "bedarf",
+    "name": "Granulat",
+    "subtitle": "Für viele Aquarienfische",
+    "description": "Eine kleine Portion füttern. Nicht gefressenes Futter belastet das Wasser.",
+    "unit": "1 Futterportion",
+    "color": "#c5a481"
+  },
+  {
+    "id": "food-herbivore",
+    "value": "herbivore",
+    "type": "food",
+    "diet": "herbivore",
+    "department": "bedarf",
+    "name": "Algen- & Pflanzenfutter",
+    "subtitle": "Für Pflanzenfresser und Aufwuchsfresser",
+    "description": "Eine kleine Portion füttern. Nicht gefressenes Futter belastet das Wasser.",
+    "unit": "1 Futterportion",
+    "color": "#91ac71"
+  },
+  {
+    "id": "food-protein",
+    "value": "protein",
+    "type": "food",
+    "diet": "protein",
+    "department": "bedarf",
+    "name": "Frostfutter-Portion",
+    "subtitle": "Für fleischfressende Tiere",
+    "description": "Eine kleine Portion füttern. Nicht gefressenes Futter belastet das Wasser.",
+    "unit": "1 Futterportion",
+    "color": "#c5a481"
+  },
+  {
+    "id": "food-bottom",
+    "value": "bottom",
+    "type": "food",
+    "diet": "bottom",
+    "department": "bedarf",
+    "name": "Bodentabletten",
+    "subtitle": "Für am Boden fressende Tiere",
+    "description": "Eine kleine Portion füttern. Nicht gefressenes Futter belastet das Wasser.",
+    "unit": "1 Futterportion",
+    "color": "#c5a481"
+  },
+  {
+    "id": "food-plankton",
+    "value": "plankton",
+    "type": "food",
+    "diet": "plankton",
+    "department": "bedarf",
+    "name": "Feines Planktonfutter",
+    "subtitle": "Für Filtrierer und Korallen",
+    "description": "Eine kleine Portion füttern. Nicht gefressenes Futter belastet das Wasser.",
+    "unit": "1 Futterportion",
+    "color": "#c5a481"
+  }
+]

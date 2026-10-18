@@ -27,6 +27,7 @@ try:
         errors = []
         page.on('pageerror', lambda error: errors.append(str(error)))
         page.goto(f'http://127.0.0.1:{server.server_port}/{ROOT.name}/', wait_until='load')
+        page.locator('button[data-graphics-profile="ipad"]').click()
         page.locator('[data-start="free"]').click()
         page.locator('[data-panel="time"]').click()
         with page.expect_download() as download:
@@ -58,6 +59,7 @@ try:
             threading.Thread(target=standalone_server.serve_forever, daemon=True).start()
             document_url = f'http://127.0.0.1:{standalone_server.server_port}/Aquarium.html'
             offline.goto(document_url, wait_until='load')
+        offline.locator('button[data-graphics-profile="ipad"]').click()
         expect(offline.locator('[data-start="free"]')).to_be_visible()
         offline.locator('[data-start="free"]').click()
         offline.locator('[data-act="choose-tank"]').click()

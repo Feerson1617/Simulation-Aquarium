@@ -23,7 +23,7 @@ with sync_playwright() as playwright:
   context=browser.new_context(viewport={'width':1360,'height':960},accept_downloads=True)
   page=context.new_page();page.set_default_timeout(20000);page.on('pageerror',lambda e:report['errors'].append(str(e)));page.on('requestfailed',lambda r:report['failed_requests'].append(r.url))
   # Seed only once; reload must use the actual saved state.
-  page.goto(URL);page.evaluate('(s)=>localStorage.setItem("aquarium-werkstatt-v1",JSON.stringify(s))',legacy);page.reload();click(page,'[data-start="resume"]')
+  page.goto(URL);page.locator('button[data-graphics-profile="ipad"]').click();page.evaluate('(s)=>localStorage.setItem("aquarium-werkstatt-v1",JSON.stringify(s))',legacy);page.reload();click(page,'[data-start="resume"]')
   click(page,'#ecosystem-button');initial=page.evaluate('window.aquariumAnalysisSnapshot()')
   for tab in ['web','microbes','nitrogen','carbon','energy','factors']:
    click(page,f'[data-eco-tab="{tab}"]');assert page.locator('.study-content').inner_text().strip()
@@ -74,7 +74,7 @@ with sync_playwright() as playwright:
   passed('all five scenarios share the engine and preserve free save; research stable and plant/water interventions effective')
   passed('photosynthesis stops at night while respiration continues')
   click(page,'[data-start="resume"]');assert saved(page,'aquarium-werkstatt-v1')['entities']==legacy['entities'];passed('legacy free aquarium resumes after all scenarios')
-  context.close();context=browser.new_context(viewport={'width':768,'height':1024},is_mobile=True,has_touch=True);page=context.new_page();page.on('pageerror',lambda e:report['errors'].append(str(e)));page.goto(URL)
+  context.close();context=browser.new_context(viewport={'width':768,'height':1024},is_mobile=True,has_touch=True);page=context.new_page();page.on('pageerror',lambda e:report['errors'].append(str(e)));page.goto(URL);page.locator('button[data-graphics-profile="ipad"]').click()
   page.locator('[data-scenarios]').tap();page.locator('[data-scenario-start="foodweb"]').tap();page.locator('#ecosystem-button').tap();page.locator('[data-eco-tab="microbes"]').tap();assert page.locator('.study-overlay').bounding_box()['width']<=768;assert page.evaluate('document.documentElement.scrollWidth<=innerWidth');page.screenshot(path=str(OUT/'analysis-touch.png'));page.locator('[data-eco-close]').tap()
   passed('tablet portrait touch operates scenarios and analysis without page overflow')
   assert not report['errors'],report['errors'];assert not report['failed_requests'],report['failed_requests'];passed('no JavaScript exceptions or failed requests')

@@ -2,9 +2,11 @@
 Run: blender -b --python tools/realism/build_hardscape.py
 No downloaded content, accounts, add-ons or service calls.
 """
-import bpy,math,random,json,os
+import bpy,math,random,json,os,sys
 from pathlib import Path
 from mathutils import Vector,noise
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+from glb_pivot import floor_pivot
 ROOT=Path(__file__).resolve().parents[2];OUT=ROOT/'assets/realism';OUT.mkdir(exist_ok=True)
 IDS=['root','stone','reefrock','cave','shell','spiderwood','mopani','slate','dragonstone','basaltarch','reefcave']
 SIZES={'root':(1.4,.8,.95),'stone':(1.02,.76,.56),'reefrock':(1.1,.8,.64),'cave':(1.08,.76,.65),'shell':(.46,.30,.24),'spiderwood':(1.4,.85,1.18),'mopani':(1.24,.82,.73),'slate':(1.18,.82,.45),'dragonstone':(.82,.65,1.0),'basaltarch':(1.28,.8,.89),'reefcave':(1.3,.9,.72)}
@@ -100,6 +102,6 @@ for id in (os.environ.get('AQUARIUM_ASSET_IDS','').split(',') if os.environ.get(
  for lod,ratio in [('desktop',.60),('mobile',.20)]:
   dec=obj.modifiers.new('LOD '+lod,'DECIMATE');dec.ratio=ratio
   target=OUT/f'{id}-{lod}.glb';bpy.ops.export_scene.gltf(filepath=str(target),export_format='GLB',use_selection=True,export_apply=True,export_materials='EXPORT',export_yup=True,export_animations=False)
-  obj.modifiers.remove(dec);manifest.setdefault(id,{})[lod]='./assets/realism/'+target.name
+  floor_pivot(target);obj.modifiers.remove(dec);manifest.setdefault(id,{})[lod]='./assets/realism/'+target.name
   print('ASSET',id,lod,target.stat().st_size,flush=True)
 (OUT/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n');(ROOT/'realism-assets.mjs').write_text('export const REALISM_ASSETS = '+json.dumps(manifest)+';\n')

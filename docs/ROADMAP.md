@@ -1,14 +1,14 @@
-# Weiterentwicklung nach Phase 1
+# Weiterentwicklung
 
-Diese Roadmap beschreibt spätere Aufgaben. In diesem Änderungsstand werden ausschließlich Pinzette, Dekoration und die dafür notwendige Bedienung/Speicherung umgesetzt.
+Stand: 18. Oktober 2026. Phase 1 ist in `main` zusammengeführt. Dieser Featurebranch ergänzt die Grundlagen der Phasen 2–5; visuelle und wissenschaftliche Langzeitziele bleiben weitere Entwicklungsarbeit.
 
-| Phase | Nächster sinnvoller Umfang | Abnahmekriterien |
+| Phase | Implementierter Umfang | Offene nächste Schritte |
 | --- | --- | --- |
-| 2 – Produktkatalog | Artenweise korrekte, rechtmäßig nutzbare Fotos oder Renderbilder lokal hinterlegen; zuerst die neuen Dekorationen | Quellen/Lizenzen dokumentiert, keine falschen Artbilder, begrenzte Bildgrößen und keine externen Bildabrufe im Spiel |
-| 3 – Ökosystemanalyse | Datenmodell für tatsächliche Organismen, Ressourcen und Ernährungsbeziehungen; danach eine gemeinsame Analyseansicht | Nahrungspfeile zeigen zum Konsumenten; Allesfresser und externes Futter berücksichtigt; Nitrifizierer nicht als heterotrophe Destruenten eingeordnet |
-| 3 – Funktionslücken | Nur begründete Abhängigkeiten mit auswählbaren Fragezeichen und gestuften Hinweisen darstellen | Mehrere sinnvolle Lösungen, Eignungsprüfung für Umweltwerte und Aktualisierung nach realen Änderungen des Aquariums; kein automatisches Defizit bei externer Fütterung |
-| 4 – Szenarien | Erweiterbare Szenariodefinitionen; ein Nahrungsnetz-Untersuchungsszenario und ein Problemszenario | Eigene Speicherplätze, Neustart möglich, freier Spielstand unverändert; Ursachen nicht durch Titel/Einleitung verraten; gemeinsame Simulation und Analyse |
-| 5 – Simulation und Grafik | Zersetzung, Mineralisierung, Nitrifikation, Stoffkreisläufe und gerichteten Energiefluss fachlich getrennt erweitern | Prozesse beeinflussen messbare Zustände; didaktische Vereinfachungen offengelegt; plausible Ursache-Wirkungs-Beziehungen und fachliche Tests |
-| Laufend | Anatomie, Bewegung, Licht, Wasser und Materialien verbessern | Sichtbare Verbesserungen in der laufenden 3D-Szene, Qualitätseinstellungen und echte Safari-/Schul-iPad-Prüfungen |
+| 1 – Aquascaping | Maus/Touch-Pinzette, 3D-Greifanimation, sechs Dekorationen, gespeicherte Positionen, Tastatur und Abbruch | Echtes Safari-/Schul-iPad testen, hochwertige Modelle weiterentwickeln |
+| 2 – Produktkatalog | 181 lokale eintragsspezifische WebP-Modellvorschauen, Manifest/Urhebernachweise, Generator, lazy loading und Ein-Datei-Export | Fotorealistische Abdeckung ist offen; Anatomie/Materialien der vereinfachten Arten verbessern und referenzgestützt prüfen. Technikbilder sind schematisch |
+| 3 – Analyse | Gemeinsamer Zustandsbezug; Mehrfachrollen, Nahrungspfeile, begründete Fragezeichen, schrittweise Hinweise, Arten-/Umweltprüfung, sechs Ansichten | Weitere artspezifische Ernährung, tatsächliche Fraßereignisse separat vom potenziellen Netz, bessere Navigation sehr großer Netze |
+| 4 – Szenarien | Fünf deklarative Becken, Forschung/Probleme, getrennter Speicher, Wiederaufnahme, Neustartsicherung, Hinweise und Notizen | Unterrichtserprobung, Datenvergleich über mehrere Versuche, alternative Szenariovarianten und didaktische Rückmeldung ohne Musterlösungszwang |
+| 5 – Biologie | Separate Zersetzung/Mineralisierung, O₂-begrenzte Nitrifikation, Kleinstnahrungspools, Sediment-Proxy, Nahrung/Gesundheit, tatsächliche Prozessanzeigen | Quantifizierte C-/N-Biomasse, vollständige Stoff-/Energiebilanzen, räumliche Gradienten, bessere Kalibrierung und längerfristige Versuche |
+| Laufend – Grafik | Gemeinsame versetzte Schwarmbahnen, an Beckenstand gekoppelte Wasseroberfläche, bestehende Qualitätseinstellungen | Naturgetreue Anatomie und Bewegung, räumliche Tiefe, LOD/Instanzierung und echte Geräte-Performance; kein erreichter Gesamtfotorealismus |
 
-Vor Phase 2 ist ein Test der Pinzette auf einem echten Schul-iPad sinnvoll. Danach können die neuen prozeduralen Dekorationen gezielt durch hochwertigere, lokal ausgelieferte Modelle und deren Renderbilder ergänzt werden. Keine kostenpflichtigen APIs, zusätzlichen Konten oder laufzeitnotwendigen Server einführen.
+Alle Ergänzungen bleiben kostenlos, lokal und ohne zusätzliche Konten. Weiterhin statische GitHub-Pages-Dateien, keine Laufzeit-API oder Datenbank. Features über Branch/PR prüfen und nur nach Freigabe in die öffentliche Hauptversion übernehmen.

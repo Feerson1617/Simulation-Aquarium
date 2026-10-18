@@ -9,7 +9,9 @@ URL=os.environ.get('AQUARIUM_URL','http://127.0.0.1:8000/aquarium-simulation/')
 legacy=json.loads((ROOT/'tests/fixtures/legacy-v1.json').read_text());report={'checks':[],'errors':[],'failed_requests':[]}
 def passed(name):report['checks'].append(name);print('PASS',name,flush=True)
 def click(p,s):p.locator(s).filter(visible=True).first.click()
-def home(p):click(p,'[data-panel="time"]');click(p,'[data-act="home"]')
+def home(p):
+ if not p.locator('[data-act="home"]:visible').count():click(p,'[data-panel="time"]')
+ click(p,'[data-act="home"]')
 def raw(p,key):return p.evaluate('(key)=>localStorage.getItem(key)',key)
 def saved(p,key):return json.loads(raw(p,key))
 def scenario(p,id):click(p,'[data-scenarios]');click(p,f'[data-scenario-start="{id}"]')
@@ -40,7 +42,7 @@ with sync_playwright() as playwright:
   prey=clone(s);snail=clone(prey['entities'][-1]);snail.update(uid=prey['nextId'],species='ramshorn',dead=False,health=100);prey['nextId']+=1;prey['entities'].append(snail)
   assert health(probe(page,prey,1))>health(probe(page,s,1))
   assert saved(page,key)['day']==s['day'];passed('real engine health responds to alternative feed and actual prey; probes are isolated')
-  click(page,'[data-panel="shop"]');click(page,'[data-department="bedarf"]');click(page,'[data-product="food-protein"]');click(page,'[data-buy="food-protein"]');click(page,'[data-act="close-panel"]')
+  click(page,'[data-panel="shop"]');click(page,'[data-department="bedarf"]');page.screenshot(path=str(OUT/'catalog-products.png'));click(page,'[data-product="food-protein"]');click(page,'#modal-root [data-buy="food-protein"]');click(page,'[data-act="close-panel"]')
   click(page,'#ecosystem-button');expect(page.locator('.eco-gap')).to_have_count(0);click(page,'[data-eco-close]');passed('actual shop feeding updates the network immediately')
   page.wait_for_function('!document.querySelector(".scenario-session").hidden');click(page,'.scenario-session');click(page,'[data-scenario-hint]');page.locator('#scenario-notes').fill('Hypothese: Versorgung prüfen.');click(page,'[data-scenario-close]')
   before=saved(page,key);assert before['scenario']['notes']=='Hypothese: Versorgung prüfen.'

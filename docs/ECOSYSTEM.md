@@ -4,7 +4,7 @@
 
 Nach der Beckenplatzierung öffnet **Ökosystem** in der unteren Werkzeugleiste die Analyse. Die Spielzeit pausiert. Alle Ansichten lesen das tatsächlich aktive Aquarium; ein zweites Lern-Aquarium gibt es nicht. Zum Fortsetzen Ansicht schließen und die Zeit wie gewohnt starten.
 
-- **Nahrungsnetz:** Organismen werden nach Art zusammengefasst. Mehrfachrollen und Mischkost bleiben sichtbar. Pfeile zeigen von der Nahrung zum Konsumenten. Gestrichelte Rest-/Abhängigkeitswege sind keine behaupteten Fraßvorgänge. Artknoten öffnen die bestehenden Artkarten.
+- **Nahrungsnetz:** Organismen werden nach Art zusammengefasst. Mehrfachrollen und Mischkost bleiben sichtbar. Pfeile zeigen von der Nahrung zum Konsumenten. Gestrichelte Rest-/Abhängigkeitswege sind keine behaupteten Fraßvorgänge. Die Auswahl einer Art hebt ihre Verbindungen hervor; die Detailansicht führt zu den bestehenden Artkarten.
 - **Fragezeichen:** erscheinen bei schwach gedeckter Ernährung, nicht bei jeder fehlenden Verbindung. Passendes externes Futter kann Lücken schließen. Fragezeichen auswählen, Hinweise einzeln anfordern und eigene Ergänzung prüfen. Der vollständige Artenkatalog bleibt zugänglich; die Prüfung setzt keine Organismen ein. Umweltbereiche, Beckenvolumen und Gruppenbedarf werden berücksichtigt. Die Entscheidung bleibt beim Lernenden.
 - **Mikroskop:** schematische Sicht auf heterotrophe Zersetzer sowie getrennte Ammonium- und Nitritoxidierer. Angezeigt werden relative Modellindizes und tatsächlich berechnete Umsätze, keine realen Zellzahlen.
 - **Stickstoff / Kohlenstoff / Energie:** Stoffumwandlungen und gerichteter Energiefluss sind getrennt. Letzte Schrittwerte werden aus dem Rechenkern aufgezeichnet. Ohne Simulationsschritt erscheinen keine erfundenen Messwerte.

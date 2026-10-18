@@ -43,7 +43,7 @@ with sync_playwright() as playwright:
   assert health(probe(page,prey,1))>health(probe(page,s,1))
   assert saved(page,key)['day']==s['day'];passed('real engine health responds to alternative feed and actual prey; probes are isolated')
   click(page,'[data-panel="shop"]');click(page,'[data-department="bedarf"]');page.screenshot(path=str(OUT/'catalog-products.png'));click(page,'[data-product="food-protein"]');click(page,'#modal-root [data-buy="food-protein"]');click(page,'[data-act="close-panel"]')
-  click(page,'#ecosystem-button');expect(page.locator('.eco-gap')).to_have_count(0);click(page,'[data-eco-close]');passed('actual shop feeding updates the network immediately')
+  click(page,'#ecosystem-button');expect(page.locator('.eco-gap')).to_have_count(0);expect(page.locator('.study-edge.dim')).to_have_count(0);click(page,'[data-eco-close]');passed('actual shop feeding updates the network immediately')
   page.wait_for_function('!document.querySelector(".scenario-session").hidden');click(page,'.scenario-session');click(page,'[data-scenario-hint]');page.locator('#scenario-notes').fill('Hypothese: Versorgung prüfen.');click(page,'[data-scenario-close]')
   before=saved(page,key);assert before['scenario']['notes']=='Hypothese: Versorgung prüfen.'
   page.reload();scenario(page,'supply');assert saved(page,key)['scenario']['notes']==before['scenario']['notes'];assert raw(page,'aquarium-werkstatt-v1')==free

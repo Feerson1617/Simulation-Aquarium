@@ -12,7 +12,9 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paracheirodon_innesi_neon_tetra.jpg",
       "kind": "photo"
     },
-    "bytes": 5140
+    "bytes": 5816,
+    "renderRevision": "photo-volume-4",
+    "renderProfile": "high"
   },
   "cardinal": {
     "src": "./assets/catalog/cardinal.webp",
@@ -36,7 +38,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 3340
+    "bytes": 3556,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "molly": {
     "src": "./assets/catalog/molly.webp",
@@ -51,7 +55,9 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:PoeciliaSphenops.jpg",
       "kind": "photo"
     },
-    "bytes": 5466
+    "bytes": 6250,
+    "renderRevision": "photo-volume-4",
+    "renderProfile": "high"
   },
   "guppy": {
     "src": "./assets/catalog/guppy.webp",
@@ -75,7 +81,9 @@
       ],
       "note": "One common cultivated male form. Wild males, females, and other breeds have very different fin proportions and patterns."
     },
-    "bytes": 5930
+    "bytes": 6004,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "platy": {
     "src": "./assets/catalog/platy.webp",
@@ -98,7 +106,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 4406
+    "bytes": 4498,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "swordtail": {
     "src": "./assets/catalog/swordtail.webp",
@@ -121,7 +131,9 @@
       ],
       "note": "Male lower caudal sword is additional to reference total length. Many aquarium strains are red or hybridised."
     },
-    "bytes": 3026
+    "bytes": 3032,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "endler": {
     "src": "./assets/catalog/endler.webp",
@@ -145,7 +157,9 @@
       ],
       "note": "Male locality patterns vary considerably; females are plainer. This profile does not identify a particular geographic strain."
     },
-    "bytes": 3522
+    "bytes": 3594,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "zebra": {
     "src": "./assets/catalog/zebra.webp",
@@ -169,7 +183,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 3552
+    "bytes": 3644,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "pearl": {
     "src": "./assets/catalog/pearl.webp",
@@ -192,7 +208,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 4814
+    "bytes": 4948,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "harlequin": {
     "src": "./assets/catalog/harlequin.webp",
@@ -214,7 +232,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 4044
+    "bytes": 4118,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "ember": {
     "src": "./assets/catalog/ember.webp",
@@ -237,7 +257,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 3706
+    "bytes": 3868,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "rummy": {
     "src": "./assets/catalog/rummy.webp",
@@ -260,7 +282,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 2992
+    "bytes": 3020,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "blackskirt": {
     "src": "./assets/catalog/blackskirt.webp",
@@ -283,7 +307,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 4092
+    "bytes": 4110,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "congo": {
     "src": "./assets/catalog/congo.webp",
@@ -307,7 +333,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 3424
+    "bytes": 3526,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "cherry": {
     "src": "./assets/catalog/cherry.webp",
@@ -330,7 +358,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 4006
+    "bytes": 4132,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "tiger": {
     "src": "./assets/catalog/tiger.webp",
@@ -353,7 +383,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 4562
+    "bytes": 4462,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "betta": {
     "src": "./assets/catalog/betta.webp",
@@ -368,7 +400,9 @@
       "sourceUrl": "https://sketchfab.com/3d-models/betta-splendens-f4eeb7f50ad24873842bd954ad27d23b",
       "kind": "model"
     },
-    "bytes": 9684
+    "bytes": 9694,
+    "renderRevision": "photo-volume-4",
+    "renderProfile": "high"
   },
   "honey": {
     "src": "./assets/catalog/honey.webp",
@@ -392,7 +426,9 @@
       ],
       "note": "Females and non-breeding males are paler and may show a lateral dark band."
     },
-    "bytes": 4540
+    "bytes": 4356,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "pearlgourami": {
     "src": "./assets/catalog/pearlgourami.webp",
@@ -416,7 +452,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 4360
+    "bytes": 4198,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "angelfish": {
     "src": "./assets/catalog/angelfish.webp",
@@ -439,7 +477,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 2664
+    "bytes": 2592,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "discus": {
     "src": "./assets/catalog/discus.webp",
@@ -463,7 +503,9 @@
       ],
       "note": "Catalogue is genus-level. Uses a brown/blue Symphysodon aequifasciatus-like pattern; cultivated discus forms differ strongly."
     },
-    "bytes": 5172
+    "bytes": 4784,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "ram": {
     "src": "./assets/catalog/ram.webp",
@@ -487,7 +529,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 6044
+    "bytes": 6208,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "apisto": {
     "src": "./assets/catalog/apisto.webp",
@@ -511,7 +555,9 @@
       ],
       "note": "Male crest and orange/red cultivated fin markings. Females are smaller, yellowish, and have shorter fins."
     },
-    "bytes": 5742
+    "bytes": 5990,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "krib": {
     "src": "./assets/catalog/krib.webp",
@@ -534,7 +580,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 5050
+    "bytes": 5286,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "cory": {
     "src": "./assets/catalog/cory.webp",
@@ -558,7 +606,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 3396
+    "bytes": 3460,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "panda": {
     "src": "./assets/catalog/panda.webp",
@@ -582,7 +632,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 3602
+    "bytes": 3626,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "oto": {
     "src": "./assets/catalog/oto.webp",
@@ -606,7 +658,9 @@
       ],
       "note": "Genus-level catalogue entry; a striped O. vittatus-like phenotype represents the group."
     },
-    "bytes": 2926
+    "bytes": 3110,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "ancistrus": {
     "src": "./assets/catalog/ancistrus.webp",
@@ -631,7 +685,9 @@
       ],
       "note": "Ancistrus aquarium stock is often not identified to species. Male snout tentacles are bristles, not long feeding barbels."
     },
-    "bytes": 5054
+    "bytes": 5162,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "kuhli": {
     "src": "./assets/catalog/kuhli.webp",
@@ -655,7 +711,9 @@
       ],
       "note": "Representative P. kuhlii pattern; other banded Pangio species sold as kuhli loaches vary in band width and number."
     },
-    "bytes": 2626
+    "bytes": 2650,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "rainbow": {
     "src": "./assets/catalog/rainbow.webp",
@@ -679,7 +737,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 4480
+    "bytes": 4576,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "whitecloud": {
     "src": "./assets/catalog/whitecloud.webp",
@@ -702,7 +762,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 3390
+    "bytes": 3528,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "goldfish": {
     "src": "./assets/catalog/goldfish.webp",
@@ -726,7 +788,9 @@
       ],
       "note": "Body and tail represent ordinary single-tail stock. Fantail, telescope and other domestic forms require different anatomy."
     },
-    "bytes": 4074
+    "bytes": 4132,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "sae": {
     "src": "./assets/catalog/sae.webp",
@@ -750,7 +814,9 @@
       ],
       "note": "Aquarium trade identification among Crossocheilus species is inconsistent; this is a dark lateral-stripe representative of the catalogue species."
     },
-    "bytes": 3010
+    "bytes": 3058,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "dwarfbuffer": {
     "src": "./assets/catalog/dwarfbuffer.webp",
@@ -774,7 +840,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 4248
+    "bytes": 4358,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "clown": {
     "src": "./assets/catalog/clown.webp",
@@ -789,7 +857,9 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amphiprion_ocellaris.002_-_Aquarium_Finisterrae.jpg",
       "kind": "photo"
     },
-    "bytes": 5572
+    "bytes": 6290,
+    "renderRevision": "photo-volume-4",
+    "renderProfile": "high"
   },
   "royal": {
     "src": "./assets/catalog/royal.webp",
@@ -813,7 +883,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 4952
+    "bytes": 5034,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "firefish": {
     "src": "./assets/catalog/firefish.webp",
@@ -837,7 +909,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 3694
+    "bytes": 3810,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "purplefire": {
     "src": "./assets/catalog/purplefire.webp",
@@ -861,7 +935,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 3954
+    "bytes": 4050,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "goby": {
     "src": "./assets/catalog/goby.webp",
@@ -885,7 +961,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 4348
+    "bytes": 4346,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "neongoby": {
     "src": "./assets/catalog/neongoby.webp",
@@ -909,7 +987,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 3672
+    "bytes": 3816,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "clowngoby": {
     "src": "./assets/catalog/clowngoby.webp",
@@ -933,7 +1013,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 4126
+    "bytes": 4298,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "mandarin": {
     "src": "./assets/catalog/mandarin.webp",
@@ -958,7 +1040,9 @@
       ],
       "note": "Broad depressed head and large pelvic fins are dragonet traits. Blue/orange labyrinth is artist-generated, not copied from a specimen."
     },
-    "bytes": 5120
+    "bytes": 5216,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "blenny": {
     "src": "./assets/catalog/blenny.webp",
@@ -982,7 +1066,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 4620
+    "bytes": 4728,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "bicolor": {
     "src": "./assets/catalog/bicolor.webp",
@@ -1006,7 +1092,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 4384
+    "bytes": 4512,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "chromis": {
     "src": "./assets/catalog/chromis.webp",
@@ -1029,7 +1117,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 3996
+    "bytes": 4148,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "damsel": {
     "src": "./assets/catalog/damsel.webp",
@@ -1052,7 +1142,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 5234
+    "bytes": 5162,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "banggai": {
     "src": "./assets/catalog/banggai.webp",
@@ -1077,7 +1169,9 @@
       ],
       "note": "Long fins strongly affect total length. Body-depth ratio near 0.33 is an artist estimate informed by the FishBase specimen image; not a fitted measurement."
     },
-    "bytes": 4968
+    "bytes": 4988,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "pajama": {
     "src": "./assets/catalog/pajama.webp",
@@ -1101,7 +1195,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 4920
+    "bytes": 5064,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "yellowtang": {
     "src": "./assets/catalog/yellowtang.webp",
@@ -1125,7 +1221,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 4096
+    "bytes": 4094,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "bluetang": {
     "src": "./assets/catalog/bluetang.webp",
@@ -1148,7 +1246,9 @@
       ],
       "note": "Pacific palette surgeonfish P. hepatus. Not the Atlantic blue tang Acanthurus coeruleus, which has a different pattern."
     },
-    "bytes": 6512
+    "bytes": 6436,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "kole": {
     "src": "./assets/catalog/kole.webp",
@@ -1172,7 +1272,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 6168
+    "bytes": 6068,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "flame": {
     "src": "./assets/catalog/flame.webp",
@@ -1195,7 +1297,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 5902
+    "bytes": 5792,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "beauty": {
     "src": "./assets/catalog/beauty.webp",
@@ -1219,7 +1323,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 6246
+    "bytes": 6224,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "sixline": {
     "src": "./assets/catalog/sixline.webp",
@@ -1243,7 +1349,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 4636
+    "bytes": 4826,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "cleanerwrasse": {
     "src": "./assets/catalog/cleanerwrasse.webp",
@@ -1266,7 +1374,9 @@
       ],
       "note": "Juveniles are almost black with a bright blue stripe; adults use the broader dark lateral band shown here."
     },
-    "bytes": 3286
+    "bytes": 3400,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "hawk": {
     "src": "./assets/catalog/hawk.webp",
@@ -1290,7 +1400,9 @@
       ],
       "note": "Original artist-estimated proportions and markings; not a specimen scan."
     },
-    "bytes": 5160
+    "bytes": 5294,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "lion": {
     "src": "./assets/catalog/lion.webp",
@@ -1314,7 +1426,9 @@
       ],
       "note": "Broad-finned dwarf lionfish, not Pterois volitans. Separate dorsal spines and fan-shaped pectoral rays must be modelled; the normal fin sheet alone is insufficient."
     },
-    "bytes": 4584
+    "bytes": 4644,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "anthias": {
     "src": "./assets/catalog/anthias.webp",
@@ -1337,7 +1451,9 @@
       ],
       "note": "Females are orange; mature males change toward pink/purple and can develop an elongated dorsal spine. This is deliberately a female profile."
     },
-    "bytes": 4386
+    "bytes": 4590,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "anubias": {
     "src": "./assets/catalog/anubias.webp",
@@ -1359,7 +1475,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3720
+    "bytes": 3300,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "nana": {
     "src": "./assets/catalog/nana.webp",
@@ -1374,7 +1492,9 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anubias_barteri_var._nana.jpg",
       "kind": "photo"
     },
-    "bytes": 2380
+    "bytes": 1860,
+    "renderRevision": "photo-volume-4",
+    "renderProfile": "high"
   },
   "javafern": {
     "src": "./assets/catalog/javafern.webp",
@@ -1396,7 +1516,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 4426
+    "bytes": 3758,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "trident": {
     "src": "./assets/catalog/trident.webp",
@@ -1418,7 +1540,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3754
+    "bytes": 3214,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "javamoss": {
     "src": "./assets/catalog/javamoss.webp",
@@ -1440,7 +1564,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 5486
+    "bytes": 5422,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "christmas": {
     "src": "./assets/catalog/christmas.webp",
@@ -1462,7 +1588,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 4364
+    "bytes": 4308,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "vallis": {
     "src": "./assets/catalog/vallis.webp",
@@ -1477,7 +1605,9 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vallisneria_spiralis.jpg",
       "kind": "photo"
     },
-    "bytes": 2000
+    "bytes": 1784,
+    "renderRevision": "photo-volume-4",
+    "renderProfile": "high"
   },
   "vallisgiant": {
     "src": "./assets/catalog/vallisgiant.webp",
@@ -1499,7 +1629,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3520
+    "bytes": 2888,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "swordplant": {
     "src": "./assets/catalog/swordplant.webp",
@@ -1521,7 +1653,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3366
+    "bytes": 3082,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "redflame": {
     "src": "./assets/catalog/redflame.webp",
@@ -1543,7 +1677,9 @@
       ],
       "note": "Red Flame ist eine Kulturform; Rosettenbau nach Echinodorus, Färbung nach Katalog. Keine Wildart-Rekonstruktion."
     },
-    "bytes": 3868
+    "bytes": 2834,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "crypt": {
     "src": "./assets/catalog/crypt.webp",
@@ -1565,7 +1701,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3968
+    "bytes": 3274,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "cryptparva": {
     "src": "./assets/catalog/cryptparva.webp",
@@ -1587,7 +1725,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 4762
+    "bytes": 4628,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "waterweed": {
     "src": "./assets/catalog/waterweed.webp",
@@ -1609,7 +1749,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 4536
+    "bytes": 4216,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "hornwort": {
     "src": "./assets/catalog/hornwort.webp",
@@ -1631,7 +1773,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3332
+    "bytes": 3022,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "hygro": {
     "src": "./assets/catalog/hygro.webp",
@@ -1653,7 +1797,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 4790
+    "bytes": 4616,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "corymbosa": {
     "src": "./assets/catalog/corymbosa.webp",
@@ -1675,7 +1821,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 4580
+    "bytes": 4300,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "limno": {
     "src": "./assets/catalog/limno.webp",
@@ -1697,7 +1845,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3428
+    "bytes": 3366,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "rotala": {
     "src": "./assets/catalog/rotala.webp",
@@ -1719,7 +1869,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 4248
+    "bytes": 3900,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "ludwigia": {
     "src": "./assets/catalog/ludwigia.webp",
@@ -1741,7 +1893,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 5230
+    "bytes": 4774,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "bacopa": {
     "src": "./assets/catalog/bacopa.webp",
@@ -1763,7 +1917,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 5194
+    "bytes": 4958,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "cabomba": {
     "src": "./assets/catalog/cabomba.webp",
@@ -1785,7 +1941,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3748
+    "bytes": 3440,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "alternanthera": {
     "src": "./assets/catalog/alternanthera.webp",
@@ -1807,7 +1965,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 5532
+    "bytes": 5084,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "pearlweed": {
     "src": "./assets/catalog/pearlweed.webp",
@@ -1829,7 +1989,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 7618
+    "bytes": 7492,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "montecarlo": {
     "src": "./assets/catalog/montecarlo.webp",
@@ -1851,7 +2013,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 2908
+    "bytes": 2892,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "hairgrass": {
     "src": "./assets/catalog/hairgrass.webp",
@@ -1873,7 +2037,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 5322
+    "bytes": 3990,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "stauro": {
     "src": "./assets/catalog/stauro.webp",
@@ -1895,7 +2061,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 6454
+    "bytes": 6530,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "buce": {
     "src": "./assets/catalog/buce.webp",
@@ -1917,7 +2085,9 @@
       ],
       "note": "Der Katalog nennt eine Gattung. Dargestellt ist eine kleine breitblättrige Aquarienform, keine bestimmte Art."
     },
-    "bytes": 4464
+    "bytes": 3978,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "lotus": {
     "src": "./assets/catalog/lotus.webp",
@@ -1939,7 +2109,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3974
+    "bytes": 2576,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "frogbit": {
     "src": "./assets/catalog/frogbit.webp",
@@ -1961,7 +2133,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 2620
+    "bytes": 2610,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "salvinia": {
     "src": "./assets/catalog/salvinia.webp",
@@ -1983,7 +2157,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 4786
+    "bytes": 4482,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "waterlettuce": {
     "src": "./assets/catalog/waterlettuce.webp",
@@ -2005,7 +2181,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 2674
+    "bytes": 2808,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "aponogeton": {
     "src": "./assets/catalog/aponogeton.webp",
@@ -2027,7 +2205,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 5004
+    "bytes": 4650,
+    "renderRevision": "organic-3",
+    "renderProfile": "high"
   },
   "softleather": {
     "src": "./assets/catalog/softleather.webp",
@@ -2048,7 +2228,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3060
+    "bytes": 3078,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "sinularia": {
     "src": "./assets/catalog/sinularia.webp",
@@ -2069,7 +2251,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3508
+    "bytes": 3544,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "kenya": {
     "src": "./assets/catalog/kenya.webp",
@@ -2090,7 +2274,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3616
+    "bytes": 3700,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "xenia": {
     "src": "./assets/catalog/xenia.webp",
@@ -2111,7 +2297,9 @@
       ],
       "note": "Die Polypen sind im Modell geöffnet; individuelles Pumpen ist nicht simuliert."
     },
-    "bytes": 4808
+    "bytes": 4804,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "greenstar": {
     "src": "./assets/catalog/greenstar.webp",
@@ -2132,7 +2320,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3260
+    "bytes": 3234,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "zoa": {
     "src": "./assets/catalog/zoa.webp",
@@ -2153,7 +2343,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 4058
+    "bytes": 4004,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "mushroom": {
     "src": "./assets/catalog/mushroom.webp",
@@ -2174,7 +2366,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3192
+    "bytes": 3150,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "ricordea": {
     "src": "./assets/catalog/ricordea.webp",
@@ -2195,7 +2389,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 2810
+    "bytes": 2746,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "hammer": {
     "src": "./assets/catalog/hammer.webp",
@@ -2216,7 +2412,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 5152
+    "bytes": 5092,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "frogspawn": {
     "src": "./assets/catalog/frogspawn.webp",
@@ -2237,7 +2435,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 5554
+    "bytes": 5384,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "torch": {
     "src": "./assets/catalog/torch.webp",
@@ -2258,7 +2458,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 4914
+    "bytes": 4718,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "candy": {
     "src": "./assets/catalog/candy.webp",
@@ -2279,7 +2481,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 2748
+    "bytes": 2828,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "duncan": {
     "src": "./assets/catalog/duncan.webp",
@@ -2300,7 +2504,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 5674
+    "bytes": 5458,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "brain": {
     "src": "./assets/catalog/brain.webp",
@@ -2321,7 +2527,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 2412
+    "bytes": 2474,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "favites": {
     "src": "./assets/catalog/favites.webp",
@@ -2342,7 +2550,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 2740
+    "bytes": 2738,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "acanth": {
     "src": "./assets/catalog/acanth.webp",
@@ -2363,7 +2573,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 2508
+    "bytes": 2554,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "plate": {
     "src": "./assets/catalog/plate.webp",
@@ -2384,7 +2596,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 2520
+    "bytes": 2446,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "chalice": {
     "src": "./assets/catalog/chalice.webp",
@@ -2405,7 +2619,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 2914
+    "bytes": 2938,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "montidigi": {
     "src": "./assets/catalog/montidigi.webp",
@@ -2426,7 +2642,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3838
+    "bytes": 3918,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "montiplate": {
     "src": "./assets/catalog/montiplate.webp",
@@ -2447,7 +2665,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 2090
+    "bytes": 2096,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "acropora": {
     "src": "./assets/catalog/acropora.webp",
@@ -2468,7 +2688,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3758
+    "bytes": 3728,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "pocillo": {
     "src": "./assets/catalog/pocillo.webp",
@@ -2489,7 +2711,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3626
+    "bytes": 3522,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "stylo": {
     "src": "./assets/catalog/stylo.webp",
@@ -2510,7 +2734,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3226
+    "bytes": 3094,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "birdsnest": {
     "src": "./assets/catalog/birdsnest.webp",
@@ -2531,7 +2757,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 4098
+    "bytes": 4120,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "cherryshrimp": {
     "src": "./assets/catalog/cherryshrimp.webp",
@@ -2552,7 +2780,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3154
+    "bytes": 3320,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "amanoshrimp": {
     "src": "./assets/catalog/amanoshrimp.webp",
@@ -2573,7 +2803,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 2250
+    "bytes": 2366,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "crystal": {
     "src": "./assets/catalog/crystal.webp",
@@ -2594,7 +2826,9 @@
       ],
       "note": "Die Darstellung zeigt die im Hobby typische rotweiße Zuchtform, keine Garantie der im Katalog breiten Artzuordnung."
     },
-    "bytes": 3348
+    "bytes": 3486,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "bambooshrimp": {
     "src": "./assets/catalog/bambooshrimp.webp",
@@ -2615,7 +2849,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3018
+    "bytes": 3148,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "ramshorn": {
     "src": "./assets/catalog/ramshorn.webp",
@@ -2636,7 +2872,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 4420
+    "bytes": 4544,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "nerite": {
     "src": "./assets/catalog/nerite.webp",
@@ -2657,7 +2895,9 @@
       ],
       "note": "Der Katalog fasst mehrere Rennschnecken zusammen; ein gestreifter Vertreter wird gezeigt."
     },
-    "bytes": 4262
+    "bytes": 4138,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "trumpet": {
     "src": "./assets/catalog/trumpet.webp",
@@ -2678,7 +2918,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 2854
+    "bytes": 2888,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "bladder": {
     "src": "./assets/catalog/bladder.webp",
@@ -2699,7 +2941,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3014
+    "bytes": 3024,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "assassin": {
     "src": "./assets/catalog/assassin.webp",
@@ -2720,7 +2964,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3594
+    "bytes": 3632,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "freshclam": {
     "src": "./assets/catalog/freshclam.webp",
@@ -2741,7 +2987,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3952
+    "bytes": 4088,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "cleanershrimp": {
     "src": "./assets/catalog/cleanershrimp.webp",
@@ -2762,7 +3010,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3188
+    "bytes": 3342,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "fireshrimp": {
     "src": "./assets/catalog/fireshrimp.webp",
@@ -2783,7 +3033,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3062
+    "bytes": 3210,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "peppermint": {
     "src": "./assets/catalog/peppermint.webp",
@@ -2804,7 +3056,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 2842
+    "bytes": 2856,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "trochus": {
     "src": "./assets/catalog/trochus.webp",
@@ -2825,7 +3079,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 2806
+    "bytes": 2884,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "cerith": {
     "src": "./assets/catalog/cerith.webp",
@@ -2846,7 +3102,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 2608
+    "bytes": 2626,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "nassarius": {
     "src": "./assets/catalog/nassarius.webp",
@@ -2867,7 +3125,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3016
+    "bytes": 3114,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "giantclam": {
     "src": "./assets/catalog/giantclam.webp",
@@ -2888,7 +3148,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 3854
+    "bytes": 3918,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "hermit": {
     "src": "./assets/catalog/hermit.webp",
@@ -2909,7 +3171,9 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 4304
+    "bytes": 4404,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "urchin": {
     "src": "./assets/catalog/urchin.webp",
@@ -2930,106 +3194,207 @@
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
     },
-    "bytes": 6022
+    "bytes": 6112,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "root": {
     "src": "./assets/catalog/root.webp",
     "kind": "Modellvorschau",
-    "credit": "Eigene Spielmodelle / lokale Three.js-Darstellung",
-    "license": "Repository-Projektcode; Three.js MIT",
-    "source": "",
-    "provenance": {},
-    "bytes": 4028
+    "credit": "Simulation-Aquarium",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+    "provenance": {
+      "kind": "model",
+      "author": "Simulation-Aquarium",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+      "note": "Original locally authored Blender hardscape; no photorealism claim"
+    },
+    "bytes": 4190,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "stone": {
     "src": "./assets/catalog/stone.webp",
     "kind": "Modellvorschau",
-    "credit": "Eigene Spielmodelle / lokale Three.js-Darstellung",
-    "license": "Repository-Projektcode; Three.js MIT",
-    "source": "",
-    "provenance": {},
-    "bytes": 4466
+    "credit": "Simulation-Aquarium",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+    "provenance": {
+      "kind": "model",
+      "author": "Simulation-Aquarium",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+      "note": "Original locally authored Blender hardscape; no photorealism claim"
+    },
+    "bytes": 2910,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "reefrock": {
     "src": "./assets/catalog/reefrock.webp",
     "kind": "Modellvorschau",
-    "credit": "Eigene Spielmodelle / lokale Three.js-Darstellung",
-    "license": "Repository-Projektcode; Three.js MIT",
-    "source": "",
-    "provenance": {},
-    "bytes": 4012
+    "credit": "Simulation-Aquarium",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+    "provenance": {
+      "kind": "model",
+      "author": "Simulation-Aquarium",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+      "note": "Original locally authored Blender hardscape; no photorealism claim"
+    },
+    "bytes": 2826,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "cave": {
     "src": "./assets/catalog/cave.webp",
     "kind": "Modellvorschau",
-    "credit": "Eigene Spielmodelle / lokale Three.js-Darstellung",
-    "license": "Repository-Projektcode; Three.js MIT",
-    "source": "",
-    "provenance": {},
-    "bytes": 2758
+    "credit": "Simulation-Aquarium",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+    "provenance": {
+      "kind": "model",
+      "author": "Simulation-Aquarium",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+      "note": "Original locally authored Blender hardscape; no photorealism claim"
+    },
+    "bytes": 2854,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "shell": {
     "src": "./assets/catalog/shell.webp",
     "kind": "Modellvorschau",
-    "credit": "Eigene Spielmodelle / lokale Three.js-Darstellung",
-    "license": "Repository-Projektcode; Three.js MIT",
-    "source": "",
-    "provenance": {},
-    "bytes": 1616
+    "credit": "Simulation-Aquarium",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+    "provenance": {
+      "kind": "model",
+      "author": "Simulation-Aquarium",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+      "note": "Original locally authored Blender hardscape; no photorealism claim"
+    },
+    "bytes": 2226,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "spiderwood": {
     "src": "./assets/catalog/spiderwood.webp",
     "kind": "Modellvorschau",
-    "credit": "Eigene Spielmodelle / lokale Three.js-Darstellung",
-    "license": "Repository-Projektcode; Three.js MIT",
-    "source": "",
-    "provenance": {},
-    "bytes": 4802
+    "credit": "Simulation-Aquarium",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+    "provenance": {
+      "kind": "model",
+      "author": "Simulation-Aquarium",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+      "note": "Original locally authored Blender hardscape; no photorealism claim"
+    },
+    "bytes": 3830,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "mopani": {
     "src": "./assets/catalog/mopani.webp",
     "kind": "Modellvorschau",
-    "credit": "Eigene Spielmodelle / lokale Three.js-Darstellung",
-    "license": "Repository-Projektcode; Three.js MIT",
-    "source": "",
-    "provenance": {},
-    "bytes": 3724
+    "credit": "Simulation-Aquarium",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+    "provenance": {
+      "kind": "model",
+      "author": "Simulation-Aquarium",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+      "note": "Original locally authored Blender hardscape; no photorealism claim"
+    },
+    "bytes": 3606,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "slate": {
     "src": "./assets/catalog/slate.webp",
     "kind": "Modellvorschau",
-    "credit": "Eigene Spielmodelle / lokale Three.js-Darstellung",
-    "license": "Repository-Projektcode; Three.js MIT",
-    "source": "",
-    "provenance": {},
-    "bytes": 3902
+    "credit": "Simulation-Aquarium",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+    "provenance": {
+      "kind": "model",
+      "author": "Simulation-Aquarium",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+      "note": "Original locally authored Blender hardscape; no photorealism claim"
+    },
+    "bytes": 2670,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "dragonstone": {
     "src": "./assets/catalog/dragonstone.webp",
     "kind": "Modellvorschau",
-    "credit": "Eigene Spielmodelle / lokale Three.js-Darstellung",
-    "license": "Repository-Projektcode; Three.js MIT",
-    "source": "",
-    "provenance": {},
-    "bytes": 4364
+    "credit": "Simulation-Aquarium",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+    "provenance": {
+      "kind": "model",
+      "author": "Simulation-Aquarium",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+      "note": "Original locally authored Blender hardscape; no photorealism claim"
+    },
+    "bytes": 2854,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "basaltarch": {
     "src": "./assets/catalog/basaltarch.webp",
     "kind": "Modellvorschau",
-    "credit": "Eigene Spielmodelle / lokale Three.js-Darstellung",
-    "license": "Repository-Projektcode; Three.js MIT",
-    "source": "",
-    "provenance": {},
-    "bytes": 4186
+    "credit": "Simulation-Aquarium",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+    "provenance": {
+      "kind": "model",
+      "author": "Simulation-Aquarium",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+      "note": "Original locally authored Blender hardscape; no photorealism claim"
+    },
+    "bytes": 3166,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "reefcave": {
     "src": "./assets/catalog/reefcave.webp",
     "kind": "Modellvorschau",
-    "credit": "Eigene Spielmodelle / lokale Three.js-Darstellung",
-    "license": "Repository-Projektcode; Three.js MIT",
-    "source": "",
-    "provenance": {},
-    "bytes": 6256
+    "credit": "Simulation-Aquarium",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+    "provenance": {
+      "kind": "model",
+      "author": "Simulation-Aquarium",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+      "note": "Original locally authored Blender hardscape; no photorealism claim"
+    },
+    "bytes": 2700,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "tank-30": {
     "src": "./assets/catalog/tank-30.webp",
@@ -3038,7 +3403,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1886
+    "bytes": 1252,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "tank-60": {
     "src": "./assets/catalog/tank-60.webp",
@@ -3047,7 +3414,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1886
+    "bytes": 1328,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "tank-120": {
     "src": "./assets/catalog/tank-120.webp",
@@ -3056,7 +3425,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1886
+    "bytes": 1246,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "tank-180": {
     "src": "./assets/catalog/tank-180.webp",
@@ -3065,7 +3436,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1886
+    "bytes": 1230,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "tank-300": {
     "src": "./assets/catalog/tank-300.webp",
@@ -3074,7 +3447,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1886
+    "bytes": 1196,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "tank-450": {
     "src": "./assets/catalog/tank-450.webp",
@@ -3083,7 +3458,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1886
+    "bytes": 1194,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "tank-700": {
     "src": "./assets/catalog/tank-700.webp",
@@ -3092,7 +3469,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1886
+    "bytes": 1104,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "filter-sponge": {
     "src": "./assets/catalog/filter-sponge.webp",
@@ -3101,7 +3480,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1384
+    "bytes": 1398,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "filter-internal120": {
     "src": "./assets/catalog/filter-internal120.webp",
@@ -3110,7 +3491,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1384
+    "bytes": 1474,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "filter-internal240": {
     "src": "./assets/catalog/filter-internal240.webp",
@@ -3119,7 +3502,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1384
+    "bytes": 1474,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "filter-external300": {
     "src": "./assets/catalog/filter-external300.webp",
@@ -3128,7 +3513,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1384
+    "bytes": 1672,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "filter-external600": {
     "src": "./assets/catalog/filter-external600.webp",
@@ -3137,7 +3524,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1384
+    "bytes": 1672,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "filter-sump": {
     "src": "./assets/catalog/filter-sump.webp",
@@ -3146,7 +3535,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1384
+    "bytes": 1366,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "light-basic": {
     "src": "./assets/catalog/light-basic.webp",
@@ -3155,7 +3546,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1092
+    "bytes": 1010,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "light-plant": {
     "src": "./assets/catalog/light-plant.webp",
@@ -3164,7 +3557,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1092
+    "bytes": 1010,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "light-weak": {
     "src": "./assets/catalog/light-weak.webp",
@@ -3173,7 +3568,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1092
+    "bytes": 1028,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "light-reef": {
     "src": "./assets/catalog/light-reef.webp",
@@ -3182,7 +3579,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1092
+    "bytes": 1044,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "light-t5": {
     "src": "./assets/catalog/light-t5.webp",
@@ -3191,7 +3590,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1092
+    "bytes": 1040,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "equipment-heater": {
     "src": "./assets/catalog/equipment-heater.webp",
@@ -3200,7 +3601,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1484
+    "bytes": 1088,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "equipment-air": {
     "src": "./assets/catalog/equipment-air.webp",
@@ -3209,7 +3612,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1484
+    "bytes": 1894,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "equipment-skimmer": {
     "src": "./assets/catalog/equipment-skimmer.webp",
@@ -3218,7 +3623,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1484
+    "bytes": 1408,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "substrate-sand": {
     "src": "./assets/catalog/substrate-sand.webp",
@@ -3227,7 +3634,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1566
+    "bytes": 1424,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "substrate-gravel": {
     "src": "./assets/catalog/substrate-gravel.webp",
@@ -3236,7 +3645,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1622
+    "bytes": 1518,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "substrate-soil": {
     "src": "./assets/catalog/substrate-soil.webp",
@@ -3245,7 +3656,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1822
+    "bytes": 1554,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "substrate-nutrient": {
     "src": "./assets/catalog/substrate-nutrient.webp",
@@ -3254,7 +3667,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1704
+    "bytes": 1588,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "substrate-coralsand": {
     "src": "./assets/catalog/substrate-coralsand.webp",
@@ -3263,7 +3678,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1450
+    "bytes": 1366,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "additive-fertilizer": {
     "src": "./assets/catalog/additive-fertilizer.webp",
@@ -3272,7 +3689,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1466
+    "bytes": 1466,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "additive-minerals": {
     "src": "./assets/catalog/additive-minerals.webp",
@@ -3281,7 +3700,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1466
+    "bytes": 1468,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "additive-salt": {
     "src": "./assets/catalog/additive-salt.webp",
@@ -3290,7 +3711,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1436
+    "bytes": 1370,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "additive-buffer": {
     "src": "./assets/catalog/additive-buffer.webp",
@@ -3299,7 +3722,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1466
+    "bytes": 1466,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "additive-co2": {
     "src": "./assets/catalog/additive-co2.webp",
@@ -3308,7 +3733,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1466
+    "bytes": 1460,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "food-flakes": {
     "src": "./assets/catalog/food-flakes.webp",
@@ -3317,7 +3744,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1574
+    "bytes": 2328,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "food-granules": {
     "src": "./assets/catalog/food-granules.webp",
@@ -3326,7 +3755,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1574
+    "bytes": 2332,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "food-herbivore": {
     "src": "./assets/catalog/food-herbivore.webp",
@@ -3335,7 +3766,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1552
+    "bytes": 2262,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "food-protein": {
     "src": "./assets/catalog/food-protein.webp",
@@ -3344,7 +3777,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1574
+    "bytes": 1554,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "food-bottom": {
     "src": "./assets/catalog/food-bottom.webp",
@@ -3353,7 +3788,9 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1574
+    "bytes": 2338,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   },
   "food-plankton": {
     "src": "./assets/catalog/food-plankton.webp",
@@ -3362,6 +3799,8 @@
     "license": "Repository-Projektcode; Three.js MIT",
     "source": "",
     "provenance": {},
-    "bytes": 1574
+    "bytes": 1526,
+    "renderRevision": "realism-2",
+    "renderProfile": "high"
   }
 }

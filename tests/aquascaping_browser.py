@@ -100,9 +100,10 @@ try:
             page.on('console', lambda message: report['console_errors'].append({'text': message.text[:1000], 'url': message.location.get('url', '')}) if message.type == 'error' else None)
             page.on('request', lambda request: report['external_requests'].append(request.url[:200]) if request.url.startswith(('http:', 'https:')) and not request.url.startswith(f'http://127.0.0.1:{server.server_port}/') else None)
             page.on('response', lambda response: report['resource_errors'].append({'url': response.url, 'status': response.status}) if response.status >= 400 and not response.url.endswith('/favicon.ico') else None)
-            assert page.goto(URL, wait_until='load')
+            response = page.goto(URL, wait_until='load')
+            assert response.status == 200
             if page.locator('button[data-graphics-profile=\"ipad\"]').count():
-                page.locator('button[data-graphics-profile=\"ipad\"]').click().status == 200
+                page.locator('button[data-graphics-profile=\"ipad\"]').click()
             expect(page.locator('[data-start="free"]')).to_be_visible()
             expect(page.locator('#tweezers-button')).to_be_hidden()
             return context, page

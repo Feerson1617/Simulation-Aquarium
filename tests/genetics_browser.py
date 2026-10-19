@@ -72,7 +72,17 @@ with sync_playwright()as p:
   assert all(e['age']>=7 for e in saved(page)['entities']if e['uid']in[mother,father])
   page.locator('[data-gen-reveal]').check();click(page,'[data-gen-action="theory"]');assert page.locator('.genetics-punnett tbody td').count()==4
   report['f2']=second;shot(page,'molly-f2-punnett.png');page.locator('.genetics-content').evaluate('(el)=>el.scrollTop=720');shot(page,'molly-f2-results.png');passed('Actual F1 parents mature and produce stochastic F2; analysis shows their 2×2 Punnett square')
-  final=saved(page);(OUT/'f2-save.json').write_text(json.dumps(final,ensure_ascii=False,indent=2));click(page,'[data-gen-close]');page.wait_for_function('window.aquariumRenderedIndividuals().filter(e=>e.fish).length>9')
+  final=saved(page);(OUT/'f2-save.json').write_text(json.dumps(final,ensure_ascii=False,indent=2));click(page,'[data-gen-close]')
+  # GLB loading can publish an individual before its first world-matrix update.
+  # Wait for every actual F2 fish and its rendered growth, not an arbitrary count.
+  page.wait_for_function("""([parents, newborn])=>{
+    const view=window.aquariumRenderedIndividuals();
+    const find=id=>view.find(r=>r.fish&&r.uid===id);
+    const adults=parents.map(find), young=newborn.map(find);
+    return adults.every(Boolean)&&young.every(Boolean)&&
+      young.every(r=>r.basisLengths.every(n=>n>0)&&
+        Math.max(...r.basisLengths)<Math.min(...adults.map(a=>Math.max(...a.basisLengths))));
+  }""",arg=[[mother,father],[r['uid'] for r in second]])
   view=page.evaluate('window.aquariumRenderedIndividuals()');report['offspring_render']=view
   newborn={r['uid']for r in second};adults=[r for r in view if r.get('fish')and r['uid']in[mother,father]];young=[r for r in view if r.get('fish')and r['uid']in newborn]
   assert young and max(young[0]['basisLengths'])<max(adults[0]['basisLengths']),view

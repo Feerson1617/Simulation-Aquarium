@@ -1,0 +1,4 @@
+# Reproducible build intermediates; packed copies are inside the shipped GLBs.
+*-skin.jpg
+*-normal.png
+*-roughness.png

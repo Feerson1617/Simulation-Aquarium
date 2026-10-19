@@ -14,7 +14,7 @@ for item in items:
  for lod in os.environ.get('AQUARIUM_LODS','desktop,mobile').split(','):
   target=OUT/(id+'-'+lod+'.glb')
   if target.exists()and not os.environ.get('AQUARIUM_REBUILD'):manifest.setdefault(id,{})[lod]='./assets/species/'+target.name;continue
-  bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False);builder.build(item,lod);finish()
+  bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False);bpy.data.orphans_purge(do_local_ids=True,do_linked_ids=True,do_recursive=True);builder.build(item,lod);finish()
   for obj in bpy.context.scene.objects:
    if obj.type=='MESH':obj['species']=id;obj['authorship']='Original species-aware procedural anatomy; visual acceptance separate'
   bpy.ops.object.select_all(action='SELECT');bpy.ops.export_scene.gltf(filepath=str(target),export_format='GLB',use_selection=True,export_apply=True,export_yup=True,export_animations=False,export_extras=True,export_image_format='AUTO',export_keep_originals=False)

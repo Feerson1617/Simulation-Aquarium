@@ -62,6 +62,17 @@ test('population limits block births instead of silently deleting genetic indivi
  const f=setup();while(f.state.entities.length<POPULATION_LIMITS.entities)f.state.entities.push({...f.mother,uid:f.state.nextId++,sex:'♂'});const before=f.state.entities.length;days(f,8);assert.equal(f.state.entities.length,before);assert.equal(offspringOf(f.state,f.mother.uid,f.father.uid).length,0);
 });
 
+test('unsuitable embryo water delays hatching, then records loss without deleting genes',()=>{
+ const f=setup('zebra',['natural','golden']);days(f,7);const ids=[...f.state.genetics.clutches[0].ids];f.state.params.temp=34;days(f,1);assert.equal(f.state.genetics.clutches.length,1);assert.ok(ids.every(id=>f.state.genetics.pedigree[id].status==='Ei'));days(f,2);assert.equal(f.state.genetics.clutches.length,0);assert.ok(ids.every(id=>f.state.genetics.pedigree[id].status==='Ei abgestorben'));assert.equal(f.state.entities.filter(e=>e.species==='zebra').length,2);
+});
+test('incomplete ancestry and a model assigned to another species are rejected without founder reset',()=>{
+ const f=setup();days(f,7);const save=structuredClone(f.state);delete save.genetics;assert.throws(()=>normalizeGenetics(save,undefined,catalog),/Abstammungsarchiv/);
+ const raw=structuredClone(f.state.genetics);raw.pedigree[f.mother.uid].model='zebra-golden';assert.throws(()=>normalizeGenetics(structuredClone(f.state),raw,catalog),/Modell/);
+});
+test('reselecting an already active pair preserves accumulated suitable days',()=>{
+ const f=setup();days(f,4);assert.equal(f.mother.pregnancy,4);setBreedingPair(f.state,'molly',f.mother.uid,f.father.uid);assert.equal(f.mother.pregnancy,4);
+});
+
 test('iPad displays a stable subset including selected/newborn fish; Desktop keeps all individuals',async()=>{
  const {displayedEntities}=await import('../render-population.mjs');const list=Array.from({length:100},(_,i)=>({uid:i+1,species:'molly',age:i>80?0:30,dead:false,genetics:{founder:i<=80}}));list.push({uid:101,species:'anubias'});const saved=JSON.stringify(list),mobile=displayedEntities(list,catalog,{platform:'ipad'},77);
  assert.equal(mobile.filter(e=>e.species==='molly').length,64);assert.ok(mobile.some(e=>e.uid===77));assert.ok(mobile.some(e=>e.uid===100));assert.ok(mobile.some(e=>e.uid===101));assert.equal(displayedEntities(list,catalog,{platform:'desktop'},77),list);assert.equal(JSON.stringify(list),saved);

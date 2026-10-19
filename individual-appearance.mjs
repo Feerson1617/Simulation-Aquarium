@@ -32,7 +32,11 @@ function variantTexture(T,source,form,role,species,sex,material){
   if(female&&role!=='fin'&&u>.57&&u<.78&&v>.52&&v<.83)pigment=rgb('#565e43');
   for(let channel=0;channel<3;channel++)data[k+channel]=Math.round(Math.max(0,Math.min(1,preserve?old[channel]:pigment[channel]*shade))*255);
  }
- ctx.putImageData(image,0,0);const map=source?source.clone():new T.CanvasTexture(canvas);map.image=canvas;map.flipY=source?.flipY??false;map.colorSpace=T.SRGBColorSpace;map.userData.visualShared=true;map.needsUpdate=true;textures.set(key,map);return map;
+ ctx.putImageData(image,0,0);const map=new T.CanvasTexture(canvas);
+ // Texture.clone() shares THREE.Source: assigning image on that clone would
+ // recolour every other individual using the original source. Keep a new Source.
+ if(source){for(const property of ['wrapS','wrapT','magFilter','minFilter','anisotropy','channel','rotation','matrixAutoUpdate','generateMipmaps','premultiplyAlpha','unpackAlignment'])map[property]=source[property];for(const property of ['offset','repeat','center','matrix'])map[property].copy(source[property])}
+ map.flipY=source?.flipY??false;map.colorSpace=T.SRGBColorSpace;map.userData.visualShared=true;map.needsUpdate=true;textures.set(key,map);return map;
 }
 export function applyIndividualAppearance(group,individual,T){
  const species=individual.species,form=variantFor(species,individual.variant),female=['guppy','endler','swordtail'].includes(species)&&individual.sex==='♀',femaleMorph=['guppy','endler','swordtail','platy'].includes(species)&&individual.sex==='♀';
@@ -53,3 +57,13 @@ export function applyIndividualAppearance(group,individual,T){
  });return group;
 }
 export function clearIndividualTextures(){for(const texture of textures.values())texture.dispose();textures.clear()}
+
+/** Read-only browser diagnostic: check actual rendered Sources, not variant labels. */
+export function appearanceMaterialAudit(group){
+ const result=[];group.traverse(mesh=>{if(!mesh.isMesh)return;for(const material of Array.isArray(mesh.material)?mesh.material:[mesh.material]){
+  const map=material.map;if(!map?.image)continue;
+  const canvas=document.createElement('canvas');canvas.width=canvas.height=16;const ctx=canvas.getContext('2d');ctx.drawImage(map.image,0,0,16,16);const data=ctx.getImageData(0,0,16,16).data;let hash=2166136261,weight=0,sum=[0,0,0];
+  for(let i=0;i<data.length;i+=4){const alpha=data[i+3]/255;weight+=alpha;for(let c=0;c<4;c++)hash=Math.imul(hash^data[i+c],16777619);for(let c=0;c<3;c++)sum[c]+=data[i+c]*alpha}
+  result.push({mesh:mesh.name,material:material.name,source:map.source.uuid,width:map.image.width,height:map.image.height,fingerprint:hash>>>0,mean:sum.map(n=>n/Math.max(1,weight))});
+ }});return result;
+}

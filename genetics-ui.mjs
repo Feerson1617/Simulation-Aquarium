@@ -1,3 +1,4 @@
+import { graphicsProfile } from './graphics-profiles.mjs';
 import { GENETICS_DISCLAIMER,variantFor,genotypeText } from './fish-variants.mjs';
 import { BREEDING_SPECIES,ensureGenetics,setBreedingPair,breedingConditions,punnettSquare,offspringOf,populationSummary,individualGrowth } from './genetics.mjs';
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -6,6 +7,7 @@ const percent=n=>number(n*100)+' %';
 export function mountGeneticsUI({root,getState,getSpecies,isHome,pause,interactive,save,advance,foodScore,openSpecies,openIndividual,notify}){
  const button=document.createElement('button');button.id='genetics-button';button.className='tool';button.innerHTML='<span aria-hidden="true">♧</span><span>Genetik</span>';button.setAttribute('aria-expanded','false');root.querySelector('.toolbar').append(button);
  const overlay=document.createElement('section');overlay.className='study-overlay genetics-overlay';overlay.hidden=true;overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','Genetik und Vererbung');root.append(overlay);
+ const populationNote=document.createElement('p');populationNote.className='population-view-note';populationNote.hidden=true;populationNote.setAttribute('role','status');root.append(populationNote);
  let species='molly',motherId=null,fatherId=null,reveal=false,theory=false,page=0,identity=null,returnFocus=null;
  const state=()=>getState(),catalog=()=>getSpecies();
  const relevant=()=>state().entities.filter(e=>e.species===species&&!e.dead);
@@ -73,6 +75,6 @@ export function mountGeneticsUI({root,getState,getSpecies,isHome,pause,interacti
   if(event.key==='Escape'){event.stopPropagation();close()}
   if(event.key==='Tab'){const controls=[...overlay.querySelectorAll('button:not(:disabled),select,input,textarea')].filter(e=>e.offsetParent!==null),first=controls[0],last=controls.at(-1);if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}}
  });
- setInterval(()=>{button.disabled=isHome()||state().tankPlaced===false;if(identity&&identity!==state()&&!overlay.hidden)close()},500);
+ setInterval(()=>{const count=state().entities.filter(e=>catalog()[e.species]?.category==='fish').length;populationNote.hidden=isHome()||graphicsProfile().platform!=='ipad'||count<=64;populationNote.textContent=`64 von ${count} Fischen sichtbar · alle werden berechnet`;button.disabled=isHome()||state().tankPlaced===false;if(identity&&identity!==state()&&!overlay.hidden)close()},500);
  return{open,close,isOpen:()=>!overlay.hidden,snapshot:()=>({population:populationSummary(state(),catalog()),selectedSpecies:species,parents:[motherId,fatherId],revealed:reveal,theoryShown:theory,genetics:state().genetics?JSON.parse(JSON.stringify(state().genetics)):null})};
 }

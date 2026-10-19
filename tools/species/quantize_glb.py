@@ -12,7 +12,7 @@ COUNTS={'SCALAR':1,'VEC2':2,'VEC3':3,'VEC4':4,'MAT2':4,'MAT3':9,'MAT4':16}
 
 def quantize(path):
  path=Path(path);raw=path.read_bytes();size=struct.unpack_from('<I',raw,12)[0];doc=json.loads(raw[20:20+size]);binary=raw[28+size:]
- if 'KHR_mesh_quantization'in doc.get('extensionsRequired',[]):return {'file':path.name,'unchanged':True}
+ if doc.get('asset',{}).get('extras',{}).get('quantizationRevision')==2:return {'file':path.name,'unchanged':True}
  semantics={}
  for mesh in doc.get('meshes',[]):
   for primitive in mesh['primitives']:
@@ -44,7 +44,12 @@ def quantize(path):
   elif component==5126 and semantic.startswith('COLOR_'):
    data=np.rint(np.clip(data,0,1)*255).astype('u1');component=5121;normalized=True;transformed=True
   original_target=views[a['bufferView']].get('target')if'bufferView'in a else None
-  a['bufferView']=append(data.tobytes(),original_target);a.pop('byteOffset',None);a.pop('sparse',None);a['componentType']=component
+  stride=data.dtype.itemsize*data.shape[1];packed=data.tobytes()
+  if semantic and stride%4:
+   aligned=(stride+3)//4*4;padded=np.zeros((len(data),aligned),dtype=np.uint8);padded[:,:stride]=data.view(np.uint8).reshape(len(data),stride);packed=padded.tobytes()
+  a['bufferView']=append(packed,original_target)
+  if semantic and stride%4:outviews[-1]['byteStride']=aligned
+  a.pop('byteOffset',None);a.pop('sparse',None);a['componentType']=component
   if normalized:a['normalized']=True
   else:a.pop('normalized',None)
   if transformed and ('min'in a or semantic=='POSITION'):
@@ -52,7 +57,7 @@ def quantize(path):
  for image in doc.get('images',[]):
   if'bufferView'not in image:raise ValueError('Shipped model contains an external image')
   view=views[image['bufferView']];image['bufferView']=append(binary[view.get('byteOffset',0):view.get('byteOffset',0)+view['byteLength']]);image.pop('uri',None)
- doc['bufferViews']=outviews;doc['buffers']=[{'byteLength':len(output)}];doc.setdefault('extensionsUsed',[]).append('KHR_mesh_quantization');doc.setdefault('extensionsRequired',[]).append('KHR_mesh_quantization');doc.setdefault('asset',{}).setdefault('extras',{})['positionQuantizationMaxError']=1/32767
+ doc['bufferViews']=outviews;doc['buffers']=[{'byteLength':len(output)}];doc['extensionsUsed']=list(dict.fromkeys(doc.get('extensionsUsed',[])+['KHR_mesh_quantization']));doc['extensionsRequired']=list(dict.fromkeys(doc.get('extensionsRequired',[])+['KHR_mesh_quantization']));doc.setdefault('asset',{}).setdefault('extras',{})['positionQuantizationMaxError']=1/32767;doc['asset']['extras']['quantizationRevision']=2
  text=json.dumps(doc,separators=(',',':')).encode();text+=b' '*((-len(text))%4);output+=b'\x00'*((-len(output))%4)
  result=struct.pack('<III',0x46546c67,2,12+8+len(text)+8+len(output))+struct.pack('<II',len(text),0x4e4f534a)+text+struct.pack('<II',len(output),0x004e4942)+output
  temp=path.with_suffix('.glb.tmp');temp.write_bytes(result);temp.replace(path)

@@ -11,3 +11,5 @@ Andere neue Körper-/Blatt-/Panzeroberflächen stammen aus lokalen Farb-, Relief
 Die bereits vorhandenen fototexturierten Modelle für Neon, Molly, Clownfisch, Nana und Vallisnerie sowie BlueMesh-Betta bleiben mit ihren ursprünglichen Lizenzen erhalten. Sie werden durch diese Datei nicht neu lizenziert. Quellen: assets/catalog/manifest.json und die vorhandenen Modellnachweise.
 
 Ein erfolgreicher GLB-Export oder eine hochauflösende Textur belegt keinen Fotorealismus. Die visuelle und biologische Abnahme wird getrennt dokumentiert. Externe Referenzabrufe waren im Auftrag durch CONNECT-403 blockiert; vorhandene Quellenangaben sind keine Behauptung neuer Website-Prüfungen.
+
+Die vollständig prozeduralen Originalmodelle und Pigmentkarten (alle außer Guppy, Platy, Zebrabärbling und Bronze-Panzerwels) werden als Projektbeitrag unter CC0-1.0 bereitgestellt. Die vier Modelle mit erzeugter Bildvorlage sind ausdrücklich aus dieser Widmung ausgenommen; das erzeugte Ausgangsbild ist keine lizenzierte Fotografie und unterliegt den dokumentierten OpenAI-Nutzungsbedingungen. Die bestehenden Fotomodelle und der Betta behalten ihre bisherigen individuellen Lizenzen.

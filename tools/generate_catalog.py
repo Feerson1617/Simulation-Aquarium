@@ -3,7 +3,7 @@ import json,base64
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 ROOT=Path(__file__).resolve().parents[1]
-def revision(item):return 'photo-volume-4' if item['id'] in ['neon','molly','clown','nana','vallis','betta'] else 'organic-3' if item.get('category') in ['fish','plant'] else 'realism-2'
+def revision(item):return 'photo-volume-4' if item['id'] in ['neon','molly','clown','nana','vallis','betta'] else 'species-glb-1' if item.get('provenance',{}).get('kind')=='authored-glb' else 'organic-3' if item.get('category') in ['fish','plant'] else 'realism-2'
 previous=json.loads((ROOT/'assets/catalog/manifest.json').read_text())
 with sync_playwright() as p:
  b=p.chromium.launch(executable_path='/usr/bin/chromium',args=['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'])

@@ -26,14 +26,14 @@ def build(item,lod):
  elif id in ['waterweed','hornwort','hygro','corymbosa','limno','rotala','ludwigia','bacopa','cabomba','alternanthera','pearlweed']:
   for k in range(count):
    angle=k*2.399;bx=math.cos(angle)*(.08+k*.008);bz=math.sin(angle)*(.08+k*.008);h=height*(.75+rng.random()*.25);points=[(bx+math.sin(t*2+k)*.035*t,h*t,bz+math.cos(t*3+k)*.03*t)for t in[j/18 for j in range(19)]];tube('branching-stem',points,[.0035*(1-j/25)for j in range(19)],stemmat,7)
-   for j in range(2,17):
-    p=points[j];whorls=5 if id=='waterweed'else 10 if id in ['hornwort','limno']else 2
+   for j in range(2,17,1 if lod=='desktop'else 2):
+    p=points[j];whorls=(5 if lod=='desktop'else 4)if id=='waterweed'else(10 if lod=='desktop'else 6)if id in ['hornwort','limno']else 2
     for n in range(whorls):
      a=j*math.pi/2+n*2*math.pi/whorls+k
      if id in ['hornwort','limno','cabomba']:
       rays=7 if id=='cabomba'else 3
       for ray in range(rays):
-       fan=a+(ray/(rays-1)-.5)*1.4;end=(p[0]+math.cos(fan)*length,p[1]+.02,p[2]+math.sin(fan)*length);tube('dissected-leaf-ray',[p,end],[.0013,.0004],leafmat,5)
+       fan=a+(ray/(rays-1)-.5)*1.4;end=(p[0]+math.cos(fan)*length,p[1]+.02,p[2]+math.sin(fan)*length);tube('dissected-leaf-ray',[p,end],[.0013,.0004],leafmat,5 if lod=='desktop'else 4)
        if id!='hornwort':
         for branch in [-1,1]:tube('pinnule',[end,(end[0]+math.cos(fan+branch*.7)*length*.28,end[1]+.007,end[2]+math.sin(fan+branch*.7)*length*.28)],[.0006,.00015],leafmat,4)
      else:leaf('opposite-leaf',p,length,width,a,.025,leafmat,color,lod,'oval'if id in ['bacopa','rotala']else'lance')
@@ -60,7 +60,7 @@ def build(item,lod):
  if id!='hornwort'and shape!='floating':
   for k in range(12):
    angle=k*2.399;points=[(0,.005,0),(math.cos(angle)*.05,-.015,math.sin(angle)*.05),(math.cos(angle)*.13,-.035,math.sin(angle)*.12)];tube('anchoring-root',points,[.0025,.0015,.0003],rootmat,5)
- # Blade extent is tied to the previous placement footprint, not silently enlarged.
+ # Bound the canopy; the placement system continues to reserve plant bases.
  objects=[o for o in bpy.context.scene.objects if o.type=='MESH'];maxr=max((max(abs(v.co.x),abs(v.co.y))for o in objects for v in o.data.vertices),default=.3)
  if maxr>.38:
   factor=.38/maxr

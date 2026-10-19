@@ -43,11 +43,12 @@ def mesh(name,verts,faces,mat,uv=None,role=None):
  obj['surfaceRole']=role or name;return obj
 
 def tube(name,points,radii,mat,sides=8):
- verts=[];faces=[]
+ verts=[];faces=[];previous=None
  for j,p in enumerate(points):
-  tangent=Vector(points[min(j+1,len(points)-1)])-Vector(points[max(0,j-1)]);tangent.normalize();u=tangent.cross(Vector((0,1,0)))
+  tangent=Vector(points[min(j+1,len(points)-1)])-Vector(points[max(0,j-1)]);tangent.normalize()
+  u=previous-tangent*previous.dot(tangent)if previous is not None else tangent.cross(Vector((0,1,0)))
   if u.length<.01:u=tangent.cross(Vector((0,0,1)))
-  u.normalize();v=tangent.cross(u).normalized()
+  u.normalize();previous=u.copy();v=tangent.cross(u).normalized()
   for k in range(sides):
    angle=k*2*math.pi/sides;verts.append(tuple(Vector(p)+radii[j]*(math.cos(angle)*u+math.sin(angle)*v)))
   if j:
@@ -207,7 +208,7 @@ def run():
    bpy.ops.object.select_all(action='SELECT')
    bpy.ops.export_scene.gltf(filepath=str(target),export_format='GLB',use_selection=True,export_apply=True,export_yup=True,export_animations=False,export_extras=True,export_image_format='AUTO',export_keep_originals=False)
    manifest.setdefault(id,{})[lod]='./assets/species/'+target.name
-   MANIFEST.write_text(json.dumps(manifest,indent=2)+'\n');(ROOT/'species-assets.mjs').write_text('export const SPECIES_ASSETS = '+json.dumps(manifest)+';\n');print('FISH',id,lod,target.stat().st_size,flush=True)
+   temp=OUT/'manifest.json.tmp';temp.write_text(json.dumps(manifest,indent=2)+'\n');temp.replace(MANIFEST);temp=ROOT/'species-assets.mjs.tmp';temp.write_text('export const SPECIES_ASSETS = '+json.dumps(manifest)+';\n');temp.replace(ROOT/'species-assets.mjs');print('FISH',id,lod,target.stat().st_size,flush=True)
  print('Fish GLB build complete',len(manifest))
 
 if __name__=='__main__':run()

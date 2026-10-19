@@ -24,7 +24,7 @@ def loft(name,centers,radii,mat,sides=12,role='body'):
  faces.extend([tuple(range(sides,-1,-1)),tuple((len(centers)-1)*(sides+1)+k for k in range(sides+1))]);return mesh(name,verts,faces,mat,uv,role)
 
 def leaf(name,base,length,width,angle,rise,mat,color,lod,kind='lance',ruffle=0,role='leaf'):
- rows,cols=(30,12)if lod=='desktop'else(16,6);verts=[];faces=[];uv=[]
+ rows,cols=((6,4)if lod=='desktop'else(4,2))if name=='moss-leaf'else((30,12)if lod=='desktop'else(16,6));verts=[];faces=[];uv=[]
  for j in range(rows+1):
   t=j/rows;envelope=math.sin(math.pi*t)**(.65 if kind in ['oval','heart']else.95);envelope*=1+ruffle*math.sin(t*math.pi*16)
   if kind=='heart':envelope*=1+.35*math.sin(t*math.pi*2)

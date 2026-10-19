@@ -6,7 +6,7 @@ from build_fish import ellipsoid
 def shrimp(item,lod):
  id=item['id'];color=item['species']['color'];desktop=lod=='desktop';cuticle=vertex_material('cuticle',color,.38,.82 if id=='amanoshrimp'else 1);legmat=material('walking-legs',color,.5,.8);eye=material('compound-eye','#111a17',.18);whisker=material('antenna','#c6bda4'if id not in ['cleanershrimp','fireshrimp']else'#e3ddc7',.55,.85)
  for segment in range(7):
-  start=segment/7;end=(segment+1)/7;points=[];radii=[]
+  start=0 if segment==0 else .32+(segment-1)/6*.68;end=.32 if segment==0 else .32+segment/6*.68;points=[];radii=[]
   for j in range(13 if desktop else 7):
    t=start+(end-start)*j/(12 if desktop else 6);x=.28-.62*t;y=.16+.095*math.sin(t*math.pi)-.05*t*t;points.append((x,y,0));r=.065*(1-.58*t);radii.append((r*(1+.18*math.sin(j*math.pi/(12 if desktop else 6))),r*.8))
   body=loft('carapace'if segment==0 else'abdominal-somite',points,radii,cuticle,18 if desktop else 10,'body')
@@ -14,14 +14,16 @@ def shrimp(item,lod):
    if id=='crystal'and segment in [1,3,5]:return tuple(linear(v)for v in(.85,.84,.75))
    if id=='cleanershrimp'and y>.20 and abs(z)<.017:return tuple(linear(v)for v in(.9,.89,.8))
    if id=='peppermint':return tuple(linear(v)for v in((.62,.24,.19)if math.sin(z*230+x*17)>.45 else(.76,.64,.50)))
-   if id=='amanoshrimp'and abs(z)>.025 and abs(math.sin(x*135))>.92:return tuple(linear(v)for v in(.35,.30,.22))
+   if id=='amanoshrimp':
+    t=max(0,min(1,(.28-x)/.62));cy=.16+.095*math.sin(t*math.pi)-.05*t*t;ry=.065*(1-.58*t)
+    if abs(z)>.025 and abs(math.sin(x*95))>.84 and any(abs(y-(cy+ry*(row*.45-.65)))<.003 for row in range(4)):return tuple(linear(v)for v in(.35,.30,.22))
    return tuple(linear(int(color.lstrip('#')[j:j+2],16)/255)for j in(0,2,4))
   paint(body,color,.14,colors)
  # Five pairs of articulated walking legs; five abdominal pleopod pairs.
  for side in [-1,1]:
   for k in range(5):
-   x=.21-k*.065;points=[(x,.18,side*.04),(x+.025,.10,side*.09),(x-.025,.025,side*.15),(x-.09,.008,side*.17)];tube('pereiopod',points,[.005,.0035,.0025,.001],legmat,7 if desktop else 5)
-   if k<4:tube('pleopod',[(-.06-k*.05,.17,side*.03),(-.09-k*.05,.10,side*.065),(-.13-k*.05,.11,side*.08)],[.004,.003,.001],legmat,6)
+   x=.24-k*.035;points=[(x,.18,side*.04),(x+.025,.10,side*.09),(x-.025,.025,side*.15),(x-.09,.008,side*.17)];tube('pereiopod',points,[.005,.0035,.0025,.001],legmat,7 if desktop else 5)
+   tube('pleopod',[(.04-k*.065,.17,side*.03),(.01-k*.065,.10,side*.065),(-.03-k*.065,.11,side*.08)],[.004,.003,.001],legmat,6)
   ellipsoid('eye-stalk',(.27,.23,side*.046),(.013,.016,.013),cuticle,16,8);ellipsoid('eye',(.28,.25,side*.055),(.014,.014,.014),eye,16,10)
   for antenna in range(3):
    length=.31+antenna*.065;points=[(.28+t*length,.22+math.sin(t*3)*.05,side*(.025+t*t*.18+antenna*.015))for t in[j/(28 if desktop else 14)for j in range((28 if desktop else 14)+1)]];tube('antenna',points,[.0022*(1-j/len(points))+.0003 for j in range(len(points))],whisker,5)
@@ -41,8 +43,8 @@ def snail(item,lod,hermit=False):
  shellColor=item['species']['color'];shellmat=vertex_material('calcareous-shell',shellColor,.48);footmat=material('soft-foot','#b6b59b',.57);dark=material('aperture-interior','#383c2c',.82);eye=material('eye','#121a15',.2);points=[];radii=[];count=220 if desktop else 100
  for j in range(count+1):
   t=j/count;angle=t*turns*2*math.pi;r=.008*math.exp(3.3*t);radius=.004+.059*t**2
-  if flat:points.append((r*math.cos(angle),.25+r*math.sin(angle),0));radius=.007+.052*t**1.7
-  else:points.append((r*math.cos(angle),.06+height*(1-t),r*math.sin(angle)))
+  if flat:points.append((r*math.cos(angle),.25+r*math.sin(angle),0));radius=.003+r*.65
+  else:points.append((r*math.cos(angle),.06+height*(1-t**2.2),r*math.sin(angle)))
   radii.append(radius*(1+.035*math.sin(angle*14)))
  shell=tube('continuous-whorled-shell',points,radii,shellmat,20 if desktop else 10)
  def colors(x,y,z):

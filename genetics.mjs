@@ -73,14 +73,14 @@ export function initializeIndividual(state,entity,options={}) {
  geneticState.pedigree[entity.uid]=recordFor(entity,state);return entity;
 }
 export function normalizeGenetics(state,raw,catalog) {
- if(raw!==undefined&&raw!==null&&(!raw||raw.version!==1||typeof raw!=='object'||!Array.isArray(raw.clutches)||typeof raw.pedigree!=='object'||Array.isArray(raw.pedigree)))throw new Error('Ungültiger Genetik-Spielstand.');
- if(!raw){for(const e of state.entities)if(BREEDING_SPECIES[e.species]||variantsFor(e.species)[0].body)initializeIndividual(state,e);return state}
+ if(raw!==undefined&&raw!==null&&(!raw||raw.version!==1||typeof raw!=='object'||!Array.isArray(raw.clutches)||!raw.pedigree||typeof raw.pedigree!=='object'||Array.isArray(raw.pedigree)))throw new Error('Ungültiger Genetik-Spielstand.');
+ if(!raw){if(state.entities.some(e=>e.genetics))throw new Error('Das Abstammungsarchiv fehlt; genetische Daten werden nicht als neue Gründer umgedeutet.');for(const e of state.entities)if(BREEDING_SPECIES[e.species]||variantsFor(e.species)[0].body)initializeIndividual(state,e);return state}
  if(Object.keys(raw.pedigree).length>POPULATION_LIMITS.pedigree||raw.clutches.length>POPULATION_LIMITS.entities)throw new Error('Genetik-Spielstand überschreitet die dokumentierte Kapazität. Es wurden keine Daten verworfen.');
  const clean={version:1,enabled:raw.enabled!==false,pairs:{},pedigree:{},clutches:[],notes:typeof raw.notes==='string'?raw.notes.slice(0,20000):'',lastProcessedDay:Number.isInteger(raw.lastProcessedDay)?Math.max(0,Math.min(Math.floor(state.day),raw.lastProcessedDay)):Math.floor(state.day)};
  for(const [id,record]of Object.entries(raw.pedigree)){
-  if(!validId(record?.uid)||String(record.uid)!==id||!catalog[record.species]||!Array.isArray(record.parents)||record.parents.length>2||record.parents.some(p=>!validId(p))||!Number.isInteger(record.generation)||record.generation<0||record.generation>10000)throw new Error('Ungültige Abstammungsdaten.');
+  if(!validId(record?.uid)||String(record.uid)!==id||!catalog[record.species]||!Array.isArray(record.parents)||record.parents.length>2||record.parents.some(p=>!validId(p))||new Set(record.parents).size!==record.parents.length||!Number.isInteger(record.generation)||record.generation<0||record.generation>10000)throw new Error('Ungültige Abstammungsdaten.');
   const form=variantFor(record.species,record.variant);if(form.id!==record.variant)throw new Error('Unbekannte gespeicherte Farbvariante.');
-  const model=record.model||null;if(model&&!allowedModels.includes(model))throw new Error('Unbekanntes genetisches Modell.');
+  const model=record.model||null;if(model!==modelFor(record.species,form.id)||model&&!allowedModels.includes(model))throw new Error('Unbekanntes genetisches Modell.');
   const loci=model?parseGenotype(genotypeText(record.loci),model):null;
   if(model&&(!loci||phenotypeFor(model,loci)!==form.id))throw new Error('Widersprüchlicher gespeicherter Genotyp.');
   if(!['lebend','verstorben','Ei','Ei abgestorben','abgegeben'].includes(record.status))throw new Error('Ungültiger Entwicklungsstatus.');
@@ -98,8 +98,8 @@ export function normalizeGenetics(state,raw,catalog) {
  state.genetics=clean;
  for(const e of state.entities){
   const record=clean.pedigree[e.uid];
-  if(record){if(record.species!==e.species||record.status==='Ei')throw new Error('Abstammung passt nicht zum Tier.');e.variant=record.variant;e.genetics={model:record.model,loci:record.loci?clone(record.loci):null,parents:[...record.parents],generation:record.generation,filial:record.filial,roots:[...record.roots],founder:record.founder,bornDay:record.bornDay};if(record.model&&lociFor(record.model).length===1)e.genotype=record.loci.A.join('')}
-  else if(BREEDING_SPECIES[e.species]||variantsFor(e.species)[0].body)initializeIndividual(state,e);
+  if(record){if(record.species!==e.species||record.sex!==e.sex||record.status!==(e.dead?'verstorben':'lebend'))throw new Error('Abstammung passt nicht zum Tier.');e.variant=record.variant;e.genetics={model:record.model,loci:record.loci?clone(record.loci):null,parents:[...record.parents],generation:record.generation,filial:record.filial,roots:[...record.roots],founder:record.founder,bornDay:record.bornDay};if(record.model&&lociFor(record.model).length===1)e.genotype=record.loci.A.join('')}
+  else if(BREEDING_SPECIES[e.species]||variantsFor(e.species)[0].body){if(e.genetics)throw new Error('Das Individuum fehlt im Abstammungsarchiv.');initializeIndividual(state,e);}
  }
  state.nextId=Math.max(state.nextId,...Object.values(clean.pedigree).map(r=>r.uid+1));return state;
 }
@@ -107,7 +107,7 @@ export function setBreedingPair(state,species,motherId,fatherId) {
  if(!BREEDING_SPECIES[species])throw new Error('Für diese Art gibt es kein Fortpflanzungsmodell.');
  const mother=state.entities.find(e=>e.uid===motherId),father=state.entities.find(e=>e.uid===fatherId);
  if(!mother||!father||mother===father||mother.species!==species||father.species!==species||mother.sex!=='♀'||father.sex!=='♂'||mother.dead||father.dead)throw new Error('Wähle ein lebendes Weibchen und Männchen derselben Art.');
- ensureGenetics(state).pairs[species]=[motherId,fatherId];mother.pregnancy=0;return[motherId,fatherId];
+ const genetics=ensureGenetics(state),previous=genetics.pairs[species];if(previous?.[0]!==motherId||previous?.[1]!==fatherId){genetics.pairs[species]=[motherId,fatherId];mother.pregnancy=0}return[motherId,fatherId];
 }
 function pendingCount(state){return(state.genetics?.clutches||[]).reduce((n,c)=>n+c.ids.length,0)}
 export function breedingConditions(state,mother,father,catalog,foodScore=()=>1,broodSize=3) {
@@ -150,7 +150,8 @@ export function advanceReproduction(state,{catalog,random,createEntity,foodScore
  for(const entity of state.entities)if(entity.genetics){const record=g.pedigree[entity.uid];if(record)record.status=entity.dead?'verstorben':'lebend'}
  for(const clutch of [...g.clutches]){
   if(day<clutch.hatchDay)continue;
-  const suitable=state.params.no2<=.1&&state.params.nh4<=.25&&state.params.oxygen>=5;
+  const species=catalog[clutch.species],water=state.params;
+  const suitable=state.water===species.water&&water.temp>=species.temp[0]&&water.temp<=species.temp[1]&&water.ph>=species.ph[0]&&water.ph<=species.ph[1]&&water.salinity>=(species.salinity?.[0]??0)-1&&water.salinity<=(species.salinity?.[1]??1)+1&&water.no2<=.1&&water.nh4<=.25&&water.oxygen>=5;
   if(!suitable&&day<clutch.hatchDay+2)continue;
   for(const id of clutch.ids){const record=g.pedigree[id];if(!suitable){record.status='Ei abgestorben';continue}if(!materialize(state,record,createEntity))throw new Error('Reservierter Jungfisch konnte nicht eingesetzt werden; Gelege bleibt erhalten.');}
   g.clutches.splice(g.clutches.indexOf(clutch),1);notify(clutch.species+(suitable?': Jungfische geschlüpft':': Gelege verloren'),suitable?'Eierlegende Fortpflanzung. Entwicklung ist im Unterrichtsmodell zeitlich stark verkürzt.':'Die Wasserqualität erlaubte keine weitere Embryonalentwicklung. Die Genotypen bleiben im Archiv erhalten.');

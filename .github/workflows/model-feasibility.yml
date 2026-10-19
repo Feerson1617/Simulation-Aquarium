@@ -1,0 +1,39 @@
+name: Aquarium – kostenlose CPU-Rekonstruktion prüfen
+
+on:
+  push:
+    branches: [feature/catalog-ui-realism-review]
+    paths:
+      - 'tools/realism/triposr_feasibility.py'
+      - '.github/workflows/model-feasibility.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  cpu-trial:
+    if: github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Freie Software-Rasterisierung vorbereiten
+        run: sudo apt-get update && sudo apt-get install -y xvfb libgl1-mesa-dri libegl1
+      - name: Begrenzter Versuch ohne Konten oder APIs
+        env:
+          OMP_NUM_THREADS: '4'
+          MKL_NUM_THREADS: '4'
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: python tools/realism/triposr_feasibility.py
+      - name: Tatsächliches Ergebnis sichern
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aquarium-cpu-reconstruction-feasibility
+          path: docs/ui-model-review/feasibility
+          retention-days: 3

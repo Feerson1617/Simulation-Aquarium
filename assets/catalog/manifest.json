@@ -19,13 +19,13 @@
   "cardinal": {
     "src": "./assets/catalog/cardinal.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "kleiner spindelförmiger Körper",
         "blaues Leuchtband",
@@ -36,10 +36,14 @@
       "references": [
         "https://www.fishbase.se/summary/Paracheirodon-axelrodi.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3556,
-    "renderRevision": "organic-3",
+    "bytes": 3098,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "molly": {
@@ -62,13 +66,13 @@
   "guppy": {
     "src": "./assets/catalog/guppy.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "Eigene Projektgrafik; erzeugte Vorlage gemäß OpenAI-Nutzungsbedingungen",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "Eigene Projektgrafik; erzeugte Vorlage gemäß OpenAI-Nutzungsbedingungen",
       "features": [
         "kleiner schlanker Körper",
         "große dreieckige Fächerschwanzflosse",
@@ -79,22 +83,26 @@
       "references": [
         "https://www.fishbase.se/summary/Poecilia-reticulata.html"
       ],
-      "note": "One common cultivated male form. Wild males, females, and other breeds have very different fin proportions and patterns."
+      "note": "One common cultivated male form. Wild males, females, and other breeds have very different fin proportions and patterns.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie mit erzeugter Texturvorlage (keine Fotografie)",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 6004,
-    "renderRevision": "organic-3",
+    "bytes": 4538,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "platy": {
     "src": "./assets/catalog/platy.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "Eigene Projektgrafik; erzeugte Vorlage gemäß OpenAI-Nutzungsbedingungen",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "Eigene Projektgrafik; erzeugte Vorlage gemäß OpenAI-Nutzungsbedingungen",
       "features": [
         "kurzer hoher Körper",
         "roter Zuchtstamm",
@@ -104,22 +112,26 @@
       "references": [
         "https://www.fishbase.se/summary/Xiphophorus-maculatus.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie mit erzeugter Texturvorlage (keine Fotografie)",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4498,
-    "renderRevision": "organic-3",
+    "bytes": 4700,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "swordtail": {
     "src": "./assets/catalog/swordtail.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "schlanker grünlicher Körper",
         "rotes seitliches Längsband",
@@ -129,22 +141,26 @@
       "references": [
         "https://www.fishbase.se/summary/Xiphophorus-hellerii.html"
       ],
-      "note": "Male lower caudal sword is additional to reference total length. Many aquarium strains are red or hybridised."
+      "note": "Male lower caudal sword is additional to reference total length. Many aquarium strains are red or hybridised.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3032,
-    "renderRevision": "organic-3",
+    "bytes": 2646,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "endler": {
     "src": "./assets/catalog/endler.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "winziger schlanker Lebendgebärender",
         "orange Seitenflecken",
@@ -155,22 +171,26 @@
       "references": [
         "https://www.fishbase.se/summary/Poecilia-wingei.html"
       ],
-      "note": "Male locality patterns vary considerably; females are plainer. This profile does not identify a particular geographic strain."
+      "note": "Male locality patterns vary considerably; females are plainer. This profile does not identify a particular geographic strain.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3594,
-    "renderRevision": "organic-3",
+    "bytes": 2624,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "zebra": {
     "src": "./assets/catalog/zebra.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "Eigene Projektgrafik; erzeugte Vorlage gemäß OpenAI-Nutzungsbedingungen",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "Eigene Projektgrafik; erzeugte Vorlage gemäß OpenAI-Nutzungsbedingungen",
       "features": [
         "torpedoförmiger Körper",
         "mehrere blaue Längsstreifen",
@@ -181,22 +201,26 @@
       "references": [
         "https://www.fishbase.se/summary/Danio-rerio.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie mit erzeugter Texturvorlage (keine Fotografie)",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3644,
-    "renderRevision": "organic-3",
+    "bytes": 4096,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "pearl": {
     "src": "./assets/catalog/pearl.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "kleiner blaugrauer Körper",
         "viele helle Perlenpunkte",
@@ -206,22 +230,26 @@
       "references": [
         "https://www.fishbase.se/summary/Danio-margaritatus.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4948,
-    "renderRevision": "organic-3",
+    "bytes": 4322,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "harlequin": {
     "src": "./assets/catalog/harlequin.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "hoher kupferfarbener Körper",
         "großer schwarzer Keil an der hinteren Flanke",
@@ -230,22 +258,26 @@
       "references": [
         "https://www.fishbase.se/summary/Trigonostigma-heteromorpha.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4118,
-    "renderRevision": "organic-3",
+    "bytes": 3402,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "ember": {
     "src": "./assets/catalog/ember.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "sehr kleiner orangefarbener Salmler",
         "leicht durchscheinende Flossen",
@@ -255,22 +287,26 @@
       "references": [
         "https://www.fishbase.se/summary/Hyphessobrycon-amandae.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3868,
-    "renderRevision": "organic-3",
+    "bytes": 3214,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "rummy": {
     "src": "./assets/catalog/rummy.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "schlanker silberner Körper",
         "roter Kopf",
@@ -280,22 +316,26 @@
       "references": [
         "https://www.fishbase.se/summary/Petitella-bleheri.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3020,
-    "renderRevision": "organic-3",
+    "bytes": 2418,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "blackskirt": {
     "src": "./assets/catalog/blackskirt.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "hoher seitlich flacher Körper",
         "zwei dunkle vordere Querbänder",
@@ -305,22 +345,26 @@
       "references": [
         "https://www.fishbase.se/summary/Gymnocorymbus-ternetzi.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4110,
-    "renderRevision": "organic-3",
+    "bytes": 3088,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "congo": {
     "src": "./assets/catalog/congo.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "großer schillernder Salmler",
         "kupferner und blauer Schimmer",
@@ -331,22 +375,26 @@
       "references": [
         "https://www.fishbase.se/summary/Phenacogrammus-interruptus.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3526,
-    "renderRevision": "organic-3",
+    "bytes": 3214,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "cherry": {
     "src": "./assets/catalog/cherry.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "schlanker roter Körper",
         "dunkles seitliches Längsband",
@@ -356,22 +404,26 @@
       "references": [
         "https://www.fishbase.se/summary/Puntius-titteya.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4132,
-    "renderRevision": "organic-3",
+    "bytes": 4010,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "tiger": {
     "src": "./assets/catalog/tiger.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "hoher goldbrauner Körper",
         "vier schwarze Querbänder",
@@ -381,10 +433,14 @@
       "references": [
         "https://www.fishbase.se/summary/Puntigrus-tetrazona.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4462,
-    "renderRevision": "organic-3",
+    "bytes": 3928,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "betta": {
@@ -407,13 +463,13 @@
   "honey": {
     "src": "./assets/catalog/honey.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "hoher seitlich flacher Körper",
         "honiggelbe Flanke",
@@ -424,22 +480,26 @@
       "references": [
         "https://www.fishbase.se/summary/Trichogaster-chuna.html"
       ],
-      "note": "Females and non-breeding males are paler and may show a lateral dark band."
+      "note": "Females and non-breeding males are paler and may show a lateral dark band.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4356,
-    "renderRevision": "organic-3",
+    "bytes": 3800,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "pearlgourami": {
     "src": "./assets/catalog/pearlgourami.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "feine helle Mosaikpunkte",
         "dunkles Längsband",
@@ -450,22 +510,26 @@
       "references": [
         "https://www.fishbase.se/summary/Trichopodus-leerii.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4198,
-    "renderRevision": "organic-3",
+    "bytes": 3392,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "angelfish": {
     "src": "./assets/catalog/angelfish.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "sehr hoher scheibenförmiger Körper",
         "silberne Flanke mit dunklen Querbändern",
@@ -475,22 +539,26 @@
       "references": [
         "https://www.fishbase.se/summary/Pterophyllum-scalare.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 2592,
-    "renderRevision": "organic-3",
+    "bytes": 1962,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "discus": {
     "src": "./assets/catalog/discus.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "runder scheibenförmiger Körper",
         "schmale Körpertiefe",
@@ -501,22 +569,26 @@
       "references": [
         "https://www.fishbase.se/summary/Symphysodon-aequifasciatus"
       ],
-      "note": "Catalogue is genus-level. Uses a brown/blue Symphysodon aequifasciatus-like pattern; cultivated discus forms differ strongly."
+      "note": "Catalogue is genus-level. Uses a brown/blue Symphysodon aequifasciatus-like pattern; cultivated discus forms differ strongly.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4784,
-    "renderRevision": "organic-3",
+    "bytes": 4114,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "ram": {
     "src": "./assets/catalog/ram.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "hoher kleiner Buntbarsch",
         "dunkles Augenband",
@@ -527,22 +599,26 @@
       "references": [
         "https://www.fishbase.se/summary/Mikrogeophagus-ramirezi.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 6208,
-    "renderRevision": "organic-3",
+    "bytes": 4260,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "apisto": {
     "src": "./assets/catalog/apisto.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "langgestreckter Zwergbuntbarsch",
         "dunkles Flankenband",
@@ -553,22 +629,26 @@
       "references": [
         "https://www.fishbase.se/summary/Apistogramma-cacatuoides.html"
       ],
-      "note": "Male crest and orange/red cultivated fin markings. Females are smaller, yellowish, and have shorter fins."
+      "note": "Male crest and orange/red cultivated fin markings. Females are smaller, yellowish, and have shorter fins.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 5990,
-    "renderRevision": "organic-3",
+    "bytes": 3888,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "krib": {
     "src": "./assets/catalog/krib.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "dunkles seitliches Längsband",
         "purpurfarbener Bauch",
@@ -578,22 +658,26 @@
       "references": [
         "https://www.fishbase.se/summary/Pelvicachromis-pulcher.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 5286,
-    "renderRevision": "organic-3",
+    "bytes": 3840,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "cory": {
     "src": "./assets/catalog/cory.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "Eigene Projektgrafik; erzeugte Vorlage gemäß OpenAI-Nutzungsbedingungen",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "Eigene Projektgrafik; erzeugte Vorlage gemäß OpenAI-Nutzungsbedingungen",
       "features": [
         "gepanzertes gedrungenes Welsprofil",
         "bronzegrüner Flankenfleck",
@@ -604,22 +688,26 @@
       "references": [
         "https://www.fishbase.se/summary/Corydoras-aeneus.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie mit erzeugter Texturvorlage (keine Fotografie)",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3460,
-    "renderRevision": "organic-3",
+    "bytes": 4784,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "panda": {
     "src": "./assets/catalog/panda.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "cremefarbener Panzerwels",
         "schwarzes Augenband",
@@ -630,22 +718,26 @@
       "references": [
         "https://www.fishbase.se/summary/Corydoras-panda.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3626,
-    "renderRevision": "organic-3",
+    "bytes": 2788,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "oto": {
     "src": "./assets/catalog/oto.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "kleiner schlanker Harnischwels",
         "unterständige Saugmaulscheibe",
@@ -656,22 +748,26 @@
       "references": [
         "https://www.fishbase.se/summary/Otocinclus-vittatus.html"
       ],
-      "note": "Genus-level catalogue entry; a striped O. vittatus-like phenotype represents the group."
+      "note": "Genus-level catalogue entry; a striped O. vittatus-like phenotype represents the group.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3110,
-    "renderRevision": "organic-3",
+    "bytes": 2672,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "ancistrus": {
     "src": "./assets/catalog/ancistrus.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "breiter abgeflachter gepanzerter Kopf",
         "Saugmaul unter dem Kopf",
@@ -683,22 +779,26 @@
         "https://www.fishbase.se/identification/SpeciesList.php?genus=Ancistrus",
         "https://www.fishbase.se/summary/Ancistrus-cirrhosus"
       ],
-      "note": "Ancistrus aquarium stock is often not identified to species. Male snout tentacles are bristles, not long feeding barbels."
+      "note": "Ancistrus aquarium stock is often not identified to species. Male snout tentacles are bristles, not long feeding barbels.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 5162,
-    "renderRevision": "organic-3",
+    "bytes": 4166,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "kuhli": {
     "src": "./assets/catalog/kuhli.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "aalartig sehr langer dünner Körper",
         "viele dunkle Querbänder",
@@ -709,22 +809,26 @@
       "references": [
         "https://www.fishbase.se/summary/Pangio-kuhlii.html"
       ],
-      "note": "Representative P. kuhlii pattern; other banded Pangio species sold as kuhli loaches vary in band width and number."
+      "note": "Representative P. kuhlii pattern; other banded Pangio species sold as kuhli loaches vary in band width and number.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 2650,
-    "renderRevision": "organic-3",
+    "bytes": 2616,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "rainbow": {
     "src": "./assets/catalog/rainbow.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "hoher ovaler Körper",
         "vordere Körperhälfte blau",
@@ -735,22 +839,26 @@
       "references": [
         "https://www.fishbase.se/summary/Melanotaenia-boesemani.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4576,
-    "renderRevision": "organic-3",
+    "bytes": 4268,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "whitecloud": {
     "src": "./assets/catalog/whitecloud.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "kleiner schlanker olivsilberner Körper",
         "helles irisierendes Seitenband",
@@ -760,22 +868,26 @@
       "references": [
         "https://www.fishbase.se/summary/Tanichthys-albonubes.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3528,
-    "renderRevision": "organic-3",
+    "bytes": 2892,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "goldfish": {
     "src": "./assets/catalog/goldfish.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "kräftiger goldoranger Körper",
         "durchgehende Rückenflosse",
@@ -786,22 +898,26 @@
       "references": [
         "https://www.fishbase.se/summary/Carassius-auratus.html"
       ],
-      "note": "Body and tail represent ordinary single-tail stock. Fantail, telescope and other domestic forms require different anatomy."
+      "note": "Body and tail represent ordinary single-tail stock. Fantail, telescope and other domestic forms require different anatomy.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4132,
-    "renderRevision": "organic-3",
+    "bytes": 3570,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "sae": {
     "src": "./assets/catalog/sae.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "langer kräftiger torpedoförmiger Körper",
         "dunkles Band von der Schnauze bis in die Schwanzflosse",
@@ -812,22 +928,26 @@
       "references": [
         "https://www.fishbase.se/summary/Crossocheilus-oblongus.html"
       ],
-      "note": "Aquarium trade identification among Crossocheilus species is inconsistent; this is a dark lateral-stripe representative of the catalogue species."
+      "note": "Aquarium trade identification among Crossocheilus species is inconsistent; this is a dark lateral-stripe representative of the catalogue species.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3058,
-    "renderRevision": "organic-3",
+    "bytes": 2878,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "dwarfbuffer": {
     "src": "./assets/catalog/dwarfbuffer.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "runder sehr stumpfer Kopf",
         "große bewegliche Augen",
@@ -838,10 +958,14 @@
       "references": [
         "https://www.fishbase.se/summary/Carinotetraodon-travancoricus.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4358,
-    "renderRevision": "organic-3",
+    "bytes": 3670,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "clown": {
@@ -864,13 +988,13 @@
   "royal": {
     "src": "./assets/catalog/royal.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "schlanker hochrückiger Körper",
         "violette vordere Körperhälfte",
@@ -881,22 +1005,26 @@
       "references": [
         "https://www.fishbase.se/summary/Gramma-loreto.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 5034,
-    "renderRevision": "organic-3",
+    "bytes": 3964,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "firefish": {
     "src": "./assets/catalog/firefish.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "sehr schlanker heller Körper",
         "orange bis roter hinterer Körper",
@@ -907,22 +1035,26 @@
       "references": [
         "https://www.fishbase.se/summary/Nemateleotris-magnifica.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3810,
-    "renderRevision": "organic-3",
+    "bytes": 2868,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "purplefire": {
     "src": "./assets/catalog/purplefire.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "schlanker cremegelber Körper",
         "violetter Kopf",
@@ -933,22 +1065,26 @@
       "references": [
         "https://www.fishbase.se/summary/Nemateleotris-decora.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4050,
-    "renderRevision": "organic-3",
+    "bytes": 3036,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "goby": {
     "src": "./assets/catalog/goby.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "breiter stumpfer Grundelkopf",
         "hoch sitzende Augen",
@@ -959,22 +1095,26 @@
       "references": [
         "https://www.fishbase.se/summary/Cryptocentrus-cinctus.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4346,
-    "renderRevision": "organic-3",
+    "bytes": 3246,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "neongoby": {
     "src": "./assets/catalog/neongoby.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "sehr schlanker dunkler Körper",
         "leuchtend blaues oberes Seitenband",
@@ -985,22 +1125,26 @@
       "references": [
         "https://www.fishbase.se/summary/Elacatinus-oceanops.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3816,
-    "renderRevision": "organic-3",
+    "bytes": 3276,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "clowngoby": {
     "src": "./assets/catalog/clowngoby.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "sehr kurzer gedrungener Grundelkörper",
         "großer runder Kopf",
@@ -1011,22 +1155,26 @@
       "references": [
         "https://www.fishbase.se/summary/Gobiodon-okinawae.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4298,
-    "renderRevision": "organic-3",
+    "bytes": 3468,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "mandarin": {
     "src": "./assets/catalog/mandarin.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "breiter flacher Drachenfischkopf",
         "orange-blaues gewundenes Muster",
@@ -1038,22 +1186,26 @@
         "https://www.fishbase.org/summary/12644",
         "https://animaldiversity.org/accounts/Synchiropus_splendidus/"
       ],
-      "note": "Broad depressed head and large pelvic fins are dragonet traits. Blue/orange labyrinth is artist-generated, not copied from a specimen."
+      "note": "Broad depressed head and large pelvic fins are dragonet traits. Blue/orange labyrinth is artist-generated, not copied from a specimen.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 5216,
-    "renderRevision": "organic-3",
+    "bytes": 3990,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "blenny": {
     "src": "./assets/catalog/blenny.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "großer stumpfer Schleimfischkopf",
         "hoch sitzende Augen mit kleinen Hautbüscheln",
@@ -1064,22 +1216,26 @@
       "references": [
         "https://www.fishbase.se/summary/Salarias-fasciatus.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4728,
-    "renderRevision": "organic-3",
+    "bytes": 3128,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "bicolor": {
     "src": "./assets/catalog/bicolor.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "stumpfer Schleimfischkopf",
         "blaugraue vordere Körperhälfte",
@@ -1090,22 +1246,26 @@
       "references": [
         "https://www.fishbase.se/summary/Ecsenius-bicolor.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4512,
-    "renderRevision": "organic-3",
+    "bytes": 3600,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "chromis": {
     "src": "./assets/catalog/chromis.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "hoher seitlich flacher Riffbarsch",
         "blaugrüner Schimmer",
@@ -1115,22 +1275,26 @@
       "references": [
         "https://www.fishbase.se/summary/Chromis-viridis.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4148,
-    "renderRevision": "organic-3",
+    "bytes": 3234,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "damsel": {
     "src": "./assets/catalog/damsel.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "kleiner hoher tiefblauer Riffbarsch",
         "gelbe Schwanzflosse",
@@ -1140,22 +1304,26 @@
       "references": [
         "https://www.fishbase.se/summary/Chrysiptera-parasema.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 5162,
-    "renderRevision": "organic-3",
+    "bytes": 4410,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "banggai": {
     "src": "./assets/catalog/banggai.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "silberner gedrungener Körper",
         "drei schwarze Querbänder",
@@ -1167,22 +1335,26 @@
         "https://www.fishbase.se/summary/Pterapogon-kauderni",
         "https://fishbase.se/physiology/MorphMetSummaryV2.php?genusname=Pterapogon&id=15426&picname=Ptkau_u4.jpg&speciesname=kauderni"
       ],
-      "note": "Long fins strongly affect total length. Body-depth ratio near 0.33 is an artist estimate informed by the FishBase specimen image; not a fitted measurement."
+      "note": "Long fins strongly affect total length. Body-depth ratio near 0.33 is an artist estimate informed by the FishBase specimen image; not a fitted measurement.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4988,
-    "renderRevision": "organic-3",
+    "bytes": 3690,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "pajama": {
     "src": "./assets/catalog/pajama.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "hoher Kardinalbarschkörper",
         "gelbgrüner Kopf mit roten Augen",
@@ -1193,22 +1365,26 @@
       "references": [
         "https://www.fishbase.se/summary/Sphaeramia-nematoptera.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 5064,
-    "renderRevision": "organic-3",
+    "bytes": 3970,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "yellowtang": {
     "src": "./assets/catalog/yellowtang.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "hoher ovaler seitlich flacher Körper",
         "gelbe Flanke und Flossen",
@@ -1219,22 +1395,26 @@
       "references": [
         "https://www.fishbase.se/summary/Zebrasoma-flavescens.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4094,
-    "renderRevision": "organic-3",
+    "bytes": 2852,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "bluetang": {
     "src": "./assets/catalog/bluetang.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "langer ovaler blauer Körper",
         "schwarze palettenförmige Flankenzeichnung",
@@ -1244,22 +1424,26 @@
       "references": [
         "https://www.fishbase.se/summary/Paracanthurus-hepatus.html"
       ],
-      "note": "Pacific palette surgeonfish P. hepatus. Not the Atlantic blue tang Acanthurus coeruleus, which has a different pattern."
+      "note": "Pacific palette surgeonfish P. hepatus. Not the Atlantic blue tang Acanthurus coeruleus, which has a different pattern.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 6436,
-    "renderRevision": "organic-3",
+    "bytes": 4736,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "kole": {
     "src": "./assets/catalog/kole.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "hoher bräunlicher Doktorfisch",
         "gelber Augenring",
@@ -1270,22 +1454,26 @@
       "references": [
         "https://www.fishbase.se/summary/Ctenochaetus-strigosus.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 6068,
-    "renderRevision": "organic-3",
+    "bytes": 4550,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "flame": {
     "src": "./assets/catalog/flame.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "hoher rotoranger Zwergkaiser",
         "mehrere schwarze Flankenbänder",
@@ -1295,22 +1483,26 @@
       "references": [
         "https://www.fishbase.se/summary/Centropyge-loricula.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 5792,
-    "renderRevision": "organic-3",
+    "bytes": 4434,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "beauty": {
     "src": "./assets/catalog/beauty.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "hoher blauvioletter Zwergkaiser",
         "orange mittlere Flanke",
@@ -1321,22 +1513,26 @@
       "references": [
         "https://www.fishbase.se/summary/Centropyge-bispinosa.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 6224,
-    "renderRevision": "organic-3",
+    "bytes": 4958,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "sixline": {
     "src": "./assets/catalog/sixline.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "schlanker rosaroter Lippfisch",
         "sechs orangefarbene Längsstreifen",
@@ -1347,22 +1543,26 @@
       "references": [
         "https://www.fishbase.se/summary/Pseudocheilinus-hexataenia.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4826,
-    "renderRevision": "organic-3",
+    "bytes": 3830,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "cleanerwrasse": {
     "src": "./assets/catalog/cleanerwrasse.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "sehr schlanker weißblauer Lippfisch",
         "breites hinten zunehmendes schwarzes Flankenband",
@@ -1372,22 +1572,26 @@
       "references": [
         "https://www.fishbase.se/summary/Labroides-dimidiatus.html"
       ],
-      "note": "Juveniles are almost black with a bright blue stripe; adults use the broader dark lateral band shown here."
+      "note": "Juveniles are almost black with a bright blue stripe; adults use the broader dark lateral band shown here.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3400,
-    "renderRevision": "organic-3",
+    "bytes": 2478,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "hawk": {
     "src": "./assets/catalog/hawk.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "kräftiger roter Kopf und Körper",
         "dunkle obere Rückenzeichnung",
@@ -1398,22 +1602,26 @@
       "references": [
         "https://www.fishbase.se/summary/Neocirrhites-armatus.html"
       ],
-      "note": "Original artist-estimated proportions and markings; not a specimen scan."
+      "note": "Original artist-estimated proportions and markings; not a specimen scan.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 5294,
-    "renderRevision": "organic-3",
+    "bytes": 4158,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "lion": {
     "src": "./assets/catalog/lion.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "breiter großer Räuberkopf",
         "braune und cremefarbene Querbänder",
@@ -1424,22 +1632,26 @@
       "references": [
         "https://www.fishbase.se/summary/Dendrochirus-brachypterus.html"
       ],
-      "note": "Broad-finned dwarf lionfish, not Pterois volitans. Separate dorsal spines and fan-shaped pectoral rays must be modelled; the normal fin sheet alone is insufficient."
+      "note": "Broad-finned dwarf lionfish, not Pterois volitans. Separate dorsal spines and fan-shaped pectoral rays must be modelled; the normal fin sheet alone is insufficient.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4644,
-    "renderRevision": "organic-3",
+    "bytes": 3402,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "anthias": {
     "src": "./assets/catalog/anthias.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "schlanker hochrückiger orangefarbener Fahnenbarsch",
         "violetter Strich vom Auge zur Brustflosse",
@@ -1449,22 +1661,26 @@
       "references": [
         "https://www.fishbase.se/summary/Pseudanthias-squamipinnis.html"
       ],
-      "note": "Females are orange; mature males change toward pink/purple and can develop an elongated dorsal spine. This is deliberately a female profile."
+      "note": "Females are orange; mature males change toward pink/purple and can develop an elongated dorsal spine. This is deliberately a female profile.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4590,
-    "renderRevision": "organic-3",
+    "bytes": 3432,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "anubias": {
     "src": "./assets/catalog/anubias.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Dicker kriechender Wurzelstock",
         "Feste ovale Blätter",
@@ -1473,10 +1689,14 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Anubias_barteri"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3300,
-    "renderRevision": "organic-3",
+    "bytes": 3476,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "nana": {
@@ -1499,13 +1719,13 @@
   "javafern": {
     "src": "./assets/catalog/javafern.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Kriechender Wurzelstock",
         "Lange lanzettliche Blätter",
@@ -1514,22 +1734,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/File:Microsorium_pteropus.JPG"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3758,
-    "renderRevision": "organic-3",
+    "bytes": 3190,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "trident": {
     "src": "./assets/catalog/trident.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Schmale dreigeteilte Blattspitzen",
         "Kriechender Wurzelstock",
@@ -1538,22 +1762,26 @@
       "references": [
         "https://tropica.com/en/plants/plantdetails/Microsorumpteropus%27Trident%27%28008G%29/4424"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3214,
-    "renderRevision": "organic-3",
+    "bytes": 4320,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "javamoss": {
     "src": "./assets/catalog/javamoss.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Unregelmäßig verzweigte Triebe",
         "Viele winzige spitze Blättchen",
@@ -1562,22 +1790,26 @@
       "references": [
         "https://tropica.com/en/plants/plantdetails/Taxiphyllumbarbieri%27BogorMoss%27%28003POR%29/4391"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 5422,
-    "renderRevision": "organic-3",
+    "bytes": 7776,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "christmas": {
     "src": "./assets/catalog/christmas.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Tannenförmige Seitenzweige",
         "Flache dreieckige Wedel",
@@ -1586,10 +1818,14 @@
       "references": [
         "https://tropica.com/en/plants/plantdetails/Vesiculariamontagnei%27Christmas%27%28003APOR%29/4395"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4308,
-    "renderRevision": "organic-3",
+    "bytes": 7462,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "vallis": {
@@ -1612,13 +1848,13 @@
   "vallisgiant": {
     "src": "./assets/catalog/vallisgiant.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Sehr lange breite Bänder",
         "Überhängende Blattspitzen",
@@ -1627,22 +1863,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Vallisneria_australis"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 2888,
-    "renderRevision": "organic-3",
+    "bytes": 3456,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "swordplant": {
     "src": "./assets/catalog/swordplant.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Große Blattrosette",
         "Gestielte lanzettliche Blätter",
@@ -1651,22 +1891,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Echinodorus_grisebachii"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3082,
-    "renderRevision": "organic-3",
+    "bytes": 2878,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "redflame": {
     "src": "./assets/catalog/redflame.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Gestielte Schwertblatt-Rosette",
         "Rötliche junge Blätter",
@@ -1675,22 +1919,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Echinodorus_grisebachii"
       ],
-      "note": "Red Flame ist eine Kulturform; Rosettenbau nach Echinodorus, Färbung nach Katalog. Keine Wildart-Rekonstruktion."
+      "note": "Red Flame ist eine Kulturform; Rosettenbau nach Echinodorus, Färbung nach Katalog. Keine Wildart-Rekonstruktion.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 2834,
-    "renderRevision": "organic-3",
+    "bytes": 3104,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "crypt": {
     "src": "./assets/catalog/crypt.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Basale Rosette",
         "Gewellte lanzettliche Blätter",
@@ -1699,22 +1947,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/File:-Cryptocoryne_wendtii-_from_Tropica_farm.JPG"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3274,
-    "renderRevision": "organic-3",
+    "bytes": 4140,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "cryptparva": {
     "src": "./assets/catalog/cryptparva.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Sehr niedrige kleine Rosetten",
         "Schmale gestielte Blätter",
@@ -1723,22 +1975,26 @@
       "references": [
         "https://tropica.com/en/plants/plantdetails/Cryptocoryneparva%28106%29/4558"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4628,
-    "renderRevision": "organic-3",
+    "bytes": 3854,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "waterweed": {
     "src": "./assets/catalog/waterweed.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Schmale Blätter in Quirlen",
         "Verzweigte aufrechte Stängel",
@@ -1747,22 +2003,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Egeria_densa"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4216,
-    "renderRevision": "organic-3",
+    "bytes": 4690,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "hornwort": {
     "src": "./assets/catalog/hornwort.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Gegabelte feine Blattquirle",
         "Dichte weiche Triebspitze",
@@ -1771,22 +2031,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Ceratophyllum_demersum"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3022,
-    "renderRevision": "organic-3",
+    "bytes": 5154,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "hygro": {
     "src": "./assets/catalog/hygro.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Gegenständige Blattpaare",
         "Schmale Blätter",
@@ -1795,22 +2059,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Hygrophila_polysperma"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4616,
-    "renderRevision": "organic-3",
+    "bytes": 4390,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "corymbosa": {
     "src": "./assets/catalog/corymbosa.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Große gegenständige Blätter",
         "Kräftige Stängel",
@@ -1819,22 +2087,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Hygrophila_corymbosa"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4300,
-    "renderRevision": "organic-3",
+    "bytes": 4748,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "limno": {
     "src": "./assets/catalog/limno.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Fein gefiederte Blattquirle",
         "Aufrechte dünne Triebe",
@@ -1843,22 +2115,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Limnophila_sessiliflora"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3366,
-    "renderRevision": "organic-3",
+    "bytes": 5610,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "rotala": {
     "src": "./assets/catalog/rotala.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Kleine schmale Unterwasserblätter",
         "Gegenständige Blattpaare",
@@ -1867,22 +2143,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Rotala_rotundifolia"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3900,
-    "renderRevision": "organic-3",
+    "bytes": 4424,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "ludwigia": {
     "src": "./assets/catalog/ludwigia.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Gegenständige ovale Blätter",
         "Rote Stängel",
@@ -1891,22 +2171,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/File:Ludwigia_repens.JPG"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4774,
-    "renderRevision": "organic-3",
+    "bytes": 5138,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "bacopa": {
     "src": "./assets/catalog/bacopa.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Dicke rundlich spatelförmige Blätter",
         "Kreuzweise Blattpaare",
@@ -1915,22 +2199,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Bacopa_monnieri"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4958,
-    "renderRevision": "organic-3",
+    "bytes": 4714,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "cabomba": {
     "src": "./assets/catalog/cabomba.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Gegenständige Fächerblätter",
         "Fein verzweigte Blattabschnitte",
@@ -1939,22 +2227,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Cabomba_caroliniana"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3440,
-    "renderRevision": "organic-3",
+    "bytes": 5678,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "alternanthera": {
     "src": "./assets/catalog/alternanthera.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Rote lanzettliche Blätter",
         "Gegenständige Blattpaare",
@@ -1963,22 +2255,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/File:Alternanthera_02.jpg"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 5084,
-    "renderRevision": "organic-3",
+    "bytes": 5330,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "pearlweed": {
     "src": "./assets/catalog/pearlweed.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Sehr kleine Blattquirle",
         "Dicht verzweigte Triebe",
@@ -1987,22 +2283,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Micranthemum_micranthemoides"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 7492,
-    "renderRevision": "organic-3",
+    "bytes": 4970,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "montecarlo": {
     "src": "./assets/catalog/montecarlo.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Kleine rundliche Blätter",
         "Kriechende Triebe",
@@ -2011,22 +2311,26 @@
       "references": [
         "https://tropica.com/en/articles/micranthemum-monte-carlo/"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 2892,
-    "renderRevision": "organic-3",
+    "bytes": 2150,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "hairgrass": {
     "src": "./assets/catalog/hairgrass.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Feine nadelförmige Halme",
         "Kleine Horste",
@@ -2035,22 +2339,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Eleocharis_pusilla"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3990,
-    "renderRevision": "organic-3",
+    "bytes": 6344,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "stauro": {
     "src": "./assets/catalog/stauro.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Niedriger verzweigter Wuchs",
         "Gegenständige lanzettliche Blätter",
@@ -2059,22 +2367,26 @@
       "references": [
         "https://tropica.com/en/plants/plantdetails/Staurogynerepens%28049G%29/4481"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 6530,
-    "renderRevision": "organic-3",
+    "bytes": 3194,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "buce": {
     "src": "./assets/catalog/buce.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Kriechender Wurzelstock",
         "Kleine gewellte Blätter",
@@ -2083,22 +2395,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Bucephalandra"
       ],
-      "note": "Der Katalog nennt eine Gattung. Dargestellt ist eine kleine breitblättrige Aquarienform, keine bestimmte Art."
+      "note": "Der Katalog nennt eine Gattung. Dargestellt ist eine kleine breitblättrige Aquarienform, keine bestimmte Art.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3978,
-    "renderRevision": "organic-3",
+    "bytes": 3934,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "lotus": {
     "src": "./assets/catalog/lotus.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Große herzförmig eingekerbte Blätter",
         "Lange Blattstiele",
@@ -2107,22 +2423,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Nymphaea_lotus"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 2576,
-    "renderRevision": "organic-3",
+    "bytes": 2744,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "frogbit": {
     "src": "./assets/catalog/frogbit.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Rundliche Schwimmblätter",
         "Kleine Oberflächenrosette",
@@ -2131,22 +2451,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Limnobium_laevigatum"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 2610,
-    "renderRevision": "organic-3",
+    "bytes": 2208,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "salvinia": {
     "src": "./assets/catalog/salvinia.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Paarige ovale Schwimmblätter",
         "Gerippte behaarte Oberfläche",
@@ -2155,22 +2479,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Salvinia_auriculata"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4482,
-    "renderRevision": "organic-3",
+    "bytes": 2058,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "waterlettuce": {
     "src": "./assets/catalog/waterlettuce.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Fächerförmige gerippte Blätter",
         "Schwimmende Rosette",
@@ -2179,22 +2507,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Pistia_stratiotes"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 2808,
-    "renderRevision": "organic-3",
+    "bytes": 2026,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "aponogeton": {
     "src": "./assets/catalog/aponogeton.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Echte offene Blattfenster",
         "Längsadern und Querstege",
@@ -2203,22 +2535,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/File:Aponogeton_madagascariensis_in_aquarium.jpg"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4650,
-    "renderRevision": "organic-3",
+    "bytes": 3064,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "softleather": {
     "src": "./assets/catalog/softleather.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Pilzförmige Kappe auf einem Stiel",
         "Polypen mit acht gefiederten Tentakeln"
@@ -2226,22 +2562,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Sarcophyton_(Cnidaria)"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3078,
-    "renderRevision": "realism-2",
+    "bytes": 3232,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "sinularia": {
     "src": "./assets/catalog/sinularia.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Kräftige fleischige Fingeräste",
         "Kleine gefiederte Polypen"
@@ -2249,22 +2589,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Sinularia"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3544,
-    "renderRevision": "realism-2",
+    "bytes": 3742,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "kenya": {
     "src": "./assets/catalog/kenya.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Baumförmiger Stamm mit Seitenästen",
         "Polypen an den Astspitzen"
@@ -2272,22 +2616,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Capnella"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3700,
-    "renderRevision": "realism-2",
+    "bytes": 4348,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "xenia": {
     "src": "./assets/catalog/xenia.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Lange Polypenstiele",
         "Acht gefiederte Tentakel"
@@ -2295,22 +2643,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Xenia_(Xeniidae)"
       ],
-      "note": "Die Polypen sind im Modell geöffnet; individuelles Pumpen ist nicht simuliert."
+      "note": "Die Polypen sind im Modell geöffnet; individuelles Pumpen ist nicht simuliert.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4804,
-    "renderRevision": "realism-2",
+    "bytes": 5950,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "greenstar": {
     "src": "./assets/catalog/greenstar.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Flache bewachsene Matte",
         "Acht schmale gefiederte Tentakel"
@@ -2318,22 +2670,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Pachyclavularia"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3234,
-    "renderRevision": "realism-2",
+    "bytes": 3092,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "zoa": {
     "src": "./assets/catalog/zoa.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Einzelne kurze Polypensäulen",
         "Runder Mundteller mit Tentakelkranz"
@@ -2341,22 +2697,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Zoanthus"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4004,
-    "renderRevision": "realism-2",
+    "bytes": 3422,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "mushroom": {
     "src": "./assets/catalog/mushroom.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Fleischige gerippte Scheiben",
         "Mundöffnung in der Mitte"
@@ -2364,22 +2724,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Discosoma"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3150,
-    "renderRevision": "realism-2",
+    "bytes": 2064,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "ricordea": {
     "src": "./assets/catalog/ricordea.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Scheibenförmige Polypen",
         "Dichte kugelige Bläschen auf der Oberfläche"
@@ -2387,22 +2751,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Ricordea_florida"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 2746,
-    "renderRevision": "realism-2",
+    "bytes": 2652,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "hammer": {
     "src": "./assets/catalog/hammer.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Gewundener zusammenhängender Skelettwall",
         "Hammerförmige Tentakelspitzen"
@@ -2410,22 +2778,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Fimbriaphyllia_ancora"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 5092,
-    "renderRevision": "realism-2",
+    "bytes": 5224,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "frogspawn": {
     "src": "./assets/catalog/frogspawn.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Gewundener zusammenhängender Skelettwall",
         "Mehrere runde Spitzen an einem Tentakelende"
@@ -2433,22 +2805,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Euphyllia_divisa"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 5384,
-    "renderRevision": "realism-2",
+    "bytes": 5392,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "torch": {
     "src": "./assets/catalog/torch.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Lange schlanke Tentakel",
         "Einzelne kleine kugelige Tentakelspitzen"
@@ -2456,22 +2832,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Euphyllia_glabrescens"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4718,
-    "renderRevision": "realism-2",
+    "bytes": 4794,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "candy": {
     "src": "./assets/catalog/candy.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Verzweigtes Kalkskelett",
         "Getrennte rundliche fleischige Korallenköpfe"
@@ -2479,22 +2859,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Caulastraea_furcata"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 2828,
-    "renderRevision": "realism-2",
+    "bytes": 4676,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "duncan": {
     "src": "./assets/catalog/duncan.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Großer Mundteller",
         "Langer schmaler Tentakelkranz"
@@ -2502,22 +2886,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Duncanopsammia_axifuga"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 5458,
-    "renderRevision": "realism-2",
+    "bytes": 4476,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "brain": {
     "src": "./assets/catalog/brain.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Gewundene fleischige Rillen",
         "Mehrere verlängerte Täler"
@@ -2525,22 +2913,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Lobophyllia"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 2474,
-    "renderRevision": "realism-2",
+    "bytes": 2602,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "favites": {
     "src": "./assets/catalog/favites.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Wabenförmige Koralliten",
         "Gemeinsame Wände zwischen Nachbarpolypen"
@@ -2548,22 +2940,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Favites"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 2738,
-    "renderRevision": "realism-2",
+    "bytes": 2492,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "acanth": {
     "src": "./assets/catalog/acanth.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Einzelne dicke fleischige Polypen",
         "Radiale Rippen um die Mundöffnung"
@@ -2571,22 +2967,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Micromussa_lordhowensis"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 2554,
-    "renderRevision": "realism-2",
+    "bytes": 2538,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "plate": {
     "src": "./assets/catalog/plate.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Einzelne große Scheibe auf dem Boden",
         "Viele feine radial verlaufende Rippen"
@@ -2594,22 +2994,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Fungia"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 2446,
-    "renderRevision": "realism-2",
+    "bytes": 2750,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "chalice": {
     "src": "./assets/catalog/chalice.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Flache geschichtete Platte",
         "Verteilte erhöhte Mundöffnungen"
@@ -2617,22 +3021,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Echinophyllia"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 2938,
-    "renderRevision": "realism-2",
+    "bytes": 2736,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "montidigi": {
     "src": "./assets/catalog/montidigi.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Aufrechte fingerförmige Äste",
         "Kleine gleichmäßige Koralliten"
@@ -2640,22 +3048,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Montipora_digitata"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3918,
-    "renderRevision": "realism-2",
+    "bytes": 4720,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "montiplate": {
     "src": "./assets/catalog/montiplate.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Dünne spiralförmig geschichtete Platten",
         "Gewellte Plattenränder"
@@ -2663,22 +3075,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Montipora_capricornis"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 2096,
-    "renderRevision": "realism-2",
+    "bytes": 4048,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "acropora": {
     "src": "./assets/catalog/acropora.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Dünne verzweigte Äste",
         "Größere axiale Koralliten an den Spitzen"
@@ -2686,22 +3102,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Acropora"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3728,
-    "renderRevision": "realism-2",
+    "bytes": 4158,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "pocillo": {
     "src": "./assets/catalog/pocillo.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Dichte stumpfe Verzweigung",
         "Knötchenartige Verrucae auf den Ästen"
@@ -2709,22 +3129,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Pocillopora"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3522,
-    "renderRevision": "realism-2",
+    "bytes": 3660,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "stylo": {
     "src": "./assets/catalog/stylo.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Kräftige rundlich endende Äste",
         "Kleine seitliche Koralliten"
@@ -2732,22 +3156,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Stylophora_pistillata"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3094,
-    "renderRevision": "realism-2",
+    "bytes": 3870,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "birdsnest": {
     "src": "./assets/catalog/birdsnest.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Viele sehr dünne nestartige Äste",
         "Schmale zugespitzte Verzweigungen"
@@ -2755,22 +3183,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Seriatopora_hystrix"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4120,
-    "renderRevision": "realism-2",
+    "bytes": 5092,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "cherryshrimp": {
     "src": "./assets/catalog/cherryshrimp.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Sechs Hinterleibsegmente und Schwanzfächer",
         "Rote Zuchtform mit fünf Laufbeinpaaren"
@@ -2778,22 +3210,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Neocaridina_davidi"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3320,
-    "renderRevision": "realism-2",
+    "bytes": 3556,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "amanoshrimp": {
     "src": "./assets/catalog/amanoshrimp.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Durchscheinender Panzer",
         "Seitliche Punktreihen und lange Antennen"
@@ -2801,22 +3237,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Caridina_multidentata"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 2366,
-    "renderRevision": "realism-2",
+    "bytes": 2756,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "crystal": {
     "src": "./assets/catalog/crystal.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Rotweiße Querbänder",
         "Segmentierter Hinterleib und Antennen"
@@ -2824,22 +3264,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Caridina_cantonensis"
       ],
-      "note": "Die Darstellung zeigt die im Hobby typische rotweiße Zuchtform, keine Garantie der im Katalog breiten Artzuordnung."
+      "note": "Die Darstellung zeigt die im Hobby typische rotweiße Zuchtform, keine Garantie der im Katalog breiten Artzuordnung.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3486,
-    "renderRevision": "realism-2",
+    "bytes": 3016,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "bambooshrimp": {
     "src": "./assets/catalog/bambooshrimp.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Vier fein gefächerte Filterhände",
         "Heller Längsstreifen auf dem Rücken"
@@ -2847,22 +3291,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Atyopsis_moluccensis"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3148,
-    "renderRevision": "realism-2",
+    "bytes": 3246,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "ramshorn": {
     "src": "./assets/catalog/ramshorn.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "In einer Ebene aufgerolltes Gehäuse",
         "Breiter Kriechfuß und dünne Fühler"
@@ -2870,22 +3318,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Planorbella"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4544,
-    "renderRevision": "realism-2",
+    "bytes": 3380,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "nerite": {
     "src": "./assets/catalog/nerite.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Niedrige rundliche Gehäusekappe",
         "Dunkle unregelmäßige Streifen"
@@ -2893,22 +3345,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Neritina"
       ],
-      "note": "Der Katalog fasst mehrere Rennschnecken zusammen; ein gestreifter Vertreter wird gezeigt."
+      "note": "Der Katalog fasst mehrere Rennschnecken zusammen; ein gestreifter Vertreter wird gezeigt.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4138,
-    "renderRevision": "realism-2",
+    "bytes": 3526,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "trumpet": {
     "src": "./assets/catalog/trumpet.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Sehr langes konisches Spiralgehäuse",
         "Viele sichtbare Windungen"
@@ -2916,22 +3372,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Melanoides_tuberculata"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 2888,
-    "renderRevision": "realism-2",
+    "bytes": 2908,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "bladder": {
     "src": "./assets/catalog/bladder.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Kleines dünnschaliges Gehäuse",
         "Schmale Fadenfühler"
@@ -2939,22 +3399,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Physella"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3024,
-    "renderRevision": "realism-2",
+    "bytes": 2956,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "assassin": {
     "src": "./assets/catalog/assassin.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Konisches Gehäuse mit dunklen Bändern",
         "Schlanker Kriechfuß"
@@ -2962,22 +3426,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Anentome_helena"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3632,
-    "renderRevision": "realism-2",
+    "bytes": 3222,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "freshclam": {
     "src": "./assets/catalog/freshclam.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Zwei gerippte Muschelklappen",
         "Kleine Körperöffnung zwischen den Klappen"
@@ -2985,22 +3453,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Corbicula_fluminea"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4088,
-    "renderRevision": "realism-2",
+    "bytes": 3780,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "cleanershrimp": {
     "src": "./assets/catalog/cleanershrimp.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Roter Körper mit weißem Rückenstreifen",
         "Sehr lange helle Antennen"
@@ -3008,22 +3480,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Lysmata_amboinensis"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3342,
-    "renderRevision": "realism-2",
+    "bytes": 2990,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "fireshrimp": {
     "src": "./assets/catalog/fireshrimp.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Roter Körper und helle Beine",
         "Weiße Punkte auf dem Panzer"
@@ -3031,22 +3507,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Lysmata_debelius"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3210,
-    "renderRevision": "realism-2",
+    "bytes": 3436,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "peppermint": {
     "src": "./assets/catalog/peppermint.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Durchscheinender Körper",
         "Feine rote Zeichnung und lange Antennen"
@@ -3054,22 +3534,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Lysmata_wurdemanni"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 2856,
-    "renderRevision": "realism-2",
+    "bytes": 3326,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "trochus": {
     "src": "./assets/catalog/trochus.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Breites kreiselförmiges Spiralgehäuse",
         "Kriechfuß mit Fühlern"
@@ -3077,22 +3561,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Trochus"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 2884,
-    "renderRevision": "realism-2",
+    "bytes": 2496,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "cerith": {
     "src": "./assets/catalog/cerith.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Langgestrecktes gewundenes Gehäuse",
         "Feine Rippen an den Windungen"
@@ -3100,22 +3588,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Cerithium"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 2626,
-    "renderRevision": "realism-2",
+    "bytes": 2768,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "nassarius": {
     "src": "./assets/catalog/nassarius.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Kurzes gewundenes Gehäuse",
         "Aufragender Atemsipho am Kopf"
@@ -3123,22 +3615,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Nassarius"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3114,
-    "renderRevision": "realism-2",
+    "bytes": 2982,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "giantclam": {
     "src": "./assets/catalog/giantclam.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Große gefaltete Muschelklappen",
         "Blauer gemusterter Mantel mit zwei Siphonen"
@@ -3146,22 +3642,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Tridacna_maxima"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3918,
-    "renderRevision": "realism-2",
+    "bytes": 3144,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "hermit": {
     "src": "./assets/catalog/hermit.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Schneckenhaus mit herausragendem Krebs",
         "Blaue gegliederte Beine und zwei Scheren"
@@ -3169,22 +3669,26 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Clibanarius_tricolor"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 4404,
-    "renderRevision": "realism-2",
+    "bytes": 4066,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "urchin": {
     "src": "./assets/catalog/urchin.webp",
     "kind": "Modellvorschau",
-    "credit": "Ökosystem-Werkstatt",
-    "license": "Eigenmodell",
-    "source": "",
+    "credit": "Eigene Projektgrafik · Blender/Python",
+    "license": "CC0-1.0",
+    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
     "provenance": {
-      "kind": "authored",
-      "author": "Ökosystem-Werkstatt",
-      "license": "Eigenmodell",
+      "kind": "authored-glb",
+      "author": "Eigene Projektgrafik · Blender/Python",
+      "license": "CC0-1.0",
       "features": [
         "Fünf blaue kahle Bänder",
         "Viele kurze feine Stacheln"
@@ -3192,10 +3696,14 @@
       "references": [
         "https://commons.wikimedia.org/wiki/Category:Mespilia_globulus"
       ],
-      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens."
+      "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
+      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
+      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 6112,
-    "renderRevision": "realism-2",
+    "bytes": 7256,
+    "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },
   "root": {

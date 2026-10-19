@@ -1,0 +1,19 @@
+{
+  "original": "graphics-primary.json: 144 individually loaded model paths",
+  "updatedModels": "species-visual-browser.json: eleven paths after shell and livebearer geometry corrections",
+  "updatedIDs": [
+    "platy",
+    "swordtail",
+    "ramshorn",
+    "nerite",
+    "trumpet",
+    "bladder",
+    "assassin",
+    "trochus",
+    "cerith",
+    "nassarius",
+    "hermit"
+  ],
+  "total": 144,
+  "note": "Combined measurement table; raw run statuses remain unchanged."
+}

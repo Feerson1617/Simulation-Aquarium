@@ -1,24 +1,21 @@
 # Arbeitsstand: Artenmodelle, Farbformen und Vererbung
 
-Basis: main `87491db`, Arbeitsbranch `feature/species-variants-genetics`. Kein Merge und keine Veröffentlichung. AGENTS.md bleibt unverändert.
+Stand 19. Oktober 2026. Basis main `87491db`, eigener Branch `feature/species-variants-genetics`. main, AGENTS.md und Pages-/PR-Workflows unverändert. Keine zusätzlichen Konten oder kostenpflichtigen Dienste. Kein Merge und keine Veröffentlichung.
 
-## Integriert
+Integriert: 127 eigene Arten-GLBs mit 254 echten Desktop-/Mobil-Dateien (92.467.196 Byte), 49 Farbformen für 16 Arten, individuelle Instanztexturen und Geschlechtsmorphologie, tägliche biologische Fortpflanzung, stochastische Allelvererbung, Eier/Schlupf, F1/F2/Stammbaum, Unterrichtszeiträume und interaktive Analyse. Die sechs besten Bestandsmodelle bleiben erhalten.
 
-- 54 neue Fischmodelle als echte GLB-Dateien, je Desktop-/Mobilgeometrie. Dazu fünf erste Pflanzen-/Wirbellosen-/Korallenmodelle. Die sechs hochwertigen Bestandsmodelle bleiben erhalten.
-- Blender-/Python-Quellen, exportierte artspezifische Pigmentkarten und reproduzierbare Oberflächen. Vier Fischtexturen nutzen eine mit vorhandener Codex-Bildfunktion erzeugte Vorlage; Herkunft, Prompt und Grenzen sind dokumentiert. Keine neue Fotografie oder unabhängige Referenzprüfung behauptet.
-- 16 Arten mit gezielt begrenzten realen Farbformen; individueller Shop-Kauf mit Vorschau und dauerhafter Speicherung.
-- Stochastische monohybride Vererbung (Molly), ausdrücklich unabhängige zwei Unterrichtsmerkmale (Platy), Eiablage (Zebrabärbling). Weitere Lebendgebärende erhalten Abstammung ohne erfundene einfache Farbgesetze.
-- In die tatsächlichen Biologieschritte integrierter Wochenzyklus, Jungtierwachstum, Bedingungen und Kapazitätsgrenzen; Analysefenster mit echten Eltern, Nachkommen, Stammbaum, optionaler Genotypanzeige und Punnett-Quadrat.
-- iPad begrenzt bei großen Populationen nur die gleichzeitig gezeichneten Fische. Individuen und Simulation bleiben erhalten.
+**Das umfassende Fotorealismusziel bleibt offen: 0 neue Modelle sind vollständig entsprechend abgenommen.** MODEL_STATUS.md und model-status.json dokumentieren alle 181 Einträge mit tatsächlicher Änderung, Quellen, Messwerten und verbleibendem Bedarf. Vier Kontaktbögen und Live-Nahansichten liegen bei. Glatte Körper, gemeinsame parametrische Formen, dünne Blätter, wiederholte Korallen und vereinfachte Wirbellosenoberflächen bleiben sichtbare Grenzen. 18 zuvor deutlich vereinfachte Produkt-/Beckeneinträge sind unverändert.
 
-## Bereits nachgewiesen
+Bestanden: 54 Node-Tests, zwei vollständige GLB-Prüfungen und vier Katalogprüfungen nach der letzten Bilderneuerung. Der durchgängige Genetik-Browserlauf prüft neun Bereiche: echte Shopkäufe bis zu fünf Aa-F1-Mollys und F2 aus tatsächlichen F1-Eltern, Platy-AaBb, Zebrabärbling-Eier/Schlupf, Speicherung/Import/Reload/Profilwechsel und Touch. Die F2 zeigt schwarze und goldene Jungtiere gleichzeitig im Aquarium. Unabhängige Bildquellen verhindern die zuvor entdeckte gemeinsame Umfärbung.
 
-12 Genetik-/Populations-Unit-Tests bestanden. Ein echter Browserlauf kaufte zwei schwarze Molly-Weibchen AA und zwei goldene Männchen aa im Shop. Aus dem ausgewählten Elternpaar entstanden nach sieben normal berechneten Tagen fünf schwarze F1-Jungtiere Aa mit echten Eltern-IDs; keine JavaScriptfehler. Die bisherigen 50 Unit-Tests bestanden vor den letzten Modelloptimierungen; Abschlussregression folgt.
+Weitere Browsernachweise: 100 Individuen mit 64 detaillierten iPad-/100 Desktop-Fischen, 144 Modellpfade, 181 Katalogbilder (596.006 Byte), 13 allgemeine Spiel-/Tutorialprüfungen, zwölf Aquascapingprüfungen und zwölf Ökosystemprüfungen einschließlich aller fünf Szenarien. Die elf zuletzt geänderten Modelle wurden erneut geladen; ihre aktuellen Messwerte ersetzen die entsprechenden alten Werte in der zusammengeführten Tabelle. Geschlechtsvorschau, rote Schwertträger-Weibchen, weibliche Guppy-Flossenfarben und geschlossene Schneckengehäuse sind zusätzlich geprüft. Protokolle und Grenzen stehen in VALIDATION.md.
 
-118 GLB-Dateien wurden ohne zusätzlichen Decoder mit KHR_mesh_quantization von 61,0 auf 41,5 MB verkleinert. Die tatsächliche GPU-Darstellung nach dieser Optimierung wird gesondert geprüft.
+Die heruntergeladene vollständige HTML-Datei (150.079.840 Byte) startet und verwendet neue GLBs, Varianten und Genetik ohne zusätzliche Ressourcendateien. Die verwaltete Chromium-Richtlinie sperrt file:-Navigation; geprüft wurde die Datei allein über HTTP. Kein tatsächlicher Safari-/iPad-Hardwaretest, keine Hardware-FPS- oder GPU-Speichermessung. GPU-Tests in dieser Cloud weiterhin sequenziell mit SwiftShader ausführen.
 
-## Noch in Arbeit
+Zwei Testprobleme bleiben transparent dokumentiert: Eine widersprüchliche künstliche Riffdatei wurde korrekt zurückgewiesen; nach Fixturekorrektur bestand der betroffene Grafikteil. Ein alter Dialogselektor wurde durch das neue Genetikfenster mehrdeutig; nach Präzisierung bestand der vollständige Ökosystemlauf. Die ursprünglichen Fehlerprotokolle sind unverändert erhalten. Keine Importvalidierung wurde gelockert.
 
-Visuelle Abnahme und weitere Organismenmodelle; F2-, Platy- und Eiablage-Browserprüfung; Persistenz-/Profil-/Touch- und Bestandsregression; aktualisierte vollständige Qualitätsmatrix und Abschlussbericht. Neue GLB-Dateien gelten ausdrücklich noch nicht pauschal als fotorealistisch. Wikimedia-Abruf ist in dieser Umgebung blockiert; keine vollständige unabhängige Fotoreferenzprüfung möglich. Vereinfachte Modelle werden als solche benannt.
+Quellen/Erzeugung: tools/species, assets/species/ATTRIBUTION.md. Vier erzeugte Texturvorlagen sind ausdrücklich keine Fotos. Externer Referenzabruf teilweise CONNECT-403. Nur lokale freie Werkzeuge und vorhandene Codex-Funktionen verwendet. Weitere Arbeiten: manuelle artspezifische Anatomie-/Texturverbesserungen mit geklärten Referenzen, Einzelabnahme und echte Safari-/iPad-Prüfung.
 
-Kostenfreie lokale Werkzeuge: Blender 4.3, Python, Three.js, Node und Playwright/Chromium. Zusätzliche Accounts, Schlüssel und Laufzeitdienste wurden nicht eingeführt. Änderungen regelmäßig auf dem Arbeitsbranch sichern. main nicht ändern.
+Die Cloud-Werkzeuge sind nutzbar. Die Startanleitung wurde als Cloud-Konfigurationsentwurf ergänzt; Installationsskript, Netzwerkregeln und Geheimnisse blieben unverändert. Kein neuer Kaltstart oder veröffentlichter Konfigurationsstand behauptet. Kontingentpausen lassen sich nicht automatisch überwachen oder neu starten; der Branch und diese Notiz sichern die Wiederaufnahme.
+
+GitHub-API lieferte Forbidden, git push funktioniert. PR-Beschreibung: PR_BODY.md. Direkter PR-Erstellungslink, falls die API weiterhin blockiert: https://github.com/Feerson1617/Simulation-Aquarium/pull/new/feature/species-variants-genetics . Nach PR-Eröffnung stellt der vorhandene Workflow die getrennte Vorschau bereit. Kein Merge/Deployment ausführen.

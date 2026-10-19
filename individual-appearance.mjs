@@ -7,7 +7,8 @@ function variantTexture(T,source,form,role,species,sex,material){
  const key=[species,form.id,role,female,source?.uuid||material.name].join(':');if(textures.has(key))return textures.get(key);
  const width=Math.min(1024,source?.image?.width||512),height=Math.min(512,source?.image?.height||256),canvas=document.createElement('canvas');canvas.width=width;canvas.height=height;const ctx=canvas.getContext('2d');
  if(source?.image)ctx.drawImage(source.image,0,0,width,height);else{ctx.fillStyle='#'+material.color.getHexString();ctx.fillRect(0,0,width,height)}
- const image=ctx.getImageData(0,0,width,height),data=image.data,target=rgb(female?'#9eaa8b':role==='fin'?form.fins||form.body:form.body||'#a5ab98');
+ const mutedFemale=female&&species!=='swordtail'&&(role!=='fin'||form.pattern==='original');
+ const image=ctx.getImageData(0,0,width,height),data=image.data,target=rgb(mutedFemale?'#9eaa8b':role==='fin'?form.fins||form.body:form.body||'#a5ab98');
  for(let y=0;y<height;y++)for(let x=0;x<width;x++){
   const k=(y*width+x)*4,u=x/width,v=y/height,old=[data[k]/255,data[k+1]/255,data[k+2]/255],light=.2126*old[0]+.7152*old[1]+.0722*old[2],saturation=Math.max(...old)-Math.min(...old);
   if(data[k+3]<8)continue;
@@ -29,7 +30,10 @@ function variantTexture(T,source,form,role,species,sex,material){
    // Golden reduces dark stripe pigment; retain the longitudinal stripe layout.
    shade=.65+light*.38;
   }
-  if(female&&role!=='fin'&&u>.57&&u<.78&&v>.52&&v<.83)pigment=rgb('#565e43');
+  if(female&&role!=='fin'){
+   const spot=Math.max(0,1-Math.hypot((u-.68)/.065,(v-.67)/.15)),blend=spot**.6*.7;
+   if(blend>0){const dark=rgb('#565e43');pigment=pigment.map((value,channel)=>value*(1-blend)+dark[channel]*blend)}
+  }
   for(let channel=0;channel<3;channel++)data[k+channel]=Math.round(Math.max(0,Math.min(1,preserve?old[channel]:pigment[channel]*shade))*255);
  }
  ctx.putImageData(image,0,0);const map=new T.CanvasTexture(canvas);
@@ -51,7 +55,7 @@ export function applyIndividualAppearance(group,individual,T){
    if(eye){if(form.redEyes&&/pupil/.test(name))material.color.set('#7c3031');continue}
    if(lip||!form.body)continue;
    const role=/fin|tail|pectoral|pelvic|dorsal|anal|ray/.test(name)?'fin':'skin';
-   if(form.pattern==='original'&&!female)continue;
+   if(form.pattern==='original'&&(!female||species==='swordtail'))continue;
    material.map=variantTexture(T,material.map,form,role,species,individual.sex,material);material.vertexColors=false;material.color.set('#ffffff');material.needsUpdate=true;
   }
  });return group;

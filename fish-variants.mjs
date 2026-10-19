@@ -2,6 +2,7 @@
 export const GENETICS_DISCLAIMER = 'Vereinfachtes Vererbungsmodell: In der Natur können mehrere Gene, Kopplung, Geschlecht und Umwelt an der Farbgebung beteiligt sein. Unsere Modellallele sind keine gemessenen DNA-Befunde.';
 const form = (id, name, body, fins, pattern = 'plain', extra = {}) => ({ id, name, body, fins, pattern, ...extra });
 export const FISH_VARIANTS = {
+  clown: [form('natural','Klassische Ocellaris-Farbform','#cf7a3a','#b26337','original'),form('black-darwin','Schwarze Darwin-Farbform','#252d2a','#28322c','clown-black')],
   molly: [form('silver','Silber','#b8b9a2','#9c9c88','original'),form('black','Black Molly','#252825','#292d27'),form('gold','Goldmolly','#d4ad45','#c6a24e'),form('dalmatian','Dalmatinermolly','#d8d6c3','#bdbdab','dalmatian')],
   guppy: [form('multicolor','Mehrfarbig · Delta','#84a5a1','#e2a34f','original'),form('red','Full Red','#b45036','#bd4433','fine'),form('blue','Blaue Zuchtform','#4e8d9d','#527da1','mosaic'),form('tuxedo','Tuxedo','#a9a489','#7994a5','tuxedo')],
   platy: [form('red','Roter Platy','#c9683d','#c88957'),form('gold','Goldplaty','#d5b35d','#cdbd87'),form('red-wagtail','Roter Wagtail','#c9683d','#252d29','wagtail'),form('gold-wagtail','Goldener Wagtail','#d5b35d','#252d29','wagtail')],
@@ -20,7 +21,7 @@ export const FISH_VARIANTS = {
 };
 export const VARIANT_REFERENCES = {
   livebearers: ['Dawes, J. (1991): Livebearing Fishes, Blandford. Zuchtformen und ihre komplexe Vererbung.', 'https://www.fishbase.se/summary/Poecilia-sphenops.html','https://www.fishbase.se/summary/Xiphophorus-maculatus.html'],
-  zebrafish: ['Lamason et al. (2005): SLC24A5, a putative cation exchanger, affects pigmentation in zebrafish and humans. Science 310, 1782–1786. DOI:10.1126/science.1116238','https://zfin.org/ZDB-GENO-960809-7'],
+  zebrafish: ['Lamason et al. (2005): SLC24A5, a putative cation exchanger, affects pigmentation in zebrafish and humans. Science 310, 1782–1786. DOI:10.1126/science.1116238','https://zfin.org/'],
   cultivated: ['Die Farbformen sind aquaristische Zuchtformen, keine neuen Arten. Die Liste ist keine Behauptung eines einfachen tatsächlichen Erbgangs.','https://www.fishbase.se/summary/Betta-splendens.html','https://www.fishbase.se/summary/Carassius-auratus.html'],
 };
 const NATURAL = [{ id:'natural',name:'Bestehende Natur-/Zuchtform',pattern:'original' }];

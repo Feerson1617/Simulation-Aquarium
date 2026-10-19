@@ -12,7 +12,8 @@ function variantTexture(T,source,form,role,species,sex,material){
   const k=(y*width+x)*4,u=x/width,v=y/height,old=[data[k]/255,data[k+1]/255,data[k+2]/255],light=.2126*old[0]+.7152*old[1]+.0722*old[2],saturation=Math.max(...old)-Math.min(...old);
   if(data[k+3]<8)continue;
   // Dark pupil/line detail remains dark. Fin transparency stays in the source alpha.
-  const preserve=light<.075&&saturation<.10;let pigment=[...target],shade=.46+light*.70+(noise(x,y)-.5)*.035;
+  const preserve=(form.pattern!=='albino'&&role!=='fin'&&light<.075&&saturation<.10)||(form.pattern==='clown-black'&&saturation<.22&&light>.60);let pigment=[...target],shade=.46+light*.70+(noise(x,y)-.5)*.035;
+  if(form.pattern==='albino')shade=.78+light*.18;
   if(form.pattern==='dalmatian'){
    const cells=role==='fin'?12:22,cx=Math.floor(u*cells),cy=Math.floor(v*cells*.55),dx=(u*cells)%1-(.25+noise(cx+5,cy)*.5),dy=(v*cells*.55)%1-(.25+noise(cy+9,cx)*.5);
    if(dx*dx+dy*dy<.014+noise(cx,cy)*.025)pigment=rgb('#2c302b');
@@ -34,11 +35,11 @@ function variantTexture(T,source,form,role,species,sex,material){
  ctx.putImageData(image,0,0);const map=source?source.clone():new T.CanvasTexture(canvas);map.image=canvas;map.flipY=source?.flipY??false;map.colorSpace=T.SRGBColorSpace;map.userData.visualShared=true;map.needsUpdate=true;textures.set(key,map);return map;
 }
 export function applyIndividualAppearance(group,individual,T){
- const species=individual.species,form=variantFor(species,individual.variant),female=['guppy','endler','swordtail'].includes(species)&&individual.sex==='♀';
+ const species=individual.species,form=variantFor(species,individual.variant),female=['guppy','endler','swordtail'].includes(species)&&individual.sex==='♀',femaleMorph=['guppy','endler','swordtail','platy'].includes(species)&&individual.sex==='♀';
  group.userData.individualAppearance={species,variant:form.id,sex:individual.sex||null};
  group.traverse(mesh=>{
   if(!mesh.isMesh)return;
-  if(mesh.morphTargetDictionary?.female!==undefined)mesh.morphTargetInfluences[mesh.morphTargetDictionary.female]=female?1:0;
+  if(mesh.morphTargetDictionary?.female!==undefined)mesh.morphTargetInfluences[mesh.morphTargetDictionary.female]=femaleMorph?1:0;
   if(female&&/ray/i.test(mesh.name))mesh.visible=false;
   const materials=Array.isArray(mesh.material)?mesh.material:[mesh.material];
   for(const material of materials){
@@ -47,7 +48,7 @@ export function applyIndividualAppearance(group,individual,T){
    if(lip||!form.body)continue;
    const role=/fin|tail|pectoral|pelvic|dorsal|anal|ray/.test(name)?'fin':'skin';
    if(form.pattern==='original'&&!female)continue;
-   material.map=variantTexture(T,material.map,form,role,species,individual.sex,material);material.color.set('#ffffff');material.needsUpdate=true;
+   material.map=variantTexture(T,material.map,form,role,species,individual.sex,material);material.vertexColors=false;material.color.set('#ffffff');material.needsUpdate=true;
   }
  });return group;
 }

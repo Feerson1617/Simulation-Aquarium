@@ -1,0 +1,78 @@
+import { GENETICS_DISCLAIMER,variantFor,genotypeText } from './fish-variants.mjs';
+import { BREEDING_SPECIES,ensureGenetics,setBreedingPair,breedingConditions,punnettSquare,offspringOf,populationSummary,individualGrowth } from './genetics.mjs';
+const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const number=(n,d=1)=>Number(n).toLocaleString('de-DE',{maximumFractionDigits:d});
+const percent=n=>number(n*100)+' %';
+export function mountGeneticsUI({root,getState,getSpecies,isHome,pause,interactive,save,advance,foodScore,openSpecies,openIndividual,notify}){
+ const button=document.createElement('button');button.id='genetics-button';button.className='tool';button.innerHTML='<span aria-hidden="true">♧</span><span>Genetik</span>';button.setAttribute('aria-expanded','false');root.querySelector('.toolbar').append(button);
+ const overlay=document.createElement('section');overlay.className='study-overlay genetics-overlay';overlay.hidden=true;overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','Genetik und Vererbung');root.append(overlay);
+ let species='molly',motherId=null,fatherId=null,reveal=false,theory=false,page=0,identity=null,returnFocus=null;
+ const state=()=>getState(),catalog=()=>getSpecies();
+ const relevant=()=>state().entities.filter(e=>e.species===species&&!e.dead);
+ function selectDefaults(){
+  const current=relevant(),pair=state().genetics?.pairs?.[species];
+  if(!current.some(e=>e.uid===motherId&&e.sex==='♀'))motherId=pair?.[0]||current.find(e=>e.sex==='♀')?.uid||null;
+  if(!current.some(e=>e.uid===fatherId&&e.sex==='♂'))fatherId=pair?.[1]||current.find(e=>e.sex==='♂')?.uid||null;
+ }
+ const parents=()=>[relevant().find(e=>e.uid===motherId),relevant().find(e=>e.uid===fatherId)];
+ function close(){overlay.hidden=true;document.documentElement.classList.remove('study-open');button.setAttribute('aria-expanded','false');interactive(!isHome());(returnFocus?.isConnected?returnFocus:button).focus({preventScroll:true})}
+ function open(){
+  if(isHome()||state().tankPlaced===false)return;
+  if(identity!==state()){identity=state();motherId=null;fatherId=null;page=0;reveal=false;theory=false}
+  ensureGenetics(state());selectDefaults();returnFocus=document.activeElement;pause();save();interactive(false);overlay.hidden=false;document.documentElement.classList.add('study-open');button.setAttribute('aria-expanded','true');render();overlay.querySelector('[data-gen-close]').focus();
+ }
+ button.addEventListener('click',e=>{e.stopPropagation();open()});
+ const recordLabel=e=>`#${e.uid} · ${variantFor(e.species,e.variant).name} · ${e.genetics?.filial||'P'}${e.age<7?' · jung':''}`;
+ function parentCard(entity,title,key){
+  const options=relevant().filter(e=>e.sex===key);
+  return `<article><label for="genetic-parent-${key==='♀'?'mother':'father'}">${title}</label><select id="genetic-parent-${key==='♀'?'mother':'father'}" data-gen-parent="${key==='♀'?'mother':'father'}"><option value="">Elterntier auswählen</option>${options.map(e=>`<option value="${e.uid}" ${entity?.uid===e.uid?'selected':''}>${esc(recordLabel(e))}</option>`).join('')}</select>${entity?`<p><strong>${esc(variantFor(entity.species,entity.variant).name)}</strong><br>${entity.sex} · Alter ${number(entity.age)} Spieltage · Gesundheit ${number(entity.health,0)} %<br>${reveal?`Modellgenotyp: <strong>${esc(genotypeText(entity.genetics?.loci))}</strong>`:'Modellgenotyp bleibt zunächst verdeckt.'}</p>`:'<p>Noch kein passendes Tier ausgewählt.</p>'}</article>`;
+ }
+ function squareView(a,b){
+  const square=punnettSquare(a?.genetics,b?.genetics);if(!square)return'<p>Für dieses Elternpaar gibt es kein gemeinsames einfaches Farb-Erbmodell.</p>';
+  if(!theory)return'<p>Formuliere zuerst eine Vermutung zu den Farbformen der Nachkommen. Das erwartete Ergebnis bleibt bis zu deiner Anforderung verborgen.</p><button data-gen-action="theory">Kreuzungsschema und Erwartung untersuchen</button>';
+  const allele=g=>Object.values(g.alleles).join('');
+  return `<div class="genetics-scroll"><table class="genetics-punnett"><caption>Punnett-Quadrat · ${square.rows.length} × ${square.columns.length} mögliche Keimzellenkombinationen</caption><thead><tr><th>×</th>${square.columns.map(g=>`<th>${reveal?esc(allele(g)):'Keimzelle'}<small> ${percent(g.probability)}</small></th>`).join('')}</tr></thead><tbody>${square.rows.map((g,i)=>`<tr><th>${reveal?esc(allele(g)):'Keimzelle'}<small> ${percent(g.probability)}</small></th>${square.cells[i].map(cell=>`<td>${reveal?`<strong>${cell.genotype}</strong><small>${esc(variantFor(species,cell.phenotype).name)}</small>`:'Genotyp verdeckt'}<small>${percent(cell.probability)}</small></td>`).join('')}</tr>`).join('')}</tbody></table></div><p class="tiny">${square.rows.length===4?'Die beiden Modellloci werden unabhängig verteilt. Gekoppelte Gene und komplexe reale Zuchtformen folgen nicht automatisch 9:3:3:1.':'Jeder Elternteil gibt zufällig eines seiner beiden Modellallele weiter.'} Einzelne kleine Würfe dürfen deutlich von der Erwartung abweichen.</p>`;
+ }
+ function observedView(a,b){
+  const descendants=offspringOf(state(),a?.uid,b?.uid),hatched=descendants.filter(r=>r.status!=='Ei'&&r.status!=='Ei abgestorben'),square=punnettSquare(a?.genetics,b?.genetics),counts={};for(const r of hatched)counts[r.variant]=(counts[r.variant]||0)+1;
+  const forms=new Set([...(theory?Object.keys(square?.phenotypes||{}):[]),...Object.keys(counts)]);
+  return `<p>${hatched.length} tatsächlich geborene/geschlüpfte Nachkommen dieses Elternpaars; ${descendants.filter(r=>r.status==='Ei').length} Eier und ${descendants.filter(r=>r.status==='Ei abgestorben').length} verlorene Embryonen. Die Beobachtung zählt Individuen, keine vorbereiteten Sollquoten.</p>${forms.size?`<div class="genetics-scroll"><table data-gen-observed><thead><tr><th>Farbform</th><th>Beobachtet</th><th>Theoretisch erwartet</th></tr></thead><tbody>${[...forms].map(form=>{const observed=hatched.length?(counts[form]||0)/hatched.length:0,expected=square?.phenotypes[form];return`<tr><th>${esc(variantFor(species,form).name)}</th><td>${counts[form]||0}${hatched.length?' · '+percent(observed):''}<br><span class="genetics-bar" style="width:${observed*130}px"></span></td><td>${theory&&expected!==undefined?percent(expected)+'<br><span class="genetics-bar expected" style="width:'+expected*130+'px"></span>':'erst nach eigener Vermutung aufdecken'}</td></tr>`}).join('')}</tbody></table></div>`:''}`;
+ }
+ function historyView(){
+  const records=Object.values(state().genetics?.pedigree||{}).filter(r=>r.species===species).sort((a,b)=>a.uid-b.uid),groups={};for(const r of records)groups[r.filial]=(groups[r.filial]||0)+1;
+  const maxPage=Math.max(0,Math.ceil(records.length/50)-1);page=Math.min(page,maxPage);const visible=records.slice(page*50,(page+1)*50);
+  return `<div class="genetics-generation">${Object.entries(groups).map(([label,count])=>`<span>${esc(label)} · ${count} Individuen</span>`).join('')}</div><p class="tiny">P bezeichnet Gründer ohne erfundene Eltern. F1 stammt aus P × P; F2 aus F1 × F1 derselben Gründerfamilie. Andere Kreuzungen erhalten G-Nummern. Reales Geschlecht und genetisches Unterrichtsmodell bleiben getrennt.</p><div class="genetics-scroll"><table data-gen-pedigree><thead><tr><th>Tier</th><th>Farbform / Modellgenotyp</th><th>Eltern</th><th>Generation</th><th>Entwicklung</th></tr></thead><tbody>${visible.map(r=>{const entity=state().entities.find(e=>e.uid===r.uid);return`<tr data-gen-individual="${r.uid}"><th>#${r.uid} ${r.sex}${entity?`<br><button data-gen-inspect="${r.uid}">Ansehen</button>`:''}</th><td>${esc(variantFor(r.species,r.variant).name)}<br>${reveal?esc(genotypeText(r.loci)):'Genotyp verdeckt'}</td><td>${r.parents.length?r.parents.map(id=>'#'+id).join(' × '):'Gründer'}</td><td>${esc(r.filial)} · ${r.generation}</td><td>${esc(r.status)}${entity&&!entity.dead?'<br>'+number(entity.age)+' Tage · '+number(individualGrowth(entity)*100,0)+' % Darstellungsgröße':''}</td></tr>`}).join('')}</tbody></table></div>${records.length>50?`<div class="genetics-row"><button data-gen-page="-1" ${page===0?'disabled':''}>Zurück</button><span>${page*50+1}–${Math.min(records.length,(page+1)*50)} von ${records.length}</span><button data-gen-page="1" ${page===maxPage?'disabled':''}>Weiter</button></div>`:''}`;
+ }
+ function render(){
+  const previousScroll=overlay.querySelector(".genetics-content")?.scrollTop||0;
+  selectDefaults();const [mother,father]=parents(),population=populationSummary(state(),catalog()),speciesName=catalog()[species].name,reasons=mother&&father?breedingConditions(state(),mother,father,catalog(),foodScore):['Wähle ein Weibchen und ein Männchen derselben Art.'],spec=BREEDING_SPECIES[species],pair=state().genetics?.pairs[species],active=pair?.[0]===motherId&&pair?.[1]===fatherId;
+  overlay.innerHTML=`<header><div><small>BEOBACHTEN · VERMUTEN · KREUZEN · VERGLEICHEN</small><h2>Genetik und Vererbung</h2></div><button data-gen-close aria-label="Genetikanalyse schließen">✕</button></header><div class="genetics-content"><div class="genetics-note">${esc(GENETICS_DISCLAIMER)}</div><div class="genetics-controls"><div><label for="genetic-species">Art untersuchen</label><select id="genetic-species" data-gen-species>${Object.keys(BREEDING_SPECIES).map(id=>`<option value="${id}" ${id===species?'selected':''}>${esc(catalog()[id].name)}</option>`).join('')}</select></div><div><label class="genetics-reveal"><input type="checkbox" data-gen-reveal ${reveal?'checked':''}>Modellgenotypen aufdecken</label><label class="genetics-reveal"><input type="checkbox" data-gen-enabled ${state().genetics?.enabled!==false?'checked':''}>Fortpflanzung im Unterrichtsmodell aktiv</label></div></div><div class="genetics-columns">${parentCard(mother,'Weibchen','♀')}${parentCard(father,'Männchen','♂')}</div><div class="genetics-row"><button data-gen-action="pair" ${!mother||!father?'disabled':''}>${active?'Dieses Elternpaar ist aktiv':'Dieses Elternpaar gezielt kreuzen'}</button><button data-gen-action="shop">${esc(speciesName)} im Shop auswählen</button></div><p>${reasons.length?esc(reasons.join(' ')):'Die Bedingungen sind derzeit geeignet.'} ${mother?`Fortschritt: ${Math.min(spec.cycle,Math.floor(mother.pregnancy||0))} / ${spec.cycle} geeignete Spieltage.`:''}</p><p class="tiny">${spec.mode==='live'?'Lebendgebärend: Junge werden als kleine Fische geboren.':'Eierlegend: erst Gelege, dann Schlupf; ungeeignete Wasserwerte können Embryonen gefährden.'} Zyklus ungefähr sieben geeignete Spieltage, Geschlechtsreife nach sieben Tagen: <strong>didaktische Zeitverkürzung, keine natürlichen Entwicklungszeiten.</strong> Die kleine Nachkommengruppe ist kein natürlicher Wurf-/Laichumfang.</p><div class="genetics-row"><button data-gen-days="1">+ 1 Spieltag</button><button data-gen-days="7">+ 1 Spielwoche</button><button data-gen-days="14">+ 2 Spielwochen</button><span>Tag ${number(state().day+1)}</span></div><p class="tiny">Der Zeitraffer berechnet auch Wasserchemie, Nahrung, Gesundheit, Alterung und Wachstum. Beobachte die Wasserwerte und ändere jeweils möglichst nur einen Faktor.</p><h3>Kreuzung vorhersagen</h3>${squareView(mother,father)}<h3>Erwartung und tatsächliche Nachkommen</h3>${observedView(mother,father)}<h3>Abstammung und Generationen</h3>${historyView()}<details><summary>Untersuchungsaufträge und Modellgrenzen</summary><ol><li>Vergleiche zwei reinerbige Farbformen. Beschreibe die tatsächliche F1.</li><li>Kreuze passende F1-Tiere. Vermute vor dem Aufdecken, was in der F2 auftreten kann.</li><li>Untersuche beim Platy zwei unabhängig verteilte Modellmerkmale: rote/goldene Grundfarbe und dunkle/helle Flossen. Vergleiche größere Stichproben mit 9:3:3:1.</li><li>Vergleiche kleine Würfe. Warum müssen sie nicht genau zur Theorie passen?</li></ol><p>Molly: bewusst erfundene einfache Zuordnung von Modell-A zu dunkel und aa zu Gold. Platy: zwei didaktisch unabhängige Modellloci, keine Behauptung realer Kopplungsfreiheit. Zebrabärbling: die reale Golden-Pigmentmutation dient als Ausgangspunkt; das Unterrichtsmodell ersetzt keine tatsächliche Genanalyse. Andere komplexe Farbformen erhalten keine erfundene monogene Erklärung.</p><p>Im Aquarium leben ${population.living} Fische, davon ${population.juveniles} Jungfische; ${population.eggs} Eier. ${population.records} individuelle Abstammungsdatensätze. Die Grenze liegt bei ${population.entityLimit} Beckenobjekten und dem verfügbaren Platz. Auf iPad können bei großen Populationen weniger detaillierte Fische gleichzeitig sichtbar sein; alle Individuen werden weiterhin berechnet und hier aufgeführt. Tiere werden nicht automatisch gelöscht.</p><label for="genetic-notes">Meine Vermutung und Beobachtung</label><textarea id="genetic-notes" class="genetics-notes" maxlength="20000"></textarea></details></div><footer>Beim Öffnen pausiert die Spielzeit. Der Zeitraffer oben rechnet denselben biologischen Kern weiter. Genetik und Abstammung sind im normalen Spielstand enthalten.</footer>`;
+  overlay.querySelector('#genetic-notes').value=state().genetics?.notes||'';overlay.querySelector('.genetics-content').scrollTop=previousScroll;
+ }
+ overlay.addEventListener('click',event=>{
+  const target=event.target.closest('button');if(!target)return;event.stopPropagation();
+  if(target.hasAttribute('data-gen-close'))return close();
+  try{
+   if(target.dataset.genPage){page+=Number(target.dataset.genPage);render();return}
+   if(target.dataset.genInspect){close();openIndividual(Number(target.dataset.genInspect));return}
+   if(target.dataset.genDays){advance(Number(target.dataset.genDays));save();if(state().failed){close();return}render();return}
+   const action=target.dataset.genAction;if(action==='pair'){setBreedingPair(state(),species,motherId,fatherId);save();render()}
+   if(action==='theory'){theory=true;render()}
+   if(action==='shop'){close();openSpecies(species)}
+  }catch(error){notify(error.message)}
+ });
+ overlay.addEventListener('change',event=>{
+  event.stopPropagation();const target=event.target;
+  if(target.hasAttribute('data-gen-species')){species=target.value;motherId=null;fatherId=null;page=0;theory=false;render()}
+  if(target.dataset.genParent){if(target.dataset.genParent==='mother')motherId=Number(target.value)||null;else fatherId=Number(target.value)||null;theory=false;render()}
+  if(target.hasAttribute('data-gen-reveal')){reveal=target.checked;render()}
+  if(target.hasAttribute('data-gen-enabled')){ensureGenetics(state()).enabled=target.checked;save();render()}
+ });
+ overlay.addEventListener('input',event=>{if(event.target.id==='genetic-notes'){ensureGenetics(state()).notes=event.target.value.slice(0,20000);save()}});
+ overlay.addEventListener('keydown',event=>{
+  if(event.key==='Escape'){event.stopPropagation();close()}
+  if(event.key==='Tab'){const controls=[...overlay.querySelectorAll('button:not(:disabled),select,input,textarea')].filter(e=>e.offsetParent!==null),first=controls[0],last=controls.at(-1);if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}}
+ });
+ setInterval(()=>{button.disabled=isHome()||state().tankPlaced===false;if(identity&&identity!==state()&&!overlay.hidden)close()},500);
+ return{open,close,isOpen:()=>!overlay.hidden,snapshot:()=>({population:populationSummary(state(),catalog()),selectedSpecies:species,parents:[motherId,fatherId],revealed:reveal,theoryShown:theory,genetics:state().genetics?JSON.parse(JSON.stringify(state().genetics)):null})};
+}

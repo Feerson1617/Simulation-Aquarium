@@ -8,7 +8,7 @@ export const BREEDING_SPECIES = {
  endler:{mode:'live',cycle:7,maturity:7,brood:[3,5]},
  zebra:{mode:'eggs',cycle:7,maturity:7,incubation:1,brood:[4,6]},
 };
-export const POPULATION_LIMITS={entities:240,pedigree:20000};
+export const POPULATION_LIMITS={entities:240,pedigree:5000};
 const allowedModels=['molly-mono','platy-independent','zebra-golden'];
 const clone=x=>JSON.parse(JSON.stringify(x));
 const validId=id=>Number.isSafeInteger(id)&&id>0;
@@ -45,7 +45,7 @@ export function ensureGenetics(state) {
 }
 export function individualGrowth(entity) {
  if(entity.genetics?.founder===false)return .30+.70*Math.min(1,Math.max(0,entity.age)/7);
- return entity.age<15?.42+.58*Math.max(0,entity.age)/15:1;
+ return entity.age<15?.5+Math.max(0,entity.age)/30:1;
 }
 function rootsFor(entity){return entity.genetics?.roots||[entity.uid]}
 function filialFor(mother,father){
@@ -69,7 +69,7 @@ export function initializeIndividual(state,entity,options={}) {
  if(model&&(!loci||phenotypeFor(model,loci)!==form.id))throw new Error('Genotyp und gewählte Farbvariante passen im Lernmodell nicht zusammen.');
  entity.variant=form.id;if(options.sex==='♀'||options.sex==='♂')entity.sex=options.sex;
  entity.genetics={model,loci,parents:[],generation:0,filial:'P',roots:[entity.uid],founder:true,bornDay:null};
- if(model&&lociFor(model).length===1)entity.genotype=loci.A.join('');
+ entity.genotype=model&&lociFor(model).length===1?loci.A.join(''):null;
  geneticState.pedigree[entity.uid]=recordFor(entity,state);return entity;
 }
 export function normalizeGenetics(state,raw,catalog) {
@@ -83,8 +83,11 @@ export function normalizeGenetics(state,raw,catalog) {
   const model=record.model||null;if(model&&!allowedModels.includes(model))throw new Error('Unbekanntes genetisches Modell.');
   const loci=model?parseGenotype(genotypeText(record.loci),model):null;
   if(model&&(!loci||phenotypeFor(model,loci)!==form.id))throw new Error('Widersprüchlicher gespeicherter Genotyp.');
-  if(!['lebend','verstorben','Ei','Ei abgestorben'].includes(record.status))throw new Error('Ungültiger Entwicklungsstatus.');
+  if(!['lebend','verstorben','Ei','Ei abgestorben','abgegeben'].includes(record.status))throw new Error('Ungültiger Entwicklungsstatus.');
   clean.pedigree[id]={uid:record.uid,species:record.species,sex:record.sex==='♀'?'♀':'♂',variant:form.id,model,loci,parents:[...record.parents],generation:record.generation,filial:typeof record.filial==='string'?record.filial.slice(0,24):'G'+record.generation,roots:Array.isArray(record.roots)&&record.roots.every(validId)?[...new Set(record.roots)]:[record.uid],founder:record.founder!==false,bornDay:Number.isFinite(record.bornDay)?record.bornDay:null,status:record.status,recordedDay:Number.isFinite(record.recordedDay)?record.recordedDay:state.day};
+ }
+ for(const record of Object.values(clean.pedigree)){
+  if(record.parents.some(id=>!clean.pedigree[id]||id===record.uid||clean.pedigree[id].species!==record.species||clean.pedigree[id].generation>=record.generation))throw new Error('Widersprüchliche oder fehlende Eltern im Abstammungsarchiv.');
  }
  for(const clutch of raw.clutches){
   if(!Array.isArray(clutch.ids)||clutch.ids.some(id=>!validId(id)||clean.pedigree[id]?.status!=='Ei')||!Number.isFinite(clutch.hatchDay)||!Number.isFinite(clutch.laidDay)||clutch.hatchDay<clutch.laidDay||!BREEDING_SPECIES[clutch.species]||BREEDING_SPECIES[clutch.species].mode!=='eggs')throw new Error('Ungültiges Gelege.');
@@ -136,7 +139,7 @@ function materialize(state,record,createEntity) {
  const transientId=entity.uid;if(state.genetics?.pedigree[transientId]?.founder)delete state.genetics.pedigree[transientId];
  Object.assign(entity,{uid:record.uid,sex:record.sex,variant:record.variant,age:0,health:95,scale:1,pregnancy:0});
  entity.genetics={model:record.model,loci:record.loci?clone(record.loci):null,parents:[...record.parents],generation:record.generation,filial:record.filial,roots:[...record.roots],founder:false,bornDay:state.day};
- entity.genotype=record.loci?.A?.join('')||null;record.status='lebend';record.bornDay=state.day;state.genetics.pedigree[record.uid]=record;
+ entity.genotype=record.model&&lociFor(record.model).length===1?record.loci.A.join(''):null;record.status='lebend';record.bornDay=state.day;state.genetics.pedigree[record.uid]=record;
  if(record.species==='molly')state.offspring.push({uid:record.uid,day:Math.floor(state.day),genotype:entity.genotype,parents:record.parents.map(id=>genotypeText(state.genetics.pedigree[id]?.loci))});
  return true;
 }
@@ -176,3 +179,6 @@ export function populationSummary(state,catalog) {
  const living=state.entities.filter(e=>!e.dead&&catalog[e.species]?.category==='fish'),juveniles=living.filter(e=>e.genetics?.founder===false&&e.age<7);
  return{living:living.length,juveniles:juveniles.length,eggs:pendingCount(state),records:Object.keys(state.genetics?.pedigree||{}).length,entityLimit:POPULATION_LIMITS.entities};
 }
+
+export function recordGeneticDeath(state,entity){const record=state.genetics?.pedigree?.[entity.uid];if(record)record.status="verstorben"}
+export function recordGeneticRemoval(state,uid){const entity=state.entities.find(e=>e.uid===uid),record=state.genetics?.pedigree?.[uid];if(record)record.status=entity?.dead?'verstorben':'abgegeben'}

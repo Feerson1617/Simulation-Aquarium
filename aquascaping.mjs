@@ -83,7 +83,7 @@ export async function createStandaloneDocument(baseURL, fetchResource = fetch) {
   const rewrite=source=>source.replace(imports,(_all,names,path)=>'const {'+names.replace(/\bas\b/g,':')+'}='+modules.get(path)+';');
   const chunks=[];
   for(const module of ordered){let source=module.source;const exports=[...source.matchAll(/^export (?:async )?(?:function|class|const|let) (\w+)/gm)].map(m=>m[1]);
-    const assets=[...new Set([...source.matchAll(/["'](\.\/assets\/(?:catalog|realism)\/[^"']+\.(?:webp|glb))["']/g)].map(m=>m[1]))];
+    const assets=[...new Set([...source.matchAll(/["'](\.\/assets\/(?:catalog|realism|species)\/[^"']+\.(?:webp|glb))["']/g)].map(m=>m[1]))];
     for(let i=0;i<assets.length;i+=4)await Promise.all(assets.slice(i,i+4).map(async path=>{const bytes=new Uint8Array(await (await read(path)).arrayBuffer());let binary='';for(let j=0;j<bytes.length;j++)binary+=String.fromCharCode(bytes[j]);source=source.split(path).join((path.endsWith('.glb')?'data:model/gltf-binary;base64,':'data:image/webp;base64,')+btoa(binary));}));
     source=rewrite(source).replace(/^export (?=(?:async )?(?:function|class|const|let)\b)/gm,'');chunks.push('const '+module.id+'=(()=>{'+source+'\nreturn {'+exports.join(',')+'};})();');
   }

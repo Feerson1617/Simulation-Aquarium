@@ -16,7 +16,7 @@ function setup(species='molly',variants=['black','gold']){
 function days(fixture,n){for(let d=0;d<n;d++){fixture.state.day++;for(const e of fixture.state.entities)e.age++;advanceReproduction(fixture.state,fixture.context)}}
 
 test('real forms are species-bound; monohybrid variant/genotype choices stay consistent',()=>{
- assert.equal(variantsFor('neon').length,1);assert.equal(variantsFor('clown').length,1);
+ assert.equal(variantsFor('neon').length,1);assert.equal(variantsFor('clown')[1].id,'black-darwin');assert.equal(modelFor('clown','black-darwin'),null);
  assert.deepEqual(genotypeOptions('molly','black'),['AA','Aa']);assert.deepEqual(genotypeOptions('molly','gold'),['aa']);assert.equal(modelFor('molly','dalmatian'),null);
  for(const v of variantsFor('platy'))for(const text of genotypeOptions('platy',v.id))assert.equal(phenotypeFor('platy-independent',parseGenotype(text,'platy-independent')),v.id);
 });
@@ -60,4 +60,9 @@ test('legacy Molly allele data migrate without invented ancestry; other legacy s
 });
 test('population limits block births instead of silently deleting genetic individuals',()=>{
  const f=setup();while(f.state.entities.length<POPULATION_LIMITS.entities)f.state.entities.push({...f.mother,uid:f.state.nextId++,sex:'♂'});const before=f.state.entities.length;days(f,8);assert.equal(f.state.entities.length,before);assert.equal(offspringOf(f.state,f.mother.uid,f.father.uid).length,0);
+});
+
+test('iPad displays a stable subset including selected/newborn fish; Desktop keeps all individuals',async()=>{
+ const {displayedEntities}=await import('../render-population.mjs');const list=Array.from({length:100},(_,i)=>({uid:i+1,species:'molly',age:i>80?0:30,dead:false,genetics:{founder:i<=80}}));list.push({uid:101,species:'anubias'});const saved=JSON.stringify(list),mobile=displayedEntities(list,catalog,{platform:'ipad'},77);
+ assert.equal(mobile.filter(e=>e.species==='molly').length,64);assert.ok(mobile.some(e=>e.uid===77));assert.ok(mobile.some(e=>e.uid===100));assert.ok(mobile.some(e=>e.uid===101));assert.equal(displayedEntities(list,catalog,{platform:'desktop'},77),list);assert.equal(JSON.stringify(list),saved);
 });

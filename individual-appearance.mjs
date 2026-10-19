@@ -44,7 +44,7 @@ export function applyIndividualAppearance(group,individual,T){
  group.traverse(mesh=>{
   if(!mesh.isMesh)return;
   if(mesh.morphTargetDictionary?.female!==undefined)mesh.morphTargetInfluences[mesh.morphTargetDictionary.female]=femaleMorph?1:0;
-  if(female&&/ray/i.test(mesh.name))mesh.visible=false;
+  if((femaleMorph&&/ray/i.test(mesh.name))||(female&&/sword-extension/i.test(mesh.name)))mesh.visible=false;
   const materials=Array.isArray(mesh.material)?mesh.material:[mesh.material];
   for(const material of materials){
    const name=(mesh.name+' '+material.name).toLowerCase(),eye=/eye|iris|pupil|cornea/.test(name),lip=/operculum|mouth|lip|barbel/.test(name);

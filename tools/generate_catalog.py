@@ -1,9 +1,10 @@
 """Generate exact-entry WebP model previews locally. No provider, API or remote asset."""
-import json,base64
+import json,base64,os
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 ROOT=Path(__file__).resolve().parents[1]
 def revision(item):return 'photo-volume-4' if item['id'] in ['neon','molly','clown','nana','vallis','betta'] else 'species-glb-1' if item.get('provenance',{}).get('kind')=='authored-glb' else 'organic-3' if item.get('category') in ['fish','plant'] else 'realism-2'
+forced=set(os.environ.get('AQUARIUM_CATALOG_FORCE','').split(','))
 previous=json.loads((ROOT/'assets/catalog/manifest.json').read_text())
 with sync_playwright() as p:
  b=p.chromium.launch(executable_path='/usr/bin/chromium',args=['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'])
@@ -12,7 +13,7 @@ with sync_playwright() as p:
  manifest={}
  for n,item in enumerate(items):
   target=ROOT/'assets/catalog'/f'{item["id"]}.webp'
-  if not target.exists() or previous.get(item['id'],{}).get('renderRevision')!=revision(item):
+  if item['id']in forced or not target.exists() or previous.get(item['id'],{}).get('renderRevision')!=revision(item):
    data=page.evaluate('(id)=>window.aquariumCatalogRender(id)',item['id']);target.write_bytes(base64.b64decode(data.split(',')[1]))
   asset=item.get('provenance') or {};external=asset.get('source') or asset.get('sourceUrl') or ''
   manifest[item['id']]={'src':'./assets/catalog/'+target.name,'kind':'Modellvorschau' if item.get('category') else 'Produktmodell (schematisch)','credit':asset.get('author','Eigene Spielmodelle / lokale Three.js-Darstellung'),'license':asset.get('license','Repository-Projektcode; Three.js MIT'),'source':external,'provenance':asset,'bytes':target.stat().st_size,'renderRevision':revision(item),'renderProfile':'high'}

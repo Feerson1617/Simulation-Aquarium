@@ -55,12 +55,12 @@ with sync_playwright() as p:
      category={'anubias':'plant','amanoshrimp':'invert','softleather':'coral'}.get(id,'all');click(page,f'[data-specimen-category="{category}"]')
     click(page,f'[data-preview="{id}"]');page.wait_for_function('(id)=>document.querySelector("#specimen-stage")?.dataset.ready===id',arg=id);page.locator('#specimen-stage').screenshot(path=str(OUT/f'maximum-closeup-{id}.png'),timeout=120000);click(page,'#modal-root [data-act="specimen-gallery"]')
    click(page,'[data-act="close-modal"]');passed('Maximum close-ups captured from the actual fish/plant/invertebrate/coral renderers')
-  reef=copy.deepcopy(fixture);reef.pop('scenario',None);reef.update(water='salt',liters=300,light='reef',substrate='coralsand',skimmer=True,co2Dose=0,entities=[],nextId=1)
+  reef=copy.deepcopy(fixture);reef.pop('scenario',None);reef.pop('genetics',None);reef.update(water='salt',liters=300,light='reef',substrate='coralsand',skimmer=True,co2Dose=0,entities=[],nextId=1)
   reef['params'].update(salinity=34,ph=8.2,kh=8,calcium=420,co2=3,no3=5,po4=.07)
   template=fixture['entities'][0]
   for id,count in [('clown',2),('cleanershrimp',2),('trochus',3),('softleather',1),('acropora',2),('ricordea',2),('reefcave',1),('reefrock',2)]:
    for n in range(count):
-    e=copy.deepcopy(template);e.update(uid=reef['nextId'],species=id,x=(reef['nextId']%5-2)*.9,z=((reef['nextId']//5)%3-1)*.7,rotation=.3,health=100,age=30,dead=False,acclimation=34,biomass=.8);reef['nextId']+=1;reef['entities'].append(e)
+    e=copy.deepcopy(template);e.pop('genetics',None);e.pop('variant',None);e.update(uid=reef['nextId'],species=id,x=(reef['nextId']%5-2)*.9,z=((reef['nextId']//5)%3-1)*.7,rotation=.3,health=100,age=30,dead=False,acclimation=34,biomass=.8);reef['nextId']+=1;reef['entities'].append(e)
   import_payload(page,reef);screenshot(page,'desktop-maximum-reef.png');passed('Maximum marine scene includes live coral geometry, reef hardscape and actual installed equipment')
   context.close();context=browser.new_context(viewport={'width':820,'height':1180},has_touch=True,is_mobile=True);page=context.new_page();attach(page);page.goto(URL);page.locator('button[data-graphics-profile="ipad"]').tap();page.locator('[data-scenarios]').tap();page.locator('[data-scenario-start="foodweb"]').tap();wait_models(page,24);screenshot(page,'ipad-touch-portrait.png');page.locator('#ecosystem-button').tap();page.locator('[data-eco-tab="web"]').tap();assert page.evaluate('document.documentElement.scrollWidth<=innerWidth');page.locator('[data-eco-close]').tap();passed('real touch events operate the iPad profile and shared analysis in portrait')
   assert not report['errors'],report['errors'];assert not report['failed_requests'],report['failed_requests'];assert not report['external_requests'],report['external_requests']

@@ -39,26 +39,52 @@ def shrimp(item,lod):
      a=k/(27 if desktop else 13)*math.pi;end=(origin[0]+math.cos(a)*.065,origin[1]+math.sin(a)*.065,origin[2]);tube('filter-feeding-fan',[origin,end],[.0012,.00025],whisker,4)
 
 def snail(item,lod,hermit=False):
- id=item['id'];rng=random.Random(id);desktop=lod=='desktop';turns=3 if id in ['ramshorn','nerite']else 6 if id in ['trumpet','cerith']else 4.5;flat=id=='ramshorn';height=.28 if flat else .19 if id=='nerite'else.62 if id in ['trumpet','cerith']else.43
- shellColor=item['species']['color'];shellmat=vertex_material('calcareous-shell',shellColor,.48);footmat=material('soft-foot','#b6b59b',.57);dark=material('aperture-interior','#383c2c',.82);eye=material('eye','#121a15',.2);points=[];radii=[];count=220 if desktop else 100
- for j in range(count+1):
-  t=j/count;angle=t*turns*2*math.pi;r=.008*math.exp(3.3*t);radius=.004+.059*t**2
-  if flat:points.append((r*math.cos(angle),.25+r*math.sin(angle),0));radius=.003+r*.65
-  else:points.append((r*math.cos(angle),.06+height*(1-t**2.2),r*math.sin(angle)))
-  radii.append(radius*(1+.035*math.sin(angle*14)))
- shell=tube('continuous-whorled-shell',points,radii,shellmat,20 if desktop else 10)
- def colors(x,y,z):
-  base=[linear(int(shellColor.lstrip('#')[j:j+2],16)/255)for j in(0,2,4)]
-  if id in ['assassin','nerite']:
-   shade=.48 if math.sin((y*70 if id=='assassin'else math.atan2(z,x)*8+y*19))>.15 else 1.15
-   return tuple(v*shade for v in base)
-  return base
- paint(shell,shellColor,.15,colors)
- # Aperture rim and recessed interior, not a sealed stack of cones.
- p=Vector(points[-1]);direction=(p-Vector(points[-2])).normalized();u=direction.cross(Vector((0,1,0)))
- if u.length<.01:u=direction.cross(Vector((1,0,0)))
- u.normalize();v=direction.cross(u);rim=[tuple(p+(math.cos(j/40*math.pi*2)*u+math.sin(j/40*math.pi*2)*v)*radii[-1])for j in range(41)];tube('aperture-lip',rim,[.003]*41,shellmat,6)
- mesh('aperture-shadow',[tuple(p-direction*.012)]+rim[:-1],[(0,j+1,(j+1)%40+1)for j in range(40)],dark,role='shell')
+ id=item['id'];desktop=lod=='desktop';flat=id=='ramshorn';low=id=='nerite';slender=id in ['trumpet','cerith'];turns=7 if slender else 3.5 if low else 5
+ height=.28 if flat else .22 if low else .62 if slender else .43
+ shellColor='#9c9277'if hermit else item['species']['color'];shellmat=vertex_material('calcareous-shell',shellColor,.56);footmat=material('soft-foot','#b6b59b',.57);dark=material('aperture-interior','#383c2c',.82);eye=material('eye','#121a15',.2)
+ if flat:
+  points=[];radii=[];count=220 if desktop else 100
+  for j in range(count+1):
+   t=j/count;angle=t*3*2*math.pi;r=.008*math.exp(3.3*t);points.append((r*math.cos(angle),.25+r*math.sin(angle),0));radii.append(.003+r*.65)
+  shell=tube('continuous-planispiral-shell',points,radii,shellmat,20 if desktop else 10);paint(shell,shellColor,.12);p=Vector(points[-1]);direction=(p-Vector(points[-2])).normalized();u=direction.cross(Vector((0,1,0)))
+  if u.length<.01:u=direction.cross(Vector((1,0,0)))
+  u.normalize();v=direction.cross(u);rim=[tuple(p+(math.cos(j/48*math.pi*2)*u+math.sin(j/48*math.pi*2)*v)*radii[-1])for j in range(49)];center=p-direction*.025
+ else:
+  # Connected gastropod exterior. A helical suture modulates one continuous
+  # surface; separate torus turns would leave biologically impossible gaps.
+  baseR=.115 if slender else .22 if low else .19;aspect=.82
+  def radial(t,a):
+   t=max(0,min(1,t));phase=2*math.pi*turns*t+(-a if id=='bladder'else a)
+   if low:envelope=math.sqrt(max(0,1-t*t));relief=.035
+   elif id in ['bladder','nassarius']or hermit:
+    envelope=math.sqrt(max(0,1-((t-.28)/.78)**2))if t<.65 else .69*((1-t)/.35)**.85;relief=.10
+   else:envelope=(1-t)**(.80 if slender else .95);relief=.10
+   whorl=1-relief*(.5+.5*math.cos(phase))**8
+   axial=.005*math.sin(a*36+t*12)if id in ['trumpet','cerith','trochus']else .002*math.sin(a*22+t*21)
+   return max(.0007,baseR*envelope*(whorl+axial))
+  rows,cols=(112,80)if desktop else(56,40);verts=[];faces=[];uv=[]
+  for j in range(rows+1):
+   t=j/rows
+   for k in range(cols+1):
+    a=k/cols*2*math.pi;r=radial(t,a);verts.append((math.cos(a)*r,.06+height*t,math.sin(a)*r*aspect));uv.append((k/cols,t))
+   if j:
+    for k in range(cols):
+     tmid=(j-.5)/rows;a=(k+.5)/cols*math.pi*2
+     if math.cos(a)>0 and ((tmid-.17)/.20)**2+(math.sin(a)/.57)**2<1:continue
+     q=(j-1)*(cols+1)+k;faces.append((q,q+cols+1,q+cols+2,q+1))
+  shell=mesh('connected-whorled-shell',verts,faces,shellmat,uv,'shell')
+  def colors(x,y,z):
+   theta=math.atan2(z/aspect,x);t=(y-.06)/height;factor=1
+   if id=='nerite':factor=.45 if math.sin(theta*11+math.sin(t*13)*1.2)>.15 else 1.18
+   elif id=='assassin':factor=.40 if math.sin(t*turns*2*math.pi+theta*.3)>.2 else 1.25
+   elif id in ['trumpet','cerith']and math.sin(theta*19+t*140)>.85:factor=.65
+   return tuple(linear(int(shellColor.lstrip('#')[j:j+2],16)/255)*factor for j in(0,2,4))
+  paint(shell,shellColor,.12,colors);rim=[]
+  for j in range(65):
+   a=j/64*2*math.pi;t=.17+.20*math.sin(a);theta=math.asin(.57*math.cos(a));r=radial(t,theta);rim.append((math.cos(theta)*r,.06+height*t,math.sin(theta)*r*aspect))
+  center=Vector((baseR*.32,.06+height*.17,0))
+ tube('aperture-lip',rim,[.003]*len(rim),shellmat,8 if desktop else 6)
+ mesh('recessed-aperture',[tuple(center)]+rim[:-1],[(0,j+1,(j+1)%(len(rim)-1)+1)for j in range(len(rim)-1)],dark,role='shell')
  if hermit:return
  centers=[(-.22+j/20*.53,.025+.025*math.sin(j/20*math.pi),0)for j in range(21)];radii=[(.018*math.sin(j/20*math.pi)+.004,.085*math.sin(j/20*math.pi)+.007)for j in range(21)];loft('muscular-foot',centers,radii,footmat,18 if desktop else 10,'body')
  for side in [-1,1]:

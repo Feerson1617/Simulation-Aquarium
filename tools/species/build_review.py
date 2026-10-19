@@ -22,10 +22,10 @@ def build(run):
  assert len(items)==181 and len(manifest)==127 and len(audits)==144
  rows=[]
  for item in items:
-  id=item['id'];previous=old[id];native=id in manifest
-  row={'id':id,'name':item['name'],'category':item['category'],'newGLB':native,'photorealisticAccepted':False,'priorStatus':previous['status'],'source':catalog[id]['provenance'],'catalogRevision':catalog[id]['renderRevision'],'ipadAudit':audits.get(id),'features':(item.get('anatomy')or{}).get('features',[])}
+  id=item['id'];previous=old[id];native=id in manifest;category=item.get('category',previous['category'])
+  row={'id':id,'name':item['name'],'category':category,'newGLB':native,'photorealisticAccepted':False,'priorStatus':previous['status'],'source':catalog[id]['provenance'],'catalogRevision':catalog[id]['renderRevision'],'ipadAudit':audits.get(id),'features':(item.get('anatomy')or{}).get('features',[])}
   if native:
-   row.update(status='Neue GLB; optische Arbeit bleibt offen',change=CHANGES[item['category']],remainingWork=GAPS[item['category']],desktop=metrics(ROOT/manifest[id]['desktop']),mobile=metrics(ROOT/manifest[id]['mobile']))
+   row.update(status='Neue GLB; optische Arbeit bleibt offen',change=CHANGES[category],remainingWork=GAPS[category],desktop=metrics(ROOT/manifest[id]['desktop']),mobile=metrics(ROOT/manifest[id]['mobile']))
    if id in ['guppy','platy','zebra','cory']:row['change']+=' Erzeugte Texturvorlage mit separat projizierten Flossen; keine Referenzfotografie.'
   else:row.update(status='Hochwertiger Bestand erhalten'if id in ['neon','molly','clown','betta','nana','vallis']else'Bestandsmodell dieses Auftrags unverändert',change=previous['change'],remainingWork=previous['remainingWork'])
   rows.append(row)

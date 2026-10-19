@@ -131,7 +131,7 @@ def build(item,lod):
   if id in LIVE:
    fin.shape_key_add(name='Basis');female=fin.shape_key_add(name='female')
    for j,p in enumerate(female.data):
-    u=(j//(strips+1))/count;v=(j%(strips+1))/strips;rootp=Vector(coords(root(u)));p.co=(rootp+(Vector(coords(female_edge(u)))-rootp)*v)if female_edge else rootp+(p.co-rootp)*.57
+    u=(j//(strips+1))/count;v=(j%(strips+1))/strips;rootp=Vector(coords(root(u)));p.co=(rootp+(Vector(coords(female_edge(u)))-rootp)*v)if female_edge else rootp+(p.co-rootp)*(1 if id=='platy'else .88 if id=='swordtail'else .57)
   return fin
 
  for name,spec,sign in [('dorsal',a['dorsal'],1),('anal',a['anal'],-1)]+([('second-dorsal',a['secondDorsal'],1)]if a.get('secondDorsal')else[]):
@@ -206,7 +206,9 @@ def run():
     for obj in objects:obj.select_set(True)
     bpy.context.view_layer.objects.active=objects[0];bpy.ops.object.join()
    bpy.ops.object.select_all(action='SELECT')
-   bpy.ops.export_scene.gltf(filepath=str(target),export_format='GLB',use_selection=True,export_apply=True,export_yup=True,export_animations=False,export_extras=True,export_image_format='AUTO',export_keep_originals=False)
+   exportTarget=target.with_name(target.stem+'-building.glb')
+   bpy.ops.export_scene.gltf(filepath=str(exportTarget),export_format='GLB',use_selection=True,export_apply=True,export_yup=True,export_animations=False,export_extras=True,export_image_format='AUTO',export_keep_originals=False)
+   exportTarget.replace(target)
    manifest.setdefault(id,{})[lod]='./assets/species/'+target.name
    temp=OUT/'manifest.json.tmp';temp.write_text(json.dumps(manifest,indent=2)+'\n');temp.replace(MANIFEST);temp=ROOT/'species-assets.mjs.tmp';temp.write_text('export const SPECIES_ASSETS = '+json.dumps(manifest)+';\n');temp.replace(ROOT/'species-assets.mjs');print('FISH',id,lod,target.stat().st_size,flush=True)
  print('Fish GLB build complete',len(manifest))

@@ -3,6 +3,12 @@ name: Aquarium – UI und Modellprüfung
 on:
   push:
     branches: [feature/catalog-ui-realism-review]
+    paths:
+      - '**.mjs'
+      - 'index.html'
+      - 'catalog.css'
+      - 'tests/**'
+      - '.github/workflows/ui-model-review.yml'
   pull_request:
     paths:
       - '**.mjs'
@@ -16,7 +22,7 @@ permissions:
 
 concurrency:
   group: aquarium-ui-review-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   review:

@@ -1,4 +1,5 @@
 """Real UI regression and browser captures. No rendered images are fabricated."""
+import base64
 import copy
 import json
 import os
@@ -113,6 +114,29 @@ try:
         click(page, '[data-act="close-panel"]')
         report['checks'].append('actual 3D scene selection opens the same catalog image')
 
+        for species, salt in [('guppy', False), ('nerite', False), ('softleather', True)]:
+            restore(page, fixture(species, salt))
+            target = page.evaluate('window.aquariumAquascapingSnapshot().targets[0]')
+            assert target['species'] == species
+            click(page, '#tweezers-button')
+            page.mouse.move(target['screen']['x'], target['screen']['y'])
+            page.mouse.down()
+            assert page.evaluate('window.aquariumAquascapingSnapshot().phase') == 'dragging'
+            page.mouse.move(target['screen']['x'] + 110, target['screen']['y'] - 10, steps=12)
+            page.wait_for_function('window.aquariumAquascapingSnapshot().toolVisible')
+            during = page.evaluate('window.aquariumAquascapingSnapshot()')
+            assert during['camera'] == page.evaluate('window.aquariumAquascapingSnapshot().camera')
+            if species == 'guppy':
+                assert during['targets'][0]['centerY'] > target['centerY'] - .25
+                shot(page, 'tweezers-guppy-swimming-height')
+            page.mouse.up()
+            page.wait_for_function('window.aquariumAquascapingSnapshot().phase==="idle"')
+            after = page.evaluate('JSON.parse(localStorage.getItem("aquarium-werkstatt-v1")).entities[0]')
+            assert abs(after['x'] - target['x']) + abs(after['z'] - target['z']) > .03
+            assert after['aquascapePlaced'] is True
+            page.keyboard.press('Escape')
+            report['checks'].append('real tweezers drag and save: ' + species)
+
         click(page, '[data-panel="shop"]')
         click(page, '[data-act="open-settings"]')
         assert page.locator('input[data-setting="salinity"][type="range"]').count() == 1
@@ -176,3 +200,7 @@ finally:
     server.shutdown()
     (OUT / 'browser-report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps(report, ensure_ascii=False, indent=2), flush=True)
+    for name in ['after-object-guppy.png', 'existing-guppy-front.png', 'existing-neon-front.png']:
+        path = OUT / name
+        if path.exists():
+            print('BROWSER_PNG ' + name + ' ' + base64.b64encode(path.read_bytes()).decode(), flush=True)

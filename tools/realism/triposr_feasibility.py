@@ -58,7 +58,12 @@ try:
     # Probe public model access before any large dependency/model downloads.
     report['anonymous_model_config_sha256'] = download('https://huggingface.co/stabilityai/TripoSR/resolve/main/config.yaml', WORK / 'config.yaml')
     for source in report['sources']:
-        source['sha256'] = download(source['url'], WORK / (source['id'] + '.jpg'))
+        try:
+            source['sha256'] = download(source['url'], WORK / (source['id'] + '.jpg'))
+        except Exception as error:
+            source['download_error'] = str(error)
+    if not any('sha256' in source for source in report['sources']):
+        raise RuntimeError('No photographic input could be downloaded')
     run([sys.executable, '-m', 'pip', 'install', 'torch==2.5.1', 'torchvision==0.20.1', '--index-url', 'https://download.pytorch.org/whl/cpu'], timeout=600)
     run([sys.executable, '-m', 'pip', 'install', 'numpy==1.26.4', 'omegaconf==2.3.0',
          'Pillow==10.4.0', 'einops==0.7.0', 'transformers==4.35.0', 'trimesh==4.0.5',
@@ -66,6 +71,8 @@ try:
     run([sys.executable, '-m', 'pip', 'install', '--no-build-isolation', 'git+https://github.com/tatsy/torchmcubes.git'], timeout=600)
     run([sys.executable, '-c', 'import torch; print("CUDA available:",torch.cuda.is_available()); print("CPU threads:",torch.get_num_threads())'], timeout=30)
     for source in report['sources']:
+        if 'sha256' not in source:
+            continue
         run(['xvfb-run', '-a', sys.executable, 'run.py', str(WORK / (source['id'] + '.jpg')),
              '--device', 'cpu', '--chunk-size', '1024', '--mc-resolution', '256',
              '--bake-texture', '--texture-resolution', '2048', '--model-save-format', 'obj',

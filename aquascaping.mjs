@@ -15,7 +15,8 @@ export const AQUASCAPING_DECOR = [
 ].map(item => ({ ...item, aquascape: true }));
 
 const clamp = (value, low, high) => Math.max(low, Math.min(high, value));
-export const isMovable = (entity, species) => !!species && !entity.dead && ['plant', 'decor'].includes(species.category);
+export const isMovable = (entity, species) => !!species && !entity.dead && ['plant', 'decor', 'coral', 'fish', 'invert'].includes(species.category);
+const isAnimal = species => ['fish', 'invert'].includes(species.category);
 const floating = species => species.shape === 'floating';
 
 /** Conservative footprints in tank coordinates, including rotation and displayed size. */
@@ -35,6 +36,8 @@ export function placementCandidate(state, entity, speciesById, x, z) {
   if (maxX < 0 || maxZ < 0) return { valid: false, reason: 'Das Objekt ist für diese Fläche zu groß.' };
   x = clamp(x, -maxX, maxX); z = clamp(z, -maxZ, maxZ);
   const candidate = { x, z };
+  // Animals retain their swimming height and can pass above planted footprints.
+  if (isAnimal(species)) return { ...candidate, valid: true, reason: '' };
   const intersects = (otherX, otherZ, otherHalf) => Math.abs(x - otherX) < half.x + otherHalf.x + .035
     && Math.abs(z - otherZ) < half.z + otherHalf.z + .035;
   for (const other of state.entities) {
@@ -291,7 +294,8 @@ export class AquascapingController {
 
   groundPoint(event, entity) {
     const T = this.T, type = this.species[entity.species];
-    const y = floating(type) ? 3.43 : substrateHeight(this.view.state, entity.x, entity.z);
+    const y = isAnimal(type) ? this.view.objects.get(entity.uid)?.group.position.y ?? 1.5
+      : floating(type) ? 3.43 : substrateHeight(this.view.state, entity.x, entity.z);
     const point = new T.Vector3();
     if (!this.ray(event).ray.intersectPlane(new T.Plane(new T.Vector3(0, 1, 0), -y), point)) return null;
     return { x: point.x / this.view.life.scale.x, z: point.z };
@@ -306,7 +310,7 @@ export class AquascapingController {
       const entity = this.view.state.entities.find(item => item.uid === node?.userData.uid);
       return entity && isMovable(entity, this.species[entity.species]) ? entity : null;
     }
-    // Small touch targets get a modest screen-space tolerance; animals remain excluded.
+    // Small touch targets get the same modest screen-space tolerance for every category.
     const tolerance = event.pointerType === 'touch' ? 32 : 16;
     let nearest = null, distance = tolerance;
     for (const entity of this.view.state.entities) {
@@ -326,11 +330,12 @@ export class AquascapingController {
     if (this.drag || event.isPrimary === false || event.button !== 0) return;
     this.finishRelease();
     const entity = this.pick(event);
-    if (!entity) { this.onMessage?.('Greife eine Pflanze oder Dekoration. Tiere werden nicht verschoben.'); return; }
+    if (!entity) { this.onMessage?.('Greife ein Tier, eine Pflanze oder ein anderes Objekt.'); return; }
     const point = this.groundPoint(event, entity);
     if (!point) return;
     this.selected = entity.uid; this.view.select(entity.uid);
-    this.drag = { entity, pointerId: event.pointerId, original: { x: entity.x, z: entity.z, aquascapePlaced: entity.aquascapePlaced },
+    const visualStart = this.view.objects.get(entity.uid)?.group.position.clone();
+    this.drag = { entity, visualStart, pointerId: event.pointerId, original: { x: entity.x, z: entity.z, aquascapePlaced: entity.aquascapePlaced },
       offset: { x: entity.x - point.x, z: entity.z - point.z }, last: { x: entity.x, z: entity.z }, age: 0, blocked: false };
     this.canvas.setPointerCapture(event.pointerId);
     this.canvas.style.cursor = 'grabbing'; this.canvas.focus({ preventScroll: true });
@@ -430,20 +435,31 @@ export class AquascapingController {
       if (!entity.aquascapePlaced && this.drag?.entity !== entity && this.release?.entity !== entity) continue;
       const type = this.species[entity.species], item = this.view.objects.get(entity.uid);
       if (!item || !isMovable(entity, type) || !item.group.children.length) continue;
+      const animal = isAnimal(type);
+      // An animal's saved coordinates are a swimming anchor, never a floor constraint.
+      if (animal && this.drag?.entity !== entity && this.release?.entity !== entity) continue;
       const position = this.drag?.entity === entity ? this.drag.last : entity;
       const bottom = this.bottomOffset(item);
       const lift = this.drag?.entity === entity ? Math.min(1, this.drag.age / .16) * .16
         : this.release?.entity === entity ? this.release.lifted * Math.max(0, 1 - this.release.age / .25) : 0;
-      const y = floating(type) ? 3.43 : substrateHeight(this.view.state, position.x, position.z) - bottom.offset;
-      item.group.position.x = position.x; item.group.position.z = position.z;
+      const y = animal ? this.drag?.entity === entity ? this.drag.visualStart.y : item.group.position.y
+        : floating(type) ? 3.43 : substrateHeight(this.view.state, position.x, position.z) - bottom.offset;
+      if (animal) {
+        if (this.drag?.entity === entity) {
+          item.group.position.x = clamp(this.drag.visualStart.x + position.x - this.drag.original.x, -3.2, 3.2);
+          item.group.position.z = clamp(this.drag.visualStart.z + position.z - this.drag.original.z, -1.3, 1.3);
+        }
+      } else {
+        item.group.position.x = position.x; item.group.position.z = position.z;
+      }
       item.group.position.y = y + lift;
       if (this.drag?.entity === entity || this.release?.entity === entity) {
         this.tool.visible = true; this.marker.visible = true;
         const open = this.drag ? 1 - Math.min(1, this.drag.age / .16) : Math.min(1, this.release.age / .18);
         const graspHeight = Math.min(.6, bottom.height * .6);
-        this.tool.position.set(position.x, y + graspHeight + lift + open * .10, position.z);
+        this.tool.position.set(item.group.position.x, y + graspHeight + lift + open * .10, item.group.position.z);
         for (const jaw of this.jaws) jaw.rotation.z = jaw.userData.side * (.015 + open * .13);
-        this.marker.position.set(position.x, floating(type) ? 3.44 : substrateHeight(this.view.state, position.x, position.z) + .025, position.z);
+        this.marker.position.set(item.group.position.x, animal ? y : floating(type) ? 3.44 : substrateHeight(this.view.state, position.x, position.z) + .025, item.group.position.z);
       }
     }
     if (this.release && this.release.age > .30) this.finishRelease();
@@ -468,6 +484,7 @@ export class AquascapingController {
         const bounds = item ? new this.T.Box3().setFromObject(item.group) : null;
         return { uid: entity.uid, species: entity.species, x: entity.x, z: entity.z,
           bottomY: bounds && !bounds.isEmpty() ? bounds.min.y : null,
+          centerY: bounds && !bounds.isEmpty() ? (bounds.min.y + bounds.max.y) / 2 : null,
           screen: item ? this.screenPosition(item.group) : null };
       }) };
   }

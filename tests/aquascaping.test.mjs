@@ -21,11 +21,11 @@ test('six distinct decorations declare their intended water and physical footpri
   for (const item of AQUASCAPING_DECOR) assert.ok(item.footprint.every(value => value > 0) && item.description.length > 80);
 });
 
-test('only living plants and decoration can be manipulated', () => {
+test('tweezers can manipulate every living object category', () => {
   assert.equal(isMovable(entity(), types.plant), true);
   assert.equal(isMovable(entity('stone'), types.stone), true);
-  assert.equal(isMovable(entity('fish'), types.fish), false);
-  assert.equal(isMovable(entity('coral'), types.coral), false);
+  assert.equal(isMovable(entity('fish'), types.fish), true);
+  assert.equal(isMovable(entity('coral'), types.coral), true);
   assert.equal(isMovable(entity('plant', { dead: true }), types.plant), false);
   assert.equal(isMovable(entity('unknown'), undefined), false);
 });
@@ -116,4 +116,15 @@ test('standalone HTML bundles the module and CSS with valid JavaScript under a p
   const script = html.match(/<script type="module">([\s\S]*?)<\/script>/)[1];
   const checked = spawnSync(process.execPath, ['--input-type=module', '--check'], { input: script, encoding: 'utf8' });
   assert.equal(checked.status, 0, checked.stderr);
+});
+
+test('animal anchors stay bounded without colliding with floor planting', () => {
+  const tank = state([entity('plant', { uid: 2 })]);
+  const before = JSON.stringify(tank);
+  const candidate = placementCandidate(tank, entity('fish'), types, 100, -100);
+  assert.equal(candidate.valid, true);
+  assert.ok(candidate.x < 3.45 && candidate.z > -1.5);
+  assert.equal(placementCandidate(tank, entity('fish'), types, 0, 0).valid, true);
+  assert.equal(placementCandidate(tank, entity('coral'), types, 0, 0).valid, false);
+  assert.equal(JSON.stringify(tank), before);
 });

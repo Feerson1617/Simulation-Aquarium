@@ -12,7 +12,16 @@ Stand: 19. Oktober 2026. Geprüft wird der Grafikstand `0aace24`; die nachfolgen
 
 Die Grafikprüfung liegt in zwei nachvollziehbaren Läufen vor: [erster Lauf](evidence/graphics-full-attempt.json), [gezielte Meerwasser-/Touch-Nachprüfung](evidence/graphics-marine-touch.json). Der erste Lauf bestand fünf Prüfgruppen und brach danach bei der Erwartung einer kurzlebigen Import-Toastmeldung ab; das Meerwasserbecken war tatsächlich geladen. Der Test wartet jetzt auf den tatsächlichen importierten Zustand. Nur die betroffenen restlichen Prüfgruppen wurden erneut ausgeführt. **Kein vollständig grüner Gesamtlauf des alten Tests wird behauptet.**
 
-Die Funktionsregression von Pinzette, Analyse, Ein-Datei-Export und vollständigem Tutorial wird nach der neuen Startauswahl aktuell erneut geprüft. Endergebnisse folgen in diesem Dokument.
+Die erneute Funktionsregression nach der Startauswahl ist erfolgreich abgeschlossen:
+
+| Prüfung | Ergebnis | Nachweis |
+| --- | --- | --- |
+| Maus-/Touch-Pinzette, Kamera, Kollisionen, Abbrechen, Platzierung, alte Saves | 12/12 Prüfgruppen bestanden | [Bericht](evidence/aquascaping.json) |
+| Analyse, fünf Szenarien, reale Nahrung/Gesundheit, Tag/Nacht, getrennte Speicherplätze | 12/12 Prüfgruppen bestanden | [Bericht](evidence/ecosystem.json) |
+| Start, 3D, Käufe, Wasser/Zeit, Export/Import, Wiederaufnahme, sämtliche acht Tutorialschritte, Touch/Portrait | 13/13 Prüfgruppen bestanden | [Bericht](evidence/readiness.json) |
+| Heruntergeladene HTML-Datei allein, neue GLB-Dekoration, Pinzette, keine weiteren Modul-/CSS-/Assetabrufe | bestanden; direkte file:-Navigation gesperrt | [Protokoll](evidence/standalone.txt) |
+
+Die Bereitschaftsprüfung nutzte Hoch für Desktop-Eingaben und iPad für emulierte Touch-Eingaben. Die gesonderten Grafikprüfungen verwendeten die echte vorgeschaltete Auswahl und Maximum. Alle Browserprofile waren isoliert. Die geprüfte Spielquelle blieb während der Bereitschaftsprüfung byteidentisch.
 
 ## Darstellung und Ressourcen
 

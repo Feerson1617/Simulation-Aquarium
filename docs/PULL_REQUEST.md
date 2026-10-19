@@ -1,24 +1,27 @@
-# Ökosystemanalyse, getrennte Szenarien und lokale Katalogvorschauen
+# Gemeinsame Desktop-/iPad-Grafikprofile und Grafikdurchgang für den gesamten Katalog
 
-Die bisherige Simulation bietet keine gemeinsame ökologische Analyse oder getrennten Untersuchungsbecken. Dieser Branch ergänzt einen pausierbaren Analysemodus auf dem tatsächlichen Beckenstand und fünf Szenarien, die denselben Rechenkern verwenden und das freie Aquarium nicht überschreiben.
+Die bisherige Anwendung besitzt nur eine vereinfachte Grafikdarstellung. Dieser Branch ergänzt eine vorgeschaltete Desktop-/iPad-Auswahl und die später wechselbaren Stufen Hoch, Ultra, Maximum und iPad. Alle verwenden denselben biologischen Rechenkern und dieselben Spielstände; die separate Grafikpräferenz beeinflusst nur Darstellung und Ressourcen.
 
-Der Shop erhält 181 lokal gerenderte, eintragsspezifische WebP-Modellvorschauen mit Quellen-/Lizenzmanifest. Nahrungsnetz und begründete Fragezeichen berücksichtigen passende Fütterung, tatsächlichen Besatz und mehrere mögliche Maßnahmen. Hinweise werden schrittweise angefordert; Kandidaten werden gegen Umweltbedingungen geprüft. Weitere Ansichten zeigen Mikroben, Stickstoff, Kohlenstoff, Energiefluss und Umweltwerte anhand tatsächlicher Zustände und Schrittumsätze.
+Alle 181 Katalogeinträge wurden inventarisiert und ihre lokalen Modellvorschauen erneuert. 11 Dekorationen erhalten eigene Blender-GLBs mit Desktop-/Mobile-LOD. 54 native Fisch- und 30 native Pflanzenmodelle verwenden verfeinerte Konturen, Blätter, Materialien und Animationen. Fünf bestehende fototexturierte Volumenmodelle und das BlueMesh-Betta bleiben erhalten. 19 Wirbellose und 24 Korallen erhalten gemeinsame Detail-/Materialverfeinerung; 37 Technik-/Bedarfsprodukte verwenden lokale Produktmodelle, Technik teilt ihre Geometriefabrik mit der tatsächlichen Szene.
 
-Heterotrophe Zersetzung/Mineralisierung, O₂-begrenzte Nitrifikation, Kleinstnahrung und ein begrenzter anoxischer Sediment-Proxy sind gekoppelt. Doppelte Zeitschrittfaktoren einzelner alter Umsätze entfallen. Die echte Tiergesundheit berücksichtigt verfügbare Nahrung. Neue Schwarmbahnen und die Wasseroberfläche verbessern die laufende Szene; verdecktes 3D-Rendering pausiert während der Analyse. Der HTML-Download bündelt weiterhin sämtliche benötigten Module, Stile und Bilder.
+Der gemeinsame Renderpfad ergänzt profilabhängige Schatten, Oberflächenmaterialien, bewegte Wassergeometrie und Normalen, Desktop-Transmission, dünne klare Glasapproximation, dezente Partikel und einen Unterwasser-Absorptionsproxy. Geglättete Schwimmbewegung berücksichtigt Körperausdehnung und Hindernisse; sie schreibt keine Animationspositionen in Speicherstände. Der HTML-Download bettet auch die neuen GLBs ein. GitHub Pages benötigt weiterhin keinen Build oder Laufzeitdienst; die bestehenden Vorschau-Workflows bleiben unverändert.
 
-## Prüfung
+## Prüfung und sichtbarer Stand
 
-- 33/33 Node-Tests.
-- 12 Prüfgruppen der Szenario-/Analyse-Integration, einschließlich byteidentischem freien Speicherplatz bei Szenariowechsel/Neustart/Export/Import und nachgewiesener Nahrung-/Gesundheitswirkung.
-- 12 Maus-/Touch-Pinzetten-Prüfgruppen.
-- 13 Grundprüfungen einschließlich 3D, Freiem Spiel, Käufen, Wasser/Zeit, Speicherung und allen acht Tutorialschritten per Touch.
-- Heruntergeladenes HTML allein ohne weitere Modul-/CSS-/Bildabrufe geprüft.
-- Alle 181 WebP-Dateien decodiert, 384 × 256 Pixel, insgesamt 648746 Byte.
+- 39/39 Node-Tests bestanden, einschließlich biologischer Regressionen, Standalone-Bündelung, Profilgrenzen, aller 22 GLB-Bodenpivots/Bounds/LODs und größenabhängiger Schwimmgrenzen.
+- 181/181 lokale WebP-Vorschauen aus dem echten Hoch-Modellpfad, alle visuell als Kontaktbögen gesichtet; 144/144 echte Organismen-/Dekorationspfade einzeln unter iPad geladen.
+- Maximum-Süßwasser und -Meerwasser, vier Live-Nahansichten, vorgeschaltete Auswahl, byteidentischer biologischer Speicherstand beim Profilwechsel sowie emulierte iPad-Touch-Bedienung geprüft.
+- 12/12 Pinzetten-, 12/12 Analyse-/Szenario- und 13/13 Bereitschaftsgruppen bestanden, einschließlich aller acht Tutorialschritte per emuliertem Touch. Die heruntergeladene HTML-Datei startet allein und lädt die neuen GLBs ohne zusätzliche Ressourcen.
+- Unveränderte Live-Screenshots und Prüfberichte stehen im [aktuellen Prüfbericht](realism/VALIDATION.md).
 
-Nachweise und Screenshots: [VALIDATION.md](VALIDATION.md). Bedienung, Speicherformat und wissenschaftliche Grenzen: [ECOSYSTEM.md](ECOSYSTEM.md). Bildquellen: [CATALOG.md](CATALOG.md) und `assets/catalog/manifest.json`.
+Der erste Grafiklauf bestand fünf Prüfgruppen und verpasste anschließend eine kurzlebige Import-Toastmeldung, obwohl das Becken geladen war. Der Test wartet jetzt auf den tatsächlichen Zustand; die restlichen Meerwasser-/Touch-Prüfgruppen wurden gezielt erfolgreich erneut ausgeführt. Die ursprünglichen Berichte bleiben nachvollziehbar erhalten.
 
-## Grenzen für die Freigabe
+## Noch nicht erreicht
 
-Modellvorschauen sind keine erreichte Fotorealistik; Technik ist schematisch. Relative Biomasse-/Nahrungspools und chemische Teilmodelle sind keine vollständige Element-/Energiebilanz. Die Nitrifikations-Teilbilanz wurde stöchiometrisch getestet. Kein echtes Safari/iPad, keine belastbaren Geräte-Leistungswerte und keine Langzeitkalibrierung aller Arten. Direkte `file:`-Navigation ist im verwalteten Browser gesperrt; die einzelne HTML-Datei wurde deshalb isoliert über HTTP geprüft. Spielstandformat v1 bleibt kompatibel, neue optionale Felder werden validiert.
+**Die angeforderte umfassende Fotorealistik ist nicht fertig.** 119 Einträge wurden wesentlich verbessert, ein detailliertes Original wurde erhalten und 61 bleiben deutlich vereinfacht. 0/181 sind vollständig nach dem gewünschten Fotorealismusmaßstab abgenommen. Die [vollständige Matrix](realism/CATALOG_STATUS.md) dokumentiert Änderung, Quellen und Modellierungsbedarf jedes Eintrags. Native Anatomie, Blattstrukturen, Koralliten, echte Holz-/Gesteinsoberflächen und reale Lichtausbreitung benötigen weitere künstlerische Arbeit; zusätzliche Polygone ersetzen diese nicht.
 
-`AGENTS.md`, `main` und die Pages-Workflows werden nicht geändert. Zusammenführen und öffentliche Veröffentlichung erfolgen durch den Projektinhaber.
+Kein echtes Safari-/iPad-Gerät oder Hardwarebenchmark. Maximum ist auf SwiftShader sehr langsam. Die historisch normalisierte Beckenwelt ist nicht für alle Beckentypen exakt in Zentimetern kalibriert. Direkte `file:`-Navigation ist im verwalteten Browser gesperrt; der Standalone-Test prüft dieselbe heruntergeladene Datei allein über isoliertes HTTP.
+
+Keine neuen Konten, kostenpflichtigen APIs oder Dienste. Eigene GLBs sind CC0; ursprüngliche Fotolizenzen einschließlich Share-Alike sowie BlueMesh CC BY 4.0 bleiben erhalten. AGENTS.md, biologische Fachmodule und Pages-/PR-Vorschau-Workflows bleiben unverändert. Kein Merge und keine Veröffentlichung der Hauptversion.
+
+Zum Ausprobieren nach Erstellung des PR die automatische Vorschau öffnen, **Desktop-Version → Mit maximaler Qualität starten → Szenarien** wählen. Später unter **Zeit & Runde → Darstellung** wechseln.

@@ -9,13 +9,15 @@ Stand: 19. Oktober 2026. Branch `feature/realistic-rendering-profiles`, Basis `o
 - Alle 11 Dekorationen durch selbst erzeugte Blender-GLBs ersetzt, je Desktop-/Mobile-LOD. 22 Dateien zusammen 3314616 Byte; Bodenpivot und Platzierungsgrenzen geprüft.
 - Alle 181 Vorschauen aus dem tatsächlichen Modell-/Produktpfad erneuert: 630660 Byte. Alle 144 Organismen-/Dekorationspfade einzeln im iPad-Profil geladen.
 - Vollständige Matrix und gesichtete Kontaktbögen unter docs/realism. 119 wesentlich verbessert, ein detailliertes Original erhalten, 61 noch deutlich vereinfacht. **0/181 vollständig nach dem angeforderten Fotorealismusmaßstab abgenommen.**
-- Implementierung bis `0aace24` auf GitHub gesichert. Nachfolgende Arbeiten betreffen Dokumentation und neue Startauswahl in den Regressionstests.
+- Implementierung bis `0aace24` auf GitHub gesichert, vollständige Matrix und Aufnahmen in `4bce858`. Nachfolgende Änderungen betreffen Abschlussdokumentation und Prüfnachweise.
 
 ## Prüfung
 
 39/39 Node-Tests bestanden. Grafiknachweise: `/tmp/aquarium-graphics-results/20261018T174837` (fünf Prüfgruppen bestanden, danach kurzlebige Import-Toast-Erwartung verpasst) und `/tmp/aquarium-graphics-results/20261018T180547` (restlicher Meerwasser-/Touch-Teil bestanden). Der Test wartet jetzt auf den tatsächlichen importierten Zustand. Die Berichte bleiben getrennt, ein grüner alter Gesamtlauf wird nicht behauptet. Kopien und tatsächliche Screenshots liegen in docs/realism/evidence und screenshots.
 
-Beim Fortsetzen zunächst den jüngsten Browserbericht prüfen: Pinzette, Ökosystemanalyse, Standalone und vollständige Bereitschaftsprüfung werden nach Anpassung der Profilwahl erneut ausgeführt. Ein Testfehler beim Zugriff auf `.click().status` wurde behoben; HTTP-Status und Profilklick sind wieder getrennt. Solange `/workspace/aquarium-devtools/check.py` läuft, index.html nicht ändern. GPU-intensive Browserläufe nacheinander ausführen.
+Funktionsregression am 19. Oktober erfolgreich abgeschlossen: 12/12 Pinzetten-, 12/12 Analyse-/Szenario- und 13/13 Bereitschaftsgruppen. Alle acht Tutorialschritte per emuliertem Touch, Freies Spiel, Wasser/Zeit, Käufe, Export/Import und Wiederaufnahme funktionieren. Der Standalone-Export startet allein und lädt die neue GLB-Dekoration ohne weitere Ressourcen. Direkte file:-Navigation ist verwaltungsseitig blockiert; dieselbe Datei wurde allein über isoliertes HTTP geprüft. Nachweise: docs/realism/VALIDATION.md und evidence. Der Testfehler `.click().status` und die kurzlebige Import-Toast-Erwartung wurden korrigiert; die Spielimplementierung blieb seit 0aace24 unverändert.
+
+Beim Fortsetzen zunächst git status und tatsächlichen Branch prüfen; nicht neu inventarisieren oder bereits bestandene unveränderte Prüfungen ohne Anlass wiederholen. Nächste Produktarbeit ist die in der Matrix dokumentierte künstlerische Modellierung und echte Safari-/iPad-Prüfung. Nach Modelländerungen gezielt neu rendern und passende Regression durchführen. GPU-intensive Browserläufe nacheinander ausführen; während check.py index.html unverändert lassen.
 
 ## Präzise offene Produktarbeit
 
@@ -25,4 +27,4 @@ Blender 4.3.2, Node, Python/Pillow, Chromium und Playwright sind lokal verfügba
 
 Der Cloud-Konfigurationsentwurf wurde mit aktueller Profilwahl im Bereitschaftstest und neuen Startanweisungen gespeichert. Der exakte Setup-Skriptinhalt wurde lokal erfolgreich ausgeführt. Der Entwurf ist damit nicht veröffentlicht; Veröffentlichung in den Umgebungseinstellungen erfolgt durch den Nutzer. Keine verifizierte Wiederherstellung auf einer neuen Maschine behaupten.
 
-GitHub-API-Zugriff für automatische PR-Erstellung war blockiert; Git-Push funktioniert. Falls dies weiter gilt, aktuellen Entwicklungsbranch pushen und https://github.com/Feerson1617/Simulation-Aquarium/pull/new/feature/realistic-rendering-profiles liefern. Kein Merge. Kein automatischer Neustart nach Kontingentreset verfügbar.
+GitHub-API-Zugriff wurde am 19. Oktober erneut geprüft und liefert weiterhin Forbidden; Git-Push funktioniert. Falls dies weiter gilt, aktuellen Entwicklungsbranch pushen und https://github.com/Feerson1617/Simulation-Aquarium/pull/new/feature/realistic-rendering-profiles liefern. Kein Merge. Kein automatischer Neustart nach Kontingentreset verfügbar.

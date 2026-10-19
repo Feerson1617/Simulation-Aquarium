@@ -1,0 +1,8 @@
+19. Oktober 2026
+Repository: Feerson1617/Simulation-Aquarium
+Base: main
+Head: feature/species-variants-genetics
+Action: gh pr create --draft, prepared title and PR_BODY.md
+Result: exit 1
+Post "https://api.github.com/graphql": Forbidden
+No pull request was created. Git push to the feature branch succeeded.

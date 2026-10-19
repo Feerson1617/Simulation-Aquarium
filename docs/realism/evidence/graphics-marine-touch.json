@@ -1,0 +1,19 @@
+{
+  "scope": "marine-touch",
+  "checks": [
+    "Maximum marine scene includes live coral geometry, reef hardscape and actual installed equipment",
+    "real touch events operate the iPad profile and shared analysis in portrait",
+    "no JavaScript/shader/resource errors or external runtime requests"
+  ],
+  "errors": [],
+  "console_errors": [
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "url": "http://127.0.0.1:8000/favicon.ico"
+    }
+  ],
+  "failed_requests": [],
+  "external_requests": [],
+  "audits": [],
+  "status": "passed"
+}

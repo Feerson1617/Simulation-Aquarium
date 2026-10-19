@@ -1,0 +1,6 @@
+Command: python3 tests/standalone_browser.py
+Executed sequentially after ecosystem and before readiness on 19 October 2026.
+Process completed successfully (the following readiness command ran, and the chain exited 0).
+
+LIMITATION: Managed Chromium blocks file: navigation. Checking the downloaded document alone over loopback HTTP.
+PASS: Downloaded HTML alone starts, renders new decoration and enables tweezers without additional HTTP resources. file: tested=False

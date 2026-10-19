@@ -5995,7 +5995,15 @@
     "name": "Mangrovenwurzel",
     "description": "Holz schafft Schatten und Verstecke. Mikroorganismen besiedeln die Oberfläche.",
     "color": "#655044",
-    "shape": "root"
+    "shape": "root",
+    "provenance": {
+      "kind": "model",
+      "author": "Simulation-Aquarium",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+      "note": "Original locally authored Blender hardscape; no photorealism claim"
+    }
   },
   {
     "latin": "Einrichtung",
@@ -6007,7 +6015,15 @@
     "name": "Flussstein",
     "description": "Ein glatter Stein. Trennt Reviere und bietet Platz für Aufsitzerpflanzen.",
     "color": "#8f968d",
-    "shape": "stone"
+    "shape": "stone",
+    "provenance": {
+      "kind": "model",
+      "author": "Simulation-Aquarium",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+      "note": "Original locally authored Blender hardscape; no photorealism claim"
+    }
   },
   {
     "latin": "Einrichtung",
@@ -6019,7 +6035,15 @@
     "name": "Riffgestein",
     "description": "Poröses Gestein bietet große Oberflächen für Bakterien und Korallen.",
     "color": "#b6b19f",
-    "shape": "reefrock"
+    "shape": "reefrock",
+    "provenance": {
+      "kind": "model",
+      "author": "Simulation-Aquarium",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+      "note": "Original locally authored Blender hardscape; no photorealism claim"
+    }
   },
   {
     "latin": "Einrichtung",
@@ -6031,7 +6055,15 @@
     "name": "Steinhöhle",
     "description": "Ein Versteck. Verkleinert den Sichtkontakt zwischen Revierfischen.",
     "color": "#8b918b",
-    "shape": "cave"
+    "shape": "cave",
+    "provenance": {
+      "kind": "model",
+      "author": "Simulation-Aquarium",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+      "note": "Original locally authored Blender hardscape; no photorealism claim"
+    }
   },
   {
     "latin": "Einrichtung",
@@ -6043,7 +6075,15 @@
     "name": "Leeres Muschelhaus",
     "description": "Dekoration und kleiner Unterschlupf. Ein leeres Haus filtert kein Wasser.",
     "color": "#cec5b0",
-    "shape": "shell"
+    "shape": "shell",
+    "provenance": {
+      "kind": "model",
+      "author": "Simulation-Aquarium",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+      "note": "Original locally authored Blender hardscape; no photorealism claim"
+    }
   },
   {
     "latin": "Einrichtung",
@@ -6060,7 +6100,15 @@
       0.49
     ],
     "description": "Fein verzweigtes Holz für Süßwasser. Zwischen den Ästen finden kleine Tiere Deckung; die Oberfläche kann Biofilme tragen. Holz vor dem Einsatz wässern.",
-    "aquascape": true
+    "aquascape": true,
+    "provenance": {
+      "kind": "model",
+      "author": "Simulation-Aquarium",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+      "note": "Original locally authored Blender hardscape; no photorealism claim"
+    }
   },
   {
     "latin": "Einrichtung",
@@ -6077,7 +6125,15 @@
       0.44
     ],
     "description": "Eine schwere, knorrige Süßwasserwurzel mit ausgewaschenen Vertiefungen. Sie schafft Schatten und Aufsitzflächen. Abgegebene Huminstoffe werden im aktuellen Modell nicht zusätzlich berechnet.",
-    "aquascape": true
+    "aquascape": true,
+    "provenance": {
+      "kind": "model",
+      "author": "Simulation-Aquarium",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+      "note": "Original locally authored Blender hardscape; no photorealism claim"
+    }
   },
   {
     "latin": "Einrichtung",
@@ -6094,7 +6150,15 @@
       0.46
     ],
     "description": "Flache, versetzt geschichtete Steinplatten bilden Vorsprünge und geschützte Spalten. Die Struktur gliedert Reviere und bietet Aufsitzflächen; keine automatische Filterwirkung.",
-    "aquascape": true
+    "aquascape": true,
+    "provenance": {
+      "kind": "model",
+      "author": "Simulation-Aquarium",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+      "note": "Original locally authored Blender hardscape; no photorealism claim"
+    }
   },
   {
     "latin": "Einrichtung",
@@ -6111,7 +6175,15 @@
       0.4
     ],
     "description": "Warme Ockerfarben, markante Grate und ausgewaschene Mulden für Süßwasser-Aquascapes. Vor dem Einsetzen gründlich reinigen. Das Spiel leitet aus der Gesteinsform keine garantierten Wasserwerte ab.",
-    "aquascape": true
+    "aquascape": true,
+    "provenance": {
+      "kind": "model",
+      "author": "Simulation-Aquarium",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+      "note": "Original locally authored Blender hardscape; no photorealism claim"
+    }
   },
   {
     "latin": "Einrichtung",
@@ -6128,7 +6200,15 @@
       0.46
     ],
     "description": "Ein dunkler Felsbogen mit tatsächlich offenem Durchgang. Er schafft einen Unterschlupf und unterbricht Sichtachsen. Für Süß- und Meerwasser verwendbar.",
-    "aquascape": true
+    "aquascape": true,
+    "provenance": {
+      "kind": "model",
+      "author": "Simulation-Aquarium",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+      "note": "Original locally authored Blender hardscape; no photorealism claim"
+    }
   },
   {
     "latin": "Einrichtung",
@@ -6145,7 +6225,15 @@
       0.49
     ],
     "description": "Helles, porös wirkendes Riffgestein mit einer offenen Höhle und Aufsitzflächen für Meerwasser. Die Oberfläche kann von Biofilmen besiedelt werden. Besiedlung und Mineralabgabe werden noch nicht gesondert simuliert.",
-    "aquascape": true
+    "aquascape": true,
+    "provenance": {
+      "kind": "model",
+      "author": "Simulation-Aquarium",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://github.com/Feerson1617/Simulation-Aquarium/blob/e0a669a/assets/realism/ATTRIBUTION.md",
+      "note": "Original locally authored Blender hardscape; no photorealism claim"
+    }
   },
   {
     "id": "tank-30",

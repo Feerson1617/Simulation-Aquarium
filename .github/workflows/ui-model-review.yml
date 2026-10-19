@@ -17,6 +17,23 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  inspect-ui:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Restliche Farbauswahl und Pinzettenhinweis auslesen
+        run: |
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          source = Path('index.html').read_text()
+          start = source.find('function G1(')
+          print('LEGACY COLOR:', source[start:start+2600])
+          for match in re.finditer('id="aquascape-instructions"', source):
+              print('TOOL INSTRUCTIONS:', source[max(0,match.start()-100):match.start()+1100])
+          PY
   review:
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -52,7 +69,7 @@ jobs:
         working-directory: aquarium-simulation
         run: python tests/catalog_ui_browser.py
       - name: Bestehende Pinzettenprüfung
-        if: always() && steps.browser_setup.outcome == 'success'
+        if: ${{ !cancelled() && steps.browser_setup.outcome == 'success' }}
         working-directory: aquarium-simulation
         env:
           AQUARIUM_TEST_RESULTS: ${{ github.workspace }}/aquarium-simulation/docs/ui-model-review/evidence/aquascaping

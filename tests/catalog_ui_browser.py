@@ -81,7 +81,7 @@ try:
             context.close()
 
         context, page = boot(ROOT)
-        for species, department, salt in [('guppy', 'tiere', False), ('cory', 'tiere', False),
+        for species, department, salt in [('guppy', 'tiere', False), ('molly', 'tiere', False), ('cory', 'tiere', False),
                 ('anubias', 'pflanzen', False), ('nerite', 'tiere', False),
                 ('softleather', 'tiere', True), ('stone', 'deko', False)]:
             restore(page, fixture(species, salt))
@@ -100,8 +100,9 @@ try:
             click(page, '#drawer-root [data-species="' + species + '"]')
             expect(page.locator('#modal-root .detail-visual img')).to_have_attribute('src', './assets/catalog/' + species + '.webp')
             page.wait_for_function('document.querySelector("#modal-root .detail-visual img")?.naturalWidth>0')
-            if species == 'guppy':
+            if species in ['guppy', 'molly']:
                 expect(page.locator('label[for="fish-variant"]')).to_have_text('Farbe')
+            if species == 'guppy':
                 page.locator('[data-fish-variant]').select_option('red')
                 page.wait_for_function('window.aquariumShopAppearance()?.variant==="red"')
                 assert page.locator('[data-lesson-genotype]').count() + page.locator('.lesson-purchase').count() > 0

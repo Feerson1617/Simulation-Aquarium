@@ -280,6 +280,7 @@ export class AquascapingController {
     this.canvas.style.cursor = enabled ? 'grab' : '';
     this.view.container.dataset.tweezers = String(enabled);
     this.onModeChange?.(enabled);
+    if (enabled) this.onMessage?.('Tier, Pflanze, Koralle oder Deko greifen und ziehen · Esc: beenden');
   }
 
   reset() { this.setEnabled(false); this.selected = null; this.bottomCache.clear(); }

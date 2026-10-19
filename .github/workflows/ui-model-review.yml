@@ -17,23 +17,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  inspect-ui:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-      - name: Restliche Farbauswahl und Pinzettenhinweis auslesen
-        run: |
-          python - <<'PY'
-          import re
-          from pathlib import Path
-          source = Path('index.html').read_text()
-          start = source.find('function G1(')
-          print('LEGACY COLOR:', source[start:start+2600])
-          for match in re.finditer('id="aquascape-instructions"', source):
-              print('TOOL INSTRUCTIONS:', source[max(0,match.start()-100):match.start()+1100])
-          PY
   review:
     runs-on: ubuntu-latest
     timeout-minutes: 30

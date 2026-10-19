@@ -7,6 +7,7 @@ on:
     paths:
       - '**.mjs'
       - 'index.html'
+      - 'catalog.css'
       - 'tests/**'
       - '.github/workflows/ui-model-review.yml'
 
@@ -18,41 +19,58 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  apply-reviewed-ui:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/feature/catalog-ui-realism-review'
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: feature/catalog-ui-realism-review
-      - name: Geprüfte Änderungen an der großen HTML-Datei anwenden
-        run: python3 tools/apply_reviewed_ui.py
-      - name: HTML auf dem Entwicklungsbranch sichern
-        run: |
-          if ! git diff --quiet -- index.html; then
-            git config user.name 'github-actions[bot]'
-            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add -- index.html
-            git commit -m "fix: show catalog images in details and remove coordinate sliders"
-            git push origin HEAD:feature/catalog-ui-realism-review
-          fi
   review:
-    needs: apply-reviewed-ui
-    if: always() && (needs.apply-reviewed-ui.result == 'success' || needs.apply-reviewed-ui.result == 'skipped')
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha || github.ref }}
+          path: aquarium-simulation
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: 3430325b96c28631964aa23ea051ee2fa4053a1e
+          path: aquarium-baseline
           persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Vorhandene Modultests
-        run: node --test tests/*.test.mjs
-      - name: Relevante UI-Quellen prüfen
-        run: python3 tools/review_ui_source.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Kostenlose Browserwerkzeuge installieren
+        run: |
+          python -m pip install playwright==1.56.0 Pillow==11.3.0
+          python -m playwright install --with-deps chromium
+          sudo ln -sf "$(python -c 'from playwright.sync_api import sync_playwright; p=sync_playwright().start(); print(p.chromium.executable_path); p.stop()')" /usr/bin/chromium
+      - name: Modultests und bestehende Modellvalidierung
+        working-directory: aquarium-simulation
+        run: |
+          node --test tests/*.test.mjs
+          python tests/species_assets_test.py
+      - name: Desktop, Touchformat und echte Vergleichsaufnahmen
+        working-directory: aquarium-simulation
+        run: python tests/catalog_ui_browser.py
+      - name: Bestehende Pinzettenprüfung
+        working-directory: aquarium-simulation
+        env:
+          AQUARIUM_TEST_RESULTS: ${{ github.workspace }}/aquarium-simulation/docs/ui-model-review/evidence/aquascaping
+        run: python tests/aquascaping_browser.py
+      - name: Bestehende Genetik- und Ökosystemprüfungen
+        working-directory: aquarium-simulation
+        env:
+          AQUARIUM_GENETICS_RESULTS: ${{ github.workspace }}/aquarium-simulation/docs/ui-model-review/evidence/genetics
+        run: |
+          python -m http.server 8000 --directory .. > /tmp/aquarium-test-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          python tests/genetics_browser.py
+          python tests/ecosystem_browser.py
+      - name: Echte Browsernachweise bereitstellen
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aquarium-ui-browser-evidence
+          path: aquarium-simulation/docs/ui-model-review/evidence
+          retention-days: 3

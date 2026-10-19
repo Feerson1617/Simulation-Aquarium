@@ -29,11 +29,16 @@ legacy = json.loads((ROOT / 'tests/fixtures/legacy-v1.json').read_text())
 trial = json.loads((OUT / 'report.json').read_text())
 report = {'accepted_models': 0, 'production_assets_changed': False,
           'temporary_runtime_overlay': True, 'normalization': [], 'captures': [],
-          'errors': [], 'quality_decision': 'awaiting visual review'}
+          'errors': [], 'console_errors': [], 'quality_decision': 'awaiting visual review'}
 source = (ROOT / 'index.html').read_text()
 start = source.find('function G1(')
 report['legacy_color_markup'] = source[start:start+2500] if start >= 0 else 'not found'
 saved = {}
+prior = json.loads((OUT / 'runtime-review.json').read_text()) if (OUT / 'runtime-review.json').exists() else {}
+report['reused_capture_run'] = 39264911821 if prior else None
+report['graphics_profile'] = 'ultra'
+report['audits'] = [item for item in prior.get('audits', []) if not (item['phase']=='trial' and item['species']=='cory')]
+report['captures'] = [path.name for path in SHOTS.glob('*.jpg')]
 
 def normalize(species):
     path = OUT / species / '0/mesh.obj'
@@ -101,6 +106,10 @@ try:
     assert ready, 'No reconstruction bytes available'
     with sync_playwright() as p:
         for phase in ['existing', 'trial']:
+            candidates = ready + (['neon','molly'] if phase == 'existing' else [])
+            pending = [species for species in candidates if not all((SHOTS / (phase+'-'+species+'-'+angle+'.jpg')).exists() for angle in ['front','oblique','rear'])]
+            if not pending:
+                continue
             if phase == 'trial':
                 for species in ready:
                     path = ROOT / 'assets/species' / (species + '-desktop.glb')
@@ -110,16 +119,21 @@ try:
             page = browser.new_page(viewport={'width':1360,'height':960}, device_scale_factor=1)
             page.set_default_timeout(120000)
             page.on('pageerror', lambda error: report['errors'].append(str(error)))
+            page.on('console', lambda message: report['console_errors'].append(message.text[:1000]) if message.type=='error' and 'favicon' not in message.text else None)
             page.goto(url)
-            click(page, 'button[data-graphics-profile="maximum"]')
+            click(page, 'button[data-graphics-profile="ipad"]')
             click(page, '[data-start="free"]')
+            click(page, '[data-panel="time"]')
+            page.locator('[data-graphics-setting]').select_option('ultra')
+            page.wait_for_function('window.aquariumSnapshot().graphics.graphicsProfile==="ultra"')
+            click(page, '[data-act="close-panel"]')
             data = payload(ready[0])
             page.locator('#import-file').set_input_files({'name':'trial.json','mimeType':'application/json','buffer':json.dumps(data).encode()})
             page.wait_for_function('(id)=>JSON.parse(localStorage.getItem("aquarium-werkstatt-v1"))?.entities[0]?.species===id', arg=ready[0])
             page.wait_for_function('window.aquariumSnapshot().graphics.detailModels===1')
             if page.locator('[data-act="close-panel"]:visible').count():
                 click(page, '[data-act="close-panel"]')
-            for species in ready + (['neon','molly'] if phase == 'existing' else []):
+            for species in pending:
                 if phase == 'trial':
                     data = payload(species)
                     page.locator('#import-file').set_input_files({'name':'trial.json','mimeType':'application/json','buffer':json.dumps(data).encode()})

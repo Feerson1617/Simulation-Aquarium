@@ -7,6 +7,7 @@ import shutil
 import subprocess
 import sys
 import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -21,16 +22,25 @@ report = {'status': 'running', 'accepted_models': 0, 'runtime_assets_changed': F
     'source_commit': '107cefdc244c39106fa830359024f6a2f1c78871',
     'method': 'official TripoSR, CPU, full default mesh resolution, 2048px baked texture',
     'sources': [
-        {'id': 'guppy', 'author': 'Benoît Prieur; color adjustment Togabi', 'license': 'CC0-1.0',
+        {'id': 'guppy', 'taxon': 'Poecilia reticulata', 'author': 'Benoît Prieur; color adjustment Togabi', 'license': 'CC0-1.0',
          'page': 'https://commons.wikimedia.org/wiki/File:Poecilia_reticulata_(male).JPG',
          'url': 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Poecilia_reticulata_%28male%29.JPG'},
-        {'id': 'cory', 'author': 'NiKo; color adjustment Togabi', 'license': 'public domain by author',
-         'page': 'https://commons.wikimedia.org/wiki/File:Corydoras_paleatus_by_NiKo.jpg',
-         'url': 'https://upload.wikimedia.org/wikipedia/commons/6/69/Corydoras_paleatus_by_NiKo.jpg'},
-        {'id': 'anubias', 'author': 'Daderot', 'license': 'CC0-1.0',
+        {'id': 'cory', 'taxon': 'Corydoras aeneus', 'author': 'Jofre', 'license': 'public domain by author',
+         'page': 'https://commons.wikimedia.org/wiki/File:Corydoras_aeneus_1.0.JPG',
+         'url': 'https://upload.wikimedia.org/wikipedia/commons/5/5d/Corydoras_aeneus_1.0.JPG'},
+        {'id': 'anubias', 'taxon': 'Anubias barteri', 'reference_variety': 'var. nana', 'author': 'Daderot', 'license': 'CC0-1.0',
          'page': 'https://commons.wikimedia.org/wiki/File:Anubias_barteri_var._nana_-_Botanischer_Garten_-_Heidelberg,_Germany_-_DSC01278.jpg',
          'url': 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Anubias_barteri_var._nana_-_Botanischer_Garten_-_Heidelberg%2C_Germany_-_DSC01278.jpg/1280px-Anubias_barteri_var._nana_-_Botanischer_Garten_-_Heidelberg%2C_Germany_-_DSC01278.jpg'}
     ], 'steps': []}
+cache = json.loads((OUT / 'report.json').read_text()) if (OUT / 'report.json').exists() else {}
+catalog = json.loads((ROOT / 'tests/fixtures/ecology-species.json').read_text())
+for source in report['sources']:
+    assert source['taxon'] == catalog[source['id']]['latin'], 'Photo taxon must match the catalog species'
+    previous = next((item for item in cache.get('sources', []) if item['id'] == source['id']), {})
+    if previous.get('url') != source['url']:
+        shutil.rmtree(OUT / source['id'], ignore_errors=True)
+        for path in (OUT / 'browser').glob('trial-' + source['id'] + '-*.jpg'):
+            path.unlink()
 log = (OUT / 'trial.log').open('w')
 
 def run(args, cwd=None, timeout=600):
@@ -44,8 +54,17 @@ def run(args, cwd=None, timeout=600):
 
 def download(url, path):
     request = urllib.request.Request(url, headers={'User-Agent': 'Simulation-Aquarium/1.0 (public research; no account)'})
-    with urllib.request.urlopen(request, timeout=60) as response:
-        data = response.read(25_000_001)
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(request, timeout=60) as response:
+                data = response.read(25_000_001)
+            break
+        except urllib.error.HTTPError as error:
+            if error.code != 429 or attempt == 2:
+                raise
+            retry = error.headers.get('Retry-After', '')
+            delay = min(30, max(10, int(retry))) if retry.isdigit() else 10 * (attempt + 1)
+            time.sleep(delay)
     if len(data) > 25_000_000:
         raise RuntimeError('Source exceeds 25 MB trial limit')
     path.write_bytes(data)
@@ -73,6 +92,10 @@ try:
     run([sys.executable, '-c', 'import torch; print("CUDA available:",torch.cuda.is_available()); print("CPU threads:",torch.get_num_threads())'], timeout=30)
     for source in report['sources']:
         if 'sha256' not in source:
+            continue
+        previous = next((item for item in cache.get('sources', []) if item['id'] == source['id']), {})
+        if previous.get('url') == source['url'] and previous.get('sha256') == source['sha256'] and (OUT / source['id'] / '0/mesh.obj').exists():
+            source.update(reconstructed=True, reused_from_run=39264911821)
             continue
         run(['xvfb-run', '-a', sys.executable, 'run.py', str(WORK / (source['id'] + '.jpg')),
              '--device', 'cpu', '--chunk-size', '1024', '--mc-resolution', '256',

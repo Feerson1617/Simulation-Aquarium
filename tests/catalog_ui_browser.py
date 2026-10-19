@@ -154,32 +154,11 @@ try:
         report['checks'].append('water, time and graphics controls remain available')
 
         click(page, '[data-panel="time"]')
-        page.locator('[data-graphics-setting]').select_option('maximum')
-        page.wait_for_function('window.aquariumSnapshot().graphics.graphicsProfile==="maximum"')
+        page.locator('[data-graphics-setting]').select_option('high')
+        page.wait_for_function('window.aquariumSnapshot().graphics.graphicsProfile==="high"')
         click(page, '[data-act="close-panel"]')
-
-        # Capture the same existing pilot candidates and the two quality references
-        # with the application's real orbit interaction, under identical lighting.
-        for species in ['guppy', 'cory', 'anubias', 'neon', 'molly']:
-            click(page, '[data-act="specimen-gallery"]')
-            if not page.locator('[data-preview="' + species + '"]').count():
-                click(page, '[data-specimen-category="' + ('plant' if species == 'anubias' else 'fish') + '"]')
-            click(page, '[data-preview="' + species + '"]')
-            page.wait_for_function('(id)=>document.querySelector("#specimen-stage")?.dataset.ready===id', arg=species)
-            stage = page.locator('#specimen-stage')
-            stage.scroll_into_view_if_needed()
-            shot(page, 'existing-' + species + '-front', stage)
-            box = stage.bounding_box()
-            x, y = box['x'] + box['width'] * .5, box['y'] + box['height'] * .5
-            for angle in ['oblique', 'rear']:
-                page.mouse.move(x, y)
-                page.mouse.down()
-                page.mouse.move(x + box['width'] * .23, y + box['height'] * .04, steps=20)
-                page.mouse.up()
-                page.evaluate('()=>new Promise(r=>setTimeout(r,400))')
-                shot(page, 'existing-' + species + '-' + angle, stage)
-            click(page, '[data-act="close-modal"]')
-        report['checks'].append('15 actual browser model views; existing assets only')
+        shot(page, 'desktop-high-scene')
+        report['checks'].append('desktop high scene renders; model turntables are covered by the separate reconstruction review')
         context.close()
 
         context, page = boot(ROOT, touch=True)
@@ -212,7 +191,7 @@ finally:
     server.shutdown()
     (OUT / 'browser-report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps(report, ensure_ascii=False, indent=2), flush=True)
-    for name in ['after-object-guppy.png', 'existing-guppy-front.png', 'existing-neon-front.png']:
+    for name in ['before-object-guppy.png', 'after-object-guppy.png', 'desktop-high-scene.png']:
         path = OUT / name
         if path.exists():
             print('BROWSER_PNG ' + name + ' ' + base64.b64encode(path.read_bytes()).decode(), flush=True)

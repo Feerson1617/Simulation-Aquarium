@@ -29,7 +29,7 @@ report = {'status': 'running', 'accepted_models': 0, 'runtime_assets_changed': F
          'url': 'https://upload.wikimedia.org/wikipedia/commons/6/69/Corydoras_paleatus_by_NiKo.jpg'},
         {'id': 'anubias', 'author': 'Daderot', 'license': 'CC0-1.0',
          'page': 'https://commons.wikimedia.org/wiki/File:Anubias_barteri_var._nana_-_Botanischer_Garten_-_Heidelberg,_Germany_-_DSC01278.jpg',
-         'url': 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Anubias_barteri_var._nana_-_Botanischer_Garten_-_Heidelberg%2C_Germany_-_DSC01278.jpg'}
+         'url': 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Anubias_barteri_var._nana_-_Botanischer_Garten_-_Heidelberg%2C_Germany_-_DSC01278.jpg/1280px-Anubias_barteri_var._nana_-_Botanischer_Garten_-_Heidelberg%2C_Germany_-_DSC01278.jpg'}
     ], 'steps': []}
 log = (OUT / 'trial.log').open('w')
 

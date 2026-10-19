@@ -30,8 +30,9 @@ def shot(page, name, locator=None):
 def fixture(species, salt=False):
     payload = copy.deepcopy(LEGACY)
     entity = copy.deepcopy(payload['entities'][0])
-    entity.update(uid=1, species=species, x=0, z=0, rotation=0, scale=1, dead=False, age=15, health=100)
-    payload.update(entities=[entity], nextId=2, day=45.35)
+    fixture.serial = getattr(fixture, 'serial', 1000) + 1
+    entity.update(uid=fixture.serial, species=species, x=0, z=0, rotation=0, scale=1, dead=False, age=15, health=100)
+    payload.update(entities=[entity], nextId=fixture.serial+1, day=45.35)
     if salt:
         payload['water'] = 'salt'
         payload['params'].update(salinity=34, kh=8, calcium=420)
@@ -44,7 +45,7 @@ def restore(page, payload):
     page.wait_for_function('''(s)=>{
         const actual=JSON.parse(localStorage.getItem("aquarium-werkstatt-v1"));
         return actual?.entities.length===s.entities.length && actual?.water===s.water
-            && actual?.entities[0]?.species===s.entities[0].species && actual?.day===s.day;
+            && actual?.entities[0]?.uid===s.entities[0].uid && actual?.entities[0]?.species===s.entities[0].species && actual?.day===s.day;
     }''', arg=payload)
     if page.locator('[data-act="close-panel"]:visible').count():
         click(page, '[data-act="close-panel"]')
@@ -74,7 +75,7 @@ try:
         if baseline.exists():
             context, page = boot(baseline)
             click(page, '[data-panel="care"]')
-            click(page, '[data-entity="1"]')
+            click(page, '[data-entity]')
             shot(page, 'before-object-guppy', page.locator('#drawer-root .drawer'))
             click(page, '#drawer-root [data-species="guppy"]')
             shot(page, 'before-species-guppy', page.locator('#modal-root .modal'))
@@ -87,7 +88,7 @@ try:
             restore(page, fixture(species, salt))
             before = page.evaluate('JSON.parse(localStorage.getItem("aquarium-werkstatt-v1")).entities')
             click(page, '[data-panel="care"]')
-            click(page, '[data-entity="1"]')
+            click(page, '[data-entity]')
             drawer = page.locator('#drawer-root')
             image = drawer.locator('.detail-visual img')
             expect(image).to_have_attribute('src', './assets/catalog/' + species + '.webp')
@@ -164,7 +165,7 @@ try:
         context, page = boot(ROOT, touch=True)
         restore(page, fixture('anubias'))
         click(page, '[data-panel="care"]')
-        click(page, '[data-entity="1"]')
+        click(page, '[data-entity]')
         expect(page.locator('#drawer-root .detail-visual img')).to_have_attribute('src', './assets/catalog/anubias.webp')
         assert page.locator('[data-entity-setting="x"],[data-entity-setting="z"]').count() == 0
         assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')

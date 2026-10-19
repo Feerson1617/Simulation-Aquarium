@@ -35,10 +35,51 @@ start = source.find('function G1(')
 report['legacy_color_markup'] = source[start:start+2500] if start >= 0 else 'not found'
 saved = {}
 prior = json.loads((OUT / 'runtime-review.json').read_text()) if (OUT / 'runtime-review.json').exists() else {}
-report['reused_capture_run'] = 39264911821 if prior else None
+report['reused_capture_run'] = None
+# Corrected normalization requires new trial captures; retain baseline images only.
+for path in SHOTS.glob('trial-*.jpg'):
+    path.unlink()
 report['graphics_profile'] = 'ultra'
-report['audits'] = [item for item in prior.get('audits', []) if not (item['phase']=='trial' and item['species']=='cory')]
+report['audits'] = [item for item in prior.get('audits', []) if item['phase']=='existing']
 report['captures'] = [path.name for path in SHOTS.glob('*.jpg')]
+
+def glb_bounds(path):
+    """Account for normalized integer accessors that trimesh 4.0.5 reads as raw shorts."""
+    data = path.read_bytes()
+    size = struct.unpack_from('<I', data, 12)[0]
+    doc = json.loads(data[20:20+size])
+    mesh_boxes = []
+    for mesh in doc['meshes']:
+        lows, highs = [], []
+        for primitive in mesh['primitives']:
+            accessor = doc['accessors'][primitive['attributes']['POSITION']]
+            low, high = np.array(accessor['min'], dtype=float), np.array(accessor['max'], dtype=float)
+            divisor = {5120:127,5121:255,5122:32767,5123:65535}.get(accessor['componentType'], 1) if accessor.get('normalized') else 1
+            lows.append(np.maximum(-1, low/divisor) if accessor.get('normalized') and accessor['componentType'] in [5120,5122] else low/divisor)
+            highs.append(high/divisor)
+        mesh_boxes.append((np.min(lows, axis=0), np.max(highs, axis=0)))
+    points = []
+    def visit(index, parent):
+        node = doc['nodes'][index]
+        if 'matrix' in node:
+            local = np.array(node['matrix']).reshape((4,4), order='F')
+        else:
+            q = node.get('rotation', [0,0,0,1])
+            local = trimesh.transformations.quaternion_matrix([q[3], q[0], q[1], q[2]])
+            local[:3,:3] = local[:3,:3] @ np.diag(node.get('scale', [1,1,1]))
+            local[:3,3] = node.get('translation', [0,0,0])
+        world = parent @ local
+        if 'mesh' in node:
+            low, high = mesh_boxes[node['mesh']]
+            for x in [low[0],high[0]]:
+                for y in [low[1],high[1]]:
+                    for z in [low[2],high[2]]:
+                        points.append((world @ [x,y,z,1])[:3])
+        for child in node.get('children', []):
+            visit(child, world)
+    for node in doc['scenes'][doc.get('scene',0)]['nodes']:
+        visit(node, np.eye(4))
+    return np.array([np.min(points,axis=0),np.max(points,axis=0)])
 
 def normalize(species):
     path = OUT / species / '0/mesh.obj'
@@ -51,12 +92,11 @@ def normalize(species):
     # Explicit UV texture; keep original .obj/.png unmodified for audit.
     texture = Image.open(path.parent / 'texture.png').convert('RGBA')
     original = ROOT / 'assets/species' / (species + '-desktop.glb')
-    reference = trimesh.load(original, force='scene')
-    extents = np.diff(reference.bounds, axis=0)[0]
-    axes = np.argsort(mesh.extents)[::-1]
-    axes = [axes[1], axes[0], axes[2]] if species == 'anubias' else axes
+    extents = np.diff(glb_bounds(original), axis=0)[0]
+    # Official TripoSR convention: x back, y right, z up (tsr/utils.py).
+    # Match the game's x right, y up, z front without reshaping broad plants.
     transform = np.eye(4)
-    transform[:3, :3] = np.eye(3)[axes]
+    transform[:3, :3] = [[0, 1, 0], [0, 0, 1], [1, 0, 0]]
     mesh.apply_transform(transform)
     axis = 1 if species == 'anubias' else 0
     mesh.apply_scale(float(extents[axis] / mesh.extents[axis]))
@@ -65,6 +105,7 @@ def normalize(species):
     material = trimesh.visual.material.PBRMaterial(name='TripoSR_baked_photo', baseColorTexture=texture,
         metallicFactor=0.0, roughnessFactor=0.65, doubleSided=True)
     mesh.visual = trimesh.visual.texture.TextureVisuals(uv=mesh.visual.uv.copy(), material=material)
+    assert max(mesh.extents) < 5, 'Candidate must use game units, not raw normalized shorts'
     result = mesh.export(file_type='glb')
     assert result[:4] == b'glTF' and struct.unpack_from('<I', result, 8)[0] == len(result)
     json_length = struct.unpack_from('<I', result, 12)[0]
@@ -76,6 +117,7 @@ def normalize(species):
     report['normalization'].append({'species': species, 'vertices': len(mesh.vertices),
         'triangles': len(mesh.faces), 'texture': list(texture.size), 'bytes': len(result),
         'sha256': hashlib.sha256(result).hexdigest(), 'bounds': mesh.bounds.tolist(),
+        'source_axes': 'TripoSR x-back/y-right/z-up -> game x-right/y-up/z-front',
         'source_photo': next(s for s in trial['sources'] if s['id'] == species)})
     return True
 
@@ -94,8 +136,9 @@ def capture(page, name, locator=None):
 def payload(species):
     data = copy.deepcopy(legacy)
     entity = copy.deepcopy(data['entities'][0])
-    entity.update(uid=1, species=species, x=0, z=0, scale=1, rotation=0, sex='♂', variant='natural', dead=False, health=100)
-    data.update(day=45.35, entities=[entity], nextId=2)
+    payload.serial = getattr(payload, 'serial', 1000) + 1
+    entity.update(uid=payload.serial, species=species, x=0, z=0, scale=1, rotation=0, sex='♂', variant='natural', dead=False, health=100)
+    data.update(day=45.35, entities=[entity], nextId=payload.serial+1)
     return data
 
 server = ThreadingHTTPServer(('127.0.0.1', 0), partial(Quiet, directory=str(ROOT.parent)))
@@ -129,7 +172,7 @@ try:
             click(page, '[data-act="close-panel"]')
             data = payload(ready[0])
             page.locator('#import-file').set_input_files({'name':'trial.json','mimeType':'application/json','buffer':json.dumps(data).encode()})
-            page.wait_for_function('(id)=>JSON.parse(localStorage.getItem("aquarium-werkstatt-v1"))?.entities[0]?.species===id', arg=ready[0])
+            page.wait_for_function('(uid)=>JSON.parse(localStorage.getItem("aquarium-werkstatt-v1"))?.entities[0]?.uid===uid', arg=data['entities'][0]['uid'])
             page.wait_for_function('window.aquariumSnapshot().graphics.detailModels===1')
             if page.locator('[data-act="close-panel"]:visible').count():
                 click(page, '[data-act="close-panel"]')
@@ -137,7 +180,7 @@ try:
                 if phase == 'trial':
                     data = payload(species)
                     page.locator('#import-file').set_input_files({'name':'trial.json','mimeType':'application/json','buffer':json.dumps(data).encode()})
-                    page.wait_for_function('(id)=>JSON.parse(localStorage.getItem("aquarium-werkstatt-v1"))?.entities[0]?.species===id', arg=species)
+                    page.wait_for_function('(uid)=>JSON.parse(localStorage.getItem("aquarium-werkstatt-v1"))?.entities[0]?.uid===uid', arg=data['entities'][0]['uid'])
                     page.wait_for_function('window.aquariumSnapshot().graphics.detailModels===1')
                     if page.locator('[data-act="close-panel"]:visible').count():
                         click(page, '[data-act="close-panel"]')

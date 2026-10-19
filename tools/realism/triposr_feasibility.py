@@ -68,7 +68,8 @@ try:
     run([sys.executable, '-m', 'pip', 'install', 'numpy==1.26.4', 'omegaconf==2.3.0',
          'Pillow==10.4.0', 'einops==0.7.0', 'transformers==4.35.0', 'trimesh==4.0.5',
          'rembg==2.0.57', 'onnxruntime==1.19.2', 'imageio[ffmpeg]', 'xatlas==0.0.9', 'moderngl==5.10.0'], timeout=600)
-    run([sys.executable, '-m', 'pip', 'install', '--no-build-isolation', 'git+https://github.com/tatsy/torchmcubes.git'], timeout=600)
+    run([sys.executable, '-m', 'pip', 'install', 'scikit-build-core>=1.0', 'pybind11>=2.10'], timeout=180)
+    run([sys.executable, '-m', 'pip', 'install', '--no-build-isolation', 'git+https://github.com/tatsy/torchmcubes.git@a9ac95aa329957ba646e7bb057f825f5dfa77f38'], timeout=600)
     run([sys.executable, '-c', 'import torch; print("CUDA available:",torch.cuda.is_available()); print("CPU threads:",torch.get_num_threads())'], timeout=30)
     for source in report['sources']:
         if 'sha256' not in source:

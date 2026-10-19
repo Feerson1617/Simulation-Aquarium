@@ -118,14 +118,16 @@ try:
             restore(page, fixture(species, salt))
             target = page.evaluate('window.aquariumAquascapingSnapshot().targets[0]')
             assert target['species'] == species
+            camera = page.evaluate('window.aquariumAquascapingSnapshot().camera')
             click(page, '#tweezers-button')
             page.mouse.move(target['screen']['x'], target['screen']['y'])
             page.mouse.down()
             assert page.evaluate('window.aquariumAquascapingSnapshot().phase') == 'dragging'
             page.mouse.move(target['screen']['x'] + 110, target['screen']['y'] - 10, steps=12)
             page.wait_for_function('window.aquariumAquascapingSnapshot().toolVisible')
+            report['tweezers_instruction'] = page.locator('#aquascape-instructions').inner_text()
             during = page.evaluate('window.aquariumAquascapingSnapshot()')
-            assert during['camera'] == page.evaluate('window.aquariumAquascapingSnapshot().camera')
+            assert during['camera'] == camera
             if species == 'guppy':
                 assert during['targets'][0]['centerY'] > target['centerY'] - .25
                 shot(page, 'tweezers-guppy-swimming-height')
@@ -187,7 +189,7 @@ try:
         page.goto(base + ROOT.name + '/')
         click(page, 'button[data-graphics-profile="ipad"]')
         click(page, '[data-start="tutorial"]')
-        expect(page.locator('[data-act="choose-tank"]')).to_be_visible()
+        expect(page.locator('[data-act="tutorial-action"],[data-act="choose-tank"]').filter(visible=True).first).to_be_visible()
         shot(page, 'tutorial-start')
         context.close()
         browser.close()

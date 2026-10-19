@@ -1,0 +1,404 @@
+{
+  "accepted_models": 0,
+  "production_assets_changed": false,
+  "temporary_runtime_overlay": true,
+  "normalization": [
+    {
+      "species": "guppy",
+      "vertices": 32341,
+      "triangles": 41396,
+      "texture": [
+        2048,
+        2048
+      ],
+      "bytes": 4406636,
+      "sha256": "f796bc4735ed5d2e03c61c4761fc5d5549dd80734a4956f6c0acaf16cc2a9d59",
+      "bounds": [
+        [
+          -0.29558702352977084,
+          -0.21280138033054066,
+          -0.056932484501906466
+        ],
+        [
+          0.29558702352977084,
+          0.21280138033054066,
+          0.056932484501906466
+        ]
+      ],
+      "source_axes": "TripoSR x-back/y-right/z-up -> game x-right/y-up/z-front",
+      "source_photo": {
+        "id": "guppy",
+        "taxon": "Poecilia reticulata",
+        "author": "Benoît Prieur; color adjustment Togabi",
+        "license": "CC0-1.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Poecilia_reticulata_(male).JPG",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Poecilia_reticulata_%28male%29.JPG",
+        "sha256": "d11e344cc5286968846952b8dd08db415b2ae51029b501cef0d5be6634b29ade",
+        "reconstructed": true,
+        "reused_from_run": 39264911821
+      }
+    },
+    {
+      "species": "cory",
+      "vertices": 68603,
+      "triangles": 85960,
+      "texture": [
+        2048,
+        2048
+      ],
+      "bytes": 5836256,
+      "sha256": "5d0a9c0ccf94a8e45ea9ab46602978adac248beb226b827a68652e6aca80e275",
+      "bounds": [
+        [
+          -0.2985930967131565,
+          -0.14693423681655401,
+          -0.1654702922977307
+        ],
+        [
+          0.2985930967131565,
+          0.14693423681655401,
+          0.1654702922977307
+        ]
+      ],
+      "source_axes": "TripoSR x-back/y-right/z-up -> game x-right/y-up/z-front",
+      "source_photo": {
+        "id": "cory",
+        "taxon": "Corydoras aeneus",
+        "author": "Jofre",
+        "license": "public domain by author",
+        "page": "https://commons.wikimedia.org/wiki/File:Corydoras_aeneus_1.0.JPG",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Corydoras_aeneus_1.0.JPG",
+        "sha256": "2d2ba07f659ad52e962675cc723c2e9bbc02d3c6c43724960848c3b344a4cfc9",
+        "reconstructed": true
+      }
+    },
+    {
+      "species": "anubias",
+      "vertices": 37603,
+      "triangles": 53088,
+      "texture": [
+        2048,
+        2048
+      ],
+      "bytes": 3180260,
+      "sha256": "9fb2d70b056290c85f43ec788487f34cf7b4cfce467da63c93c13265796a759c",
+      "bounds": [
+        [
+          -0.4306709850913684,
+          0,
+          -0.05453672665027469
+        ],
+        [
+          0.4306709850913684,
+          0.6301767021698659,
+          0.05453672665027469
+        ]
+      ],
+      "source_axes": "TripoSR x-back/y-right/z-up -> game x-right/y-up/z-front",
+      "source_photo": {
+        "id": "anubias",
+        "taxon": "Anubias barteri",
+        "reference_variety": "var. nana",
+        "author": "Daderot",
+        "license": "CC0-1.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Anubias_barteri_var._nana_-_Botanischer_Garten_-_Heidelberg,_Germany_-_DSC01278.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Anubias_barteri_var._nana_-_Botanischer_Garten_-_Heidelberg%2C_Germany_-_DSC01278.jpg/1280px-Anubias_barteri_var._nana_-_Botanischer_Garten_-_Heidelberg%2C_Germany_-_DSC01278.jpg",
+        "sha256": "091a2a2a1f64b3a7dc76e7ad33c8f54fcc329d0b16ba3b33a2901c06420bc08d",
+        "reconstructed": true
+      }
+    }
+  ],
+  "captures": [
+    "existing-cory-rear.jpg",
+    "existing-neon-oblique.jpg",
+    "existing-anubias-oblique.jpg",
+    "existing-neon-front.jpg",
+    "existing-neon-rear.jpg",
+    "existing-anubias-rear.jpg",
+    "existing-guppy-oblique.jpg",
+    "existing-guppy-rear.jpg",
+    "existing-anubias-front.jpg",
+    "existing-cory-oblique.jpg",
+    "existing-guppy-front.jpg",
+    "existing-molly-front.jpg",
+    "existing-cory-front.jpg",
+    "existing-molly-front.jpg",
+    "existing-molly-oblique.jpg",
+    "existing-molly-rear.jpg",
+    "trial-guppy-aquarium-front.jpg",
+    "trial-guppy-aquarium-oblique.jpg",
+    "trial-guppy-front.jpg",
+    "trial-guppy-oblique.jpg",
+    "trial-guppy-rear.jpg",
+    "trial-cory-aquarium-front.jpg",
+    "trial-cory-aquarium-oblique.jpg",
+    "trial-cory-front.jpg",
+    "trial-cory-oblique.jpg",
+    "trial-cory-rear.jpg",
+    "trial-anubias-aquarium-front.jpg",
+    "trial-anubias-aquarium-oblique.jpg",
+    "trial-anubias-front.jpg",
+    "trial-anubias-oblique.jpg",
+    "trial-anubias-rear.jpg"
+  ],
+  "errors": [],
+  "console_errors": [],
+  "quality_decision": "awaiting visual review",
+  "reused_capture_run": null,
+  "graphics_profile": "ultra",
+  "audits": [
+    {
+      "phase": "existing",
+      "species": "guppy",
+      "audit": {
+        "id": "guppy",
+        "profile": "ultra",
+        "revision": "species-1",
+        "preservedGLB": false,
+        "triangles": 28394,
+        "vertices": 15040,
+        "meshes": 13,
+        "size": [
+          0.355,
+          0.20824432456731848,
+          0.09811373342324117
+        ],
+        "min": [
+          -0.21842593841312655,
+          -0.10152888289503258,
+          -0.049056866711620586
+        ],
+        "max": [
+          0.13657406158687346,
+          0.1067154416722859,
+          0.049056866711620586
+        ]
+      }
+    },
+    {
+      "phase": "existing",
+      "species": "cory",
+      "audit": {
+        "id": "cory",
+        "profile": "ultra",
+        "revision": "species-1",
+        "preservedGLB": false,
+        "triangles": 33102,
+        "vertices": 18097,
+        "meshes": 11,
+        "size": [
+          0.497,
+          0.2132467293540474,
+          0.19435016353229762
+        ],
+        "min": [
+          -0.2796386958299264,
+          -0.06829686222403925,
+          -0.09717508176614881
+        ],
+        "max": [
+          0.21736130417007357,
+          0.14494986713000815,
+          0.09717508176614881
+        ]
+      }
+    },
+    {
+      "phase": "existing",
+      "species": "anubias",
+      "audit": {
+        "id": "anubias",
+        "profile": "ultra",
+        "revision": "species-1",
+        "preservedGLB": false,
+        "triangles": 7048,
+        "vertices": 3955,
+        "meshes": 4,
+        "size": [
+          0.7552720725119786,
+          0.630176702169866,
+          0.7479476302377392
+        ],
+        "min": [
+          -0.3770561845759453,
+          -0.03527939695425275,
+          -0.3679616687520981
+        ],
+        "max": [
+          0.3782158879360332,
+          0.5948973052156132,
+          0.37998596148564107
+        ]
+      }
+    },
+    {
+      "phase": "existing",
+      "species": "neon",
+      "audit": {
+        "id": "neon",
+        "profile": "ultra",
+        "revision": "realism-1",
+        "preservedGLB": false,
+        "triangles": 33264,
+        "vertices": 99792,
+        "meshes": 1,
+        "size": [
+          0.284,
+          0.12042741287057877,
+          0.02886295781449158
+        ],
+        "min": [
+          -0.16677835123394558,
+          -0.049686576130963986,
+          -0.01443147890724579
+        ],
+        "max": [
+          0.1172216487660544,
+          0.07074083673961479,
+          0.01443147890724579
+        ]
+      }
+    },
+    {
+      "phase": "existing",
+      "species": "molly",
+      "audit": {
+        "id": "molly",
+        "profile": "ultra",
+        "revision": "realism-1",
+        "preservedGLB": false,
+        "triangles": 33200,
+        "vertices": 99600,
+        "meshes": 1,
+        "size": [
+          0.6389999999999999,
+          0.21434491237431938,
+          0.07279920099745228
+        ],
+        "min": [
+          -0.383771906590198,
+          -0.11847798755293266,
+          -0.03639960049872614
+        ],
+        "max": [
+          0.2552280934098019,
+          0.09586692482138671,
+          0.03639960049872614
+        ]
+      }
+    },
+    {
+      "phase": "existing",
+      "species": "molly",
+      "audit": {
+        "id": "molly",
+        "profile": "ultra",
+        "revision": "realism-1",
+        "preservedGLB": false,
+        "triangles": 33200,
+        "vertices": 99600,
+        "meshes": 1,
+        "size": [
+          0.6389999999999999,
+          0.21434491237431938,
+          0.07279920099745228
+        ],
+        "min": [
+          -0.383771906590198,
+          -0.11847798755293266,
+          -0.03639960049872614
+        ],
+        "max": [
+          0.2552280934098019,
+          0.09586692482138671,
+          0.03639960049872614
+        ]
+      }
+    },
+    {
+      "phase": "trial",
+      "species": "guppy",
+      "audit": {
+        "id": "guppy",
+        "profile": "ultra",
+        "revision": "species-1",
+        "preservedGLB": false,
+        "triangles": 41396,
+        "vertices": 32341,
+        "meshes": 1,
+        "size": [
+          0.355,
+          0.25557444051398154,
+          0.0683759067875347
+        ],
+        "min": [
+          -0.1775,
+          -0.12778722025699077,
+          -0.03418795339376735
+        ],
+        "max": [
+          0.1775,
+          0.12778722025699077,
+          0.03418795339376735
+        ]
+      }
+    },
+    {
+      "phase": "trial",
+      "species": "cory",
+      "audit": {
+        "id": "cory",
+        "profile": "ultra",
+        "revision": "species-1",
+        "preservedGLB": false,
+        "triangles": 85960,
+        "vertices": 68603,
+        "meshes": 1,
+        "size": [
+          0.49699999999999994,
+          0.24456799857312841,
+          0.2754207370166767
+        ],
+        "min": [
+          -0.24849999999999997,
+          -0.12228399928656421,
+          -0.13771036850833834
+        ],
+        "max": [
+          0.24849999999999997,
+          0.12228399928656421,
+          0.13771036850833834
+        ]
+      }
+    },
+    {
+      "phase": "trial",
+      "species": "anubias",
+      "audit": {
+        "id": "anubias",
+        "profile": "ultra",
+        "revision": "species-1",
+        "preservedGLB": false,
+        "triangles": 53088,
+        "vertices": 37603,
+        "meshes": 1,
+        "size": [
+          0.8613419532775879,
+          0.6301767230033875,
+          0.1090734526515007
+        ],
+        "min": [
+          -0.43067097663879395,
+          0,
+          -0.05453672632575035
+        ],
+        "max": [
+          0.43067097663879395,
+          0.6301767230033875,
+          0.05453672632575035
+        ]
+      }
+    }
+  ],
+  "status": "captured-for-visual-review"
+}

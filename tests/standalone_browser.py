@@ -74,10 +74,21 @@ try:
         offline.wait_for_function('window.aquariumSnapshot().graphics.triangles>3000', polling=100)
         assert offline.evaluate('window.aquariumAquascapingSnapshot().enabled')
         assert offline.evaluate('window.aquariumSnapshot().catalogCount') == 144
+        offline.locator('#tweezers-button').click()
+        offline.locator('[data-panel="shop"]').click()
+        offline.locator('[data-department="tiere"]').click()
+        offline.locator('[data-species="guppy"]').click()
+        offline.locator('[data-fish-variant]').select_option('red')
+        offline.wait_for_function('window.aquariumShopAppearance()?.variant === "red"')
+        offline.locator('[data-act="add-species"]').click()
+        offline.locator('[data-act="close-panel"]').click()
+        offline.wait_for_function('window.aquariumRenderedIndividuals().some(e=>e.appearance?.variant==="red")')
+        offline.locator('#genetics-button').click()
+        expect(offline.locator('.genetics-overlay')).to_be_visible()
         assert not errors, errors
         dependencies = [url for url in http_requests if url != document_url and not url.endswith('/favicon.ico')]
         assert not dependencies, dependencies
-        print('PASS: Downloaded HTML alone starts, renders new decoration and enables tweezers without additional HTTP resources. file: tested=' + str(file_url_tested), flush=True)
+        print('PASS: Downloaded HTML alone starts, renders decoration and quantized variant fish, opens genetics and enables tweezers without additional HTTP resources. bytes='+str(document.stat().st_size)+'. file: tested=' + str(file_url_tested), flush=True)
         browser.close()
 finally:
     server.shutdown()

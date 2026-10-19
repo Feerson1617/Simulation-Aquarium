@@ -1,0 +1,30 @@
+{
+  "guppy": {
+    "eyeT": 0.09981167608286252,
+    "eyeV": 0.3958587088915957,
+    "eyeR": 0.03389830508474576,
+    "source": "generated-fish-sheet.png",
+    "kind": "generated-artwork-not-photography"
+  },
+  "platy": {
+    "eyeT": 0.16666666666666666,
+    "eyeV": 0.43614035087719294,
+    "eyeR": 0.041666666666666664,
+    "source": "generated-fish-sheet.png",
+    "kind": "generated-artwork-not-photography"
+  },
+  "zebra": {
+    "eyeT": 0.10333333333333333,
+    "eyeV": 0.2815694032311248,
+    "eyeR": 0.03666666666666667,
+    "source": "generated-fish-sheet.png",
+    "kind": "generated-artwork-not-photography"
+  },
+  "cory": {
+    "eyeT": 0.1751054852320675,
+    "eyeV": 0.21295444643462275,
+    "eyeR": 0.03375527426160337,
+    "source": "generated-fish-sheet.png",
+    "kind": "generated-artwork-not-photography"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "tool": "image_gen.imagegen (host-native Codex tool)",
+  "model": "not exposed by tool",
+  "transparent_background": true,
+  "generated_asset": "generated-fish-sheet.png",
+  "sha256": "5e77a36797effa8957774b831ecb1b24cb62f28b66a5820f5fffc3d99e5d1749",
+  "species": [
+    "guppy",
+    "platy",
+    "zebra",
+    "cory"
+  ],
+  "kind": "Generated texture-source artwork; not documentary reference photography",
+  "prompt": "Create an original biological game-art texture reference sheet, transparent background, exactly FOUR separate photorealistic aquarium fish in an orderly two-by-two grid, no overlap, no text, no shadows, no props. Each fish strictly perfect orthographic LEFT-side lateral view, head facing RIGHT, tail to LEFT, entire body and all fins fully visible and sharply in focus, no perspective foreshortening, natural smooth extended fins, closed mouth, actual small eyes. Top left: adult male Poecilia reticulata (common domestic delta-tail guppy), natural small slender silver olive body with orange and iridescent cyan patches, translucent broad orange delta caudal fin with fine dark speckles, short correctly placed dorsal and anal fins, fine actual scales. Top right: Xiphophorus maculatus red wagtail platy, natural compact deep-bodied livebearer, restrained brick-red body, small dark caudal and dorsal fins, natural small terminal/upturned mouth, fine scale microstructure. Bottom left: wild-type adult Danio rerio zebrafish, slender torpedo body, five anatomically correct continuous horizontal dark blue stripes alternating silver gold, small transparent fins, a forked tail, two small barbels. Bottom right: adult Corydoras aeneus bronze cory catfish, authentic flattened ventral body and armored paired bony scute rows, bronze green metallic flank, cream underside, inferior mouth, short correct barbels, small triangular dorsal fin and adipose fin, short paired pectoral fins, forked translucent brown-speckled caudal fin. All are anatomically faithful, lifelike physical specimens, naturally subtle colours, tiny irregular scale/scute details, real wet translucent skin and fins, soft neutral studio lighting with no dramatic highlights. This is a newly generated texture-source sheet for original 3D models, not documentary photography. Avoid cartoon eyes, illustrated outlines, plastic smooth skin, triangle heads, invented fin positions, oversaturated colours, aquarium glass, text or watermarks."
+}

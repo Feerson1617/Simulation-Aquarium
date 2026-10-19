@@ -75,7 +75,7 @@ with sync_playwright() as playwright:
   passed('photosynthesis stops at night while respiration continues')
   click(page,'[data-start="resume"]');assert saved(page,'aquarium-werkstatt-v1')['entities']==legacy['entities'];passed('legacy free aquarium resumes after all scenarios')
   context.close();context=browser.new_context(viewport={'width':768,'height':1024},is_mobile=True,has_touch=True);page=context.new_page();page.on('pageerror',lambda e:report['errors'].append(str(e)));page.goto(URL);page.locator('button[data-graphics-profile="ipad"]').click()
-  page.locator('[data-scenarios]').tap();page.locator('[data-scenario-start="foodweb"]').tap();page.locator('#ecosystem-button').tap();page.locator('[data-eco-tab="microbes"]').tap();assert page.locator('.study-overlay').bounding_box()['width']<=768;assert page.evaluate('document.documentElement.scrollWidth<=innerWidth');page.screenshot(path=str(OUT/'analysis-touch.png'));page.locator('[data-eco-close]').tap()
+  page.locator('[data-scenarios]').tap();page.locator('[data-scenario-start="foodweb"]').tap();page.locator('#ecosystem-button').tap();page.locator('[data-eco-tab="microbes"]').tap();assert page.get_by_role('dialog',name='Ökosystem untersuchen',exact=True).bounding_box()['width']<=768;assert page.evaluate('document.documentElement.scrollWidth<=innerWidth');page.screenshot(path=str(OUT/'analysis-touch.png'));page.locator('[data-eco-close]').tap()
   passed('tablet portrait touch operates scenarios and analysis without page overflow')
   assert not report['errors'],report['errors'];assert not report['failed_requests'],report['failed_requests'];passed('no JavaScript exceptions or failed requests')
   report['status']='passed'

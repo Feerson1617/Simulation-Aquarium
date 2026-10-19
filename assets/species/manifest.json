@@ -234,5 +234,277 @@
   "ramshorn": {
     "desktop": "./assets/species/ramshorn-desktop.glb",
     "mobile": "./assets/species/ramshorn-mobile.glb"
+  },
+  "javafern": {
+    "desktop": "./assets/species/javafern-desktop.glb",
+    "mobile": "./assets/species/javafern-mobile.glb"
+  },
+  "trident": {
+    "desktop": "./assets/species/trident-desktop.glb",
+    "mobile": "./assets/species/trident-mobile.glb"
+  },
+  "javamoss": {
+    "desktop": "./assets/species/javamoss-desktop.glb",
+    "mobile": "./assets/species/javamoss-mobile.glb"
+  },
+  "christmas": {
+    "desktop": "./assets/species/christmas-desktop.glb",
+    "mobile": "./assets/species/christmas-mobile.glb"
+  },
+  "vallisgiant": {
+    "desktop": "./assets/species/vallisgiant-desktop.glb",
+    "mobile": "./assets/species/vallisgiant-mobile.glb"
+  },
+  "swordplant": {
+    "desktop": "./assets/species/swordplant-desktop.glb",
+    "mobile": "./assets/species/swordplant-mobile.glb"
+  },
+  "redflame": {
+    "desktop": "./assets/species/redflame-desktop.glb",
+    "mobile": "./assets/species/redflame-mobile.glb"
+  },
+  "crypt": {
+    "desktop": "./assets/species/crypt-desktop.glb",
+    "mobile": "./assets/species/crypt-mobile.glb"
+  },
+  "cryptparva": {
+    "desktop": "./assets/species/cryptparva-desktop.glb",
+    "mobile": "./assets/species/cryptparva-mobile.glb"
+  },
+  "waterweed": {
+    "desktop": "./assets/species/waterweed-desktop.glb",
+    "mobile": "./assets/species/waterweed-mobile.glb"
+  },
+  "hornwort": {
+    "desktop": "./assets/species/hornwort-desktop.glb",
+    "mobile": "./assets/species/hornwort-mobile.glb"
+  },
+  "hygro": {
+    "desktop": "./assets/species/hygro-desktop.glb",
+    "mobile": "./assets/species/hygro-mobile.glb"
+  },
+  "corymbosa": {
+    "desktop": "./assets/species/corymbosa-desktop.glb",
+    "mobile": "./assets/species/corymbosa-mobile.glb"
+  },
+  "limno": {
+    "desktop": "./assets/species/limno-desktop.glb",
+    "mobile": "./assets/species/limno-mobile.glb"
+  },
+  "rotala": {
+    "desktop": "./assets/species/rotala-desktop.glb",
+    "mobile": "./assets/species/rotala-mobile.glb"
+  },
+  "ludwigia": {
+    "desktop": "./assets/species/ludwigia-desktop.glb",
+    "mobile": "./assets/species/ludwigia-mobile.glb"
+  },
+  "bacopa": {
+    "desktop": "./assets/species/bacopa-desktop.glb",
+    "mobile": "./assets/species/bacopa-mobile.glb"
+  },
+  "cabomba": {
+    "desktop": "./assets/species/cabomba-desktop.glb",
+    "mobile": "./assets/species/cabomba-mobile.glb"
+  },
+  "alternanthera": {
+    "desktop": "./assets/species/alternanthera-desktop.glb",
+    "mobile": "./assets/species/alternanthera-mobile.glb"
+  },
+  "pearlweed": {
+    "desktop": "./assets/species/pearlweed-desktop.glb",
+    "mobile": "./assets/species/pearlweed-mobile.glb"
+  },
+  "montecarlo": {
+    "desktop": "./assets/species/montecarlo-desktop.glb",
+    "mobile": "./assets/species/montecarlo-mobile.glb"
+  },
+  "hairgrass": {
+    "desktop": "./assets/species/hairgrass-desktop.glb",
+    "mobile": "./assets/species/hairgrass-mobile.glb"
+  },
+  "stauro": {
+    "desktop": "./assets/species/stauro-desktop.glb",
+    "mobile": "./assets/species/stauro-mobile.glb"
+  },
+  "buce": {
+    "desktop": "./assets/species/buce-desktop.glb",
+    "mobile": "./assets/species/buce-mobile.glb"
+  },
+  "lotus": {
+    "desktop": "./assets/species/lotus-desktop.glb",
+    "mobile": "./assets/species/lotus-mobile.glb"
+  },
+  "frogbit": {
+    "desktop": "./assets/species/frogbit-desktop.glb",
+    "mobile": "./assets/species/frogbit-mobile.glb"
+  },
+  "salvinia": {
+    "desktop": "./assets/species/salvinia-desktop.glb",
+    "mobile": "./assets/species/salvinia-mobile.glb"
+  },
+  "waterlettuce": {
+    "desktop": "./assets/species/waterlettuce-desktop.glb",
+    "mobile": "./assets/species/waterlettuce-mobile.glb"
+  },
+  "aponogeton": {
+    "desktop": "./assets/species/aponogeton-desktop.glb",
+    "mobile": "./assets/species/aponogeton-mobile.glb"
+  },
+  "sinularia": {
+    "desktop": "./assets/species/sinularia-desktop.glb",
+    "mobile": "./assets/species/sinularia-mobile.glb"
+  },
+  "kenya": {
+    "desktop": "./assets/species/kenya-desktop.glb",
+    "mobile": "./assets/species/kenya-mobile.glb"
+  },
+  "xenia": {
+    "desktop": "./assets/species/xenia-desktop.glb",
+    "mobile": "./assets/species/xenia-mobile.glb"
+  },
+  "greenstar": {
+    "desktop": "./assets/species/greenstar-desktop.glb",
+    "mobile": "./assets/species/greenstar-mobile.glb"
+  },
+  "zoa": {
+    "desktop": "./assets/species/zoa-desktop.glb",
+    "mobile": "./assets/species/zoa-mobile.glb"
+  },
+  "mushroom": {
+    "desktop": "./assets/species/mushroom-desktop.glb",
+    "mobile": "./assets/species/mushroom-mobile.glb"
+  },
+  "ricordea": {
+    "desktop": "./assets/species/ricordea-desktop.glb",
+    "mobile": "./assets/species/ricordea-mobile.glb"
+  },
+  "hammer": {
+    "desktop": "./assets/species/hammer-desktop.glb",
+    "mobile": "./assets/species/hammer-mobile.glb"
+  },
+  "frogspawn": {
+    "desktop": "./assets/species/frogspawn-desktop.glb",
+    "mobile": "./assets/species/frogspawn-mobile.glb"
+  },
+  "torch": {
+    "desktop": "./assets/species/torch-desktop.glb",
+    "mobile": "./assets/species/torch-mobile.glb"
+  },
+  "candy": {
+    "desktop": "./assets/species/candy-desktop.glb",
+    "mobile": "./assets/species/candy-mobile.glb"
+  },
+  "duncan": {
+    "desktop": "./assets/species/duncan-desktop.glb",
+    "mobile": "./assets/species/duncan-mobile.glb"
+  },
+  "brain": {
+    "desktop": "./assets/species/brain-desktop.glb",
+    "mobile": "./assets/species/brain-mobile.glb"
+  },
+  "favites": {
+    "desktop": "./assets/species/favites-desktop.glb",
+    "mobile": "./assets/species/favites-mobile.glb"
+  },
+  "acanth": {
+    "desktop": "./assets/species/acanth-desktop.glb",
+    "mobile": "./assets/species/acanth-mobile.glb"
+  },
+  "plate": {
+    "desktop": "./assets/species/plate-desktop.glb",
+    "mobile": "./assets/species/plate-mobile.glb"
+  },
+  "chalice": {
+    "desktop": "./assets/species/chalice-desktop.glb",
+    "mobile": "./assets/species/chalice-mobile.glb"
+  },
+  "montidigi": {
+    "desktop": "./assets/species/montidigi-desktop.glb",
+    "mobile": "./assets/species/montidigi-mobile.glb"
+  },
+  "montiplate": {
+    "desktop": "./assets/species/montiplate-desktop.glb",
+    "mobile": "./assets/species/montiplate-mobile.glb"
+  },
+  "pocillo": {
+    "desktop": "./assets/species/pocillo-desktop.glb",
+    "mobile": "./assets/species/pocillo-mobile.glb"
+  },
+  "stylo": {
+    "desktop": "./assets/species/stylo-desktop.glb",
+    "mobile": "./assets/species/stylo-mobile.glb"
+  },
+  "birdsnest": {
+    "desktop": "./assets/species/birdsnest-desktop.glb",
+    "mobile": "./assets/species/birdsnest-mobile.glb"
+  },
+  "cherryshrimp": {
+    "desktop": "./assets/species/cherryshrimp-desktop.glb",
+    "mobile": "./assets/species/cherryshrimp-mobile.glb"
+  },
+  "crystal": {
+    "desktop": "./assets/species/crystal-desktop.glb",
+    "mobile": "./assets/species/crystal-mobile.glb"
+  },
+  "bambooshrimp": {
+    "desktop": "./assets/species/bambooshrimp-desktop.glb",
+    "mobile": "./assets/species/bambooshrimp-mobile.glb"
+  },
+  "nerite": {
+    "desktop": "./assets/species/nerite-desktop.glb",
+    "mobile": "./assets/species/nerite-mobile.glb"
+  },
+  "trumpet": {
+    "desktop": "./assets/species/trumpet-desktop.glb",
+    "mobile": "./assets/species/trumpet-mobile.glb"
+  },
+  "bladder": {
+    "desktop": "./assets/species/bladder-desktop.glb",
+    "mobile": "./assets/species/bladder-mobile.glb"
+  },
+  "assassin": {
+    "desktop": "./assets/species/assassin-desktop.glb",
+    "mobile": "./assets/species/assassin-mobile.glb"
+  },
+  "freshclam": {
+    "desktop": "./assets/species/freshclam-desktop.glb",
+    "mobile": "./assets/species/freshclam-mobile.glb"
+  },
+  "cleanershrimp": {
+    "desktop": "./assets/species/cleanershrimp-desktop.glb",
+    "mobile": "./assets/species/cleanershrimp-mobile.glb"
+  },
+  "fireshrimp": {
+    "desktop": "./assets/species/fireshrimp-desktop.glb",
+    "mobile": "./assets/species/fireshrimp-mobile.glb"
+  },
+  "peppermint": {
+    "desktop": "./assets/species/peppermint-desktop.glb",
+    "mobile": "./assets/species/peppermint-mobile.glb"
+  },
+  "trochus": {
+    "desktop": "./assets/species/trochus-desktop.glb",
+    "mobile": "./assets/species/trochus-mobile.glb"
+  },
+  "cerith": {
+    "desktop": "./assets/species/cerith-desktop.glb",
+    "mobile": "./assets/species/cerith-mobile.glb"
+  },
+  "nassarius": {
+    "desktop": "./assets/species/nassarius-desktop.glb",
+    "mobile": "./assets/species/nassarius-mobile.glb"
+  },
+  "giantclam": {
+    "desktop": "./assets/species/giantclam-desktop.glb",
+    "mobile": "./assets/species/giantclam-mobile.glb"
+  },
+  "hermit": {
+    "desktop": "./assets/species/hermit-desktop.glb",
+    "mobile": "./assets/species/hermit-mobile.glb"
+  },
+  "urchin": {
+    "desktop": "./assets/species/urchin-desktop.glb",
+    "mobile": "./assets/species/urchin-mobile.glb"
   }
 }

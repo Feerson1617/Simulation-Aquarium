@@ -6,7 +6,7 @@ from organism_common import *
 from build_fish import ellipsoid
 
 def surface(name,center,radius,height,mat,color,lod,mode='disc'):
- rows,cols=(28,96)if lod=='desktop'else(16,48);verts=[];faces=[];uv=[]
+ rows,cols=((12,32)if lod=='desktop'else(8,20))if radius<=.1 else((28,96)if lod=='desktop'else(16,48));verts=[];faces=[];uv=[]
  for j in range(rows+1):
   r=j/rows
   for k in range(cols+1):

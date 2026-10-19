@@ -65,7 +65,7 @@ try:
             page.set_default_timeout(90000)
             page.on('pageerror', lambda error: report['errors'].append(str(error)))
             page.goto(base + directory.name + '/')
-            click(page, 'button[data-graphics-profile="ipad" i]' if touch else 'button[data-graphics-profile="maximum"]')
+            click(page, 'button[data-graphics-profile="ipad"]')
             click(page, '[data-start="free"]')
             restore(page, fixture('guppy'))
             return context, page
@@ -151,6 +151,11 @@ try:
         expect(page.locator('[data-graphics-setting]')).to_be_visible()
         click(page, '[data-act="close-panel"]')
         report['checks'].append('water, time and graphics controls remain available')
+
+        click(page, '[data-panel="time"]')
+        page.locator('[data-graphics-setting]').select_option('maximum')
+        page.wait_for_function('window.aquariumSnapshot().graphics.graphicsProfile==="maximum"')
+        click(page, '[data-act="close-panel"]')
 
         # Capture the same existing pilot candidates and the two quality references
         # with the application's real orbit interaction, under identical lighting.

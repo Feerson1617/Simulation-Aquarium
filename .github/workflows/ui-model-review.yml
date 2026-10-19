@@ -38,6 +38,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: Kostenlose Browserwerkzeuge installieren
+        id: browser_setup
         run: |
           python -m pip install playwright==1.56.0 Pillow==11.3.0
           python -m playwright install --with-deps chromium
@@ -51,11 +52,13 @@ jobs:
         working-directory: aquarium-simulation
         run: python tests/catalog_ui_browser.py
       - name: Bestehende Pinzettenprüfung
+        if: always() && steps.browser_setup.outcome == 'success'
         working-directory: aquarium-simulation
         env:
           AQUARIUM_TEST_RESULTS: ${{ github.workspace }}/aquarium-simulation/docs/ui-model-review/evidence/aquascaping
         run: python tests/aquascaping_browser.py
       - name: Bestehende Genetik- und Ökosystemprüfungen
+        if: always() && steps.browser_setup.outcome == 'success'
         working-directory: aquarium-simulation
         env:
           AQUARIUM_GENETICS_RESULTS: ${{ github.workspace }}/aquarium-simulation/docs/ui-model-review/evidence/genetics

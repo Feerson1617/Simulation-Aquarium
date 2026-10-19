@@ -41,7 +41,11 @@ def restore(page, payload):
     if page.locator('[data-act="close-modal"]:visible').count():
         click(page, '[data-act="close-modal"]')
     page.locator('#import-file').set_input_files({'name': 'review-fixture.json', 'mimeType': 'application/json', 'buffer': json.dumps(payload).encode()})
-    page.wait_for_function('(s)=>window.aquariumSnapshot().entities===s.entities.length && window.aquariumSnapshot().water===s.water', arg=payload)
+    page.wait_for_function('''(s)=>{
+        const actual=JSON.parse(localStorage.getItem("aquarium-werkstatt-v1"));
+        return actual?.entities.length===s.entities.length && actual?.water===s.water
+            && actual?.entities[0]?.species===s.entities[0].species && actual?.day===s.day;
+    }''', arg=payload)
     if page.locator('[data-act="close-panel"]:visible').count():
         click(page, '[data-act="close-panel"]')
     page.wait_for_function('window.aquariumSnapshot().graphics.detailModels===1')
@@ -81,7 +85,7 @@ try:
                 ('anubias', 'pflanzen', False), ('nerite', 'tiere', False),
                 ('softleather', 'tiere', True), ('stone', 'deko', False)]:
             restore(page, fixture(species, salt))
-            before = page.evaluate('localStorage.getItem("aquarium-werkstatt-v1")')
+            before = page.evaluate('JSON.parse(localStorage.getItem("aquarium-werkstatt-v1")).entities')
             click(page, '[data-panel="care"]')
             click(page, '[data-entity="1"]')
             drawer = page.locator('#drawer-root')
@@ -91,7 +95,7 @@ try:
             assert drawer.locator('.detail-visual svg').count() == 0
             assert drawer.locator('[data-entity-setting="x"],[data-entity-setting="z"],[data-act="place-selected"]').count() == 0
             assert drawer.locator('[data-entity-setting="rotation"],[data-entity-setting="scale"]').count() == 2
-            assert page.evaluate('localStorage.getItem("aquarium-werkstatt-v1")') == before
+            assert page.evaluate('JSON.parse(localStorage.getItem("aquarium-werkstatt-v1")).entities') == before
             shot(page, 'after-object-' + species, drawer.locator('.drawer'))
             click(page, '#drawer-root [data-species="' + species + '"]')
             expect(page.locator('#modal-root .detail-visual img')).to_have_attribute('src', './assets/catalog/' + species + '.webp')

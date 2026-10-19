@@ -1,0 +1,35 @@
+name: Aquarium – UI und Modellprüfung
+
+on:
+  push:
+    branches: [feature/catalog-ui-realism-review]
+  pull_request:
+    paths:
+      - '**.mjs'
+      - 'index.html'
+      - 'tests/**'
+      - 'tools/review_ui_source.py'
+      - '.github/workflows/ui-model-review.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: aquarium-ui-review-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Vorhandene Modultests
+        run: node --test tests/*.test.mjs
+      - name: Relevante UI-Quellen für die Wiederaufnahme prüfen
+        run: python3 tools/review_ui_source.py

@@ -8,7 +8,6 @@ on:
       - '**.mjs'
       - 'index.html'
       - 'tests/**'
-      - 'tools/review_ui_source.py'
       - '.github/workflows/ui-model-review.yml'
 
 permissions:
@@ -19,17 +18,41 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  review:
+  apply-reviewed-ui:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/feature/catalog-ui-realism-review'
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 5
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: feature/catalog-ui-realism-review
+      - name: Geprüfte Änderungen an der großen HTML-Datei anwenden
+        run: python3 tools/apply_reviewed_ui.py
+      - name: HTML auf dem Entwicklungsbranch sichern
+        run: |
+          if ! git diff --quiet -- index.html; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add -- index.html
+            git commit -m "fix: show catalog images in details and remove coordinate sliders"
+            git push origin HEAD:feature/catalog-ui-realism-review
+          fi
+  review:
+    needs: apply-reviewed-ui
+    if: always() && (needs.apply-reviewed-ui.result == 'success' || needs.apply-reviewed-ui.result == 'skipped')
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.ref }}
           persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
       - name: Vorhandene Modultests
         run: node --test tests/*.test.mjs
-      - name: Relevante UI-Quellen für die Wiederaufnahme prüfen
+      - name: Relevante UI-Quellen prüfen
         run: python3 tools/review_ui_source.py

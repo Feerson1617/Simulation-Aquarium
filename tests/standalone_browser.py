@@ -69,6 +69,7 @@ try:
         offline.locator('[data-department="deko"]').click()
         offline.locator('[data-species="spiderwood"]').click()
         offline.locator('[data-act="add-species"]').click()
+        assert offline.evaluate('JSON.parse(localStorage.getItem("aquarium-werkstatt-v1")).entities.some(e=>e.species==="spiderwood")'), offline.locator('#toast-root').inner_text()
         offline.locator('[data-act="close-panel"]').click()
         offline.locator('#tweezers-button').click()
         offline.wait_for_function('window.aquariumSnapshot().graphics.triangles>3000', polling=100)

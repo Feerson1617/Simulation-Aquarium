@@ -8,6 +8,8 @@ from organism_common import finish
 OUT=ROOT/'assets/species';SRC=OUT/'source';items=json.loads((SRC/'inventory.json').read_text());manifest=json.loads((OUT/'manifest.json').read_text())
 selected=set(os.environ.get('AQUARIUM_SPECIES_IDS','').split(','))if os.environ.get('AQUARIUM_SPECIES_IDS')else None
 for item in items:
+ if item['id']=='anubias':
+  print('Anubias uses the reviewed photographic botanical pipeline: tools/physical/build_anubias.py',flush=True);continue
  id=item['id'];category=item['category']
  if category not in ['plant','invert','coral']or id in ['nana','vallis']or(selected and id not in selected):continue
  builder={'plant':build_plants,'invert':build_invertebrates,'coral':build_corals}[category]

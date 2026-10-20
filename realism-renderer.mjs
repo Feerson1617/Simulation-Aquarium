@@ -1,3 +1,4 @@
+import { WORLD_PER_CM, tankDimensions, externalFilterPlacement } from './physical-scale.mjs';
 import { graphicsProfile, safePixelRatio } from './graphics-profiles.mjs';
 import { surfaceDetail } from './realism-materials.mjs';
 const materialCache=new Map();
@@ -19,10 +20,21 @@ export function equipmentModel(T,kind,value){const g=new T.Group(),dark=new T.Me
  else if(kind==='filter'&&value==='sump'){box(1.1,.58,.5,glass);for(let k=0;k<3;k++)box(.015,.5,.48,glass,-.35+k*.35,0,0);box(.25,.28,.4,dark,.36,-.1,0)}
  else if(kind==='filter'){cylinder(.3,.66,dark);cylinder(.32,.1,dark,0,.36,0);for(const x of [-.31,.31])box(.06,.32,.12,metal,x,.18,0);for(const x of [-.13,.13])cylinder(.036,.14,rubber,x,.47,0);cylinder(.31,.025,rubber,0,-.34,0)}
  g.name='equipment:'+kind+':'+value;g.updateMatrixWorld(true);const merged=new T.Group(),byMaterial=new Map();g.traverse(o=>{if(o.isMesh){const list=byMaterial.get(o.material)||[];list.push(o.geometry.clone().applyMatrix4(o.matrixWorld));byMaterial.set(o.material,list)}});for(const [material,parts] of byMaterial){const geometry=T.mergeGeometries(parts,false);if(geometry)mesh(T,merged,geometry,material);parts.forEach(g=>g.dispose())}g.traverse(o=>o.isMesh&&o.geometry.dispose());merged.name=g.name;return merged}
-export function buildEquipment(view,T){const s=view.state,add=(g,x,y,z)=>{g.position.set(x,y,z);view.tank.add(g)};
+export function buildEquipment(view,T){
+ const s=view.state,d=tankDimensions(s),add=(g,x,y,z)=>{g.position.set(x,y,z);view.tank.add(g)};
  if(!['none','sun'].includes(s.light))add(equipmentModel(T,'light',s.light),0,4.03,0);
- if(s.filter!=='none'){const inner=s.filter.startsWith('internal')||s.filter==='sponge';add(equipmentModel(T,'filter',s.filter),inner?2.97:4.07,inner?2.65:.48,inner?-1.34:-.7);if(!inner){const hose=new T.MeshStandardMaterial({color:'#31433c',roughness:.3});for(const x of [3.18,3.38]){const points=[new T.Vector3(4.07,.96,-.7),new T.Vector3(3.8,2.9,-1.4),new T.Vector3(x,3.8,-1.4),new T.Vector3(x,2.5,-1.4)];mesh(T,view.tank,new T.TubeGeometry(new T.CatmullRomCurve3(points),40,.027,8,false),hose)}}}
- if(s.heater)add(equipmentModel(T,'heater'),-3.2,2.4,-1.4);if(s.skimmer)add(equipmentModel(T,'skimmer'),-3.2,2.7,-1.25);if(s.air)add(equipmentModel(T,'air'),2.85,.28,-1.1);
+ if(s.filter!=='none'){
+  const inner=s.filter.startsWith('internal')||s.filter==='sponge';add(equipmentModel(T,'filter',s.filter),inner?2.97:4.07,inner?2.65:.48,inner?-1.34:-.7);
+  if(!inner){
+   const placement=externalFilterPlacement(s),hose=new T.MeshStandardMaterial({color:'#31433c',roughness:.3});
+   for(const side of [-1,1]){
+    const x=(d.innerLengthCm/2-2+side*.75)*WORLD_PER_CM,z=(-d.innerDepthCm/2+1.5)*WORLD_PER_CM;
+    const points=[new T.Vector3(placement.x*d.x+side*placement.widthCm*.19*WORLD_PER_CM,placement.topY*d.y,placement.z*d.z),new T.Vector3(placement.x*d.x,d.heightCm*WORLD_PER_CM+.15,z),new T.Vector3(x,d.heightCm*WORLD_PER_CM+.15,z),new T.Vector3(x,3.47*d.y-.5,z)];
+    const geometry=new T.TubeGeometry(new T.CatmullRomCurve3(points),40,.035,8,false);geometry.scale(1/d.x,1/d.y,1/d.z);mesh(T,view.tank,geometry,hose);
+   }
+  }
+ }
+ if(s.heater)add(equipmentModel(T,'heater'),-3.2,2.4,-1.4);if(s.skimmer)add(equipmentModel(T,'skimmer'),-2.1,2.7,-1.25);if(s.air)add(equipmentModel(T,'air'),2.85,.28,1);
 }
 export function finishTank(view,T){const p=graphicsProfile();if(view.caustic)view.caustic.material.opacity=.035;view.tank.traverse(o=>{if(!o.isMesh)return;const m=o.material;if(m?.isMeshPhysicalMaterial&&m.opacity<.10){m.color.set('#ffffff');m.roughness=0;m.metalness=0;m.transmission=0;m.opacity=p.transmission?.045:.035;m.clearcoat=1;m.clearcoatRoughness=.02;m.thickness=.006;m.ior=1.52;m.envMapIntensity=1.2;m.needsUpdate=true}});
  if(view.waterSurface){const m=view.waterSurface.material;m.color.set('#deeee7');m.roughness=.018;m.metalness=0;m.ior=1.333;m.transmission=p.transmission?.94:0;m.opacity=p.transmission?1:.12;m.thickness=.10;m.envMapIntensity=1.05;m.normalMap=surfaceDetail(T,'water');m.normalScale=new T.Vector2(.025,.025);m.needsUpdate=true}

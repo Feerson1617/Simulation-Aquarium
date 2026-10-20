@@ -1,0 +1,211 @@
+{
+  "url": "http://127.0.0.1:8000/aquarium-simulation/",
+  "commit": "df429595e0a3d3abaf1207cf6f930eb380351d5a",
+  "checks": [
+    {
+      "name": "JavaScript syntax",
+      "status": "passed",
+      "modules": 1
+    },
+    {
+      "name": "HTTP project subpath serves exact repository HTML",
+      "status": "passed",
+      "bytes": 21238343
+    },
+    {
+      "name": "Desktop start screen and WebGL",
+      "status": "passed",
+      "screenshot": "/workspace/aquarium-devtools/results/20261020T082750.619108Z/desktop-start.png"
+    },
+    {
+      "name": "Free game: place 120 litre aquarium",
+      "status": "passed",
+      "snapshot": {
+        "day": 0,
+        "animals": 0,
+        "plants": 0,
+        "entities": 0,
+        "water": "fresh",
+        "params": {
+          "nh4": 0.015,
+          "no2": 0.015,
+          "no3": 12,
+          "po4": 0.4,
+          "co2": 5,
+          "fe": 0.08,
+          "oxygen": 7.5,
+          "ph": 7.15,
+          "temp": 22,
+          "salinity": 0,
+          "kh": 2.5,
+          "gh": 8,
+          "calcium": 60
+        },
+        "failed": false,
+        "stableDays": 0,
+        "deaths": [],
+        "offspring": [],
+        "catalogCount": 144,
+        "graphics": {
+          "graphicsProfile": "high",
+          "renderFrame": 46,
+          "textureBudget": {
+            "estimatedBytes": 5592406,
+            "sharedMaps": 1,
+            "kind": "RGBA + mip estimate; not a GPU measurement"
+          },
+          "visualRevision": "realism-1",
+          "drawCalls": 28,
+          "triangles": 61646,
+          "objects": 0,
+          "detailModels": 0
+        }
+      },
+      "screenshot": "/workspace/aquarium-devtools/results/20261020T082750.619108Z/desktop-tank.png"
+    },
+    {
+      "name": "Plant and animal catalogs, insertion and 3D model loading",
+      "status": "passed",
+      "plant": "anubias",
+      "animal": "neon",
+      "snapshot": {
+        "day": 0,
+        "animals": 1,
+        "plants": 1,
+        "entities": 2,
+        "water": "fresh",
+        "params": {
+          "nh4": 0.015,
+          "no2": 0.015,
+          "no3": 12,
+          "po4": 0.4,
+          "co2": 5,
+          "fe": 0.08,
+          "oxygen": 7.5,
+          "ph": 7.15,
+          "temp": 22,
+          "salinity": 0,
+          "kh": 2.5,
+          "gh": 8,
+          "calcium": 60
+        },
+        "failed": false,
+        "stableDays": 0,
+        "deaths": [],
+        "offspring": [],
+        "catalogCount": 144,
+        "graphics": {
+          "graphicsProfile": "high",
+          "renderFrame": 76,
+          "textureBudget": {
+            "estimatedBytes": 16777218,
+            "sharedMaps": 3,
+            "kind": "RGBA + mip estimate; not a GPU measurement"
+          },
+          "visualRevision": "realism-1",
+          "drawCalls": 140,
+          "triangles": 137826,
+          "objects": 2,
+          "detailModels": 2
+        }
+      },
+      "screenshot": "/workspace/aquarium-devtools/results/20261020T082750.619108Z/desktop-populated.png"
+    },
+    {
+      "name": "Water measurements and one simulated day",
+      "status": "passed"
+    },
+    {
+      "name": "Save export and localStorage restoration after reload",
+      "status": "passed"
+    },
+    {
+      "name": "Save file import into a fresh browser profile",
+      "status": "passed"
+    },
+    {
+      "name": "Tablet touch: tutorial start and aquarium placement",
+      "status": "passed",
+      "screenshot": "/workspace/aquarium-devtools/results/20261020T082750.619108Z/tablet-tutorial.png"
+    },
+    {
+      "name": "Tablet touch: all eight tutorial stages completed",
+      "status": "passed",
+      "screenshot": "/workspace/aquarium-devtools/results/20261020T082750.619108Z/tablet-tutorial-complete.png"
+    },
+    {
+      "name": "Tablet portrait resize and touch menu",
+      "status": "passed",
+      "screenshot": "/workspace/aquarium-devtools/results/20261020T082750.619108Z/tablet-portrait.png"
+    },
+    {
+      "name": "No JavaScript errors, failed game requests or external runtime requests",
+      "status": "passed",
+      "missing_favicon": 1
+    },
+    {
+      "name": "Game file unchanged by validation",
+      "status": "passed"
+    }
+  ],
+  "page_errors": [],
+  "console_errors": [
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "location": {
+        "url": "http://127.0.0.1:8000/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "external_requests": [],
+  "failed_requests": [],
+  "http_errors": [],
+  "browser": "154.0.8037.57",
+  "final_snapshot": {
+    "day": 7,
+    "animals": 0,
+    "plants": 1,
+    "entities": 1,
+    "water": "fresh",
+    "params": {
+      "nh4": 0,
+      "no2": 0,
+      "no3": 11.821018068117027,
+      "po4": 0.3918031690914454,
+      "co2": 3.4600261022608585,
+      "fe": 0.07940112861375541,
+      "oxygen": 8.743679307590016,
+      "ph": 7.335911526885596,
+      "temp": 22,
+      "salinity": 0,
+      "kh": 2.499595,
+      "gh": 8,
+      "calcium": 60
+    },
+    "failed": false,
+    "stableDays": 0,
+    "deaths": [],
+    "offspring": [],
+    "catalogCount": 144,
+    "graphics": {
+      "graphicsProfile": "ipad",
+      "renderFrame": 216,
+      "textureBudget": {
+        "estimatedBytes": 2796204,
+        "sharedMaps": 4,
+        "kind": "RGBA + mip estimate; not a GPU measurement"
+      },
+      "visualRevision": "realism-1",
+      "drawCalls": 71,
+      "triangles": 29782,
+      "objects": 1,
+      "detailModels": 1
+    }
+  },
+  "status": "passed"
+}

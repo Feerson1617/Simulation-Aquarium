@@ -1,0 +1,42 @@
+✔ all seven tanks use actual length, depth and height in the same centimetre scale (370.90991ms)
+✔ every organism and decoration has declared dimensions and explicit evidence limits (2.206727ms)
+✔ adult size and stable individual variation do not depend on tank, profile or animation time (2.64931ms)
+✔ known sexual dimorphism and actual developmental age affect size (0.697973ms)
+✔ plant height follows saved biomass; tweezers and old manual scale cannot resize biology (0.975907ms)
+✔ physical placement reserves larger relative footprints in small aquariums (0.85784ms)
+✔ old positions and personalization are migrated once without losing biological data (1.675377ms)
+✔ migration separates overlapping fixed objects and records every changed position (16.191386ms)
+✔ unplaceable originals remain in the save, never deleted or silently shrunk (19.469509ms)
+✔ four centimetres of substrate stay four centimetres across tank heights (0.622918ms)
+✔ malformed or future spatial records are rejected rather than reset (0.733694ms)
+✔ internal hardware fits and its occupied footprints do not overlap in any tank (2.120358ms)
+✔ later tank changes recheck placement and recover saved objects when room becomes available (56.597678ms)
+✖ plant placement leaves room for the mature canopy at glass while roots may overlap foliage (5.455971ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 13
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1552.497755
+
+✖ failing tests:
+
+test at tests/physical-scale.test.mjs:83:1
+✖ plant placement leaves room for the mature canopy at glass while roots may overlap foliage (5.455971ms)
+  AssertionError [ERR_ASSERTION]: full canopy must stay inside side glass
+      at TestContext.<anonymous> (file:///workspace/Simulation-Aquarium/tests/physical-scale.test.mjs:86:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

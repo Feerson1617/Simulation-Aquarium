@@ -1,5 +1,4 @@
 """Real UI regression and browser captures. No rendered images are fabricated."""
-import base64
 import copy
 import json
 import os
@@ -13,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'docs/ui-model-review/evidence'
 OUT.mkdir(parents=True, exist_ok=True)
 LEGACY = json.loads((ROOT / 'tests/fixtures/legacy-v1.json').read_text())
-report = {'checks': [], 'errors': [], 'screenshots': [], 'model_status': 'existing models; no new reconstruction accepted'}
+report = {'checks': [], 'errors': [], 'screenshots': [], 'model_status': 'one manually modeled photo-textured Anubias update; other accepted models retained'}
 
 class QuietHandler(SimpleHTTPRequestHandler):
     def log_message(self, *_args):
@@ -95,7 +94,7 @@ try:
             page.wait_for_function('document.querySelector("#drawer-root .detail-visual img")?.naturalWidth>0')
             assert drawer.locator('.detail-visual svg').count() == 0
             assert drawer.locator('[data-entity-setting="x"],[data-entity-setting="z"],[data-act="place-selected"]').count() == 0
-            assert drawer.locator('[data-entity-setting="rotation"],[data-entity-setting="scale"]').count() == 2
+            assert drawer.locator('[data-entity-setting="rotation"],[data-entity-setting="scale"]').count() == (2 if species=='stone' else 0)
             assert page.evaluate('JSON.parse(localStorage.getItem("aquarium-werkstatt-v1")).entities') == before
             shot(page, 'after-object-' + species, drawer.locator('.drawer'))
             click(page, '#drawer-root [data-species="' + species + '"]')
@@ -195,4 +194,4 @@ finally:
     for name in ['before-object-guppy.png', 'after-object-guppy.png', 'desktop-high-scene.png']:
         path = OUT / name
         if path.exists():
-            print('BROWSER_PNG ' + name + ' ' + base64.b64encode(path.read_bytes()).decode(), flush=True)
+            print('BROWSER_SCREENSHOT ' + str(path), flush=True)

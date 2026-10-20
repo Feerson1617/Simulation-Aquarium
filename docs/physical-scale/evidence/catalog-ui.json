@@ -1,0 +1,41 @@
+{
+  "checks": [
+    "catalog and placed detail: guppy",
+    "catalog and placed detail: molly",
+    "catalog and placed detail: cory",
+    "catalog and placed detail: anubias",
+    "catalog and placed detail: nerite",
+    "catalog and placed detail: softleather",
+    "catalog and placed detail: stone",
+    "actual 3D scene selection opens the same catalog image",
+    "real tweezers drag and save: guppy",
+    "real tweezers drag and save: nerite",
+    "real tweezers drag and save: softleather",
+    "water, time and graphics controls remain available",
+    "desktop high scene renders; model turntables are covered by the separate reconstruction review"
+  ],
+  "errors": [],
+  "screenshots": [
+    "after-object-guppy.png",
+    "after-species-guppy.png",
+    "after-object-molly.png",
+    "after-species-molly.png",
+    "after-object-cory.png",
+    "after-species-cory.png",
+    "after-object-anubias.png",
+    "after-species-anubias.png",
+    "after-object-nerite.png",
+    "after-species-nerite.png",
+    "after-object-softleather.png",
+    "after-species-softleather.png",
+    "after-object-stone.png",
+    "after-species-stone.png",
+    "tweezers-guppy-swimming-height.png",
+    "desktop-high-scene.png",
+    "ipad-touch-object-anubias.png",
+    "tutorial-start.png"
+  ],
+  "model_status": "one manually modeled photo-textured Anubias update; other accepted models retained",
+  "tweezers_instruction": "PINZETTE\nGegriffen. Ziehen zum Versetzen · Esc bricht ab.\n✕",
+  "status": "passed"
+}

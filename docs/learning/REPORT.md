@@ -34,7 +34,7 @@ Start: zuerst Klasse 8, 9 oder 10; danach Lernmissionen oder Freies Forschen. Di
 | Primärer Blick | Lebewesen, Beziehungen, Lebensbedingungen | Individuen, Farben, Genotypen auf Wunsch, Generationen | Eingriffe, Stoffwege, Folgen und Bewertung |
 | Wasser im Einstieg | Temperatur, O₂ qualitativ, Nährstoffversorgung, Belastung | Keine Chemietabelle; Tiere und Modellgenerationen | Reduzierte Zustände wie Klasse 8 |
 | Vertiefung | Messwerte für passende Untersuchung, etwa O₂ bei Fotosynthese | Mendelwahrscheinlichkeiten, tatsächliche Allele, Drift/Selektion | Zielbezogen Nitrat/Nitrit/CO₂/O₂; Formeln in optionaler Begriffshilfe |
-| Katalog | 7 ausgewählte Einträge | Konzeptionell 5 passende Arten/Pflanzen; Zuchtwerkzeug konzentriert auf monohybride Modell-Mollys | 7 ausgewählte Einträge |
+| Katalog | 7 ausgewählte Einträge | Zuchtwerkzeug konzentriert auf eine Modellart: monohybride Mollys | 7 ausgewählte Einträge |
 | Sprache | Beobachtungsnah: „Reste“, „Lebensbedingungen“, „Vermutung“ | Genotyp, Phänotyp, Allel, Wahrscheinlichkeit, Generation | Wirkungskette, Kriterium, Interessengruppe, Unsicherheit |
 
 Alle Klassen haben eigene freie Forschung mit Frage, Hypothese, Plan, Messung und Reflexion. Es handelt sich nicht um den früheren ungekürzten Freispielmodus. Lehrkräfte können zusätzliche Größen bewusst freischalten.
@@ -61,7 +61,7 @@ Das Generationsmodell nutzt die vorhandenen Mendelfunktionen. Es archiviert echt
 
 ## Lehrkraft, Differenzierung und Lernstand
 
-Der Lehrkraftmodus ist lokal ohne Konto erreichbar. Er bietet Klassen-/Missionsvorbereitung, stark/teilweise/selbstständig angeleitete Arbeitswege, abschaltbare Hilfen, gezielte Werkzeug-/Messfreigaben, vorbereitete Vergleiche, Konfigurationsexport/-import, lokale Lernprodukte und das Lesen exportierter Protokolle. Ein Neustart hält eine lokale Sicherung zurück.
+Der Lehrkraftmodus ist lokal ohne Konto erreichbar. Er bietet Klassen-/Missionsvorbereitung, stark/teilweise/selbstständig angeleitete Arbeitswege, abschaltbare Hilfen, gezielte Werkzeug-/Messfreigaben, vorbereitete Vergleiche, Konfigurationsexport/-import, lokale Lernprodukte und das Lesen exportierter Protokolle. Ein Neustart hält eine lokale Sicherung zurück, die im Lehrkraftmodus wiederhergestellt werden kann.
 
 Die Unterstützung verändert Sprache, Satzanfänge und Schritthilfen. Der biologische Kern bleibt gleich. Lernstandsaufgaben erfassen Vorwissen, begründete Vorhersage, Kontrollplanung, Datenbezug, Erklärung, Transfer und Modellreflexion. Die Simulation erteilt keine automatische Note aus Pflegeerfolg. Namen oder Online-Profile sind nicht notwendig; der Modus ist kein Zugriffsschutz für Prüfungen.
 

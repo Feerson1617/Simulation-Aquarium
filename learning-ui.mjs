@@ -578,7 +578,7 @@ export function mountLearningUI(host) {
                 "",
               )}${imported.comparison ? teacherData(imported.comparison) : ""}</section>`
           : ""
-      }<h3>Versuche verwalten</h3><p>Ein Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.</p>${tag ? button("reset-study", "Aktuellen Lernversuch zurücksetzen") : ""}<details><summary>Fachliche und curriculare Grundlage</summary><p>${CURRICULUM.title}, ${CURRICULUM.pages}; Original-PDF am 20.10.2026 abgeglichen. Die Simulation deckt ausgewählte Einheiten ab, nicht alle Inhalte der Klassen.</p><p>Gesundheit, Biomasse und Belastung sind Modellgrößen. Kohlenstoff nur qualitativ; Selektion nutzt offengelegte hypothetische Gewichte.</p></details>`
+      }<h3>Versuche verwalten</h3><p>Ein Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.</p>${button("teacher-reset", "Ausgewählte Mission neu beginnen")}${button("teacher-restore", "Gesicherte Mission wiederherstellen")}<details><summary>Fachliche und curriculare Grundlage</summary><p>${CURRICULUM.title}, ${CURRICULUM.pages}; Original-PDF am 20.10.2026 abgeglichen. Die Simulation deckt ausgewählte Einheiten ab, nicht alle Inhalte der Klassen.</p><p>Gesundheit, Biomasse und Belastung sind Modellgrößen. Kohlenstoff nur qualitativ; Selektion nutzt offengelegte hypothetische Gewichte.</p></details>`
     );
   }
   function render() {
@@ -850,6 +850,77 @@ export function mountLearningUI(host) {
       }
       if (a === "teacher") {
         showPanel("teacher");
+        return;
+      }
+      if (a === "teacher-reset" || a === "teacher-restore") {
+        const prepared = {
+          version: 1,
+          grade: teacher.grade,
+          mode: "missions",
+          mission: teacher.mission,
+        };
+        const slot = learningSlot(prepared),
+          notesKey = "aquarium-learning-notes-v1:" + slot;
+        if (a === "teacher-restore") {
+          const previous = loadJSON(slot + ":previous", null);
+          if (!previous?.tank || !previous?.session)
+            throw new Error(
+              "Für diese Mission liegt keine vollständige Sicherung vor.",
+            );
+          const tank = host.normalize(previous.tank);
+          if (learningSlot(tank.learning) !== slot)
+            throw new Error("Die Sicherung gehört zu einer anderen Mission.");
+          if (!saveJSON(slot, tank) || !saveJSON(notesKey, previous.session))
+            throw new Error(
+              "Wiederherstellung konnte nicht vollständig gespeichert werden.",
+            );
+          host.open(tank);
+          host.notify(
+            "Gesicherte Mission einschließlich Notizen und Vergleich wiederhergestellt.",
+          );
+        } else {
+          const previous = {
+            tank: loadJSON(slot, null),
+            session: loadJSON(notesKey, null),
+          };
+          if (
+            (previous.tank || previous.session) &&
+            !saveJSON(slot + ":previous", previous)
+          )
+            throw new Error(
+              "Sicherung fehlgeschlagen; die Mission bleibt erhalten.",
+            );
+          const tank = host.normalize(createLearningTank(prepared, host));
+          const fresh = {
+            version: 1,
+            notes: {},
+            measurements: [],
+            baseline: tank,
+            comparison: null,
+            population: teacher.grade === 9 ? createLearningPopulation() : null,
+            study: {
+              tool:
+                learningTools(prepared, teacher).find(
+                  (k) => LEARNING_TOOLS[k],
+                ) || "light",
+              value: null,
+              days: 3,
+              repetitions: 2,
+              metric: teacher.grade === 9 ? "A" : "oxygen",
+              environment: "dark",
+              generations: 5,
+            },
+          };
+          if (!saveJSON(slot, tank) || !saveJSON(notesKey, fresh))
+            throw new Error(
+              "Neustart konnte nicht vollständig gespeichert werden. Die Sicherung bleibt erhalten.",
+            );
+          host.open(tank);
+          host.notify(
+            "Ausgewählte Mission neu vorbereitet; der vorherige Stand ist gesichert.",
+          );
+        }
+        render();
         return;
       }
       if (a === "teacher-launch") {

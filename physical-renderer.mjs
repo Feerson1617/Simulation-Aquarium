@@ -1,4 +1,4 @@
-import { WORLD_PER_CM, tankDimensions, organismDimensions, naturalRotation, normalizeSpatialState, physicalSubstrateHeight } from './physical-scale.mjs';
+import { WORLD_PER_CM, tankDimensions, organismDimensions, naturalRotation, normalizeSpatialState, physicalSubstrateHeight, equipmentDimensions, externalFilterPlacement } from './physical-scale.mjs';
 
 /** Measure real, currently morphed vertices in root-local coordinates once per lease. */
 export function preparePhysicalSpecimen(group,content,type,T){
@@ -13,7 +13,7 @@ export function preparePhysicalSpecimen(group,content,type,T){
  group.physicalContent=content;
 }
 export function fitPhysicalCamera(view,front=false){
- const d=tankDimensions(view.state),width=d.lengthCm*WORLD_PER_CM,depth=d.depthCm*WORLD_PER_CM,height=d.heightCm*WORLD_PER_CM;
+ const d=tankDimensions(view.state),external=view.state.filter!=='none'&&!view.state.filter?.startsWith('internal')&&view.state.filter!=='sponge',extra=external?equipmentDimensions(view.state,'filter',view.state.filter)[0]*2+6:0,width=(d.lengthCm+extra)*WORLD_PER_CM,depth=d.depthCm*WORLD_PER_CM,height=d.heightCm*WORLD_PER_CM;
  const distance=Math.max(width/Math.max(.55,view.camera.aspect),height*1.4)/Math.tan(view.camera.fov*Math.PI/360)*.66+depth;
  view.controls.target.set(0,height*.48,0);view.controls.minDistance=Math.max(.6,Math.min(width,height)*.55);view.controls.maxDistance=Math.max(10,distance*4);
  const direction=view.camera.position.clone().set(front?0:.45,front?.06:.28,1).normalize();view.camera.position.copy(view.controls.target).addScaledVector(direction,distance);view.camera.far=Math.max(100,distance*8);view.camera.updateProjectionMatrix();view.controls.update();
@@ -21,6 +21,12 @@ export function fitPhysicalCamera(view,front=false){
 export function configurePhysicalTank(view,T,catalog){
  normalizeSpatialState(view.state,view.state.spatial,catalog);const d=tankDimensions(view.state);view.physicalScaleActive=true;
  view.tank.scale.set(d.x,d.y,d.z);view.life.scale.copy(view.tank.scale);view.dim={w:d.lengthCm*WORLD_PER_CM,h:d.heightCm*WORLD_PER_CM,d:d.depthCm*WORLD_PER_CM};
+ for(const pane of view.tank.children){
+  if(!pane.isMesh||pane.geometry.type!=='BoxGeometry'||!pane.material?.isMeshPhysicalMaterial||pane.material.opacity>=.1)continue;
+  const dimensions=pane.geometry.parameters,thickness=d.glassThicknessCm*WORLD_PER_CM;
+  if(dimensions.width<.1){pane.scale.x=thickness/d.x/dimensions.width;pane.position.x=Math.sign(pane.position.x)*(view.dim.w/2-thickness/2)/d.x;pane.scale.z=(view.dim.d-2*thickness)/d.z/dimensions.depth}
+  else if(dimensions.depth<.1){pane.scale.z=thickness/d.z/dimensions.depth;pane.position.z=Math.sign(pane.position.z)*(view.dim.d/2-thickness/2)/d.z;pane.scale.x=view.dim.w/d.x/dimensions.width}
+ }
  if(view.stand)view.stand.scale.set((view.dim.w+.35)/8,1,(view.dim.d+.3)/3.9);
  if(view.substrateBox){const depth=4*WORLD_PER_CM/d.y;view.substrateBox.scale.y=depth/.22;view.substrateBox.position.y=.065+depth/2}
  if(view.substrateSurface){const surface=view.substrateSurface;surface.position.y=.065+4*WORLD_PER_CM/d.y;const vertices=surface.geometry.attributes.position;for(let i=0;i<vertices.count;i++)vertices.setZ(i,physicalSubstrateHeight(view.state,vertices.getX(i),-vertices.getY(i))-surface.position.y);vertices.needsUpdate=true;surface.geometry.computeVertexNormals()}
@@ -28,13 +34,21 @@ export function configurePhysicalTank(view,T,catalog){
  view.tank.updateMatrixWorld(true);
  for(const object of view.tank.children){
   if(!object.name.startsWith('equipment:'))continue;object.scale.set(1,1,1);object.updateMatrixWorld(true);
-  const inverse=view.tank.matrixWorld.clone().invert(),box=new T.Box3().setFromObject(object).applyMatrix4(inverse),size=box.getSize(new T.Vector3()),parts=object.name.split(':'),kind=parts[1],value=parts[2];
-  const target=kind==='light'?[d.lengthCm*.88,3,8]:kind==='heater'?[2,view.state.liters<=60?18:view.state.liters<=180?24:32,2]:kind==='air'?[6,3,5]:kind==='skimmer'?[8,22,8]:value==='sponge'?[10,16,10]:value?.startsWith('internal')?[7,value==='internal120'?18:25,7]:value==='sump'?[40,25,25]:[20,32,20];
+  const inverse=view.tank.matrixWorld.clone().invert(),box=new T.Box3().setFromObject(object).applyMatrix4(inverse),size=box.getSize(new T.Vector3()),center=box.getCenter(new T.Vector3()).sub(object.position),parts=object.name.split(':'),kind=parts[1],value=parts[2];
+  const target=equipmentDimensions(view.state,kind,value);
+  if(kind==='skimmer')object.position.x=-2.1;if(kind==='air')object.position.z=1;
   object.scale.set(target[0]*WORLD_PER_CM/Math.max(.001,size.x)/d.x,target[1]*WORLD_PER_CM/Math.max(.001,size.y)/d.y,target[2]*WORLD_PER_CM/Math.max(.001,size.z)/d.z);
-  if(kind!=='light'&&(kind==='heater'||kind==='skimmer'||value==='sponge'||value?.startsWith('internal'))){const half=target[1]*WORLD_PER_CM/2/d.y;object.position.y=Math.max(physicalSubstrateHeight(view.state,object.position.x,object.position.z)+half,Math.min(3.47-half,object.position.y))}
+  if(kind!=='light'&&(kind==='heater'||kind==='air'||kind==='skimmer'||value==='sponge'||value?.startsWith('internal'))){
+   const half=target[1]*WORLD_PER_CM/2/d.y,offset=center.clone().multiply(object.scale),maxX=(d.innerLengthCm-target[0])*WORLD_PER_CM/2/d.x,maxZ=(d.innerDepthCm-target[2])*WORLD_PER_CM/2/d.z;
+   object.position.x=Math.max(-maxX,Math.min(maxX,object.position.x))-offset.x;object.position.z=Math.max(-maxZ,Math.min(maxZ,object.position.z))-offset.z;
+   object.position.y=Math.max(physicalSubstrateHeight(view.state,object.position.x,object.position.z)+half,Math.min(3.47-half,object.position.y+offset.y))-offset.y;
+  }
+  else if(kind==='filter'){
+   const placement=externalFilterPlacement(view.state),offset=center.clone().multiply(object.scale);object.position.x=placement.x-offset.x;object.position.z=placement.z-offset.z;object.position.y=(placement.bottomWorld+target[1]*WORLD_PER_CM/2)/d.y-offset.y;
+  }
  }
  view.tank.updateMatrixWorld(true);view.life.updateMatrixWorld(true);
- if(view.physicalTankKey!==view.state.liters){view.physicalTankKey=view.state.liters;fitPhysicalCamera(view)}
+ const cameraKey=view.state.liters+':'+(view.state.filter||'none');if(view.physicalTankKey!==cameraKey){view.physicalTankKey=cameraKey;fitPhysicalCamera(view)}
 }
 function transformModel(view,object,entity,type,T){
  const group=object.group,basis=group.userData.physicalBasis,content=group.physicalContent;if(!basis||!content)return null;
@@ -83,7 +97,7 @@ export function updatePhysicalModels(view,types,T){
  view.life.updateMatrixWorld(true);
 }
 export function physicalSnapshot(view,types,T){
- const tank=tankDimensions(view.state);return {unit:'cm',worldPerCm:WORLD_PER_CM,tank,migration:view.state.spatial,objects:[...view.objects].map(([uid,o])=>{
+ const tank=tankDimensions(view.state),glass=new T.Box3();view.tank.updateMatrixWorld(true);for(const mesh of view.tank.children)if(mesh.isMesh&&mesh.geometry.type==='BoxGeometry'&&mesh.material?.isMeshPhysicalMaterial&&mesh.material.opacity<.1)glass.union(new T.Box3().setFromObject(mesh));return {unit:'cm',worldPerCm:WORLD_PER_CM,glassCm:glass.isEmpty()?null:glass.getSize(new T.Vector3()).divideScalar(WORLD_PER_CM).toArray(),equipment:view.tank.children.filter(o=>o.name.startsWith('equipment:')).map(o=>{const b=new T.Box3().setFromObject(o);return {name:o.name,sizeCm:b.getSize(new T.Vector3()).divideScalar(WORLD_PER_CM).toArray(),min:b.min.toArray(),max:b.max.toArray()}}),tank,migration:view.state.spatial,objects:[...view.objects].map(([uid,o])=>{
   const group=o.group;group.updateWorldMatrix(true,true);const minimum=[Infinity,Infinity,Infinity],maximum=[-Infinity,-Infinity,-Infinity],box=new T.Box3(),p=new T.Vector3(),axes=[new T.Vector3(1,0,0),new T.Vector3(0,1,0),new T.Vector3(0,0,1)].map(v=>v.applyQuaternion(group.quaternion));
   group.traverse(mesh=>{if(!mesh.isMesh||!mesh.visible)return;for(let i=0;i<mesh.geometry.attributes.position.count;i++){mesh.getVertexPosition(i,p);p.applyMatrix4(mesh.matrixWorld);box.expandByPoint(p);axes.forEach((axis,k)=>{const value=p.dot(axis);minimum[k]=Math.min(minimum[k],value);maximum[k]=Math.max(maximum[k],value)})}});
   return {uid,species:view.state.entities.find(e=>e.uid===uid)?.species,visible:group.visible,...o.physicalSize,measuredCm:maximum.map((v,k)=>(v-minimum[k])/WORLD_PER_CM),worldBounds:box.isEmpty()?null:{min:box.min.toArray(),max:box.max.toArray()},worldPosition:group.getWorldPosition(p).toArray()};

@@ -113,7 +113,8 @@ try:
         expect(page.locator('#tweezers-button')).to_be_disabled()
         import_save(page, LEGACY)
         assert saved(page)['version'] == 1
-        assert saved(page)['entities'] == LEGACY['entities']
+        assert [{k:v for k,v in e.items() if k not in ['scale','rotation']} for e in saved(page)['entities']] == [{k:v for k,v in e.items() if k not in ['scale','rotation']} for e in LEGACY['entities']]
+        assert all(saved(page)['spatial']['originalOverrides'][str(e['uid'])]['rotation']==e['rotation'] for e in LEGACY['entities'])
         page.wait_for_function('window.aquariumSnapshot().graphics.detailModels===2', polling=100)
         expect(page.locator('#tweezers-button')).to_be_enabled()
         passed('Legacy v1 save imports unchanged; new tool available only after tank placement')
@@ -148,7 +149,7 @@ try:
         assert math.hypot(after['x'] - before['x'], after['z'] - before['z']) > .2
         assert info(page)['camera'] == camera
         assert saved(page)['entities'][0]['aquascapePlaced'] is True
-        assert abs(after['bottomY'] - .065) < .025
+        assert abs(after['bottomY'] - .065 * page.evaluate('window.aquariumPhysicalSnapshot().tank.y')) < .025
         mouse_save = saved(page)
         screenshot(page, 'mouse-tweezers-placed')
         passed('Mouse drag: real 3D grasp/lift/release, stationary camera, substrate anchoring and saved coordinates')

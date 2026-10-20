@@ -1674,13 +1674,13 @@
   "anubias": {
     "src": "./assets/catalog/anubias.webp",
     "kind": "Modellvorschau",
-    "credit": "Eigene Projektgrafik · Blender/Python",
-    "license": "CC0-1.0",
-    "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
+    "credit": "Eigene Blender-Geometrie; Fototextur: Abhik.Mazumdar.73",
+    "license": "CC-BY-4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Anubias_barteri_var._nana.jpg",
     "provenance": {
       "kind": "authored-glb",
-      "author": "Eigene Projektgrafik · Blender/Python",
-      "license": "CC0-1.0",
+      "author": "Eigene Blender-Geometrie; Fototextur: Abhik.Mazumdar.73",
+      "license": "CC-BY-4.0",
       "features": [
         "Dicker kriechender Wurzelstock",
         "Feste ovale Blätter",
@@ -1690,12 +1690,13 @@
         "https://commons.wikimedia.org/wiki/Category:Anubias_barteri"
       ],
       "note": "Naturorientiertes Eigenmodell; keine Vermessung eines einzelnen Lebewesens.",
-      "source": "https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/species-variants-genetics/tools/species",
-      "title": "Artspezifische Originalgeometrie und prozedurale Oberfläche",
-      "visualStatus": "Überarbeitet; Fotorealismus nicht vollständig abgenommen",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Anubias_barteri_var._nana.jpg",
+      "title": "Fotobasierte Blattoberfläche auf eigener botanischer Geometrie",
+      "visualStatus": "Sichtbar überarbeitet; vollständiger Fotorealismus bleibt offen",
       "documentation": "./assets/species/ATTRIBUTION.md"
     },
-    "bytes": 3476,
+    "bytes": 4288,
     "renderRevision": "species-glb-1",
     "renderProfile": "high"
   },

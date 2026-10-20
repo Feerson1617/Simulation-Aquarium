@@ -1,0 +1,94 @@
+{
+  "species": "Anubias barteri",
+  "photographicReferenceVariety": "var. nana",
+  "method": "Explicitly authored rhizome, curved petioles, thick curved broad blades and adventitious roots; photographic UV coordinates from a documented leaf outline. No AI inference.",
+  "photo": "docs/ui-model-review/comparison/reference-anubias-isolated.jpg",
+  "sha256": "bddf89ea239349b314b1b1444fe3adfcf868c5e0bb53f28f1ab2cba8e87e09c7",
+  "author": "Abhik.Mazumdar.73",
+  "license": "CC-BY-4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Anubias_barteri_var._nana.jpg",
+  "photoOutlinePixels": [
+    [
+      0,
+      [
+        548,
+        272
+      ],
+      [
+        548,
+        272
+      ]
+    ],
+    [
+      0.15,
+      [
+        549,
+        245
+      ],
+      [
+        570,
+        293
+      ]
+    ],
+    [
+      0.35,
+      [
+        565,
+        211
+      ],
+      [
+        601,
+        301
+      ]
+    ],
+    [
+      0.6,
+      [
+        606,
+        192
+      ],
+      [
+        638,
+        283
+      ]
+    ],
+    [
+      0.85,
+      [
+        651,
+        198
+      ],
+      [
+        667,
+        239
+      ]
+    ],
+    [
+      1,
+      [
+        679,
+        204
+      ],
+      [
+        679,
+        204
+      ]
+    ]
+  ],
+  "uvRefinement": "Read-only photographic green-lamina sampling along the selected midrib; discard background pixels with a conservative inner margin.",
+  "visualAcceptance": "Accepted as a bounded visible botanical improvement after three Maximum browser views; not fully photorealistic. Existing fish and other plant assets retained.",
+  "files": [
+    {
+      "lod": "desktop",
+      "beforeBytes": 139452,
+      "afterBytes": 539160,
+      "sha256": "67fe1d6ff0bab2cc76409d85280330cc292108f8aed7ace1f864e56785840025"
+    },
+    {
+      "lod": "mobile",
+      "beforeBytes": 49612,
+      "afterBytes": 193420,
+      "sha256": "479651c049852cfc666fd97e3887ca6f2385d40477e892f733e7e54654f97daa"
+    }
+  ]
+}

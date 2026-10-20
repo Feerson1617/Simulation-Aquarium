@@ -3,7 +3,7 @@ import { BREEDING_SPECIES } from './genetics.mjs';
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function shopFishVisual(species,selection){
  const form=variantFor(species.id,selection.variant);
- return `<div class="shop-variant-heading"><strong data-variant-name>${esc(form.name)}</strong><span>Live-3D-Vorschau</span></div><div id="shop-specimen-stage" class="specimen-stage shop-specimen-stage" aria-label="3D-Vorschau ${esc(species.name)} ${esc(form.name)}"><div class="specimen-loading" role="status">Modell wird geladen …</div></div><p class="tiny">Ziehen: drehen · Scrollen / zwei Finger: vergrößern. ${selection.sex==='♀'?'Weibchen':'Männchen'} als adulte Vorschau. Jungtiere und Weibchen können weniger stark gefärbt sein.</p>`;
+ return `<div class="shop-variant-heading"><strong data-variant-name>${esc(form.name)}</strong><span>Live-3D-Vorschau</span></div><div id="shop-specimen-stage" class="specimen-stage shop-specimen-stage" aria-label="3D-Vorschau ${esc(species.name)} ${esc(form.name)}"><div class="specimen-loading" role="status">Modell wird geladen …</div></div><p class="tiny">Ziehen: drehen · Scrollen / zwei Finger: vergrößern. ${selection.sex==='♀'?'Weibchen':'Männchen'} als vergrößerte adulte Artansicht. Im Becken gelten Zentimetermaße. Jungtiere und Weibchen können weniger stark gefärbt sein.</p>`;
 }
 export function shopFishFields(species,selection){
  const forms=variantsFor(species.id),form=variantFor(species.id,selection.variant),options=genotypeOptions(species.id,form.id),chosen=options.includes(selection.lessonGenotype)?selection.lessonGenotype:options[0];

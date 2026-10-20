@@ -1,9 +1,11 @@
-# Arbeitsstand: Physikalischer Maßstab und Naturtreue
+# Arbeitsstand: Maßstab und Naturtreue
 
-Wiederaufnahme am 20. Oktober 2026. Neuer Branch feature/physical-scale-realism von main 63e7bc9 (PR #6 bereits gemergt). Lokaler Vorgängerbranch feature/photo-reconstruction-ui enthielt keine ungesicherten Codeänderungen. Die UI- und TripoSR-Versuche aus PR #6 werden übernommen und nicht erneut durchgeführt.
+Stand: 20. Oktober 2026, Branch `feature/physical-scale-realism` auf Basis von `main` 63e7bc9 (PR #6 bereits enthalten). Der erste Implementierungsstand e44faaa ist auf GitHub gesichert. Keine erhaltenen ungesicherten Änderungen des alten Vorgängerbranches wurden verworfen.
 
-Auftrag: biologisch begründete Größen statt manueller Größen-/Rotationsregler, einheitliche Zentimeterkalibrierung aller sieben Becken, alters-/geschlechtsabhängige Organismengrößen, passende Umgebung, Migration bestehender Positionen und sichere Pinzettenplatzierung. Dekorationsausrichtung darf erhalten bleiben. Fotorealismus anhand tatsächlicher Browserbilder verbessern; keine erneute Massenproduktion und keine schlechteren Ersatzmodelle.
+Implementiert: Zentimeterdaten für sieben Becken und alle 144 Katalogarten/-objekte; alters-, geschlechts- und wachstumsabhängige natürliche Größen; reale Modellvermessung unabhängig von Tank und Grafikprofil; biologische Größen-/Drehregler entfernt; Dekoration weiterhin einstellbar. Versionierte, idempotente Migration mit archivierten alten Darstellungswerten und nachvollziehbaren Umsetzungen; physische Boden-/Glasgrenzen, Pinzetten- und Technikabstände. Kleine Modelle erhalten eine begrenzte Bildschirmauswahlhilfe.
 
-Noch in Arbeit: Bestandsaufnahme der Render-/Kollisions-/Speicherpfade und der vorhandenen Quellen. Vor Implementierung gesicherter Ausgangspunkt; noch keine neuen Prüfungen als bestanden deklariert.
+Ein gezieltes Anubias-Modellpaar wurde mit Blender und einer vorhandenen CC-BY-4.0-Fotoreferenz verbessert, im tatsächlichen Maximum-Browser aus drei Blickwinkeln verglichen und in den Katalog übernommen. Zwei frühere Texturvarianten wurden sichtbar verworfen. Gute übrige Modelle bleiben erhalten. Vollständiger Fotorealismus ist weiterhin nicht erreicht.
 
-Umgebung: kostenlose vorhandene lokale Werkzeuge, keine zusätzlichen Accounts oder APIs. Netzpolitik eingeschränkt und aktiv, kein VPN. Geheimnisse und Netzwerkregeln bleiben unverändert. main und AGENTS.md bleiben unangetastet. Regelmäßig in diesem Branch committen und pushen; kein Merge.
+Prüfstand dieses Zwischencommits: acht neue Browserprüfungen zum Maßstab einschließlich Wachstum, Desktop-/Touch-Pinzette und Profilgleichheit bestanden; sieben Becken mit real vermessener Innenhardware bestanden. Die ergänzte Außenfilterprüfung und abschließenden UI-/Genetik-/Ökosystem-/Aquascaping-/Standalone-Regressionen laufen noch. Keine ausstehenden Prüfungen als bestanden behandeln. Abschlussprotokoll folgt in VALIDATION.md.
+
+Kostenlose lokale Werkzeuge: Node, Python, Chromium/Playwright und Blender. Keine neuen Accounts, API-Schlüssel oder Fremdkosten. Keine Änderungen an main, AGENTS.md oder Veröffentlichung. Git-Push funktioniert; GitHub-API-Zugriff und PR-Erstellung werden zum Abschluss gesondert geprüft.

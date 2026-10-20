@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { SPECIES_DIMENSIONS } from '../species-dimensions.mjs';
-import { TANK_DIMENSIONS, WORLD_PER_CM, tankDimensions, naturalVariation, organismDimensions, physicalFootprint, physicalPlacement, normalizeSpatialState, physicalSubstrateHeight } from '../physical-scale.mjs';
+import { TANK_DIMENSIONS, WORLD_PER_CM, tankDimensions, naturalVariation, organismDimensions, physicalFootprint, physicalPlacement, normalizeSpatialState, physicalSubstrateHeight, hardwareFootprints } from '../physical-scale.mjs';
 const catalog=JSON.parse(await readFile(new URL('./fixtures/ecology-species.json',import.meta.url)));
 const entity=(species,uid=1,extra={})=>({uid,species,x:0,z:0,age:30,biomass:.8,rotation:1,scale:1,sex:'♂',health:100,...extra});
 const state=(entities=[],extra={})=>({entities,liters:180,substrate:'sand',filter:'none',...extra});
@@ -53,7 +53,7 @@ test('migration separates overlapping fixed objects and records every changed po
 });
 test('unplaceable originals remain in the save, never deleted or silently shrunk',()=>{
  const huge={id:'giant',category:'decor',size:400},s=state([entity('giant',1,{scale:100})],{liters:30});
- normalizeSpatialState(s,null,{giant:huge});assert.equal(s.entities.length,1);assert.equal(s.entities[0].scale,100);
+ normalizeSpatialState(s,null,{giant:huge});assert.equal(s.entities.length,1);assert.equal(s.entities[0].scale,100);assert.deepEqual(s.spatial.unplaced,[1]);
 });
 test('four centimetres of substrate stay four centimetres across tank heights',()=>{
  for(const liters of Object.keys(TANK_DIMENSIONS)){const s=state([],{liters}),d=tankDimensions(s);assert.ok(Math.abs((physicalSubstrateHeight(s,0,0)-.065)*d.y/WORLD_PER_CM-4)<1e-12)}
@@ -61,4 +61,11 @@ test('four centimetres of substrate stay four centimetres across tank heights',(
 test('malformed or future spatial records are rejected rather than reset',()=>{
  assert.throws(()=>normalizeSpatialState(state(),{version:2},catalog));
  assert.throws(()=>normalizeSpatialState(state(),{version:1,unit:'cm',positions:'tank-normalized-v1',originalOverrides:{},unplaced:'bad',relocations:[]},catalog));
+});
+
+test('internal hardware fits and its occupied footprints do not overlap in any tank',()=>{
+ for(const liters of Object.keys(TANK_DIMENSIONS)){const s=state([],{liters,filter:'sponge',heater:true,skimmer:true,air:true}),t=tankDimensions(s),hardware=hardwareFootprints(s);
+  for(const [x,z,w,d]of hardware){assert.ok(Math.abs(x)*t.x/WORLD_PER_CM+w<=t.innerLengthCm/2+.00001);assert.ok(Math.abs(z)*t.z/WORLD_PER_CM+d<=t.innerDepthCm/2+.00001)}
+  for(let i=0;i<hardware.length;i++)for(let j=i+1;j<hardware.length;j++){const a=hardware[i],b=hardware[j];assert.ok(Math.abs(a[0]-b[0])*t.x/WORLD_PER_CM>=a[2]+b[2]||Math.abs(a[1]-b[1])*t.z/WORLD_PER_CM>=a[3]+b[3])}
+ }
 });

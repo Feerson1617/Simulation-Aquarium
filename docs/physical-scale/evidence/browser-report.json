@@ -1,0 +1,1332 @@
+{
+  "checks": [
+    "Actual glass dimensions match all seven tanks; the same Neon has identical measured centimetre length in every aquarium",
+    "Maximum and iPad use the same physical organism length without changing the saved simulation",
+    "All biological categories have no size/rotation controls; decoration keeps its two aquascaping controls",
+    "Legacy manual biological scale is archived and replaced by the same real physical size",
+    "Actual plant geometry follows biomass and actual fish geometry follows saved developmental age",
+    "Measured male and female Guppies retain their declared sexual size difference",
+    "Mouse tweezers use physical ground picking, preserve biological size and camera, and positions survive reload",
+    "Portrait touch tweezers preserve the same calibrated size without horizontal overflow"
+  ],
+  "errors": [],
+  "measurements": [
+    {
+      "unit": "cm",
+      "worldPerCm": 0.05,
+      "glassCm": [
+        40.00000000170299,
+        30.000000386624723,
+        25.00000000170299
+      ],
+      "tank": {
+        "lengthCm": 40,
+        "depthCm": 25,
+        "heightCm": 30,
+        "glassThicknessCm": 0.4,
+        "innerLengthCm": 39.2,
+        "innerDepthCm": 24.2,
+        "grossLiters": 30,
+        "x": 0.2803083391730904,
+        "y": 0.4054054054054054,
+        "z": 0.3816793893129771
+      },
+      "migration": {
+        "version": 1,
+        "unit": "cm",
+        "positions": "tank-normalized-v1",
+        "originalOverrides": {
+          "1": {
+            "scale": 1,
+            "rotation": 2.252151101007565
+          },
+          "2": {
+            "scale": 1,
+            "rotation": 2.378223340308088
+          }
+        },
+        "relocations": [],
+        "unplaced": []
+      },
+      "objects": [
+        {
+          "uid": 1,
+          "species": "anubias",
+          "visible": true,
+          "axis": "height",
+          "variation": 1.026004,
+          "growth": 0.6703270858678334,
+          "adultCm": null,
+          "lengthCm": 15.13068197099229,
+          "heightCm": 20.632748142262216,
+          "widthCm": 15.13068197099229,
+          "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+          "meshCm": [
+            15.13068197099229,
+            20.632748142262216,
+            12.219342303519388
+          ],
+          "worldHalf": [
+            0.3792954619341313,
+            0.5225081185735599,
+            0.44244245106021396
+          ],
+          "measuredCm": [
+            15.130681970992294,
+            20.632748142262212,
+            12.219342303519387
+          ],
+          "worldBounds": {
+            "min": [
+              -0.17711104674851358,
+              0.02605578438784148,
+              -0.4180987901672367
+            ],
+            "max": [
+              0.48730254458785227,
+              1.052958216066956,
+              0.3640217170721543
+            ]
+          },
+          "worldPosition": [
+            0.1892789499344697,
+            0.02635135135135135,
+            -0.02838509854014592
+          ]
+        },
+        {
+          "uid": 2,
+          "species": "neon",
+          "visible": true,
+          "axis": "length",
+          "variation": 1.00762,
+          "growth": 1,
+          "adultCm": 4,
+          "lengthCm": 4.03048,
+          "heightCm": 1.612192,
+          "widthCm": 1.1285344000000002,
+          "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+          "meshCm": [
+            4.03048,
+            1.7090854895303182,
+            0.4096182190568734
+          ],
+          "worldHalf": [
+            0.10129433419942237,
+            0.04361958706824282,
+            0.011930875233067689
+          ],
+          "measuredCm": [
+            4.030480000000002,
+            1.7090854895303154,
+            0.40968271791141486
+          ],
+          "worldBounds": {
+            "min": [
+              -0.015915566684964785,
+              0.8027253327678516,
+              -0.33244543173938484
+            ],
+            "max": [
+              0.1859020889094172,
+              0.887989941271677,
+              -0.3118201104788832
+            ]
+          },
+          "worldPosition": [
+            0.0849352901209974,
+            0.8454338535927824,
+            -0.32169574862355615
+          ]
+        }
+      ]
+    },
+    {
+      "unit": "cm",
+      "worldPerCm": 0.05,
+      "glassCm": [
+        60.00000000212874,
+        35.00000045106218,
+        30.000000002128736
+      ],
+      "tank": {
+        "lengthCm": 60,
+        "depthCm": 30,
+        "heightCm": 35,
+        "glassThicknessCm": 0.5,
+        "innerLengthCm": 59,
+        "innerDepthCm": 29,
+        "grossLiters": 63,
+        "x": 0.4204625087596356,
+        "y": 0.47297297297297297,
+        "z": 0.4580152671755725
+      },
+      "migration": {
+        "version": 1,
+        "unit": "cm",
+        "positions": "tank-normalized-v1",
+        "originalOverrides": {
+          "1": {
+            "scale": 1,
+            "rotation": 2.252151101007565
+          },
+          "2": {
+            "scale": 1,
+            "rotation": 2.378223340308088
+          }
+        },
+        "relocations": [],
+        "unplaced": []
+      },
+      "objects": [
+        {
+          "uid": 1,
+          "species": "anubias",
+          "visible": true,
+          "axis": "height",
+          "variation": 1.026004,
+          "growth": 0.6703270858678334,
+          "adultCm": null,
+          "lengthCm": 15.13068197099229,
+          "heightCm": 20.632748142262216,
+          "widthCm": 15.13068197099229,
+          "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+          "meshCm": [
+            15.13068197099229,
+            20.632748142262216,
+            12.219342303519388
+          ],
+          "worldHalf": [
+            0.3792737331478237,
+            0.522432274781514,
+            0.4423401197764029
+          ],
+          "measuredCm": [
+            15.13068197099229,
+            20.632748142262226,
+            12.219342303519381
+          ],
+          "worldBounds": {
+            "min": [
+              -0.08243020903183845,
+              0.030451068834597944,
+              -0.4239096040917682
+            ],
+            "max": [
+              0.581965849877587,
+              1.0574097254721029,
+              0.35825019544000986
+            ]
+          },
+          "worldPosition": [
+            0.28391842490170455,
+            0.030743243243243245,
+            -0.034062118248175094
+          ]
+        },
+        {
+          "uid": 2,
+          "species": "neon",
+          "visible": true,
+          "axis": "length",
+          "variation": 1.00762,
+          "growth": 1,
+          "adultCm": 4,
+          "lengthCm": 4.03048,
+          "heightCm": 1.612192,
+          "widthCm": 1.1285344000000002,
+          "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+          "meshCm": [
+            4.03048,
+            1.7090854895303182,
+            0.4096182190568734
+          ],
+          "worldHalf": [
+            0.10147110950845367,
+            0.04356973883344639,
+            0.014715614207705549
+          ],
+          "measuredCm": [
+            4.030480000000001,
+            1.7090854895303198,
+            0.4097855664764416
+          ],
+          "worldBounds": {
+            "min": [
+              -0.003946984852682424,
+              0.9445689563813988,
+              -0.39848385238879547
+            ],
+            "max": [
+              0.19763901913474297,
+              1.0298443553937096,
+              -0.37729484559259246
+            ]
+          },
+          "worldPosition": [
+            0.09683492237806593,
+            0.9872786077561265,
+            -0.38895385855575365
+          ]
+        }
+      ]
+    },
+    {
+      "unit": "cm",
+      "worldPerCm": 0.05,
+      "glassCm": [
+        80.00000000255449,
+        40.00000051549962,
+        40.00000000255448
+      ],
+      "tank": {
+        "lengthCm": 80,
+        "depthCm": 40,
+        "heightCm": 40,
+        "glassThicknessCm": 0.6,
+        "innerLengthCm": 78.8,
+        "innerDepthCm": 38.8,
+        "grossLiters": 128,
+        "x": 0.5606166783461808,
+        "y": 0.5405405405405405,
+        "z": 0.6106870229007634
+      },
+      "migration": {
+        "version": 1,
+        "unit": "cm",
+        "positions": "tank-normalized-v1",
+        "originalOverrides": {
+          "1": {
+            "scale": 1,
+            "rotation": 2.252151101007565
+          },
+          "2": {
+            "scale": 1,
+            "rotation": 2.378223340308088
+          }
+        },
+        "relocations": [],
+        "unplaced": []
+      },
+      "objects": [
+        {
+          "uid": 1,
+          "species": "anubias",
+          "visible": true,
+          "axis": "height",
+          "variation": 1.026004,
+          "growth": 0.6703270858678334,
+          "adultCm": null,
+          "lengthCm": 15.13068197099229,
+          "heightCm": 20.632748142262216,
+          "widthCm": 15.13068197099229,
+          "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+          "meshCm": [
+            15.13068197099229,
+            20.632748142262216,
+            12.219342303519388
+          ],
+          "worldHalf": [
+            0.3792030160095152,
+            0.5221853677396949,
+            0.4420070788302497
+          ],
+          "measuredCm": [
+            15.130681970992285,
+            20.632748142262223,
+            12.219342303519385
+          ],
+          "worldBounds": {
+            "min": [
+              0.01234385837927593,
+              0.03485399833585101,
+              -0.43569883216012323
+            ],
+            "max": [
+              0.67668285594854,
+              1.061995280185993,
+              0.34658858774288887
+            ]
+          },
+          "worldPosition": [
+            0.3785578998689394,
+            0.03513513513513513,
+            -0.045416157664233466
+          ]
+        },
+        {
+          "uid": 2,
+          "species": "neon",
+          "visible": true,
+          "axis": "length",
+          "variation": 1.00762,
+          "growth": 1,
+          "adultCm": 4,
+          "lengthCm": 4.03048,
+          "heightCm": 1.612192,
+          "widthCm": 1.1285344000000002,
+          "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+          "meshCm": [
+            4.03048,
+            1.7090854895303182,
+            0.4096182190568734
+          ],
+          "worldHalf": [
+            0.10097992760536398,
+            0.043190755552447065,
+            0.010461798600311656
+          ],
+          "measuredCm": [
+            4.030479999999997,
+            1.709085489530322,
+            0.4161989027891644
+          ],
+          "worldBounds": {
+            "min": [
+              -0.04090239870920723,
+              1.0872248617049531,
+              -0.5343755252188366
+            ],
+            "max": [
+              0.16075945539666614,
+              1.17258153587621,
+              -0.5135308852417086
+            ]
+          },
+          "worldPosition": [
+            0.059911402736331304,
+            1.1299427566344395,
+            -0.5235177925913079
+          ]
+        }
+      ]
+    },
+    {
+      "unit": "cm",
+      "worldPerCm": 0.05,
+      "glassCm": [
+        100.00000000255447,
+        45.000000579937094,
+        40.00000000255448
+      ],
+      "tank": {
+        "lengthCm": 100,
+        "depthCm": 40,
+        "heightCm": 45,
+        "glassThicknessCm": 0.6,
+        "innerLengthCm": 98.8,
+        "innerDepthCm": 38.8,
+        "grossLiters": 180,
+        "x": 0.700770847932726,
+        "y": 0.6081081081081081,
+        "z": 0.6106870229007634
+      },
+      "migration": {
+        "version": 1,
+        "unit": "cm",
+        "positions": "tank-normalized-v1",
+        "originalOverrides": {
+          "1": {
+            "scale": 1,
+            "rotation": 2.252151101007565
+          },
+          "2": {
+            "scale": 1,
+            "rotation": 2.378223340308088
+          }
+        },
+        "relocations": [],
+        "unplaced": []
+      },
+      "objects": [
+        {
+          "uid": 1,
+          "species": "anubias",
+          "visible": true,
+          "axis": "height",
+          "variation": 1.026004,
+          "growth": 0.6703270858678334,
+          "adultCm": null,
+          "lengthCm": 15.13068197099229,
+          "heightCm": 20.632748142262216,
+          "widthCm": 15.13068197099229,
+          "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+          "meshCm": [
+            15.13068197099229,
+            20.632748142262216,
+            12.219342303519388
+          ],
+          "worldHalf": [
+            0.37914528206413123,
+            0.5219837111574503,
+            0.4417351819710768
+          ],
+          "measuredCm": [
+            15.130681970992294,
+            20.632748142262226,
+            12.219342303519385
+          ],
+          "worldBounds": {
+            "min": [
+              0.10709318814989771,
+              0.03925489734263313,
+              -0.43605384028868593
+            ],
+            "max": [
+              0.7713855988627594,
+              1.0665448665800799,
+              0.34633747756075156
+            ]
+          },
+          "worldPosition": [
+            0.4731973748361743,
+            0.039527027027027026,
+            -0.045416157664233466
+          ]
+        },
+        {
+          "uid": 2,
+          "species": "neon",
+          "visible": true,
+          "axis": "length",
+          "variation": 1.00762,
+          "growth": 1,
+          "adultCm": 4,
+          "lengthCm": 4.03048,
+          "heightCm": 1.612192,
+          "widthCm": 1.1285344000000002,
+          "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+          "meshCm": [
+            4.03048,
+            1.7090854895303182,
+            0.4096182190568734
+          ],
+          "worldHalf": [
+            0.10111676990262172,
+            0.043080578916815215,
+            0.012515216243295112
+          ],
+          "measuredCm": [
+            4.0304800000000025,
+            1.7090854895303176,
+            0.40982598013655336
+          ],
+          "worldBounds": {
+            "min": [
+              -0.07899232430675776,
+              1.229460162613636,
+              -0.5354640825859789
+            ],
+            "max": [
+              0.12258603958844225,
+              1.3148402125983318,
+              -0.5146594896499155
+            ]
+          },
+          "worldPosition": [
+            0.021798531819151847,
+            1.272180337712123,
+            -0.5255475158299778
+          ]
+        }
+      ]
+    },
+    {
+      "unit": "cm",
+      "worldPerCm": 0.05,
+      "glassCm": [
+        120.00000000340599,
+        50.000000644374545,
+        50.00000000340598
+      ],
+      "tank": {
+        "lengthCm": 120,
+        "depthCm": 50,
+        "heightCm": 50,
+        "glassThicknessCm": 0.8,
+        "innerLengthCm": 118.4,
+        "innerDepthCm": 48.4,
+        "grossLiters": 300,
+        "x": 0.8409250175192712,
+        "y": 0.6756756756756757,
+        "z": 0.7633587786259542
+      },
+      "migration": {
+        "version": 1,
+        "unit": "cm",
+        "positions": "tank-normalized-v1",
+        "originalOverrides": {
+          "1": {
+            "scale": 1,
+            "rotation": 2.252151101007565
+          },
+          "2": {
+            "scale": 1,
+            "rotation": 2.378223340308088
+          }
+        },
+        "relocations": [],
+        "unplaced": []
+      },
+      "objects": [
+        {
+          "uid": 1,
+          "species": "anubias",
+          "visible": true,
+          "axis": "height",
+          "variation": 1.026004,
+          "growth": 0.6703270858678334,
+          "adultCm": null,
+          "lengthCm": 15.13068197099229,
+          "heightCm": 20.632748142262216,
+          "widthCm": 15.13068197099229,
+          "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+          "meshCm": [
+            15.13068197099229,
+            20.632748142262216,
+            12.219342303519388
+          ],
+          "worldHalf": [
+            0.379078339508355,
+            0.5217498002592936,
+            0.44141991734574115
+          ],
+          "measuredCm": [
+            15.13068197099229,
+            20.632748142262212,
+            12.219342303519388
+          ],
+          "worldBounds": {
+            "min": [
+              0.20186000909035734,
+              0.043657228424862665,
+              -0.4478191940858365
+            ],
+            "max": [
+              0.8660984005122468,
+              1.0711191410845924,
+              0.3346922651492194
+            ]
+          },
+          "worldPosition": [
+            0.5678368498034091,
+            0.04391891891891892,
+            -0.05677019708029184
+          ]
+        },
+        {
+          "uid": 2,
+          "species": "neon",
+          "visible": true,
+          "axis": "length",
+          "variation": 1.00762,
+          "growth": 1,
+          "adultCm": 4,
+          "lengthCm": 4.03048,
+          "heightCm": 1.612192,
+          "widthCm": 1.1285344000000002,
+          "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+          "meshCm": [
+            4.03048,
+            1.7090854895303182,
+            0.4096182190568734
+          ],
+          "worldHalf": [
+            0.10098862571675857,
+            0.04293800366766299,
+            0.011696067165294578
+          ],
+          "measuredCm": [
+            4.030480000000002,
+            1.7090854895303176,
+            0.40978846361910737
+          ],
+          "worldBounds": {
+            "min": [
+              -0.1340027956160962,
+              1.3717436499815778,
+              -0.6684841730217997
+            ],
+            "max": [
+              0.0675655345759815,
+              1.4571537815052948,
+              -0.6478123301745686
+            ]
+          },
+          "worldPosition": [
+            -0.0332177147301792,
+            1.4144666981580118,
+            -0.6584344882398621
+          ]
+        }
+      ]
+    },
+    {
+      "unit": "cm",
+      "worldPerCm": 0.05,
+      "glassCm": [
+        150.0000000042575,
+        60.00000077324945,
+        50.00000000425747
+      ],
+      "tank": {
+        "lengthCm": 150,
+        "depthCm": 50,
+        "heightCm": 60,
+        "glassThicknessCm": 1,
+        "innerLengthCm": 148,
+        "innerDepthCm": 48,
+        "grossLiters": 450,
+        "x": 1.051156271899089,
+        "y": 0.8108108108108107,
+        "z": 0.7633587786259542
+      },
+      "migration": {
+        "version": 1,
+        "unit": "cm",
+        "positions": "tank-normalized-v1",
+        "originalOverrides": {
+          "1": {
+            "scale": 1,
+            "rotation": 2.252151101007565
+          },
+          "2": {
+            "scale": 1,
+            "rotation": 2.378223340308088
+          }
+        },
+        "relocations": [],
+        "unplaced": []
+      },
+      "objects": [
+        {
+          "uid": 1,
+          "species": "anubias",
+          "visible": true,
+          "axis": "height",
+          "variation": 1.026004,
+          "growth": 0.6703270858678334,
+          "adultCm": null,
+          "lengthCm": 15.13068197099229,
+          "heightCm": 20.632748142262216,
+          "widthCm": 15.13068197099229,
+          "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+          "meshCm": [
+            15.13068197099229,
+            20.632748142262216,
+            12.219342303519388
+          ],
+          "worldHalf": [
+            0.3790004193673139,
+            0.5214774099977381,
+            0.44105295400252015
+          ],
+          "measuredCm": [
+            15.130681970992287,
+            20.632748142262223,
+            12.219342303519387
+          ],
+          "worldBounds": {
+            "min": [
+              0.3439674088238273,
+              0.05245315710413653,
+              -0.4482975286982076
+            ],
+            "max": [
+              1.0081429201705812,
+              1.0801145885079166,
+              0.3343533298730609
+            ]
+          },
+          "worldPosition": [
+            0.7097960622542614,
+            0.0527027027027027,
+            -0.05677019708029184
+          ]
+        },
+        {
+          "uid": 2,
+          "species": "neon",
+          "visible": true,
+          "axis": "length",
+          "variation": 1.00762,
+          "growth": 1,
+          "adultCm": 4,
+          "lengthCm": 4.03048,
+          "heightCm": 1.612192,
+          "widthCm": 1.1285344000000002,
+          "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+          "meshCm": [
+            4.03048,
+            1.7090854895303182,
+            0.4096182190568734
+          ],
+          "worldHalf": [
+            0.10085005527781479,
+            0.04278871690051108,
+            0.01086938618881548
+          ],
+          "measuredCm": [
+            4.030480000000001,
+            1.709085489530322,
+            0.4097899121904369
+          ],
+          "worldBounds": {
+            "min": [
+              -0.2158629604155638,
+              1.6556375041855085,
+              -0.6693166665143202
+            ],
+            "max": [
+              -0.014324200892575117,
+              1.7410789302914664,
+              -0.6487650568243324
+            ]
+          },
+          "worldPosition": [
+            -0.11509103878042962,
+            1.6983634670211487,
+            -0.659121341995547
+          ]
+        }
+      ]
+    },
+    {
+      "unit": "cm",
+      "worldPerCm": 0.05,
+      "glassCm": [
+        200.00000000510894,
+        60.00000077324945,
+        60.00000000510897
+      ],
+      "tank": {
+        "lengthCm": 200,
+        "depthCm": 60,
+        "heightCm": 60,
+        "glassThicknessCm": 1.2,
+        "innerLengthCm": 197.6,
+        "innerDepthCm": 57.6,
+        "grossLiters": 720,
+        "x": 1.401541695865452,
+        "y": 0.8108108108108107,
+        "z": 0.916030534351145
+      },
+      "migration": {
+        "version": 1,
+        "unit": "cm",
+        "positions": "tank-normalized-v1",
+        "originalOverrides": {
+          "1": {
+            "scale": 1,
+            "rotation": 2.252151101007565
+          },
+          "2": {
+            "scale": 1,
+            "rotation": 2.378223340308088
+          }
+        },
+        "relocations": [],
+        "unplaced": []
+      },
+      "objects": [
+        {
+          "uid": 1,
+          "species": "anubias",
+          "visible": true,
+          "axis": "height",
+          "variation": 1.026004,
+          "growth": 0.6703270858678334,
+          "adultCm": null,
+          "lengthCm": 15.13068197099229,
+          "heightCm": 20.632748142262216,
+          "widthCm": 15.13068197099229,
+          "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+          "meshCm": [
+            15.13068197099229,
+            20.632748142262216,
+            12.219342303519388
+          ],
+          "worldHalf": [
+            0.3788264493454249,
+            0.5208687818029569,
+            0.44023364566966094
+          ],
+          "measuredCm": [
+            15.130681970992292,
+            20.632748142262212,
+            12.21934230351939
+          ],
+          "worldBounds": {
+            "min": [
+              0.5808967887590692,
+              0.052480248769979365,
+              -0.4607178692915704
+            ],
+            "max": [
+              1.244931900216479,
+              1.0805847350688318,
+              0.3222425044428979
+            ]
+          },
+          "worldPosition": [
+            0.9463947496723486,
+            0.0527027027027027,
+            -0.06812423649635019
+          ]
+        },
+        {
+          "uid": 2,
+          "species": "neon",
+          "visible": true,
+          "axis": "length",
+          "variation": 1.00762,
+          "growth": 1,
+          "adultCm": 4,
+          "lengthCm": 4.03048,
+          "heightCm": 1.612192,
+          "widthCm": 1.1285344000000002,
+          "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+          "meshCm": [
+            4.03048,
+            1.7090854895303182,
+            0.4096182190568734
+          ],
+          "worldHalf": [
+            0.10081816401790655,
+            0.04280688707168572,
+            0.010463063619246931
+          ],
+          "measuredCm": [
+            4.0304800000000025,
+            1.7090854895303176,
+            0.4167591369747581
+          ],
+          "worldBounds": {
+            "min": [
+              -0.3849908698300645,
+              1.656798586121516,
+              -0.8013532196272676
+            ],
+            "max": [
+              -0.18351214436157406,
+              1.7422694532973115,
+              -0.7804803196316429
+            ]
+          },
+          "worldPosition": [
+            -0.284231588440081,
+            1.699527220625237,
+            -0.7904503028182981
+          ]
+        }
+      ]
+    }
+  ],
+  "maximum": {
+    "unit": "cm",
+    "worldPerCm": 0.05,
+    "glassCm": [
+      80.00000000255449,
+      40.00000051549962,
+      40.00000000255448
+    ],
+    "tank": {
+      "lengthCm": 80,
+      "depthCm": 40,
+      "heightCm": 40,
+      "glassThicknessCm": 0.6,
+      "innerLengthCm": 78.8,
+      "innerDepthCm": 38.8,
+      "grossLiters": 128,
+      "x": 0.5606166783461808,
+      "y": 0.5405405405405405,
+      "z": 0.6106870229007634
+    },
+    "migration": {
+      "version": 1,
+      "unit": "cm",
+      "positions": "tank-normalized-v1",
+      "originalOverrides": {
+        "1": {
+          "scale": 1,
+          "rotation": 2.252151101007565
+        },
+        "2": {
+          "scale": 1,
+          "rotation": 2.378223340308088
+        }
+      },
+      "relocations": [],
+      "unplaced": []
+    },
+    "objects": [
+      {
+        "uid": 1,
+        "species": "anubias",
+        "visible": true,
+        "axis": "height",
+        "variation": 1.026004,
+        "growth": 0.6703270858678334,
+        "adultCm": null,
+        "lengthCm": 15.13068197099229,
+        "heightCm": 20.632748142262216,
+        "widthCm": 15.13068197099229,
+        "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+        "meshCm": [
+          15.13068197099229,
+          20.632748142262216,
+          12.231403789471008
+        ],
+        "worldHalf": [
+          0.37870887031876543,
+          0.5194229395380188,
+          0.4383534281783719
+        ],
+        "measuredCm": [
+          15.130681970992294,
+          20.632748142262226,
+          12.231403789471011
+        ],
+        "worldBounds": {
+          "min": [
+            0.013429217772936375,
+            0.03486261026447596,
+            -0.4404476538879802
+          ],
+          "max": [
+            0.6778404045904707,
+            1.0641188964259447,
+            0.34322125246758656
+          ]
+        },
+        "worldPosition": [
+          0.3785578998689394,
+          0.03513513513513513,
+          -0.045416157664233466
+        ]
+      },
+      {
+        "uid": 2,
+        "species": "neon",
+        "visible": true,
+        "axis": "length",
+        "variation": 1.00762,
+        "growth": 1,
+        "adultCm": 4,
+        "lengthCm": 4.03048,
+        "heightCm": 1.612192,
+        "widthCm": 1.1285344000000002,
+        "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+        "meshCm": [
+          4.03048,
+          1.7090854895303182,
+          0.4096182190568734
+        ],
+        "worldHalf": [
+          0.10109329718047828,
+          0.043346258474124856,
+          0.010959242788975155
+        ],
+        "measuredCm": [
+          4.030480000000001,
+          1.7090854895303131,
+          0.4096182190568731
+        ],
+        "worldBounds": {
+          "min": [
+            -0.3949085203489855,
+            1.0920547018415352,
+            -0.5274766149190944
+          ],
+          "max": [
+            -0.19356359337644596,
+            1.177636527647705,
+            -0.5069554655257348
+          ]
+        },
+        "worldPosition": [
+          -0.2941752289568664,
+          1.134792771396968,
+          -0.5173796824766784
+        ]
+      }
+    ]
+  },
+  "plantGrowth": [
+    {
+      "uid": 1,
+      "species": "anubias",
+      "visible": true,
+      "axis": "height",
+      "variation": 1.026004,
+      "growth": 0.44964431302260915,
+      "adultCm": null,
+      "lengthCm": 10.149411002245879,
+      "heightCm": 13.840105912153472,
+      "widthCm": 10.149411002245879,
+      "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+      "meshCm": [
+        10.149411002245877,
+        13.84010591215347,
+        8.196532545810612
+      ],
+      "worldHalf": [
+        0.2543073967482665,
+        0.350078700766493,
+        0.29622866993632163
+      ],
+      "measuredCm": [
+        10.149411002245873,
+        13.840105912153474,
+        8.196532545810605
+      ],
+      "worldBounds": {
+        "min": [
+          -0.2411318014883291,
+          0.03531502656975079,
+          -0.27618308907709227
+        ],
+        "max": [
+          0.20256505611165518,
+          0.7300102406893075,
+          0.2525424348726305
+        ]
+      },
+      "worldPosition": [
+        0,
+        0.03513513513513513,
+        0
+      ]
+    },
+    {
+      "uid": 1,
+      "species": "anubias",
+      "visible": true,
+      "axis": "height",
+      "variation": 1.026004,
+      "growth": 1,
+      "adultCm": null,
+      "lengthCm": 22.572087999999997,
+      "heightCm": 30.780119999999997,
+      "widthCm": 22.572087999999997,
+      "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+      "meshCm": [
+        22.572087999999997,
+        30.78012,
+        18.22892519358623
+      ],
+      "worldHalf": [
+        0.5654718966299641,
+        0.7782091806591132,
+        0.6583230447638883
+      ],
+      "measuredCm": [
+        22.57208799999999,
+        30.780120000000004,
+        18.22892519358622
+      ],
+      "worldBounds": {
+        "min": [
+          -0.5364697229965185,
+          0.03551919921907021,
+          -0.6136063613399265
+        ],
+        "max": [
+          0.4503882283857694,
+          1.5802759157808217,
+          0.5621074429648131
+        ]
+      },
+      "worldPosition": [
+        0,
+        0.03513513513513513,
+        0
+      ]
+    }
+  ],
+  "ageGrowth": [
+    {
+      "uid": 1,
+      "species": "guppy",
+      "visible": true,
+      "axis": "length",
+      "variation": 1.001344,
+      "growth": 0.5,
+      "adultCm": 4,
+      "lengthCm": 2.002688,
+      "heightCm": 0.8010752000000001,
+      "widthCm": 0.56075264,
+      "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+      "meshCm": [
+        2.002688,
+        0.9928146643952298,
+        0.49935382995199007
+      ],
+      "worldHalf": [
+        0.047652052140792225,
+        0.025009283212832606,
+        0.040029255691149165
+      ],
+      "measuredCm": [
+        2.002687999999998,
+        0.992814664395234,
+        0.4993538299519895
+      ],
+      "worldBounds": {
+        "min": [
+          0.6403746783200364,
+          1.4945972412094546,
+          0.27718397820853
+        ],
+        "max": [
+          0.7213676770939401,
+          1.5440513283646313,
+          0.3387743872152501
+        ]
+      },
+      "worldPosition": [
+        0.6801789950059853,
+        1.5192536199401043,
+        0.30839169140956785
+      ]
+    },
+    {
+      "uid": 1,
+      "species": "guppy",
+      "visible": true,
+      "axis": "length",
+      "variation": 1.001344,
+      "growth": 1,
+      "adultCm": 4,
+      "lengthCm": 4.005376,
+      "heightCm": 1.6021504000000002,
+      "widthCm": 1.12150528,
+      "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+      "meshCm": [
+        4.005376,
+        1.9856293287904596,
+        0.9987076599039801
+      ],
+      "worldHalf": [
+        0.09045849222344676,
+        0.05015783038698084,
+        0.0867144311553408
+      ],
+      "measuredCm": [
+        4.005375999999998,
+        1.9856293287904636,
+        0.998707659903979
+      ],
+      "worldBounds": {
+        "min": [
+          0.6701321050506815,
+          1.4577139548985345,
+          0.17937617255354013
+        ],
+        "max": [
+          0.8184365175148478,
+          1.5564840045111747,
+          0.3188061430247858
+        ]
+      },
+      "worldPosition": [
+        0.742698705066701,
+        1.5069054909766562,
+        0.24977906464674363
+      ]
+    }
+  ],
+  "sexualSize": [
+    {
+      "uid": 1,
+      "species": "guppy",
+      "visible": true,
+      "axis": "length",
+      "variation": 1.001344,
+      "growth": 1,
+      "adultCm": 4,
+      "lengthCm": 4.005376,
+      "heightCm": 1.6021504000000002,
+      "widthCm": 1.12150528,
+      "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+      "meshCm": [
+        4.005376,
+        1.9856293287904596,
+        0.9987076599039801
+      ],
+      "worldHalf": [
+        0.08591070131956127,
+        0.050027378537986736,
+        0.09107267087366222
+      ],
+      "measuredCm": [
+        4.005376,
+        1.9856293287904636,
+        0.998707659903979
+      ],
+      "worldBounds": {
+        "min": [
+          0.697406937192267,
+          1.4526921499642953,
+          0.14881569039735262
+        ],
+        "max": [
+          0.833967174394305,
+          1.5515915927997672,
+          0.29965488839309856
+        ]
+      },
+      "worldPosition": [
+        0.7639566824966432,
+        1.5019972423261223,
+        0.22481410407174657
+      ]
+    },
+    {
+      "uid": 1,
+      "species": "guppy",
+      "visible": true,
+      "axis": "length",
+      "variation": 1.001344,
+      "growth": 1,
+      "adultCm": 6,
+      "lengthCm": 6.008064,
+      "heightCm": 2.4032256000000003,
+      "widthCm": 1.68225792,
+      "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+      "meshCm": [
+        6.008064,
+        2.268911845790144,
+        1.279039871976723
+      ],
+      "worldHalf": [
+        0.11473452967189593,
+        0.05759842947513988,
+        0.140340241592681
+      ],
+      "measuredCm": [
+        6.008064000000002,
+        2.2689118457901447,
+        1.2790398719767238
+      ],
+      "worldBounds": {
+        "min": [
+          0.7097747426378891,
+          1.4363564249185,
+          0.05240199832990215
+        ],
+        "max": [
+          0.8916924411657687,
+          1.5497179355364687,
+          0.2979930392033346
+        ]
+      },
+      "worldPosition": [
+        0.7977152207063113,
+        1.4929858499875015,
+        0.17617859565459457
+      ]
+    }
+  ],
+  "status": "passed"
+}

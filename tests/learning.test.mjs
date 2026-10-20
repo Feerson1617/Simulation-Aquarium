@@ -4,6 +4,7 @@ import { readFile } from "node:fs/promises";
 import { MISSIONS, GRADE_PROFILES } from "../learning-content.mjs";
 import {
   learningTools,
+  learningSample,
   learningMetrics,
   waterIndicators,
   learningSlot,
@@ -296,6 +297,43 @@ test("exported finite data can be inspected without executing imported states; m
   );
 });
 
-test('plant growth cannot consume absent resources or create carbon through a fixed floor',()=>{
- const p={no3:12,po4:.4,fe:.08,co2:8};assert.equal(limitPlantGrowth(1,{...p,no3:0}),0);assert.equal(limitPlantGrowth(1,{...p,co2:0}),0);const growth=limitPlantGrowth(10,{...p,fe:.00008});assert.equal(growth,.01);assert.ok(growth*1.45<=p.no3&&growth*.025<=p.po4);
+test("plant growth cannot consume absent resources or create carbon through a fixed floor", () => {
+  const p = { no3: 12, po4: 0.4, fe: 0.08, co2: 8 };
+  assert.equal(limitPlantGrowth(1, { ...p, no3: 0 }), 0);
+  assert.equal(limitPlantGrowth(1, { ...p, co2: 0 }), 0);
+  const growth = limitPlantGrowth(10, { ...p, fe: 0.00008 });
+  assert.equal(growth, 0.01);
+  assert.ok(growth * 1.45 <= p.no3 && growth * 0.025 <= p.po4);
+});
+
+test("unmeasured initial process fluxes stay unknown rather than becoming invented zero measurements", () => {
+  const s = { ...water(), day: 45, entities: [] };
+  const row = learningSample(s, types);
+  assert.equal(row.photosynthesis, null);
+  assert.equal(row.respiration, null);
+  const comp = { kind: "ecology", runs: [{ control: [row], test: [row] }] };
+  assert.equal(
+    validateLearningComparison(comp).runs[0].control[0].respiration,
+    null,
+  );
+  assert.match(comparisonCSV(comp), /""/);
+  const next = learningSample(
+    { ...s, ecology: { lastFlux: { photosynthesis: 0, respiration: 0.4 } } },
+    types,
+  );
+  assert.equal(next.photosynthesis, 0);
+  assert.equal(next.respiration, 0.4);
+});
+test("configuration cannot unlock inherited object property names as teaching tools", () => {
+  const t = normalizeTeacher({
+    grade: "constructor",
+    support: "toString",
+    unlockTools: ["__proto__", "constructor", "light"],
+    unlockMetrics: ["toString", "oxygen"],
+  });
+  assert.equal(t.grade, 8);
+  assert.equal(t.support, "partial");
+  assert.deepEqual(t.unlockTools, ["light"]);
+  assert.deepEqual(t.unlockMetrics, ["oxygen"]);
+  assert.throws(() => applyLearningIntervention(water(), "constructor", 1, {}));
 });

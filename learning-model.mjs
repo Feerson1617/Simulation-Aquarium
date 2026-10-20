@@ -97,7 +97,7 @@ export function normalizeLearningTag(tag) {
   if (tag == null) return null;
   if (
     tag.version !== 1 ||
-    !GRADE_PROFILES[tag.grade] ||
+    ![8, 9, 10].includes(tag.grade) ||
     !["missions", "free"].includes(tag.mode) ||
     (tag.mode === "missions" && missionById(tag.mission)?.grade !== tag.grade)
   )
@@ -121,7 +121,9 @@ export function learningTools(tag, teacher = {}) {
     ...new Set([
       ...(m?.tools || GRADE_PROFILES[t.grade].tools),
       ...(teacher.unlockTools || []).filter(
-        (k) => LEARNING_TOOLS[k] || ["cross", "selection"].includes(k),
+        (k) =>
+          Object.hasOwn(LEARNING_TOOLS, k) ||
+          ["cross", "selection"].includes(k),
       ),
     ]),
   ];
@@ -139,7 +141,7 @@ export function learningMetrics(tag, teacher = {}) {
       ...(m?.metrics || []),
       ...(teacher.unlockMetrics || []),
     ]),
-  ].filter((k) => LEARNING_METRICS[k]);
+  ].filter((k) => Object.hasOwn(LEARNING_METRICS, k));
 }
 /** The indicator is an OR over explicit warning pathways, never an averaged chemical score. */
 export function waterIndicators(state) {
@@ -210,8 +212,8 @@ export function learningSample(state, types) {
       ? animals.reduce((s, e) => s + e.health, 0) / animals.length
       : 0,
     individuals: animals.length,
-    photosynthesis: state.ecology?.lastFlux?.photosynthesis ?? 0,
-    respiration: state.ecology?.lastFlux?.respiration ?? 0,
+    photosynthesis: state.ecology?.lastFlux?.photosynthesis ?? null,
+    respiration: state.ecology?.lastFlux?.respiration ?? null,
     loadLevel: ind.level,
     failed: !!state.failed,
   };
@@ -265,7 +267,7 @@ export function createLearningTank(tag, host) {
   return s;
 }
 export function applyLearningIntervention(payload, key, value, host) {
-  const def = LEARNING_TOOLS[key];
+  const def = Object.hasOwn(LEARNING_TOOLS, key) ? LEARNING_TOOLS[key] : null;
   if (
     !def ||
     !Number.isFinite(value) ||
@@ -385,27 +387,30 @@ export function normalizeTeacher(raw = {}) {
     throw new Error("Ungültige Unterrichtskonfiguration.");
   return {
     version: 1,
-    grade: GRADE_PROFILES[raw.grade] ? Number(raw.grade) : 8,
+    grade: [8, 9, 10].includes(Number(raw.grade)) ? Number(raw.grade) : 8,
     mission:
       missionById(raw.mission)?.grade === Number(raw.grade)
         ? raw.mission
         : MISSIONS.find(
             (m) =>
-              m.grade === (GRADE_PROFILES[raw.grade] ? Number(raw.grade) : 8),
+              m.grade ===
+              ([8, 9, 10].includes(Number(raw.grade)) ? Number(raw.grade) : 8),
           ).id,
-    support: SUPPORT[raw.support] ? raw.support : "partial",
+    support: Object.hasOwn(SUPPORT, raw.support) ? raw.support : "partial",
     help: raw.help !== false,
     unlockTools: [
       ...new Set(
         (Array.isArray(raw.unlockTools) ? raw.unlockTools : []).filter(
-          (k) => LEARNING_TOOLS[k] || ["cross", "selection"].includes(k),
+          (k) =>
+            Object.hasOwn(LEARNING_TOOLS, k) ||
+            ["cross", "selection"].includes(k),
         ),
       ),
     ],
     unlockMetrics: [
       ...new Set(
         (Array.isArray(raw.unlockMetrics) ? raw.unlockMetrics : []).filter(
-          (k) => LEARNING_METRICS[k],
+          (k) => Object.hasOwn(LEARNING_METRICS, k),
         ),
       ),
     ],
@@ -470,7 +475,14 @@ export function validateLearningComparison(raw) {
           throw new Error("Ungültiger Messpunkt.");
         const result = {};
         for (const key of keys) {
-          if (!Number.isFinite(row[key]))
+          if (
+            !Number.isFinite(row[key]) &&
+            !(
+              raw.kind === "ecology" &&
+              ["photosynthesis", "respiration"].includes(key) &&
+              row[key] === null
+            )
+          )
             throw new Error("Messwerte müssen endliche Zahlen sein.");
           result[key] = row[key];
         }

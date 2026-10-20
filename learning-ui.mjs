@@ -236,7 +236,18 @@ export function mountLearningUI(host) {
     host.interactive(screen === "active");
     render();
     if (lastOpener?.isConnected) lastOpener.focus();
-    else root.querySelector('[data-learn="observe"]')?.focus();
+    else
+      (
+        root.querySelector(
+          '[data-learn="' + (lastOpener?.dataset.learn || "observe") + '"]',
+        ) || root.querySelector("button")
+      )?.focus();
+  }
+  function closeHelp() {
+    const key = helpKey;
+    helpKey = null;
+    render();
+    root.querySelector('[data-learn-help="' + key + '"]')?.focus();
   }
   function gradeHome() {
     return `<div class="learn-welcome"><p class="learn-kicker">Ökosystem-Werkstatt · Klassen 8–10</p><h1>Biologie im Aquarium</h1><p>Beobachten. Fragen stellen. Mit Daten begründen.</p><div class="learn-grades">${Object.entries(
@@ -273,7 +284,7 @@ export function mountLearningUI(host) {
     return `<span>${num(s.params.temp, 1)} °C</span><span>Sauerstoff ${w.oxygen}</span><span>Nährstoffe: ${w.nutrients}</span><span>Belastung ${w.load}</span>`;
   }
   function hud() {
-    return `<header class="learn-hud"><div><small>Klasse ${tag.grade} · ${tag.mode === "free" ? "Freies Forschen" : "Lernmission"}</small><h1>${esc(mission()?.title || GRADE_PROFILES[tag.grade].title)}</h1>${button("mission-info", esc(mission()?.question || "Deine Frage und dein Untersuchungsweg"), 'class="learn-question"')}</div><div>${button("home", "Start")}${button("display", "Darstellung")}${teacher.help ? button("glossary", "Glossar") : ""}</div></header><div class="learn-status" aria-label="Kurzer Beckenüberblick">${status()}</div><nav class="learn-tools" aria-label="Lernwerkzeuge">${button("observe", "Beobachten")}${button("investigate", "Untersuchen")}${button("notebook", "Notizbuch")}${button("material", tag.grade === 9 ? "Vererbung" : "Beziehungen & Arten")}${button("tweezers", "Pinzette", 'aria-pressed="false"')}<div class="learn-time"><span>Tag ${num(host.getState().day, 1)}</span>${button("advance", "+ 1 Tag")}</div></nav>${storageError ? `<div class="learn-storage" role="alert">${esc(storageError)}</div>` : ""}`;
+    return `<header class="learn-hud"><div><small>Klasse ${tag.grade} · ${tag.mode === "free" ? "Freies Forschen" : "Lernmission"}</small><h1>${esc(mission()?.title || GRADE_PROFILES[tag.grade].title)}</h1>${button("mission-info", esc(mission()?.question || "Deine Frage und dein Untersuchungsweg"), 'class="learn-question"')}</div><div>${button("home", "Start")}${button("display", "Darstellung")}${teacher.help ? button("glossary", "Glossar") : ""}</div></header><div class="learn-status" aria-label="Kurzer Beckenüberblick">${status()}</div><nav class="learn-tools" aria-label="Lernwerkzeuge">${button("observe", "Beobachten")}${button("investigate", "Untersuchen")}${button("notebook", "Notizbuch")}${button("material", tag.grade === 9 ? "Vererbung" : "Beziehungen & Arten")}${button("tweezers", "Pinzette", 'aria-pressed="' + String(host.tweezersActive()) + '"')}<div class="learn-time"><span>Tag ${num(host.getState().day, 1)}</span>${button("advance", "+ 1 Tag")}</div></nav>${storageError ? `<div class="learn-storage" role="alert">${esc(storageError)}</div>` : ""}`;
   }
   function observe() {
     const s = host.getState(),
@@ -341,7 +352,7 @@ export function mountLearningUI(host) {
     return `<label>Veränderte Bedingung<select data-learning-tool="${prefix}">${options(
       list.map((k) => [k, LEARNING_TOOLS[k].label]),
       key,
-    )}</select></label><label>${esc(d.label)} (${d.unit})<input type="number" data-learning-value value="${value}" min="${d.min}" max="${d.max}" step="${d.step}" required></label><small>${esc(d.description)}</small>`;
+    )}</select></label><label>${esc(d.label)} (${d.unit})<input type="number" data-learning-value value="${esc(value)}" min="${d.min}" max="${d.max}" step="${d.step}" required></label><small>${esc(d.description)}</small>`;
   }
   function notebook() {
     const p = GRADE_PROFILES[tag.grade],
@@ -357,7 +368,7 @@ export function mountLearningUI(host) {
     if (tag.grade === 9) return breedingView();
     return (
       panelHeader("Kontrollierter Vergleich", "control") +
-      `<p>Beide Becken starten aus derselben gesicherten Ausgangslage. Nur im Versuch wird eine Bedingung geändert.</p>${SUPPORT[teacher.support].steps ? "<ol><li>Frage, Hypothese und Plan notieren.</li><li>Eine Bedingung auswählen und Verlauf vorhersagen.</li><li>Kontrolle und Versuch messen; Daten erklären.</li></ol>" : ""}${tag.mode === "free" ? textArea("question", session.notes.question) : ""}${textArea("hypothesis", session.notes.hypothesis)}${textArea("prediction", session.notes.prediction)}${textArea("plan", session.notes.plan)}${interventionForm("study")}<div class="learn-two"><label>Dauer (Tage)<input type="number" data-learning-days min="1" max="14" value="${session.study.days || 3}"></label><label>Wiederholungen<input type="number" data-learning-repetitions min="1" max="4" value="${session.study.repetitions || 2}"></label></div><div class="learn-actions">${button("compare", "Vergleich berechnen")}${button("baseline", "Aktuelles Becken als Ausgangslage")}</div><small>Wiederholungen variieren den Zufallsstart, nicht die Startbestände. Das Modell erzeugt keine künstlichen Messfehler. Gleiche Kurven sind möglich.</small>${session.comparison?.kind === "ecology" ? results(session.comparison) : ""}`
+      `<p>Beide Becken starten aus derselben gesicherten Ausgangslage (Tag ${num(session.baseline.day, 1)}). Nur im Versuch wird eine Bedingung geändert.</p>${SUPPORT[teacher.support].steps ? "<ol><li>Frage, Hypothese und Plan notieren.</li><li>Eine Bedingung auswählen und Verlauf vorhersagen.</li><li>Kontrolle und Versuch messen; Daten erklären.</li></ol>" : ""}${tag.mode === "free" ? textArea("question", session.notes.question) : ""}${textArea("hypothesis", session.notes.hypothesis)}${textArea("prediction", session.notes.prediction)}${textArea("plan", session.notes.plan)}${interventionForm("study")}<div class="learn-two"><label>Dauer (Tage)<input type="number" data-learning-days min="1" max="14" value="${session.study.days || 3}"></label><label>Wiederholungen<input type="number" data-learning-repetitions min="1" max="4" value="${session.study.repetitions || 2}"></label></div><div class="learn-actions">${button("compare", "Vergleich berechnen")}${button("baseline", "Aktuelles Becken als Ausgangslage")}</div><small>Wiederholungen variieren den Zufallsstart, nicht die Startbestände. Das Modell erzeugt keine künstlichen Messfehler. Gleiche Kurven sind möglich.</small>${session.comparison?.kind === "ecology" ? results(session.comparison) : ""}`
     );
   }
   function plot(comp, key) {
@@ -365,14 +376,41 @@ export function mountLearningUI(host) {
       a = run.control,
       b = run.test,
       all = [...a, ...b],
-      x = (k) => (comp.kind === "population" ? k.generation : k.day),
-      minX = Math.min(...all.map(x)),
+      x = (k) => (comp.kind === "population" ? k.generation : k.day);
+    const minX = Math.min(...all.map(x)),
       maxX = Math.max(...all.map(x)),
-      minY = Math.min(0, ...all.map((v) => v[key] ?? 0)),
-      maxY = Math.max(0.01, ...all.map((v) => v[key] ?? 0));
+      finite = all.filter((v) => Number.isFinite(v[key]));
+    const minY = Math.min(0, ...finite.map((v) => v[key])),
+      maxY =
+        comp.kind === "population"
+          ? 1
+          : Math.max(0.01, ...finite.map((v) => v[key]));
     const xx = (v) => 45 + ((x(v) - minX) / (maxX - minX || 1)) * 405,
       yy = (v) => 180 - ((v[key] - minY) / (maxY - minY || 1)) * 150;
-    return `<svg class="learn-chart" viewBox="0 0 480 220" role="img" aria-label="Verlauf ${esc(LEARNING_METRICS[key]?.[0] || "Allelhäufigkeit " + key)}: Kontrolle und Versuch"><path d="M45 20 V180 H455" fill="none" stroke="currentColor"/><text x="5" y="28">${num(maxY)}</text><text x="7" y="184">${num(minY)}</text><text x="45" y="204">${num(minX)}</text><text x="420" y="204">${num(maxX)}</text>${[a, b].map((rows, i) => `<polyline points="${rows.map((v) => numRaw(xx(v)) + "," + numRaw(yy(v))).join(" ")}" fill="none" stroke="${i ? "#a35325" : "#216c70"}" stroke-width="3" ${i ? 'stroke-dasharray="7 3"' : ""}/>`).join("")}</svg>`;
+    const title = LEARNING_METRICS[key]
+      ? LEARNING_METRICS[key][0] + " · " + LEARNING_METRICS[key][1]
+      : ({
+          A: "Allel A",
+          a: "Allel a",
+          dark: "Dunkler Phänotyp",
+          light: "Heller Phänotyp",
+        }[key] || key) + " · Anteil (0–1)";
+    return `<svg class="learn-chart" viewBox="0 0 480 270" role="img" aria-label="Verlauf ${esc(title)}: Kontrolle und Versuch"><text x="45" y="13" font-size="12">${esc(title)}</text><path d="M45 24 V180 H455" fill="none" stroke="currentColor"/><text x="5" y="33">${num(maxY)}</text><text x="7" y="184">${num(minY)}</text><text x="45" y="204">${num(minX)}</text><text x="420" y="204">${num(maxX)}</text>${[
+      a,
+      b,
+    ]
+      .map(
+        (rows, i) =>
+          `<polyline points="${rows
+            .filter((v) => Number.isFinite(v[key]))
+            .map((v) => numRaw(xx(v)) + "," + numRaw(yy(v)))
+            .join(
+              " ",
+            )}" fill="none" stroke="${i ? "#a35325" : "#216c70"}" stroke-width="3" ${i ? 'stroke-dasharray="7 3"' : ""}/>`,
+      )
+      .join(
+        "",
+      )}<text x="170" y="224" font-size="12">${comp.kind === "population" ? "Generation" : "Tag · Modellzeit"} (Wiederholung 1)</text><path d="M50 246 H80" stroke="#216c70" stroke-width="3"/><text x="88" y="250" font-size="12">Kontrolle</text><path d="M250 246 H280" stroke="#a35325" stroke-width="3" stroke-dasharray="7 3"/><text x="288" y="250" font-size="12">Versuch</text></svg>`;
   }
   function numRaw(v) {
     return Number(v.toFixed(3));
@@ -392,7 +430,7 @@ export function mountLearningUI(host) {
           ]);
     let metric = session.study.metric;
     if (!choices.some(([k]) => k === metric)) metric = choices[0][0];
-    return `<section class="learn-results"><h3>Tatsächlich berechnete Daten</h3><label>Messgröße<select data-learning-metric>${options(choices, metric)}</select></label>${plot(comp, metric)}<p class="learn-caption">Kontrolle: durchgezogen · Versuch: gestrichelt. ${population ? "x: Generation; y: Anteil (0–1)." : "x: Tag; y: " + esc(LEARNING_METRICS[metric][1]) + "."} Diagramm: Wiederholung 1. Alle Wiederholungen stehen in Tabelle und CSV.</p>${comp.runs.map((run) => `<details><summary>Wiederholung ${run.repetition} · ${run.control.length} Zeitpunkte${run.stopped ? " · abgebrochen" : ""}</summary>${run.stopped ? `<p>${esc(run.stopped)}</p>` : ""}<div class="learn-table-wrap"><table><caption>${esc(choices.find(([k]) => k === metric)?.[1])}</caption><thead><tr><th>${population ? "Generation" : "Tag"}</th><th>Kontrolle</th><th>Versuch</th></tr></thead><tbody>${run.control.map((s, i) => `<tr><td>${num(s.day ?? s.generation)}</td><td>${num(s[metric], 4)}</td><td>${num(run.test[i]?.[metric], 4)}</td></tr>`).join("")}</tbody></table></div></details>`).join("")}<div class="learn-actions">${button("csv", "Daten als CSV")}${button("export", "Protokoll mit Daten")}${button("chart", "Diagramm als SVG")}</div>${!population ? `<div class="learn-actions">${button("show-control", "Kontrollbecken ansehen")}${button("show-test", "Versuchsbecken ansehen")}</div>` : ""}${textArea("observation", session.notes.observation)}${textArea("explanation", session.notes.explanation)}${textArea("reflection", session.notes.reflection)}<small>${esc(comp.source || comp.assumption)}</small></section>`;
+    return `<section class="learn-results"><h3>Tatsächlich berechnete Daten</h3><label>Messgröße<select data-learning-metric>${options(choices, metric)}</select></label>${plot(comp, metric)}<p class="learn-caption">Kontrolle: durchgezogen · Versuch: gestrichelt. ${population ? "x: Generation; y: Anteil (0–1)." : "x: Tag; y: " + esc(LEARNING_METRICS[metric][1]) + "."} Diagramm: Wiederholung 1. Alle Wiederholungen stehen in Tabelle und CSV. ${population ? "" : "„—“ in der Tabelle bedeutet: noch kein berechneter Prozessumsatz."}</p>${comp.runs.map((run) => `<details><summary>Wiederholung ${run.repetition} · ${run.control.length} Zeitpunkte${run.stopped ? " · abgebrochen" : ""}</summary>${run.stopped ? `<p>${esc(run.stopped)}</p>` : ""}<div class="learn-table-wrap"><table><caption>${esc(choices.find(([k]) => k === metric)?.[1])}</caption><thead><tr><th>${population ? "Generation" : "Tag"}</th><th>Kontrolle</th><th>Versuch</th></tr></thead><tbody>${run.control.map((s, i) => `<tr><td>${num(s.day ?? s.generation)}</td><td>${num(s[metric], 4)}</td><td>${num(run.test[i]?.[metric], 4)}</td></tr>`).join("")}</tbody></table></div></details>`).join("")}<div class="learn-actions">${button("csv", "Daten als CSV")}${button("export", "Protokoll mit Daten")}${button("chart", "Diagramm als SVG")}</div>${!population ? `<div class="learn-actions">${button("show-control", "Kontrollbecken ansehen")}${button("show-test", "Versuchsbecken ansehen")}</div>` : ""}${textArea("observation", session.notes.observation)}${textArea("explanation", session.notes.explanation)}${textArea("reflection", session.notes.reflection)}<small>${esc(comp.source || comp.assumption)}</small></section>`;
   }
   function selectionView() {
     const p = session.population,
@@ -679,7 +717,7 @@ export function mountLearningUI(host) {
       persist();
     }
     if (e.target.hasAttribute("data-learning-value"))
-      session.study.value = Number(e.target.value);
+      session.study.value = e.target.valueAsNumber;
   });
   root.addEventListener("change", async (e) => {
     const t = e.target,
@@ -815,9 +853,7 @@ export function mountLearningUI(host) {
         return;
       }
       if (a === "help-close") {
-        helpKey = null;
-        render();
-        root.querySelector(".learn-panel h2")?.focus();
+        closeHelp();
         return;
       }
       if (a === "home") {
@@ -966,7 +1002,7 @@ export function mountLearningUI(host) {
       }
       if (a === "apply") {
         const tool = root.querySelector("[data-learning-tool]")?.value,
-          value = Number(root.querySelector("[data-learning-value]")?.value);
+          value = root.querySelector("[data-learning-value]")?.valueAsNumber;
         if (!tools().includes(tool))
           throw new Error("Dieses Werkzeug ist nicht freigeschaltet.");
         const next = applyLearningIntervention(
@@ -989,7 +1025,7 @@ export function mountLearningUI(host) {
       if (a === "compare") {
         if (!requirePlan()) return;
         const tool = root.querySelector("[data-learning-tool]").value,
-          value = Number(root.querySelector("[data-learning-value]").value);
+          value = root.querySelector("[data-learning-value]").valueAsNumber;
         if (!tools().includes(tool))
           throw new Error("Werkzeug nicht freigeschaltet.");
         session.comparison = runLearningComparison(
@@ -1155,10 +1191,8 @@ export function mountLearningUI(host) {
       if (e.key === "Escape" && (helpKey || panel)) {
         e.preventDefault();
         e.stopPropagation();
-        if (helpKey) {
-          helpKey = null;
-          render();
-        } else closePanel();
+        if (helpKey) closeHelp();
+        else closePanel();
       }
       if (e.key === "Tab" && (panel || helpKey || screen !== "active")) {
         const scope =
@@ -1200,6 +1234,10 @@ export function mountLearningUI(host) {
     blocksScene: () =>
       screen !== "expert" && (screen !== "active" || !!panel || !!helpKey),
     active: () => screen === "active",
+    tweezersChanged: () =>
+      root
+        .querySelector('[data-learn="tweezers"]')
+        ?.setAttribute("aria-pressed", String(host.tweezersActive())),
     select: (uid) => {
       selected = uid;
       showPanel("observe");

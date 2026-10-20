@@ -97,7 +97,9 @@ try:
             continue
         previous = next((item for item in cache.get('sources', []) if item['id'] == source['id']), {})
         if previous.get('url') == source['url'] and previous.get('sha256') == source['sha256'] and (OUT / source['id'] / '0/mesh.obj').exists():
-            source.update(reconstructed=True, reused_from_run=39264911821)
+            source.update(reconstructed=True, reused_from_cache=True)
+            if previous.get('reused_from_run'):
+                source['reused_from_run'] = previous['reused_from_run']
             continue
         run(['xvfb-run', '-a', sys.executable, 'run.py', str(WORK / (source['id'] + '.jpg')),
              '--device', 'cpu', '--chunk-size', '1024', '--mc-resolution', '256',

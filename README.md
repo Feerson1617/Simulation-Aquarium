@@ -64,7 +64,9 @@ Das Speicherformat bleibt Version 1 mit dem bisherigen `localStorage`-Schlüssel
 ## Tests
 
 ```bash
-node --test tests/aquascaping.test.mjs
+node --test tests/*.test.mjs
+python3 tests/species_assets_test.py
+python3 tests/catalog_ui_browser.py
 python3 tests/aquascaping_browser.py
 python3 tests/standalone_browser.py
 ```
@@ -95,4 +97,4 @@ Der letzte Befehl verwendet den lokalen Cloud-Server, isolierte Browserprofile u
 
 ## Fortsetzung: Detailbilder und realistische Modelle
 
-Artkarten und ausgewählte Beckenobjekte verwenden dieselben artspezifischen Bilder wie der Katalog. Die Fotorealismusprüfung und ihre technischen Grenzen stehen in [UI- und Modellprüfung](docs/UI_MODEL_REVIEW.md). Der begrenzte TripoSR-Versuch läuft ohne zusätzliche Konten auf einem kostenlosen Standardrunner des öffentlichen GitHub-Repositorys; Ergebnisse werden vor jeder Übernahme einzeln geprüft. Neue vereinfachte Massenmodelle sind nicht Teil dieses Durchgangs.
+Artkarten und ausgewählte Beckenobjekte verwenden dieselben artspezifischen Bilder wie der Katalog. Die Fotorealismusprüfung und ihre technischen Grenzen stehen in [UI- und Modellprüfung](docs/UI_MODEL_REVIEW.md). Drei fotobasierte TripoSR-Piloten wurden ohne zusätzliche Konten auf kostenlosen CPU-Standardrunnern erzeugt und tatsächlich im Spiel aus mehreren Blickwinkeln verglichen. Auch der gezielt korrigierte Pflanzenversuch erreicht keine ausreichende anatomische Qualität; deshalb bleibt der bisherige Modellbestand erhalten und es gibt keine Ausweitung auf weitere Arten. [Vergleichsbilder, Quellen und Qualitätsentscheidung](docs/ui-model-review/README.md). Neue vereinfachte Massenmodelle sind nicht Teil dieses Durchgangs.

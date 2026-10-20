@@ -144,6 +144,7 @@ def payload(species):
 server = ThreadingHTTPServer(('127.0.0.1', 0), partial(Quiet, directory=str(ROOT.parent)))
 threading.Thread(target=server.serve_forever, daemon=True).start()
 url = f'http://127.0.0.1:{server.server_port}/{ROOT.name}/'
+ready = []
 try:
     requested = os.environ.get('AQUARIUM_REVIEW_SPECIES', 'guppy,cory,anubias').split(',')
     assert all(species in ['guppy','cory','anubias'] for species in requested)

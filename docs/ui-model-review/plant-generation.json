@@ -1,0 +1,62 @@
+{
+  "run_id": 39352881052,
+  "artifact_id": 12233599665,
+  "artifact_name": "aquarium-isolated-plant-review",
+  "artifact_zip_sha256": "fb660acc1d6b49bebb50f7ff40b9fa1080e780c14017f3a9b67153849ec5fc1c",
+  "retention_days": 30,
+  "method": "official TripoSR, CPU, full default mesh resolution, 2048px baked texture",
+  "source_commit": "107cefdc244c39106fa830359024f6a2f1c78871",
+  "source_photo": {
+    "id": "anubias",
+    "taxon": "Anubias barteri",
+    "reference_variety": "var. nana",
+    "author": "Abhik.Mazumdar.73",
+    "license": "CC-BY-4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Anubias_barteri_var._nana.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Anubias_barteri_var._nana.jpg",
+    "sha256": "a5b452260bfdc704079673b075035afdb3fc71bbe6fdaade2284b2a8bb0908c4",
+    "reconstructed": true
+  },
+  "new_cpu_inference_seconds": 120.23,
+  "normalization": {
+    "species": "anubias",
+    "vertices": 103940,
+    "triangles": 130728,
+    "texture": [
+      2048,
+      2048
+    ],
+    "bytes": 8521456,
+    "sha256": "811ce74b84fb450f7af57d9a8fbf3315cc796dc5705d2e34fbe2444d571399bb",
+    "bounds": [
+      [
+        -0.3603465770952217,
+        0,
+        -0.2586500090742498
+      ],
+      [
+        0.3603465770952217,
+        0.630176702169866,
+        0.2586500090742498
+      ]
+    ],
+    "source_axes": "TripoSR x-back/y-right/z-up -> game x-right/y-up/z-front",
+    "source_photo": {
+      "id": "anubias",
+      "taxon": "Anubias barteri",
+      "reference_variety": "var. nana",
+      "author": "Abhik.Mazumdar.73",
+      "license": "CC-BY-4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Anubias_barteri_var._nana.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Anubias_barteri_var._nana.jpg",
+      "sha256": "a5b452260bfdc704079673b075035afdb3fc71bbe6fdaade2284b2a8bb0908c4",
+      "reconstructed": true
+    }
+  },
+  "cached_models": [
+    "guppy",
+    "cory"
+  ],
+  "cache_artifact_run_id": 39272907955,
+  "cache_provenance_note": "The raw generation log used a fixed reused_from_run label for all cached species. The actual downloaded cache was run 39272907955, which contains the correct Corydoras aeneus from run 39270664762 and the guppy originally generated in 39264911821. The script now preserves known lineage instead of inventing a fixed run ID."
+}

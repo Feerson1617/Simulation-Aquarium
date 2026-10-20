@@ -1,0 +1,53 @@
+{
+  "reviewed_on": "2026-10-20",
+  "review_method": "Human-readable visual assessment of actual Chromium/WebGL screenshots; no numeric quality scores",
+  "accepted_models": [],
+  "production_species_assets_changed": false,
+  "reference_species": [
+    "neon",
+    "molly"
+  ],
+  "pilots": [
+    {
+      "species": "guppy",
+      "taxon": "Poecilia reticulata",
+      "decision": "rejected",
+      "reason": "Thick irregular fins and tail lobes; warped silhouette. No consistent gain over existing guppy or photographic neon/molly references.",
+      "triangles": 41396,
+      "texture": [
+        2048,
+        2048
+      ],
+      "normalized_glb_sha256": "f796bc4735ed5d2e03c61c4761fc5d5549dd80734a4956f6c0acaf16cc2a9d59",
+      "capture_run": 39272907955
+    },
+    {
+      "species": "cory",
+      "taxon": "Corydoras aeneus",
+      "decision": "rejected",
+      "reason": "Body, fins and tail merge into a distorted mass; barbels and armored anatomy are not resolved.",
+      "triangles": 85960,
+      "texture": [
+        2048,
+        2048
+      ],
+      "normalized_glb_sha256": "5d0a9c0ccf94a8e45ea9ab46602978adac248beb226b827a68652e6aca80e275",
+      "capture_run": 39272907955
+    },
+    {
+      "species": "anubias",
+      "taxon": "Anubias barteri",
+      "reference_variety": "var. nana",
+      "decision": "rejected after corrected isolated photographic input",
+      "reason": "Leaves and stems are thick, perforated and partly fused; roots become an opaque pale blob. No sufficient anatomical gain despite more surface detail.",
+      "triangles": 130728,
+      "texture": [
+        2048,
+        2048
+      ],
+      "normalized_glb_sha256": "811ce74b84fb450f7af57d9a8fbf3315cc796dc5705d2e34fbe2444d571399bb",
+      "capture_run": 39352881052
+    }
+  ],
+  "action": "Retain all current production models. Do not expand this automatic single-image procedure to other species."
+}

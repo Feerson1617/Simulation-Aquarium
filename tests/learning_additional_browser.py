@@ -2,7 +2,7 @@
 import copy,json,os
 from pathlib import Path
 from datetime import datetime,timezone
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright,expect
 ROOT=Path(__file__).resolve().parents[1];OUT=Path('/tmp/aquarium-learning-additional')/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S');OUT.mkdir(parents=True)
 URL=os.environ.get('AQUARIUM_URL','http://127.0.0.1:8000/aquarium-simulation/').split('?')[0];report={'checks':[],'errors':[]}
 def passed(s):report['checks'].append(s);print('PASS',s,flush=True)
@@ -22,7 +22,7 @@ with sync_playwright() as pw:
   with p.expect_download() as dl:click(p,'chart')
   svg=OUT/'real-process-flux.svg';dl.value.save_as(str(svg));assert 'mg O₂/L je Schritt' in svg.read_text() and 'Kontrolle' in svg.read_text() and 'NaN' not in svg.read_text()
   with p.expect_download() as dl:click(p,'export')
-  product=OUT/'nullable-flux-product.json';dl.value.save_as(str(product));assert json.loads(product.read_text())['comparison']['runs'][0]['control'][0]['respiration'] is None;click(p,'close');click(p,'home');click(p,'teacher');p.locator('[data-learning-import="product"]').set_input_files(str(product));assert p.locator('.learn-panel .learn-chart').count()==1;passed('unmeasured initial flux remains unknown in table, chart, JSON and validated teacher import; SVG has units and legend')
+  product=OUT/'nullable-flux-product.json';dl.value.save_as(str(product));assert json.loads(product.read_text())['comparison']['runs'][0]['control'][0]['respiration'] is None;click(p,'close');click(p,'home');click(p,'teacher');p.locator('[data-learning-import="product"]').set_input_files(str(product));expect(p.locator('.learn-panel .learn-chart')).to_have_count(1);passed('unmeasured initial flux remains unknown in table, chart, JSON and validated teacher import; SVG has units and legend')
   c.close();c=b.new_context(viewport={'width':1024,'height':768});c.add_init_script("Storage.prototype.setItem=function(){throw new DOMException('Test quota','QuotaExceededError')}");p=c.new_page();p.set_default_timeout(90000);p.on('pageerror',lambda e:report['errors'].append(str(e)));p.goto(URL);p.locator('[data-learn-grade="8"]').click();click(p,'free');assert p.evaluate('window.aquariumLearningSnapshot().storageError.length>0');assert p.locator('.learn-storage').is_visible();click(p,'notebook');p.locator('[data-learning-note="hypothesis"]').fill('Ungespeicherte Arbeit bleibt exportierbar.');
   with p.expect_download() as dl:click(p,'export')
   target=OUT/'quota-product.json';dl.value.save_as(str(target));assert json.loads(target.read_text())['notes']['hypothesis']=='Ungespeicherte Arbeit bleibt exportierbar.';passed('blocked local storage warns visibly and still permits an accountless file export')

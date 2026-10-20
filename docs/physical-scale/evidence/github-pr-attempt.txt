@@ -1,0 +1,3 @@
+Command: gh pr create --repo Feerson1617/Simulation-Aquarium --base main --head feature/physical-scale-realism --title <documented title> --body-file <prepared description>
+Exit: 1
+Post "https://api.github.com/graphql": Forbidden

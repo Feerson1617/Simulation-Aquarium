@@ -72,5 +72,13 @@
     "No full new external verification of all species measurements",
     "Partial photorealism; individual assumptions in SIZES.md",
     "GitHub API and live PR preview require actual GitHub confirmation"
-  ]
+  ],
+  "github": {
+    "branchPushed": true,
+    "pullRequest": "blocked",
+    "preview": "not-created-or-verified",
+    "reason": "Post https://api.github.com/graphql: Forbidden",
+    "creationForm": "https://github.com/Feerson1617/Simulation-Aquarium/pull/new/feature/physical-scale-realism",
+    "report": "github-pr-attempt.txt"
+  }
 }

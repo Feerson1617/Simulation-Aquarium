@@ -11,6 +11,12 @@
 - X/Z bleiben innerhalb der Grenzen, die auch der bisherige Version-1-Loader akzeptiert. Das optionale Entity-Feld `aquascapePlaced` wird von der vorhandenen Importlogik mitgeführt. Bestehende Spielstände benötigen keine Migration.
 - Die Bodenhöhe entspricht der vorhandenen geneigten Sandoberfläche beziehungsweise der nackten Bodenscheibe. Die Unterkante des tatsächlich geladenen Modells wird daran ausgerichtet. Schwimmpflanzen bleiben an der Wasseroberfläche.
 
+## Erweiterung: ausschließlich mit der Pinzette positionieren
+
+Alle fünf Kategorien (Fische, Wirbellose, Pflanzen, Korallen und Dekoration) sind mit der Pinzette auswählbar. Tote Lebewesen werden weiterhin nicht gegriffen. Die Detailkarte zeigt nur noch Drehung und Darstellungsgröße; X-/Z-Regler und die alternative Klickplatzierung wurden entfernt.
+
+Bei Tieren verschieben X/Z den vorhandenen Schwimmbereich. Während der Geste bleibt die aktuelle Schwimmhöhe erhalten. Nach dem Loslassen übernimmt wieder die normale Tieranimation; `aquascapePlaced` friert Tiere nicht am Boden ein. Pflanzen, Korallen und Dekoration behalten die Boden-/Oberflächenverankerung und Kollisionsregeln. Tiere dürfen über bepflanzten Grundflächen schwimmen.
+
 ## Kollisionsmodell und Leistung
 
 Die Platzierung verwendet konservative zweidimensionale Grundflächen mit Drehung und Darstellungsgröße. Das verhindert deutliche Überschneidungen mit Pflanzenbasen, Dekoration, Korallen und fester Innentechnik. Es ist kein physikalischer Kontaktlöser: Überhängende Äste, Blätter und Hohlräume werden nicht einzeln auf Kollision geprüft. Das kann besonders in einer Höhle oder bei stark gedrehten Objekten vorsichtigere Abstände erzwingen, als geometrisch nötig wären. Schwimmpflanzen verwenden eine eigene Höhenebene.

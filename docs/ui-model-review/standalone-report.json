@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "run_id": 39352975285,
+  "job_id": 118401228490,
+  "commit": "64135e7a67ccec11bb3303983c816a317bfac8ca",
+  "checks": [
+    "PASS: Downloaded HTML alone starts, renders decoration and quantized variant fish, opens genetics and enables tweezers without additional HTTP resources. bytes=150080176. file: tested=True"
+  ],
+  "physical_iPad_tested": false
+}

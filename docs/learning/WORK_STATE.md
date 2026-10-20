@@ -1,41 +1,40 @@
-# Lernumgebungen – Arbeitsstand
+# Lernumgebungen – aktueller Arbeitsstand
 
-Neuer Auftrag vom 20.10.2026: vollständige biologiedidaktische Rekonstruktion für Klassen 8–10 in sieben Phasen.
+Stand: 20.10.2026. Branch `feature/biology-learning-environments`.
 
-## Wiederherstellung und Basis
+## Gesicherter Stand
 
-- Unterbrochener Stand `78f3ce6` vollständig erhalten, Arbeitsbaum unverändert.
-- `origin/main` = `666df90`, Merge von PR #7; identischer Dateibaum wie `78f3ce6`.
-- Neuer Branch `feature/biology-learning-environments`, auf diesem Merge begonnen.
-- Maßstab, Modelle, Genetik, Pinzette, Grafikprofile und bisherige Speicherstände bleiben Grundlage.
+- Wiederhergestellter Vorgänger `78f3ce6` war sauber. PR #7 ist bereits in `main` (`666df90`) gemergt; sein Dateibaum wurde vollständig übernommen.
+- Phasen 1–6 des neuen Gesamtauftrags sind umgesetzt. Laufzeitcode zuletzt in `9e13bbb` gesichert; Dokumentation/Testkorrekturen danach separat.
+- Das hochgeladene Originalcurriculum ist geprüft. Inhalte und Seitenbezüge: `REPORT.md`; Herkunft/Prüfsumme und biologische Grenzen: `AUDIT.md`.
+- Keine Änderungen an `AGENTS.md`, Modellen/Texturen oder Veröffentlichungsworkflows. Kein Merge, keine Änderung an `main`.
 
-## Quelle und Prüfgrenze
+## Laufende Endprüfung (Phase 7)
 
-Vom Auftraggeber genannte Originalquelle: [Fachcurriculum Biologie SJ 2025/26](https://ets-toenning.de/wp-content/uploads/2025/07/Schulinternes-Fachcurriculum-Biologie-SJ-2025-26.pdf).
-Abruf am 20.10.2026 durch verwaltete Netzwerkregel blockiert (CONNECT 403). Bis zum direkten Quellenabgleich gilt die ausdrücklich im Auftrag vorgegebene Zuordnung: 8 Ökologie/Wald, 9 Genetik/Evolution, 10 Mensch/Ökosysteme/Nordsee/Wattenmeer. Keine Behauptung einer verifizierten Lehrplan-Zertifizierung.
+- **87 Node-Tests bestanden**, keine Fehler/übersprungenen Tests.
+- **6 gezielte Browserprüfungen bestanden**: echte Ressourcenbegrenzung, Lernprodukte, Tastaturfokus, Pinzette/Rendererpause, unbekannte Anfangsumsätze und Export/Import, gesperrter Browserspeicher.
+- Der unabhängige Testläufer schreibt nach `/tmp/aquarium-learning-final/status.json` und pro Gruppe in `.log`-Dateien. Er bleibt bei verlorener Chat-Ausgabeverbindung bestehen.
+- Reihenfolge: Modultests → gezielte Browserchecks → vollständige Lernumgebungen → bisherige Bereitschaft/Tutorial → Aquascaping → Ökosystem → Genetik → Gesamtdownload. GPU-Browserläufe nur nacheinander ausführen.
+- Laufzeitdateien bleiben während der Endprüfung unverändert. Prüfsummen: `evidence/runtime.sha256`.
+- Frühere Teilläufe belegten bereits alle freien Forschungswege und die Missionsgruppen 8/9, wurden aber nicht als vollständige Abnahme gezählt. Ein Testprozess verlor seine Ausgabeverbindung (`Broken pipe`); keine Spielausnahme. Ein Importtest musste auf die asynchrone Dateilesung warten.
 
-## Phasen
+Nach Abschluss erfolgreiche Berichte und aussagekräftige Screenshots übernehmen, `VALIDATION.md` vervollständigen und diesen Arbeitsstand aktualisieren. Reale Schul-iPads/Safari und Unterrichtswirksamkeit nicht als geprüft ausgeben.
 
-1. Audit und curriculare Karte: in Arbeit.
-2. Gemeinsame pädagogische Architektur: ausstehend.
-3. Reduzierte Oberflächen und Hilfen: ausstehend.
-4. 14 Missionen und Untersuchungssystem: ausstehend.
-5. Populationsgenetik/Selektion und ökologische Vertiefungen: ausstehend.
-6. Lehrkraft, Differenzierung, Lernstandsdiagnose: ausstehend.
-7. Fachliche, didaktische und technische Prüfung: ausstehend.
+## Reproduzieren
 
-Keine Arbeiten aus PR #7 erneut ausführen; neue Funktionalität in schrittweise integrierten Modulen ergänzen. Keine Änderungen an AGENTS.md oder Veröffentlichungsworkflows. Kein Merge.
+Statischen Server starten; `README.md` beschreibt den Projektpfad. Danach einzeln:
 
-## Fortschritt nach dem Quellenabgleich
+```sh
+node --test tests/*.test.mjs
+python3 tests/learning_additional_browser.py
+python3 tests/learning_browser.py
+python3 tests/readiness_browser.py
+python3 tests/aquascaping_browser.py
+python3 tests/ecosystem_browser.py
+python3 tests/genetics_browser.py
+python3 tests/standalone_browser.py
+```
 
-Das Original-PDF wurde anschließend vom Auftraggeber bereitgestellt. Text aus allen 36 Seiten extrahiert, relevante Abschnitte S. 3–4, 9–10, 14–15, 19–20 direkt geprüft. Die zuvor offene Quellenprüfung ist damit erledigt; die externe Website bleibt für den Entwicklungscontainer gesperrt.
+## GitHub
 
-Phasen 1–6 sind implementiert (`75f3602`): gemeinsame Jahrgangsarchitektur, reduzierte UI, 14 Missionen, Begriffshilfen, echte Vergleichsbecken, Generations-/Selektionsmodell, lokale Lehrkraftwerkzeuge und Lernprodukte. Phase 7 läuft. 83 Modultests bestehen. Erste Browserprüfung führte zur Korrektur der Esc-/Kamerasperre und zum Ausblenden der alten Zeitsteuerung. Abschluss erst nach vollständigem Integrationslauf und Bericht.
-
-## Zweite Prüfiteration
-
-- Resets im Lehrkraftmodus betreffen die ausgewählte Mission und behalten eine wiederherstellbare Sicherung von Becken, Notizen und Vergleichsdaten.
-- Lokale und importierte Lernprodukte zeigen auch validierte Messreihen; externe JSON-Daten werden nicht als Code oder Spielzustand ausgeführt.
-- Die Fachprüfung ergänzt die Begrenzung des Pflanzenwachstums durch tatsächlich verfügbare Ressourcen. Die vorhandene automatische Fortpflanzung bleibt auch in Lernbecken aktiv.
-- Frühere Browserläufe belegen die drei freien Forschungspfade und echte Daten, endeten aber vor Abschluss (einmal GPU-Zeitlimit bei geöffnetem Werkzeug, einmal leere Antwort während paralleler Quelländerung). Diese Läufe werden nicht als vollständige Abnahme gezählt. Für die Endprüfung werden die Laufzeitdateien unverändert gelassen.
-- PR-Erstellung mit `gh pr create --draft ...` wurde versucht: `Post https://api.github.com/graphql: Forbidden`. Git-Push funktioniert. Ohne bestätigte PR-Erstellung wird keine Vorschau-URL behauptet.
+Früh und regelmäßig gepusht. `gh pr create --draft --base main --head feature/biology-learning-environments ...` wurde versucht, scheitert an `Post https://api.github.com/graphql: Forbidden`. Git-Push funktioniert. `PR_BODY.md` ist vorbereitet. Keine PR-Nummer oder veröffentlichte Vorschau behaupten, solange keine Erstellung bestätigt ist. Die vorhandenen Vorschau-Workflows wurden nur gelesen, nicht verändert.

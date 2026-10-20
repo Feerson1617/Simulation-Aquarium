@@ -4,7 +4,7 @@ Stand: 20. Oktober 2026. Die Prüfungen verwenden echte lokale Spielseiten unter
 
 ## Abgeschlossene Prüfungen
 
-- **68 Node-Tests bestanden**, kein übersprungener oder abgebrochener Test. Enthalten sind bestehende Biologie-, Genetik-, Katalog-, Grafik- und Platzierungsregeln sowie 13 gezielte Maßstabsfälle.
+- **69 Node-Tests bestanden**, kein übersprungener oder abgebrochener Test. Enthalten sind bestehende Biologie-, Genetik-, Katalog-, Grafik- und Platzierungsregeln sowie 14 gezielte Maßstabsfälle.
 - **2 GLB-Prüfungen bestanden**, einschließlich vorhandener Organismenpakete und neuer Anubias-Dateien.
 - Die tatsächlichen GLB-Dateien und die Fotoreferenz stimmen mit den dokumentierten SHA-256-Hashes überein.
 - Gespeichertes lokales Setup und Starthelfer erneut ausgeführt: Werkzeuge vorhanden, HTTP 200 und exakter Hash der aktuellen index.html. Vorhandene `install_script`-/`start_skill`-Konfiguration bleibt erhalten; keine neue Veröffentlichung ausgelöst.
@@ -15,11 +15,11 @@ Die endgültigen Ergebnisse werden nach Ende jedes Runners aus dessen aktuellem 
 
 | Bereich | Prüfinhalt | Status |
 | --- | --- | --- |
-| Maßstab | echte Vertices und Glasgrenzen aller sieben Becken; Fisch-/Pflanzenverhältnis und Profilgleichheit; biologische Regler; alte Skalen; Alter/Geschlecht/Biomasse; Maus/Touch und Reload | **8 Prüfschritte mit finalen Assets bestanden**, keine JavaScript-Fehler |
+| Maßstab | echte Vertices und Glasgrenzen aller sieben Becken; Fisch-/Pflanzenverhältnis und Profilgleichheit; biologische Regler; alte Skalen; Alter/Geschlecht/Biomasse; Maus/Touch und Reload | 8 Prüfschritte bestanden; abschließende Ergänzung für die gesamte Blattkrone läuft |
 | Technik | vier getrennte Innenaggregate in sieben Becken; erneute Platzprüfung nach Beckenwechsel; Außenfilter und Sumpf in 30/700 L | **12 Prüffälle bestanden**, keine JavaScript-Fehler |
 | Katalog/UI | gemeinsame Artbilder, reale 3D-Auswahl, Pinzette aller Kategorien, Wasser-/Zeit-/Grafikbedienung, Tutorial und Touch | **13 Prüfschritte bestanden**, keine JavaScript-Fehler |
-| Genetik | reale Käufe, F1/F2, Nachwuchsgröße, Platy, Eier/Schlupf, Speichererhalt, Touch | ausstehend |
-| Ökosystem | Analyse, Szenarien, Mikroskop und alte Spielstände | ausstehend |
+| Genetik | reale Käufe, F1/F2, Nachwuchsgröße, Platy, Eier/Schlupf, Speichererhalt, Touch | **9 Prüfschritte bestanden**, keine JavaScript-/Shader-/Ressourcenfehler |
+| Ökosystem | Analyse, Szenarien, Mikroskop und alte Spielstände | **12 Prüfschritte bestanden**, keine JavaScript-/Ressourcenfehler |
 | Aquascaping | Maus/Touch, Grenzen, Kollisionen, Kamerasperre, Abbruch und Speicherung | ausstehend |
 | Bereitschaft | Spielstart, Tutorial, Pflege, Wasserwerte, Zeit und Import/Export | ausstehend |
 | HTML-Download | heruntergeladene Datei allein mit Modellen, Varianten, Genetik und Pinzette | ausstehend |
@@ -33,6 +33,8 @@ Das finale Modell verbessert Blattbreite, Neigung und Fotostruktur; Rhizom und W
 ## Während der Arbeit behobene Probleme
 
 Die natürliche Verkleinerung machte den exakten Desktop-Klick auf dünne Pflanzenteile unzuverlässig. Eine begrenzte Bildschirmauswahlhilfe am sichtbaren Mittelpunkt behebt dies; der vollständige UI-Lauf bestand danach. Die erste Außenfilter-Testdatei verwendete eine nicht existierende Katalog-ID und wurde vom Loader korrekt abgewiesen. Der korrigierte vollständige Lauf mit der echten ID `external600` bestand; die Importprüfung wurde nicht gelockert.
+
+Eine zusätzliche Randprüfung wies nach, dass die bisherige Pflanzenbasis-Freistellung Blätter über die Scheiben lassen konnte. Die neue Kronenvermessung und separate Glasfreistellung beheben dies; der neue Node-Test scheiterte vorher und besteht nachher. Der Browserlauf ergänzt dafür eine tatsächliche Ziehgeste außerhalb des Canvas. Der Dekorationskauftest verwendet unabhängige leere Becken je Stück: zufällige Drehung kann selbst große Becken so aufteilen, dass eine weitere zusammenhängende Fläche fehlt. Automatisches Umräumen gehört nicht zur Platzsuche.
 
 ## Aussagegrenzen
 

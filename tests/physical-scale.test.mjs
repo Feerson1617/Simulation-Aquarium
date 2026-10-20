@@ -79,3 +79,11 @@ test('later tank changes recheck placement and recover saved objects when room b
  s.liters=700;normalizeSpatialState(s,s.spatial,catalog);assert.equal(s.spatial.unplaced.length,0);
  assert.ok(s.spatial.relocations.length<=s.entities.length);const save=JSON.stringify(s);normalizeSpatialState(s,s.spatial,catalog);assert.equal(JSON.stringify(s),save);
 });
+
+test('plant placement leaves room for the mature canopy at glass while roots may overlap foliage',()=>{
+ const plant=entity('anubias'),adult=organismDimensions({...plant,biomass:2.2},catalog.anubias);
+ for(const liters of Object.keys(TANK_DIMENSIONS)){const s=state([],{liters}),d=tankDimensions(s),p=physicalPlacement(s,plant,catalog,100,100);assert.equal(p.valid,true);
+  assert.ok(Math.abs(p.x)*d.x/WORLD_PER_CM+adult.widthCm/2<=d.innerLengthCm/2,'full canopy must stay inside side glass');
+  assert.ok(Math.abs(p.z)*d.z/WORLD_PER_CM+adult.widthCm/2<=d.innerDepthCm/2,'full canopy must stay inside front glass');
+ }
+});

@@ -55,12 +55,21 @@ def action(page, selector):
 
 
 def import_save(page, payload):
+    import_save.serial = getattr(import_save, 'serial', 0) + 1
+    payload = copy.deepcopy(payload)
+    payload['day'] += import_save.serial * .00001
     page.locator('#import-file').set_input_files({'name': 'test-aquarium.json', 'mimeType': 'application/json', 'buffer': json.dumps(payload).encode()})
     page.wait_for_function('''(expected)=> {
       const actual=JSON.parse(localStorage.getItem('aquarium-werkstatt-v1'));
-      return actual?.entities.length===expected.length && expected.every((entity,index)=>
-        ['uid','species','x','z'].every(key=>actual.entities[index][key]===entity[key]));
-    }''', arg=payload['entities'], polling=100)
+      return actual?.day===expected.day && actual?.entities.length===expected.entities.length && expected.entities.every((entity,index)=>
+        ['uid','species'].every(key=>actual.entities[index][key]===entity[key]));
+    }''', arg=payload, polling=100)
+    actual = saved(page)
+    for before, after in zip(payload['entities'], actual['entities']):
+        if any(before[key] != after[key] for key in ['x', 'z']):
+            record = next(r for r in actual['spatial']['relocations'] if r['uid'] == before['uid'])
+            assert record['from'] == {key: before[key] for key in ['x', 'z']}
+            assert record['to'] == {key: after[key] for key in ['x', 'z']}
     page.evaluate('()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))')
 
 
@@ -194,31 +203,47 @@ try:
         page.mouse.up()
         page.wait_for_function('window.aquariumAquascapingSnapshot().phase==="idle"', polling=100)
         edge = target(page, 'spiderwood')
-        assert abs(edge['x']) + .78 <= 3.45001 and abs(edge['z']) + .49 <= 1.50001
+        physical = page.evaluate('window.aquariumPhysicalSnapshot()')
+        bounds = next(o['worldBounds'] for o in physical['objects'] if o['species'] == 'spiderwood')
+        half_x = physical['tank']['innerLengthCm'] * .05 / 2
+        half_z = physical['tank']['innerDepthCm'] * .05 / 2
+        assert bounds['min'][0] >= -half_x - .00001 and bounds['max'][0] <= half_x + .00001
+        assert bounds['min'][2] >= -half_z - .00001 and bounds['max'][2] <= half_z + .00001
         assert info(page)['camera'] == camera
         passed('Pointer capture outside the canvas keeps the full object inside tank walls')
         action(page, '#tweezers-button')
 
-        # Test the actual shop and all six rendered additions, not just catalog metadata.
+        # Each real purchase gets an empty full-sized tank. Randomly rotated
+        # pieces may fragment a shared floor; packing them all is not required.
         empty = layout()
-        import_save(page, empty)
+        empty['liters'] = 700
+        purchased = []
+        for species in ['spiderwood', 'mopani', 'slate', 'dragonstone', 'basaltarch']:
+            import_save(page, empty)
+            if page.locator('[data-act="close-panel"]:visible').count():
+                action(page, '[data-act="close-panel"]')
+            action(page, '[data-panel="shop"]')
+            action(page, '[data-department="deko"]')
+            action(page, '[data-waterfilter="all"]')
+            action(page, f'[data-species="{species}"]')
+            action(page, '[data-act="add-species"]')
+            assert len(saved(page)['entities']) == 1 and saved(page)['entities'][0]['species'] == species
+            purchased.append(species)
+            action(page, '[data-act="close-panel"]')
+            page.wait_for_function('(id)=>{const a=window.aquariumPhysicalSnapshot().objects;return a.length===1&&a[0].species===id&&a[0].meshCm}',arg=species)
+            assert target(page, species)['bottomY'] is not None
+            screenshot(page, 'physical-shop-' + species)
+        assert len(purchased) == 5
         action(page, '[data-panel="shop"]')
         action(page, '[data-department="deko"]')
         action(page, '[data-waterfilter="all"]')
-        for species in ['spiderwood', 'mopani', 'slate', 'dragonstone', 'basaltarch']:
-            action(page, f'[data-species="{species}"]')
-            action(page, '[data-act="add-species"]')
-        assert len(saved(page)['entities']) == 5
         action(page, '[data-species="reefcave"]')
         action(page, '[data-act="add-species"]')
-        assert len(saved(page)['entities']) == 5, 'Marine hardscape must not be added to fresh water'
+        assert len(saved(page)['entities']) == 1, 'Marine hardscape must not be added to fresh water'
         expect(page.locator('#toast-root')).to_contain_text('Meerwasser')
         action(page, '[data-act="close-modal"]')
         action(page, '[data-act="close-panel"]')
-        page.wait_for_function('window.aquariumSnapshot().graphics.triangles>8000', polling=100)
-        screenshot(page, 'five-freshwater-decorations')
-        assert all(item['bottomY'] is not None for item in info(page)['targets'])
-        passed('Five new freshwater-compatible decorations purchased, placed freely and rendered')
+        passed('Five freshwater-compatible decorations each purchased, placed freely and rendered at physical size')
 
         action(page, '[data-panel="shop"]')
         action(page, '[data-act="open-settings"]')

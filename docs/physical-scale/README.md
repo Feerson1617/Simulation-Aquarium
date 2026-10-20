@@ -26,7 +26,7 @@ Der Bodengrund besitzt eine Grundschicht von 4 cm mit kleiner Geländeneigung. T
 
 ## Organismen, Wachstum und LOD
 
-Fisch-/Wirbellosenmodelle werden an ihren tatsächlich geladenen, geschlechtsabhängigen Vertexdaten vermessen; bei Wirbellosen zählt der Körper beziehungsweise die Schale statt langer Antennen. Anatomische Proportionen bleiben dabei erhalten. Die Eltern- und Jungtiermodelle erhalten dieselbe Kalibrierung. Bei Pflanzen und Korallen legen Wuchshöhe und Bestandsbreite die Kalibrierung fest. Unterschiedliche GLB-Ausgangseinheiten erzeugen keine willkürlichen Größen mehr.
+Fisch-/Wirbellosenmodelle werden an ihren tatsächlich geladenen, geschlechtsabhängigen Vertexdaten vermessen; bei Wirbellosen zählt der Körper beziehungsweise die Schale statt langer Antennen. Anatomische Proportionen bleiben dabei erhalten. Die Eltern- und Jungtiermodelle erhalten dieselbe Kalibrierung. Bei Pflanzen und Korallen legen Wuchshöhe und Bestandsbreite die Kalibrierung fest. Die Breite ist der umhüllende Kronendurchmesser aus den realen Vertexabständen zum Modellzentrum; sie bleibt bei Drehungen als Grenze gültig. Wurzelbasen und Nachbarblätter dürfen sich räumlich überlagern, während die reife Krone vollständig innerhalb der Glasscheiben bleiben muss. Die Pflanzenbasis bleibt aufrecht; lokale Blattbewegung durch Strömung bleibt erhalten. Unterschiedliche GLB-Ausgangseinheiten erzeugen keine willkürlichen Größen mehr.
 
 Die gespeicherte Individual-ID und Art bestimmen eine reproduzierbare Variation zwischen 94 und 106 Prozent. Sie verbraucht keine Zufallszahlen der biologischen Simulation. Hinterlegte Geschlechtswerte betreffen Guppy, Molly, Platy, Schwertträger, Endler, Metallpanzerwels, Betta, Antennenwels und Schmetterlingsbuntbarsch. Für andere Arten werden keine unbekannten exakten Geschlechtsunterschiede behauptet.
 
@@ -38,7 +38,7 @@ Desktop und iPad verwenden dieselben Größenfunktionen. Jede LOD-Geometrie wird
 
 Das Hauptspeicherformat bleibt Version 1. **Gespeicherte X-/Z-Werte bleiben relative Beckenkoordinaten**, deren Bedeutung unter `spatial.positions = tank-normalized-v1` ausdrücklich festgelegt ist. Erst die gemeinsame Transformation rechnet sie in die physikalische Welt um. Dadurch behalten alte Becken ihre Anordnung relativ zu ihren Scheiben; niemand muss alte Zahlenwerte als Zentimeter missverstehen.
 
-Beim ersten Import alter Spielstände werden manuelle biologische Größen/Drehungen durch den natürlichen Entwicklungsstand ersetzt. Die bisherigen Werte bleiben unter `spatial.originalOverrides` erhalten. Positionen werden auf passende Grenzen und feste Nachbarn geprüft; nötige Verschiebungen werden mit Ausgangs- und Zielkoordinaten unter `spatial.relocations` aufgezeichnet. Pflanzen reservieren ihren reifen Wurzel-/Rhizombereich, Korallen ihre gewählte Koloniefläche. Blätter dürfen sich natürlich überlagern. Käufe fester Objekte suchen eine freie Fläche; ohne Platz wird kein Objekt gestapelt. Ein späterer Becken- oder Technikwechsel prüft die Anordnung erneut. Zuvor nicht platzierbare Objekte werden bei zusätzlichem Platz wieder zugelassen; das Protokoll bleibt pro UID begrenzt.
+Beim ersten Import alter Spielstände werden manuelle biologische Größen/Drehungen durch den natürlichen Entwicklungsstand ersetzt. Die bisherigen Werte bleiben unter `spatial.originalOverrides` erhalten. Positionen werden auf passende Grenzen und feste Nachbarn geprüft; nötige Verschiebungen werden mit Ausgangs- und Zielkoordinaten unter `spatial.relocations` aufgezeichnet. Pflanzen reservieren ihren reifen Wurzel-/Rhizombereich, Korallen ihre gewählte Koloniefläche. Blätter dürfen sich natürlich überlagern. Käufe fester Objekte suchen eine passende zusammenhängende Fläche; wird keine gefunden, wird kein Objekt gestapelt. Zufällig gedrehte Stücke können freie Fläche aufteilen. Die Suche räumt vorhandene Einrichtung nicht automatisch um; die Pinzette und Dekorationsausrichtung helfen beim Neuordnen. Ein späterer Becken- oder Technikwechsel prüft die Anordnung erneut. Zuvor nicht platzierbare Objekte werden bei zusätzlichem Platz wieder zugelassen; das Protokoll bleibt pro UID begrenzt.
 
 Ein physisch überfüllter alter Bestand kann keine überschneidungsfreie Lösung haben. Solche Objekte bleiben mit UID, Genetik und biologischem Zustand gespeichert und werden ausdrücklich als vorübergehend nicht dargestellt gemeldet (`spatial.unplaced`), statt gelöscht oder verkleinert zu werden. Über die Detailauswahl, Pinzette oder bewusste Bestandsreduktion kann ein geeigneter Platz hergestellt werden. Zu große Tiere werden ebenfalls nicht künstlich verkleinert. Zu hohe Pflanzen können emers wachsen; die Karte weist auf Kürzen oder ein höheres Becken hin.
 
@@ -59,6 +59,17 @@ Ein erster UV-Versuch erfasste hellen Hintergrund. Die [verworfene Texturansicht
 Die Aufnahmen zeigen die echte Spielgalerie bei Maximum, gleichem Format und tatsächlichem Drehen mit der Maus. Während der Galerieaufnahme wurde nur das verdeckte Aquarium pausiert, um den Software-Renderer zu entlasten. Die produktiven GLBs ersetzen anschließend genau den getesteten Anubias-Modellpfad. Rhizom, Wurzeln, eine begrenzte Fotoauflösung und wiederholte Blatttextur bleiben vereinfacht. **Das Ergebnis ist ein sichtbarer botanischer Fortschritt, keine vollständige Fotorealismus-Abnahme.** Alle anderen hochwertigen Bestandsmodelle, insbesondere Neon und Molly, bleiben erhalten.
 
 Quelle, Rechte und reproduzierbarer Blender-Quellcode: [Assetnachweis](../../assets/species/ATTRIBUTION.md), `tools/physical/build_anubias.py`. Dieser erzeugt nur zwei Prüfdateien in `/tmp/aquarium-botanical-review`. Erst nach Sichtprüfung und Quantisierung werden sie nach `assets/species/anubias-{desktop,mobile}.glb` übernommen. Der ältere Seriengenerator überspringt diese Art, damit er die Fotoarbeit nicht durch ein vereinfachtes Modell ersetzt.
+
+### Modellpaar reproduzieren
+
+Aus dem Repository-Verzeichnis, mit dem vorhandenen Blender und Python/NumPy:
+
+```bash
+blender -b --python tools/physical/build_anubias.py
+python tools/species/quantize_glb.py /tmp/aquarium-botanical-review/anubias-desktop.glb /tmp/aquarium-botanical-review/anubias-mobile.glb
+```
+
+Der zweite Schritt quantisiert die beiden Prüfdateien mit dem bereits vorhandenen lokalen Werkzeug; kein zusätzlicher Decoder oder Dienst wird eingeführt. Die Dateien in assets werden durch diese Befehle nicht überschrieben. Das Prüfverzeichnis enthält anschließend die GLBs und einen Herkunftsdatensatz. Für Änderungen die aktuellen Browservergleiche erneut durchführen, erst dann das geprüfte Paar übernehmen und die Katalogvorschau regenerieren.
 
 ## Verifikation und Grenzen
 

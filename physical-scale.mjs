@@ -60,7 +60,10 @@ export function physicalFootprint(state,entity,type){
 }
 export function physicalPlacement(state,entity,catalog,x,z){
  const type=catalog[entity.species];if(!type||entity.dead||!Number.isFinite(x)||!Number.isFinite(z))return {valid:false,reason:'Dieses Objekt lässt sich hier nicht platzieren.'};
- const half=physicalFootprint(state,entity,type),maxX=Math.min(3.2,3.49-half.x),maxZ=Math.min(1.3,1.57-half.z);
+ const half=physicalFootprint(state,entity,type),tank=tankDimensions(state),size=organismDimensions(entity,type);
+ // Foliage can overlap other foliage, but the mature canopy must clear the glass.
+ const canopy=type.category==='plant'?size.widthCm/size.growth/2*WORLD_PER_CM:0;
+ const maxX=Math.min(3.2,3.49-Math.max(half.x,canopy/tank.x)),maxZ=Math.min(1.3,1.57-Math.max(half.z,canopy/tank.z));
  if(maxX<0||maxZ<0)return {valid:false,reason:'Dieses Objekt ist in seiner tatsächlichen Größe zu groß für das Becken.'};
  x=clamp(x,-maxX,maxX);z=clamp(z,-maxZ,maxZ);
  const candidate={x,z};if(animal(type))return {...candidate,valid:true,reason:''};
@@ -69,7 +72,7 @@ export function physicalPlacement(state,entity,catalog,x,z){
   const oh=physicalFootprint(state,other,ot),scale=tankDimensions(state),padding=.2*WORLD_PER_CM;
   if(Math.abs(x-other.x)<half.x+oh.x+padding/scale.x&&Math.abs(z-other.z)<half.z+oh.z+padding/scale.z)return {...candidate,valid:false,reason:'Hier steht bereits eine Pflanze oder feste Einrichtung.'};
  }
- const tank=tankDimensions(state),fixed=hardwareFootprints(state);
+ const fixed=hardwareFootprints(state);
  if(type.shape!=='floating'&&fixed.some(([fx,fz,hx,hz])=>Math.abs(x-fx)<half.x+hx*WORLD_PER_CM/tank.x&&Math.abs(z-fz)<half.z+hz*WORLD_PER_CM/tank.z))return {...candidate,valid:false,reason:'Halte Abstand zur festen Technik.'};
  return {...candidate,valid:true,reason:''};
 }
@@ -95,7 +98,7 @@ export function normalizeSpatialState(state,previous,catalog){
  const existing=state.spatial?.version===1?state.spatial:previous?JSON.parse(JSON.stringify(previous)):null;
  const spatial=existing||{version:1,unit:'cm',positions:'tank-normalized-v1',originalOverrides:{},relocations:[],unplaced:[]};
  state.spatial=spatial;
- const layout=[state.liters,state.filter,!!state.heater,!!state.skimmer,!!state.air].join(':');
+ const layout=[state.liters,state.filter,!!state.heater,!!state.skimmer,!!state.air,'canopy-v2'].join(':');
  if(existing&&spatial.layout===layout)return spatial;
  if(!existing)for(const entity of state.entities){
   const type=catalog[entity.species];if(!type)continue;

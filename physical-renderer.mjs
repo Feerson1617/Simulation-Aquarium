@@ -2,14 +2,15 @@ import { WORLD_PER_CM, tankDimensions, organismDimensions, naturalRotation, norm
 
 /** Measure real, currently morphed vertices in root-local coordinates once per lease. */
 export function preparePhysicalSpecimen(group,content,type,T){
- group.updateMatrixWorld(true);const inverse=group.matrixWorld.clone().invert(),full=new T.Box3(),body=new T.Box3(),point=new T.Vector3();let found=false;
+ group.updateMatrixWorld(true);const inverse=group.matrixWorld.clone().invert(),full=new T.Box3(),body=new T.Box3(),point=new T.Vector3(),horizontal=[];let found=false;
  group.traverse(mesh=>{if(!mesh.isMesh||!mesh.visible)return;
   const matrix=inverse.clone().multiply(mesh.matrixWorld),name=mesh.name+' '+(mesh.userData.surfaceRole||''),isBody=type.category==='invert'&&(/shell|valve|carapace|somite|body|test/i.test(name));
-  for(let k=0;k<mesh.geometry.attributes.position.count;k++){mesh.getVertexPosition(k,point);point.applyMatrix4(matrix);full.expandByPoint(point);if(isBody){body.expandByPoint(point);found=true}}
+  for(let k=0;k<mesh.geometry.attributes.position.count;k++){mesh.getVertexPosition(k,point);point.applyMatrix4(matrix);full.expandByPoint(point);if(['plant','coral'].includes(type.category))horizontal.push(point.x,point.z);if(isBody){body.expandByPoint(point);found=true}}
  });
  if(full.isEmpty())return;
  const measure=found?body:full,size=full.getSize(new T.Vector3()),bodySize=measure.getSize(new T.Vector3()),floating=type.shape==='floating',animal=['fish','invert'].includes(type.category);
- group.userData.physicalBasis={size:size.toArray(),measure:bodySize.toArray(),origin:[(full.min.x+full.max.x)/2,animal?(full.min.y+full.max.y)/2:floating?full.max.y:full.min.y,(full.min.z+full.max.z)/2]};
+ const cx=(full.min.x+full.max.x)/2,cz=(full.min.z+full.max.z)/2;let diameterXZ=0;for(let k=0;k<horizontal.length;k+=2)diameterXZ=Math.max(diameterXZ,2*Math.hypot(horizontal[k]-cx,horizontal[k+1]-cz));
+ group.userData.physicalBasis={size:size.toArray(),measure:bodySize.toArray(),diameterXZ,origin:[cx,animal?(full.min.y+full.max.y)/2:floating?full.max.y:full.min.y,cz]};
  group.physicalContent=content;
 }
 export function fitPhysicalCamera(view,front=false){
@@ -56,7 +57,7 @@ function transformModel(view,object,entity,type,T){
  let sx,sy,sz;
  if(['fish','invert'].includes(type.category)){const axis=type.category==='fish'?measure[0]:Math.max(...measure);sx=sy=sz=target.lengthCm*WORLD_PER_CM/Math.max(.00001,axis)}
  else if(type.category==='decor'){sx=target.lengthCm*WORLD_PER_CM/size[0];sy=target.heightCm*WORLD_PER_CM/size[1];sz=target.widthCm*WORLD_PER_CM/size[2]}
- else {sx=sz=target.widthCm*WORLD_PER_CM/Math.max(size[0],size[2]);sy=target.heightCm*WORLD_PER_CM/size[1]}
+ else {sx=sz=target.widthCm*WORLD_PER_CM/(basis.diameterXZ||Math.hypot(size[0],size[2]));sy=target.heightCm*WORLD_PER_CM/size[1]}
  group.scale.set(1,1,1);
  const scratch=object.physicalMatrices||(object.physicalMatrices={r:group.matrix.clone(),c:group.matrix.clone(),s:group.matrix.clone(),o:group.matrix.clone()});
  scratch.r.makeRotationFromQuaternion(group.quaternion);scratch.c.copy(scratch.r).invert();scratch.s.makeScale(1/d.x,1/d.y,1/d.z);scratch.c.multiply(scratch.s).multiply(scratch.r);scratch.s.makeScale(sx,sy,sz);scratch.o.makeTranslation(-basis.origin[0],-basis.origin[1],-basis.origin[2]);content.matrix.copy(scratch.c).multiply(scratch.s).multiply(scratch.o);content.matrixAutoUpdate=false;content.matrixWorldNeedsUpdate=true;
@@ -79,6 +80,8 @@ export function updatePhysicalModels(view,types,T){
  for(const entity of view.state.entities){
   const object=view.objects.get(entity.uid),type=types[entity.species];if(!object||!type)continue;const group=object.group;
   if(type.category!=='fish'&&type.category!=='decor')group.rotation.y=naturalRotation(entity);
+  // Keep rooted crowns upright; local leaf shaders still provide current motion.
+  if(['plant','coral'].includes(type.category))group.rotation.x=group.rotation.z=0;
   const half=transformModel(view,object,entity,type,T);if(!half)continue;
   group.visible=!unplaced.includes(entity.uid);const animal=['fish','invert'].includes(type.category);
   if(animal){

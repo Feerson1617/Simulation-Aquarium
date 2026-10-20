@@ -1,88 +1,25 @@
-name: Aquarium – verbleibende Regressionen
+name: Aquarium – HTML-Download prüfen
 on:
-  pull_request:
+  push:
+    branches: [feature/catalog-ui-realism-review]
     paths:
-      - 'tests/genetics_browser.py'
       - '.github/workflows/ui-model-review.yml'
 permissions:
   contents: read
-  actions: read
 jobs:
-  regression:
+  standalone:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
         with:
-          path: aquarium-simulation
           persist-credentials: false
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Browser installieren
+      - name: Kostenlosen Browser installieren
         run: |
-          python -m pip install playwright==1.56.0 Pillow==11.3.0
+          python -m pip install playwright==1.56.0
           python -m playwright install --with-deps chromium
-          sudo ln -sf "$(python -c 'from playwright.sync_api import sync_playwright; p=sync_playwright().start(); print(p.chromium.executable_path); p.stop()')" /usr/bin/chromium
-      - name: Eingabefotos und Freistellung prüfen
-        working-directory: aquarium-simulation
-        run: |
-          python - <<'PY'
-          import base64, hashlib, io, urllib.request
-          from PIL import Image
-          sources = {
-            'original-plant': 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Anubias_barteri_var._nana_-_Botanischer_Garten_-_Heidelberg%2C_Germany_-_DSC01278.jpg/1280px-Anubias_barteri_var._nana_-_Botanischer_Garten_-_Heidelberg%2C_Germany_-_DSC01278.jpg',
-            'alternative-plant': 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Anubias_barteri_var._nana.jpg',
-          }
-          for name, url in sources.items():
-              try:
-                  req=urllib.request.Request(url,headers={'User-Agent':'Simulation-Aquarium/1.0 (public research; no account)'})
-                  data=urllib.request.urlopen(req,timeout=60).read(25000001)
-                  assert len(data)<=25000000
-                  image=Image.open(io.BytesIO(data)).convert('RGB')
-                  image.thumbnail((800,600))
-                  buffer=io.BytesIO();image.save(buffer,format='JPEG',quality=90)
-                  print('REFERENCE_JPEG '+name+' '+base64.b64encode(buffer.getvalue()).decode(),flush=True)
-                  print('REFERENCE_SHA256 '+name+' '+hashlib.sha256(data).hexdigest(),flush=True)
-              except Exception as error:
-                  print('REFERENCE_FAILURE '+name+' '+str(error),flush=True)
-          from pathlib import Path
-          source=Path('index.html').read_text()
-          for token in ['aquariumRenderedIndividuals','correctFishProportions']:
-              at=source.find(token);print('RENDER_PROBE '+source[max(0,at-500):at+1800],flush=True)
-          PY
-      - name: Genetik einschließlich tatsächlicher Jungfischgröße
-        working-directory: aquarium-simulation
-        env:
-          AQUARIUM_GENETICS_RESULTS: ${{ github.workspace }}/aquarium-simulation/docs/ui-model-review/evidence/genetics
-        run: |
-          python -m http.server 8000 --directory .. > /tmp/aquarium-test-server.log 2>&1 &
-          server_pid=$!
-          trap 'kill "$server_pid"' EXIT
-          python tests/genetics_browser.py
-      - name: Ökosystem, Szenarien und Touch
-        if: ${{ !cancelled() }}
-        working-directory: aquarium-simulation
-        run: |
-          python -m http.server 8000 --directory .. > /tmp/aquarium-test-server.log 2>&1 &
-          server_pid=$!
-          trap 'kill "$server_pid"' EXIT
-          python tests/ecosystem_browser.py
-      - name: Prüfberichte ausgeben
-        if: always()
-        working-directory: aquarium-simulation
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          for folder in [Path('docs/ui-model-review/evidence/genetics'),Path('/tmp/aquarium-ecosystem-results')]:
-              for report in folder.rglob('report.json'):
-                  print('REPORT '+str(report));print(report.read_text())
-          PY
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: aquarium-regression-evidence
-          path: |
-            aquarium-simulation/docs/ui-model-review/evidence
-            /tmp/aquarium-ecosystem-results
-          retention-days: 3
+      - name: Heruntergeladene HTML-Datei eigenständig spielen
+        run: python tests/standalone_browser.py

@@ -1,10 +1,10 @@
 """Inspect real hardware world bounds, not just declared placement targets."""
-import json,copy
+import json,copy,os
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'docs/physical-scale/evidence';OUT.mkdir(exist_ok=True);base=json.loads((ROOT/'tests/fixtures/legacy-v1.json').read_text());report={'errors':[],'tanks':[],'external':[]}
 with sync_playwright()as p:
- b=p.chromium.launch(executable_path='/usr/bin/chromium',args=['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']);page=b.new_page();page.set_default_timeout(90000);page.on('pageerror',lambda e:report['errors'].append(str(e)));page.goto('http://127.0.0.1:8000/aquarium-simulation/');page.locator('button[data-graphics-profile="ipad"]').click();page.locator('[data-start="free"]').click()
+ b=p.chromium.launch(executable_path='/usr/bin/chromium',args=['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']);page=b.new_page();page.set_default_timeout(90000);page.on('pageerror',lambda e:report['errors'].append(str(e)));page.goto(os.environ.get('AQUARIUM_TEST_URL','http://127.0.0.1:8000/aquarium-simulation/'));page.locator('button[data-graphics-profile="ipad"]').click();page.locator('[data-start="free"]').click()
  try:
   for liters in [30,60,120,180,300,450,700]:
    s=copy.deepcopy(base);s.update(liters=liters,filter='sponge',heater=True,skimmer=True,air=True,day=40+liters/1000)
@@ -23,7 +23,7 @@ with sync_playwright()as p:
   report['resize']='700 → 30 → 700 L retains both objects, warns of insufficient room, and recovers them when space becomes available'
   print('PASS: Later tank changes preserve all entities, recheck physical room and recover previously unplaceable objects',flush=True)
   for liters in [30,700]:
-   for filter_type,expected_size in [('external',[20,32,20]),('sump',[40,25,25])]:
+   for filter_type,expected_size in [('external600',[20,32,20]),('sump',[40,25,25])]:
     s=copy.deepcopy(base);s.update(liters=liters,filter=filter_type,heater=False,skimmer=False,air=False,day=50+liters/1000+(filter_type=='sump'))
     page.locator('#import-file').set_input_files({'name':'external.json','mimeType':'application/json','buffer':json.dumps(s).encode()});page.wait_for_function('(s)=>{const a=JSON.parse(localStorage.getItem("aquarium-werkstatt-v1"));return a?.day===s.day&&a?.filter===s.filter}',arg=s);page.wait_for_function('(f)=>window.aquariumPhysicalSnapshot()?.equipment.some(o=>o.name==="equipment:filter:"+f)',arg=filter_type)
     r=page.evaluate('window.aquariumPhysicalSnapshot()');case=next(o for o in r['equipment'] if o['name']=='equipment:filter:'+filter_type)

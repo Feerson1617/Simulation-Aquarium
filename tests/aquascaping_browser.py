@@ -117,7 +117,7 @@ try:
         assert all(saved(page)['spatial']['originalOverrides'][str(e['uid'])]['rotation']==e['rotation'] for e in LEGACY['entities'])
         page.wait_for_function('window.aquariumSnapshot().graphics.detailModels===2', polling=100)
         expect(page.locator('#tweezers-button')).to_be_enabled()
-        passed('Legacy v1 save imports unchanged; new tool available only after tank placement')
+        passed('Legacy v1 save imports biological state intact with archived legacy display overrides; new tool available only after tank placement')
 
         import_save(page, layout('spiderwood'))
         action(page, '#tweezers-button')

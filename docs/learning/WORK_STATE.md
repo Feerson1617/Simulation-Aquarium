@@ -25,3 +25,9 @@ Abruf am 20.10.2026 durch verwaltete Netzwerkregel blockiert (CONNECT 403). Bis 
 7. Fachliche, didaktische und technische Prüfung: ausstehend.
 
 Keine Arbeiten aus PR #7 erneut ausführen; neue Funktionalität in schrittweise integrierten Modulen ergänzen. Keine Änderungen an AGENTS.md oder Veröffentlichungsworkflows. Kein Merge.
+
+## Fortschritt nach dem Quellenabgleich
+
+Das Original-PDF wurde anschließend vom Auftraggeber bereitgestellt. Text aus allen 36 Seiten extrahiert, relevante Abschnitte S. 3–4, 9–10, 14–15, 19–20 direkt geprüft. Die zuvor offene Quellenprüfung ist damit erledigt; die externe Website bleibt für den Entwicklungscontainer gesperrt.
+
+Phasen 1–6 sind implementiert (`75f3602`): gemeinsame Jahrgangsarchitektur, reduzierte UI, 14 Missionen, Begriffshilfen, echte Vergleichsbecken, Generations-/Selektionsmodell, lokale Lehrkraftwerkzeuge und Lernprodukte. Phase 7 läuft. 83 Modultests bestehen. Erste Browserprüfung führte zur Korrektur der Esc-/Kamerasperre und zum Ausblenden der alten Zeitsteuerung. Abschluss erst nach vollständigem Integrationslauf und Bericht.

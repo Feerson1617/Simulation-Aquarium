@@ -1,23 +1,297 @@
-import test from 'node:test';
-import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
-import { MISSIONS, GRADE_PROFILES } from '../learning-content.mjs';
-import { learningTools, learningMetrics, waterIndicators, learningSlot, normalizeLearningTag, normalizeTeacher, validateLearningProduct, comparisonCSV, applyLearningIntervention, createLearningTank } from '../learning-model.mjs';
-import { createLearningPopulation, populationCounts, nextLearningGeneration, crossLearningPopulation, compareLearningPopulations, reproductiveWeight } from '../learning-population.mjs';
-import { advanceAlgae } from '../bioprocesses.mjs';
-const types=JSON.parse(await readFile(new URL('./fixtures/ecology-species.json',import.meta.url)));
-const profile=(grade,mission=null)=>({version:1,grade,mode:mission?'missions':'free',mission});
-const water=()=>({params:{temp:25,ph:7.15,nh4:.015,no2:.015,no3:12,po4:.4,fe:.08,oxygen:7.8,co2:8},detritus:.3,algae:.2,liters:180});
-test('all fourteen mission profiles include scientific clarification, prior concept, inquiry, consolidation and limits',()=>{assert.deepEqual([8,9,10].map(g=>MISSIONS.filter(m=>m.grade===g).length),[5,4,5]);assert.equal(new Set(MISSIONS.map(m=>m.id)).size,14);for(const m of MISSIONS){for(const k of ['goal','curriculum','clarification','misconception','consolidation','limits'])assert.ok(m[k].length>20);assert.equal(m.path.length,3)}assert.ok(MISSIONS.find(m=>m.id==='10-carbon').curriculum.includes('verbindlich'));assert.ok(MISSIONS.find(m=>m.id==='10-wadden').curriculum.includes('verbindlich'))});
-test('free research is grade-specific; optional chemistry requires a relevant lesson or teacher unlock',()=>{assert.ok(learningTools(profile(9)).includes('selection'));assert.ok(!learningMetrics(profile(8)).includes('no2'));assert.ok(!learningMetrics(profile(9)).includes('no3'));assert.ok(learningMetrics(profile(10,'10-restore')).includes('no2'));assert.ok(learningMetrics(profile(8),{unlockMetrics:['no2']}).includes('no2'));for(const p of Object.values(GRADE_PROFILES))assert.ok(p.catalog.length<=7)});
-test('profiles reject cross-grade missions and use isolated storage slots',()=>{assert.throws(()=>normalizeLearningTag(profile(8,'9-mendel')));assert.throws(()=>normalizeLearningTag({...profile(8),grade:11}));assert.notEqual(learningSlot(profile(8)),learningSlot(profile(9)));assert.notEqual(learningSlot(profile(8)),learningSlot(profile(8,'8-oxygen')))});
-test('water indicator preserves individual warning pathways without dilution or nitrate-as-toxin shortcut',()=>{const s=water();assert.equal(waterIndicators(s).load,'gering');s.params.no2=.6;s.params.no3=0;assert.equal(waterIndicators(s).load,'kritisch');s.params.no2=0;s.params.oxygen=1.9;assert.equal(waterIndicators(s).load,'kritisch');s.params.oxygen=8;s.params.no3=60;assert.equal(waterIndicators(s).load,'gering');assert.equal(waterIndicators(s).nutrients,'Überschuss');s.params.po4=0;assert.match(waterIndicators(s).nutrientNote,/Mangel/);s.params.nh4=2;s.params.ph=9;assert.ok(waterIndicators(s).paths.find(p=>p.key==='ammonia').level>0)});
-test('Mendel F1 reuses actual gametes and F2 samples probabilities rather than enforcing a ratio',()=>{let p=createLearningPopulation(47291,24);const a=p.individuals.find(i=>i.sex==='♀'&&i.loci.A.join('')==='AA'),b=p.individuals.find(i=>i.sex==='♂'&&i.loci.A.join('')==='aa');p=crossLearningPopulation(p,a.uid,b.uid);assert.equal(populationCounts(p).Aa,24);assert.ok(p.individuals.every(i=>i.parents[0]===a.uid&&i.parents[1]===b.uid));const f=p.individuals.find(i=>i.sex==='♀'),m=p.individuals.find(i=>i.sex==='♂'),next=crossLearningPopulation(p,f.uid,m.uid);assert.equal(next.generation,2);assert.ok(next.individuals.every(i=>i.parents.includes(f.uid)&&i.parents.includes(m.uid)));assert.ok(populationCounts(next).aa>0);assert.equal(next.archive.length,72);assert.deepEqual(p.history.at(-1),populationCounts(p))});
-test('selection weights depend on phenotype and environment, not on dominance or grade',()=>{const p=createLearningPopulation(),aa=p.individuals.find(i=>i.loci.A.join('')==='aa'),AA=p.individuals.find(i=>i.loci.A.join('')==='AA'),Aa=p.individuals.find(i=>i.loci.A.join('')==='Aa');assert.equal(reproductiveWeight(AA,'neutral'),reproductiveWeight(aa,'neutral'));assert.equal(reproductiveWeight(AA,'dark'),reproductiveWeight(Aa,'dark'));assert.ok(reproductiveWeight(aa,'light')>reproductiveWeight(AA,'light'));assert.throws(()=>reproductiveWeight(aa,'needed'))});
-test('selection reverses with environment in repeated actual finite populations; neutral controls match',()=>{let dark=0,light=0;for(let seed=1;seed<=70;seed++){const p=createLearningPopulation(seed,60);dark+=populationCounts(nextLearningGeneration(p,'dark')).A;light+=populationCounts(nextLearningGeneration(p,'light')).A}assert.ok(dark-light>12);const p=createLearningPopulation(),copy=structuredClone(p),result=compareLearningPopulations(p,'neutral',5,3);for(const r of result.runs)assert.deepEqual(r.control,r.test);assert.deepEqual(p,copy);assert.notEqual(result.runs[0].seed,result.runs[1].seed)});
-test('lost alleles cannot be recreated by need, and offspring success is counted from actual parents',()=>{let p=createLearningPopulation();p=crossLearningPopulation(p,1,3+3); // AA female × aa male
- const f=p.individuals.find(i=>i.sex==='♀'),m=p.individuals.find(i=>i.sex==='♂');p=crossLearningPopulation(p,f.uid,m.uid,80);for(const i of p.individuals){i.loci.A=['a','a'];i.phenotype='gold'}const next=nextLearningGeneration(p,'dark');assert.equal(populationCounts(next).A,0);const e=next.events.at(-1);assert.equal(Object.values(e.offspring).reduce((a,b)=>a+b,0),160);assert.throws(()=>nextLearningGeneration({...next,individuals:next.individuals.map(i=>({...i,sex:'♀'}))},'neutral'))});
-test('support and unlocks cannot change biology; teacher input stays bounded and plain text',()=>{const initial=createLearningPopulation(),a=normalizeTeacher({support:'guided',unlockMetrics:['no2','<script>']}),b=normalizeTeacher({support:'independent'});assert.notEqual(a.support,b.support);assert.deepEqual(a.unlockMetrics,['no2']);assert.deepEqual(compareLearningPopulations(initial,'dark'),compareLearningPopulations(initial,'dark'));assert.throws(()=>normalizeTeacher([]));const product=validateLearningProduct({version:1,type:'aquarium-learning-product',profile:profile(8),notes:{hypothesis:'<script>x</script>',question:'x'.repeat(25000)}});assert.equal(product.notes.question.length,20000);assert.equal(product.notes.hypothesis,'<script>x</script>')});
-test('CSV exports every calculated repetition and actual allele counts',()=>{const r=compareLearningPopulations(createLearningPopulation(),'dark',3,2),csv=comparisonCSV(r);assert.equal(csv.split('\r\n').length,1+2*2*4);assert.ok(csv.includes('"AA"'));assert.ok(csv.includes('"Versuch"'))});
-test('interventions preserve source, enforce values and reject unknown controls',()=>{const s=water(),old=structuredClone(s),next=applyLearningIntervention(s,'nutrients',30,{});assert.equal(next.params.no3,42);assert.equal(next.params.po4,1.4);assert.deepEqual(s,old);assert.throws(()=>applyLearningIntervention(s,'light',99,{}));assert.throws(()=>applyLearningIntervention(s,'magic',1,{}));assert.throws(()=>applyLearningIntervention(s,'plants',1,{add:()=>null}))});
-test('algal uptake stops at resource/capacity limits and turnover supplies decomposable material',()=>{const s=water();s.params.no3=0;const old=s.params.po4,r=advanceAlgae(s,{potentialGrowth:1,grazers:0,plantBiomass:0,dt:1});assert.equal(r.algaeGrowth,0);assert.equal(s.params.po4,old);assert.ok(r.algaeDecay>0);assert.ok(s.detritus>.3);const full=water();full.algae=1;assert.equal(advanceAlgae(full,{potentialGrowth:1,grazers:0,plantBiomass:0,dt:1}).algaeGrowth,0);for(const v of Object.values(full.params))assert.ok(v>=0)});
+import test from "node:test";
+import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+import { MISSIONS, GRADE_PROFILES } from "../learning-content.mjs";
+import {
+  learningTools,
+  learningMetrics,
+  waterIndicators,
+  learningSlot,
+  normalizeLearningTag,
+  normalizeTeacher,
+  validateLearningProduct,
+  comparisonCSV,
+  applyLearningIntervention,
+  createLearningTank,
+  validateLearningComparison,
+} from "../learning-model.mjs";
+import {
+  createLearningPopulation,
+  populationCounts,
+  nextLearningGeneration,
+  crossLearningPopulation,
+  compareLearningPopulations,
+  reproductiveWeight,
+} from "../learning-population.mjs";
+import { advanceAlgae } from "../bioprocesses.mjs";
+const types = JSON.parse(
+  await readFile(new URL("./fixtures/ecology-species.json", import.meta.url)),
+);
+const profile = (grade, mission = null) => ({
+  version: 1,
+  grade,
+  mode: mission ? "missions" : "free",
+  mission,
+});
+const water = () => ({
+  params: {
+    temp: 25,
+    ph: 7.15,
+    nh4: 0.015,
+    no2: 0.015,
+    no3: 12,
+    po4: 0.4,
+    fe: 0.08,
+    oxygen: 7.8,
+    co2: 8,
+  },
+  detritus: 0.3,
+  algae: 0.2,
+  liters: 180,
+});
+test("all fourteen mission profiles include scientific clarification, prior concept, inquiry, consolidation and limits", () => {
+  assert.deepEqual(
+    [8, 9, 10].map((g) => MISSIONS.filter((m) => m.grade === g).length),
+    [5, 4, 5],
+  );
+  assert.equal(new Set(MISSIONS.map((m) => m.id)).size, 14);
+  for (const m of MISSIONS) {
+    for (const k of [
+      "goal",
+      "curriculum",
+      "clarification",
+      "misconception",
+      "consolidation",
+      "limits",
+    ])
+      assert.ok(m[k].length > 20);
+    assert.equal(m.path.length, 3);
+  }
+  assert.ok(
+    MISSIONS.find((m) => m.id === "10-carbon").curriculum.includes(
+      "verbindlich",
+    ),
+  );
+  assert.ok(
+    MISSIONS.find((m) => m.id === "10-wadden").curriculum.includes(
+      "verbindlich",
+    ),
+  );
+});
+test("free research is grade-specific; optional chemistry requires a relevant lesson or teacher unlock", () => {
+  assert.ok(learningTools(profile(9)).includes("selection"));
+  assert.ok(!learningMetrics(profile(8)).includes("no2"));
+  assert.ok(!learningMetrics(profile(9)).includes("no3"));
+  assert.ok(learningMetrics(profile(10, "10-restore")).includes("no2"));
+  assert.ok(
+    learningMetrics(profile(8), { unlockMetrics: ["no2"] }).includes("no2"),
+  );
+  for (const p of Object.values(GRADE_PROFILES))
+    assert.ok(p.catalog.length <= 7);
+});
+test("profiles reject cross-grade missions and use isolated storage slots", () => {
+  assert.throws(() => normalizeLearningTag(profile(8, "9-mendel")));
+  assert.throws(() => normalizeLearningTag({ ...profile(8), grade: 11 }));
+  assert.notEqual(learningSlot(profile(8)), learningSlot(profile(9)));
+  assert.notEqual(
+    learningSlot(profile(8)),
+    learningSlot(profile(8, "8-oxygen")),
+  );
+});
+test("water indicator preserves individual warning pathways without dilution or nitrate-as-toxin shortcut", () => {
+  const s = water();
+  assert.equal(waterIndicators(s).load, "gering");
+  s.params.no2 = 0.6;
+  s.params.no3 = 0;
+  assert.equal(waterIndicators(s).load, "kritisch");
+  s.params.no2 = 0;
+  s.params.oxygen = 1.9;
+  assert.equal(waterIndicators(s).load, "kritisch");
+  s.params.oxygen = 8;
+  s.params.no3 = 60;
+  assert.equal(waterIndicators(s).load, "gering");
+  assert.equal(waterIndicators(s).nutrients, "Überschuss");
+  s.params.po4 = 0;
+  assert.match(waterIndicators(s).nutrientNote, /Mangel/);
+  s.params.nh4 = 2;
+  s.params.ph = 9;
+  assert.ok(
+    waterIndicators(s).paths.find((p) => p.key === "ammonia").level > 0,
+  );
+});
+test("Mendel F1 reuses actual gametes and F2 samples probabilities rather than enforcing a ratio", () => {
+  let p = createLearningPopulation(47291, 24);
+  const a = p.individuals.find(
+      (i) => i.sex === "♀" && i.loci.A.join("") === "AA",
+    ),
+    b = p.individuals.find((i) => i.sex === "♂" && i.loci.A.join("") === "aa");
+  p = crossLearningPopulation(p, a.uid, b.uid);
+  assert.equal(populationCounts(p).Aa, 24);
+  assert.ok(
+    p.individuals.every(
+      (i) => i.parents[0] === a.uid && i.parents[1] === b.uid,
+    ),
+  );
+  const f = p.individuals.find((i) => i.sex === "♀"),
+    m = p.individuals.find((i) => i.sex === "♂"),
+    next = crossLearningPopulation(p, f.uid, m.uid);
+  assert.equal(next.generation, 2);
+  assert.ok(
+    next.individuals.every(
+      (i) => i.parents.includes(f.uid) && i.parents.includes(m.uid),
+    ),
+  );
+  assert.ok(populationCounts(next).aa > 0);
+  assert.equal(next.archive.length, 72);
+  assert.deepEqual(p.history.at(-1), populationCounts(p));
+});
+test("selection weights depend on phenotype and environment, not on dominance or grade", () => {
+  const p = createLearningPopulation(),
+    aa = p.individuals.find((i) => i.loci.A.join("") === "aa"),
+    AA = p.individuals.find((i) => i.loci.A.join("") === "AA"),
+    Aa = p.individuals.find((i) => i.loci.A.join("") === "Aa");
+  assert.equal(
+    reproductiveWeight(AA, "neutral"),
+    reproductiveWeight(aa, "neutral"),
+  );
+  assert.equal(reproductiveWeight(AA, "dark"), reproductiveWeight(Aa, "dark"));
+  assert.ok(reproductiveWeight(aa, "light") > reproductiveWeight(AA, "light"));
+  assert.throws(() => reproductiveWeight(aa, "needed"));
+});
+test("selection reverses with environment in repeated actual finite populations; neutral controls match", () => {
+  let dark = 0,
+    light = 0;
+  for (let seed = 1; seed <= 70; seed++) {
+    const p = createLearningPopulation(seed, 60);
+    dark += populationCounts(nextLearningGeneration(p, "dark")).A;
+    light += populationCounts(nextLearningGeneration(p, "light")).A;
+  }
+  assert.ok(dark - light > 12);
+  const p = createLearningPopulation(),
+    copy = structuredClone(p),
+    result = compareLearningPopulations(p, "neutral", 5, 3);
+  for (const r of result.runs) assert.deepEqual(r.control, r.test);
+  assert.deepEqual(p, copy);
+  assert.notEqual(result.runs[0].seed, result.runs[1].seed);
+});
+test("lost alleles cannot be recreated by need, and offspring success is counted from actual parents", () => {
+  let p = createLearningPopulation();
+  p = crossLearningPopulation(p, 1, 3 + 3); // AA female × aa male
+  const f = p.individuals.find((i) => i.sex === "♀"),
+    m = p.individuals.find((i) => i.sex === "♂");
+  p = crossLearningPopulation(p, f.uid, m.uid, 80);
+  for (const i of p.individuals) {
+    i.loci.A = ["a", "a"];
+    i.phenotype = "gold";
+  }
+  const next = nextLearningGeneration(p, "dark");
+  assert.equal(populationCounts(next).A, 0);
+  const e = next.events.at(-1);
+  assert.equal(
+    Object.values(e.offspring).reduce((a, b) => a + b, 0),
+    160,
+  );
+  assert.throws(() =>
+    nextLearningGeneration(
+      {
+        ...next,
+        individuals: next.individuals.map((i) => ({ ...i, sex: "♀" })),
+      },
+      "neutral",
+    ),
+  );
+});
+test("support and unlocks cannot change biology; teacher input stays bounded and plain text", () => {
+  const initial = createLearningPopulation(),
+    a = normalizeTeacher({
+      support: "guided",
+      unlockMetrics: ["no2", "<script>"],
+    }),
+    b = normalizeTeacher({ support: "independent" });
+  assert.notEqual(a.support, b.support);
+  assert.deepEqual(a.unlockMetrics, ["no2"]);
+  assert.throws(() => normalizeTeacher([]));
+  const product = validateLearningProduct({
+    version: 1,
+    type: "aquarium-learning-product",
+    profile: profile(8),
+    notes: { hypothesis: "<script>x</script>", question: "x".repeat(25000) },
+  });
+  assert.equal(product.notes.question.length, 20000);
+  assert.equal(product.notes.hypothesis, "<script>x</script>");
+});
+test("CSV exports every calculated repetition and actual allele counts", () => {
+  const r = compareLearningPopulations(
+      createLearningPopulation(),
+      "dark",
+      3,
+      2,
+    ),
+    csv = comparisonCSV(r);
+  assert.equal(csv.split("\r\n").length, 1 + 2 * 2 * 4);
+  assert.ok(csv.includes('"AA"'));
+  assert.ok(csv.includes('"Versuch"'));
+});
+test("interventions preserve source, enforce values and reject unknown controls", () => {
+  const s = water(),
+    old = structuredClone(s),
+    next = applyLearningIntervention(s, "nutrients", 30, {});
+  assert.equal(next.params.no3, 42);
+  assert.equal(next.params.po4, 1.4);
+  assert.deepEqual(s, old);
+  assert.throws(() => applyLearningIntervention(s, "light", 99, {}));
+  assert.throws(() => applyLearningIntervention(s, "magic", 1, {}));
+  assert.throws(() =>
+    applyLearningIntervention(s, "plants", 1, { add: () => null }),
+  );
+});
+test("algal uptake stops at resource/capacity limits and turnover supplies decomposable material", () => {
+  const s = water();
+  s.params.no3 = 0;
+  const old = s.params.po4,
+    r = advanceAlgae(s, {
+      potentialGrowth: 1,
+      grazers: 0,
+      plantBiomass: 0,
+      dt: 1,
+    });
+  assert.equal(r.algaeGrowth, 0);
+  assert.equal(s.params.po4, old);
+  assert.ok(r.algaeDecay > 0);
+  assert.ok(s.detritus > 0.3);
+  const full = water();
+  full.algae = 1;
+  assert.equal(
+    advanceAlgae(full, {
+      potentialGrowth: 1,
+      grazers: 0,
+      plantBiomass: 0,
+      dt: 1,
+    }).algaeGrowth,
+    0,
+  );
+  for (const v of Object.values(full.params)) assert.ok(v >= 0);
+});
+
+test("exported finite data can be inspected without executing imported states; malformed series are rejected", () => {
+  const source = compareLearningPopulations(
+      createLearningPopulation(),
+      "dark",
+      4,
+      2,
+    ),
+    clean = validateLearningComparison(source);
+  assert.equal(clean.runs.length, 2);
+  assert.deepEqual(clean.runs[0].test, source.runs[0].test);
+  assert.ok(!("finalTest" in clean.runs[0]));
+  assert.throws(() =>
+    validateLearningComparison({
+      kind: "ecology",
+      runs: [{ control: [{ day: NaN }], test: [] }],
+    }),
+  );
+  assert.equal(
+    normalizeTeacher({ grade: 9, mission: "8-oxygen" }).mission,
+    "9-traits",
+  );
+});

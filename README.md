@@ -2,9 +2,19 @@
 
 Deutschsprachiges Aquariumsimulationsspiel zum Aufbauen, Beobachten und Erforschen eines vereinfachten Ökosystems. Für Desktop-Browser und Touch-Bedienung entwickelt; statisch auf GitHub Pages unter `/Simulation-Aquarium/` nutzbar. Das Spiel und Teile seiner Inhalte wurden mit KI-Unterstützung erstellt.
 
+## Lernumgebungen für Klassen 8–10
+
+Beim Start zuerst **Klasse 8 – Ökologie**, **Klasse 9 – Vererbung und Evolution** oder **Klasse 10 – Mensch und Ökosysteme** wählen. Danach stehen **Lernmissionen** (insgesamt 14) und **Freies Forschen** mit passenden, deutlich reduzierten Werkzeugen bereit. Die Zuordnung ist mit dem Fachcurriculum der Eider-Treene-Schule 2025/26 abgeglichen. Grafikqualität und Lernprofil sind unabhängig.
+
+**Untersuchen** erstellt gleiche Kontroll- und Versuchsbecken, rechnet einen ausgewählten Eingriff mit dem bisherigen biologischen Kern und zeigt echte Daten. **Vererbung** bietet vorhergesagte F1/F2-Kreuzungen, tatsächliche Modellallele und endliche Populationsvergleiche mit Drift und offengelegter hypothetischer Selektion. **Notizbuch** trennt Vorwissen, Hypothese, Beobachtung, Erklärung und Modellkritik. JSON-/CSV-/SVG-Exporte und lokale Speicherung benötigen kein Konto.
+
+Der **Lehrkraftmodus** bereitet Missionen vor, wählt drei Unterstützungsstufen, schaltet gezielt Werkzeuge/Messwerte frei und liest Lernprodukte. Der **Expertenmodus** erhält das bisherige Freispiel, Tutorial, Szenarien, den vollständigen Katalog und alte Spielstände. Auch direkt über `?expert=1` erreichbar. Lernbecken, Notizen, Unterrichtskonfiguration und Grafik werden getrennt gespeichert; die alte freie Runde wird nicht überschrieben.
+
+Wasserbelastung ist ausdrücklich ein didaktischer Zustandsindikator, keine chemische Messgröße. Kohlenstoff ist qualitativ modelliert; Nordsee, Wattenmeer und Wald sind begrenzte Transfers. Generationsklicks behaupten keine natürliche Entwicklungszeit. [Vollständiger deutscher Bericht mit allen Missionen](docs/learning/REPORT.md), [Fachprüfung und Indikatorschwellen](docs/learning/AUDIT.md), [Browserprüfung und Screenshots](docs/learning/VALIDATION.md).
+
 ## Desktop- und iPad-Darstellung
 
-Beim ersten Start zuerst **Desktop-Version** oder **iPad-Version** wählen, danach Freies Spiel, Tutorial oder Szenarien starten. Desktop beginnt mit **Maximum**. Unter **Zeit & Runde → Darstellung** sind später **Hoch**, **Ultra**, **Maximum** und **iPad** wählbar. Der Wechsel baut nur die Grafik neu auf; die biologische Simulation und gespeicherte Becken bleiben gleich. Die Darstellungsauswahl steht getrennt unter `aquarium-graphics-v1` in `localStorage`.
+Im Expertenmodus zuerst **Desktop-Version** oder **iPad-Version** wählen, danach Freies Spiel, Tutorial oder Szenarien starten. In den Lernumgebungen ist die Darstellung separat erreichbar. Desktop beginnt mit **Maximum**. Unter **Zeit & Runde → Darstellung** sind später **Hoch**, **Ultra**, **Maximum** und **iPad** wählbar. Der Wechsel baut nur die Grafik neu auf; die biologische Simulation und gespeicherte Becken bleiben gleich. Die Darstellungsauswahl steht getrennt unter `aquarium-graphics-v1` in `localStorage`.
 
 Maximum verwendet die native Pixeldichte, feinere Geometrie, bis zu 4096-Pixel-Oberflächentexturen, bis zu 8192-Pixel-Schatten und die aufwendigere Wasseroptik. Es gibt keine künstliche FPS-Obergrenze. Tatsächliche Hardwaregrenzen und ein Ressourcenbudget verhindern unkontrollierte Grafikallokationen. iPad verwendet dieselben Arten und Funktionen mit geringerer Geometrie-/Texturauflösung, mobilen Dekorations-LODs und einfacheren transparenten Materialien.
 
@@ -71,6 +81,8 @@ Das Speicherformat bleibt Version 1 mit dem bisherigen `localStorage`-Schlüssel
 
 ```bash
 node --test tests/*.test.mjs
+python3 tests/learning_browser.py
+python3 tests/readiness_browser.py
 python3 tests/species_assets_test.py
 python3 tests/physical_scale_browser.py
 python3 tests/physical_hardware_browser.py

@@ -28,9 +28,9 @@ report = {'status': 'running', 'accepted_models': 0, 'runtime_assets_changed': F
         {'id': 'cory', 'taxon': 'Corydoras aeneus', 'author': 'Jofre', 'license': 'public domain by author',
          'page': 'https://commons.wikimedia.org/wiki/File:Corydoras_aeneus_1.0.JPG',
          'url': 'https://upload.wikimedia.org/wikipedia/commons/5/5d/Corydoras_aeneus_1.0.JPG'},
-        {'id': 'anubias', 'taxon': 'Anubias barteri', 'reference_variety': 'var. nana', 'author': 'Daderot', 'license': 'CC0-1.0',
-         'page': 'https://commons.wikimedia.org/wiki/File:Anubias_barteri_var._nana_-_Botanischer_Garten_-_Heidelberg,_Germany_-_DSC01278.jpg',
-         'url': 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Anubias_barteri_var._nana_-_Botanischer_Garten_-_Heidelberg%2C_Germany_-_DSC01278.jpg/1280px-Anubias_barteri_var._nana_-_Botanischer_Garten_-_Heidelberg%2C_Germany_-_DSC01278.jpg'}
+        {'id': 'anubias', 'taxon': 'Anubias barteri', 'reference_variety': 'var. nana', 'author': 'Abhik.Mazumdar.73', 'license': 'CC-BY-4.0',
+         'page': 'https://commons.wikimedia.org/wiki/File:Anubias_barteri_var._nana.jpg',
+         'url': 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Anubias_barteri_var._nana.jpg'}
     ], 'steps': []}
 cache = json.loads((OUT / 'report.json').read_text()) if (OUT / 'report.json').exists() else {}
 catalog = json.loads((ROOT / 'tests/fixtures/ecology-species.json').read_text())
@@ -63,7 +63,9 @@ def download(url, path):
             if error.code != 429 or attempt == 2:
                 raise
             retry = error.headers.get('Retry-After', '')
-            delay = min(30, max(10, int(retry))) if retry.isdigit() else 10 * (attempt + 1)
+            delay = max(10, int(retry)) if retry.isdigit() else 10 * (attempt + 1)
+            if delay > 60:
+                raise RuntimeError('Remote source requested a longer retry; stop this bounded trial') from error
             time.sleep(delay)
     if len(data) > 25_000_000:
         raise RuntimeError('Source exceeds 25 MB trial limit')

@@ -145,7 +145,9 @@ server = ThreadingHTTPServer(('127.0.0.1', 0), partial(Quiet, directory=str(ROOT
 threading.Thread(target=server.serve_forever, daemon=True).start()
 url = f'http://127.0.0.1:{server.server_port}/{ROOT.name}/'
 try:
-    ready = [species for species in ['guppy', 'cory', 'anubias'] if normalize(species)]
+    requested = os.environ.get('AQUARIUM_REVIEW_SPECIES', 'guppy,cory,anubias').split(',')
+    assert all(species in ['guppy','cory','anubias'] for species in requested)
+    ready = [species for species in requested if normalize(species)]
     assert ready, 'No reconstruction bytes available'
     with sync_playwright() as p:
         for phase in ['existing', 'trial']:
@@ -219,5 +221,5 @@ finally:
     (OUT / 'runtime-review.json').write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n')
     print(json.dumps(report, ensure_ascii=False, indent=2), flush=True)
     for path in sorted(SHOTS.glob('*.jpg')):
-        if '-aquarium-' not in path.name:
+        if not path.name.startswith('trial-') or any(path.name.startswith('trial-'+name+'-') for name in ready):
             print('MODEL_JPEG '+path.name+' '+base64.b64encode(path.read_bytes()).decode(), flush=True)

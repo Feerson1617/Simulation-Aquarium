@@ -1,0 +1,13 @@
+PASS six analysis tabs use real state without simulation advancement
+PASS actual gap, incremental hints and environmental suitability
+PASS real engine health responds to alternative feed and actual prey; probes are isolated
+PASS actual shop feeding updates the network immediately
+PASS scenario hints, notes and reload keep free save byte-identical
+PASS restart increments attempt and retains local backup without overwriting free save
+PASS scenario export/import routes to correct slot
+PASS all five scenarios share the engine and preserve free save; research stable and plant/water interventions effective
+PASS photosynthesis stops at night while respiration continues
+PASS legacy free aquarium resumes after all scenarios
+PASS tablet portrait touch operates scenarios and analysis without page overflow
+PASS no JavaScript exceptions or failed requests
+RESULTS /tmp/aquarium-ecosystem-results/20261020T132516

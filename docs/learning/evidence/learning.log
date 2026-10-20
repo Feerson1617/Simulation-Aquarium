@@ -1,0 +1,7 @@
+PASS grade selection precedes learning mode; legacy controls are hidden
+PASS teacher prep, local config import/export, product inspection; support changes leave engine results identical
+PASS study reset creates a local backup and teacher can restore notes and real comparison
+PASS expert mode resumes old save and full catalog without replacing it with a learning tank
+PASS tablet portrait touch: all grades, help, modal scrolling, no horizontal overflow and real tweezers
+PASS no JavaScript exceptions or failed asset requests
+RESULTS /tmp/aquarium-learning-results/20261020T131121

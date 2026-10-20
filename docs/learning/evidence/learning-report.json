@@ -1,0 +1,22 @@
+{
+  "section": "teacher",
+  "checks": [
+    "grade selection precedes learning mode; legacy controls are hidden",
+    "teacher prep, local config import/export, product inspection; support changes leave engine results identical",
+    "study reset creates a local backup and teacher can restore notes and real comparison",
+    "expert mode resumes old save and full catalog without replacing it with a learning tank",
+    "tablet portrait touch: all grades, help, modal scrolling, no horizontal overflow and real tweezers",
+    "no JavaScript exceptions or failed asset requests"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "screenshots": [
+    "01-grade-start.png",
+    "teacher-preparation.png",
+    "ipad-grade-8-observe.png",
+    "ipad-grade-9-genetics.png",
+    "ipad-grade-10-transfer.png"
+  ],
+  "continued_from": "/tmp/aquarium-learning-results/20261020T125528",
+  "status": "passed"
+}

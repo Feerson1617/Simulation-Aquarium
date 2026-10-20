@@ -1,0 +1,97 @@
+{
+  "validated_at": "2026-10-20T17:08:32.291778+00:00",
+  "runtime_code_commit": "9e13bbb",
+  "steps": [
+    {
+      "name": "unit",
+      "state": "passed",
+      "started": 1792500543.102293,
+      "exit_code": 0,
+      "finished": 1792500555.8319006
+    },
+    {
+      "name": "focused",
+      "state": "passed",
+      "started": 1792500763.8425763,
+      "exit_code": 0,
+      "finished": 1792500928.6987557
+    },
+    {
+      "name": "learning",
+      "state": "passed",
+      "started": 1792501880.5149145,
+      "exit_code": 0,
+      "finished": 1792502056.0969713
+    },
+    {
+      "name": "readiness",
+      "state": "passed",
+      "started": 1792502056.0975385,
+      "exit_code": 0,
+      "finished": 1792502350.1698687
+    },
+    {
+      "name": "aquascaping",
+      "state": "passed",
+      "started": 1792502350.1704304,
+      "exit_code": 0,
+      "finished": 1792502716.8216302
+    },
+    {
+      "name": "ecosystem",
+      "state": "passed",
+      "started": 1792502716.8259141,
+      "exit_code": 0,
+      "finished": 1792503029.2820008
+    },
+    {
+      "name": "genetics",
+      "state": "passed",
+      "started": 1792503029.2827213,
+      "exit_code": 0,
+      "finished": 1792503513.3489766
+    },
+    {
+      "name": "standalone",
+      "state": "passed",
+      "started": 1792503513.3509266,
+      "exit_code": 0,
+      "finished": 1792503660.115106
+    }
+  ],
+  "reports": {
+    "focused": "/tmp/aquarium-learning-additional/20261020T125243/report.json",
+    "learning": "/tmp/aquarium-learning-results/20261020T131121/report.json",
+    "readiness": "/tmp/aquarium-readiness/results/20261020T131416.363088Z/report.json",
+    "aquascaping": "/tmp/aquarium-phase1-results/20261020T131910/report.json",
+    "ecosystem": "/tmp/aquarium-ecosystem-results/20261020T132516/report.json",
+    "genetics": "/tmp/aquarium-genetics-browser/report.json"
+  },
+  "check_counts": {
+    "focused": 6,
+    "learning": 6,
+    "readiness": 13,
+    "aquascaping": 12,
+    "ecosystem": 12,
+    "genetics": 9,
+    "unit": 87,
+    "learning_combined": 19
+  },
+  "browser_unique_check_count": 71,
+  "standalone": {
+    "status": "passed",
+    "download_bytes": 151023814,
+    "single_file_http": true,
+    "direct_file_navigation_tested": false,
+    "reason": "Managed Chromium blocks file: navigation."
+  },
+  "archived_reports": {
+    "focused": "focused-report.json",
+    "learning": "learning-report.json",
+    "readiness": "readiness-report.json",
+    "aquascaping": "aquascaping-report.json",
+    "ecosystem": "ecosystem-report.json",
+    "genetics": "genetics-report.json",
+    "learning_combined": "learning-combined-report.json"
+  }
+}

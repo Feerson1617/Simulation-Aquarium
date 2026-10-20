@@ -81,6 +81,7 @@ Das Speicherformat bleibt Version 1 mit dem bisherigen `localStorage`-Schlüssel
 
 ```bash
 node --test tests/*.test.mjs
+python3 tests/learning_additional_browser.py
 python3 tests/learning_browser.py
 python3 tests/readiness_browser.py
 python3 tests/species_assets_test.py

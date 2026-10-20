@@ -1,6 +1,6 @@
 # Abschlussbericht: Biologische Lernumgebungen für Klassen 8–10
 
-Arbeitsstand vom 20.10.2026. Die Implementierung der sieben Phasen wird in diesem Bericht gemeinsam beschrieben; die abschließenden Testergebnisse stehen in `VALIDATION.md`.
+Arbeitsstand vom 20.10.2026. Die sieben Entwicklungsphasen sind implementiert und mit den hier verfügbaren Mitteln geprüft: 87 Modultests, 71 Browserprüfpunkte und die Einzeldatei-Prüfung sind bestanden. Einzelheiten, Rohberichte, Screenshots und Grenzen der Abnahme stehen in [VALIDATION.md](VALIDATION.md). Die externe Pull-Request-Erstellung ist durch einen GitHub-API-Zugriffsfehler blockiert; [Übergabe](GITHUB.md).
 
 ## Grundlage und curriculare Zuordnung
 

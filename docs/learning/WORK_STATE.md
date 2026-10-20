@@ -13,6 +13,7 @@ Stand: 20.10.2026. Branch `feature/biology-learning-environments`.
 
 - **87 Node-Tests bestanden**, keine Fehler/übersprungenen Tests.
 - **6 gezielte Browserprüfungen bestanden**: echte Ressourcenbegrenzung, Lernprodukte, Tastaturfokus, Pinzette/Rendererpause, unbekannte Anfangsumsätze und Export/Import, gesperrter Browserspeicher.
+- **19 Lernprüfpunkte und 13 bisherige Bereitschaftsprüfungen bestanden**, einschließlich aller 14 Missionen, Lehrkraft, Wiederherstellung und aller acht Touch-Tutorialschritte. Die Lernprüfung wurde nach einer Korrektur des Prüfskripts (eingeklappte Lehrkraftoption zuerst öffnen) gezielt im Abschnitt `teacher` fortgesetzt, ohne bestandene Missionsgruppen zu wiederholen.
 - Der unabhängige Testläufer schreibt nach `/tmp/aquarium-learning-final/status.json` und pro Gruppe in `.log`-Dateien. Er bleibt bei verlorener Chat-Ausgabeverbindung bestehen.
 - Reihenfolge: Modultests → gezielte Browserchecks → vollständige Lernumgebungen → bisherige Bereitschaft/Tutorial → Aquascaping → Ökosystem → Genetik → Gesamtdownload. GPU-Browserläufe nur nacheinander ausführen.
 - Laufzeitdateien bleiben während der Endprüfung unverändert. Prüfsummen: `evidence/runtime.sha256`.

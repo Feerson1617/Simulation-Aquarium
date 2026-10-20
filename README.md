@@ -4,7 +4,7 @@ Deutschsprachiges Aquariumsimulationsspiel zum Aufbauen, Beobachten und Erforsch
 
 ## Lernumgebungen für Klassen 8–10
 
-Beim Start zuerst **Klasse 8 – Ökologie**, **Klasse 9 – Vererbung und Evolution** oder **Klasse 10 – Mensch und Ökosysteme** wählen. Danach stehen **Lernmissionen** (insgesamt 14) und **Freies Forschen** mit passenden, deutlich reduzierten Werkzeugen bereit. Die Zuordnung ist mit dem Fachcurriculum der Eider-Treene-Schule 2025/26 abgeglichen. Grafikqualität und Lernprofil sind unabhängig.
+Beim Start zuerst **Klasse 8 – Ökologie**, **Klasse 9 – Vererbung und Evolution** oder **Klasse 10 – Mensch und Ökosysteme** wählen. Danach stehen **Lernmissionen** (insgesamt 14) und **Freies Forschen** mit passenden, deutlich reduzierten Werkzeugen bereit. Die Zuordnung ist mit dem Fachcurriculum der Eider-Treene-Schule 2025/26 abgeglichen. Grafikqualität und Lernprofil sind unabhängig. Ein Klick auf die Leitfrage über dem Becken öffnet den Auftrag, Modellgrenzen und gegebenenfalls Wald-, Evolutions- oder Küstenmaterialien.
 
 **Untersuchen** erstellt gleiche Kontroll- und Versuchsbecken, rechnet einen ausgewählten Eingriff mit dem bisherigen biologischen Kern und zeigt echte Daten. **Vererbung** bietet vorhergesagte F1/F2-Kreuzungen, tatsächliche Modellallele und endliche Populationsvergleiche mit Drift und offengelegter hypothetischer Selektion. **Notizbuch** trennt Vorwissen, Hypothese, Beobachtung, Erklärung und Modellkritik. JSON-/CSV-/SVG-Exporte und lokale Speicherung benötigen kein Konto.
 

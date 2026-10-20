@@ -67,7 +67,7 @@ Die Unterstützung verändert Sprache, Satzanfänge und Schritthilfen. Der biolo
 
 ## Wissenschaftliche Prüfung und verbleibende Grenzen
 
-Die gesamte Prozesskette wurde entlang Fotosynthese/Atmung, Zersetzung/Mineralisierung, Nitrifikation, Ressourcenaufnahme, Wachstum, Nahrungsbeziehungen, Vererbung und Populationen geprüft. Eine gezielte Korrektur ergänzt ressourcenbegrenzte Algenaufnahme, lichtabhängige O₂-Bildung und abgestorbene Algen als organisches Material für bestehende Zersetzung.
+Die gesamte Prozesskette wurde entlang Fotosynthese/Atmung, Zersetzung/Mineralisierung, Nitrifikation, Ressourcenaufnahme, Wachstum, Nahrungsbeziehungen, Vererbung und Populationen geprüft. Gezielte Korrekturen begrenzen Pflanzenwachstum durch tatsächlich verfügbare Nährstoff-/CO₂-Pools und ergänzen ressourcenbegrenzte Algenaufnahme, lichtabhängige O₂-Bildung und abgestorbene Algen als organisches Material für bestehende Zersetzung.
 
 Weiterhin gelten kalibrierte Größen und vereinfachte Raten. Es gibt keine geschlossene Kohlenstoff-, Energie- oder vollständige Stoffbilanz. Fitnesswerte sind hypothetisch, keine gemessenen Wildtierdaten. Mutationen, Artbildung, Gezeiten, Plastiktoxikologie und Fischereiökonomie sind nicht implementiert. Wald und Küstenregionen werden durch explizite Transfermaterialien und Modellkritik erschlossen. Die bisherigen hochwertigen Modelle wurden nicht ersetzt; vollständiger Fotorealismus bleibt ein separates offenes Entwicklungsziel.
 

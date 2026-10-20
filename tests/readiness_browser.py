@@ -87,7 +87,7 @@ def boot(context):
     # Profile selection has its own integration test. This readiness suite fixes
     # a presentation profile so desktop input and the complete touch tutorial
     # remain reproducible without affecting any biological save.
-    page.add_init_script("if (!localStorage.getItem('aquarium-graphics-v1')) localStorage.setItem('aquarium-graphics-v1',JSON.stringify({version:1,profile:navigator.maxTouchPoints>0?'ipad':'high'}))")
+    page.add_init_script("if (!localStorage.getItem('aquarium-graphics-v1')) localStorage.setItem('aquarium-graphics-v1',JSON.stringify({version:1,profile:'ipad'}))")
     response = page.goto(URL, wait_until='load')
     assert response.status == 200
     assert page.title() == 'Aquarium — Ökosystem-Werkstatt'

@@ -7,11 +7,12 @@ Stand: 20.10.2026. Basis: PR #7 / `666df90`. Originalcurriculum als Nutzer-PDF v
 | Bestand / Problem | Rekonstruktion |
 |---|---|
 | Start mit Grafik, dann allgemeines Freispiel | Jahrgang zuerst, dann Missionen oder Freies Forschen; Grafik unabhängig |
-| 181 Produkte und alle Wasser-/Technikregler gleichzeitig | Kuratierte 5–7 Katalogeinträge pro Jahrgang; lernzielbezogene Eingriffe; Vollkatalog im Expertenmodus |
+| 181 Produkte und alle Wasser-/Technikregler gleichzeitig | Kleine kuratierte Artenlisten bzw. ein Genetikbeispiel; lernzielbezogene Eingriffe; Vollkatalog im Expertenmodus |
 | Wasserlabor mit vielen chemischen Größen | Klasse 8: Temperatur, qualitative O₂-/Nährstoff-/Belastungsanzeige; Chemie nur für passende Untersuchung oder Lehrkraftfreigabe |
 | Vorhandene Szenarien, aber keine vollständigen Erkenntniswege | 14 Missionen mit Vorwissen, Leitfrage, Hypothese, Plan, Daten, Erklärung, Transfer, Modellkritik |
 | Vorhandene Genetik und Paarungen ohne Populationsselektion | Gemeinsame Mendel-Funktionen plus endliche Generationen, zufällige Keimzellen, dokumentierte Elternwahlgewichte und tatsächliche Allelzähler |
 | Ökologische Analyse ohne gepaarte Vergleichsversuche | Klonen einer Ausgangslage, ein definierter Eingriff, gemeinsame `hd`-Simulation, Wiederholungen und reale Zeitreihen |
+| Pflanzenwachstum trotz erschöpfter Ressourcen durch feste Mindestfaktoren | Wachstum durch tatsächlich verfügbare Modellpools begrenzen; keine CO₂-Zugabe durch einen festen Aufnahmeboden |
 | Algen nur mit Zuwachs/Grazing, keine explizite Rückführung abgestorbener Biomasse | Ressourcenbegrenzter Zuwachs, lichtabhängige O₂-Bildung, Algensterben → organischer Pool → bestehende Zersetzung |
 | Betreuung / Diagnose nicht jahrgangsbezogen | Lokale Unterrichtskonfiguration, drei Unterstützungsstufen, offene Lernprodukte und Vorher-/Nachher-Erklärungen |
 
@@ -22,6 +23,7 @@ Stand: 20.10.2026. Basis: PR #7 / `666df90`. Originalcurriculum als Nutzer-PDF v
 - Algenaufnahme ist auf Ressourcen und freie relative Biomassekapazität beschränkt. Abgestorbene Algen gelangen in den organischen Pool. Diese kalibrierten Pools bilden keine vollständige Kohlenstoff-/Stickstoffbilanz eines echten Beckens ab; Grazing ist weiterhin vereinfacht.
 - Pflanzennährstoffe und Wasserbelastung sind keine disjunkten Stoffgruppen. Nitrat kann versorgen, Überangebot indirekt belasten. Nitrit/Ammoniak besitzen eigene Warnpfade. Bedarf hängt von Art und Situation ab.
 - Nahrungsnetzpfeile bedeuten Ressource → Nutzer. Destruenten und chemolithoautotrophe Nitrifizierer werden unterschieden. Stoffe können kreisen; Energie fließt unter Abgabe von Wärme. Kein quantitativer Energiehaushalt wird vorgetäuscht.
+- Pflanzenwachstum wird durch Nitrat, Phosphat, Eisen und CO₂ begrenzt und kann bei fehlenden Ressourcen stoppen. Die vorhandenen relativen Wachstumskosten bleiben kalibrierte Annahmen; Vorratshaltung und direkte Ammoniumaufnahme der Pflanzen sind nicht modelliert.
 - Wachstum, Tierkondition, Mikroben, Detritus und Biomasse enthalten relative Indizes. Reproduktionszyklen im Spiel sind beschleunigt. Generationsversuche kürzen komplette Entwicklungsphasen explizit ab und behaupten keine natürliche Dauer.
 - Zuchtfarben: vereinfachte Modellallele; kein gemessener DNA-Befund. Genotyp und Phänotyp, Dominanz und Fitness bleiben getrennt. Die ursprüngliche Paarung/Genetik im Expertenbecken bleibt erhalten.
 - Populationserweiterung verwendet `inheritGenotype` und `punnettSquare` des Bestands. Neutrale Elternwahl erzeugt Drift. Helle/dunkle Modellumwelt gewichtet Phänotypen hypothetisch 1 bzw. 0,5. Umkehr der Umwelt kehrt den Vorteil um; AA und Aa haben denselben Phänotyp und dasselbe Gewicht. Es gibt keine zielgerichtete Mutation und kein Wiedererscheinen verlorener Allele aus Bedarf. Tatsächliche Eltern und Nachkommen werden archiviert.

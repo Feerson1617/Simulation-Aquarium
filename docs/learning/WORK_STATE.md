@@ -31,3 +31,11 @@ Keine Arbeiten aus PR #7 erneut ausführen; neue Funktionalität in schrittweise
 Das Original-PDF wurde anschließend vom Auftraggeber bereitgestellt. Text aus allen 36 Seiten extrahiert, relevante Abschnitte S. 3–4, 9–10, 14–15, 19–20 direkt geprüft. Die zuvor offene Quellenprüfung ist damit erledigt; die externe Website bleibt für den Entwicklungscontainer gesperrt.
 
 Phasen 1–6 sind implementiert (`75f3602`): gemeinsame Jahrgangsarchitektur, reduzierte UI, 14 Missionen, Begriffshilfen, echte Vergleichsbecken, Generations-/Selektionsmodell, lokale Lehrkraftwerkzeuge und Lernprodukte. Phase 7 läuft. 83 Modultests bestehen. Erste Browserprüfung führte zur Korrektur der Esc-/Kamerasperre und zum Ausblenden der alten Zeitsteuerung. Abschluss erst nach vollständigem Integrationslauf und Bericht.
+
+## Zweite Prüfiteration
+
+- Resets im Lehrkraftmodus betreffen die ausgewählte Mission und behalten eine wiederherstellbare Sicherung von Becken, Notizen und Vergleichsdaten.
+- Lokale und importierte Lernprodukte zeigen auch validierte Messreihen; externe JSON-Daten werden nicht als Code oder Spielzustand ausgeführt.
+- Die Fachprüfung ergänzt die Begrenzung des Pflanzenwachstums durch tatsächlich verfügbare Ressourcen. Die vorhandene automatische Fortpflanzung bleibt auch in Lernbecken aktiv.
+- Frühere Browserläufe belegen die drei freien Forschungspfade und echte Daten, endeten aber vor Abschluss (einmal GPU-Zeitlimit bei geöffnetem Werkzeug, einmal leere Antwort während paralleler Quelländerung). Diese Läufe werden nicht als vollständige Abnahme gezählt. Für die Endprüfung werden die Laufzeitdateien unverändert gelassen.
+- PR-Erstellung mit `gh pr create --draft ...` wurde versucht: `Post https://api.github.com/graphql: Forbidden`. Git-Push funktioniert. Ohne bestätigte PR-Erstellung wird keine Vorschau-URL behauptet.

@@ -294,7 +294,7 @@ export function applyLearningIntervention(payload, key, value, host) {
   }
   if (key === "plants")
     for (let n = 0; n < value; n++)
-      if (!host.add(s, "waterweed", false))
+      if (!host.add(s, "waterweed", true))
         throw new Error("Für die Pflanze ist kein freier Platz vorhanden.");
   return s;
 }

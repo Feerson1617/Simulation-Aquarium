@@ -17,3 +17,5 @@ export function advanceAlgae(state,{potentialGrowth,grazers,plantBiomass,dt}){
  state.detritus+=decayed*state.liters/20;
  return{algaeGrowth:growth,algaeGrazing:grazed,algaeDecay:decayed,algaePhotosynthesis:growth*.6,algaeCO2Uptake:growth*2};
 }
+/** Existing relative growth costs, bounded by actual dissolved resources. No physical biomass claim. */
+export function limitPlantGrowth(potential,p){return Math.max(0,Math.min(potential,p.no3/1.45,p.po4/.025,p.fe/.008,p.co2/4))}

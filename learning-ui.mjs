@@ -416,7 +416,7 @@ export function mountLearningUI(host) {
       visible = GRADE_PROFILES[tag.grade].catalog;
     return (
       panelHeader("Beziehungen und Arten", "energy") +
-      `<h3>Nahrungsbeziehungen in deinem Becken</h3><p>Pfeile zeigen Nahrung → Nutzer. Zersetzung, Mineralisierung und Pflanzenaufnahme verbinden organische Reste und Nährstoffe. Lichtenergie fließt hinein; Wärme wird abgegeben.</p><ul>${web.edges
+      `<h3>Ausgewählte Nahrungsbeziehungen im Becken</h3><p>Pfeile zeigen Nahrung → Nutzer. Zersetzung, Mineralisierung und Pflanzenaufnahme verbinden organische Reste und Nährstoffe. Lichtenergie fließt hinein; Wärme wird abgegeben.</p><ul>${web.edges
         .slice(0, 18)
         .map(
           (e) =>

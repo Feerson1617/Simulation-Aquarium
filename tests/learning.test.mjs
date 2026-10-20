@@ -23,7 +23,7 @@ import {
   compareLearningPopulations,
   reproductiveWeight,
 } from "../learning-population.mjs";
-import { advanceAlgae } from "../bioprocesses.mjs";
+import { advanceAlgae, limitPlantGrowth } from "../bioprocesses.mjs";
 const types = JSON.parse(
   await readFile(new URL("./fixtures/ecology-species.json", import.meta.url)),
 );
@@ -294,4 +294,8 @@ test("exported finite data can be inspected without executing imported states; m
     normalizeTeacher({ grade: 9, mission: "8-oxygen" }).mission,
     "9-traits",
   );
+});
+
+test('plant growth cannot consume absent resources or create carbon through a fixed floor',()=>{
+ const p={no3:12,po4:.4,fe:.08,co2:8};assert.equal(limitPlantGrowth(1,{...p,no3:0}),0);assert.equal(limitPlantGrowth(1,{...p,co2:0}),0);const growth=limitPlantGrowth(10,{...p,fe:.00008});assert.equal(growth,.01);assert.ok(growth*1.45<=p.no3&&growth*.025<=p.po4);
 });

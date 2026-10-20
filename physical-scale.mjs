@@ -88,29 +88,31 @@ export function physicalSubstrateHeight(state,x,z){
 export function normalizeSpatialState(state,previous,catalog){
  if(previous){
   if(previous.version!==1||previous.unit!=='cm'||previous.positions!=='tank-normalized-v1')throw new Error('Unbekannte Version der räumlichen Kalibrierung.');
-  const ids=new Set(state.entities.map(e=>e.uid));
   if(!previous.originalOverrides||typeof previous.originalOverrides!=='object'||Array.isArray(previous.originalOverrides)||Object.keys(previous.originalOverrides).length>240||!Array.isArray(previous.relocations)||previous.relocations.length>240||!Array.isArray(previous.unplaced)||previous.unplaced.length>240||previous.unplaced.some(uid=>!Number.isInteger(uid)))throw new Error('Ungültige räumliche Migrationsdaten.');
   for(const [uid,value]of Object.entries(previous.originalOverrides))if(!/^-?\d+$/.test(uid)||!value||!Number.isFinite(value.scale)||!Number.isFinite(value.rotation))throw new Error('Ungültige ursprüngliche Darstellungswerte.');
   for(const r of previous.relocations)if(!r||!Number.isInteger(r.uid)||![r.from?.x,r.from?.z,r.to?.x,r.to?.z].every(Number.isFinite))throw new Error('Ungültige Positionsmigration.');
  }
- if(state.spatial?.version===1)return state.spatial;
- const spatial={version:1,unit:'cm',positions:'tank-normalized-v1',originalOverrides:{},relocations:[],unplaced:[],...(previous?JSON.parse(JSON.stringify(previous)):null)};
+ const existing=state.spatial?.version===1?state.spatial:previous?JSON.parse(JSON.stringify(previous)):null;
+ const spatial=existing||{version:1,unit:'cm',positions:'tank-normalized-v1',originalOverrides:{},relocations:[],unplaced:[]};
  state.spatial=spatial;
- if(previous)return spatial;
- for(const entity of state.entities){
+ const layout=[state.liters,state.filter,!!state.heater,!!state.skimmer,!!state.air].join(':');
+ if(existing&&spatial.layout===layout)return spatial;
+ if(!existing)for(const entity of state.entities){
   const type=catalog[entity.species];if(!type)continue;
   if(type.category!=='decor'){
    if(entity.scale!==1||entity.rotation!==naturalRotation(entity))spatial.originalOverrides[entity.uid]??={scale:entity.scale,rotation:entity.rotation};
    entity.scale=1;entity.rotation=naturalRotation(entity);
   }
  }
+ // Recheck after tank/hardware changes, retaining original biological data and migration history.
+ spatial.layout=layout;spatial.unplaced=[];
  // Check each fixed object against already admitted neighbours; never against itself twice.
  const admitted={...state,entities:[]};
  for(const entity of state.entities){
   if(entity.dead){admitted.entities.push(entity);continue}
   const position=findPhysicalPosition(admitted,entity,catalog);
   if(position){
-   if(Math.hypot(position.x-entity.x,position.z-entity.z)>.00001){spatial.relocations.push({uid:entity.uid,from:{x:entity.x,z:entity.z},to:{x:position.x,z:position.z}});entity.x=position.x;entity.z=position.z}
+   if(Math.hypot(position.x-entity.x,position.z-entity.z)>.00001){const record=spatial.relocations.find(r=>r.uid===entity.uid);if(record)record.to={x:position.x,z:position.z};else spatial.relocations.push({uid:entity.uid,from:{x:entity.x,z:entity.z},to:{x:position.x,z:position.z}});entity.x=position.x;entity.z=position.z}
   }else spatial.unplaced.push(entity.uid);
   admitted.entities.push(entity);
  }

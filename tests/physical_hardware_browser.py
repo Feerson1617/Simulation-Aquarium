@@ -13,6 +13,15 @@ with sync_playwright()as p:
    for i,a in enumerate(r['equipment']):
     for c in r['equipment'][i+1:]:assert a['max'][0]<=c['min'][0]+.00001 or c['max'][0]<=a['min'][0]+.00001 or a['max'][2]<=c['min'][2]+.00001 or c['max'][2]<=a['min'][2]+.00001,(liters,a,c)
    expected=[t['lengthCm'],t['heightCm'],t['depthCm']];assert all(abs(a-c)<.001 for a,c in zip(expected,r['glassCm']));report['tanks'].append({'liters':liters,'glassCm':r['glassCm'],'equipment':r['equipment']});print('PASS: Calibrated glass and four separate internal devices fit',liters,'litres',flush=True)
+  s=copy.deepcopy(base);stone=copy.deepcopy(s['entities'][0]);stone.update(uid=101,species='stone',scale=1,rotation=0,x=0,z=0);other={**stone,'uid':102,'x':2};s.update(entities=[stone,other],nextId=103,liters=700,filter='none',heater=False,skimmer=False,air=False,day=61)
+  for liters in [700,30,700]:
+   s.update(liters=liters,day=s['day']+.01)
+   page.locator('#import-file').set_input_files({'name':'resize.json','mimeType':'application/json','buffer':json.dumps(s).encode()});page.wait_for_function('(day)=>JSON.parse(localStorage.getItem("aquarium-werkstatt-v1"))?.day===day',arg=s['day']);page.wait_for_function('window.aquariumPhysicalSnapshot().objects.every(o=>o.meshCm)')
+   s=page.evaluate('JSON.parse(localStorage.getItem("aquarium-werkstatt-v1"))');assert len(s['entities'])==2
+   if liters==30:assert len(s['spatial']['unplaced'])>0;assert page.locator('.physical-notice').is_visible()
+   else:assert s['spatial']['unplaced']==[]
+  report['resize']='700 → 30 → 700 L retains both objects, warns of insufficient room, and recovers them when space becomes available'
+  print('PASS: Later tank changes preserve all entities, recheck physical room and recover previously unplaceable objects',flush=True)
   for liters in [30,700]:
    for filter_type,expected_size in [('external',[20,32,20]),('sump',[40,25,25])]:
     s=copy.deepcopy(base);s.update(liters=liters,filter=filter_type,heater=False,skimmer=False,air=False,day=50+liters/1000+(filter_type=='sump'))

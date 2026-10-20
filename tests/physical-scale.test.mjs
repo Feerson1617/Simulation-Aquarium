@@ -69,3 +69,13 @@ test('internal hardware fits and its occupied footprints do not overlap in any t
   for(let i=0;i<hardware.length;i++)for(let j=i+1;j<hardware.length;j++){const a=hardware[i],b=hardware[j];assert.ok(Math.abs(a[0]-b[0])*t.x/WORLD_PER_CM>=a[2]+b[2]||Math.abs(a[1]-b[1])*t.z/WORLD_PER_CM>=a[3]+b[3])}
  }
 });
+
+test('later tank changes recheck placement and recover saved objects when room becomes available',()=>{
+ const s=state([entity('stone',1),entity('stone',2,{x:2})],{liters:700});normalizeSpatialState(s,null,catalog);
+ assert.equal(s.spatial.unplaced.length,0);const count=s.entities.length;
+ s.liters=30;normalizeSpatialState(s,s.spatial,catalog);assert.equal(s.entities.length,count);
+ for(const e of s.entities)if(!s.spatial.unplaced.includes(e.uid))assert.equal(physicalPlacement(s,e,catalog,e.x,e.z).valid,true);
+ assert.ok(s.spatial.unplaced.length>0,'a smaller tank cannot fit two large fixed stones');
+ s.liters=700;normalizeSpatialState(s,s.spatial,catalog);assert.equal(s.spatial.unplaced.length,0);
+ assert.ok(s.spatial.relocations.length<=s.entities.length);const save=JSON.stringify(s);normalizeSpatialState(s,s.spatial,catalog);assert.equal(JSON.stringify(s),save);
+});

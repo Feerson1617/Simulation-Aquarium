@@ -1,4 +1,5 @@
-/** Aquascaping phase 1. Original procedural assets; no external services or dependencies. */
+import { TANK_DIMENSIONS, physicalPlacement, findPhysicalPosition, physicalSubstrateHeight } from './physical-scale.mjs';
+/** Aquascaping: legacy save coordinates, physical dimensions and no external services. */
 export const AQUASCAPING_DECOR = [
   { id: 'spiderwood', name: 'Verzweigte Fingerwurzel', shape: 'spiderwood', color: '#846046', water: 'fresh', minL: 60,
     footprint: [.78, .49], description: 'Fein verzweigtes Holz für Süßwasser. Zwischen den Ästen finden kleine Tiere Deckung; die Oberfläche kann Biofilme tragen. Holz vor dem Einsatz wässern.' },
@@ -29,6 +30,7 @@ export function footprint(entity, species) {
 }
 
 export function placementCandidate(state, entity, speciesById, x, z) {
+  if (TANK_DIMENSIONS[state.liters]) return physicalPlacement(state,entity,speciesById,x,z);
   const species = speciesById[entity.species];
   if (!isMovable(entity, species) || !Number.isFinite(x) || !Number.isFinite(z)) return { valid: false, reason: 'Dieses Objekt lässt sich nicht mit der Pinzette bewegen.' };
   const half = footprint(entity, species);
@@ -58,6 +60,7 @@ export function placementCandidate(state, entity, speciesById, x, z) {
 }
 
 export function findFreePosition(state, entity, speciesById) {
+  if (TANK_DIMENSIONS[state.liters]) return findPhysicalPosition(state,entity,speciesById);
   const first = placementCandidate(state, entity, speciesById, entity.x, entity.z);
   if (first.valid) return first;
   const spots = [];
@@ -71,6 +74,7 @@ export function findFreePosition(state, entity, speciesById) {
 }
 
 export function substrateHeight(state, x, z) {
+  if (TANK_DIMENSIONS[state.liters]) return physicalSubstrateHeight(state,x,z);
   return state.substrate === 'bare' ? .065 : .24 + Math.sin(x * 2) * .04 - z * .04;
 }
 
@@ -298,8 +302,9 @@ export class AquascapingController {
     const y = isAnimal(type) ? this.view.objects.get(entity.uid)?.group.position.y ?? 1.5
       : floating(type) ? 3.43 : substrateHeight(this.view.state, entity.x, entity.z);
     const point = new T.Vector3();
-    if (!this.ray(event).ray.intersectPlane(new T.Plane(new T.Vector3(0, 1, 0), -y), point)) return null;
-    return { x: point.x / this.view.life.scale.x, z: point.z };
+    if (!this.ray(event).ray.intersectPlane(new T.Plane(new T.Vector3(0, 1, 0), -y*this.view.life.scale.y), point)) return null;
+    this.view.life.worldToLocal(point);
+    return { x: point.x, z: point.z };
   }
 
   pick(event) {
@@ -371,6 +376,7 @@ export class AquascapingController {
     let stored = true;
     if (moved) {
       d.entity.x = d.last.x; d.entity.z = d.last.z;
+      if(this.view.state.spatial)this.view.state.spatial.unplaced=this.view.state.spatial.unplaced.filter(uid=>uid!==d.entity.uid);
       d.entity.aquascapePlaced = true; stored = this.onCommit?.(d.entity) !== false;
     }
     this.release = { entity: d.entity, age: 0, lifted: Math.min(1, d.age / .16) * .16 };
@@ -409,19 +415,21 @@ export class AquascapingController {
       entity.z + (event.key === 'ArrowUp' ? -step : event.key === 'ArrowDown' ? step : 0));
     if (!candidate.valid) { this.onMessage?.(candidate.reason); return; }
     entity.x = candidate.x; entity.z = candidate.z; entity.aquascapePlaced = true;
+    if(this.view.state.spatial)this.view.state.spatial.unplaced=this.view.state.spatial.unplaced.filter(uid=>uid!==entity.uid);
     this.release = { entity, age: 0, lifted: .08 };
     const stored = this.onCommit?.(entity) !== false;
     this.onMessage?.(stored ? 'Position mit Pfeiltasten angepasst und gespeichert.' : 'Position angepasst. Browserspeicherung gesperrt – sichere deinen Spielstand als Datei.');
   }
 
   bottomOffset(item) {
-    const group = item.group, key = group.uuid + ':' + group.scale.y.toFixed(4);
+    const group = item.group, key = group.uuid + ':' + (item.physicalSize?.meshCm?.join(':')||group.scale.y.toFixed(4));
     let cached = this.bottomCache.get(group.userData.uid);
     if (cached?.key !== key) {
       group.updateWorldMatrix(true, true);
       const box = new this.T.Box3().setFromObject(group);
-      cached = { key, offset: Number.isFinite(box.min.y) ? box.min.y - group.position.y : 0,
-        height: Number.isFinite(box.max.y) ? Math.max(.1, box.max.y - box.min.y) : .3 };
+      const worldY=group.getWorldPosition(new this.T.Vector3()).y,unitY=this.view.life.scale.y;
+      cached = { key, offset: Number.isFinite(box.min.y) ? (box.min.y - worldY)/unitY : 0,
+        height: Number.isFinite(box.max.y) ? Math.max(.02, (box.max.y - box.min.y)/unitY) : .3 };
       this.bottomCache.set(group.userData.uid, cached);
     }
     return cached;

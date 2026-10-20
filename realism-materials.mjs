@@ -48,6 +48,6 @@ export function dressSpecimen(group,species,T,anatomy){const kind=species.catego
   group.updateMatrixWorld(true);const envelope=new T.Box3().setFromObject(group);group.userData.visualEnvelope={halfX:(envelope.max.x-envelope.min.x)/2,halfZ:(envelope.max.z-envelope.min.z)/2,top:Math.max(0,envelope.max.y),bottom:Math.max(0,-envelope.min.y)};
  }
  return group}
-export function animateVisualModel(group,time,flow,water='fresh',algae=0,detritus=0){group.traverse(object=>{if(!object.isMesh)return;for(const material of Array.isArray(object.material)?object.material:[object.material]){const u=material.userData.visualUniforms;if(u){u.visualTime.value=time;u.visualFlow.value=.15+flow/100*.85;u.visualWaterLine.value=3.47;const haze=Math.min(.12,algae*.06+detritus*.008);u.visualAbsorption.value.set(.065+haze,water==='salt'?.025:.035,.018+haze*.4)}}});}
+export function animateVisualModel(group,time,flow,water='fresh',algae=0,detritus=0,waterLine=3.47){group.traverse(object=>{if(!object.isMesh)return;for(const material of Array.isArray(object.material)?object.material:[object.material]){const u=material.userData.visualUniforms;if(u){u.visualTime.value=time;u.visualFlow.value=.15+flow/100*.85;u.visualWaterLine.value=waterLine;const haze=Math.min(.12,algae*.06+detritus*.008);u.visualAbsorption.value.set(.065+haze,water==='salt'?.025:.035,.018+haze*.4)}}});}
 
 export function clearVisualDetails(){for(const texture of detailCache.values())texture.dispose();detailCache.clear()}

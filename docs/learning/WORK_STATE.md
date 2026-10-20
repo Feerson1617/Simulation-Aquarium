@@ -1,57 +1,20 @@
-# Lernumgebungen – wiederaufnehmbarer Arbeitsstand
+# PR #8 – Korrekturen nach unabhängiger Prüfung
 
-Stand: 20.10.2026. Branch `feature/biology-learning-environments`. Die Implementierung und lokale Gesamtprüfung des Masterauftrags sind abgeschlossen. **Nicht bei null beginnen und bestandene Prüfungen ohne neue Codeänderung nicht wiederholen.** Offen ist die externe Pull-Request-Erstellung; siehe [GitHub-Übergabe](GITHUB.md).
+Ausgangspunkt: 5b00ea1538cb740a28287ed5f83038f2df96d052 auf feature/biology-learning-environments; main 666df90. Remote-Branch und PR-Ref am 20.10.2026 abgeglichen, keine fremden oder ungesicherten Änderungen. Kein Merge. AGENTS.md gilt unverändert.
 
-## Wiederhergestellte Grundlage und Sicherung
+Auftrag und Prüfbericht: review/REQUEST.md und review/REVIEW.md. Der vollständige ursprüngliche Masterauftrag ist in dieser Umgebung vorhanden und unter review/MASTER_REQUEST.md gesichert. Originalcurriculum-PDF ebenfalls vorhanden und SHA-256 faa37c2dafb2824dda8e890c21f05a69d4f479ea64c255ca815892174889b90f bestätigt. Seite 19 ausdrücklich gelesen: anthropogene Beeinflussung des Kohlenstoffkreislaufs verpflichtend.
 
-- Der saubere Vorgänger `78f3ce6` ist über PR #7 bereits in `main` (`666df90`) enthalten. Sein Dateibaum wurde vollständig übernommen. Keine doppelte Umsetzung früherer Modell-, Maßstabs- oder Genetikarbeiten.
-- Alle Entwicklungsschritte wurden auf diesem Branch regelmäßig committed und nach `origin` gepusht. Der genaue Abschlusscommit ist mit `git log -1` nachvollziehbar. Die letzte Laufzeitcodeänderung ist `9e13bbb`; spätere Commits betreffen Dokumentation, Testskripte und Belege.
-- Keine Änderungen an `AGENTS.md`, Modellen/Texturen oder Veröffentlichungsworkflows; kein Merge und keine Änderung an `main`.
-- Das vom Nutzer hochgeladene Originalcurriculum wurde gelesen. Seitenzuordnung: [REPORT.md](REPORT.md); Herkunft/Prüfsumme und fachliche Grenzen: [AUDIT.md](AUDIT.md).
+## In Arbeit
 
-## Abgeschlossene Phasen
+1. R1: Status und Fortsetzung je Becken, ungleiche Reihen, letzter Ausfallschritt.
+2. R2: Begrenzter vollständiger lesender Import und Lehrkraftdarstellung.
+3. R3: Feste Laufkonfiguration und sichtbare Trennung vom bearbeiteten Plan.
+4. R4: Menschliche Beeinflussung des Kohlenstoffkreislaufs mit Material, Aufgabe, Sicherung und Grenzen.
+5. R5: Neue Mendelstichprobe und identischen Seed reproduzieren.
+6. R6: Archive und Fortpflanzungserfolg je Selektionslauf.
+7. R7: Eigene Messreihen als Tabelle, Diagramm und Export.
+8. R8: CSV mit eindeutigen Messnamen, Einheiten, Typen und Herkunft.
+9. Gezielte Verhaltenstests, bestehende 87 Modultests und relevante Browserregressionen; PR-Modultestworkflow ergänzen.
+10. REPORT/AUDIT/VALIDATION und vollständige Master-/14-Missionen-Abnahmematrix aktualisieren.
 
-| Phase | Vorhandene Umsetzung |
-|---|---|
-| 1 · Didaktisches Audit und Fachkorrekturen | Originalcurriculum, Fehlvorstellungen, transparente Zustandsindikatoren, Ressourcenbegrenzung von Pflanzen/Algen, organischer Rückfluss |
-| 2 · Gemeinsame pädagogische Architektur | Drei Lernprofile, isolierte Lernspeicher, gemeinsamer bisheriger Rechenkern, Missions- und freier Modus |
-| 3 · Reduzierte Oberflächen | Jahrgangssprache, passende Werkzeuge/Messgrößen, optionales Seitenwerkzeug, Kontext-? und Glossar, getrennte Grafikprofile |
-| 4 · Missionen und Untersuchung | Alle 14 Missionsprofile; identische Ausgangslagen, gezielter Eingriff, Wiederholungen, tatsächliche Zeitreihen, Notizbuch und JSON/CSV/SVG |
-| 5 · Biologische Mechaniken | Reale Mendelkreuzungen und archivierte Abstammung, endliche Populationen mit Drift und hypothetischer Selektion, begrenzte Wald-/Küsten-/Kohlenstofftransfers |
-| 6 · Lehrkraft und Lernstand | Drei Unterstützungsniveaus, Vorbereitung/Freigaben, Konfigurationsimport/-export, Lernproduktleser, Vorwissen/spätere Erklärung, Reset mit Wiederherstellung |
-| 7 · Gesamtprüfung | 87 Modultests, 71 Browserprüfpunkte und Einzeldatei-Export bestanden; Screenshots und fachliche Grenzen dokumentiert |
-
-## Prüfung und Belege
-
-- Vollständige Tabelle und Ansichten: [VALIDATION.md](VALIDATION.md); maschinenlesbare Übersicht: [verification.json](evidence/verification.json).
-- Browserprüfpunkte: Lernen **19**, gezielte Fach-/Bedienfälle **6**, bisherige Bereitschaft/Tutorial **13**, Aquascaping **12**, Ökosystem **12**, Genetik **9**. Alle acht Touch-Tutorialschritte sind enthalten.
-- Die 19 Lernprüfpunkte wurden in zwei Abschnitten abgeschlossen. Der erste bestand sämtliche freien Forschungswege und alle 14 Missionen, bevor das Skript eine noch eingeklappte Lehrkraftoption anklicken wollte. Danach nur den offenen Lehrkraft-/Touch-Abschnitt fortgesetzt; keine Laufzeitänderung und keine Doppelzählung. Der ursprüngliche Bericht mit Status `failed` ist erhalten und erläutert.
-- Der HTML-Gesamtdownload (151.023.814 Bytes) wurde als einzige Datei über HTTP geprüft. Direkter `file:`-Start ist durch die verwaltete Browserrichtlinie blockiert und nicht als bestanden ausgewiesen.
-- [Prüfsummen](evidence/runtime.sha256) der sieben bearbeiteten Laufzeitdateien wurden nach allen Tests abgeglichen. Testläufe veränderten keine Spielquellen.
-- Dauerhafte Repositorybelege liegen unter `docs/learning/evidence`. Zusätzlich existieren in dieser Umgebung `/tmp/aquarium-learning-final/status.json`, Gruppenprotokolle und `/tmp/aquarium-final-validation-runner.py`; diese temporären Dateien sind zur Wiederaufnahme nicht erforderlich.
-
-## Falls die Arbeit erneut aufgenommen wird
-
-1. `git status --short --branch`, `git log` und Remotezweige prüfen. Vorhandene Änderungen übernehmen, nicht zurücksetzen.
-2. Prüfen, ob der Nutzer inzwischen einen PR aus diesem Branch erstellt oder gemergt hat. Kein eigener Merge. Bei vorhandenem PR diesen weiterverwenden.
-3. GitHub-API-Zugriff war mit `Forbidden` blockiert; Git-Push funktioniert. [PR_BODY.md](PR_BODY.md) enthält die fertige Beschreibung. Ohne bestätigte PR-Erstellung keine Nummer oder aktive Vorschau behaupten.
-4. Neue fachliche/technische Änderungswünsche auf dem gesicherten Stand bearbeiten und nur betroffene Prüfungen erneut ausführen.
-
-## Reproduzieren bei neuen relevanten Änderungen
-
-Statischen Server und Python-Playwright/Chromium wie in `README.md` verwenden. GPU-Browsergruppen in dieser CPU-Cloud einzeln ausführen:
-
-```sh
-node --test tests/*.test.mjs
-python3 tests/learning_additional_browser.py
-python3 tests/learning_browser.py
-python3 tests/readiness_browser.py
-python3 tests/aquascaping_browser.py
-python3 tests/ecosystem_browser.py
-python3 tests/genetics_browser.py
-python3 tests/standalone_browser.py
-```
-
-## Bewusst verbleibende Grenzen
-
-Reale Schul-iPads/Safari, Unterrichtserprobung und empirische didaktische Wirksamkeit sind noch nicht geprüft. Modellraten bleiben kalibriert; keine geschlossene Kohlenstoff-/Energiebilanz und keine Simulation von Gezeiten, Plastiktoxikologie oder Fischereiökonomie. Regionale Transferquellen wurden benannt, ihre aktuellen Webinhalte hier nicht live geprüft. Vollständiger Fotorealismus bleibt ein früheres separates Entwicklungsziel. Dies sind dokumentierte Grenzen und weitere Erprobungen, keine Behauptung vollständig abgebildeter natürlicher Ökosysteme.
+Die bisherigen 87/71 Nachweise gehören zum Ausgangsstand; sie belegen die Korrekturen R1–R8 noch nicht. Neue Tests und Codeänderungen getrennt dokumentieren. Lokale Werkzeuge und Projektunterpfad sind vorhanden; nicht neu installieren. GPU-Tests nacheinander ausführen. Physische Safari-iPads und empirische Lernwirksamkeit weiter offen. PR #8 ist angehängt; derselbe Branch wird aktualisiert. Git-Push funktioniert; api.github.com ist weiterhin nicht in der Netzwerk-Allowlist.

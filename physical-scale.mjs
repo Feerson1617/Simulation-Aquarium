@@ -109,6 +109,8 @@ export function normalizeSpatialState(state,previous,catalog){
  }
  // Recheck after tank/hardware changes, retaining original biological data and migration history.
  spatial.layout=layout;spatial.unplaced=[];
+ // Removed individuals need no placement record; keep save metadata within its schema bound.
+ const presentIds=new Set(state.entities.map(e=>e.uid));spatial.relocations=spatial.relocations.filter(r=>presentIds.has(r.uid));
  // Check each fixed object against already admitted neighbours; never against itself twice.
  const admitted={...state,entities:[]};
  for(const entity of state.entities){

@@ -87,3 +87,14 @@ test('plant placement leaves room for the mature canopy at glass while roots may
   assert.ok(Math.abs(p.z)*d.z/WORLD_PER_CM+adult.widthCm/2<=d.innerDepthCm/2,'full canopy must stay inside front glass');
  }
 });
+
+test('repeated stocking and tank changes keep placement history within the import schema',()=>{
+ const s=state([]);
+ for(let uid=1;uid<=250;uid++){
+  s.entities=[entity('anubias',uid,{x:100})];s.liters=uid%2?120:700;
+  normalizeSpatialState(s,s.spatial,catalog);
+  assert.equal(s.spatial.relocations.length,1);
+  assert.equal(s.spatial.relocations[0].uid,uid);
+ }
+ assert.doesNotThrow(()=>normalizeSpatialState(s,structuredClone(s.spatial),catalog));
+});

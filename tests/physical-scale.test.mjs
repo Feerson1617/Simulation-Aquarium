@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { SPECIES_DIMENSIONS } from '../species-dimensions.mjs';
-import { TANK_DIMENSIONS, WORLD_PER_CM, tankDimensions, naturalVariation, organismDimensions, physicalFootprint, physicalPlacement, normalizeSpatialState, physicalSubstrateHeight, hardwareFootprints } from '../physical-scale.mjs';
+import { TANK_DIMENSIONS, WORLD_PER_CM, tankDimensions, naturalVariation, organismDimensions, physicalFootprint, physicalPlacement, normalizeSpatialState, physicalSubstrateHeight, hardwareFootprints, findPurchasePosition, findPhysicalPosition } from '../physical-scale.mjs';
 const catalog=JSON.parse(await readFile(new URL('./fixtures/ecology-species.json',import.meta.url)));
 const entity=(species,uid=1,extra={})=>({uid,species,x:0,z:0,age:30,biomass:.8,rotation:1,scale:1,sex:'♂',health:100,...extra});
 const state=(entities=[],extra={})=>({entities,liters:180,substrate:'sand',filter:'none',...extra});
@@ -97,4 +97,12 @@ test('repeated stocking and tank changes keep placement history within the impor
   assert.equal(s.spatial.relocations[0].uid,uid);
  }
  assert.doesNotThrow(()=>normalizeSpatialState(s,structuredClone(s.spatial),catalog));
+});
+
+test('new hardscape can enter a fitting orientation without rotating existing saved pieces',()=>{
+ const piece=entity('spiderwood',1,{x:0,z:0,rotation:Math.PI/4}),s=state([],{liters:120});
+ assert.equal(findPhysicalPosition(s,piece,catalog),null,'diagonal AABB is too deep');
+ const free=findPurchasePosition(s,piece,catalog);assert.ok(free);assert.equal(free.rotation,0);
+ assert.equal(piece.rotation,Math.PI/4,'search cannot alter existing input state');
+ assert.equal(physicalPlacement(s,{...piece,rotation:free.rotation},catalog,free.x,free.z).valid,true);
 });

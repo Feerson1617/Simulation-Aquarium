@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-20",
+  "branch": "feature/physical-scale-realism",
+  "method": "Staged validation; affected tests rerun after corrections. Final code hashes bind the collected evidence to the handed-over working tree.",
+  "suites": {
+    "physical": {
+      "status": "passed",
+      "checks": 8,
+      "report": "browser-report.json"
+    },
+    "catalog-ui": {
+      "status": "passed",
+      "checks": 13,
+      "report": "catalog-ui.json"
+    },
+    "genetics": {
+      "status": "passed",
+      "checks": 9,
+      "report": "genetics-browser.json"
+    },
+    "ecosystem": {
+      "status": "passed",
+      "checks": 12,
+      "report": "ecosystem-browser.json"
+    },
+    "aquascaping": {
+      "status": "passed",
+      "checks": 12,
+      "report": "aquascaping-browser.json"
+    },
+    "readiness": {
+      "status": "passed",
+      "checks": 13,
+      "report": "readiness-browser.json"
+    },
+    "hardware": {
+      "status": "passed",
+      "checks": 12,
+      "report": "hardware-browser.json"
+    },
+    "node": {
+      "status": "passed",
+      "tests": 71,
+      "report": "node-tests.log"
+    },
+    "glb": {
+      "status": "passed",
+      "tests": 2,
+      "report": "glb-tests.log"
+    },
+    "standalone": {
+      "status": "passed-single-document-http",
+      "file_url_tested": false,
+      "bytes": 150901519,
+      "report": "standalone-browser.log"
+    }
+  },
+  "codeSha256": {
+    "index.html": "62e081db69dd92ef2f73e2e2f84287bda65edc968c6bcf3592448edbac9dc3af",
+    "physical-scale.mjs": "244afef20bc6cd6986cdfa8c62bcafb58abfb71f7344e9c9709640b6c7d6ca41",
+    "physical-renderer.mjs": "46ff0ab3bc8cc82faadb798230a15cbf460f04cba9e50e5bfa092925c2360709",
+    "species-dimensions.mjs": "9aaa6d3e0425998f83652825402b95a569cadd4c914f5e517f319d4afb5fbd0b",
+    "aquascaping.mjs": "7be4508b63d046b8dde5a35fff05416012baa339f513a499541c914a65794d55",
+    "underwater.mjs": "df3c746f19f3f20348cb7442ec7c216b8cd863bab3e7f7e4105785e92223e941",
+    "realism-materials.mjs": "32ae354c89791d4d86dc157a8c3ec58b76c3b6b0fd4bfd68f7c8ae363ec8fc54",
+    "realism-renderer.mjs": "81d9eb9bf8dac0b4b5cae02737b35d7d1ceb0ba9fdec4f14e9127ba2cb4d9f80",
+    "assets/species/anubias-desktop.glb": "67fe1d6ff0bab2cc76409d85280330cc292108f8aed7ace1f864e56785840025",
+    "assets/species/anubias-mobile.glb": "479651c049852cfc666fd97e3887ca6f2385d40477e892f733e7e54654f97daa"
+  },
+  "limits": [
+    "Chromium SwiftShader, no physical Safari iPad or hardware GPU",
+    "No full new external verification of all species measurements",
+    "Partial photorealism; individual assumptions in SIZES.md",
+    "GitHub API and live PR preview require actual GitHub confirmation"
+  ]
+}

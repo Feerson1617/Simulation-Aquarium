@@ -4,14 +4,14 @@ Stand: 20. Oktober 2026. Die Prüfungen verwenden echte lokale Spielseiten unter
 
 ## Abgeschlossene Prüfungen
 
-- **70 Node-Tests bestanden**, kein übersprungener oder abgebrochener Test. Enthalten sind bestehende Biologie-, Genetik-, Katalog-, Grafik- und Platzierungsregeln sowie 15 gezielte Maßstabsfälle.
+- **71 Node-Tests bestanden**, kein übersprungener oder abgebrochener Test. Enthalten sind bestehende Biologie-, Genetik-, Katalog-, Grafik- und Platzierungsregeln sowie 16 gezielte Maßstabsfälle.
 - **2 GLB-Prüfungen bestanden**, einschließlich vorhandener Organismenpakete und neuer Anubias-Dateien.
 - Die tatsächlichen GLB-Dateien und die Fotoreferenz stimmen mit den dokumentierten SHA-256-Hashes überein.
 - Gespeichertes lokales Setup und Starthelfer erneut ausgeführt: Werkzeuge vorhanden, HTTP 200 und exakter Hash der aktuellen index.html. Vorhandene `install_script`-/`start_skill`-Konfiguration bleibt erhalten; keine neue Veröffentlichung ausgelöst.
 
 ## Abschließender Browserlauf
 
-Die endgültigen Ergebnisse werden nach Ende jedes Runners aus dessen aktuellem Ergebnisverzeichnis übernommen. Der laufende Abschluss umfasst:
+Alle ausgewählten Läufe sind abgeschlossen. Ergebnisse stammen aus den jeweiligen aktuellen Ergebnisverzeichnissen. Betroffene Prüfungen wurden nach Korrekturen erneut ausgeführt; reine Dokumentationsänderungen benötigen keinen erneuten Browserlauf.
 
 | Bereich | Prüfinhalt | Status |
 | --- | --- | --- |
@@ -20,9 +20,30 @@ Die endgültigen Ergebnisse werden nach Ende jedes Runners aus dessen aktuellem 
 | Katalog/UI | gemeinsame Artbilder, reale 3D-Auswahl, Pinzette aller Kategorien, Wasser-/Zeit-/Grafikbedienung, Tutorial und Touch | **13 Prüfschritte bestanden**, keine JavaScript-Fehler |
 | Genetik | reale Käufe, F1/F2, Nachwuchsgröße, Platy, Eier/Schlupf, Speichererhalt, Touch | **9 Prüfschritte bestanden**, keine JavaScript-/Shader-/Ressourcenfehler |
 | Ökosystem | Analyse, Szenarien, Mikroskop und alte Spielstände | **12 Prüfschritte bestanden**, keine JavaScript-/Ressourcenfehler |
-| Aquascaping | Maus/Touch, Grenzen, Kollisionen, Kamerasperre, Abbruch und Speicherung | ausstehend |
-| Bereitschaft | Spielstart, Tutorial, Pflege, Wasserwerte, Zeit und Import/Export | ausstehend |
-| HTML-Download | heruntergeladene Datei allein mit Modellen, Varianten, Genetik und Pinzette | ausstehend |
+| Aquascaping | Maus/Touch, echte Modellgrenzen, Kollisionen, Kamerasperre, Abbruch, Tastatur und Speicherung | **12 Prüfschritte bestanden**, keine JavaScript-/Shader-/Ressourcenfehler |
+| Bereitschaft | Spielstart, alle acht Tutorialstufen per Touch, Hochformat, Pflege, Wasserwerte, Zeit und Import/Export | **13 Prüfschritte bestanden**, keine JavaScript-/Spielressourcen-/externen Laufzeitabrufe |
+| HTML-Download | heruntergeladene Datei allein mit Modellen, Varianten, Genetik und Pinzette | **Bestanden ohne zusätzliche HTTP-Ressourcen**; direkter file:-Aufruf durch Browserrichtlinie blockiert |
+
+## Wiederholung in der eingerichteten Cloud
+
+Den Starthelfer ausführen, danach die folgenden Läufe **nacheinander**, damit mehrere Software-WebGL-Prozesse nicht konkurrieren:
+
+```bash
+python3 /workspace/aquarium-devtools/start.py
+export AQUARIUM_CHROMIUM=/usr/bin/chromium
+node --test tests/*.test.mjs
+python3 tests/species_assets_test.py
+python3 tests/physical_scale_browser.py
+python3 tests/physical_hardware_browser.py
+python3 tests/catalog_ui_browser.py
+python3 tests/genetics_browser.py
+python3 tests/ecosystem_browser.py
+python3 tests/aquascaping_browser.py
+python3 /workspace/aquarium-devtools/check.py
+python3 tests/standalone_browser.py
+```
+
+Alle Repository-Befehle laufen aus `/workspace/Simulation-Aquarium`. Der Starthelfer prüft den Hash der aktuellen HTML-Datei; Browser verwenden isolierte Profile. Die originalen Ergebnisse jeder ausgeführten Suite werden übernommen, keine alten Ergebnisse als neuer Lauf ausgegeben.
 
 ## Visuelle Prüfung
 
@@ -36,8 +57,11 @@ Die natürliche Verkleinerung machte den exakten Desktop-Klick auf dünne Pflanz
 
 Eine zusätzliche Randprüfung wies nach, dass die bisherige Pflanzenbasis-Freistellung Blätter über die Scheiben lassen konnte. Die neue Kronenvermessung und separate Glasfreistellung beheben dies; der neue Node-Test scheiterte [vorher](evidence/plant-bounds-before.log) und besteht [nachher](evidence/node-tests.log). Der Browserlauf ergänzt dafür eine tatsächliche Ziehgeste außerhalb des Canvas. Der Dekorationskauftest verwendet unabhängige leere Becken je Stück: zufällige Drehung kann selbst große Becken so aufteilen, dass eine weitere zusammenhängende Fläche fehlt. Automatisches Umräumen gehört nicht zur Platzsuche.
 
+Der Einzeldatei-Test zeigte außerdem einen echten Neukauffehler: eine diagonal zu tiefe Dekoration wurde auch dann abgewiesen, wenn sie gerade ins Becken passte. Neue Stücke versuchen nun geeignete Ausrichtungen; alte gespeicherte Drehungen bleiben erhalten. Ein eigener Node-Test und die tatsächliche Kaufprüfung im heruntergeladenen Spiel decken den Fall ab.
+
 ## Aussagegrenzen
 
+- Die eigenständige HTML-Datei enthält alle Modelle/LODs und ist 150.901.519 Bytes (ca. 144 MiB) groß. Der verwaltete Browser sperrt `file:`; der Funktionsnachweis erfolgte mit genau dieser Datei allein über einen temporären lokalen Server ohne weitere Ressourcen.
 - Kein echtes Safari-iPad und keine Hardware-GPU verfügbar. Chromium mit Touch-Emulation ist ein Funktionsnachweis und keine Safari- oder Leistungsfreigabe.
 - Keine neue vollständige externe Literaturvalidierung aller Größen. Vorhandene Katalogquellen und neue explizite Annahmen sind in SIZES.md dokumentiert.
 - Zweidimensionale Grundflächen ersetzen keine vollständige Kontaktphysik für Blätter, Verzweigungen, Höhlen und schwimmende Tiere.

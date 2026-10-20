@@ -82,6 +82,13 @@ export function findPhysicalPosition(state,entity,catalog){
  candidates.sort((a,b)=>Math.hypot(a.x-entity.x,a.z-entity.z)-Math.hypot(b.x-entity.x,b.z-entity.z));
  for(const p of candidates){const result=physicalPlacement(state,entity,catalog,p.x,p.z);if(result.valid)return result}return null;
 }
+/** New pieces may arrive in a fitting orientation; existing layouts keep their rotation. */
+export function findPurchasePosition(state,entity,catalog){
+ const first=findPhysicalPosition(state,entity,catalog);if(first)return first;
+ if(catalog[entity.species]?.category!=='decor')return null;
+ for(const rotation of [0,Math.PI/2]){const free=findPhysicalPosition(state,{...entity,rotation},catalog);if(free)return {...free,rotation}}
+ return null;
+}
 export function physicalSubstrateHeight(state,x,z){
  if(state.substrate==='bare')return .065;
  const tank=tankDimensions(state);

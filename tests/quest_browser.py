@@ -2,7 +2,7 @@ from biology_browser_helpers import activities,biological_experiment,comparison_
 """Complete quests by real browser actions, not direct quest-state manipulation.
 AQUARIUM_QUEST_SECTIONS=desktop,touch,free,teacher (default all).
 """
-import json,os,re
+import json,os,re,subprocess
 from pathlib import Path
 from datetime import datetime,timezone
 from playwright.sync_api import sync_playwright,expect
@@ -10,7 +10,7 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=Path(os.environ.get('AQUARIUM_QUEST_RESULTS','/tmp/aquarium-quest-results'))/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S');OUT.mkdir(parents=True)
 URL=os.environ.get('AQUARIUM_URL','http://127.0.0.1:8000/aquarium-simulation/').split('?')[0]
 SECTIONS=os.environ.get('AQUARIUM_QUEST_SECTIONS','desktop,touch,free,teacher,help').split(',')
-report={'checks':[],'errors':[],'failed_requests':[],'missions':[],'screenshots':[],'sections':SECTIONS}
+report={'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'checks':[],'errors':[],'failed_requests':[],'missions':[],'screenshots':[],'sections':SECTIONS}
 IDS={8:['8-ecosystem','8-oxygen','8-foodweb','8-health','8-forest'],9:['9-traits','9-mendel','9-population','9-darwin'],10:['10-enrichment','10-carbon','10-restore','10-northsea','10-wadden']}
 BAN=re.compile(r'\b(JSON|CSV|SVG|Seed|Seeds|Modellkonfiguration|Messmetadaten|Curriculum|Fachanforderungen|didaktisch\w*|Versorgungsindikator|Tierkondition)\b',re.I)
 def passed(s): report['checks'].append(s);print('PASS',s,flush=True)

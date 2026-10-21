@@ -1522,10 +1522,11 @@ export function mountLearningUI(host) {
         return;
       }
       if (a === "tweezers") {
-        host.tweezers();
-        t.setAttribute("aria-pressed", String(host.tweezersActive()));
+        // The placement controller deliberately rejects activation behind an open drawer.
         if (!detailed && panel === "more") closePanel();
-        else if (!detailed) render();
+        host.tweezers();
+        if (!detailed) render();
+        else t.setAttribute("aria-pressed", String(host.tweezersActive()));
         return;
       }
       if (a === "measure") {

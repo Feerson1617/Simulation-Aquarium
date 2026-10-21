@@ -870,6 +870,7 @@ export function validateLearningProduct(raw) {
     measurements,
     measurementMetrics,
     population: validateLearningPopulation(raw.population),
+    comparisonHistory: evidenceList(raw.comparisonHistory || [], 3).map(validateLearningComparison),
     populationRepeats: evidenceList(raw.populationRepeats || [], 20).map(
       (item) => ({
         seed: evidenceNumber(item.seed, 0, 4294967295, true),

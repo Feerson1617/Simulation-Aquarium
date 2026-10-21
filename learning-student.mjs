@@ -1,3 +1,4 @@
+import {pendingActivity,REGIONAL_CASES} from "./learning-activities.mjs";
 import {populationExplanation} from "./biology-quality.mjs";
 /** The regular learner surface. Technical evidence views remain in learning-ui. */
 import {
@@ -75,7 +76,7 @@ export function createStudentViews(api) {
       s = session.quest,
       d = QUESTS[tag.mission];
     if (!d) return "";
-    const done = s.step === 5;
+    const done = s.step === 5, activity = done ? null : pendingActivity(s);
     if (!inline && (s.collapsed || panel))
       return `<aside class="learn-quest-chip">${button("quest-toggle", done ? "Quest fertig ✓" : `Questbuch · ${s.step + 1} von 5`, 'aria-expanded="false"')}</aside>`;
     let body = "";
@@ -93,40 +94,48 @@ export function createStudentViews(api) {
                 : step === 4
                   ? questConclusion(d, s.result)
                   : null;
-      body = `<small>Aufgabe ${step + 1} von 5 · ${STEP_NAMES[step]}</small><h2 tabindex="-1">${esc(q?.prompt || experimentTask(d))}</h2>`;
-      if (step === 0) body += button("observe", "Aquarium anschauen");
+      body = `<small>Aufgabe ${step + 1} von 5 · ${STEP_NAMES[step]}</small><h2 tabindex="-1">${esc(activity?.prompt || q?.prompt || experimentTask(d))}</h2>`;
+      if (step === 0) body += button("observe", d.experiment.kind === "case" ? "Küstenfall ansehen" : "Aquarium anschauen");
+      if (step === 4 && d.id === "10-northsea") body += `<p class="learn-case">${esc(REGIONAL_CASES[d.id].text)}</p>`;
       if (step === 2)
-        body += `<p>${esc(experimentTask(d))}</p>${button(d.experiment.kind === "traits" || d.experiment.kind === "cross" ? "material" : "investigate", d.experiment.kind === "traits" ? "Erbanlagen ansehen" : d.experiment.kind === "cross" ? "Eltern wählen" : "Versuch öffnen")}`;
+        body += `<p>${esc(experimentTask(d))}</p>${button(["traits","cross","case"].includes(d.experiment.kind) ? "material" : "investigate", d.experiment.kind === "traits" ? "Erbanlagen ansehen" : d.experiment.kind === "cross" ? "Eltern wählen" : "Versuch öffnen")}`;
       if (step === 3) {
         body += reading(s.result);
         body += button(
-          d.experiment.kind === "cross" || d.experiment.kind === "traits"
+          ["cross","traits","case"].includes(d.experiment.kind)
             ? "material"
             : "investigate",
           "Ergebnisse ansehen",
         );
       }
-      if (q)
+      if (activity) body += activityControl(activity);
+      if (q && !activity)
         body += `<div class="learn-quest-answers">${q.choices.map((c, i) => `<button data-quest-answer="${i}">${esc(c)}</button>`).join("")}</div>`;
     }
     return `<aside class="learn-quest ${inline ? "learn-quest-inline" : ""}" aria-label="Questbuch"><header><strong>${esc(d.title)}</strong>${inline ? "" : button("quest-toggle", "−", 'aria-label="Questbuch einklappen" aria-expanded="true"')}</header><progress value="${s.step}" max="5" aria-label="Erledigte Aufgaben">${s.step} von 5</progress>${body}<p class="learn-quest-feedback" role="status" aria-live="polite">${esc(done ? "" : s.feedback)}</p></aside>`;
   }
+  function activityControl(a) {
+    if (a.kind === "view") return `<section class="learn-activity"><button data-activity-view="${a.action}">${esc(a.prompt)}</button></section>`;
+    return `<section class="learn-activity"><p class="learn-card-from">${esc(a.from)} →</p><div class="learn-quest-answers">${a.targets.map((target,i)=>`<button data-activity-id="${a.id}" data-activity-choice="${i}">${esc(target)}</button>`).join("")}</div></section>`;
+  }
   function experimentTask(d) {
     const e = d.experiment;
+    if (e.kind === "case") return "Wähle eine Schutzmaßnahme. Prüfe die Folgen für Tiere und Menschen.";
     if (e.kind === "traits")
       return "Zeige die Erbanlagen. Vergleiche die dunklen Fische.";
     if (e.kind === "cross")
-      return "Wähle zwei Eltern. Erzeuge ihre Nachkommen.";
+      return "Untersuche zuerst AA × aa. Kreuze danach zwei Aa-Nachkommen miteinander.";
     if (e.kind === "population")
-      return "Vergleiche die Gruppen über mindestens zwei Generationen.";
+      return "Starte zwei neutrale Wiederholungen. Vergleiche danach eine Umgebung mit Farbvorteil.";
     return `Ändere ${STUDENT_TOOLS[e.tool][0]}. Starte den Versuch.`;
   }
   function reading(r) {
     if (!r) return "";
+    if (r.kind === "case") return `<p>Deine Maßnahme: ${esc(r.measure)}.</p><p>Vergleiche ihren Nutzen für Tiere mit dem Aufwand für Menschen.</p>`;
     if (r.kind === "traits")
       return "<p>Dunkle Fische können AA oder Aa haben.</p>";
     if (r.kind === "cross")
-      return `<p>${r.n} Nachkommen: ${Math.round(r.dark * r.n)} dunkel, ${Math.round(r.light * r.n)} hell.</p>`;
+      return `${r.mendel?.f1 ? `<p>F1: ${r.mendel.f1.counts.n} Aa-Nachkommen.</p><p>F2: Aa × Aa, Erwartung 3:1; dein Wurf:</p>` : ""}<p>${r.n} Nachkommen: ${Math.round(r.dark * r.n)} dunkel, ${Math.round(r.light * r.n)} hell.</p>`;
     const fraction = r.unit === "Anteil",
       value = (v) =>
         fraction ? num(v * 100, 1) + " %" : num(v, 3) + " " + esc(r.unit || "");
@@ -134,6 +143,7 @@ export function createStudentViews(api) {
   }
   function observe() {
     const { session, tag, s, w, types, showGenes, unlockedMetrics } = state();
+    if (tag.mission === "10-wadden") return material();
     let content = "";
     if (tag.grade === 9)
       content = `<p>Schau auf die Farbe der Fische.</p><ul>${s.entities
@@ -156,7 +166,9 @@ export function createStudentViews(api) {
   }
   function results() {
     const { session, tag } = state(),
-      all = session.comparison,
+      series = [...(session.comparisonHistory || []),session.comparison].filter(Boolean),
+      seriesIndex = Math.min(session.study.series ?? series.length-1,series.length-1),
+      all = series[seriesIndex],
       selectedRun = Math.min(session.study.run || 0, (all?.runs.length || 1)-1),
       c = all ? {...all, runs:[all.runs[selectedRun]]} : null;
     if (!c) return "";
@@ -180,14 +192,15 @@ export function createStudentViews(api) {
         ? num(value * 100, 1) + " %"
         : num(value, 3);
     };
-    const stale = !api.matches();
-    return `<section class="learn-results"><h3>Dein Vergleich</h3><p data-learning-result-state role="status" class="${stale ? "learn-outdated" : ""}">${stale ? "Du hast etwas geändert. Starte den Versuch neu." : c.kind === "population" ? "Gruppe 1: keine Farbe bevorzugt. Gruppe 2: deine Umgebung." : "Becken 1 blieb gleich. Becken 2 wurde verändert."}</p>${all.runs.length > 1 ? `<label>Verlauf<select data-learning-run>${options(all.runs.map((r,i)=>[i,`Wiederholung ${i+1}`]),selectedRun)}</select></label>` : ""}<label>Was möchtest du ansehen?<select data-learning-metric>${options(
+    const stale = seriesIndex === series.length-1 && !api.matches();
+    return `<section class="learn-results" data-selected-series="${seriesIndex}"><h3>Dein Vergleich</h3>${series.length > 1 ? `<details><summary>Versuche vergleichen</summary><label>Versuchsreihe<select data-learning-series>${options(series.map((item,i)=>[i,`${i+1}: ${item.kind === "population" ? item.environment === "neutral" ? "Keine Farbe bevorzugt" : item.environment === "dark" ? "Dunkle Farbe bevorzugt" : "Helle Farbe bevorzugt" : "Beckenversuch"}`]),seriesIndex)}</select></label></details>` : ""}<p data-learning-result-state role="status" class="${stale ? "learn-outdated" : ""}">${stale ? "Du hast etwas geändert. Starte den Versuch neu." : c.kind === "population" ? "Gruppe 1: keine Farbe bevorzugt. Gruppe 2: deine Umgebung." : "Becken 1 blieb gleich. Becken 2 wurde verändert."}</p>${all.runs.length > 1 ? `<label>Verlauf<select data-learning-run>${options(all.runs.map((r,i)=>[i,`Wiederholung ${i+1}`]),selectedRun)}</select></label>` : ""}<label>Was möchtest du ansehen?<select data-learning-metric>${options(
       keys.map((k) => [k, STUDENT_METRICS[k][0]]),
       key,
-    )}</select></label>${c.kind === "population" ? `<p>${esc(populationExplanation(c.environment))}</p>` : ""}${r ? reading({ kind: c.kind, label: STUDENT_METRICS[key][0], unit: STUDENT_METRICS[key][1], time: r.time, control: r.control[key], test: r.test[key] }) : ""}${api.plot(c, key)}<p class="learn-caption">Eine Linie zeigt ${c.kind === "population" ? "eine Gruppe" : "ein Becken"}. Vergleiche beide Linien.</p>${c.runs[0].status?.control?.state === "failed" || c.runs[0].status?.test?.state === "failed" ? "<p>Ein Becken konnte nicht weiterlaufen. Die Linie endet dort. Vergleiche nur Zeitpunkte mit zwei Werten.</p>" : ""}<details><summary>Alle Werte</summary><div class="learn-table-wrap"><table><thead><tr><th>${c.kind === "population" ? "Generation" : "Tag"}</th><th>${c.kind === "population" ? "Gruppe" : "Becken"} 1</th><th>${c.kind === "population" ? "Gruppe" : "Becken"} 2</th></tr></thead><tbody>${rows.map((r) => `<tr><td>${num(r.time)}</td><td>${tableValue(r.control)}</td><td>${tableValue(r.test)}</td></tr>`).join("")}</tbody></table></div></details><div class="learn-actions">${button("export", "Für die Lehrkraft speichern")}${c.kind === "ecology" ? button("show-control", "Becken 1 ansehen") + button("show-test", "Becken 2 ansehen") : ""}</div></section>`;
+    )}</select></label>${c.kind === "population" ? `<p>${esc(populationExplanation(c.environment))}</p>` : ""}${session.inspection ? `<p data-inspected-time>Angesehener Zeitpunkt: Tag ${num(session.inspection.time)}. Becken 1: ${session.inspection.control?.fishAlive ?? "beendet"} lebende Fische. Becken 2: ${session.inspection.test?.fishAlive ?? "beendet"} lebende Fische.</p>` : ""}${r ? reading({ kind: c.kind, label: STUDENT_METRICS[key][0], unit: STUDENT_METRICS[key][1], time: r.time, control: r.control[key], test: r.test[key] }) : ""}${api.plot(c, key)}<p class="learn-caption">Eine Linie zeigt ${c.kind === "population" ? "eine Gruppe" : "ein Becken"}. Vergleiche beide Linien.</p>${c.runs[0].status?.control?.state === "failed" || c.runs[0].status?.test?.state === "failed" ? "<p>Ein Becken konnte nicht weiterlaufen. Die Linie endet dort. Vergleiche nur Zeitpunkte mit zwei Werten.</p>" : ""}<details><summary>Alle Werte</summary><div class="learn-table-wrap"><table><thead><tr><th>${c.kind === "population" ? "Generation" : "Tag"}</th><th>${c.kind === "population" ? "Gruppe" : "Becken"} 1</th><th>${c.kind === "population" ? "Gruppe" : "Becken"} 2</th></tr></thead><tbody>${rows.map((r) => `<tr><td>${num(r.time)}</td><td>${tableValue(r.control)}</td><td>${tableValue(r.test)}</td></tr>`).join("")}</tbody></table></div></details><div class="learn-actions">${button("export", "Für die Lehrkraft speichern")}${c.kind === "ecology" ? button("show-control", "Becken 1 ansehen") + button("show-test", "Becken 2 ansehen") : ""}</div></section>`;
   }
   function investigation() {
     const { session, tag } = state();
+    if (tag.mission === "10-wadden") return material();
     if (tag.grade === 9 && !api.tools().includes("selection"))
       return breeding();
     const population = tag.grade === 9;
@@ -258,11 +271,12 @@ export function createStudentViews(api) {
               .map((v) => `<p>${esc(v)}</p>`)
               .join("")}</details>`
           : ""
-      }${session.comparison ? results() : ""}${api.manual()}<div class="learn-actions">${button("export", "Für die Lehrkraft speichern")}${button("export-text", "Ergebnis speichern")}</div><small>Dein Stand bleibt auf diesem Gerät gespeichert.</small>`
+      }${session.comparison ? results() : ""}<details><summary>Eigene Begründung (freiwillig)</summary><label>Warum denkst du das?<textarea data-learning-note="explanation" maxlength="20000">${esc(session.notes.explanation || "")}</textarea></label></details>${api.manual()}<div class="learn-actions">${button("export", "Für die Lehrkraft speichern")}${button("export-text", "Ergebnis speichern")}</div><small>Dein Stand bleibt auf diesem Gerät gespeichert.</small>`
     );
   }
   function material() {
     const { tag, types } = state();
+    if (tag.mission === "10-wadden") return panelHeader("Ein Hafen am Wattenmeer") + `<p>${esc(REGIONAL_CASES[tag.mission].text)}</p><p>Wähle deine Maßnahme im Questbuch.</p>`;
     if (tag.grade === 9) return breeding();
     const descriptions = {
       guppy: "Ein kleiner Fisch. Er frisst Futter und braucht Sauerstoff.",

@@ -1,3 +1,4 @@
+import {assignActivity} from "../learning-activities.mjs";
 import test from "node:test";
 import assert from "node:assert/strict";
 import {controlNumber, validControlValue, requireControlValue, snapControlValue, EQUIPMENT_CONTROLS, EXPERT_ENVIRONMENT_CONTROLS, applyEquipmentSetting, advanceWaterTemperature} from "../control-values.mjs";
@@ -71,7 +72,7 @@ test("observation windows do not expire settings or repeat one-off water and nut
 });
 test("Mission 1 only completes after a changed, computed temperature experiment and correct evidence-based answers",()=>{
   const q=newQuest("8-ecosystem"),d=QUESTS[q.id];
-  assert.equal(answerQuest(q,0),false);questEvent(q,"observe");answerQuest(q,0);answerQuest(q,1);
+  assert.equal(answerQuest(q,0),false);questEvent(q,"observe");assignActivity(q,"living",0);assignActivity(q,"water",1);answerQuest(q,0);answerQuest(q,1);
   assert.equal(q.step,2);assert.equal(answerQuest(q,0),false);
   const host={types:{},normalize:structuredClone,advance:(s,dt)=>{advanceWaterTemperature(s,dt);s.day+=dt;}};
   const before=tank(),study={tool:"temperature",value:24.5,days:3,repetitions:1},profile={version:1,grade:8,mode:"missions",mission:q.id},notes={};
@@ -97,7 +98,7 @@ test("redrawing a numeric or comma draft keeps the visible dial and its accessib
   }
 });
 test("a recomputed pending conclusion replaces the reading and requires a fresh result answer, while completed quests keep their history",()=>{
-  const s=newQuest("8-ecosystem");questEvent(s,"observe");answerQuest(s,0);answerQuest(s,1);
+  const s=newQuest("8-ecosystem");questEvent(s,"observe");assignActivity(s,"living",0);assignActivity(s,"water",1);answerQuest(s,0);answerQuest(s,1);
   const first={kind:"ecology",control:25,test:24,time:48};
   questEvent(s,"ecology",{changed:true,result:first});answerQuest(s,0);assert.equal(s.step,4);
   const second={kind:"ecology",control:25,test:26,time:48};

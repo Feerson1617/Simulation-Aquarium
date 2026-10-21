@@ -1,3 +1,5 @@
+import {recordActivityView,populationPairEvidence} from "../learning-activities.mjs";
+import {createLearningPopulation,compareLearningPopulations} from "../learning-population.mjs";
 import test from "node:test";
 import assert from "node:assert/strict";
 import { MISSIONS } from "../learning-content.mjs";
@@ -21,7 +23,7 @@ test("all 14 missions have one short objective, five steps and concrete experime
     assert.ok(d.goal.length < 100);
     assert.equal(d.conclusion.choices.length, 3);
     assert.ok(
-      ["ecology", "traits", "cross", "population"].includes(d.experiment.kind),
+      ["ecology", "traits", "cross", "population", "case"].includes(d.experiment.kind),
     );
     assert.equal(newQuest(d.id).step, 0);
   }
@@ -98,6 +100,7 @@ test("Mendel questions use actual offspring, traits require both genotypes, sele
   assert.equal(resultQuestion(d, { dark: 0, light: 1 }).correct, 1);
   assert.equal(resultQuestion(d, { dark: 0.5, light: 0.5 }).correct, 2);
   const s = newQuest("9-traits");
+  recordActivityView(s,"visible-traits",{phenotypes:["black","gold"],uids:[1,3]});
   s.step = 2;
   assert.equal(questEvent(s, "traits", { hasAA: true, hasAa: false }), false);
   assert.equal(questEvent(s, "traits", { hasAA: true, hasAa: true }), true);
@@ -109,8 +112,11 @@ test("Mendel questions use actual offspring, traits require both genotypes, sele
   );
   assert.equal(
     questEvent(p, "population", { result: {}, generations: 2 }),
-    true,
+    false,
   );
+  const initial=createLearningPopulation(),configuration={baseline:{fingerprint:"12345678"}};
+  const neutral=compareLearningPopulations(initial,"neutral",2,2,configuration),directed=compareLearningPopulations(initial,"dark",2,2,configuration);
+  assert.equal(questEvent(p,"population",{result:{kind:"population"},generations:2,populationPair:populationPairEvidence([neutral],directed)}),true);
 });
 test("quest records survive version-2 teacher validation; old products without a quest remain readable", () => {
   const old = JSON.parse(

@@ -1,0 +1,22 @@
+# Lernziele und überprüfbare Handlungen
+
+Grundlage: Originalcurriculum Eider-Treene-Schule2025/26, S.9–10,14–15,19–20. Diese Matrix beschreibt die neuen Anforderungen; ein technischer Start/Abschluss allein ist kein Nachweis. Vollständige Browserergebnisse werden erst nach Ausführung eingetragen. Fünf Questphasen bleiben bestehen; kleine Zuordnungen werden nacheinander angezeigt, eigene Texte sind freiwillig.
+
+| Mission | Biologisches Lernziel | Tatsächlich erforderliche Handlungen und gespeicherte Belege | Curriculum | Browserabnahme |
+| --- | --- | --- | --- | --- |
+| 8-ecosystem | Lebewesen/abiotische Bestandteile; Umweltwirkung | Fisch und Wasser korrekt zuordnen; Heizstab einstellen; Soll-/Isttemperatur und echten Vergleich lesen. | 9–10 | Offen |
+| 8-oxygen | Fotosynthese/Atmung im Kontrollvergleich | Vorher explizit Becken1/2 vorhersagen; Licht/Dunkelheit rechnen; tatsächliche O₂-Werte vergleichen; Vermutung mit Ergebnis abgleichen. | 9–10 | Offen |
+| 8-foodweb | Nahrungspfeile, Rollen, Stoffe/Energie | Futter→Fisch und Reste→Zersetzer herstellen; Futterversuch; Konsumenten-/Produzentenrollen und Stoffrückweg gegen Energieabgabe zuordnen. | 9 | Erster Zwischenlauf vor zusätzlicher Konsumentenkarte bestanden; vollständiger finaler Lauf offen |
+| 8-health | Lebensbedingungen, Überleben und Wirkung | Fische/Wasser ansehen; Maßnahme tatsächlich rechnen; lebende/verstorbene Fische neben Kondition prüfen. | 9–10 | Offen |
+| 8-forest | Gemeinsamkeiten/Unterschiede von Pflanzen | Lichtversuch; Wasserpest/Baum-Karten: Fotosynthese gemeinsam, Lebensraum/Wurzelumgebung verschieden. | 9–10 | Offen |
+| 9-traits | Sichtbarer Phänotyp ist kein eindeutiger Genotyp | Hellen und dunklen Fisch ohne Gene einzeln ansehen; danach AA/Aa aufdecken und vergleichen. | 14 | Offen |
+| 9-mendel | Weitergabe zufälliger Keimzellen, Wahrscheinlichkeit/Stichprobe | Tatsächliche AA×aa-F1; zwei echte Aa-F1-Eltern zur F2 kreuzen; Archiv/Anzahl prüfen; 3:1 als Wahrscheinlichkeit zuordnen. Ein einzelner Wurf reicht nicht. | 14 | Offen |
+| 9-population | Drift und gerichtete Elternwahl unterscheiden | Mindestens zwei neutrale Wiederholungen; danach gerichtete Umwelt mit derselben Ausgangsgenetik; tatsächliche Reihen und Wiederholungen vergleichen. | 14–15 | Offen |
+| 9-darwin | Gegensätzliche Vorhersagen und zusätzliche Evolutionsbelege | Darwin-/Lamarck-Vorhersagen zuordnen; neutrale/gerichtete Läufe vergleichen; Fossilien als zusätzliche Naturbelege bearbeiten. | 15 | Offen |
+| 10-enrichment | Nährstoffe→Algen; indirekte O₂-Folgen | Nährstoffzugabe rechnen; Algenvergleich und zusätzlich tatsächlichen Sauerstoff ansehen; keine erzwungene Krise. | 19–20 | Offen |
+| 10-carbon | Kohlenstoffspeicher/-wege und fossiler Zusatzfluss | CO₂→Pflanze und Atmung/Abbau→CO₂ zuordnen; echten lokalen Zufuhrversuch rechnen; fossilen Vorrat→Atmosphäre bearbeiten. | 19–20 verbindlich | Offen |
+| 10-restore | Kurz-/Langzeitfolgen und Überleben | Reale Maßnahme; ersten und späten Zeitpunkt ansehen, Fischüberleben und Zustand gemeinsam auswerten; fehlende Kontrollfolgen nicht erfinden. | 19–20 | Offen |
+| 10-northsea | Regionaler Nährstoffweg und Verringerung am Ursprung | Lokalen Nährstoffvergleich als Teilbeleg nutzen; Land→Fluss/Elbe→Nordsee zuordnen; Eintragsminderung und betrieblichen Aufwand begründen. | 19–20 | Offen |
+| 10-wadden | Meeresmüll vermeiden; Interessen/Folgen abwägen | Hafenfall lesen; Mehrweg oder Netz-/Leinensammlung wählen; Nutzen für Tiere und Aufwand für Menschen zuordnen; passende Erfolgskontrolle. Keine simulierten Plastikmesswerte. | 19–20 verbindlich | Laufende Fallprüfung |
+
+Quellen der regionalen fachlichen Zusammenfassungen: OSPAR[Eutrophierung](https://www.ospar.org/work-areas/hasec/eutrophication), OSPAR[Meeresmüll](https://www.ospar.org/work-areas/eiha/marine-litter), [Nationalpark Wattenmeer](https://www.nationalpark-wattenmeer.de/). Kohlenstoff: IPCCAR6WGIKap.5 und Synthesebericht, bereits im Lehrkraftmaterial verlinkt. Keine eigenen Messdaten, Originalzitate, Schadenskurven oder regionalen Mengen erfunden. Liveabruf externer Quellen ist in dieser Cloud derzeit eingeschränkt und wird getrennt vom tatsächlichen Originalcurriculum-Abgleich berichtet.

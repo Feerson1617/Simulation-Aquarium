@@ -1,3 +1,4 @@
+import {pendingActivity} from "./learning-activities.mjs";
 /** Short learner tasks. Scientific background remains in learning-content and teacher views. */
 import {populationExplanation} from "./biology-quality.mjs";
 
@@ -338,18 +339,14 @@ export const QUESTS = Object.fromEntries(
       "10-wadden",
       "Wattenmeer nutzen und schützen",
       "Müllschutz braucht passende Maßnahmen.",
-      ecology("water", 50, "loadLevel", "Probleme im Wasser", "Stufe"),
+      {kind:"case"},
       pick(
-        "Was kannst du im Becken prüfen?",
-        [
-          "Die Wirkung von frischem Wasser",
-          "Alle Folgen von Plastik im Meer",
-          "Die Gezeiten des Wattenmeers",
-        ],
+        "Was hilft gegen neuen Meeresmüll?",
+        ["Müll an Land und im Hafen vermeiden","Die Aquariumlampe heller machen","Plastik als Dünger benutzen"],
         0,
-        "Im Becken kannst du einen Wasserwechsel prüfen.",
+        "Vermeidung beginnt vor dem Eintrag ins Meer.",
       ),
-      "Wie wirkt frisches Wasser auf die Wasserprobleme?",
+      "Welche Schutzmaßnahme lässt sich am Hafen umsetzen?",
       pick(
         "Müll kann Tiere verletzen. Wie vermeiden wir neuen Müll?",
         [
@@ -377,12 +374,13 @@ export function questConclusion(d, result) {
     "Welche Erklärung passt ohne Farbvorteil?",
     ["Zufall kann die Anteile verändern", "Dunkle Fische haben hier immer einen Vorteil", "Die Fische wählen ihre Erbanlagen"],
     0, populationExplanation("neutral"));
-  return {...d.conclusion, feedback: populationExplanation(environment) + " Dominant heißt nicht: im Vorteil."};
+  return {...d.conclusion, feedback: populationExplanation(environment) + (d.id === "9-darwin" ? " Im Farbversuch werden vorhandene Varianten weitergegeben. Fossilien liefern zusätzliche Funde aus der Natur." : " Dominant heißt nicht: im Vorteil.")};
 }
 export function newQuest(id) {
   if (!QUESTS[id]) return null;
   return {
-    version: 1,
+    version: 2,
+    activities: [],
     id,
     step: 0,
     observed: false,
@@ -423,6 +421,7 @@ export function comparisonReading(comp, experiment) {
   };
 }
 export function resultQuestion(q, result) {
+  if (q.experiment.kind === "case") return {prompt:"Welche Folge gehört zu deiner Schutzmaßnahme?",choices:["Weniger Müll, aber auch Aufwand für Rückgabe oder Sammlung","Alle Meeresprobleme sind damit gelöst","Das Aquarium misst nun Plastikschäden"],correct:0};
   if (q.experiment.kind === "traits")
     return {
       prompt: "Haben alle dunklen Fische dieselben Erbanlagen?",
@@ -473,6 +472,10 @@ export function questEvent(state, event, evidence = {}) {
   const d = QUESTS[state.id],
     kind = d.experiment.kind;
   if (![2, 3, 4].includes(state.step) || event !== kind) return false;
+  if (state.version === 2 && pendingActivity(state,2)) {state.feedback=pendingActivity(state,2).prompt;return false;}
+  if (state.version === 2 && kind === "cross" && !evidence.mendel?.complete) {state.feedback="Untersuche zuerst AA × aa (F1), danach Aa × Aa (F2).";return false;}
+  if (state.version === 2 && kind === "population" && !evidence.populationPair?.complete) {state.feedback="Vergleiche erst zwei neutrale Wiederholungen, danach eine Umgebung mit Farbvorteil.";return false;}
+  if (kind === "case" && !evidence.result?.measure) return false;
   if (
     kind === "ecology" &&
     (!evidence.changed || evidence.compatible === false || !evidence.result)
@@ -489,6 +492,8 @@ export function questEvent(state, event, evidence = {}) {
     return false;
   if (kind === "traits" && (!evidence.hasAA || !evidence.hasAa)) return false;
   state.result = structuredClone(evidence.result || { kind: "traits" });
+  // Measurements must be inspected again after a changed experiment.
+  if (state.activities) state.activities=state.activities.filter(a=>!["survival","oxygen-too","early","late"].includes(a.id));
   state.entries = state.entries.filter((e) => e.step < 2);
   state.entries.push({
     step: 2,
@@ -515,6 +520,8 @@ export function answerQuest(state, index) {
             ? questConclusion(d, state.result)
             : null;
   if (!question || index < 0 || index >= question.choices.length) return false;
+  const activity=pendingActivity(state,step);
+  if (activity) {state.feedback=activity.prompt;return false;}
   if (step === 0 && !state.observed) {
     state.feedback = "Schau zuerst ins Aquarium. Öffne „Beobachten“.";
     return false;
@@ -544,6 +551,7 @@ export function answerQuest(state, index) {
   return true;
 }
 export function predictionChoices(d) {
+  if (d.experiment.kind === "case") return ["Mehrweg mit Rückgabe","Sammlung von Netzen und Leinen","Ich möchte zuerst die Folgen prüfen"];
   if (d.experiment.kind === "traits")
     return ["Ja", "Nein", "Ich bin noch unsicher"];
   if (d.experiment.kind === "cross")
@@ -603,7 +611,7 @@ export function predictionChoices(d) {
 export function validateQuest(raw, mission) {
   if (raw == null) return null;
   if (
-    raw.version !== 1 ||
+    ![1,2].includes(raw.version) ||
     raw.id !== mission ||
     !QUESTS[raw.id] ||
     !Number.isInteger(raw.step) ||
@@ -641,6 +649,7 @@ export function validateQuest(raw, mission) {
   }
   if (raw.step >= 3 && (!raw.result || typeof raw.result !== "object"))
     throw new Error("Versuchsergebnis fehlt.");
+  if (raw.version === 2 && (!Array.isArray(raw.activities) || raw.activities.length > 30)) throw new Error("Lernhandlungen fehlen.");
   // Plain bounded JSON is read only and never used as commands or executable state.
   const text = JSON.stringify(raw);
   if (text.length > 32000) throw new Error("Questbuch ist zu groß.");

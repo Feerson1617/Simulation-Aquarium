@@ -1,12 +1,13 @@
+import {ACTIVITIES,pendingActivity,assignActivity,mendelEvidence,populationPairEvidence,recordActivityView} from '../learning-activities.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {fishStatus,fishStatusText,habitatProblems,populationExplanation,replacementWater} from '../biology-quality.mjs';
 import {learningSample,createLearningTank,validateLearningProduct} from '../learning-model.mjs';
 import {learningProvenance,validateProvenance} from '../learning-provenance.mjs';
-import {createLearningPopulation,compareLearningPopulations,reproductiveWeight} from '../learning-population.mjs';
+import {createLearningPopulation,compareLearningPopulations,crossLearningPopulation,reproductiveWeight} from '../learning-population.mjs';
 import {MISSIONS} from '../learning-content.mjs';
-import {QUESTS,questConclusion} from '../learning-quests.mjs';
+import {QUESTS,questConclusion,newQuest,questEvent,answerQuest} from '../learning-quests.mjs';
 const types=JSON.parse(fs.readFileSync(new URL('./fixtures/ecology-species.json',import.meta.url)));
 const host={create:()=>({params:{},entities:[],nextId:1,deaths:[]}),add:(s,id)=>{const e={uid:s.nextId++,species:id,health:100,age:30,biomass:.7,dead:false};s.entities.push(e);return e;}};
 test('A01: neutral repetitions have equal phenotype weights and drift is never explained as selection',()=>{
@@ -53,4 +54,35 @@ test('A02: prepared replacement water fits all learning fish and does not follow
   const s=createLearningTank({version:1,grade:9,mode:'free',mission:null},host);s.setTemp=setTemp;
   const w=replacementWater(s);assert.equal(w.temp,25);assert.equal(w.gh,12);s.params={...s.params,...w};assert.deepEqual(habitatProblems(s,types),[]);
  }
+});
+
+test('A05: biological assignments cannot be bypassed, reordered or answered without observing',()=>{
+ const s=newQuest('8-foodweb');assert.equal(assignActivity(s,'food-fish',0),false);
+ questEvent(s,'observe');assert.equal(assignActivity(s,'rest-decomposer',0),false);assert.equal(assignActivity(s,'food-fish',1),false);assert.equal(answerQuest(s,0),false);
+ assert.equal(assignActivity(s,'food-fish',0),true);assert.equal(assignActivity(s,'rest-decomposer',0),true);
+ assert.equal(answerQuest(s,0),true);assert.deepEqual(s.activities.map(a=>[a.from,a.to]),[['Futter','Fisch'],['Tote Reste','Zersetzende Pilze und Bakterien']]);
+ assert.equal(s.activities[0].origin,'selection');
+ assert.deepEqual(Object.keys(ACTIVITIES),Object.keys(QUESTS));
+});
+test('A05: a real F1 alone cannot complete Mendel; F2 must come from actual F1 Aa parents',()=>{
+ let p=createLearningPopulation();p=crossLearningPopulation(p,1,6);const f1=mendelEvidence(p);assert.equal(f1.complete,false);assert.equal(f1.f1.counts.Aa,24);
+ const q=newQuest('9-mendel');q.step=2;assert.equal(questEvent(q,'cross',{generation:1,result:{kind:'cross'},mendel:f1}),false);
+ const mother=p.individuals.find(i=>i.sex==='♀'),father=p.individuals.find(i=>i.sex==='♂');p=crossLearningPopulation(p,mother.uid,father.uid);const both=mendelEvidence(p);assert.equal(both.complete,true);assert.equal(both.f2.generation,2);assert.equal(both.f2.counts.n,24);assert.equal(questEvent(q,'cross',{generation:2,result:{kind:'cross'},mendel:both}),true);
+});
+test('A05/A08: selection needs repeated neutral and directed runs from the same actual founders',()=>{
+ const p=createLearningPopulation(),config={baseline:{fingerprint:'12345678'}};
+ const neutral=compareLearningPopulations(p,'neutral',4,2,config),directed=compareLearningPopulations(p,'light',4,2,config);
+ assert.equal(populationPairEvidence([],neutral).complete,false);assert.equal(populationPairEvidence([neutral],directed).complete,true);
+ assert.equal(populationPairEvidence([{...neutral,configuration:{baseline:{fingerprint:'abcdef00'}}}],directed).complete,false);
+ assert.equal(populationPairEvidence([{...neutral,repetitions:1}],directed).complete,false);
+});
+test('A05: Wattenmeer uses an actionable regional case with two consequences, never an invented water or plastic experiment',()=>{
+ const q=newQuest('10-wadden');assert.equal(QUESTS[q.id].experiment.kind,'case');questEvent(q,'observe');answerQuest(q,0);answerQuest(q,0);
+ assert.equal(questEvent(q,'ecology',{changed:true,result:{control:0,test:0}}),false);assert.equal(questEvent(q,'case',{result:{measure:'Mehrweg'}}),false);
+ for(const id of ['harbour-interest','harbour-benefit','harbour-effort'])assert.equal(assignActivity(q,id,0),true);
+ assert.equal(questEvent(q,'case',{result:{kind:'case',measure:q.activities[0].to}}),true);assert.equal(q.step,3);assert.equal(q.activities.length,3);
+});
+test('A05: a changed ecological run invalidates the earlier secondary observation',()=>{
+ const q=newQuest('10-enrichment');q.step=3;q.activities=[{id:'oxygen-too',kind:'view',evidence:{configuration:{tool:'nutrients',value:40},time:48}}];
+ assert.equal(questEvent(q,'ecology',{changed:true,result:{kind:'ecology',control:1,test:2}}),true);assert.equal(pendingActivity(q).id,'oxygen-too');
 });

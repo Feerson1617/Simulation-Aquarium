@@ -1,3 +1,4 @@
+import {pendingActivity,assignActivity,recordActivityView,mendelEvidence,populationPairEvidence,REGIONAL_CASES} from "./learning-activities.mjs";
 import {learningProvenance, ORIGIN_LABELS} from "./learning-provenance.mjs";
 import {fishStatusText} from "./biology-quality.mjs";
 import { dialControl, mountDials } from "./control-dial.mjs";
@@ -144,6 +145,8 @@ export function mountLearningUI(host) {
       types: host.types,
       showGenes,
       unlockedMetrics: teacher.unlockMetrics,
+      support: teacher.support,
+      comparisonHistory: session?.comparisonHistory || [],
     }),
     healthText: () => fishStatusText(host.getState(), host.types),
     tools,
@@ -221,14 +224,16 @@ export function mountLearningUI(host) {
     } else if (kind === "population")
       evidence = {
         generations: session.comparison.generations,
+        populationPair: populationPairEvidence(session.comparisonHistory,session.comparison),
         compatible:
-          d.id !== "9-darwin" || session.comparison.environment !== "neutral",
-        result: comparisonReading(session.comparison, d.experiment),
+          true,
+        result: {...comparisonReading(session.comparison, d.experiment),populationPair:populationPairEvidence(session.comparisonHistory,session.comparison)},
       };
     else if (kind === "cross")
       evidence = {
         generation: session.population.generation,
-        result: { kind: "cross", ...populationCounts(session.population) },
+        mendel: mendelEvidence(session.population),
+        result: { kind: "cross", ...populationCounts(session.population),mendel:mendelEvidence(session.population) },
         parents: session.population.events.at(-1)?.parents,
       };
     else {
@@ -245,11 +250,11 @@ export function mountLearningUI(host) {
         expected === "traits"
           ? "Starte den Farbversuch neu. Zeige dann die Erbanlagen."
           : expected === "cross"
-            ? "Wähle zwei Eltern. Erzeuge ihre Nachkommen."
+            ? "Untersuche AA × aa (F1), danach Aa × Aa (F2)."
             : expected === "population"
               ? evidence.compatible === false
                 ? "Wähle eine helle oder dunkle Umgebung."
-                : "Vergleiche mindestens zwei Generationen."
+                : "Vergleiche zwei neutrale Wiederholungen und danach eine Umgebung mit Farbvorteil."
               : evidence.compatible === false
                 ? "Nutze für diese Aufgabe " +
                   STUDENT_TOOLS[d.experiment.tool][0] +
@@ -312,6 +317,7 @@ export function mountLearningUI(host) {
       currentPlan: currentPlan(),
       population: session.population,
       populationRepeats: session.populationRepeats || [],
+      comparisonHistory: session.comparisonHistory || [],
       measurements: session.measurements,
       measurementMetrics: recordedMetrics(session.measurements, metrics()),
       quest: session.quest || null,
@@ -407,7 +413,7 @@ export function mountLearningUI(host) {
               days: 3,
               repetitions: 2,
               metric: grade === 9 ? "A" : "oxygen",
-              environment: "dark",
+              environment: "neutral",
               generations: 5,
             },
           };
@@ -416,7 +422,7 @@ export function mountLearningUI(host) {
       days: 3,
       repetitions: 2,
       metric: "oxygen",
-      environment: "dark",
+      environment: "neutral",
       generations: 5,
     };
     session.population ??= grade === 9 ? createLearningPopulation() : null;
@@ -443,6 +449,11 @@ export function mountLearningUI(host) {
       }
       if (e.kind === "population") session.study.metric = "dark";
     }
+    // Keep an exact archive before upgrading an unfinished older quest's requirements.
+    if (session.quest?.version === 1 && session.quest.step < 5) {
+      session.earlierQuest ??= structuredClone(session.quest);
+      session.quest.version = 2; session.quest.activities = [];
+    }
     const reconciled = reconcileLearningStudy(session.study,tools());
     if (JSON.stringify(reconciled) !== JSON.stringify(session.study)) {
       session.earlierStudy ??= structuredClone(session.study);
@@ -465,6 +476,7 @@ export function mountLearningUI(host) {
     panel = next;
     if (next === "observe") {
       questEvent(session?.quest, "observe");
+      if (session?.quest) recordActivityView(session.quest,"fish-water",learningSample(host.getState(),host.types));
       persist();
     }
     helpKey = null;
@@ -1030,7 +1042,7 @@ export function mountLearningUI(host) {
                     )
                     .join("")}`
                 : ""
-            }${imported.gameExplanation ? `<h4>Spielerklärung</h4><p>${esc(imported.gameExplanation)}</p>` : ""}${imported.provenance?.legacy ? "<p>Altprodukt: Urheberschaft vorhandener Texte ist nicht dokumentiert. Sie gelten nicht automatisch als selbst formulierte Schülerleistung.</p>" : ""}${imported.quest ? `<h3>Questbuch</h3><p>${imported.quest.step} von 5 Aufgaben</p>${imported.quest.entries.map((e) => `<p>${e.answer ? "Auswahl" : "Spielhandlung"} · ${esc(e.question || e.event)}: ${esc(e.answer || "Tatsächlich ausgeführter Eingriff")}</p>`).join("")}` : ""}${imported.comparison ? teacherData(imported.comparison) : ""}${manualData(imported, true)}${imported.population ? `<h3>Separater Zuchtversuch</h3><p>Startseed ${imported.population.initialSeed ?? "nicht dokumentiert"}; aktueller Zufallszustand ${imported.population.seed}. Dieses Archiv ersetzt nicht die Archive der Kontroll-/Selektionsläufe.</p>${archiveView(imported.population, "separater Mendelversuch")}` : ""}${imported.populationRepeats?.length ? `<h4>Dokumentierte Wiederholungen</h4>${imported.populationRepeats.map((r) => `<p>Seed ${r.seed}: AA ${r.final.AA}, Aa ${r.final.Aa}, aa ${r.final.aa}.</p>`).join("")}` : ""}</section>`
+            }${imported.gameExplanation ? `<h4>Spielerklärung</h4><p>${esc(imported.gameExplanation)}</p>` : ""}${imported.provenance?.legacy ? "<p>Altprodukt: Urheberschaft vorhandener Texte ist nicht dokumentiert. Sie gelten nicht automatisch als selbst formulierte Schülerleistung.</p>" : ""}${imported.quest ? `<h3>Questbuch</h3><p>${imported.quest.step} von 5 Aufgaben</p>${imported.quest.entries.map((e) => `<p>${e.answer ? "Auswahl" : "Spielhandlung"} · ${esc(e.question || e.event)}: ${esc(e.answer || "Tatsächlich ausgeführter Eingriff")}</p>`).join("")}` : ""}${imported.comparisonHistory?.length ? `<details class="learn-comparison-history"><summary>Frühere Versuchsreihen (${imported.comparisonHistory.length})</summary>${imported.comparisonHistory.map(c=>`<p>${esc(c.kind)} · ${esc(c.environment || c.tool)} · ${c.runs.length} Wiederholungen · Ausgangslage ${esc(c.configuration?.baseline.fingerprint || "nicht dokumentiert")}</p><p>Seeds ${c.runs.map(r=>r.seed).join(", ")}. Vollständige tatsächliche Messreihen und Archive sind im JSON erhalten.</p>`).join("")}</details>` : ""}${imported.quest?.activities?.length ? `<h4>Bearbeitete Lernhandlungen</h4>${imported.quest.activities.map(a=>`<p>${a.kind === "assignment" ? "Auswahl/Zuordnung" : "Spielhandlung"} · ${esc(a.id)}: ${esc(a.from || "")} ${esc(a.to || "Messwerte angesehen")}</p>`).join("")}` : ""}${imported.comparison ? teacherData(imported.comparison) : ""}${manualData(imported, true)}${imported.population ? `<h3>Separater Zuchtversuch</h3><p>Startseed ${imported.population.initialSeed ?? "nicht dokumentiert"}; aktueller Zufallszustand ${imported.population.seed}. Dieses Archiv ersetzt nicht die Archive der Kontroll-/Selektionsläufe.</p>${archiveView(imported.population, "separater Mendelversuch")}` : ""}${imported.populationRepeats?.length ? `<h4>Dokumentierte Wiederholungen</h4>${imported.populationRepeats.map((r) => `<p>Seed ${r.seed}: AA ${r.final.AA}, Aa ${r.final.Aa}, aa ${r.final.aa}.</p>`).join("")}` : ""}</section>`
           : ""
       }<details><summary>Alle Missionshintergründe und Modellgrenzen</summary>${MISSIONS.map((m) => `<h3>${esc(m.title)}</h3><p>${esc(m.goal)}</p><p>${esc(m.curriculum)}</p><p>${esc(m.limits)}</p>${m.transfer ? transfer(m.transfer, false) : ""}`).join("")}</details><h3>Versuche verwalten</h3><p>Ein Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.</p>${button("teacher-reset", "Ausgewählte Mission neu beginnen")}${button("teacher-restore", "Gesicherte Mission wiederherstellen")}<details><summary>Fachliche und curriculare Grundlage</summary><p>${CURRICULUM.title}, ${CURRICULUM.pages}; Original-PDF am 20.10.2026 abgeglichen. Die Simulation deckt ausgewählte Einheiten ab, nicht alle Inhalte der Klassen.</p><p>Gesundheit, Biomasse und Belastung sind Modellgrößen. Kohlenstoff nur qualitativ; Selektion nutzt offengelegte hypothetische Gewichte.</p></details>`
     );
@@ -1189,6 +1201,7 @@ export function mountLearningUI(host) {
         session.study.generations = Number(t.value);
       if (t.hasAttribute("data-learning-environment"))
         session.study.environment = t.value;
+      if (t.hasAttribute("data-learning-series")) {session.study.series=Number(t.value); persist();render();}
       if (t.hasAttribute("data-learning-run")) {session.study.run = Number(t.value); persist(); render();}
       if (t.hasAttribute("data-learning-metric")) {
         session.study.metric = t.value;
@@ -1285,6 +1298,29 @@ export function mountLearningUI(host) {
         root.querySelector(`[data-learning-tool-choice="${d.learningToolChoice}"]`)?.focus();
         return;
       }
+      if (d.activityId) {
+        assignActivity(session.quest,d.activityId,Number(d.activityChoice));
+        const q=session.quest;
+        if (q.id === "10-wadden" && q.step === 2 && !pendingActivity(q,2)) {
+          const choice=q.activities.find(a=>a.id==="harbour-interest");
+          questEvent(q,"case",{result:{kind:"case",measure:choice.to,source:REGIONAL_CASES[q.id].source,consequences:q.activities.filter(a=>["harbour-benefit","harbour-effort"].includes(a.id))}});
+        }
+        persist();render();root.querySelector(".learn-activity h3,.learn-quest h2")?.focus();return;
+      }
+      if (d.activityView) {
+        const q=session.quest,a=pendingActivity(q);
+        if (d.activityView === "traits") {showPanel("material");return;}
+        if (d.activityView === "observe") {showPanel("observe");return;}
+        const c=session.comparison;
+        if (!c || !planMatchesComparison(c,currentPlan(c.kind))) throw new Error("Starte zuerst den passenden Versuch neu.");
+        const rows=comparisonTimes(c.runs[0],c.kind),row=d.activityView === "early" ? rows[1] : rows.at(-1);
+        if (!row || !a) return;
+        const evidence={configuration:structuredClone(c.configuration),time:row.time,control:row.control || null,test:row.test || null};
+        recordActivityView(q,a.id,evidence);
+        session.inspection = evidence;
+        session.study.metric=["early","late"].includes(d.activityView) ? "fishAlive" : d.activityView;
+        persist();showPanel("investigate");return;
+      }
       if (d.questAnswer !== undefined) {
         const old = session.quest.step;
         if ([3, 4].includes(old) && ["ecology", "population"].includes(QUESTS[session.quest.id].experiment.kind) &&
@@ -1301,10 +1337,14 @@ export function mountLearningUI(host) {
       }
       if (d.learningIndividual) {
         questEvent(session.quest, "observe");
-        persist();
         const i = session.population.individuals.find(
           (x) => x.uid === Number(d.learningIndividual),
         );
+        if (!showGenes && session.quest) {
+          (session.quest.visibleIndividuals ??= {})[i.uid]=i.phenotype;
+          recordActivityView(session.quest,"visible-traits",{uids:Object.keys(session.quest.visibleIndividuals),phenotypes:Object.values(session.quest.visibleIndividuals),beforeGenes:true});
+        }
+        persist();
         root.querySelector("[data-individual-detail]").textContent =
           `Fisch ${i.uid}: ${i.phenotype === "gold" ? "hell" : "dunkel"}${showGenes ? " · " + genotypeText(i.loci) : ""}`;
         return;
@@ -1512,7 +1552,7 @@ export function mountLearningUI(host) {
               days: 3,
               repetitions: 2,
               metric: teacher.grade === 9 ? "A" : "oxygen",
-              environment: "dark",
+              environment: "neutral",
               generations: 5,
             },
           };
@@ -1579,6 +1619,7 @@ export function mountLearningUI(host) {
         return;
       }
       if (a === "genes") {
+        if (session.quest?.id === "9-traits" && pendingActivity(session.quest)?.id === "visible-traits") throw new Error("Sieh dir zuerst einen hellen und einen dunklen Fisch ohne Erbanlagen an.");
         showGenes = !showGenes;
         if (showGenes) recordQuestExperiment("traits");
         persist();
@@ -1612,6 +1653,8 @@ export function mountLearningUI(host) {
         const {tool, value} = readIntervention();
         if (!tools().includes(tool))
           throw new Error("Werkzeug nicht freigeschaltet.");
+        delete session.study.series; delete session.inspection;
+        if (session.comparison) session.comparisonHistory=[...(session.comparisonHistory || []),session.comparison].slice(-3);
         session.comparison = runLearningComparison(
           session.baseline,
           {
@@ -1641,6 +1684,8 @@ export function mountLearningUI(host) {
       }
       if (a === "population-compare") {
         if (!requirePlan()) return;
+        delete session.study.series; delete session.inspection;
+        if (session.comparison) session.comparisonHistory=[...(session.comparisonHistory || []),session.comparison].slice(-3);
         session.comparison = compareLearningPopulations(
           session.population,
           session.study.environment,

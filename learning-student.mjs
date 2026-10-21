@@ -1,4 +1,4 @@
-import {pendingActivity,REGIONAL_CASES,choiceOrder,questHint} from "./learning-activities.mjs";
+import {pendingActivity,REGIONAL_CASES,OBSERVATION_METRICS,choiceOrder,questHint} from "./learning-activities.mjs";
 import {populationExplanation} from "./biology-quality.mjs";
 /** The regular learner surface. Technical evidence views remain in learning-ui. */
 import {
@@ -160,13 +160,15 @@ export function createStudentViews(api) {
             `<li>${esc(types[e.species].name)} · ${e.variant === "gold" ? "gold" : "dunkel"}</li>`,
         )
         .join("")}</ul>${button("material", "Farbe und Erbanlagen")}`;
-    else
-      content = `<dl class="learn-values"><div><dt>Temperatur</dt><dd>${num(s.params.temp, 1)} °C</dd></div><div><dt>Sauerstoff ${helpButton("oxygen")}</dt><dd>${esc(w.oxygen)}</dd></div><div><dt>Nährstoffe ${helpButton("nutrients")}</dt><dd>${esc(w.nutrients)}</dd></div><div><dt>Probleme im Wasser ${helpButton("load")}</dt><dd>${esc(w.load)}</dd></div></dl><p>${api.healthText()}</p>`;
+    else {
+      const sample=api.sample(),keys=OBSERVATION_METRICS[tag.mission] || ["oxygen","fishAlive"];
+      content=`<dl class="learn-values">${keys.map(k=>`<div><dt>${esc(STUDENT_METRICS[k][0])}</dt><dd>${num(sample[k],k === "fishAlive" ? 0 : 2)} ${esc(STUDENT_METRICS[k][1])}</dd></div>`).join("")}</dl><p>${api.healthText()}</p>`;
+    }
     return (
       panelHeader("Beobachten", "observe") +
       content +
       (unlockedMetrics?.length
-        ? `<h3>Weitere Werte</h3><dl class="learn-values">${unlockedMetrics.map((k) => `<div><dt>${esc(STUDENT_METRICS[k][0])} ${["no2", "no3"].includes(k) ? helpButton("nitrogen") : ""}</dt><dd>${num(api.sample()[k], 3)} ${esc(STUDENT_METRICS[k][1])}</dd></div>`).join("")}</dl>`
+        ? `<details><summary>Weitere freigegebene Werte</summary><dl class="learn-values">${unlockedMetrics.map((k) => `<div><dt>${esc(STUDENT_METRICS[k][0])} ${["no2", "no3"].includes(k) ? helpButton("nitrogen") : ""}</dt><dd>${num(api.sample()[k], 3)} ${esc(STUDENT_METRICS[k][1])}</dd></div>`).join("")}</dl></details>`
         : "") +
       `<div class="learn-actions">${button("measure", "Werte merken")}${button("advance", "1 Tag warten")}</div><small>${session.measurements.length} Messungen gespeichert.</small>${session.measurements.length ? api.manual() : ""}${tag.mode === "free" ? `<details><summary>Becken verändern</summary>${api.form("care")}${button("apply", "Anwenden")}</details>` : ""}`
     );

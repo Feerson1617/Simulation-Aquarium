@@ -1,3 +1,4 @@
+import {OBSERVATION_METRICS} from "./learning-activities.mjs";
 import {validateProvenance} from "./learning-provenance.mjs";
 import {fishStatus,ammoniaConcentration} from "./biology-quality.mjs";
 import { validateQuest } from "./learning-quests.mjs";
@@ -183,6 +184,7 @@ export function learningMetrics(tag, teacher = {}) {
     ...new Set([
       ...base,
       ...(m?.metrics || []),
+      ...(t.grade === 9 ? [] : OBSERVATION_METRICS[t.mission] || ["fishAlive"]),
       ...(teacher.unlockMetrics || []),
     ]),
   ].filter((k) => Object.hasOwn(LEARNING_METRICS, k));

@@ -1,5 +1,5 @@
 import {advanceNitrifiers,oxidizeNitrogen} from '../bioprocesses.mjs';
-import {ACTIVITIES,pendingActivity,assignActivity,mendelEvidence,populationPairEvidence,recordActivityView,choiceOrder,questHint} from '../learning-activities.mjs';
+import {ACTIVITIES,OBSERVATION_METRICS,pendingActivity,assignActivity,mendelEvidence,populationPairEvidence,recordActivityView,choiceOrder,questHint} from '../learning-activities.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -114,4 +114,9 @@ test('A03: rescue comparison cannot prefer a healthy survivor average over more 
  const d=QUESTS['10-restore'];assert.equal(resultQuestion(d,{fish:{control:{fishAlive:2,health:100},test:{fishAlive:3,health:60}}}).correct,1);
  assert.equal(resultQuestion(d,{fish:{control:{fishAlive:0,health:null},test:{fishAlive:0,health:null}}}).correct,2);
  assert.equal(resultQuestion(d,{fish:{control:{fishAlive:3,health:20},test:{fishAlive:3,health:60}}}).correct,1);
+});
+
+test('A08/A11: each ecological observation starts with at most two relevant values; health includes its actual water cause',()=>{
+ for(const keys of Object.values(OBSERVATION_METRICS))assert.ok(keys.length>=1&&keys.length<=2);
+ assert.deepEqual(OBSERVATION_METRICS['8-health'],['fishAlive','no2']);assert.deepEqual(OBSERVATION_METRICS['10-enrichment'],['algae','oxygen']);assert.deepEqual(OBSERVATION_METRICS['10-carbon'],['co2','plantBiomass']);
 });

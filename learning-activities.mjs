@@ -1,6 +1,12 @@
 /** Small biological actions inside the five phases. No synthetic measurements or compulsory essays. */
 const link = (id,phase,from,prompt,targets,correct,hint) => ({id,phase,from,prompt,targets,correct,hint,kind:"assignment"});
 const view = (id,phase,prompt,action) => ({id,phase,prompt,action,kind:"view"});
+export const OBSERVATION_METRICS = {
+  "8-ecosystem":["temp","fishAlive"],"8-oxygen":["oxygen","temp"],"8-foodweb":["organic","fishAlive"],
+  "8-health":["fishAlive","no2"],"8-forest":["plantBiomass"],
+  "10-enrichment":["algae","oxygen"],"10-carbon":["co2","plantBiomass"],"10-restore":["fishAlive","no2"],
+  "10-northsea":["algae","oxygen"],
+};
 export const ACTIVITIES = {
   "8-ecosystem":[
     link("living",0,"Fisch","Ordne den Fisch zu.",["Lebewesen","Unbelebter Bestandteil"],0,"Ein Fisch nimmt Nahrung auf und wächst."),

@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import {
+  LEARNING_MODEL_REVISION,
   runLearningComparison,
   snapshotLearningPlan,
   planMatchesComparison,
@@ -443,7 +444,7 @@ test("R8: CSV identifies profile, intervention value, units, model, seed, time s
   assert.equal(row.Eingriff, "Einmaliger Wasserwechsel");
   assert.equal(row.Eingriffswert, "50");
   assert.equal(row.Eingriffseinheit, "%");
-  assert.equal(row.Modellstand, "learning-devices-3");
+  assert.equal(row.Modellstand, LEARNING_MODEL_REVISION);
   assert.equal(row.Seed, "47291");
   assert.equal(row.Zeitschritt, "0.25");
   assert.equal(row["Geplante Dauer"], "14");

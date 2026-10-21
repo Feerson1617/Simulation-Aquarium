@@ -1,3 +1,5 @@
+import {validateProvenance} from "./learning-provenance.mjs";
+import {fishStatus} from "./biology-quality.mjs";
 import { validateQuest } from "./learning-quests.mjs";
 import {
   GRADE_PROFILES,
@@ -9,7 +11,7 @@ import { createScenario } from "./scenarios.mjs";
 import { initializeIndividual } from "./genetics.mjs";
 import { validateLearningPopulation } from "./learning-population.mjs";
 import { controlNumber, requireControlValue, validControlValue, applyEquipmentSetting } from "./control-values.mjs";
-export const LEARNING_MODEL_REVISION = "learning-devices-3";
+export const LEARNING_MODEL_REVISION = "learning-biology-4";
 export const POPULATION_METRICS = {
   AA: ["Genotyp AA", "Anzahl"],
   Aa: ["Genotyp Aa", "Anzahl"],
@@ -105,12 +107,24 @@ export const LEARNING_METRICS = {
   algae: ["Algenbestand", "relativ"],
   organic: ["Organische Reste", "relativ"],
   plantBiomass: ["Pflanzenbiomasse", "relativ"],
-  health: ["Tierkondition", "Modellindex %"],
+  health: ["Kondition lebender Fische", "Modellindex %"],
+  fishAlive: ["Lebende Fische", "Anzahl"],
+  fishDead: ["Verstorbene Fische", "Anzahl"],
+  fishOutcome: ["Fische: Überleben und Kondition", "Modellindex %"],
+  otherAnimals: ["Andere lebende Tiere", "Anzahl"],
   individuals: ["Tiere", "Anzahl"],
   photosynthesis: ["Fotosynthese im letzten Schritt", "mg O₂/L je Schritt"],
   respiration: ["Atmung im letzten Schritt", "mg O₂/L je Schritt"],
   loadLevel: ["Wasserbelastung", "Stufe 0–2"],
 };
+export function comparisonMetricDefinitions(comp) {
+  if (comp.kind === "population") return POPULATION_METRICS;
+  const samples = comp.runs.flatMap(r => [...r.control,...r.test]);
+  if (samples.some(s => s.metricsVersion === 2)) return LEARNING_METRICS;
+  const defs = {...LEARNING_METRICS,health:["Tierkondition (historischer Wert: Fische und Wirbellose)","Modellindex %"]};
+  for (const key of ["fishAlive","fishDead","fishOutcome","otherAnimals"]) delete defs[key];
+  return defs;
+}
 /** Reconcile only the editable plan; never change the saved tank or baseline. */
 export function reconcileLearningStudy(study, allowed) {
   const next = structuredClone(study), list = allowed.filter(k => Object.hasOwn(LEARNING_TOOLS,k));
@@ -238,9 +252,8 @@ export function learningSample(state, types) {
     plantBiomass: alive
       .filter((e) => types[e.species]?.category === "plant")
       .reduce((s, e) => s + e.biomass, 0),
-    health: animals.length
-      ? animals.reduce((s, e) => s + e.health, 0) / animals.length
-      : 0,
+    metricsVersion: 2,
+    ...fishStatus(state, types),
     individuals: animals.length,
     photosynthesis: state.ecology?.lastFlux?.photosynthesis ?? null,
     respiration: state.ecology?.lastFlux?.respiration ?? null,
@@ -293,6 +306,8 @@ export function createLearningTank(tag, host) {
       e.age = 30;
     }
   }
+  // Compatible shared range of the actual Guppy/Molly/invertebrate catalog.
+  s.params.gh = 12;
   s.hadLife = true;
   return s;
 }
@@ -473,7 +488,7 @@ export function comparisonTimes(run, kind) {
 export function comparisonCSV(comparison) {
   const population = comparison.kind === "population",
     c = comparison.configuration || {},
-    defs = population ? POPULATION_METRICS : LEARNING_METRICS,
+    defs = comparisonMetricDefinitions(comparison),
     profile = c.profile || comparison.profile || {},
     metrics =
       comparison.kind === "manual" ? comparison.metrics : Object.keys(defs),
@@ -712,6 +727,8 @@ function evidenceSamples(raw, population = false, limit = 100, manual = false) {
     const clean = { [axis]: time },
       defs = population ? POPULATION_METRICS : LEARNING_METRICS;
     for (const key of Object.keys(defs)) {
+      if (!population && ["fishAlive","fishDead","fishOutcome","otherAnimals"].includes(key) && row.metricsVersion !== 2) continue;
+      if (!population && row.metricsVersion === 2 && ["health","fishOutcome"].includes(key) && row[key] === null) {clean[key] = null; continue;}
       if (
         !population &&
         ["photosynthesis", "respiration"].includes(key) &&
@@ -724,6 +741,10 @@ function evidenceSamples(raw, population = false, limit = 100, manual = false) {
           0,
           ["A", "a", "dark", "light"].includes(key) ? 1 : 1000000,
         );
+    }
+    if (!population && row.metricsVersion === 2) {
+      clean.metricsVersion = 2;
+      if (![clean.fishAlive,clean.fishDead,clean.otherAnimals].every(Number.isInteger) || (clean.fishAlive === 0 && clean.health !== null)) throw new Error("Fischzählung und Zustand widersprechen sich.");
     }
     if (population) {
       if (
@@ -828,6 +849,8 @@ export function validateLearningProduct(raw) {
     type: raw.type,
     profile,
     notes: evidenceNotes(raw.notes),
+    provenance: validateProvenance(raw.provenance,raw.notes),
+    gameExplanation: evidenceText(raw.gameExplanation,4000),
     quest: validateQuest(raw.quest, profile.mission),
     earlierNotes: raw.earlierNotes ? evidenceNotes(raw.earlierNotes) : null,
     created: evidenceText(raw.created, 80),

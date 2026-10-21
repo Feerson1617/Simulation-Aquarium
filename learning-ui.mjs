@@ -1,3 +1,5 @@
+import {learningProvenance, ORIGIN_LABELS} from "./learning-provenance.mjs";
+import {fishStatusText} from "./biology-quality.mjs";
 import { dialControl, mountDials } from "./control-dial.mjs";
 import { controlNumber, requireControlValue, applyEquipmentSetting, EQUIPMENT_SWITCHES } from "./control-values.mjs";
 import {
@@ -6,6 +8,7 @@ import {
   questEvent,
   answerQuest,
   comparisonReading,
+  questConclusion,
   validateQuest,
 } from "./learning-quests.mjs";
 import {
@@ -41,6 +44,7 @@ import {
   applyLearningIntervention,
   runLearningComparison,
   comparisonCSV,
+  comparisonMetricDefinitions,
   normalizeTeacher,
   validateLearningProduct,
 } from "./learning-model.mjs";
@@ -141,22 +145,7 @@ export function mountLearningUI(host) {
       showGenes,
       unlockedMetrics: teacher.unlockMetrics,
     }),
-    healthText: () => {
-      const s = host.getState();
-      if (s.failed) return "Das Becken ist in Gefahr. Prüfe das Wasser.";
-      if (
-        s.entities.some(
-          (e) => e.dead && host.types[e.species]?.category === "fish",
-        )
-      )
-        return "Ein Fisch ist gestorben. Prüfe das Wasser.";
-      const h = learningSample(host.getState(), host.types).health;
-      return h >= 80
-        ? "Den Fischen geht es gut."
-        : h >= 50
-          ? "Den Fischen geht es nicht gut."
-          : "Die Fische sind in Gefahr.";
-    },
+    healthText: () => fishStatusText(host.getState(), host.types),
     tools,
     sample: () => learningSample(host.getState(), host.types),
     catalog: () => GRADE_PROFILES[tag.grade].catalog,
@@ -175,7 +164,7 @@ export function mountLearningUI(host) {
     if (tag.grade === 9) return ["dark", "light", "A"];
     const primary = QUESTS[tag.mission]?.experiment.metric;
     return primary
-      ? [...new Set([primary, ...teacher.unlockMetrics])]
+      ? [...new Set([primary, ...(["8-health","10-restore"].includes(tag.mission) ? ["fishAlive","health"] : []), ...teacher.unlockMetrics])]
       : [
           ...new Set([
             "oxygen",
@@ -250,9 +239,7 @@ export function mountLearningUI(host) {
         result: { kind: "traits", AA: c.AA, Aa: c.Aa },
       };
     }
-    if (questEvent(session.quest, kind, evidence))
-      session.notes.observation = "";
-    else if (session.quest.step === 2) {
+    if (!questEvent(session.quest, kind, evidence) && session.quest.step === 2) {
       const expected = d.experiment.kind;
       session.quest.feedback =
         expected === "traits"
@@ -315,6 +302,8 @@ export function mountLearningUI(host) {
       type: "aquarium-learning-product",
       profile: tag,
       notes: structuredClone(session.notes),
+      provenance: learningProvenance(session),
+      gameExplanation: session.quest ? questConclusion(QUESTS[tag.mission],session.quest.result).feedback : null,
       created: new Date().toISOString(),
       support: teacher.support,
       model: CURRICULUM,
@@ -708,8 +697,7 @@ export function mountLearningUI(host) {
     const title = (
       (!technical &&
         (percent ? [STUDENT_METRICS[key][0], "%"] : STUDENT_METRICS[key])) ||
-      LEARNING_METRICS[key] ||
-      POPULATION_METRICS[key] || [key, ""]
+      comparisonMetricDefinitions(comp)[key] || [key, ""]
     ).join(" · ");
     return `<svg class="learn-chart" viewBox="0 0 480 270" role="img" aria-label="Verlauf ${esc(title)}: ${comp.kind === "manual" ? (technical ? "Eigenes Becken" : "Dein Becken") : technical ? "Kontrolle und Versuch" : comp.kind === "population" ? "Gruppe 1 und Gruppe 2" : "Becken 1 und Becken 2"}"><desc>${esc(technical ? runDescription(comp) : "Messwerte aus deinem Versuch.")}</desc><text x="45" y="13" font-size="12">${esc(title)}</text><path d="M45 24 V180 H455" fill="none" stroke="currentColor"/><text x="5" y="33">${num(maxY)}</text><text x="7" y="184">${num(minY)}</text><text x="45" y="204">${num(minX)}</text><text x="420" y="204">${num(maxX)}</text>${[
       a,
@@ -1029,7 +1017,7 @@ export function mountLearningUI(host) {
             )
               .map(
                 ([k, v]) =>
-                  `<h4>${esc(noteFields[k] || k)}</h4><p class="learn-pre">${esc(v || "Noch kein Eintrag.")}</p>`,
+                  `<h4>${esc(k)} · ${esc(ORIGIN_LABELS[imported.provenance?.notes?.[k] || "unknown"])}</h4><p class="learn-pre">${esc(v || "Noch kein Eintrag.")}</p>`,
               )
               .join("")}${
               imported.earlierNotes
@@ -1042,7 +1030,7 @@ export function mountLearningUI(host) {
                     )
                     .join("")}`
                 : ""
-            }${imported.quest ? `<h3>Questbuch</h3><p>${imported.quest.step} von 5 Aufgaben</p>${imported.quest.entries.map((e) => `<p>${esc(e.question || e.event)}: ${esc(e.answer || "Handlung im Spiel")}</p>`).join("")}` : ""}${imported.comparison ? teacherData(imported.comparison) : ""}${manualData(imported, true)}${imported.population ? `<h3>Separater Zuchtversuch</h3><p>Startseed ${imported.population.initialSeed ?? "nicht dokumentiert"}; aktueller Zufallszustand ${imported.population.seed}. Dieses Archiv ersetzt nicht die Archive der Kontroll-/Selektionsläufe.</p>${archiveView(imported.population, "separater Mendelversuch")}` : ""}${imported.populationRepeats?.length ? `<h4>Dokumentierte Wiederholungen</h4>${imported.populationRepeats.map((r) => `<p>Seed ${r.seed}: AA ${r.final.AA}, Aa ${r.final.Aa}, aa ${r.final.aa}.</p>`).join("")}` : ""}</section>`
+            }${imported.gameExplanation ? `<h4>Spielerklärung</h4><p>${esc(imported.gameExplanation)}</p>` : ""}${imported.provenance?.legacy ? "<p>Altprodukt: Urheberschaft vorhandener Texte ist nicht dokumentiert. Sie gelten nicht automatisch als selbst formulierte Schülerleistung.</p>" : ""}${imported.quest ? `<h3>Questbuch</h3><p>${imported.quest.step} von 5 Aufgaben</p>${imported.quest.entries.map((e) => `<p>${e.answer ? "Auswahl" : "Spielhandlung"} · ${esc(e.question || e.event)}: ${esc(e.answer || "Tatsächlich ausgeführter Eingriff")}</p>`).join("")}` : ""}${imported.comparison ? teacherData(imported.comparison) : ""}${manualData(imported, true)}${imported.population ? `<h3>Separater Zuchtversuch</h3><p>Startseed ${imported.population.initialSeed ?? "nicht dokumentiert"}; aktueller Zufallszustand ${imported.population.seed}. Dieses Archiv ersetzt nicht die Archive der Kontroll-/Selektionsläufe.</p>${archiveView(imported.population, "separater Mendelversuch")}` : ""}${imported.populationRepeats?.length ? `<h4>Dokumentierte Wiederholungen</h4>${imported.populationRepeats.map((r) => `<p>Seed ${r.seed}: AA ${r.final.AA}, Aa ${r.final.Aa}, aa ${r.final.aa}.</p>`).join("")}` : ""}</section>`
           : ""
       }<details><summary>Alle Missionshintergründe und Modellgrenzen</summary>${MISSIONS.map((m) => `<h3>${esc(m.title)}</h3><p>${esc(m.goal)}</p><p>${esc(m.curriculum)}</p><p>${esc(m.limits)}</p>${m.transfer ? transfer(m.transfer, false) : ""}`).join("")}</details><h3>Versuche verwalten</h3><p>Ein Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.</p>${button("teacher-reset", "Ausgewählte Mission neu beginnen")}${button("teacher-restore", "Gesicherte Mission wiederherstellen")}<details><summary>Fachliche und curriculare Grundlage</summary><p>${CURRICULUM.title}, ${CURRICULUM.pages}; Original-PDF am 20.10.2026 abgeglichen. Die Simulation deckt ausgewählte Einheiten ab, nicht alle Inhalte der Klassen.</p><p>Gesundheit, Biomasse und Belastung sind Modellgrößen. Kohlenstoff nur qualitativ; Selektion nutzt offengelegte hypothetische Gewichte.</p></details>`
     );
@@ -1124,14 +1112,6 @@ export function mountLearningUI(host) {
         host.notify("Wähle zuerst deine Vermutung im Questbuch.");
         return false;
       }
-      if (session.quest) {
-        const q = QUESTS[tag.mission];
-        session.notes.question = q.prediction;
-        session.notes.hypothesis =
-          session.notes.prediction || "Vermutung im Questbuch gespeichert.";
-        session.notes.plan =
-          "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen.";
-      }
       return true;
     }
     const ok =
@@ -1171,6 +1151,7 @@ export function mountLearningUI(host) {
   root.addEventListener("input", (e) => {
     if (e.target.dataset.learningNote) {
       session.notes[e.target.dataset.learningNote] = e.target.value;
+      (session.noteOrigins ??= {})[e.target.dataset.learningNote] = "own-input";
       persist();
       refreshResultNotice();
     }
@@ -1208,6 +1189,7 @@ export function mountLearningUI(host) {
         session.study.generations = Number(t.value);
       if (t.hasAttribute("data-learning-environment"))
         session.study.environment = t.value;
+      if (t.hasAttribute("data-learning-run")) {session.study.run = Number(t.value); persist(); render();}
       if (t.hasAttribute("data-learning-metric")) {
         session.study.metric = t.value;
         persist();
@@ -1310,11 +1292,7 @@ export function mountLearningUI(host) {
              !planMatchesComparison(session.quest.result, currentPlan(session.comparison.kind))))
           throw new Error("Der Versuch wurde geändert. Starte ihn erneut, bevor du diese Ergebnisse vergleichst.");
         if (answerQuest(session.quest, Number(d.questAnswer))) {
-          const entry = session.quest.entries.at(-1);
-          if (old === 1) session.notes.prediction = entry.answer;
-          if (old === 3) session.notes.observation = entry.answer;
-          if (old === 4)
-            session.notes.explanation = QUESTS[tag.mission].conclusion.feedback;
+          // Selected answers stay in the questbook; game text never becomes a learner note.
         }
         persist();
         render();
@@ -1363,6 +1341,7 @@ export function mountLearningUI(host) {
               version: 2,
               type: "aquarium-learning-product",
               profile: tank.learning,
+              provenance: x.noteOrigins ? learningProvenance(x) : null,
               model: CURRICULUM,
               measurementMetrics: recordedMetrics(
                 x.measurements || [],
@@ -1381,6 +1360,7 @@ export function mountLearningUI(host) {
                       population: x.population,
                       study: x.study,
                       profile: tank.learning,
+              provenance: x.noteOrigins ? learningProvenance(x) : null,
                       notes: x.notes,
                       metrics:
                         x.comparison?.configuration?.metrics ||
@@ -1802,9 +1782,9 @@ export function mountLearningUI(host) {
             (mission()?.title || "Freies Forschen") +
             "\n\n" +
             Object.entries(noteFields)
-              .map(([k, label]) => label + "\n" + (session.notes[k] || "—"))
+              .map(([k, label]) => label + " · " + ORIGIN_LABELS[session.noteOrigins?.[k] || "unknown"] + "\n" + (session.notes[k] || "—"))
               .join("\n\n") +
-            "\n\nMessdaten sind im JSON-/CSV-Export enthalten.",
+            "\n\nAusgewählte Antworten (Auswahl, kein selbst formulierter Text):\n" + (session.quest?.entries || []).filter(e=>e.answer).map(e=>e.question+": "+e.answer).join("\n") + "\n\nSpielerklärung:\n" + (session.quest ? questConclusion(QUESTS[tag.mission],session.quest.result).feedback : "—") + "\n\nMesswerte aus dem Simulationsmodell sind im JSON-/CSV-Export enthalten.",
           "text/plain;charset=utf-8",
         );
         return;
@@ -1928,6 +1908,7 @@ export function mountLearningUI(host) {
       comparison: session?.comparison,
       population: session?.population,
       notes: session?.notes,
+      provenance: session ? learningProvenance(session) : null,
       measurements: session?.measurements,
       storageError,
       study: session?.study,

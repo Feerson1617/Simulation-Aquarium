@@ -222,8 +222,9 @@ export function compareLearningPopulations(
     generations,
     repetitions,
     runs,
-    assumption:
-      "Helle/dunkle Modellumwelt: passender Phänotyp erhält Gewicht 1, anderer 0,5 für die Elternwahl. Hypothetische relative Fortpflanzungschance; kein gemessener Molly-Wert.",
+    assumption: environment === "neutral"
+      ? "Neutrale Elternwahl: alle Phänotypen haben Gewicht 1. Unterschiede zwischen Wiederholungen entstehen durch Zufall; kein Selektionsvorteil."
+      : "Helle/dunkle Modellumwelt: passender Phänotyp erhält Gewicht 1, anderer 0,5 für die Elternwahl. Hypothetische relative Fortpflanzungschance; kein gemessener Molly-Wert.",
   };
 }
 

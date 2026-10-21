@@ -1,4 +1,5 @@
 /** Short learner tasks. Scientific background remains in learning-content and teacher views. */
+import {populationExplanation} from "./biology-quality.mjs";
 
 const pick = (prompt, choices, correct, feedback) => ({
   prompt,
@@ -111,7 +112,7 @@ export const QUESTS = Object.fromEntries(
       "8-health",
       "Den Fischen geht es nicht gut.",
       "Eine Pflegemaßnahme mit einem Vergleich prüfen.",
-      ecology("water", 50, "health", "Zustand der Fische", "Punkte"),
+      ecology("water", 50, "fishOutcome", "Fische: Überleben und Zustand", "Punkte"),
       pick(
         "Worauf solltest du achten?",
         [
@@ -292,7 +293,7 @@ export const QUESTS = Object.fromEntries(
       "10-restore",
       "Ein gestörtes System stabilisieren",
       "Die Wirkung einer Maßnahme anhand von Daten prüfen.",
-      ecology("water", 50, "health", "Zustand der Fische", "Punkte"),
+      ecology("water", 50, "fishOutcome", "Fische: Überleben und Zustand", "Punkte"),
       pick(
         "Was braucht ein fairer Vergleich?",
         [
@@ -369,6 +370,15 @@ export const STEP_NAMES = [
   "Vergleichen",
   "Erklären",
 ];
+export function questConclusion(d, result) {
+  if (d.experiment.kind !== "population") return d.conclusion;
+  const environment = result?.configuration?.environment ?? result?.environment;
+  if (environment === "neutral") return pick(
+    "Welche Erklärung passt ohne Farbvorteil?",
+    ["Zufall kann die Anteile verändern", "Dunkle Fische haben hier immer einen Vorteil", "Die Fische wählen ihre Erbanlagen"],
+    0, populationExplanation("neutral"));
+  return {...d.conclusion, feedback: populationExplanation(environment) + " Dominant heißt nicht: im Vorteil."};
+}
 export function newQuest(id) {
   if (!QUESTS[id]) return null;
   return {
@@ -407,6 +417,7 @@ export function comparisonReading(comp, experiment) {
     time: row.time,
     control: row.control[experiment.metric],
     test: row.test[experiment.metric],
+    fish: experiment.metric === "fishOutcome" ? {control:{fishAlive:row.control.fishAlive,fishDead:row.control.fishDead},test:{fishAlive:row.test.fishAlive,fishDead:row.test.fishDead}} : null,
     statuses: structuredClone(run.status || {}),
     configuration: structuredClone(comp.configuration || null),
   };
@@ -431,7 +442,8 @@ export function resultQuestion(q, result) {
         : {
             temp: "Wo ist die Temperatur höher?",
             oxygen: "Wo ist mehr Sauerstoff?",
-            health: "Wo geht es den Fischen besser?",
+            health: "Wo geht es den lebenden Fischen besser?",
+            fishOutcome: "Wo überleben mehr Fische in besserem Zustand?",
             organic: "Wo gibt es mehr Reste?",
             plantBiomass: "Wo gibt es mehr Pflanzen?",
             algae: "Wo gibt es mehr Algen?",
@@ -500,7 +512,7 @@ export function answerQuest(state, index) {
         : step === 3
           ? resultQuestion(d, state.result)
           : step === 4
-            ? d.conclusion
+            ? questConclusion(d, state.result)
             : null;
   if (!question || index < 0 || index >= question.choices.length) return false;
   if (step === 0 && !state.observed) {
@@ -553,6 +565,7 @@ export function predictionChoices(d) {
       "Es gibt weniger Sauerstoff.",
       "Es bleibt gleich viel Sauerstoff.",
     ],
+    fishOutcome: ["Becken 2 hilft den Fischen mehr.","Becken 1 hilft den Fischen mehr.","Beide Becken helfen gleich."],
     health: [
       "Den Fischen geht es besser.",
       "Den Fischen geht es schlechter.",

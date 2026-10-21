@@ -1,6 +1,6 @@
 import {pendingActivity,assignActivity,recordActivityView,mendelEvidence,populationPairEvidence,REGIONAL_CASES} from "./learning-activities.mjs";
 import {learningProvenance, ORIGIN_LABELS} from "./learning-provenance.mjs";
-import {fishStatusText} from "./biology-quality.mjs";
+import {fishStatusText,habitatProblems} from "./biology-quality.mjs";
 import { dialControl, mountDials } from "./control-dial.mjs";
 import { controlNumber, requireControlValue, applyEquipmentSetting, EQUIPMENT_SWITCHES } from "./control-values.mjs";
 import {
@@ -322,6 +322,7 @@ export function mountLearningUI(host) {
       measurementMetrics: recordedMetrics(session.measurements, metrics()),
       quest: session.quest || null,
       earlierNotes: session.earlierNotes || null,
+      earlierQuest: session.earlierQuest || null,
     };
   }
   function currentPlan(kind = tag?.grade === 9 ? "population" : "ecology") {
@@ -615,6 +616,7 @@ export function mountLearningUI(host) {
     const previous = panel;
     closePanel();
     host.deviceOpen(key, {
+      compact: !detailed,
       scope: scope === "study" ? "study" : "live",
       definition: toggle || LEARNING_TOOLS[key],
       value: scope === "study" ? session.study.value : host.getState()[{temperature:"setTemp",light:"hours",filter:"flow"}[key]],
@@ -640,7 +642,12 @@ export function mountLearningUI(host) {
     if (!list.length) return "<p>Für dieses Lernziel ist kein Pflegeeingriff freigeschaltet.</p>";
     const key = session.study.tool, d = LEARNING_TOOLS[key], value = session.study.drafts?.[key] ?? session.study.value ?? d.value;
     const device = ["temperature", "light", "filter"].includes(key), persistent = device || ["feed","co2"].includes(key);
-    return `<section data-learning-form><div class="learn-tool-choices" role="group" aria-label="Eingriff wählen">${list.map(k => `<button type="button" data-learning-tool-choice="${k}" aria-pressed="${k === key}">${esc(STUDENT_TOOLS[k][0])}</button>`).join("")}</div><input type="hidden" data-learning-tool="${prefix}" value="${key}">${device ? button("device-"+key, "Am 3D-Gerät einstellen") + dialControl(d,value,"data-learning-value") : `<label>${esc(STUDENT_TOOLS[key][0])} (${esc(d.unit)})<input type="text" inputmode="decimal" autocomplete="off" data-learning-value value="${esc(value)}" required></label><p data-control-error role="alert"></p>`}<p class="learn-setting-note">${persistent ? "Dauerhafte Einstellung: bleibt bis zur nächsten Änderung bestehen." : "Einmalige Aktion: wird genau einmal ausgeführt."} ${prefix === "study" ? "Hier planst du Becken 2. Der Vergleich beginnt erst mit „Versuch starten“." : "Wirkt auf dein aktuelles Becken."}</p><small>${esc(d.description)}</small></section>`;
+    if (!detailed) {
+      const choose=list.length>1 ? `<details><summary>Anderen Eingriff wählen</summary><div class="learn-tool-choices">${list.map(k=>`<button data-learning-tool-choice="${k}">${esc(STUDENT_TOOLS[k][0])}</button>`).join("")}</div></details>` : "";
+      const field=`<label>${esc(STUDENT_TOOLS[key][0])} (${esc(key === "feed" ? "Spielportionen pro Tag" : d.unit)})<input type="text" inputmode="decimal" autocomplete="off" data-learning-value value="${esc(value)}" required></label><p data-control-error role="alert"></p>`;
+      return `<section data-learning-form class="learn-compact-form"><input type="hidden" data-learning-tool="${prefix}" value="${key}">${device ? `<p>Geplant: ${esc(value)} ${esc(d.unit)}</p>${button("device-"+key,({temperature:"Heizstab einstellen",light:"Beleuchtung einstellen",filter:"Filter einstellen"})[key])}<details class="learn-numeric-alternative"><summary>Wert direkt eingeben</summary>${field}</details>` : field}${device ? `<details class="learn-more-tools"><summary>Weitere Werkzeuge</summary>${choose}</details>` : choose}</section>`;
+    }
+    return `<section data-learning-form><div class="learn-tool-choices" role="group" aria-label="Eingriff wählen">${list.map(k => `<button type="button" data-learning-tool-choice="${k}" aria-pressed="${k === key}">${esc(STUDENT_TOOLS[k][0])}</button>`).join("")}</div><input type="hidden" data-learning-tool="${prefix}" value="${key}">${device ? button("device-"+key, "Am 3D-Gerät einstellen") + dialControl(d,value,"data-learning-value") : `<label>${esc(STUDENT_TOOLS[key][0])} (${esc(key === "feed" ? "Spielportionen pro Tag" : d.unit)})<input type="text" inputmode="decimal" autocomplete="off" data-learning-value value="${esc(value)}" required></label><p data-control-error role="alert"></p>`}<p class="learn-setting-note">${persistent ? "Dauerhafte Einstellung: bleibt bis zur nächsten Änderung bestehen." : "Einmalige Aktion: wird genau einmal ausgeführt."} ${prefix === "study" ? "Hier planst du Becken 2. Der Vergleich beginnt erst mit „Versuch starten“." : "Wirkt auf dein aktuelles Becken."}</p><small>${esc(d.description)}</small></section>`;
   }
   function readIntervention() {
     const tool = session.study.tool, def = LEARNING_TOOLS[tool], field = root.querySelector("[data-learning-value]");
@@ -650,7 +657,9 @@ export function mountLearningUI(host) {
       return {tool, value};
     } catch (error) {
       root.querySelector("[data-learning-form] [data-control-error]").textContent = error.message;
-      field?.setAttribute("aria-invalid", "true"); field?.focus(); throw error;
+      field?.setAttribute("aria-invalid", "true");
+      for (let parent=field?.parentElement;parent;parent=parent.parentElement) if (parent.tagName === "DETAILS") parent.open=true;
+      field?.focus(); throw error;
     }
   }
   function notebook() {
@@ -755,7 +764,7 @@ export function mountLearningUI(host) {
   }
   function runTables(comp, metric) {
     const population = comp.kind === "population",
-      def = (population ? POPULATION_METRICS : LEARNING_METRICS)[metric];
+      def = comparisonMetricDefinitions(comp)[metric];
     return comp.runs
       .map(
         (run) =>
@@ -789,6 +798,7 @@ export function mountLearningUI(host) {
     const rows = item.measurements || [],
       keys = item.measurementMetrics || [];
     if (!rows.length) return "";
+    const defs=comparisonMetricDefinitions({kind:"manual",runs:[{control:rows,test:[]}]});
     const selected = readOnly ? importedManualMetric : manualMetric,
       key = keys.includes(selected) ? selected : keys[0];
     if (!key)
@@ -798,9 +808,9 @@ export function mountLearningUI(host) {
       [key]: s.metrics && !s.metrics.includes(key) ? null : s[key],
     }));
     return `<section class="learn-measurements"><h3>Eigene Messreihe · ${rows.length} Zeitpunkte</h3><p>Aufeinanderfolgende Beobachtungen desselben Beckens. Kein automatischer Kontrollversuch; mehrere Eingriffe oder Zeitabstände können sich unterscheiden.</p><label>Eigene Messgröße<select data-learning-manual-metric="${readOnly ? "imported" : "local"}">${options(
-      keys.map((k) => [k, LEARNING_METRICS[k].join(" · ")]),
+      keys.map((k) => [k, defs[k].join(" · ")]),
       key,
-    )}</select></label>${plot({ kind: "manual", runs: [{ control: filtered, test: [] }] }, key)}<div class="learn-table-wrap"><table><caption>${esc(LEARNING_METRICS[key].join(" · "))}</caption><thead><tr><th>Tag · Modellzeit</th><th>Eigenes Becken</th></tr></thead><tbody>${filtered.map((s) => `<tr><td>${num(s.day)}</td><td>${num(s[key], 4)}</td></tr>`).join("")}</tbody></table></div><p>„—“: unbekannt oder zum Aufnahmezeitpunkt nicht freigegeben. Reale Nullwerte stehen als 0.</p><div class="learn-actions">${button(readOnly ? "imported-manual-csv" : "manual-csv", "Eigene Messreihe als CSV")}${button("manual-chart", "Eigene Messreihe als SVG")}${!readOnly ? button("export", "Messreihe und Notizen als JSON") : ""}</div></section>`;
+    )}</select></label>${plot({ kind: "manual", runs: [{ control: filtered, test: [] }] }, key)}<div class="learn-table-wrap"><table><caption>${esc(defs[key].join(" · "))}</caption><thead><tr><th>Tag · Modellzeit</th><th>Eigenes Becken</th></tr></thead><tbody>${filtered.map((s) => `<tr><td>${num(s.day)}</td><td>${num(s[key], 4)}</td></tr>`).join("")}</tbody></table></div><p>„—“: unbekannt oder zum Aufnahmezeitpunkt nicht freigegeben. Reale Nullwerte stehen als 0.</p><div class="learn-actions">${button(readOnly ? "imported-manual-csv" : "manual-csv", "Eigene Messreihe als CSV")}${button("manual-chart", "Eigene Messreihe als SVG")}${!readOnly ? button("export", "Messreihe und Notizen als JSON") : ""}</div></section>`;
   }
   function archiveView(population, label) {
     const id = String(archiveRefs.size);
@@ -1041,7 +1051,7 @@ export function mountLearningUI(host) {
                     )
                     .join("")}`
                 : ""
-            }${imported.gameExplanation ? `<h4>Spielerklärung</h4><p>${esc(imported.gameExplanation)}</p>` : ""}${imported.provenance?.legacy ? "<p>Altprodukt: Urheberschaft vorhandener Texte ist nicht dokumentiert. Sie gelten nicht automatisch als selbst formulierte Schülerleistung.</p>" : ""}${imported.quest ? `<h3>Questbuch</h3><p>${imported.quest.step} von 5 Aufgaben</p>${imported.quest.entries.map((e) => `<p>${e.answer ? "Auswahl" : "Spielhandlung"} · ${esc(e.question || e.event)}: ${esc(e.answer || "Tatsächlich ausgeführter Eingriff")}</p>`).join("")}` : ""}${imported.comparisonHistory?.length ? `<details class="learn-comparison-history"><summary>Frühere Versuchsreihen (${imported.comparisonHistory.length})</summary>${imported.comparisonHistory.map(c=>`<p>${esc(c.kind)} · ${esc(c.environment || c.tool)} · ${c.runs.length} Wiederholungen · Ausgangslage ${esc(c.configuration?.baseline.fingerprint || "nicht dokumentiert")}</p><p>Seeds ${c.runs.map(r=>r.seed).join(", ")}. Vollständige tatsächliche Messreihen und Archive sind im JSON erhalten.</p>`).join("")}</details>` : ""}${imported.quest?.activities?.length ? `<h4>Bearbeitete Lernhandlungen</h4>${imported.quest.activities.map(a=>`<p>${a.kind === "assignment" ? "Auswahl/Zuordnung" : "Spielhandlung"} · ${esc(a.id)}: ${esc(a.from || "")} ${esc(a.to || "Messwerte angesehen")}</p>`).join("")}` : ""}${imported.comparison ? teacherData(imported.comparison) : ""}${manualData(imported, true)}${imported.population ? `<h3>Separater Zuchtversuch</h3><p>Startseed ${imported.population.initialSeed ?? "nicht dokumentiert"}; aktueller Zufallszustand ${imported.population.seed}. Dieses Archiv ersetzt nicht die Archive der Kontroll-/Selektionsläufe.</p>${archiveView(imported.population, "separater Mendelversuch")}` : ""}${imported.populationRepeats?.length ? `<h4>Dokumentierte Wiederholungen</h4>${imported.populationRepeats.map((r) => `<p>Seed ${r.seed}: AA ${r.final.AA}, Aa ${r.final.Aa}, aa ${r.final.aa}.</p>`).join("")}` : ""}</section>`
+            }${imported.gameExplanation ? `<h4>Spielerklärung</h4><p>${esc(imported.gameExplanation)}</p>` : ""}${imported.provenance?.legacy ? "<p>Altprodukt: Urheberschaft vorhandener Texte ist nicht dokumentiert. Sie gelten nicht automatisch als selbst formulierte Schülerleistung.</p>" : ""}${imported.earlierQuest ? `<details><summary>Früheres Questbuch · Anforderungen vor der Überarbeitung</summary><p>${imported.earlierQuest.step} von 5 damaligen Schritten. Originaleinträge bleiben im JSON erhalten.</p></details>` : ""}${imported.quest ? `<h3>Questbuch${imported.quest.version === 1 ? " · historischer Anforderungsstand" : ""}</h3><p>${imported.quest.step} von 5 Aufgaben</p>${imported.quest.entries.map((e) => `<p>${e.answer ? "Auswahl" : "Spielhandlung"} · ${esc(e.question || e.event)}: ${esc(e.answer || "Tatsächlich ausgeführter Eingriff")}</p>`).join("")}` : ""}${imported.comparisonHistory?.length ? `<details class="learn-comparison-history"><summary>Frühere Versuchsreihen (${imported.comparisonHistory.length})</summary>${imported.comparisonHistory.map(c=>`<p>${esc(c.kind)} · ${esc(c.environment || c.tool)} · ${c.runs.length} Wiederholungen · Ausgangslage ${esc(c.configuration?.baseline.fingerprint || "nicht dokumentiert")}</p><p>Seeds ${c.runs.map(r=>r.seed).join(", ")}. Vollständige tatsächliche Messreihen und Archive sind im JSON erhalten.</p>`).join("")}</details>` : ""}${imported.quest?.activities?.length ? `<h4>Bearbeitete Lernhandlungen</h4>${imported.quest.activities.map(a=>`<p>${a.kind === "assignment" ? "Auswahl/Zuordnung" : "Spielhandlung"} · ${esc(a.id)}: ${esc(a.from || "")} ${esc(a.to || "Messwerte angesehen")}</p>`).join("")}` : ""}${imported.comparison ? teacherData(imported.comparison) : ""}${manualData(imported, true)}${imported.population ? `<h3>Separater Zuchtversuch</h3><p>Startseed ${imported.population.initialSeed ?? "nicht dokumentiert"}; aktueller Zufallszustand ${imported.population.seed}. Dieses Archiv ersetzt nicht die Archive der Kontroll-/Selektionsläufe.</p>${archiveView(imported.population, "separater Mendelversuch")}` : ""}${imported.populationRepeats?.length ? `<h4>Dokumentierte Wiederholungen</h4>${imported.populationRepeats.map((r) => `<p>Seed ${r.seed}: AA ${r.final.AA}, Aa ${r.final.Aa}, aa ${r.final.aa}.</p>`).join("")}` : ""}</section>`
           : ""
       }<details><summary>Alle Missionshintergründe und Modellgrenzen</summary>${MISSIONS.map((m) => `<h3>${esc(m.title)}</h3><p>${esc(m.goal)}</p><p>${esc(m.curriculum)}</p><p>${esc(m.limits)}</p>${m.transfer ? transfer(m.transfer, false) : ""}`).join("")}</details><h3>Versuche verwalten</h3><p>Ein Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.</p>${button("teacher-reset", "Ausgewählte Mission neu beginnen")}${button("teacher-restore", "Gesicherte Mission wiederherstellen")}<details><summary>Fachliche und curriculare Grundlage</summary><p>${CURRICULUM.title}, ${CURRICULUM.pages}; Original-PDF am 20.10.2026 abgeglichen. Die Simulation deckt ausgewählte Einheiten ab, nicht alle Inhalte der Klassen.</p><p>Gesundheit, Biomasse und Belastung sind Modellgrößen. Kohlenstoff nur qualitativ; Selektion nutzt offengelegte hypothetische Gewichte.</p></details>`
     );
@@ -1700,6 +1710,7 @@ export function mountLearningUI(host) {
         return;
       }
       if (a === "cross" || a === "punnett") {
+        if (!detailed && session.quest?.id === "9-mendel" && !showGenes) throw new Error("Zeige zuerst die Erbanlagen. Wähle dann deine Eltern.");
         if (!requirePlan(true)) return;
         const mother = Number(
             root.querySelector("[data-learning-mother]").value,
@@ -1955,6 +1966,9 @@ export function mountLearningUI(host) {
       notes: session?.notes,
       provenance: session ? learningProvenance(session) : null,
       measurements: session?.measurements,
+      comparisonHistory: session?.comparisonHistory || [],
+      sample: tag ? learningSample(host.getState(),host.types) : null,
+      habitat: tag ? habitatProblems(host.getState(),host.types) : null,
       storageError,
       study: session?.study,
       quest: session?.quest,

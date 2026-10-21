@@ -411,6 +411,7 @@ export function comparisonReading(comp, experiment) {
   return {
     kind: comp.kind,
     key: experiment.metric,
+    repetition: run.repetition || 1,
     sampleSize: comp.kind === "population" ? Math.min(row.control.n,row.test.n) : null,
     label: experiment.label,
     unit: experiment.unit,
@@ -510,6 +511,7 @@ export function questEvent(state, event, evidence = {}) {
   state.entries.push({
     step: 2,
     event,
+    origin:"game-action",
     evidence: structuredClone(evidence),
     at: new Date().toISOString(),
   });

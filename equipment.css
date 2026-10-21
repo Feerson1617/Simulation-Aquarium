@@ -14,3 +14,13 @@
 .equipment-toggle{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px;font-weight:600}.equipment-toggle input{width:48px;height:48px;accent-color:#315d47;flex-shrink:0}
 [data-expert-control]{margin:14px 0;padding:12px;border:1px solid #8b9e91;border-radius:12px}
 @media(min-width:801px){.device-adjusting #scene{right:min(48vw,440px)}.equipment-sheet{left:auto;right:12px;transform:none;top:12px;bottom:12px;width:min(420px,47vw);max-height:none}}
+
+/* Progressive numeric alternative; direct manipulation remains the primary action. */
+.device-compact .device-dial{width:128px;height:128px;min-width:128px}
+.device-compact output{display:block;font-size:1.55rem;font-weight:700}
+.device-numeric{grid-column:1/-1;width:100%}
+.device-numeric summary{min-height:44px;display:flex;align-items:center;cursor:pointer}
+.device-help-touch{display:none}
+@media(pointer:coarse){.device-help-touch{display:inline}.device-help-keyboard{display:none}}
+.learn-compact-form details{margin-block:12px}
+.learn-reading span{display:block;margin-top:6px}

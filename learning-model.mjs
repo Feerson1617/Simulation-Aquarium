@@ -850,6 +850,7 @@ export function validateLearningProduct(raw) {
     gameExplanation: evidenceText(raw.gameExplanation,4000),
     quest: validateQuest(raw.quest, profile.mission),
     earlierNotes: raw.earlierNotes ? evidenceNotes(raw.earlierNotes) : null,
+    earlierQuest: validateQuest(raw.earlierQuest,profile.mission),
     created: evidenceText(raw.created, 80),
     support: Object.hasOwn(SUPPORT, raw.support) ? raw.support : null,
     model:

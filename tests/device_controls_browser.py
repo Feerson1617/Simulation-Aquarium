@@ -1,3 +1,4 @@
+from biology_browser_helpers import reveal,activities
 """Real UI regressions for device input, persistence and Quest 1.
 Run against a local server or AQUARIUM_URL=.../pr-preview/pr-8/.
 Uses isolated browser contexts; does not overwrite an existing browser profile.
@@ -28,6 +29,7 @@ def dialog_keyboard(p):
     close.focus(); p.keyboard.press('Shift+Tab'); expect(save).to_be_focused()
     p.keyboard.press('Tab'); expect(close).to_be_focused()
     assert p.evaluate('document.documentElement.classList.contains("device-adjusting") && document.querySelector("#learning-root").inert')
+    for summary in editor.locator('.device-numeric:not([open]) > summary').all():summary.click()
 
 def action(p, name):
     p.locator(f'[data-learn="{name}"]').filter(visible=True).first.click()
@@ -101,7 +103,7 @@ with sync_playwright() as w:
                     continued_focus(p)
                     assert p.evaluate('document.activeElement.dataset.equipment')==key
                     if key=='temperature':
-                        anchor.click(); editor.locator('[data-equipment-value]').fill('20'); p.keyboard.press('Escape'); continued_focus(p)
+                        anchor.click(); reveal(editor.locator('[data-equipment-value]')).fill('20'); p.keyboard.press('Escape'); continued_focus(p)
                         assert tank(p,grade)['setTemp']==26.5
                 now = tank(p, grade)
                 assert now['day'] == before['day'] and now['params'] == before['params']
@@ -124,31 +126,23 @@ with sync_playwright() as w:
                 rendered(p);p.screenshot(path=str(OUT/f'{mode}-free-{grade}.png'))
                 home(p)
                 passed(f'{mode}, grade {grade}: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload')
-            start(p, 8, '8-ecosystem'); action(p, 'observe')
+            start(p, 8, '8-ecosystem'); action(p, 'observe');action(p,'close');activities(p,touch)
             p.locator('[data-quest-answer="0"]').click(); p.locator('[data-quest-answer="1"]').click(); action(p, 'investigate')
-            p.locator('[data-learning-value]').fill('25');action(p,'compare');assert p.evaluate('window.aquariumLearningSnapshot().quest.step')==2
-            # Real device entry returns focus to the rebuilt investigation tools.
+            reveal(p.locator('[data-learning-value]')).fill('25');action(p,'compare');assert p.evaluate('window.aquariumLearningSnapshot().quest.step')==2
             action(p,'device-temperature');dialog_keyboard(p);p.locator('[data-equipment-value]').fill('20');p.locator('[data-equipment-save]').click();continued_focus(p)
-            assert p.evaluate('document.activeElement.dataset.learningToolChoice==="temperature" || document.activeElement.dataset.learn==="device-temperature"')
-            assert p.evaluate('window.aquariumLearningSnapshot().study.value')==20
-            action(p,'compare');r=p.evaluate('window.aquariumLearningSnapshot().comparison.runs[0]');assert 22<r['finalTest']['params']['temp']<25
-            action(p,'device-temperature');p.locator('[data-equipment-value]').fill('26');p.keyboard.press('Escape');continued_focus(p);assert p.evaluate('window.aquariumLearningSnapshot().study.value')==20
-            p.locator('[data-learning-value]').fill('25'); action(p, 'compare')
-            assert p.evaluate('window.aquariumLearningSnapshot().quest.step') == 3
-            p.locator('[data-quest-answer="0"]').click();assert p.evaluate('window.aquariumLearningSnapshot().quest.step')==3
-            p.locator('[data-learning-value]').fill('24,5'); action(p, 'compare')
-            assert p.evaluate('window.aquariumLearningSnapshot().quest.step') == 3
-            p.locator('[data-learning-value]').fill('26'); p.locator('[data-quest-answer="0"]').click()
-            assert p.evaluate('window.aquariumLearningSnapshot().quest.step') == 3
-            action(p, 'compare'); p.locator('[data-quest-answer="1"]').click()
-            assert p.evaluate('window.aquariumLearningSnapshot().quest.step') == 4
-            p.locator('[data-learning-value]').fill('24,5'); p.locator('[data-quest-answer="0"]').click()
-            assert p.evaluate('window.aquariumLearningSnapshot().quest.step') == 4
-            action(p, 'compare'); assert p.evaluate('window.aquariumLearningSnapshot().quest.step') == 3
-            p.locator('[data-quest-answer="0"]').click(); p.locator('[data-quest-answer="0"]').click()
-            assert p.evaluate('window.aquariumLearningSnapshot().quest.step') == 5
-            p.reload(); start(p, 8, '8-ecosystem'); assert p.evaluate('window.aquariumLearningSnapshot().quest.step') == 5
-            passed(f'{mode}: Quest 1 device plan/cancel focus, 20/24.5/25/26 C, no-op, stale result/conclusion, recompute, completion, reload')
+            assert p.evaluate('document.activeElement.dataset.learn==="device-temperature"')
+            action(p,'compare');r=p.evaluate('window.aquariumLearningSnapshot().comparison.runs[0]');assert 22<r['finalTest']['params']['temp']<25;assert p.evaluate('window.aquariumLearningSnapshot().quest.step')==2
+            action(p,'device-temperature');reveal(p.locator('[data-equipment-value]')).fill('26');p.keyboard.press('Escape');continued_focus(p);assert p.evaluate('window.aquariumLearningSnapshot().study.value')==20
+            reveal(p.locator('[data-learning-value]')).fill('24,5');action(p,'compare');assert p.evaluate('window.aquariumLearningSnapshot().quest.step')==2
+            reveal(p.locator('[data-learning-value]')).fill('27');action(p,'compare');assert p.evaluate('window.aquariumLearningSnapshot().quest.step')==3
+            reveal(p.locator('[data-learning-value]')).fill('25');action(p,'compare');p.locator('[data-quest-answer="1"]').click();assert p.evaluate('window.aquariumLearningSnapshot().quest.step')==3
+            reveal(p.locator('[data-learning-value]')).fill('26');p.locator('[data-quest-answer="1"]').click();assert p.evaluate('window.aquariumLearningSnapshot().quest.step')==3
+            action(p,'compare');p.locator('[data-quest-answer="1"]').click();assert p.evaluate('window.aquariumLearningSnapshot().quest.step')==4
+            reveal(p.locator('[data-learning-value]')).fill('25');p.locator('[data-quest-answer="0"]').click();assert p.evaluate('window.aquariumLearningSnapshot().quest.step')==4
+            reveal(p.locator('[data-learning-value]')).fill('26,5');action(p,'compare');assert p.evaluate('window.aquariumLearningSnapshot().quest.step')==3
+            p.locator('[data-quest-answer="1"]').click();p.locator('[data-quest-answer="0"]').click();assert p.evaluate('window.aquariumLearningSnapshot().quest.step')==5
+            p.reload();start(p,8,'8-ecosystem');assert p.evaluate('window.aquariumLearningSnapshot().quest.step')==5
+            passed(f'{mode}: warming objective, 20/24.5/25 C rejected as warming/no-op, 26/26.5/27 C gradual, stale result/conclusion, device/cancel focus and reload')
             home(p);expert_checks(p,mode,touch,OUT,continued_focus,dialog_keyboard);passed(f'{mode}: genuine old window-light save, unchanged history, 0.65 feed, expert focus, aerator/skimmer off/on, reload')
             adoption_checks(p,mode,touch,OUT);passed(f'{mode}: adopt and continue test tank; persistent heater and one-off water change use actual core exactly once')
             c.close()

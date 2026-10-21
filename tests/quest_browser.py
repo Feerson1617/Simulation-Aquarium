@@ -1,3 +1,4 @@
+from biology_browser_helpers import activities,biological_experiment,comparison_answer,EXPECTED_ACTIONS,reveal,action as biological_action
 """Complete quests by real browser actions, not direct quest-state manipulation.
 AQUARIUM_QUEST_SECTIONS=desktop,touch,free,teacher (default all).
 """
@@ -21,6 +22,7 @@ def action(p,name):
 def start(p,g,id=None):
  p.locator(f'[data-learn-grade="{g}"]').click();action(p,'missions' if id else 'free')
  if id:p.locator(f'[data-learn-mission="{id}"]').click()
+ state=snap(p);disturbed=id in ['8-health','10-restore'];assert not [item for item in state['habitat'] if not disturbed or item['key']!='nitrite'],state['habitat']
 def answer(p,i):p.locator(f'[data-quest-answer="{i}"]').filter(visible=True).click()
 def short(p):
  text=p.locator('#learning-root').inner_text();assert not BAN.search(text),BAN.search(text).group() if BAN.search(text) else text
@@ -36,41 +38,38 @@ def download(p,name):
 
 def complete(p,g,id,touch=False):
  start(p,g,id);assert snap(p)['quest']['step']==0;expect(p.get_by_role('complementary',name='Questbuch')).to_be_visible();short(p)
+ def act(a):biological_action(p,a,touch)
+ def choose(i):
+  target=p.locator(f'[data-quest-answer="{i}"]').filter(visible=True).first
+  target.tap() if touch else target.click()
  assert p.locator('#scene canvas').count()==1 and p.evaluate('document.querySelector("#scene canvas").width>100')
- if id in ['8-oxygen','9-mendel','10-carbon']:shot(p,f'{"touch" if touch else "desktop"}-{id}-start.png')
- answer(p,0);assert snap(p)['quest']['step']==0;expect(p.locator('.learn-quest-feedback')).to_contain_text('zuerst')
- action(p,'observe');p.locator('[data-learn-help="observe"]').click();expect(p.locator('.learn-help-pop')).to_contain_text('Schau genau hin. Was passiert im Aquarium?');p.keyboard.press('Escape');assert p.evaluate('document.activeElement.dataset.learnHelp')=='observe';assert p.evaluate('document.querySelector("#scene").inert')
- answer(p,1);assert snap(p)['quest']['step']==0;answer(p,0);assert snap(p)['quest']['step']==1;answer(p,1);assert snap(p)['quest']['step']==2
- if g==9:
-  if id=='9-traits':
-   action(p,'material');action(p,'genes');assert snap(p)['quest']['result']['AA']>0 and snap(p)['quest']['result']['Aa']>0
-  elif id=='9-mendel':
-   action(p,'material');p.locator('[data-learning-mother]').select_option('1');p.locator('[data-learning-father]').select_option('6');action(p,'cross');pop=snap(p)['population'];assert pop['generation']==1 and all(i['loci']['A']==['A','a'] for i in pop['individuals'])
-  else:
-   action(p,'investigate');p.locator('[data-learning-generations]').fill('1');action(p,'population-compare');assert snap(p)['quest']['step']==2;p.locator('[data-learning-generations]').fill('5');action(p,'population-compare');comp=snap(p)['comparison'];assert comp['runs'][0]['archives']['test']['events']
- else:
-  action(p,'investigate')
-  if id=='8-oxygen':
-   # A real computed no-op cannot count as changing the light.
-   p.locator('[data-learning-value]').fill('8');action(p,'compare');assert snap(p)['quest']['step']==2;p.locator('[data-learning-value]').fill('0')
-  action(p,'compare');comp=snap(p)['comparison'];run=comp['runs'][0];assert run['initialControl']==run['initialTest'];assert run['control'] and run['test']
-  if id=='8-oxygen':
-   core=p.evaluate('s=>window.aquariumSimulationProbe(s,3)',run['initialControl']);assert core['params']==run['finalControl']['params'];trial=json.loads(json.dumps(run['initialTest']));trial['hours']=0;core=p.evaluate('s=>window.aquariumSimulationProbe(s,3)',trial);assert core['params']==run['finalTest']['params']
- assert snap(p)['quest']['step']==3,snap(p)['quest'];r=snap(p)['quest']['result'];short(p)
- if id=='9-traits':correct=0
- elif id=='9-mendel':correct=0 if r['dark']==1 else 1 if r['light']==1 else 2
- else:correct=2 if int(r['control']*1000+.5)==int(r['test']*1000+.5) else 0 if r['control']>r['test'] else 1
- answer(p,(correct+1)% (2 if id=='9-traits' else 3));assert snap(p)['quest']['step']==3;expect(p.locator('.learn-quest-feedback')).to_contain_text('erneut')
+ if p.locator('[data-quest-answer="0"]').count():choose(0);assert snap(p)['quest']['step']==0
+ else:assert snap(p)['quest']['activities']==[]
+ act('observe')
+ if id!='10-wadden':
+  p.locator('[data-learn-help="observe"]').click();expect(p.locator('.learn-help-pop')).to_contain_text('Schau genau hin. Was passiert im Aquarium?');p.keyboard.press('Escape');assert p.evaluate('document.activeElement.dataset.learnHelp')=='observe'
+ else:expect(p.locator('.learn-panel')).to_contain_text('Hafen')
+ assert p.evaluate('document.querySelector("#scene").inert');act('close');activities(p,touch)
+ choose(1);assert snap(p)['quest']['step']==0;choose(0);assert snap(p)['quest']['step']==1;choose(1);assert snap(p)['quest']['step']==2
+ biological_experiment(p,id,touch);assert snap(p)['quest']['step']==3,snap(p)['quest'];activities(p,touch)
+ r=snap(p)['quest']['result'];correct=comparison_answer(id,r);short(p)
+ choose((correct+1)%(2 if id=='9-traits' else 3));assert snap(p)['quest']['step']==3;assert snap(p)['quest']['feedback']
  if id in ['8-oxygen','9-mendel','10-carbon']:shot(p,f'{"touch" if touch else "desktop"}-{id}-compare.png')
- answer(p,correct);assert snap(p)['quest']['step']==4;answer(p,1);assert snap(p)['quest']['step']==4;answer(p,0);assert snap(p)['quest']['step']==5;short(p)
- assert len(snap(p)['quest']['entries'])==5
- # Close drawer: the actual completion and tank remain readable together.
- action(p,'close');shot(p,f'{"touch" if touch else "desktop"}-{id}-done.png')
+ choose(correct);assert snap(p)['quest']['step']==4;activities(p,touch);choose(1);assert snap(p)['quest']['step']==4;choose(0);assert snap(p)['quest']['step']==5;short(p)
+ q=snap(p)['quest'];assert len(q['entries'])==5;assert {a['id'] for a in q['activities']}==EXPECTED_ACTIONS[id]
+ assert not any(snap(p)['notes'].values()),'Generated answers/text must never become own notes'
+ if p.locator('[data-learn="close"]:visible').count():act('close')
+ frame=p.evaluate('window.aquariumSnapshot().graphics.renderFrame');p.wait_for_function('(f)=>window.aquariumSnapshot().graphics.renderFrame>f+2 && window.aquariumSnapshot().graphics.triangles>3000',arg=frame)
+ shot(p,f'{"touch" if touch else "desktop"}-{id}-done.png');act('notebook');f=download(p,f'{"touch" if touch else "desktop"}-{id}.json');data=json.loads(f.read_text())
+ assert data['quest']['step']==5 and data['gameExplanation'];assert not any(data['notes'].values());assert data['provenance']['questAnswers']=='selection' and data['provenance']['measurements']=='simulation'
  if id in ['8-oxygen','9-mendel','10-carbon']:
-  action(p,'notebook');f=download(p,f'{"touch" if touch else "desktop"}-{id}.json');data=json.loads(f.read_text());assert data['quest']['step']==5 and data['notes']['explanation'];short(p);action(p,'close')
-  before=snap(p);p.reload();p.wait_for_function('!!window.aquariumLearningSnapshot');start(p,g,id);assert snap(p)['quest']==before['quest'];assert snap(p)['comparison']==before['comparison'];assert snap(p)['population']==before['population']
- report['missions'].append({'id':id,'touch':touch,'quest':snap(p)['quest']});passed(f'{"touch" if touch else "desktop"}: {id} completed through actual observation, prediction, experiment, retry, comparison and explanation')
- action(p,'home')
+  own=reveal(p.locator('[data-learning-note="explanation"]'));own.fill('Ich habe beide Ergebnisse verglichen. Meine eigene kurze Begründung bleibt getrennt von den Spieltexten.')
+  ownfile=download(p,f'{"touch" if touch else "desktop"}-{id}-own.json');ownproduct=json.loads(ownfile.read_text());assert ownproduct['provenance']['notes']['explanation']=='own-input';assert ownproduct['notes']['explanation']==own.input_value()
+ short(p);act('close');before=snap(p)
+ if id in ['8-oxygen','9-mendel','10-carbon']:
+  p.reload();p.wait_for_function('!!window.aquariumLearningSnapshot');start(p,g,id);assert snap(p)['quest']==before['quest'];assert snap(p)['comparison']==before['comparison'];assert snap(p)['population']==before['population']
+ report['missions'].append({'id':id,'touch':touch,'quest':snap(p)['quest'],'product':f.name});passed(f'{"touch" if touch else "desktop"}: {id} completed with required biological actions, actual evidence, retry, provenance and explanation')
+ act('home')
 
 with sync_playwright() as pw:
  b=pw.chromium.launch(executable_path=os.environ.get('AQUARIUM_CHROMIUM','/usr/bin/chromium'),args=['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'])

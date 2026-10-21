@@ -29,7 +29,8 @@ def dialog_keyboard(p):
     close.focus(); p.keyboard.press('Shift+Tab'); expect(save).to_be_focused()
     p.keyboard.press('Tab'); expect(close).to_be_focused()
     assert p.evaluate('document.documentElement.classList.contains("device-adjusting") && document.querySelector("#learning-root").inert')
-    for summary in editor.locator('.device-numeric:not([open]) > summary').all():summary.click()
+    while editor.locator('.device-numeric:not([open]) > summary').count():
+        editor.locator('.device-numeric:not([open]) > summary').first.click()
 
 def action(p, name):
     p.locator(f'[data-learn="{name}"]').filter(visible=True).first.click()

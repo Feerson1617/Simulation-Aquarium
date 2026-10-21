@@ -146,6 +146,7 @@ export function mountLearningUI(host) {
       showGenes,
       unlockedMetrics: teacher.unlockMetrics,
       support: teacher.support,
+      help: teacher.help,
       comparisonHistory: session?.comparisonHistory || [],
     }),
     healthText: () => fishStatusText(host.getState(), host.types),
@@ -165,9 +166,9 @@ export function mountLearningUI(host) {
   });
   function studentMetricKeys() {
     if (tag.grade === 9) return ["dark", "light", "A"];
-    const primary = QUESTS[tag.mission]?.experiment.metric;
+    const rawPrimary = QUESTS[tag.mission]?.experiment.metric,primary=rawPrimary === "fishOutcome" ? "fishAlive" : rawPrimary;
     return primary
-      ? [...new Set([primary, ...(["8-health","10-restore"].includes(tag.mission) ? ["fishAlive","health"] : []), ...teacher.unlockMetrics])]
+      ? [...new Set([primary, ...({"8-oxygen":["temp"],"8-health":["fishAlive","health"],"10-enrichment":["oxygen"],"10-carbon":["plantBiomass"],"10-restore":["fishAlive","health"],"10-northsea":["oxygen"]}[tag.mission] || []), ...teacher.unlockMetrics])]
       : [
           ...new Set([
             "oxygen",
@@ -216,9 +217,8 @@ export function mountLearningUI(host) {
         result: comparisonReading(c, d.experiment),
         tool: c.tool,
         compatible:
-          c.tool === d.experiment.tool ||
-          (["8-health", "10-restore"].includes(d.id) &&
-            mission().tools.includes(c.tool)),
+          (c.tool === d.experiment.tool || (["8-health", "10-restore"].includes(d.id) && mission().tools.includes(c.tool))) &&
+          (d.id !== "8-ecosystem" || (c.value > session.baseline.params.temp && c.value <= Math.min(...session.baseline.entities.filter(e=>!e.dead && host.types[e.species]?.temp).map(e=>host.types[e.species].temp[1])))),
         value: c.value,
       };
     } else if (kind === "population")
@@ -256,7 +256,7 @@ export function mountLearningUI(host) {
                 ? "Wähle eine helle oder dunkle Umgebung."
                 : "Vergleiche zwei neutrale Wiederholungen und danach eine Umgebung mit Farbvorteil."
               : evidence.compatible === false
-                ? "Nutze für diese Aufgabe " +
+                ? d.id === "8-ecosystem" ? "Der Heizstab soll das Wasser erwärmen. Wähle mehr als 25 und höchstens 27 °C." : "Nutze für diese Aufgabe " +
                   STUDENT_TOOLS[d.experiment.tool][0] +
                   "."
                 : "Hier ist noch alles gleich. Ändere einen Wert.";
@@ -729,7 +729,7 @@ export function mountLearningUI(host) {
   }
   function results(comp) {
     const population = comp.kind === "population",
-      defs = population ? POPULATION_METRICS : LEARNING_METRICS,
+      defs = comparisonMetricDefinitions(comp),
       keys = population
         ? ["A", "a", "dark", "light", "AA", "Aa", "aa", "n"]
         : metrics(),
@@ -959,8 +959,7 @@ export function mountLearningUI(host) {
     );
   }
   function teacherData(comp) {
-    const defs =
-        comp.kind === "population" ? POPULATION_METRICS : LEARNING_METRICS,
+    const defs = comparisonMetricDefinitions(comp),
       keys = Object.keys(defs),
       key = keys.includes(importedMetric) ? importedMetric : keys[0];
     return `<section class="learn-teacher-comparison"><h3>Datenbezug prüfen</h3>${runMetadata(comp)}<label>Untersuchte Messgröße<select data-learning-imported-metric>${options(
@@ -1414,6 +1413,7 @@ export function mountLearningUI(host) {
       }
       const a = d.learn;
       if (!a) return;
+      if (a === "quest-hint") {session.quest.showHint=!session.quest.showHint;persist();render();return;}
       if (a.startsWith("device-")) {openDevice(a.slice(7));return;}
       if (
         [

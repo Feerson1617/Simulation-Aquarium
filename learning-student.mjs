@@ -1,10 +1,11 @@
-import {pendingActivity,REGIONAL_CASES} from "./learning-activities.mjs";
+import {pendingActivity,REGIONAL_CASES,choiceOrder,questHint} from "./learning-activities.mjs";
 import {populationExplanation} from "./biology-quality.mjs";
 /** The regular learner surface. Technical evidence views remain in learning-ui. */
 import {
   QUESTS,
   STEP_NAMES,
   predictionChoices,
+  predictionPrompt,
   resultQuestion,
   questConclusion,
 } from "./learning-quests.mjs";
@@ -88,7 +89,7 @@ export function createStudentViews(api) {
           step === 0
             ? d.observe
             : step === 1
-              ? { prompt: d.prediction, choices: predictionChoices(d) }
+              ? { prompt: predictionPrompt(d), choices: predictionChoices(d) }
               : step === 3
                 ? resultQuestion(d, s.result)
                 : step === 4
@@ -110,13 +111,15 @@ export function createStudentViews(api) {
       }
       if (activity) body += activityControl(activity);
       if (q && !activity)
-        body += `<div class="learn-quest-answers">${q.choices.map((c, i) => `<button data-quest-answer="${i}">${esc(c)}</button>`).join("")}</div>`;
+        body += `<div class="learn-quest-answers">${choiceOrder(s,"phase-"+s.step,q.choices.length).map(i => `<button data-quest-answer="${i}">${esc(q.choices[i])}</button>`).join("")}</div>`;
     }
+    if (!done && state().help !== false) body += state().support === "guided" || s.showHint ? `<p class="learn-step-hint">${esc(questHint(d,s,state().support))}</p>` : button("quest-hint","Tipp");
+    if (s.predictionCheck && s.step >= 4) body += `<details class="learn-prediction-check"><summary>Deine Vermutung prüfen</summary><p>Ausgewählt: ${esc(s.predictionCheck.selection)}</p><p>Beobachtet: ${esc(s.predictionCheck.observed)}</p><p>${s.predictionCheck.matches ? "Das passt zu deiner Vermutung." : "Die Beobachtung passt hier nicht zu deiner Vermutung. Das ist ein Anlass zum Weiterfragen."}</p></details>`;
     return `<aside class="learn-quest ${inline ? "learn-quest-inline" : ""}" aria-label="Questbuch"><header><strong>${esc(d.title)}</strong>${inline ? "" : button("quest-toggle", "−", 'aria-label="Questbuch einklappen" aria-expanded="true"')}</header><progress value="${s.step}" max="5" aria-label="Erledigte Aufgaben">${s.step} von 5</progress>${body}<p class="learn-quest-feedback" role="status" aria-live="polite">${esc(done ? "" : s.feedback)}</p></aside>`;
   }
   function activityControl(a) {
     if (a.kind === "view") return `<section class="learn-activity"><button data-activity-view="${a.action}">${esc(a.prompt)}</button></section>`;
-    return `<section class="learn-activity"><p class="learn-card-from">${esc(a.from)} →</p><div class="learn-quest-answers">${a.targets.map((target,i)=>`<button data-activity-id="${a.id}" data-activity-choice="${i}">${esc(target)}</button>`).join("")}</div></section>`;
+    return `<section class="learn-activity"><p class="learn-card-from">${esc(a.from)} →</p><div class="learn-quest-answers">${choiceOrder(state().session.quest,a.id,a.targets.length).map(i=>`<button data-activity-id="${a.id}" data-activity-choice="${i}">${esc(a.targets[i])}</button>`).join("")}</div></section>`;
   }
   function experimentTask(d) {
     const e = d.experiment;
@@ -136,6 +139,7 @@ export function createStudentViews(api) {
       return "<p>Dunkle Fische können AA oder Aa haben.</p>";
     if (r.kind === "cross")
       return `${r.mendel?.f1 ? `<p>F1: ${r.mendel.f1.counts.n} Aa-Nachkommen.</p><p>F2: Aa × Aa, Erwartung 3:1; dein Wurf:</p>` : ""}<p>${r.n} Nachkommen: ${Math.round(r.dark * r.n)} dunkel, ${Math.round(r.light * r.n)} hell.</p>`;
+    if (r.fish) return `<div class="learn-two learn-reading">${["control","test"].map((side,i)=>`<div><small>Becken ${i+1}</small><strong>${r.fish[side].fishAlive} leben</strong><span>${r.fish[side].fishDead} gestorben</span><span>${r.fish[side].health == null ? "Keine lebenden Fische" : `Zustand der lebenden Fische: ${num(r.fish[side].health,0)} Punkte`}</span></div>`).join("")}</div>`;
     const fraction = r.unit === "Anteil",
       value = (v) =>
         fraction ? num(v * 100, 1) + " %" : num(v, 3) + " " + esc(r.unit || "");

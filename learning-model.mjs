@@ -1,5 +1,5 @@
 import {validateProvenance} from "./learning-provenance.mjs";
-import {fishStatus} from "./biology-quality.mjs";
+import {fishStatus,ammoniaConcentration} from "./biology-quality.mjs";
 import { validateQuest } from "./learning-quests.mjs";
 import {
   GRADE_PROFILES,
@@ -189,10 +189,7 @@ export function learningMetrics(tag, teacher = {}) {
 }
 /** The indicator is an OR over explicit warning pathways, never an averaged chemical score. */
 export function waterIndicators(state) {
-  const p = state.params,
-    ammoniaFraction =
-      1 / (1 + 10 ** (0.09018 + 2729.92 / (p.temp + 273.15) - p.ph)),
-    nh3 = (p.nh4 * ammoniaFraction * 17) / 18;
+  const p = state.params, nh3=ammoniaConcentration(p);
   const paths = [
     {
       key: "organic",

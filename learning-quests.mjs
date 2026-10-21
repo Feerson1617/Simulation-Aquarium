@@ -54,14 +54,14 @@ export const QUESTS = Object.fromEntries(
       "8-ecosystem",
       "Ein Aquarium ist ein Ökosystem",
       "Zum Lebensraum gehören Lebewesen und Umweltbedingungen.",
-      ecology("temperature", 20, "temp", "Temperatur", "°C"),
+      ecology("temperature", 27, "temp", "Temperatur", "°C"),
       pick(
         "Was ist kein Lebewesen?",
         ["Das Wasser", "Ein Fisch", "Eine Pflanze"],
         0,
         "Ja. Wasser gehört trotzdem zum Lebensraum.",
       ),
-      "Was passiert mit der Temperatur bei einem kühleren Heizer?",
+      "In welchem Becken ist das Wasser nach gleicher Spielzeit wärmer?",
       pick(
         "Was gehört zum Lebensraum?",
         [
@@ -376,11 +376,12 @@ export function questConclusion(d, result) {
     0, populationExplanation("neutral"));
   return {...d.conclusion, feedback: populationExplanation(environment) + (d.id === "9-darwin" ? " Im Farbversuch werden vorhandene Varianten weitergegeben. Fossilien liefern zusätzliche Funde aus der Natur." : " Dominant heißt nicht: im Vorteil.")};
 }
-export function newQuest(id) {
+export function newQuest(id,choiceSeed = globalThis.crypto?.getRandomValues(new Uint32Array(1))[0] ?? Date.now()>>>0) {
   if (!QUESTS[id]) return null;
   return {
     version: 2,
     activities: [],
+    choiceSeed: choiceSeed>>>0,
     id,
     step: 0,
     observed: false,
@@ -410,15 +411,21 @@ export function comparisonReading(comp, experiment) {
   return {
     kind: comp.kind,
     key: experiment.metric,
+    sampleSize: comp.kind === "population" ? Math.min(row.control.n,row.test.n) : null,
     label: experiment.label,
     unit: experiment.unit,
     time: row.time,
     control: row.control[experiment.metric],
     test: row.test[experiment.metric],
-    fish: experiment.metric === "fishOutcome" ? {control:{fishAlive:row.control.fishAlive,fishDead:row.control.fishDead},test:{fishAlive:row.test.fishAlive,fishDead:row.test.fishDead}} : null,
+    fish: experiment.metric === "fishOutcome" ? {control:{fishAlive:row.control.fishAlive,fishDead:row.control.fishDead,health:row.control.health},test:{fishAlive:row.test.fishAlive,fishDead:row.test.fishDead,health:row.test.health}} : null,
     statuses: structuredClone(run.status || {}),
     configuration: structuredClone(comp.configuration || null),
   };
+}
+export function resultTolerance(metric,result={}) {
+  if (["dark","light"].includes(metric)) return .5/(result.sampleSize || 100);
+  if (["A","a"].includes(metric)) return .25/(result.sampleSize || 100);
+  return ({temp:.1,oxygen:.05,co2:.1,algae:.005,organic:.01,plantBiomass:.01,fishOutcome:1,health:1,loadLevel:0,fishAlive:0})[metric] ?? .001;
 }
 export function resultQuestion(q, result) {
   if (q.experiment.kind === "case") return {prompt:"Welche Folge gehört zu deiner Schutzmaßnahme?",choices:["Weniger Müll, aber auch Aufwand für Rückgabe oder Sammlung","Alle Meeresprobleme sind damit gelöst","Das Aquarium misst nun Plastikschäden"],correct:0};
@@ -434,6 +441,11 @@ export function resultQuestion(q, result) {
       choices: ["Nur dunkel", "Nur hell", "Dunkel und hell"],
       correct: result?.dark === 1 ? 0 : result?.light === 1 ? 1 : 2,
     };
+  if (q.experiment.metric === "fishOutcome" && result?.fish) {
+    const a=result.fish.control,b=result.fish.test,difference=a.fishAlive-b.fishAlive;
+    const healthDifference=(a.health ?? 0)-(b.health ?? 0);
+    return {prompt:"Wo leben mehr Fische – oder bei gleicher Zahl gesündere?",choices:["In Becken 1","In Becken 2","Etwa gleich"],correct:difference ? difference>0?0:1 : Math.abs(healthDifference)<=1 ? 2 : healthDifference>0?0:1};
+  }
   return {
     prompt:
       q.experiment.kind === "population"
@@ -455,7 +467,7 @@ export function resultQuestion(q, result) {
         : ["In Becken 1", "In Becken 2", "Etwa gleich"],
     correct: !result
       ? -1
-      : Math.round(result.control * 1000) === Math.round(result.test * 1000)
+      : Math.abs(result.control-result.test) <= resultTolerance(q.experiment.metric,result)
         ? 2
         : result.control > result.test
           ? 0
@@ -513,7 +525,7 @@ export function answerQuest(state, index) {
     step === 0
       ? d.observe
       : step === 1
-        ? { prompt: d.prediction, choices: predictionChoices(d) }
+        ? { prompt: predictionPrompt(d), choices: predictionChoices(d) }
         : step === 3
           ? resultQuestion(d, state.result)
           : step === 4
@@ -531,24 +543,42 @@ export function answerQuest(state, index) {
     return false;
   }
   if (step !== 1 && index !== question.correct) {
-    state.feedback =
-      step === 3
-        ? "Schau noch einmal auf die Ergebnisse. Versuche es erneut."
-        : "Schau noch einmal hin. Versuche es erneut.";
+    state.feedback = step === 3
+      ? d.experiment.kind === "cross" ? "Zähle die Farben im tatsächlich entstandenen Wurf. Ein theoretisches Verhältnis ist keine feste Anzahl."
+        : d.experiment.kind === "traits" ? "Vergleiche AA und Aa: Beide können dunkel aussehen."
+        : d.experiment.kind === "case" ? "Prüfe Tiernutzen und den Aufwand für die Menschen am Hafen."
+        : "Vergleiche die gezeigten Werte zur selben Zeit; kleine Unterschiede können etwa gleich sein."
+      : (step === 0 ? d.observe.feedback : questConclusion(d,state.result).feedback).split(". ")[0] + ". Probiere deine Zuordnung erneut.";
     return false;
   }
   state.entries.push({
     step,
     question: question.prompt,
     answer: question.choices[index],
+    choiceIndex:index,
+    origin:"selection",
     at: new Date().toISOString(),
   });
   state.step++;
+  if (step === 3 && d.experiment.kind !== "case") {
+    const prediction=state.entries.find(e=>e.step===1);
+    let observed=d.experiment.kind === "traits" ? 1 : question.correct;
+    if (d.experiment.kind === "population" && state.result.populationPair?.neutral?.final) {
+      const values=state.result.populationPair.neutral.final.map(r=>r.test.dark);
+      observed=Math.max(...values)-Math.min(...values) > .5/(state.result.sampleSize || 24) ? 1 : 0;
+    }
+    state.predictionCheck={selection:prediction?.answer || "Nicht dokumentiert",observed:predictionChoices(d)[observed] || question.choices[question.correct],matches:prediction?.choiceIndex===observed};
+  }
   state.feedback =
     step === 1
       ? "Deine Vermutung ist gespeichert. Probiere es aus."
       : question.feedback || "Ja. Das passt zu deinen Ergebnissen.";
   return true;
+}
+export function predictionPrompt(d) {
+  if (d.experiment.kind === "population") return "Was erwartest du bei den neutralen Wiederholungen?";
+  if (d.experiment.kind === "ecology") return `Nach gleich langer Spielzeit: Wo ist ${d.experiment.label.toLowerCase()} höher?`;
+  return d.prediction;
 }
 export function predictionChoices(d) {
   if (d.experiment.kind === "case") return ["Mehrweg mit Rückgabe","Sammlung von Netzen und Leinen","Ich möchte zuerst die Folgen prüfen"];
@@ -557,54 +587,8 @@ export function predictionChoices(d) {
   if (d.experiment.kind === "cross")
     return ["Nur dunkel", "Nur hell", "Dunkel und hell"];
   if (d.experiment.kind === "population")
-    return [
-      "Der Anteil steigt.",
-      "Der Anteil sinkt.",
-      "Der Anteil bleibt gleich.",
-    ];
-  const labels = {
-    temp: [
-      "Das Wasser wird wärmer.",
-      "Das Wasser wird kühler.",
-      "Die Temperatur bleibt gleich.",
-    ],
-    oxygen: [
-      "Es gibt mehr Sauerstoff.",
-      "Es gibt weniger Sauerstoff.",
-      "Es bleibt gleich viel Sauerstoff.",
-    ],
-    fishOutcome: ["Becken 2 hilft den Fischen mehr.","Becken 1 hilft den Fischen mehr.","Beide Becken helfen gleich."],
-    health: [
-      "Den Fischen geht es besser.",
-      "Den Fischen geht es schlechter.",
-      "Den Fischen geht es gleich.",
-    ],
-    organic: [
-      "Es bleiben mehr Reste.",
-      "Es bleiben weniger Reste.",
-      "Es bleibt gleich viel übrig.",
-    ],
-    plantBiomass: [
-      "Die Pflanzen wachsen stärker.",
-      "Die Pflanzen wachsen schwächer.",
-      "Die Pflanzen wachsen gleich stark.",
-    ],
-    algae: [
-      "Es gibt mehr Algen.",
-      "Es gibt weniger Algen.",
-      "Die Algenmenge bleibt gleich.",
-    ],
-    co2: [
-      "Es gibt mehr Kohlenstoffdioxid.",
-      "Es gibt weniger Kohlenstoffdioxid.",
-      "Die Menge bleibt gleich.",
-    ],
-    loadLevel: [
-      "Die Probleme nehmen zu.",
-      "Die Probleme nehmen ab.",
-      "Die Probleme bleiben gleich.",
-    ],
-  };
+    return ["Die neutralen Wiederholungen enden gleich","Die Endanteile der neutralen Wiederholungen unterscheiden sich","Ich bin noch unsicher"];
+  const labels=Object.fromEntries(["temp","oxygen","health","fishOutcome","organic","plantBiomass","algae","co2","loadLevel"].map(k=>[k,["In Becken 1 mehr/höher","In Becken 2 mehr/höher","In beiden etwa gleich"]]));
   return labels[d.experiment.metric];
 }
 /** Bounded, read-only quest records; no imported record can advance the simulation. */

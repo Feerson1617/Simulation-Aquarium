@@ -75,13 +75,13 @@ test("Mission 1 only completes after a changed, computed temperature experiment 
   assert.equal(answerQuest(q,0),false);questEvent(q,"observe");assignActivity(q,"living",0);assignActivity(q,"water",1);answerQuest(q,0);answerQuest(q,1);
   assert.equal(q.step,2);assert.equal(answerQuest(q,0),false);
   const host={types:{},normalize:structuredClone,advance:(s,dt)=>{advanceWaterTemperature(s,dt);s.day+=dt;}};
-  const before=tank(),study={tool:"temperature",value:24.5,days:3,repetitions:1},profile={version:1,grade:8,mode:"missions",mission:q.id},notes={};
+  const before=tank(),study={tool:"temperature",value:27,days:3,repetitions:1},profile={version:1,grade:8,mode:"missions",mission:q.id},notes={};
   const plan=()=>snapshotLearningPlan({kind:"ecology",baseline:before,study,profile,notes,metrics:["temp"]});
   const c=runLearningComparison(before,{...study,configuration:plan()},host),r=comparisonReading(c,d.experiment);
-  assert.ok(r.control>r.test);assert.equal(questEvent(q,"ecology",{changed:false,result:r}),false);
+  assert.ok(r.control<r.test);assert.equal(questEvent(q,"ecology",{changed:false,result:r}),false);
   assert.equal(questEvent(q,"ecology",{changed:true,compatible:true,result:r}),true);
-  study.value=26;assert.equal(planMatchesComparison(c,plan()),false);study.value=24.5;assert.equal(planMatchesComparison(c,plan()),true);
-  assert.equal(answerQuest(q,1),false);assert.equal(q.step,3);
+  study.value=28;assert.equal(planMatchesComparison(c,plan()),false);study.value=27;assert.equal(planMatchesComparison(c,plan()),true);
+  assert.equal(answerQuest(q,0),false);assert.equal(q.step,3);
   assert.equal(answerQuest(q,resultQuestion(d,r).correct),true);assert.equal(answerQuest(q,1),false);assert.equal(answerQuest(q,0),true);assert.equal(q.step,5);
   assert.equal(q.entries.length,5);
   assert.equal(validateLearningProduct({type:"aquarium-learning-product",version:2,profile,notes,quest:q,comparison:c,measurements:[]}).quest.step,5);

@@ -81,6 +81,23 @@ export function mendelEvidence(p) {
 export function populationPairEvidence(history,current) {
   const all=[...(history||[]),current].filter(c=>c?.kind==="population" && c.generations>=2 && c.repetitions>=2);
   const directed=all.findLast(c=>c.environment!=="neutral"),neutral=directed && all.findLast(c=>c.environment==="neutral" && c.configuration?.baseline.fingerprint===directed.configuration?.baseline.fingerprint);
-  return {complete:!!(neutral&&directed),neutral:neutral?{environment:neutral.environment,seeds:neutral.runs.map(r=>r.seed),baseline:neutral.configuration.baseline}:null,
+  return {complete:!!(neutral&&directed),neutral:neutral?{environment:neutral.environment,final:neutral.runs.map(r=>({control:r.control.at(-1),test:r.test.at(-1)})),seeds:neutral.runs.map(r=>r.seed),baseline:neutral.configuration.baseline}:null,
     directed:directed?{environment:directed.environment,seeds:directed.runs.map(r=>r.seed),baseline:directed.configuration.baseline}:null};
+}
+/** Same saved seed + task => same positions after reload; logical answers stay independent of position. */
+export function choiceOrder(state,key,length) {
+  let n=(state.choiceSeed || 0)>>>0;
+  for (const c of key) n=Math.imul(n^c.charCodeAt(0),16777619)>>>0;
+  const order=Array.from({length},(_,i)=>i);
+  for (let i=length-1;i>0;i--) {n=(Math.imul(n,1664525)+1013904223)>>>0;const j=n%(i+1);[order[i],order[j]]=[order[j],order[i]];}
+  return order;
+}
+export function questHint(d,state,support) {
+  const activity=pendingActivity(state);
+  if (support === "independent") return "Welche Beobachtung oder welcher Vergleich hilft dir bei dieser Entscheidung?";
+  if (activity) return support === "guided" ? activity.hint || activity.prompt : "Prüfe die Karten oder die passenden Werte. Du kannst es erneut versuchen.";
+  const hints=["Öffne die Beobachtung. Schau auf Lebewesen und ihre Umgebung.","Wähle deine Vermutung vor dem Versuch. Es ist noch kein Ergebnis.",
+    d.experiment.kind === "cross" ? "Kreuze AA mit aa. Wähle dann zwei Aa-Nachkommen als Eltern für die F2." : d.experiment.kind === "population" ? "Starte zuerst neutral mit zwei Wiederholungen. Wähle danach einen Farbvorteil und starte erneut." : d.experiment.kind === "case" ? "Wähle eine Maßnahme. Prüfe Nutzen und Aufwand." : "Öffne den Versuch. Ändere eine Bedingung und starte beide Becken.",
+    "Vergleiche dieselbe Größe zur selben Zeit. Beachte auch beendete Verläufe.","Verbinde die Beobachtung mit einer biologischen Erklärung."];
+  return support === "guided" ? hints[state.step] : ["Schau genau hin.","Was erwartest du?","Welche eine Bedingung möchtest du ändern?","Was zeigen beide Seiten?","Welche Erklärung passt dazu?"][state.step];
 }

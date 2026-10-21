@@ -1,13 +1,14 @@
-import {ACTIVITIES,pendingActivity,assignActivity,mendelEvidence,populationPairEvidence,recordActivityView} from '../learning-activities.mjs';
+import {advanceNitrifiers,oxidizeNitrogen} from '../bioprocesses.mjs';
+import {ACTIVITIES,pendingActivity,assignActivity,mendelEvidence,populationPairEvidence,recordActivityView,choiceOrder,questHint} from '../learning-activities.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {fishStatus,fishStatusText,habitatProblems,populationExplanation,replacementWater} from '../biology-quality.mjs';
-import {learningSample,createLearningTank,validateLearningProduct} from '../learning-model.mjs';
+import {fishStatus,fishStatusText,habitatProblems,populationExplanation,replacementWater,ammoniaRisk,ammoniaConcentration} from '../biology-quality.mjs';
+import {learningSample,createLearningTank,validateLearningProduct,waterIndicators} from '../learning-model.mjs';
 import {learningProvenance,validateProvenance} from '../learning-provenance.mjs';
 import {createLearningPopulation,compareLearningPopulations,crossLearningPopulation,reproductiveWeight} from '../learning-population.mjs';
 import {MISSIONS} from '../learning-content.mjs';
-import {QUESTS,questConclusion,newQuest,questEvent,answerQuest} from '../learning-quests.mjs';
+import {QUESTS,questConclusion,newQuest,questEvent,answerQuest,resultQuestion,resultTolerance} from '../learning-quests.mjs';
 const types=JSON.parse(fs.readFileSync(new URL('./fixtures/ecology-species.json',import.meta.url)));
 const host={create:()=>({params:{},entities:[],nextId:1,deaths:[]}),add:(s,id)=>{const e={uid:s.nextId++,species:id,health:100,age:30,biomass:.7,dead:false};s.entities.push(e);return e;}};
 test('A01: neutral repetitions have equal phenotype weights and drift is never explained as selection',()=>{
@@ -85,4 +86,32 @@ test('A05: Wattenmeer uses an actionable regional case with two consequences, ne
 test('A05: a changed ecological run invalidates the earlier secondary observation',()=>{
  const q=newQuest('10-enrichment');q.step=3;q.activities=[{id:'oxygen-too',kind:'view',evidence:{configuration:{tool:'nutrients',value:40},time:48}}];
  assert.equal(questEvent(q,'ecology',{changed:true,result:{kind:'ecology',control:1,test:2}}),true);assert.equal(pendingActivity(q).id,'oxygen-too');
+});
+
+test('A06/A07: the species-compatible heater objective warms 25°C water; comparison tolerance is metric-specific',()=>{
+ assert.equal(QUESTS['8-ecosystem'].experiment.value,27);
+ const oxygen=QUESTS['8-oxygen'];assert.equal(resultQuestion(oxygen,{control:8,test:8.049}).correct,2);assert.equal(resultQuestion(oxygen,{control:8,test:8.06}).correct,1);
+ assert.equal(resultQuestion(QUESTS['8-ecosystem'],{control:25,test:25.09}).correct,2);assert.equal(resultQuestion(QUESTS['8-ecosystem'],{control:25,test:25.11}).correct,1);
+ assert.equal(resultQuestion(QUESTS['9-population'],{control:12/24,test:13/24,sampleSize:24}).correct,1);assert.equal(resultTolerance('fishAlive'),0);
+});
+test('A09: saved answer order survives reload and correct answers do not occupy a constant position',()=>{
+ const positions=new Set();for(let seed=0;seed<30;seed++){const q=newQuest('8-oxygen',seed),before=choiceOrder(q,'phase-0',3);assert.deepEqual(choiceOrder(JSON.parse(JSON.stringify(q)),'phase-0',3),before);assert.deepEqual([...before].sort(),[0,1,2]);positions.add(before.indexOf(0));}
+ assert.equal(positions.size,3);const q=newQuest('8-oxygen',1);assert.notEqual(questHint(QUESTS[q.id],q,'guided'),questHint(QUESTS[q.id],q,'independent'));assert.match(questHint(QUESTS[q.id],q,'guided'),/Öffne/);
+});
+test('A10: nitrifiers cannot grow on time or oxygen alone, and growth follows actual substrate oxidation',()=>{
+ const bare={bacteria:.2,bacteria2:.2,params:{oxygen:8,nh4:0,no2:0,no3:0}};
+ for(let i=0;i<56;i++)advanceNitrifiers(bare,.25,oxidizeNitrogen(bare.params,{ammoniaCapacity:.1,nitriteCapacity:.1}));assert.ok(bare.bacteria<.2&&bare.bacteria2<.2);assert.equal(bare.params.no3,0);
+ const fed={bacteria:.2,bacteria2:.2,params:{oxygen:8,nh4:1,no2:.5,no3:0}},flux=oxidizeNitrogen(fed.params,{ammoniaCapacity:.2,nitriteCapacity:.3});advanceNitrifiers(fed,.25,flux);assert.ok(fed.bacteria>.2&&fed.bacteria2>.2);
+ const anoxic={bacteria:.2,bacteria2:.2,params:{oxygen:0,nh4:1,no2:1,no3:0}};advanceNitrifiers(anoxic,.25,oxidizeNitrogen(anoxic.params,{ammoniaCapacity:1,nitriteCapacity:1}));assert.ok(anoxic.bacteria<.2&&anoxic.bacteria2<.2);
+});
+test('A10: warning and health penalty use the same free ammonia and respond consistently to pH and temperature',()=>{
+ const low={temp:25,ph:6.5,nh4:1},high={temp:25,ph:9,nh4:.2};assert.equal(ammoniaRisk(low).level,0);assert.equal(ammoniaRisk(low).penalty,0);assert.ok(ammoniaRisk(high).level>0);assert.ok(ammoniaRisk(high).penalty>0);
+ assert.ok(ammoniaConcentration({...high,temp:30})>ammoniaConcentration(high));
+ const s={params:{...high,no2:0,no3:12,po4:.4,fe:.08,oxygen:8},detritus:0};assert.equal(waterIndicators(s).paths.find(p=>p.key==='ammonia').level,ammoniaRisk(s.params).level);assert.equal(waterIndicators(s).nh3,ammoniaRisk(s.params).nh3);
+});
+
+test('A03: rescue comparison cannot prefer a healthy survivor average over more surviving fish',()=>{
+ const d=QUESTS['10-restore'];assert.equal(resultQuestion(d,{fish:{control:{fishAlive:2,health:100},test:{fishAlive:3,health:60}}}).correct,1);
+ assert.equal(resultQuestion(d,{fish:{control:{fishAlive:0,health:null},test:{fishAlive:0,health:null}}}).correct,2);
+ assert.equal(resultQuestion(d,{fish:{control:{fishAlive:3,health:20},test:{fishAlive:3,health:60}}}).correct,1);
 });

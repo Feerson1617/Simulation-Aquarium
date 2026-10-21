@@ -1,5 +1,11 @@
 import { normalizeEcology, feedingProfile } from './ecology.mjs';
 const bioClamp=(v,min=0,max=1)=>Math.max(min,Math.min(max,v));
+/** Growth needs actual energy-yielding oxidation, never elapsed time alone. Flux already includes dt. */
+export function advanceNitrifiers(state,dt,flux){
+ const decay=state.params.oxygen<2?.09:.003;
+ state.bacteria=bioClamp(state.bacteria+.3*Math.max(0,flux.ammoniaOxidation)*(1-state.bacteria)-decay*state.bacteria*dt);
+ state.bacteria2=bioClamp(state.bacteria2+.2*Math.max(0,flux.nitriteOxidation)*(1-state.bacteria2)-decay*state.bacteria2*dt);
+}
 /** Compound mg/L; the organic pools and their conversion are game calibration. */
 export function decomposeOrganic(state,dt){const e=state.ecology=normalizeEcology(state.ecology,state),p=state.params,oxygen=bioClamp(p.oxygen/4),temperature=bioClamp(2**((p.temp-25)/10),.25,2);
  const potential=state.detritus*(1-Math.exp(-(.06+.26*e.heterotrophs)*temperature*oxygen*dt)),amount=Math.max(0,Math.min(potential,p.oxygen*state.liters/18));state.detritus=Math.max(0,state.detritus-amount);

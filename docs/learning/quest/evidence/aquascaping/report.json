@@ -1,0 +1,62 @@
+{
+  "checks": [
+    {
+      "name": "Legacy v1 save imports biological state intact with archived legacy display overrides; new tool available only after tank placement",
+      "status": "passed"
+    },
+    {
+      "name": "Mouse drag: real 3D grasp/lift/release, stationary camera, substrate anchoring and saved coordinates",
+      "status": "passed"
+    },
+    {
+      "name": "Moved coordinates survive page reload in the existing save format",
+      "status": "passed"
+    },
+    {
+      "name": "Escape cancels the gesture without changing committed positions",
+      "status": "passed"
+    },
+    {
+      "name": "Visible collision feedback prevents overlap with existing hardscape",
+      "status": "passed"
+    },
+    {
+      "name": "Pointer capture outside the canvas keeps the full object inside tank walls",
+      "status": "passed"
+    },
+    {
+      "name": "Five freshwater-compatible decorations each purchased, placed freely and rendered at physical size",
+      "status": "passed"
+    },
+    {
+      "name": "Sixth decoration renders in salt water; shop respects freshwater/marine distinctions",
+      "status": "passed"
+    },
+    {
+      "name": "Real touch drag moves a plant, locks the camera and saves the result",
+      "status": "passed"
+    },
+    {
+      "name": "Touch cancellation restores the original position and retains the saved game",
+      "status": "passed"
+    },
+    {
+      "name": "Portrait UI fits; selected plants can also be moved and saved with arrow keys",
+      "status": "passed"
+    },
+    {
+      "name": "No JavaScript, shader, missing module/stylesheet or external runtime request errors",
+      "status": "passed"
+    }
+  ],
+  "page_errors": [],
+  "console_errors": [
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "url": "http://127.0.0.1:46139/favicon.ico"
+    }
+  ],
+  "external_requests": [],
+  "resource_errors": [],
+  "status": "passed"
+}

@@ -16,7 +16,7 @@ Die letzte Spalte bezeichnet den konkreten Prüfweg, keine Aussage über empiris
 | §13 Biologie | Gemeinsamer Kern und Genetik erhalten; fachliche Tiefe in Lehrkraftansichten | Fach-/Genetik-Modultests, echte Kernproben, Reviewfälle und Fachbericht |
 | §14 Qualitätssicherung | DOM, reale Aktionen, Downloads und visuelle Kontrolle getrennt geprüft | Prüfbericht mit Rohlogs, Bildern, Daten und klaren Hardwaregrenzen |
 | §15 Phasen und Sicherung | P1–P5 in WORK_STATE; Zwischenstände auf bestehendem Branch | Git-Historie; Entwicklungsdurchgänge nicht zu Endzahlen addiert |
-| §16 Bestand und Übergabe | Assets, Tutorial, Expertenmodus, Pages und Hauptspeicher beibehalten | Bereitschaft/Tutorial, Platzierung, alte Dateien, HTML-Download; geschützte Bestandsdateien unverändert |
+| §16 Bestand und Übergabe | Assets, Tutorial, Expertenmodus, Pages und Hauptspeicher beibehalten | Bereitschaft/Tutorial, Platzierung, alte Dateien, HTML-Download; AGENTS.md, Assets und Pages-Workflows unverändert; eine gezielte Lernansicht-Kameraanpassung in index.html |
 
 Fachliche Voraussetzungen sind gezielt begrenzt: Die Beobachtungsstufe prüft eine tatsächliche Oberfläche und eine Antwort. Sie kann keinen menschlichen Blick nachweisen. Gültige andere Werte, Elternpaare und passende Eingriffe werden akzeptiert; ein unveränderter Eingriff zählt nicht. Ein abgeschlossenes Questbuch ist keine automatische Benotung.
 

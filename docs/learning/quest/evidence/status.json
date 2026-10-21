@@ -1,0 +1,43 @@
+{
+  "state": "passed",
+  "source_commit": "b3b7814b862d4fee0445e236610700a594a141b4",
+  "started": 1792575049.9666178,
+  "steps": [
+    {
+      "name": "review",
+      "started": 1792575049.9668043,
+      "state": "passed",
+      "exit_code": 0,
+      "finished": 1792575537.7025907
+    },
+    {
+      "name": "focused",
+      "started": 1792575537.703499,
+      "state": "passed",
+      "exit_code": 0,
+      "finished": 1792575685.452288
+    },
+    {
+      "name": "readiness",
+      "started": 1792575685.4536254,
+      "state": "passed",
+      "exit_code": 0,
+      "finished": 1792575976.5010135
+    },
+    {
+      "name": "aquascaping",
+      "started": 1792575976.5022948,
+      "state": "passed",
+      "exit_code": 0,
+      "finished": 1792576306.25801
+    },
+    {
+      "name": "standalone",
+      "started": 1792576306.2615244,
+      "state": "passed",
+      "exit_code": 0,
+      "finished": 1792576429.3671515
+    }
+  ],
+  "finished": 1792576429.3678114
+}

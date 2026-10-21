@@ -1,0 +1,25 @@
+{
+  "latest_runtime_commit": "b3b7814b862d4fee0445e236610700a594a141b4",
+  "learner_controls_and_touch_commit": "486f0a81369b9da7055c56c196b948cf70564562",
+  "full_quest_group_commit": "303c869adcf4d799dd2adaea79bceacccbf9ebb4",
+  "counts": {
+    "unit": 107,
+    "controls": 6,
+    "touch": 3,
+    "review": 11,
+    "focused": 6,
+    "readiness": 13,
+    "aquascaping": 12,
+    "quest_before_framing": 26
+  },
+  "module_tests": 107,
+  "unique_browser_checkpoints": 74,
+  "earlier_touch_reruns_not_added": 3,
+  "standalone": {
+    "bytes": 151126607,
+    "native_file_tested": false
+  },
+  "physical_safari_tested": false,
+  "empirical_learning_effect_tested": false,
+  "historical_R1_R8_counts_not_added": true
+}

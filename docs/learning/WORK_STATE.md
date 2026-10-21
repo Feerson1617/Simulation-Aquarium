@@ -1,49 +1,27 @@
-# Fortsetzung: Questbuch und kurze Schülerführung
+# Abgeschlossener Stand: Questbuch für PR #8
 
-Ausgangsstand 677e6ce, Branch feature/biology-learning-environments, bestehender PR #8. Keine lokalen Fremdänderungen. Remote Branch und PR-Kopf beim Start identisch. R1–R8 und historische Testnachweise bleiben erhalten.
+Branch `feature/biology-learning-environments`, bestehender PR #8. Ausgangsstand 677e6ce übernommen, keine Fremdänderungen verworfen. Alle Implementierungen regelmäßig auf denselben Branch gesichert; kein Merge, kein Push auf main.
 
-## Fortschritt
+## P1–P5 abgeschlossen
 
-P1 begonnen: eindeutige Hilfe „Beobachten“, kurze Hilfen für alle Jahrgänge, Missionskarten ohne Curriculum, einfache Starttexte. Auftrag vollständig in quest/REQUEST.md gesichert.
+- P1: kurze Schülertexte, eigene richtige Beobachten-Hilfe, eindeutige Kontexthilfen, Metaebene bei Lehrkräften.
+- P2: gespeichertes Questbuch mit fünf Stufen; echte Beobachtung, Vermutung, Simulation/Kreuzung und datenabhängige Auswertung; erneuter Versuch nach falscher Antwort.
+- P3: alle 14 Missionen mit einem zentralen Ziel und kurzen spielbaren Folgen. Vollständige Desktopdurchläufe; drei Jahrgänge zusätzlich vollständig per Touch.
+- P4: reduzierte Werkzeuge, Arten-/Genetikansichten, Meine Ergebnisse, freiwillige Forschungshilfe und einfache Speicherbeschriftungen. Vollständige technische Exporte und R1–R8 erhalten. Frühere Notizen/Einstellungen gesichert.
+- P5: tatsächliche Browser-/Bildkontrolle, korrigierte iPad-Kameragröße, Pinzettenmenü/Esc, Prozentdarstellung, alternative Pflanzenmaßnahme, Modul-/Bestands-/Exportprüfungen und Dokumentation.
 
-## Nächste Schritte
+## Nachweise
 
-P2 interaktives, gespeichertes Questbuch; P3 alle 14 Folgen mit echten Ereignissen; P4 reduzierte Schülerwerkzeuge und Ergebnisse, technische Ansichten für Lehrkräfte; P5 neue Quest-, Browser- und Regressionstests. Bisherige 100/82 Nachweise gelten nur für den alten Laufzeitstand 7e82046, nicht als Prüfung neuer Änderungen.
+**107 Modultests, 74 verschiedene Browserprüfpunkte und Einzeldatei-Export bestanden.** [Aktueller Prüfbericht](quest/VALIDATION.md), [Gestaltung und Datenübergang](quest/DESIGN.md), [alle 14 Folgen](quest/MISSIONS.md), [Abnahmematrix](quest/ACCEPTANCE.md). Vollständige Rohbelege unter quest/evidence. Frühere 100/82 werden nicht addiert, Touchwiederholungen zählen einmal.
 
-Nur diesen Branch pushen. Kein Merge. GitHub-API ist bisher gesperrt; Beschreibung unter PR_BODY.md vorbereiten. Keine kostenpflichtigen Dienste. Physisches Safari/iPad und Unterricht bleiben offen.
+Quellstände transparent getrennt: vollständige Questgruppe 303c869; Schüler-/Touchkorrekturen 486f0a8; letzte technische Diagrammbeschriftung und Bestands-/Exportprüfung b3b7814. Letzte Implementierungsänderung: b3b7814b862d4fee0445e236610700a594a141b4. Nachfolgende Commits enthalten nur Dokumentation/Belege. Laufzeithashes in quest/evidence/runtime.sha256 und learner-runtime.sha256; ursprünglicher Questlauf direkt in quest/evidence/quest/runtime.sha256. Biologischer Kern in der großen HTML-Datei bleibt unverändert; exakt eine resize()-Methode für Lernansichten geändert. AGENTS.md, Assets und bestehende Pages-Workflows unverändert.
 
-## Gesicherter Zwischenschritt P2/P3/P4
+Temporäre, für Wiederaufnahme nicht erforderliche Helfer: /tmp/quest-final-regressions.py, /tmp/quest-postvisual-validation/status.json, /tmp/quest-collect-final.py, /tmp/quest-finalize-docs.py. Alle relevanten Tests und Endbelege sind im Repository.
 
-Questzustand und 14 Folgen in learning-quests.mjs, reduzierte Ansichten in learning-student.mjs integriert. Fortschritt prüft echte Beobachtung, Vorhersage, geänderten berechneten Versuch, Kreuzung/Erbanlagen oder Generationen. Auswertung aus letzten gemeinsamen Messwerten, falsche Antwort wiederholbar. Bestehender Kern unverändert. Technische Untersuchung weiterhin über Lehrkraftmodus. Erste reale Desktop-Mission bis Auswertung getestet; 105 Modultests bestanden. Vollständiger Quest-/Touch-/Regressionslauf und Enddokumentation folgen, noch keine Endabnahme.
+## Übergabe und offene Grenzen
 
-P4 integriert: „Meine Ergebnisse“, einfache Begriffe für Werkzeuge/Diagramme, wenige sichtbare Messgrößen, kleine Artenkarten, wissenschaftliche Hintergründe ausschließlich im Lehrkraftmodus. Dort sind technische Missionen und freies Forschen sowie die bisherigen Formate/Archive zugänglich. R1–R8-Browsertests wurden auf diesen tatsächlichen Zugang umgestellt; keine Kernprüfung entfernt. Sprachprüfung korrigiert auch unpassende Antwortsätze und unterscheidet Gruppen im Farbversuch von echten Becken. Neue Quest-Browserprüfung läuft zunächst als Entwicklungslauf; Endlauf nach Abschluss aller Korrekturen.
+Nur diesen PR fortsetzen. Bei neuen Aufgaben zuerst Git-Status/Branch und etwaige neue Nutzeränderungen prüfen; abgeschlossene Arbeit nicht erneut implementieren. Bestandene Gruppen nur bei relevanten Änderungen wiederholen. Kein neuer PR und kein eigenständiger Merge.
 
-Weitere Fach-/Bedienkorrekturen: Passende Antworten zu Temperatur, Fischzustand und Pflanzen statt „Es wird mehr“; Gruppen und Prozentanzeigen im Farbversuch; Auswertung berücksichtigt sichtbare Rundung („etwa gleich“). Neue Berechnung ersetzt einen noch nicht beantworteten Vergleich. Frühere Notizen werden vor der Questmigration kopiert und mit exportiert. Technische Unterrichtshintergründe sind lesbar, ohne dabei Schülernotizen zu bearbeiten. Hilfeschaltflächen mindestens 44 × 44 Pixel; Pinzette aus dem Menü schließt das Menü und lässt sich direkt wieder beenden. 107 Modultests im Entwicklungslauf bestanden. P5 läuft.
+Git-Push funktioniert. GitHub-API nicht freigeschaltet; die neue Beschreibung liegt in PR_BODY.md, ohne eine erfolgreiche externe Aktualisierung zu behaupten. Externe CI-/Preview-Ausführung nicht bestätigt.
 
-Entwicklungsprüfung fand zusätzlich eine durch die Herauslösung der Hintergrundtexte eingeführte ungültige Variablenreferenz im technischen Notizbuch; vor dem Endlauf korrigiert. Ein Wasserwechsel von 0 % zählt nicht als Eingriff, auch falls die alte Pflegefunktion dabei einen Logeintrag erstellt.
-
-Explizite Freigaben zusätzlicher Messgrößen durch Lehrkräfte werden auch in der neuen Schüleransicht berücksichtigt. Nitrat/Nitrit erscheinen ausschließlich bei konkreter Freigabe und erhalten unmittelbar die passende kurze Begriffshilfe. Standardansichten bleiben reduziert.
-
-## Endlauf gestartet
-
-Laufzeit eingefroren auf dd491b5. 107 Modultests im Endlauf bestanden. Jetzt laufen seriell: alle 14 Quests vollständig, drei zusätzliche Touchdurchläufe, freies Forschen, Lehrkraft/Altprodukte/Hilfen/Migration; danach Review R1–R8, gezielte Fach-/Speicherfälle, Bereitschaft mit Tutorial, Aquascaping und Einzeldatei. Status temporär /tmp/quest-final-validation/status.json, später dauerhafte Belege unter quest/evidence. Nicht die früheren 100/82 als neue Endprüfung ausgeben.
-
-P1–P4 implementiert. Neue Erläuterung in quest/DESIGN.md, 14-Folgen-Matrix in quest/MISSIONS.md. Prüfbericht quest/VALIDATION.md noch ausdrücklich vorläufig. Nach abgeschlossenen Prüfungen Endzahlen/Belege/PR-Beschreibung und diesen Status finalisieren, Commit und Push auf denselben Branch; kein Merge.
-
-Letzte sprachliche Durchsicht vor der endgültigen Abnahme: „Fortpflanzungserfolg“, „Biomasse“ und „Schichtung“ aus den betreffenden Schüleraufgaben gestrichen bzw. konkret erklärt; Wattenmeerfrage gekürzt. Keine Änderung an Versuchslogik oder Kern. Den begonnenen Endlauf auf dd491b5 deshalb nicht als vollständige Endabnahme zählen; Rohlogs bleiben unter /tmp/quest-final-attempt-dd491b5. Ein letzter frischer Lauf folgt auf diesem Sprachstand.
-
-Aktuelle Fortsetzung: letzter Laufzeitstand 303c869; Node-Endgruppe 107/107 bestanden und in quest/evidence gesichert. Browser-Endlauf /tmp/quest-final-runner.py, /tmp/quest-final-validation/status.json läuft (kein vollständiges Bestehen behaupten). Er prüft Questgruppe, Review R1–R8, focused, readiness, aquascaping, standalone. Danach den zusätzlich gespeicherten Bedientest tests/quest_controls_browser.py seriell ausführen; er gehört noch nicht zum gestarteten Runner. Dauerhafte Endbelege mit /tmp/quest-collect.py sammeln (erst bei Gesamtstatus passed). Ggf. tatsächliche Fehler gezielt korrigieren und betroffene Prüfungen wiederholen; frühere Endgruppen mit ihrem jeweiligen Quellstand dokumentieren. Endzahlen noch offen. Keine weiteren kosmetischen Umbauten während der Prüfung.
-
-Nach QA: quest/VALIDATION.md und evidence/README.md finalisieren, PR_BODY.md auf Questfassung umschreiben, WORK_STATE abschließen, Dokumentationslinks/CRLF-bewussten Git-Diff prüfen, Commit und Push. GitHub-API weiterhin nicht freigeschaltet (aktuelle Policy und verfügbare Tools kontrolliert); keine PR-Beschreibungsaktualisierung oder externe CI-/Preview-Ausführung behaupten. Bestehender PR #8 bleibt angehängt. Physische Safari-iPads/Unterricht bleiben offen.
-
-## Visuelle Nachprüfung nach erfolgreicher Questgruppe
-
-Die 26 Questprüfpunkte auf 303c869 sind vollständig bestanden und in quest/evidence/quest gesichert (14 Desktop, 3 Touch, freies Forschen, Lehrkraft, Hilfen, Migration). Der alte Runner wurde nach dieser Gruppe angehalten; übrige Regressionen werden nach der Bildkorrektur ausgeführt. Unter /tmp/quest-validation-303c869 liegen vollständige Rohbelege. Nicht als fehlgeschlagene Questprüfung zählen.
-
-Visuelle Kontrolle zeigte sehr kleines Aquarium neben dem iPad-Werkzeug. Gezielt die Kameraanpassung in genau einer resize()-Methode von index.html korrigiert, ausschließlich für Lernansichten; Rechenkern und Assets unverändert. Weitere kleine Bedienkorrekturen: korrekte Pinzettenbeschriftung nach Esc, durchgängige Prozentwerte in Populationstabellen, kurze handlungsspezifische Fehlhinweise. Gesundheitsmissionen akzeptieren alle in ihrer Mission freigegebenen Maßnahmen (auch Pflanzen); Vermutung entsprechend allgemein formuliert. Danach Node, drei komplette Touchquests, Zusatz-Bedienfälle und alle noch offenen Regressionen auf diesem Stand ausführen. Keine erneute Umsetzung oder Wiederholung aller 14 unveränderten Questabläufe erforderlich.
-
-Zusatzprüfung auf 4274899: 107 Modultests bestanden; Freigabe Nitrit und eigene Questhilfe bestanden. Tatsächlicher Bedienfehler gefunden: Aquascaping lehnt Aktivierung bei noch gesperrter Szene ab. Pinzettenaktion schließt jetzt zuerst das Menü und aktiviert danach das Werkzeug. Fehlbericht /tmp/quest-postvisual-validation bleibt als Entwicklungshistorie erhalten; übrige Gruppen wurden dabei noch nicht gestartet. Den korrigierten Stand neu prüfen.
-
-Auf dem korrigierten Laufzeitstand 486f0a8 bestehen erneut 107 Modultests und alle 6 zusätzlichen Bedienfälle (Nitritfreigabe, Questhilfe, echte Pinzette einschließlich Esc, Hilfen aus, konsistente Prozentwerte, alternative Pflanzenmaßnahme). Nachweise in quest/evidence/controls. Der weitere Runner /tmp/quest-postvisual-runner.py läuft unter /tmp/quest-postvisual-validation/status.json: Touch, Review R1–R8, focused, readiness, aquascaping, standalone. Aktuelle laufende Toolsession 56266. Keine Laufzeitdateien weiter ändern, außer ein tatsächlicher Testfehler erfordert es. Final sammeln mit /tmp/quest-collect-final.py, das 3 wiederholte Touchfälle nicht doppelt zählt. Alter Runner 19450 ist beendet; nicht wieder starten.
-
-R1–R3/R2-Lehrkraft-Provenienz im neuen Reviewlauf bestanden. Danach hielt ein bestehender R7-SVG-Test an: die Daten/Einheit waren korrekt, die technische Legende hieß durch die Schülervereinfachung „Dein Becken“. Technische Ansichten verwenden nun wieder „Eigenes Becken“, reguläre Schüler weiterhin „Dein Becken“. Eine eigene Messreihe wird auf der Zeitachse außerdem nicht als Wiederholung bezeichnet. Nur technische Diagrammbeschriftung geändert; erfolgreich geprüfte Quest-/Touch-/Bedienlogik unverändert. Node 107, Controls 6 und Touch 3 auf 486f0a8 bleiben gültige, separat dokumentierte Vorläuferprüfungen; Review/Fach-/Legacy-/Exportgruppen nach dieser gezielten Korrektur vollständig weiterprüfen. Fehlerlauf bleibt /tmp/quest-postvisual-attempt-486f0a8.
+Physische Safari-/Schul-iPads, vollständige Hilfstechnikprüfung und Unterrichtserprobung/Lernwirksamkeit offen. Kein umfassender Fotorealismus-Abschluss; vorhandene Modelle erhalten. Keine neuen Konten, Dienste oder Kosten eingeführt.

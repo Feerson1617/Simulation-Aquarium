@@ -1,5 +1,7 @@
 # GitHub-Übergabe zu PR #8
 
+Aktuelle Fortsetzung: Questbuch, reduzierte Schüleransichten und vollständige Prüfbelege stehen im selben PR #8. Übersicht in [quest/VALIDATION.md](quest/VALIDATION.md). `PR_BODY.md` enthält die neue vorbereitete Beschreibung. Git-Push funktioniert; `api.github.com` steht weiterhin nicht in der erlaubten Zielmenge, ein passendes GitHub-API-Werkzeug ist nicht verfügbar. Deshalb keine erfolgreiche Beschreibungsänderung oder externe CI-/Preview-Ausführung behaupten. Die nachstehenden älteren Details dokumentieren die ursprüngliche R1–R8-Übergabe.
+
 Der bestehende [PR #8](https://github.com/Feerson1617/Simulation-Aquarium/pull/8) verwendet [`feature/biology-learning-environments`](https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/biology-learning-environments). Der Nutzer hat ihn nach der früheren Übergabe angelegt. Die Korrekturen R1–R8 werden auf genau diesen Branch gepusht; es wird kein zweiter PR benötigt. Beim Beginn stimmten Branch und PR-Ref mit `5b00ea1` überein. `main` stand auf `666df90` und wurde nicht verändert.
 
 [Abschlussbericht](REPORT.md), [fachliches Audit](AUDIT.md), [Tests/Screenshots](VALIDATION.md), [Master- und Missionsabnahme](ACCEPTANCE.md), [wiederaufnehmbarer Stand](WORK_STATE.md). Die überarbeitete PR-Beschreibung liegt in [PR_BODY.md](PR_BODY.md).

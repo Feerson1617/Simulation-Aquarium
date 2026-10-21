@@ -6,7 +6,7 @@ UTF-8, Semikolon als Trennzeichen, doppelt zitierte Felder, CRLF-Zeilen. Dezimal
 |---|---|
 | CSV-Schema, Datensatztyp | `2`; `ecology`, `population` oder `manual` |
 | Klasse, Modus, Mission | Lernprofil und Auftrag; `Freies Forschen` bei eigener Frage |
-| Modellstand | Semantischer Stand `learning-evidence-2`; bei alten undokumentierten Daten ausdrücklich unbekannt |
+| Modellstand | Tatsächlich gespeicherter semantischer Stand, aktuell `learning-biology-4`; frühere Kennungen bleiben erhalten, undokumentierte Daten ausdrücklich unbekannt |
 | Eingriff, Eingriffswert, Eingriffseinheit | Tatsächlich berechneter Eingriff aus der festen Laufkonfiguration, nicht aus dem später bearbeiteten Formular |
 | Modellumwelt | `neutral` = nur Drift, `dark` = dunkler Phänotyp begünstigt, `light` = heller Phänotyp begünstigt; hypothetische Gewichte 1/0,5 |
 | Geplante Dauer, Dauereinheit | Angeforderter Umfang in Modelltagen bzw. Generationen |
@@ -32,3 +32,11 @@ Bei **eigenen Beobachtungen** ist kein automatischer Kontrollversuch vorausgeset
 Nach Ausfall einer Seite können nur die verbliebenen Einzelverläufe verfolgt werden. Unterschiede nach diesem Zeitpunkt sind kein vollständiger gepaarter Vergleich. Der vom Kern zugeordnete Abbruchgrund ist eine Modelldiagnose und kein empirischer Nachweis einer einzigen Ursache in einem echten Aquarium.
 
 Textmetadaten, die in Tabellenkalkulationen als Formel beginnen könnten, werden beim CSV-Schreiben als Literal gekennzeichnet. Zahlen bleiben Zahlen; der JSON-Import führt keine Formeln aus.
+
+## Fischwerte seit A03
+
+Neue JSON-Messpunkte besitzen `metricsVersion: 2`. `health` bezeichnet ausschließlich die mittlere Kondition **lebender Fische**, `fishAlive` ihre Anzahl und `fishDead` die dokumentierten Fischverluste. `otherAnimals` zählt lebende Wirbellose separat. Ohne lebende Fische ist `health: null` und im CSV leer/unbekannt, kein positiver Schneckenwert und keine erfundene Nullkondition eines lebenden Fisches. `fishOutcome` ist ein zusätzlicher Modellindex mit Nullbeitrag der verstorbenen Fische; Sanierungsentscheidungen vergleichen zunächst die überlebende Anzahl und erst bei gleicher Anzahl deren Kondition.
+
+Historische Messpunkte ohne Version2 behalten exakt ihre frühere Tierkondition einschließlich Wirbelloser. Die CSV-Spalte `Messgroesse` kennzeichnet solche Zeilen als „Tierkondition (historischer Wert: Fische und Wirbellose)“. Neue Zeilen heißen „Kondition lebender Fische“. Auch innerhalb einer gemischten eigenen Reihe werden Namen pro Messpunkt bestimmt; Werte werden nicht umgerechnet. Die Anzeige verbindet beide Bedeutungen nicht zu einer durchgehenden neuen Fischkurve. Das CSV-Schema bleibt2, da Spalten und Datenform erhalten sind.
+
+JSON-Lernprodukte kennzeichnen zusätzlich eigene Texte, gewählte Antworten, tatsächliche Handlungen, Modellmessungen und Spielerklärungen in `provenance`; diese Herkunft ist kein Messwert im CSV. Alte Texte ohne Herkunft werden als unbekannt behandelt. [Aktuelle Korrekturmatrix](../biology-quality/MATRIX.md).

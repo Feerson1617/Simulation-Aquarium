@@ -1,5 +1,7 @@
 # Die 14 Questfolgen
 
+> Historische Questdefinitionen vor A01–A11, einschließlich der damals fehlerhaften20°C-/Neutral-/Wattenmeerwege. Aktuelle verbindliche Lernhandlungen und Abnahmen: [MISSIONS](../../biology-quality/MISSIONS.md), [Korrekturmatrix](../../biology-quality/MATRIX.md), [Prüfbericht](../../biology-quality/VALIDATION.md).
+
 Jede Folge beginnt sichtbar mit Anschauen, lässt eine eigene Vermutung zu und verlangt danach eine tatsächliche Handlung. Vergleichen ist eine anhand der konkreten Ergebnisse bewertete Auswahl. Erklären schließt die Mission mit einer kurzen Sicherung ab. Keine Pflichtzeichnung oder langen Schreibaufträge.
 
 | Mission | Ein Lernziel | Tatsächliche Handlung | Datenfrage | Kurze Sicherung |

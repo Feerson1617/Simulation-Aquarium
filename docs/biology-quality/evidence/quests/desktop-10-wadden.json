@@ -1,0 +1,204 @@
+{
+  "version": 2,
+  "type": "aquarium-learning-product",
+  "profile": {
+    "version": 1,
+    "grade": 10,
+    "mode": "missions",
+    "mission": "10-wadden"
+  },
+  "notes": {},
+  "provenance": {
+    "version": 1,
+    "notes": {},
+    "questAnswers": "selection",
+    "experiments": "game-action",
+    "measurements": "simulation",
+    "explanations": "game-explanation"
+  },
+  "gameExplanation": "Weniger Müll schützt Tiere. Mehrweg braucht Rückgabe und Reinigung. Plastik ist kein Pflanzennährstoff. Unser Wasserwert misst keine Plastikschäden.",
+  "created": "2026-10-21T19:20:06.043Z",
+  "support": "partial",
+  "model": {
+    "title": "Eider-Treene-Schule · Fachcurriculum Biologie 2025/26",
+    "url": "https://ets-toenning.de/wp-content/uploads/2025/07/Schulinternes-Fachcurriculum-Biologie-SJ-2025-26.pdf",
+    "pages": "S. 3–4, 9–10, 14–15, 19–20",
+    "scope": "Ausgewählte Unterrichtseinheiten, kein Ersatz für das gesamte Fachcurriculum."
+  },
+  "modelVersion": "learning-biology-4",
+  "comparison": null,
+  "currentPlan": {
+    "kind": "ecology",
+    "profile": {
+      "version": 1,
+      "grade": 10,
+      "mode": "missions",
+      "mission": "10-wadden"
+    },
+    "modelVersion": "learning-biology-4",
+    "tool": "feed",
+    "value": 0.75,
+    "days": 3,
+    "environment": null,
+    "generations": null,
+    "repetitions": 2,
+    "baseline": {
+      "time": 45,
+      "seed": 47291,
+      "fingerprint": "d4a1ed75",
+      "size": 19
+    },
+    "planning": {
+      "question": "",
+      "hypothesis": "",
+      "prediction": "",
+      "plan": ""
+    },
+    "metrics": [
+      "oxygen",
+      "health",
+      "algae",
+      "plantBiomass",
+      "organic",
+      "fishAlive"
+    ]
+  },
+  "population": null,
+  "populationRepeats": [],
+  "comparisonHistory": [],
+  "measurements": [],
+  "measurementMetrics": [],
+  "quest": {
+    "version": 2,
+    "activities": [
+      {
+        "id": "harbour-interest",
+        "kind": "assignment",
+        "origin": "selection",
+        "from": "Ein Hafen am Wattenmeer",
+        "to": "Mehrweg und Rückgabe für Besucher",
+        "at": "2026-10-21T19:19:23.868Z"
+      },
+      {
+        "id": "harbour-benefit",
+        "kind": "assignment",
+        "origin": "selection",
+        "from": "Tiere im Wattenmeer",
+        "to": "Weniger weggeworfenes Material kann Verschlucken und Verheddern vermeiden",
+        "at": "2026-10-21T19:19:26.847Z"
+      },
+      {
+        "id": "harbour-effort",
+        "kind": "assignment",
+        "origin": "selection",
+        "from": "Menschen am Hafen",
+        "to": "Rückgabe oder Sammlung braucht Platz, Arbeit und Organisation",
+        "at": "2026-10-21T19:19:29.870Z"
+      },
+      {
+        "id": "harbour-followup",
+        "kind": "assignment",
+        "origin": "selection",
+        "from": "Deine Entscheidung überprüfen",
+        "to": "Wird das Angebot genutzt, und fällt weniger Müll an?",
+        "at": "2026-10-21T19:19:39.151Z"
+      }
+    ],
+    "choiceSeed": 916708944,
+    "id": "10-wadden",
+    "step": 5,
+    "observed": true,
+    "entries": [
+      {
+        "step": 0,
+        "question": "Was hilft gegen neuen Meeresmüll?",
+        "answer": "Müll an Land und im Hafen vermeiden",
+        "choiceIndex": 0,
+        "origin": "selection",
+        "at": "2026-10-21T19:19:17.724Z"
+      },
+      {
+        "step": 1,
+        "question": "Welche Schutzmaßnahme lässt sich am Hafen umsetzen?",
+        "answer": "Sammlung von Netzen und Leinen",
+        "choiceIndex": 1,
+        "origin": "selection",
+        "at": "2026-10-21T19:19:20.741Z"
+      },
+      {
+        "step": 2,
+        "event": "case",
+        "origin": "game-action",
+        "evidence": {
+          "result": {
+            "kind": "case",
+            "measure": "Mehrweg und Rückgabe für Besucher",
+            "source": "Nationalpark Wattenmeer / OSPAR · Meeresmüll",
+            "consequences": [
+              {
+                "id": "harbour-benefit",
+                "kind": "assignment",
+                "origin": "selection",
+                "from": "Tiere im Wattenmeer",
+                "to": "Weniger weggeworfenes Material kann Verschlucken und Verheddern vermeiden",
+                "at": "2026-10-21T19:19:26.847Z"
+              },
+              {
+                "id": "harbour-effort",
+                "kind": "assignment",
+                "origin": "selection",
+                "from": "Menschen am Hafen",
+                "to": "Rückgabe oder Sammlung braucht Platz, Arbeit und Organisation",
+                "at": "2026-10-21T19:19:29.870Z"
+              }
+            ]
+          }
+        },
+        "at": "2026-10-21T19:19:29.871Z"
+      },
+      {
+        "step": 3,
+        "question": "Welche Folge gehört zu deiner Schutzmaßnahme?",
+        "answer": "Weniger Müll, aber auch Aufwand für Rückgabe oder Sammlung",
+        "choiceIndex": 0,
+        "origin": "selection",
+        "at": "2026-10-21T19:19:36.082Z"
+      },
+      {
+        "step": 4,
+        "question": "Müll kann Tiere verletzen. Wie vermeiden wir neuen Müll?",
+        "answer": "Mehrweg nutzen und Müll vermeiden",
+        "choiceIndex": 0,
+        "origin": "selection",
+        "at": "2026-10-21T19:19:45.335Z"
+      }
+    ],
+    "result": {
+      "kind": "case",
+      "measure": "Mehrweg und Rückgabe für Besucher",
+      "source": "Nationalpark Wattenmeer / OSPAR · Meeresmüll",
+      "consequences": [
+        {
+          "id": "harbour-benefit",
+          "kind": "assignment",
+          "origin": "selection",
+          "from": "Tiere im Wattenmeer",
+          "to": "Weniger weggeworfenes Material kann Verschlucken und Verheddern vermeiden",
+          "at": "2026-10-21T19:19:26.847Z"
+        },
+        {
+          "id": "harbour-effort",
+          "kind": "assignment",
+          "origin": "selection",
+          "from": "Menschen am Hafen",
+          "to": "Rückgabe oder Sammlung braucht Platz, Arbeit und Organisation",
+          "at": "2026-10-21T19:19:29.870Z"
+        }
+      ]
+    },
+    "feedback": "Weniger Müll schützt Tiere. Mehrweg braucht Rückgabe und Reinigung. Plastik ist kein Pflanzennährstoff. Unser Wasserwert misst keine Plastikschäden.",
+    "collapsed": false
+  },
+  "earlierNotes": null,
+  "earlierQuest": null
+}

@@ -52,3 +52,6 @@ Stand19:04UTC: Modultests139 und biologische Browsergruppe11 bestanden/aufGitHub
 
 
 Beim Quellaudit der noch folgenden Testabschnitte wurde der Freiforschungs-Direktzugriff des Questprüfers ebenfalls an das inzwischen eingeklappte Zahlenfeld angepasst (reveal/echter summary-Klick, keine fachlichen Prüfungen entfernt). Der bereits laufende Pythonprozess hat noch den vorigen Prüfer geladen. Falls er nach den14Desktop-/3Touchmissionen genau hier stoppt, werden ausschließlich freie Jahrgänge/Lehrkraft/Hilfen fortgesetzt; dafür bewahrt AQUARIUM_QUEST_RESUME den ursprünglichen fehlgeschlagenen Bericht und alle echten Exporte, die anschließend weiter in der Lehrkraftoberfläche gelesen werden. Keine Wiederholung bestandener Missionswege und keine Änderung der Laufzeitdateien.
+
+
+Stand19:20UTC: Alle14Desktopmissionen mit verpflichtenden biologischen Lernhandlungen, Datenvergleich, falscher Gegenantwort, eindeutiger Herkunft und echter Dateiablage bestanden; Meldungen in /tmp/biology-quality-final-v4/quests.log. Drei zusätzliche Touchwege laufen. Aktuelle Desktopprodukte und Bilder gesichert; Gesamtgruppe bleibt bis Ende offen.

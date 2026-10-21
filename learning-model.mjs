@@ -6,6 +6,18 @@ import {
 } from "./learning-content.mjs";
 import { createScenario } from "./scenarios.mjs";
 import { initializeIndividual } from "./genetics.mjs";
+import { validateLearningPopulation } from "./learning-population.mjs";
+export const LEARNING_MODEL_REVISION = "learning-evidence-2";
+export const POPULATION_METRICS = {
+  AA: ["Genotyp AA", "Anzahl"],
+  Aa: ["Genotyp Aa", "Anzahl"],
+  aa: ["Genotyp aa", "Anzahl"],
+  n: ["Individuen", "Anzahl"],
+  A: ["Allel A", "Anteil (0–1)"],
+  a: ["Allel a", "Anteil (0–1)"],
+  dark: ["Dunkler Phänotyp", "Anteil (0–1)"],
+  light: ["Heller Phänotyp", "Anteil (0–1)"],
+};
 export const LEARNING_VERSION = 1;
 export const LEARNING_TOOLS = {
   light: {
@@ -302,7 +314,7 @@ export function applyLearningIntervention(payload, key, value, host) {
 }
 export function runLearningComparison(
   baseline,
-  { tool, value, days = 3, repetitions = 2 },
+  { tool, value, days = 3, repetitions = 2, configuration = null },
   host,
 ) {
   if (
@@ -329,24 +341,47 @@ export function runLearningComparison(
         test: [learningSample(test, host.types)],
         stopped: null,
       };
-    for (let n = 0; n < days * 4; n++) {
-      if (control.failed || test.failed) {
-        row.stopped =
-          "Modellabbruch wegen kritischem Beckenverlauf; keine weiteren Daten erfunden.";
-        break;
+    row.status = {};
+    for (const side of ["control", "test"]) {
+      const state = side === "control" ? control : test;
+      const status = {
+        state: "completed",
+        start: state.day,
+        end: state.day,
+        requestedEnd: initial.day + days,
+        reason: null,
+      };
+      const markFailure = () => {
+        if (!state.failed) return false;
+        status.state = "failed";
+        status.cause = typeof state.failureCause === "string" ? state.failureCause.slice(0,80) : null;
+        const label = {nitrite:"Nitritbelastung",oxygen:"Sauerstoffmangel",ammonia:"Ammoniakbelastung",nutrients:"Versorgung/Lebensbedingungen"}[status.cause] || status.cause;
+        status.reason = label
+          ? "Biologischer Modellabbruch; vom Rechenkern zugeordnete Ursache: " + label + ". Dies ist eine Modelldiagnose, kein Nachweis einer einzigen realen Ursache. Keine weiteren Messungen berechnet."
+          : "Biologischer Modellabbruch: kritischer Beckenverlauf. Keine weiteren Messungen berechnet.";
+        status.end = state.day;
+        return true;
+      };
+      for (let n = 0; n < days * 4; n++) {
+        if (markFailure()) break;
+        host.advance(state, 0.25);
+        row[side].push(learningSample(state, host.types));
+        status.end = state.day;
+        if (markFailure()) break; // includes failure in the final requested step
       }
-      host.advance(control, 0.25);
-      host.advance(test, 0.25);
-      row.control.push(learningSample(control, host.types));
-      row.test.push(learningSample(test, host.types));
+      row.status[side] = status;
     }
+    row.stopped = Object.values(row.status).some((s) => s.state !== "completed")
+      ? "Mindestens eine Seite ist ausgefallen. Die andere Seite wird unabhängig weitergerechnet; danach kein vollständiger Paarvergleich."
+      : null;
     row.finalControl = control;
     row.finalTest = test;
     runs.push(row);
   }
   return {
-    version: 1,
+    version: 2,
     kind: "ecology",
+    configuration: configuration ? structuredClone(configuration) : null,
     tool,
     value,
     days,
@@ -356,31 +391,209 @@ export function runLearningComparison(
       "Gleicher bestehender biologischer Rechenkern, gleiche Anfangszustände je Paar; nur ein definierter Eingriff. Wiederholungen unterscheiden den Zufallsstart, keine Messfehler vorgetäuscht.",
   };
 }
+/** Non-cryptographic identity of the actual starting state, used only to detect plan changes. */
+export function learningFingerprint(value) {
+  let h = 2166136261;
+  for (const c of JSON.stringify(value))
+    h = Math.imul(h ^ c.charCodeAt(0), 16777619);
+  return (h >>> 0).toString(16).padStart(8, "0");
+}
+export function snapshotLearningPlan({
+  kind,
+  baseline,
+  population,
+  study,
+  profile,
+  notes,
+  metrics = [],
+}) {
+  const source = kind === "population" ? population : baseline;
+  return structuredClone({
+    kind,
+    profile,
+    modelVersion: LEARNING_MODEL_REVISION,
+    tool: kind === "ecology" ? study.tool : null,
+    value:
+      kind === "ecology"
+        ? (study.value ?? LEARNING_TOOLS[study.tool]?.value)
+        : null,
+    days: kind === "ecology" ? study.days : null,
+    environment: kind === "population" ? study.environment : null,
+    generations: kind === "population" ? study.generations : null,
+    repetitions: study.repetitions,
+    baseline: {
+      time: source.day ?? source.generation,
+      seed: source.seed,
+      fingerprint: learningFingerprint(source),
+      size: source.entities?.length ?? source.individuals?.length,
+    },
+    planning: Object.fromEntries(
+      ["question", "hypothesis", "prediction", "plan"].map((k) => [
+        k,
+        notes[k] || "",
+      ]),
+    ),
+    metrics,
+  });
+}
+export function planMatchesComparison(comparison, plan) {
+  if (!comparison?.configuration) return false;
+  const { metrics: _old, ...old } = comparison.configuration,
+    { metrics: _new, ...next } = plan;
+  return JSON.stringify(old) === JSON.stringify(next);
+}
+export function comparisonTimes(run, kind) {
+  const axis = kind === "population" ? "generation" : "day";
+  return [...new Set([...run.control, ...run.test].map((s) => s[axis]))]
+    .sort((a, b) => a - b)
+    .map((time) => ({
+      time,
+      control: run.control.find((s) => s[axis] === time),
+      test: run.test.find((s) => s[axis] === time),
+    }));
+}
 export function comparisonCSV(comparison) {
-  const rows = [
-    [
-      "Wiederholung",
-      "Becken",
-      "Tag / Generation",
-      ...(comparison.kind === "population"
-        ? ["AA", "Aa", "aa", "A", "a", "dark", "light"]
-        : Object.keys(LEARNING_METRICS)),
-    ],
-  ];
-  for (const run of comparison.runs)
-    for (const tank of ["control", "test"])
-      for (const sample of run[tank])
-        rows.push([
-          run.repetition,
-          tank === "control" ? "Kontrolle" : "Versuch",
-          sample.day ?? sample.generation,
-          ...rows[0].slice(3).map((k) => sample[k]),
-        ]);
+  const population = comparison.kind === "population",
+    c = comparison.configuration || {},
+    defs = population ? POPULATION_METRICS : LEARNING_METRICS,
+    profile = c.profile || comparison.profile || {},
+    metrics =
+      comparison.kind === "manual" ? comparison.metrics : Object.keys(defs),
+    rows = [
+      [
+        "CSV-Schema",
+        "Datensatztyp",
+        "Klasse",
+        "Modus",
+        "Mission",
+        "Modellstand",
+        "Eingriff",
+        "Eingriffswert",
+        "Eingriffseinheit",
+        "Modellumwelt",
+        "Geplante Dauer",
+        "Dauereinheit",
+        "Ausgangszeit",
+        "Ausgangslage Kennung",
+        "Wiederholung",
+        "Seed",
+        "Seite",
+        "Laufstatus",
+        "Endzeit",
+        "Tatsaechliche Dauer",
+        "Abbruchgrund",
+        "Zeitschritt",
+        "Messzeit",
+        "Messschluessel",
+        "Messgroesse",
+        "Einheit",
+        "Typ",
+        "Wert",
+        "Wertstatus",
+      ],
+    ];
+  for (const run of comparison.runs) {
+    const times =
+      comparison.kind === "manual"
+        ? run.control.map((s) => ({ time: s.day, control: s }))
+        : comparisonTimes(run, comparison.kind);
+    for (const side of comparison.kind === "manual"
+      ? ["control"]
+      : ["control", "test"]) {
+      const samples = run[side],
+        status = run.status?.[side];
+      for (const row of times)
+        for (const key of metrics) {
+          const sample = row[side],
+            def = defs[key],
+            value = sample?.[key],
+            measured =
+              sample && (!sample.metrics || sample.metrics.includes(key)),
+            label =
+              side === "control"
+                ? comparison.kind === "manual"
+                  ? "Eigenes Becken"
+                  : "Kontrolle"
+                : "Versuch",
+            unit = def[1],
+            type =
+              unit === "Anzahl"
+                ? "Anzahl"
+                : unit.includes("Anteil")
+                  ? "Anteil"
+                  : ["relativ", "Stufe 0–2", "Modellindex %"].includes(unit)
+                    ? "Modellindex"
+                    : "Messgröße";
+          rows.push([
+            "2",
+            comparison.kind,
+            profile.grade,
+            profile.mode,
+            profile.mission || "Freies Forschen",
+            c.modelVersion ||
+              comparison.modelVersion ||
+              "Altbestand – nicht dokumentiert",
+            LEARNING_TOOLS[c.tool || comparison.tool]?.label ||
+              (population ? "Elternwahl" : ""),
+            c.value ?? comparison.value,
+            LEARNING_TOOLS[c.tool || comparison.tool]?.unit,
+            c.environment || comparison.environment,
+            c.days ??
+              c.generations ??
+              comparison.days ??
+              comparison.generations,
+            population ? "Generationen" : "Modelltage",
+            c.baseline?.time ?? samples[0]?.day ?? samples[0]?.generation,
+            c.baseline?.fingerprint,
+            run.repetition,
+            run.seed ?? c.baseline?.seed,
+            label,
+            status?.state || "nicht dokumentiert",
+            status?.end ?? samples.at(-1)?.day ?? samples.at(-1)?.generation,
+            (status?.end ?? samples.at(-1)?.day ?? samples.at(-1)?.generation) -
+              (status?.start ?? samples[0]?.day ?? samples[0]?.generation),
+            status?.reason || "",
+            comparison.kind === "manual"
+              ? "manuell – siehe Messzeit"
+              : population
+                ? 1
+                : 0.25,
+            row.time,
+            key,
+            def[0],
+            unit,
+            type,
+            measured && Number.isFinite(value) ? value : "",
+            !sample
+              ? "keine Folgemessung"
+              : !measured
+                ? "nicht freigegeben"
+                : Number.isFinite(value)
+                  ? "berechnet"
+                  : "unbekannt",
+          ]);
+        }
+    }
+  }
   return rows
-    .map((r) =>
-      r.map((v) => '"' + String(v ?? "").replaceAll('"', '""') + '"').join(";"),
+    .map((row) =>
+      row
+        .map((v) => '"' + String(v ?? "").replaceAll('"', '""') + '"')
+        .join(";"),
     )
     .join("\r\n");
+}
+export function measurementCSV(
+  measurements,
+  { profile, metrics, modelVersion = LEARNING_MODEL_REVISION },
+) {
+  return comparisonCSV({
+    kind: "manual",
+    profile,
+    metrics,
+    modelVersion,
+    runs: [{ repetition: 1, control: measurements, test: [] }],
+  });
 }
 export function normalizeTeacher(raw = {}) {
   if (!raw || typeof raw !== "object" || Array.isArray(raw))
@@ -416,18 +629,26 @@ export function normalizeTeacher(raw = {}) {
     ],
   };
 }
-export function validateLearningProduct(raw) {
+const evidenceText = (v, length = 2000) =>
+  typeof v === "string" ? v.slice(0, length) : null;
+function evidenceNumber(v, min = 0, max = 1000000, integer = false) {
   if (
-    !raw ||
-    raw.version !== 1 ||
-    raw.type !== "aquarium-learning-product" ||
-    !normalizeLearningTag(raw.profile) ||
-    typeof raw.notes !== "object" ||
-    !raw.notes
+    !Number.isFinite(v) ||
+    v < min ||
+    v > max ||
+    (integer && !Number.isInteger(v))
   )
-    throw new Error("Kein gültiges Lernprodukt.");
+    throw new Error("Ungültige Zahl im Lernbeleg.");
+  return v;
+}
+function evidenceList(v, max) {
+  if (!Array.isArray(v) || v.length > max)
+    throw new Error("Lernbeleg überschreitet die zulässige Größe.");
+  return v;
+}
+function evidenceNotes(raw = {}) {
   const notes = {};
-  for (const k of [
+  for (const key of [
     "prior",
     "question",
     "hypothesis",
@@ -439,59 +660,312 @@ export function validateLearningProduct(raw) {
     "transfer",
     "assessment",
   ])
-    notes[k] =
-      typeof raw.notes[k] === "string" ? raw.notes[k].slice(0, 20000) : "";
-  return {
-    version: 1,
-    type: raw.type,
+    notes[key] = evidenceText(raw?.[key], 20000) || "";
+  return notes;
+}
+function evidenceMetrics(raw, population = false) {
+  const defs = population ? POPULATION_METRICS : LEARNING_METRICS;
+  return [
+    ...new Set(
+      evidenceList(raw, 20).map((k) => {
+        if (!Object.hasOwn(defs, k))
+          throw new Error("Unbekannte Messgröße im Lernbeleg.");
+        return k;
+      }),
+    ),
+  ];
+}
+function evidenceSamples(raw, population = false, limit = 100, manual = false) {
+  let previous = -Infinity;
+  return evidenceList(raw, limit).map((row) => {
+    if (!row || typeof row !== "object" || Array.isArray(row))
+      throw new Error("Ungültiger Messpunkt.");
+    const axis = population ? "generation" : "day",
+      time = evidenceNumber(row[axis]);
+    if (time < previous || (!manual && time === previous))
+      throw new Error("Messzeiten sind nicht geordnet.");
+    previous = time;
+    const clean = { [axis]: time },
+      defs = population ? POPULATION_METRICS : LEARNING_METRICS;
+    for (const key of Object.keys(defs)) {
+      if (
+        !population &&
+        ["photosynthesis", "respiration"].includes(key) &&
+        row[key] === null
+      )
+        clean[key] = null;
+      else
+        clean[key] = evidenceNumber(
+          row[key],
+          0,
+          ["A", "a", "dark", "light"].includes(key) ? 1 : 1000000,
+        );
+    }
+    if (population) {
+      if (
+        ![clean.AA, clean.Aa, clean.aa, clean.n].every(Number.isInteger) ||
+        clean.n < 4 ||
+        clean.n > 80 ||
+        clean.AA + clean.Aa + clean.aa !== clean.n ||
+        Math.abs(clean.A - (clean.AA * 2 + clean.Aa) / (2 * clean.n)) > 1e-9 ||
+        Math.abs(clean.A + clean.a - 1) > 1e-9 ||
+        Math.abs(clean.dark - (clean.AA + clean.Aa) / clean.n) > 1e-9 ||
+        Math.abs(clean.dark + clean.light - 1) > 1e-9
+      )
+        throw new Error("Populationszählungen widersprechen sich.");
+    } else clean.failed = row.failed === true;
+    if (row.metrics != null) clean.metrics = evidenceMetrics(row.metrics);
+    return clean;
+  });
+}
+function evidenceConfiguration(raw) {
+  if (raw == null) return null;
+  if (!["ecology", "population"].includes(raw.kind))
+    throw new Error("Unbekannter Untersuchungsplan.");
+  const population = raw.kind === "population",
+    baseline = raw.baseline;
+  if (!baseline || !/^[a-f0-9]{8}$/.test(baseline.fingerprint))
+    throw new Error("Kennung der Ausgangslage fehlt.");
+  const clean = {
+    kind: raw.kind,
     profile: normalizeLearningTag(raw.profile),
-    notes,
-    created: typeof raw.created === "string" ? raw.created.slice(0, 80) : null,
+    modelVersion: evidenceText(raw.modelVersion, 80),
+    tool: population ? null : raw.tool,
+    value: population ? null : raw.value,
+    days: population ? null : evidenceNumber(raw.days, 1, 14, true),
+    environment: population ? raw.environment : null,
+    generations: population
+      ? evidenceNumber(raw.generations, 1, 15, true)
+      : null,
+    repetitions: evidenceNumber(raw.repetitions, 1, 4, true),
+    baseline: {
+      time: evidenceNumber(baseline.time),
+      seed: evidenceNumber(baseline.seed, 0, 4294967295, true),
+      fingerprint: baseline.fingerprint,
+      size: evidenceNumber(baseline.size, 0, 5000, true),
+    },
+    planning: Object.fromEntries(
+      ["question", "hypothesis", "prediction", "plan"].map((k) => [
+        k,
+        evidenceText(raw.planning?.[k], 20000) || "",
+      ]),
+    ),
+    metrics: evidenceMetrics(raw.metrics || [], population),
+  };
+  if (population) {
+    if (!["neutral", "dark", "light"].includes(clean.environment))
+      throw new Error("Modellumwelt fehlt.");
+  } else {
+    const d = LEARNING_TOOLS[clean.tool];
+    if (
+      !Object.hasOwn(LEARNING_TOOLS, clean.tool) ||
+      !d ||
+      !Number.isFinite(clean.value) ||
+      clean.value < d.min ||
+      clean.value > d.max ||
+      Math.abs(
+        (clean.value - d.min) / d.step -
+          Math.round((clean.value - d.min) / d.step),
+      ) > 1e-6
+    )
+      throw new Error("Ungültiger dokumentierter Eingriff.");
+  }
+  return clean;
+}
+export function validateLearningProduct(raw) {
+  if (
+    !raw ||
+    ![1, 2].includes(raw.version) ||
+    raw.type !== "aquarium-learning-product" ||
+    !normalizeLearningTag(raw.profile) ||
+    !raw.notes ||
+    typeof raw.notes !== "object" ||
+    Array.isArray(raw.notes)
+  )
+    throw new Error("Kein gültiges Lernprodukt.");
+  const profile = normalizeLearningTag(raw.profile),
+    measurements = evidenceSamples(raw.measurements || [], false, 300, true),
+    measurementMetrics = evidenceMetrics(
+      raw.measurementMetrics || [
+        ...new Set(
+          measurements.flatMap((s) => s.metrics || learningMetrics(profile)),
+        ),
+      ],
+    );
+  return {
+    version: raw.version,
+    type: raw.type,
+    profile,
+    notes: evidenceNotes(raw.notes),
+    created: evidenceText(raw.created, 80),
+    support: Object.hasOwn(SUPPORT, raw.support) ? raw.support : null,
+    model:
+      raw.model && typeof raw.model === "object"
+        ? Object.fromEntries(
+            ["title", "url", "pages", "scope"].map((k) => [
+              k,
+              evidenceText(raw.model[k]),
+            ]),
+          )
+        : null,
+    modelVersion: evidenceText(raw.modelVersion, 80),
     comparison: validateLearningComparison(raw.comparison),
+    currentPlan: evidenceConfiguration(raw.currentPlan),
+    measurements,
+    measurementMetrics,
+    population: validateLearningPopulation(raw.population),
+    populationRepeats: evidenceList(raw.populationRepeats || [], 20).map(
+      (item) => ({
+        seed: evidenceNumber(item.seed, 0, 4294967295, true),
+        final: evidenceSamples([item.final], true)[0],
+      }),
+    ),
   };
 }
-
-/** Read-only imports retain finite sampled data; no imported JavaScript or engine states are executed. */
+/** Read-only data, metadata and genealogical evidence; imported engine payloads are never executed. */
 export function validateLearningComparison(raw) {
   if (raw == null) return null;
   if (
     !["ecology", "population"].includes(raw.kind) ||
     !Array.isArray(raw.runs) ||
-    raw.runs.length < 1 ||
+    !raw.runs.length ||
     raw.runs.length > 4
   )
     throw new Error("Ungültige Vergleichsdaten.");
-  const keys =
-    raw.kind === "population"
-      ? ["generation", "AA", "Aa", "aa", "A", "a", "dark", "light", "n"]
-      : ["day", ...Object.keys(LEARNING_METRICS)];
-  const runs = raw.runs.map((r, i) => {
-    const clean = { repetition: i + 1 };
-    for (const tank of ["control", "test"]) {
-      if (!Array.isArray(r[tank]) || r[tank].length < 1 || r[tank].length > 100)
-        throw new Error("Ungültige Messreihe.");
-      clean[tank] = r[tank].map((row) => {
-        if (!row || typeof row !== "object")
-          throw new Error("Ungültiger Messpunkt.");
-        const result = {};
-        for (const key of keys) {
+  const population = raw.kind === "population",
+    axis = population ? "generation" : "day",
+    configuration = evidenceConfiguration(raw.configuration);
+  const runs = raw.runs.map((run, i) => {
+    const clean = {
+      repetition: i + 1,
+      seed:
+        run.seed == null ? null : evidenceNumber(run.seed, 0, 4294967295, true),
+      status: {},
+    };
+    for (const side of ["control", "test"]) {
+      clean[side] = evidenceSamples(run[side], population);
+      if (!clean[side].length) throw new Error("Messreihe ist leer.");
+      const first = clean[side][0][axis],
+        last = clean[side].at(-1)[axis],
+        old = run.status?.[side],
+        failed =
+          clean[side].at(-1).failed === true ||
+          run[side === "control" ? "finalControl" : "finalTest"]?.failed ===
+            true;
+      const requestedEnd =
+        old?.requestedEnd ??
+        (configuration
+          ? configuration.baseline.time +
+            (population ? configuration.generations : configuration.days)
+          : first +
+            (population
+              ? raw.generations || last - first
+              : raw.days || last - first));
+      const state =
+        old?.state ||
+        (failed
+          ? "failed"
+          : run.stopped || last < requestedEnd
+            ? "stopped"
+            : "completed");
+      if (
+        !["completed", "failed", "stopped"].includes(state) ||
+        (old && (old.start !== first || old.end !== last)) ||
+        requestedEnd < last ||
+        (state === "completed" && requestedEnd !== last)
+      )
+        throw new Error("Laufstatus und Messzeiten widersprechen sich.");
+      clean.status[side] = {
+        state,
+        start: first,
+        end: last,
+        requestedEnd: evidenceNumber(requestedEnd),
+        cause: evidenceText(old?.cause || run[side === "control" ? "finalControl" : "finalTest"]?.failureCause,80),
+        reason: evidenceText(
+          old?.reason ||
+            (state !== "completed"
+              ? run.stopped ||
+                "Modellabbruch im älteren Export; genauer Grund nicht dokumentiert."
+              : null),
+        ),
+      };
+    }
+    clean.stopped =
+      evidenceText(run.stopped) ||
+      (Object.values(clean.status).some((s) => s.state !== "completed")
+        ? "Mindestens eine Seite beendet; Status je Seite beachten."
+        : null);
+    if (population && run.archives) {
+      clean.archives = {
+        control: validateLearningPopulation(run.archives.control),
+        test: validateLearningPopulation(run.archives.test),
+      };
+      for (const side of ["control", "test"]) {
+        const p = clean.archives[side];
+        if (!p) throw new Error("Laufarchiv fehlt.");
+        for (const sample of clean[side]) {
+          const h = p.history.find((h) => h.generation === sample.generation);
           if (
-            !Number.isFinite(row[key]) &&
-            !(
-              raw.kind === "ecology" &&
-              ["photosynthesis", "respiration"].includes(key) &&
-              row[key] === null
+            !h ||
+            Object.keys(POPULATION_METRICS).some(
+              (k) => Math.abs(h[k] - sample[k]) > 1e-9,
             )
           )
-            throw new Error("Messwerte müssen endliche Zahlen sein.");
-          result[key] = row[key];
+            throw new Error("Laufarchiv und Zeitreihe widersprechen sich.");
         }
-        return result;
-      });
+      }
     }
-    if (clean.control.length !== clean.test.length)
-      throw new Error("Vergleichsreihen passen nicht zusammen.");
     return clean;
   });
-  return { kind: raw.kind, runs };
+  const clean = {
+    version: raw.version === 2 ? 2 : 1,
+    kind: raw.kind,
+    configuration,
+    runs,
+    planning: evidenceNotes(raw.planning || configuration?.planning),
+    source: evidenceText(raw.source),
+    assumption: evidenceText(raw.assumption),
+    repetitions: runs.length,
+  };
+  if (population) {
+    if (
+      raw.environment != null &&
+      !["neutral", "dark", "light"].includes(raw.environment)
+    )
+      throw new Error("Modellumwelt fehlt.");
+    clean.environment = raw.environment ?? configuration?.environment ?? null;
+    clean.generations =
+      raw.generations == null
+        ? (configuration?.generations ?? null)
+        : evidenceNumber(raw.generations, 1, 15, true);
+  } else {
+    if (raw.tool != null && !Object.hasOwn(LEARNING_TOOLS, raw.tool))
+      throw new Error("Eingriff fehlt.");
+    clean.tool = raw.tool ?? configuration?.tool ?? null;
+    clean.value =
+      raw.value == null
+        ? (configuration?.value ?? null)
+        : evidenceNumber(
+            raw.value,
+            LEARNING_TOOLS[clean.tool]?.min || 0,
+            LEARNING_TOOLS[clean.tool]?.max || 1000000,
+          );
+    clean.days =
+      raw.days == null
+        ? (configuration?.days ?? null)
+        : evidenceNumber(raw.days, 1, 14, true);
+  }
+  if (
+    configuration &&
+    (configuration.kind !== clean.kind ||
+      configuration.repetitions !== runs.length ||
+      (population
+        ? configuration.environment !== clean.environment ||
+          configuration.generations !== clean.generations
+        : configuration.tool !== clean.tool ||
+          configuration.value !== clean.value ||
+          configuration.days !== clean.days))
+  )
+    throw new Error("Lauf und feste Konfiguration widersprechen sich.");
+  return clean;
 }

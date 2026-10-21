@@ -697,3 +697,23 @@ html.learning-panel-open .learn-status {
 html.learning-mode #app > .timebar {
   display: none !important;
 }
+
+.learn-result-state {
+  padding: 12px;
+  border-left: 4px solid #216c70;
+  background: #e4ece5;
+}
+.learn-outdated {
+  padding: 12px;
+  border-left: 4px solid #9b5026;
+  background: #fff0d9;
+  color: #54371f;
+}
+.learn-run-metadata p {
+  overflow-wrap: anywhere;
+}
+.learn-measurements {
+  border-top: 1px solid #c8d3c5;
+  margin-top: 24px;
+  padding-top: 12px;
+}

@@ -4,7 +4,15 @@ Ausgangspunkt: 5b00ea1538cb740a28287ed5f83038f2df96d052 auf feature/biology-lear
 
 Auftrag und Prüfbericht: review/REQUEST.md und review/REVIEW.md. Der vollständige ursprüngliche Masterauftrag ist in dieser Umgebung vorhanden und unter review/MASTER_REQUEST.md gesichert. Originalcurriculum-PDF ebenfalls vorhanden und SHA-256 faa37c2dafb2824dda8e890c21f05a69d4f479ea64c255ca815892174889b90f bestätigt. Seite 19 ausdrücklich gelesen: anthropogene Beeinflussung des Kohlenstoffkreislaufs verpflichtend.
 
-## In Arbeit
+## Zwischenstand der Korrektur, 21.10.2026
+
+R1–R8 sind im Datenmodell und in den Oberflächen implementiert; endgültige Browserabnahme noch offen. 98 Modultests bestanden im ersten Gesamtstand; nach Ergänzung der konkreten Abbruchursache und echter Version-1-Exportfixtures bestehen die elf gezielten Tests erneut. Vor der finalen Übergabe alle Modultests erneut ausführen.
+
+Neue Daten: Status/Ende/Ursache je Beckenseite; ungleiche Messreihen; unveränderte Laufkonfiguration neben aktuellem Plan; vollständiger begrenzter lesender Import; Selektionsarchive; reproduzierbare und neue Mendelstichproben; eigene Messreihen; CSV-Schema 2. Kohlenstofftransfer ergänzt. Neuer, vom Korrekturauftrag ausdrücklich verlangter Workflow module-tests.yml; Pages-Workflows bleiben unverändert.
+
+Gezielter Browserprüfer: tests/learning_review_browser.py. Erster Lauf /tmp/pr8-review-browser.log bestätigte drei Prüfpunkte (R1/R3/R8), stoppte danach an einer falschen erwarteten Unterstützungsbeschriftung im Prüfskript. Zweiter Lauf /tmp/pr8-review-browser-2.log läuft nach Korrektur und mit unabhängiger realer Kernfortsetzung. Rohberichte unter /tmp/aquarium-pr8-review. Keine vergangenen Browsererfolge als aktuelle vollständige Abnahme ausgeben.
+
+## Noch abzuarbeiten / abschließend nachzuweisen
 
 1. R1: Status und Fortsetzung je Becken, ungleiche Reihen, letzter Ausfallschritt.
 2. R2: Begrenzter vollständiger lesender Import und Lehrkraftdarstellung.

@@ -229,7 +229,9 @@ test("CSV exports every calculated repetition and actual allele counts", () => {
       2,
     ),
     csv = comparisonCSV(r);
-  assert.equal(csv.split("\r\n").length, 1 + 2 * 2 * 4);
+  assert.equal(csv.split("\r\n").length, 1 + 2 * 2 * 4 * 8);
+  assert.ok(csv.includes("Anteil (0–1)"));
+  assert.ok(csv.includes("Genotyp AA"));
   assert.ok(csv.includes('"AA"'));
   assert.ok(csv.includes('"Versuch"'));
 });

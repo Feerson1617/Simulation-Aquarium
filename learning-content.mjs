@@ -300,8 +300,8 @@ export const MISSIONS = [
     10,
     "Kohlenstoff in Bewegung",
     "Welche Prozesse binden und setzen Kohlenstoff frei?",
-    "Fotosynthese, Biomasse, Zellatmung, Zersetzung und Gasaustausch qualitativ verknüpfen.",
-    "S. 19: Kohlenstoffkreislauf verbindlich",
+    "Fotosynthese, Biomasse, Zellatmung, Zersetzung und Gasaustausch qualitativ verknüpfen; menschliche Veränderungen von Speichern und Flüssen beurteilen.",
+    "S. 19–20: Kohlenstoffkreislauf und anthropogene Beeinflussung verbindlich; Handlungsfolgen bewerten",
     "foodweb",
     ["light", "co2"],
     ["co2", "plantBiomass", "photosynthesis", "respiration"],
@@ -309,10 +309,11 @@ export const MISSIONS = [
     [
       "Skizziere Kohlenstoffspeicher und Prozesspfeile.",
       "Vergleiche Lichtbedingungen oder CO₂-Zufuhr mit einer Kontrolle.",
-      "Erkläre CO₂- und Biomasseverläufe; ergänze Luftaustausch und Zersetzung.",
+      "Erkläre lokale CO₂-/Biomasseverläufe und prüfe danach am Transfermaterial menschliche Eingriffe.",
     ],
-    "Überarbeite die Skizze und unterscheide Kohlenstofftransport und Energieumwandlung.",
-    "Keine geschlossene Kohlenstoff-Massenbilanz: Biomasse und organische Pools sind relative Größen.",
+    "Erstelle zwei getrennte Speicherskizzen für Becken und globalen Transfer. Belege menschlich veränderte Flüsse mit einer Hintergrundquelle und begründe eine Handlungsoption samt Grenze.",
+    "Keine geschlossene Kohlenstoff-Massenbilanz: Biomasse und organische Pools sind relative Größen. Eine CO₂-Dosierstufe simuliert weder globale Emissionen noch das Klima.",
+    "carbon",
   ),
   mission(
     "10-restore",
@@ -466,6 +467,35 @@ export const HELP = {
   },
 };
 export const TRANSFER = {
+  carbon: {
+    title: "Menschliche Eingriffe in den Kohlenstoffkreislauf",
+    facts: [
+      "Aquariumdaten sind lokale Modellergebnisse. Die folgenden Materialien sind redaktionelle fachliche Zusammenfassungen von Hintergrundwissen, keine Messwerte aus deinem Becken und keine Originalzitate.",
+      "Material A – Fossile Verbrennung: Kohle, Erdöl und Erdgas enthalten über geologische Zeit gespeicherten Kohlenstoff. Ihre Verbrennung überträgt Kohlenstoff als CO₂ in die Atmosphäre. Land und Ozean nehmen einen Teil auf; dadurch verschwindet der zusätzliche Kohlenstoff nicht. Ein Teil verbleibt in der Atmosphäre. Quelle: IPCC AR6, Arbeitsgruppe I, Kapitel 5 (2021).",
+      "Material B – Landnutzung: Pflanzen nehmen CO₂ bei der Fotosynthese auf; Biomasse und Böden speichern Kohlenstoff. Rodung und Verbrennung können Vorräte verringern und CO₂ freisetzen; weniger Vegetation verändert zugleich die Aufnahme. Wie stark und wie lange, hängt vom Ort, der späteren Nutzung und Regeneration ab. Quelle: IPCC AR6, Arbeitsgruppe I, Kapitel 5 und Synthesebericht (2023).",
+      "Weniger fossile Verbrennung verringert einen zusätzlichen Zufluss in die Atmosphäre. Schutz kohlenstoffreicher Ökosysteme kann Vorratsverluste vermeiden. Aufforstung benötigt Zeit und Fläche, kann rückgängig werden und ersetzt nicht unbegrenzt Emissionsminderung. Maßnahmen brauchen ökologische, soziale und wirtschaftliche Kriterien.",
+    ],
+    tasks: [
+      "Zeichne getrennt: (1) die durch Aquariumdaten gestützten lokalen Wege und (2) fossilen Speicher, Atmosphäre, Land und Ozean aus Material A/B. Markiere menschlich veränderte Pfeile und unterscheide Speichergröße und Fluss.",
+      "Ordne jede deiner Aussagen einer Belegart zu: Aquarium-Messpunkt, Hintergrundmaterial oder noch unbelegte Schlussfolgerung. Prüfe die Hintergrundquelle und notiere genaue Fundstelle und Datum. Welche globalen Aussagen lassen sich aus deinem Becken gerade nicht ableiten?",
+      "Vergleiche weniger fossile Verbrennung mit Schutz/Wiederherstellung von Wald: Formuliere je eine Wirkung, eine zeitliche Grenze und einen Zielkonflikt. Begründe eine Kombination anhand zweier Kriterien. Keine globalen Mengen aus Modell-Dosierstufen hochrechnen.",
+    ],
+    consolidation:
+      "Sicherung: Erkläre an zwei menschlich veränderten Pfeilen, warum Kohlenstoff erhalten bleibt, seine Verteilung auf Speicher sich aber ändert. Trenne Stoffkreislauf von Energiefluss und begründe dein Urteil mit einer Hintergrundquelle; kennzeichne die Aquariumdaten separat.",
+    limits:
+      "Modellkritik: Das Becken berechnet keine fossile Verbrennung, Landnutzung, globalen Speichergrößen, Klimarückkopplungen oder geschlossene Kohlenstoffbilanz. CO₂-Dosierstufen sind qualitative technische Eingriffe ins Wasser; sie sind keine globale Emissionssimulation und erlauben keine Klimaprognose.",
+    sources: [
+      ["Originalcurriculum S. 19–20", CURRICULUM.url],
+      [
+        "IPCC AR6 WGI (2021), Kapitel 5: Global Carbon and other Biogeochemical Cycles",
+        "https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-5/",
+      ],
+      [
+        "IPCC AR6 Synthesebericht (2023), Zusammenfassung für politische Entscheidungsträger",
+        "https://www.ipcc.ch/report/ar6/syr/",
+      ],
+    ],
+  },
   forest: {
     title: "Wald als wirklicher Lerngegenstand",
     facts: [

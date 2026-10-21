@@ -7,10 +7,18 @@ from pathlib import Path
 from datetime import datetime,timezone
 from playwright.sync_api import sync_playwright,expect
 ROOT=Path(__file__).resolve().parents[1]
-OUT=Path(os.environ.get('AQUARIUM_QUEST_RESULTS','/tmp/aquarium-quest-results'))/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S');OUT.mkdir(parents=True)
+OUT=Path(os.environ['AQUARIUM_QUEST_RESUME']) if os.environ.get('AQUARIUM_QUEST_RESUME') else Path(os.environ.get('AQUARIUM_QUEST_RESULTS','/tmp/aquarium-quest-results'))/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S');OUT.mkdir(parents=True,exist_ok=bool(os.environ.get('AQUARIUM_QUEST_RESUME')))
 URL=os.environ.get('AQUARIUM_URL','http://127.0.0.1:8000/aquarium-simulation/').split('?')[0]
 SECTIONS=os.environ.get('AQUARIUM_QUEST_SECTIONS','desktop,touch,free,teacher,help').split(',')
 report={'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'checks':[],'errors':[],'failed_requests':[],'missions':[],'screenshots':[],'sections':SECTIONS}
+# Resume only remaining sections after a test-harness fix. Preserve the original
+# failed report and actual products; teacher imports still read all earlier exports.
+if os.environ.get('AQUARIUM_QUEST_RESUME'):
+ prior=json.loads((OUT/'report.json').read_text());assert prior['status']=='failed';assert not prior['errors'] and not prior['failed_requests']
+ assert 'desktop' not in SECTIONS and 'touch' not in SECTIONS
+ assert len(prior['missions'])==17 and len(prior['checks'])==17,'Resume requires all14 desktop and three touch missions already passed'
+ (OUT/'report-before-resume.json').write_text(json.dumps(prior,ensure_ascii=False,indent=2))
+ report.update(checks=prior['checks'],missions=prior['missions'],screenshots=prior['screenshots'],sections=list(dict.fromkeys(prior['sections']+SECTIONS)),resumed_sections=SECTIONS,resumed_from={'commit':prior['commit'],'failure':prior['failure'],'checks':len(prior['checks'])})
 IDS={8:['8-ecosystem','8-oxygen','8-foodweb','8-health','8-forest'],9:['9-traits','9-mendel','9-population','9-darwin'],10:['10-enrichment','10-carbon','10-restore','10-northsea','10-wadden']}
 BAN=re.compile(r'\b(JSON|CSV|SVG|Seed|Seeds|Modellkonfiguration|Messmetadaten|Curriculum|Fachanforderungen|didaktisch\w*|Versorgungsindikator|Tierkondition)\b',re.I)
 def passed(s): report['checks'].append(s);print('PASS',s,flush=True)
@@ -88,7 +96,7 @@ with sync_playwright() as pw:
    for g in [8,9,10]:
     start(p,g);assert not snap(p)['quest'];assert not p.locator('.learn-quest').count();action(p,'investigate')
     if g==9:action(p,'population-compare')
-    else:p.locator('[data-learning-value]').fill('0');action(p,'compare')
+    else:reveal(p.locator('[data-learning-value]')).fill('0');action(p,'compare')
     assert snap(p)['comparison']['runs'];short(p);action(p,'close');action(p,'observe');action(p,'measure');action(p,'advance');action(p,'measure');assert len(snap(p)['measurements'])==2;short(p)
     if g!=9:assert p.locator('.learn-measurements table tbody tr').count()==2;assert p.locator('.learn-measurements svg').is_visible()
     action(p,'close');action(p,'notebook');download(p,f'free-{g}.json');short(p);action(p,'close');action(p,'home');assert p.evaluate('localStorage.getItem("aquarium-werkstatt-v1")')==legacy

@@ -12,6 +12,17 @@ Fachproben: ohne Substrat kein Nitrifiziererwachstum, Wachstum bei tatsächliche
 
 Visuell geprüft: [NH₃ erhöht](evidence/biology/ammonia-lab-alkaline.png), [NH₃ gering trotz höherem NH4](evidence/biology/ammonia-lab-acid.png), [keine Fische bei lebenden Schnecken](evidence/biology/no-fish-live-snails.png). Diese Bilder zeigen tatsächliche aktuelle UI und sichtbare 3D-Szene nach beendeter Einblendung.
 
+## Konkrete Ergebnisse dieses Laufs
+
+| Untersuchung | Tatsächlicher Befund | Einordnung |
+| --- | --- | --- |
+| 8-ecosystem, drei Spieltage | Kontrolle25°C, Versuch25,9024°C bei Heizersoll27°C | Soll und Ist sind verschieden; allmähliche Erwärmung statt aktiver Kühlung. |
+| 8-oxygen, drei Spieltage | Kontrolle8,2839mg/L, Dunkelversuch8,1639mg/L O₂ | Vergleich zweier Becken zum selben Zeitpunkt. Hier keine Sauerstoffkrise; weitere Modellprozesse wirken mit. |
+| 9-mendel, tatsächliche F1/F2 | F1:24Aa. F2:6AA/10Aa/8aa, also16dunkel/8hell | Die theoretischen3:1 sind Wahrscheinlichkeit, keine erzwungene Anzahl im endlichen Wurf. |
+| Kontrollierter Fischverlust-Import | 0lebende/6verstorbene Fische,3lebende Wirbellose, Fischkonditionnull | Keine positive Fischkondition durch Schnecken; Anzahl und Kondition bleiben getrennt. |
+
+Mendel: tatsächliche F1-Eltern1/6, F2-Eltern25/26 aus der erzeugten F1. Die im Test bewusst gewählte F2-Vermutung „Nur hell“ bleibt eine Auswahl (`selection`, Zielgeneration2), kein eigener Text und keine F1-Vorhersage. Export und Reload bewahren das tatsächliche Archiv. Die Zahlen dienen als konkrete Nachweise dieses dokumentierten Zufallsstarts, nicht als universelle Vorhersage für Natur oder andere Seeds.
+
 ## Noch laufend / ausstehend
 
 Alle14 vollständigen biologischen Lernwege, zusätzliche Touchmissionen, alle Gerätefälle in drei Browserprofilen, R1–R8, Tutorial/Freispiel, Import/Export, Platzierung und einzelner HTML-Download. Ergebnisse werden erst nach tatsächlicher Ausführung übernommen. Während der gekoppelten Prüfung bleiben sämtliche HTML-/MJS-/CSS-Dateien unverändert; der serielle Runner kontrolliert ihre SHA-256-Werte vor jeder Gruppe und danach. Dokumentations-/Testanpassungen werden getrennt berichtet.

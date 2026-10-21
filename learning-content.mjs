@@ -20,7 +20,7 @@ export const GRADE_PROFILES = {
       "spiderwood",
     ],
     observations: ["temp", "oxygenState", "nutrients", "load"],
-    tools: ["light", "feed", "water", "plants", "temperature"],
+    tools: ["light", "feed", "water", "plants", "temperature", "filter"],
     question:
       "Wie hängen Licht, Lebewesen und Wasser in deinem Becken zusammen?",
     diagnosis:
@@ -33,7 +33,7 @@ export const GRADE_PROFILES = {
     subtitle: "Farbe und Nachkommen untersuchen",
     catalog: ["molly", "platy", "zebra", "waterweed", "anubias"],
     observations: ["individuals", "traits", "generations"],
-    tools: ["cross", "selection", "light", "feed", "water"],
+    tools: ["cross", "selection", "light", "feed", "water", "temperature", "filter"],
     question: "Welche Farben haben die Nachkommen?",
     diagnosis:
       "Ist ein dominantes Allel immer häufig oder vorteilhaft? Begründe.",
@@ -61,6 +61,7 @@ export const GRADE_PROFILES = {
       "plants",
       "temperature",
       "co2",
+      "filter",
     ],
     question: "Welche Veränderung hilft dem Aquarium?",
     diagnosis:

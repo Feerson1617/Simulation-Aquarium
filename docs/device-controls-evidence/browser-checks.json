@@ -1,0 +1,226 @@
+[
+  {
+    "label": "preview",
+    "mission": "8-ecosystem",
+    "completed": true
+  },
+  {
+    "label": "preview",
+    "mission": "8-oxygen",
+    "completed": true
+  },
+  {
+    "label": "preview",
+    "mission": "8-foodweb",
+    "completed": true
+  },
+  {
+    "label": "preview",
+    "mission": "8-health",
+    "completed": true
+  },
+  {
+    "label": "preview",
+    "mission": "8-forest",
+    "completed": true
+  },
+  {
+    "label": "preview",
+    "mission": "9-traits",
+    "completed": true
+  },
+  {
+    "label": "preview",
+    "mission": "9-mendel",
+    "completed": true
+  },
+  {
+    "label": "preview",
+    "mission": "9-population",
+    "completed": true
+  },
+  {
+    "label": "preview",
+    "mission": "9-darwin",
+    "completed": true
+  },
+  {
+    "label": "preview",
+    "mission": "10-enrichment",
+    "completed": true
+  },
+  {
+    "label": "preview",
+    "mission": "10-carbon",
+    "completed": true
+  },
+  {
+    "label": "preview",
+    "mission": "10-restore",
+    "completed": true
+  },
+  {
+    "label": "preview",
+    "mission": "10-northsea",
+    "completed": true
+  },
+  {
+    "label": "preview",
+    "mission": "10-wadden",
+    "completed": true
+  },
+  {
+    "label": "local",
+    "mission": "8-ecosystem",
+    "completed": true
+  },
+  {
+    "label": "local",
+    "mission": "8-oxygen",
+    "completed": true
+  },
+  {
+    "label": "local",
+    "mission": "8-foodweb",
+    "completed": true
+  },
+  {
+    "label": "local",
+    "mission": "8-health",
+    "completed": true
+  },
+  {
+    "label": "local",
+    "mission": "8-forest",
+    "completed": true
+  },
+  {
+    "label": "local",
+    "mission": "9-traits",
+    "completed": true
+  },
+  {
+    "label": "local",
+    "mission": "9-mendel",
+    "completed": true
+  },
+  {
+    "label": "local",
+    "mission": "9-population",
+    "completed": true
+  },
+  {
+    "label": "local",
+    "mission": "9-darwin",
+    "completed": true
+  },
+  {
+    "label": "local",
+    "mission": "10-enrichment",
+    "completed": true
+  },
+  {
+    "label": "local",
+    "mission": "10-carbon",
+    "completed": true
+  },
+  {
+    "label": "local",
+    "mission": "10-restore",
+    "completed": true
+  },
+  {
+    "label": "local",
+    "mission": "10-northsea",
+    "completed": true
+  },
+  {
+    "label": "local",
+    "mission": "10-wadden",
+    "completed": true
+  },
+  {
+    "label": "preview",
+    "free": 8,
+    "comparison": true,
+    "measurement": true
+  },
+  {
+    "label": "preview",
+    "free": 9,
+    "comparison": true,
+    "measurement": true
+  },
+  {
+    "label": "preview",
+    "free": 10,
+    "comparison": true,
+    "measurement": true
+  },
+  {
+    "label": "local",
+    "free": 8,
+    "comparison": true,
+    "measurement": true
+  },
+  {
+    "label": "local",
+    "free": 9,
+    "comparison": true,
+    "measurement": true
+  },
+  {
+    "label": "local",
+    "free": 10,
+    "comparison": true,
+    "measurement": true
+  },
+  {
+    "label": "local-regression",
+    "check": "mouse drag, arrow keyboard, German decimal; heater 26.5, filter 40, light 10 and intensity 65 survive reload; water responds after advancing",
+    "passed": true
+  },
+  {
+    "label": "local-devices",
+    "grade": 9,
+    "persisted": [
+      "heater",
+      "filter",
+      "light"
+    ]
+  },
+  {
+    "label": "local-devices",
+    "grade": 10,
+    "persisted": [
+      "heater",
+      "filter",
+      "light"
+    ]
+  },
+  {
+    "label": "local-expert",
+    "placement": true,
+    "tutorialStart": true,
+    "persisted": [
+      "heater",
+      "filter",
+      "light"
+    ]
+  },
+  {
+    "label": "preview-expert",
+    "check": "existing hardware settings are abstract sliders; heater range 15–33, lamp schedule and flow persist in state",
+    "inspected": true
+  },
+  {
+    "label": "preview-regression",
+    "check": "24.5 temperature rejected; pending quest accepts answer to old result after edit to 26",
+    "step": 4
+  },
+  {
+    "label": "local-regression",
+    "check": "stale result and conclusion blocked; recomputation resets pending reading; actual new answers complete quest",
+    "passed": true
+  }
+]

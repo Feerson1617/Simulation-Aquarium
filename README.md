@@ -12,6 +12,14 @@ Der **Lehrkraftmodus** bietet Vorbereitung, gezielte Freigaben, vollständige te
 
 [Neue Oberfläche und Datenübergang](docs/learning/quest/DESIGN.md), [alle 14 Questfolgen](docs/learning/quest/MISSIONS.md), [aktueller Prüfbericht](docs/learning/quest/VALIDATION.md), [Abnahme des Fortsetzungsauftrags](docs/learning/quest/ACCEPTANCE.md). Die [Fachprüfung](docs/learning/AUDIT.md), der [frühere Masterbericht](docs/learning/REPORT.md) und die [Abnahme R1–R8](docs/learning/ACCEPTANCE.md) dokumentieren den erhaltenen fachlichen Unterbau. Die Zuordnung zum Originalcurriculum ist geprüft; Unterrichtserprobung und physische Safari-iPads bleiben gesonderte Aufgaben.
 
+## Geräte direkt einstellen
+
+Heizstab, Filter und Lampe lassen sich am sichtbaren 3D-Gerät oder dessen großer Schaltfläche öffnen. Das hervorgehobene Gerät hat einen gemeinsamen Drehregler mit Ziehen, Pfeiltasten, Plus/Minus und direkter Eingabe, auch mit Dezimalkomma. Im Freien Forschen gelten die Änderungen für das aktuelle Becken; beim Planen eines Vergleichs für Becken 2. Licht bietet im aktuellen Becken auch einen Helligkeitsregler. Die fachlichen Freischaltungen einer Mission gelten weiter.
+
+Einstellungen bleiben bis zur nächsten Änderung bestehen. Der getrennte **Beobachtungszeitraum** begrenzt nur die berechnete Datenreihe. Wasserwechsel, Nährstoffeintrag und Pflanzenzugabe sind einmalige Aktionen. Wassertemperatur und biologische Folgen reagieren erst mit vergehender Spielzeit. Nach einem geänderten Versuchsplan müssen ausstehende Quest-Ergebnisse erneut berechnet und ausgewertet werden.
+
+Für alle Jahrgänge, den Expertenmodus und künftige Codex-Aufträge gelten die [gemeinsamen Bedienregeln](docs/device-controls.md). [Priorisierte Fehlerprüfung und Testmatrix](docs/device-controls-audit.md), [vollständige eigenständige Codex-Anweisung für PR 8](docs/device-controls-codex-instruction.md). `AGENTS.md` bleibt unverändert maßgeblich.
+
 ## Desktop- und iPad-Darstellung
 
 Im Expertenmodus zuerst **Desktop-Version** oder **iPad-Version** wählen, danach Freies Spiel, Tutorial oder Szenarien starten. In den Lernumgebungen ist die Darstellung separat erreichbar. Desktop beginnt mit **Maximum**. Unter **Zeit & Runde → Darstellung** sind später **Hoch**, **Ultra**, **Maximum** und **iPad** wählbar. Der Wechsel baut nur die Grafik neu auf; die biologische Simulation und gespeicherte Becken bleiben gleich. Die Darstellungsauswahl steht getrennt unter `aquarium-graphics-v1` in `localStorage`.

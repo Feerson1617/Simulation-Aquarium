@@ -8,7 +8,8 @@ import {
 import { createScenario } from "./scenarios.mjs";
 import { initializeIndividual } from "./genetics.mjs";
 import { validateLearningPopulation } from "./learning-population.mjs";
-export const LEARNING_MODEL_REVISION = "learning-evidence-2";
+import { controlNumber, requireControlValue, validControlValue, applyEquipmentSetting } from "./control-values.mjs";
+export const LEARNING_MODEL_REVISION = "learning-devices-3";
 export const POPULATION_METRICS = {
   AA: ["Genotyp AA", "Anzahl"],
   Aa: ["Genotyp Aa", "Anzahl"],
@@ -37,7 +38,7 @@ export const LEARNING_TOOLS = {
     min: 0,
     max: 3,
     step: 0.25,
-    value: 0.65,
+    value: 0.75,
     description:
       "Futtersorte bleibt gleich. Nicht gefressene Anteile können organische Reste bilden.",
   },
@@ -75,7 +76,7 @@ export const LEARNING_TOOLS = {
     unit: "°C",
     min: 20,
     max: 30,
-    step: 1,
+    step: 0.5,
     value: 25,
     description:
       "Der Heizer nähert die Wassertemperatur schrittweise an den Sollwert an.",
@@ -89,6 +90,10 @@ export const LEARNING_TOOLS = {
     value: 3,
     description:
       "Kalibrierte Dosierstufe, keine Menge eines realen CO₂-Geräts.",
+  },
+  filter: {
+    label: "Filterdurchfluss", unit: "%", min: 0, max: 100, step: 5, value: 75,
+    description: "Durchfluss des vorhandenen Filters; kein Filterwechsel und kein Zurücksetzen der Bakterien.",
   },
 };
 export const LEARNING_METRICS = {
@@ -106,6 +111,18 @@ export const LEARNING_METRICS = {
   respiration: ["Atmung im letzten Schritt", "mg O₂/L je Schritt"],
   loadLevel: ["Wasserbelastung", "Stufe 0–2"],
 };
+/** Reconcile only the editable plan; never change the saved tank or baseline. */
+export function reconcileLearningStudy(study, allowed) {
+  const next = structuredClone(study), list = allowed.filter(k => Object.hasOwn(LEARNING_TOOLS,k));
+  if (!list.includes(next.tool)) {
+    next.tool = list[0] || "light";
+    next.value = LEARNING_TOOLS[next.tool].value;
+  }
+  const hasDraft = Object.hasOwn(next.drafts || {},next.tool);
+  if (!hasDraft && (next.value == null || (next.tool === "feed" && next.value === .65)))
+    next.value = LEARNING_TOOLS[next.tool].value;
+  return next;
+}
 export function normalizeLearningTag(tag) {
   if (tag == null) return null;
   if (
@@ -281,25 +298,14 @@ export function createLearningTank(tag, host) {
 }
 export function applyLearningIntervention(payload, key, value, host) {
   const def = Object.hasOwn(LEARNING_TOOLS, key) ? LEARNING_TOOLS[key] : null;
-  if (
-    !def ||
-    !Number.isFinite(value) ||
-    value < def.min ||
-    value > def.max ||
-    Math.abs(
-      (value - def.min) / def.step - Math.round((value - def.min) / def.step),
-    ) > 1e-6
-  )
-    throw new Error("Ungültiger Eingriff.");
+  if (!def) throw new Error("Unbekanntes Werkzeug.");
+  value = requireControlValue(value, def);
+  if (["temperature", "light", "filter"].includes(key))
+    return applyEquipmentSetting(payload, key, value, def);
   const s = structuredClone(payload);
-  if (key === "light") s.hours = value;
   if (key === "feed") {
     s.autoFeed = true;
     s.feedRate = value;
-  }
-  if (key === "temperature") {
-    s.heater = true;
-    s.setTemp = value;
   }
   if (key === "co2") s.co2Dose = value;
   if (key === "water") host.waterChange(s, value);
@@ -427,7 +433,7 @@ export function snapshotLearningPlan({
     tool: kind === "ecology" ? study.tool : null,
     value:
       kind === "ecology"
-        ? (study.value ?? LEARNING_TOOLS[study.tool]?.value)
+        ? (Object.hasOwn(study.drafts || {}, study.tool) ? controlNumber(study.drafts[study.tool]) : (study.value ?? LEARNING_TOOLS[study.tool]?.value))
         : null,
     days: kind === "ecology" ? study.days : null,
     environment: kind === "population" ? study.environment : null,
@@ -787,15 +793,7 @@ function evidenceConfiguration(raw, draft = false) {
     if (!Object.hasOwn(LEARNING_TOOLS, clean.tool))
       throw new Error("Unbekanntes Werkzeug im Plan.");
     const d = LEARNING_TOOLS[clean.tool];
-    if (
-      !Number.isFinite(clean.value) ||
-      clean.value < d.min ||
-      clean.value > d.max ||
-      Math.abs(
-        (clean.value - d.min) / d.step -
-          Math.round((clean.value - d.min) / d.step),
-      ) > 1e-6
-    ) {
+    if (!validControlValue(clean.value, d)) {
       if (!draft) throw new Error("Ungültiger dokumentierter Eingriff.");
       incomplete = true;
       if (!Number.isFinite(clean.value) || Math.abs(clean.value) > 1000000)

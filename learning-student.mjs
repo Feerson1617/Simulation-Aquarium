@@ -53,6 +53,7 @@ export const STUDENT_TOOLS = {
     "Wie viele Wasserpest-Pflanzen möchtest du ergänzen?",
   ],
   temperature: ["Heizer", "°C", "Welche Temperatur stellst du ein?"],
+  filter: ["Filter", "% Durchfluss", "Wie stark soll der vorhandene Filter das Wasser bewegen?"],
   nutrients: [
     "Nährstoffe",
     "Stufe",
@@ -144,7 +145,7 @@ export function createStudentViews(api) {
       (unlockedMetrics?.length
         ? `<h3>Weitere Werte</h3><dl class="learn-values">${unlockedMetrics.map((k) => `<div><dt>${esc(STUDENT_METRICS[k][0])} ${["no2", "no3"].includes(k) ? helpButton("nitrogen") : ""}</dt><dd>${num(api.sample()[k], 3)} ${esc(STUDENT_METRICS[k][1])}</dd></div>`).join("")}</dl>`
         : "") +
-      `<div class="learn-actions">${button("measure", "Werte merken")}${button("advance", "1 Tag warten")}</div><small>${session.measurements.length} Messungen gespeichert.</small>${session.measurements.length ? api.manual() : ""}${tag.mode === "free" && tag.grade !== 9 ? `<details><summary>Becken verändern</summary>${api.form("care")}${button("apply", "Anwenden")}</details>` : ""}`
+      `<div class="learn-actions">${button("measure", "Werte merken")}${button("advance", "1 Tag warten")}</div><small>${session.measurements.length} Messungen gespeichert.</small>${session.measurements.length ? api.manual() : ""}${tag.mode === "free" ? `<details><summary>Becken verändern</summary>${api.form("care")}${button("apply", "Anwenden")}</details>` : ""}`
     );
   }
   function results() {
@@ -195,7 +196,7 @@ export function createStudentViews(api) {
               session.study.environment,
             )}</select></label><label>Generationen<input type="number" data-learning-generations min="1" max="15" value="${session.study.generations}"></label><small>Eine Generation: Eltern bekommen Nachkommen. Das ist kein einzelner Tag.</small>`
           : api.form("study") +
-            `<label>Tage<input type="number" data-learning-days min="1" max="14" value="${session.study.days}"></label>`
+            `<details class="learn-observation-window"><summary>Beobachtungszeitraum: ${session.study.days} Tage</summary><p>So lange werden die beiden Verläufe berechnet. Geräteeinstellungen laufen danach weiter, bis du sie erneut änderst. Einmalige Aktionen geschehen nur am Anfang.</p><label>Beobachtungszeitraum in Tagen<input type="number" data-learning-days min="1" max="14" step="1" value="${session.study.days}"></label></details>`
       }<details><summary>Versuch wiederholen</summary><label>Wie oft?<input type="number" data-learning-repetitions min="1" max="4" value="${session.study.repetitions}"></label>${!population ? button("baseline", "Dieses Becken als Anfang nehmen") : ""}</details>${button(population ? "population-compare" : "compare", "Versuch starten")}${results()}`
     );
   }

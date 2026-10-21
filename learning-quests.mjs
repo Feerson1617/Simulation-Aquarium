@@ -460,7 +460,7 @@ export function questEvent(state, event, evidence = {}) {
   }
   const d = QUESTS[state.id],
     kind = d.experiment.kind;
-  if (![2, 3].includes(state.step) || event !== kind) return false;
+  if (![2, 3, 4].includes(state.step) || event !== kind) return false;
   if (
     kind === "ecology" &&
     (!evidence.changed || evidence.compatible === false || !evidence.result)
@@ -477,7 +477,7 @@ export function questEvent(state, event, evidence = {}) {
     return false;
   if (kind === "traits" && (!evidence.hasAA || !evidence.hasAa)) return false;
   state.result = structuredClone(evidence.result || { kind: "traits" });
-  state.entries = state.entries.filter((e) => e.step !== 2);
+  state.entries = state.entries.filter((e) => e.step < 2);
   state.entries.push({
     step: 2,
     event,

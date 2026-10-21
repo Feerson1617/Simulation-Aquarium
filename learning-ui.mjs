@@ -1,3 +1,5 @@
+import { dialControl, mountDials } from "./control-dial.mjs";
+import { controlNumber, requireControlValue, applyEquipmentSetting } from "./control-values.mjs";
 import {
   QUESTS,
   newQuest,
@@ -28,6 +30,7 @@ import {
   comparisonTimes,
   measurementCSV,
   LEARNING_TOOLS,
+  reconcileLearningStudy,
   LEARNING_METRICS,
   learningSlot,
   learningTools,
@@ -451,6 +454,11 @@ export function mountLearningUI(host) {
       }
       if (e.kind === "population") session.study.metric = "dark";
     }
+    const reconciled = reconcileLearningStudy(session.study,tools());
+    if (JSON.stringify(reconciled) !== JSON.stringify(session.study)) {
+      session.earlierStudy ??= structuredClone(session.study);
+    }
+    session.study = reconciled;
     selected = null;
     showGenes = false;
     screen = "active";
@@ -590,22 +598,52 @@ export function mountLearningUI(host) {
       `<h3>Beobachtung festhalten</h3><p>${num(snap.individuals, 0)} Tiere · Algen ${s.algae < 0.2 ? "wenig" : s.algae < 0.6 ? "zunehmend" : "viel"} · ${snap.health >= 80 ? "Den Fischen geht es gut" : snap.health >= 50 ? "Den Fischen geht es nicht gut" : "Die Fische sind in Gefahr"}.</p>${button("measure", "Messzeitpunkt protokollieren")}<p>${session.measurements.length} Messzeitpunkte gespeichert.</p>${manualData({ measurements: session.measurements, measurementMetrics: recordedMetrics(session.measurements, metrics()) })}<h3>Einen Eingriff bewusst wählen</h3>${interventionForm("care")}${tools().some((k) => LEARNING_TOOLS[k]) ? button("apply", "Im Becken anwenden") : ""}<p class="learn-caption">Für einen kontrollierten Vergleich öffne „Untersuchen“. Ein Eingriff hier verändert nur dein aktuelles Becken.</p>`
     );
   }
+  function selectTool(key) {
+    if (!tools().includes(key) || !LEARNING_TOOLS[key]) throw new Error("Dieses Werkzeug ist nicht freigeschaltet.");
+    session.study.values ??= {};
+    session.study.values[session.study.tool] = session.study.value;
+    session.study.tool = key;
+    session.study.value = session.study.values[key] ?? LEARNING_TOOLS[key].value;
+  }
+  function openDevice(key, scope = panel === "investigate" || tag?.mode === "missions" ? "study" : "care") {
+    selectTool(key);
+    const previous = panel;
+    closePanel();
+    host.deviceOpen(key, {
+      scope: scope === "study" ? "study" : "live",
+      definition: LEARNING_TOOLS[key],
+      value: scope === "study" ? session.study.value : host.getState()[{temperature:"setTemp",light:"hours",filter:"flow"}[key]],
+      onCommit: (value, intensity) => {
+        session.study.value = value;
+        if (session.study.drafts) delete session.study.drafts[key];
+        if (scope !== "study") {
+          let next = applyLearningIntervention(host.getState(), key, value, host);
+          if (intensity != null) next = applyEquipmentSetting(next, "intensity", intensity);
+          host.open(next);
+        }
+        persist();
+        if (scope === "study") showPanel("investigate"); else render();
+      },
+      onCancel: () => {if (previous) showPanel(previous);},
+    });
+  }
   function interventionForm(prefix) {
-    let list = tools().filter((k) => LEARNING_TOOLS[k]);
-    if (!list.length)
-      return "<p>Für dieses Lernziel ist kein Pflegeeingriff freigeschaltet.</p>";
-    let key = list.includes(session.study.tool) ? session.study.tool : list[0],
-      d = LEARNING_TOOLS[key],
-      value = session.study.value ?? d.value;
-    if (!detailed)
-      return `<label>Was änderst du?<select data-learning-tool="${prefix}">${options(
-        list.map((k) => [k, STUDENT_TOOLS[k][0]]),
-        key,
-      )}</select></label><label>${esc(STUDENT_TOOLS[key][0])} (${esc(STUDENT_TOOLS[key][1])})<input type="number" data-learning-value value="${esc(value)}" min="${d.min}" max="${d.max}" step="${d.step}" required></label><small>${esc(STUDENT_TOOLS[key][2])}</small>`;
-    return `<label>Veränderte Bedingung<select data-learning-tool="${prefix}">${options(
-      list.map((k) => [k, LEARNING_TOOLS[k].label]),
-      key,
-    )}</select></label><label>${esc(d.label)} (${d.unit})<input type="number" data-learning-value value="${esc(value)}" min="${d.min}" max="${d.max}" step="${d.step}" required></label><small>${esc(d.description)}</small>`;
+    const list = tools().filter(k => LEARNING_TOOLS[k]);
+    if (!list.length) return "<p>Für dieses Lernziel ist kein Pflegeeingriff freigeschaltet.</p>";
+    const key = session.study.tool, d = LEARNING_TOOLS[key], value = session.study.drafts?.[key] ?? session.study.value ?? d.value;
+    const device = ["temperature", "light", "filter"].includes(key), persistent = device || ["feed","co2"].includes(key);
+    return `<section data-learning-form><div class="learn-tool-choices" role="group" aria-label="Eingriff wählen">${list.map(k => `<button type="button" data-learning-tool-choice="${k}" aria-pressed="${k === key}">${esc(STUDENT_TOOLS[k][0])}</button>`).join("")}</div><input type="hidden" data-learning-tool="${prefix}" value="${key}">${device ? button("device-"+key, "Am 3D-Gerät einstellen") + dialControl(d,value,"data-learning-value") : `<label>${esc(STUDENT_TOOLS[key][0])} (${esc(d.unit)})<input type="text" inputmode="decimal" autocomplete="off" data-learning-value value="${esc(value)}" required></label><p data-control-error role="alert"></p>`}<p class="learn-setting-note">${persistent ? "Dauerhafte Einstellung: bleibt bis zur nächsten Änderung bestehen." : "Einmalige Aktion: wird genau einmal ausgeführt."} ${prefix === "study" ? "Hier planst du Becken 2. Der Vergleich beginnt erst mit „Versuch starten“." : "Wirkt auf dein aktuelles Becken."}</p><small>${esc(d.description)}</small></section>`;
+  }
+  function readIntervention() {
+    const tool = session.study.tool, def = LEARNING_TOOLS[tool], field = root.querySelector("[data-learning-value]");
+    try {
+      const value = requireControlValue(field?.value, def);
+      session.study.value = value;
+      return {tool, value};
+    } catch (error) {
+      root.querySelector("[data-learning-form] [data-control-error]").textContent = error.message;
+      field?.setAttribute("aria-invalid", "true"); field?.focus(); throw error;
+    }
   }
   function notebook() {
     if (!detailed) return student.notebook();
@@ -623,7 +661,7 @@ export function mountLearningUI(host) {
     if (tag.grade === 9) return breedingView();
     return (
       panelHeader("Kontrollierter Vergleich", "control") +
-      `<p>Beide Becken starten aus derselben gesicherten Ausgangslage (Tag ${num(session.baseline.day, 1)}). Nur im Versuch wird eine Bedingung geändert.</p>${SUPPORT[teacher.support].steps ? "<ol><li>Frage, Hypothese und Plan notieren.</li><li>Eine Bedingung auswählen und Verlauf vorhersagen.</li><li>Kontrolle und Versuch messen; Daten erklären.</li></ol>" : ""}${tag.mode === "free" ? textArea("question", session.notes.question) : ""}${textArea("hypothesis", session.notes.hypothesis)}${textArea("prediction", session.notes.prediction)}${textArea("plan", session.notes.plan)}${interventionForm("study")}<div class="learn-two"><label>Dauer (Tage)<input type="number" data-learning-days min="1" max="14" value="${session.study.days || 3}"></label><label>Wiederholungen<input type="number" data-learning-repetitions min="1" max="4" value="${session.study.repetitions || 2}"></label></div><div class="learn-actions">${button("compare", "Vergleich berechnen")}${button("baseline", "Aktuelles Becken als Ausgangslage")}</div><small>Wiederholungen variieren den Zufallsstart, nicht die Startbestände. Das Modell erzeugt keine künstlichen Messfehler. Gleiche Kurven sind möglich.</small>${session.comparison?.kind === "ecology" ? results(session.comparison) : ""}`
+      `<p>Beide Becken starten aus derselben gesicherten Ausgangslage (Tag ${num(session.baseline.day, 1)}). Nur im Versuch wird eine Bedingung geändert.</p>${SUPPORT[teacher.support].steps ? "<ol><li>Frage, Hypothese und Plan notieren.</li><li>Eine Bedingung auswählen und Verlauf vorhersagen.</li><li>Kontrolle und Versuch messen; Daten erklären.</li></ol>" : ""}${tag.mode === "free" ? textArea("question", session.notes.question) : ""}${textArea("hypothesis", session.notes.hypothesis)}${textArea("prediction", session.notes.prediction)}${textArea("plan", session.notes.plan)}${interventionForm("study")}<div class="learn-two"><label>Beobachtungszeitraum (Tage)<input type="number" data-learning-days min="1" max="14" value="${session.study.days || 3}"></label><label>Wiederholungen<input type="number" data-learning-repetitions min="1" max="4" value="${session.study.repetitions || 2}"></label></div><div class="learn-actions">${button("compare", "Vergleich berechnen")}${button("baseline", "Aktuelles Becken als Ausgangslage")}</div><small>Wiederholungen variieren den Zufallsstart, nicht die Startbestände. Das Modell erzeugt keine künstlichen Messfehler. Gleiche Kurven sind möglich.</small>${session.comparison?.kind === "ecology" ? results(session.comparison) : ""}`
     );
   }
   function plot(comp, key) {
@@ -1122,6 +1160,7 @@ export function mountLearningUI(host) {
       });
     }
   }
+  mountDials(root);
   root.addEventListener("input", (e) => {
     if (e.target.dataset.learningNote) {
       session.notes[e.target.dataset.learningNote] = e.target.value;
@@ -1136,7 +1175,11 @@ export function mountLearningUI(host) {
     };
     for (const [attr, key] of Object.entries(numeric))
       if (e.target.hasAttribute(attr)) {
-        session.study[key] = e.target.valueAsNumber;
+        session.study[key] = controlNumber(e.target.value);
+        if (key === "value") {
+          session.study.drafts ??= {};
+          session.study.drafts[session.study.tool] = e.target.value;
+        }
         persist();
         refreshResultNotice();
       }
@@ -1146,8 +1189,7 @@ export function mountLearningUI(host) {
       d = t.dataset;
     try {
       if (d.learningTool) {
-        session.study.tool = t.value;
-        session.study.value = LEARNING_TOOLS[t.value].value;
+        selectTool(t.value);
         persist();
         render();
       }
@@ -1249,8 +1291,15 @@ export function mountLearningUI(host) {
     if (!t) return;
     const d = t.dataset;
     try {
+      if (d.learningToolChoice) {
+        selectTool(d.learningToolChoice); persist(); render();
+        root.querySelector(`[data-learning-tool-choice="${d.learningToolChoice}"]`)?.focus();
+        return;
+      }
       if (d.questAnswer !== undefined) {
         const old = session.quest.step;
+        if ([3, 4].includes(old) && session.comparison && !planMatchesComparison(session.comparison, currentPlan(session.comparison.kind)))
+          throw new Error("Der Versuch wurde geändert. Starte ihn erneut, bevor du diese Ergebnisse vergleichst.");
         if (answerQuest(session.quest, Number(d.questAnswer))) {
           const entry = session.quest.entries.at(-1);
           if (old === 1) session.notes.prediction = entry.answer;
@@ -1336,6 +1385,7 @@ export function mountLearningUI(host) {
       }
       const a = d.learn;
       if (!a) return;
+      if (a.startsWith("device-")) {openDevice(a.slice(7));return;}
       if (
         [
           "observe",
@@ -1547,8 +1597,7 @@ export function mountLearningUI(host) {
         return;
       }
       if (a === "apply") {
-        const tool = root.querySelector("[data-learning-tool]")?.value,
-          value = root.querySelector("[data-learning-value]")?.valueAsNumber;
+        const {tool, value} = readIntervention();
         if (!tools().includes(tool))
           throw new Error("Dieses Werkzeug ist nicht freigeschaltet.");
         const next = applyLearningIntervention(
@@ -1571,8 +1620,7 @@ export function mountLearningUI(host) {
       }
       if (a === "compare") {
         if (!requirePlan()) return;
-        const tool = root.querySelector("[data-learning-tool]").value,
-          value = root.querySelector("[data-learning-value]").valueAsNumber;
+        const {tool, value} = readIntervention();
         if (!tools().includes(tool))
           throw new Error("Werkzeug nicht freigeschaltet.");
         session.comparison = runLearningComparison(
@@ -1838,6 +1886,12 @@ export function mountLearningUI(host) {
   host.root.append(entry);
   render();
   return {
+    openDevice,
+    deviceContext: () => ({
+      visible: screen === "active" && !helpKey && (!panel || panel === "investigate"),
+      tools: tag ? tools() : [],
+      focus: panel === "investigate" && tag?.grade !== 9 ? session.study.tool : null,
+    }),
     blocksScene: () =>
       screen !== "expert" && (screen !== "active" || !!panel || !!helpKey),
     active: () => screen === "active",

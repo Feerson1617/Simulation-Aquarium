@@ -155,7 +155,7 @@ test("R2/R3: JSON round trip keeps actual run, frozen planning, status, manual d
       pages: "19–20",
       scope: "Qualitatives Modell",
     },
-    modelVersion: "learning-evidence-2",
+    modelVersion: "learning-devices-3",
     comparison: c,
     currentPlan: config(),
     measurements: [
@@ -443,7 +443,7 @@ test("R8: CSV identifies profile, intervention value, units, model, seed, time s
   assert.equal(row.Eingriff, "Einmaliger Wasserwechsel");
   assert.equal(row.Eingriffswert, "50");
   assert.equal(row.Eingriffseinheit, "%");
-  assert.equal(row.Modellstand, "learning-evidence-2");
+  assert.equal(row.Modellstand, "learning-devices-3");
   assert.equal(row.Seed, "47291");
   assert.equal(row.Zeitschritt, "0.25");
   assert.equal(row["Geplante Dauer"], "14");

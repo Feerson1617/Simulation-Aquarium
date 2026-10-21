@@ -16,8 +16,9 @@ report={'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,tex
 if os.environ.get('AQUARIUM_QUEST_RESUME'):
  prior=json.loads((OUT/'report.json').read_text());assert prior['status']=='failed';assert not prior['errors'] and not prior['failed_requests']
  assert 'desktop' not in SECTIONS and 'touch' not in SECTIONS
- assert len(prior['missions'])==17 and len(prior['checks']) in [17,22],'Resume requires all14 desktop and three touch missions; any completed free/teacher sections are retained'
+ assert len(prior['missions'])==17 and len(prior['checks']) in [17,22,25],'Resume requires all14 desktop and three touch missions; any completed free/teacher sections are retained'
  if len(prior['checks'])==22:assert SECTIONS==['help'],'Only help and migration remain after all free/teacher checks passed'
+ if len(prior['checks'])==25:assert SECTIONS==['migration'],'Only legacy migration remains after all help checks passed'
  history=prior.get('resumptions',([prior['resumed_from']] if prior.get('resumed_from') else []))
  (OUT/f'report-before-resume-{len(history)+1}.json').write_text(json.dumps(prior,ensure_ascii=False,indent=2))
  report.update(checks=prior['checks'],missions=prior['missions'],screenshots=prior['screenshots'],sections=list(dict.fromkeys(prior['sections']+SECTIONS)),resumed_sections=SECTIONS,resumptions=[*history,{'commit':prior['commit'],'failure':prior['failure'],'checks':len(prior['checks'])}])
@@ -29,10 +30,11 @@ def action(p,name):
  loc=p.locator(f'[data-learn="{name}"]').filter(visible=True).first
  if not loc.count() and name=='home':action(p,'more');loc=p.locator('[data-learn="home"]').filter(visible=True).first
  loc.click()
-def start(p,g,id=None):
+def start(p,g,id=None,legacy=False):
  p.locator(f'[data-learn-grade="{g}"]').click();action(p,'missions' if id else 'free')
  if id:p.locator(f'[data-learn-mission="{id}"]').click()
- state=snap(p);disturbed=id in ['8-health','10-restore'];assert not [item for item in state['habitat'] if not disturbed or item['key']!='nitrite'],state['habitat']
+ state=snap(p);disturbed=id in ['8-health','10-restore']
+ if not legacy:assert not [item for item in state['habitat'] if not disturbed or item['key']!='nitrite'],state['habitat']
 def answer(p,i):p.locator(f'[data-quest-answer="{i}"]').filter(visible=True).click()
 def short(p):
  text=p.locator('#learning-root').inner_text();assert not BAN.search(text),BAN.search(text).group() if BAN.search(text) else text
@@ -128,11 +130,14 @@ with sync_playwright() as pw:
     if g!=9:assert {'oxygen','control','species'}.issubset(seen),seen  # Only visible topics: unrelated water values are deliberately collapsed/absent.
     else:assert {'genotype','selection'}.issubset(seen)
     action(p,'more');action(p,'glossary');short(p);action(p,'close');action(p,'home');passed(f'grade {g}: every regular question-mark help has the correct topic, short text, keyboard focus and touch-size controls')
+   c.close()
+  if 'help' in SECTIONS or 'migration' in SECTIONS:
+   c,p=context(b,True)
    # Genuine old tank+notes migrate without replacing the previous plan or explanation.
    tank=json.loads((ROOT/'tests/fixtures/legacy-v1.json').read_text());old=json.loads((ROOT/'tests/fixtures/learning-v1-grade-8.json').read_text());tank['learning']={'version':1,'grade':8,'mode':'missions','mission':'8-oxygen'}
    prior={'version':1,'notes':{'question':'Meine alte Frage','explanation':'Meine frühere Erklärung'},'measurements':[],'baseline':tank,'comparison':None,'study':{'tool':'light','value':12,'days':4,'repetitions':1,'metric':'oxygen','environment':'dark','generations':5}}
    p.evaluate('(v)=>{localStorage.setItem("aquarium-learning-tank-v1:8:8-oxygen",JSON.stringify(v.tank));localStorage.setItem("aquarium-learning-notes-v1:aquarium-learning-tank-v1:8:8-oxygen",JSON.stringify(v.prior))}',{'tank':tank,'prior':prior})
-   start(p,8,'8-oxygen');assert snap(p)['study']['value']==12 and snap(p)['study']['days']==4;action(p,'notebook');p.get_by_text('Frühere Ergebnisse',exact=True).click();expect(p.locator('.learn-panel')).to_contain_text('Meine frühere Erklärung');f=download(p,'migrated-notes.json');assert json.loads(f.read_text())['earlierNotes']['explanation']=='Meine frühere Erklärung';passed('old learning session: previous settings and notes survive quest migration and file export');c.close()
+   start(p,8,'8-oxygen',legacy=True);assert snap(p)['habitat']==[{'uid':2,'species':'neon','key':'group'}], 'The genuine old single-neon fixture remains unchanged; it is not a healthy new start';assert p.evaluate('JSON.parse(localStorage.getItem("aquarium-learning-tank-v1:8:8-oxygen")).params')==tank['params'];assert snap(p)['study']['value']==12 and snap(p)['study']['days']==4;action(p,'notebook');p.get_by_text('Frühere Ergebnisse',exact=True).click();expect(p.locator('.learn-panel')).to_contain_text('Meine frühere Erklärung');f=download(p,'migrated-notes.json');assert json.loads(f.read_text())['earlierNotes']['explanation']=='Meine frühere Erklärung';passed('old learning session: previous settings and notes survive quest migration and file export');c.close()
   assert not report['errors'],report['errors'];assert not report['failed_requests'],report['failed_requests'];report['status']='passed'
  except Exception as e:
   report['status']='failed';report['failure']=str(e)

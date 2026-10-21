@@ -64,3 +64,6 @@ Laufv5 bestand alle3 freien Jahrgänge und beide Lehrkraftprüfpunkte, einschlie
 
 
 Auf27003a4 erneut139/139Node sowie alle11 tatsächlichen biologischen Browserproben bestanden (v6). Neue Labor-/Fischstatusbilder und beide aktuellen Protokolle gesichert. Nur noch Hilfen/Migration in der bereits22 erfolgreichen Questpunkten umfassenden Gruppe; danach Geräte, R1–R8, Spielbereitschaft/Tutorial, Platzierung, Einzel-HTML und finale Populations-/Hochformat-Bildkontrolle. Keine Laufzeitdateien seit27003a4 verändert.
+
+
+Alle3 Hilfenjahrgänge auf27003a4 bestanden (v6). Letzter Migrationsschritt stoppte am neuen Habitatcheck des Prüfers: die ausdrücklich echte alte Kompatibilitätsdatei enthält einen einzelnen Neon und wurde fälschlich wie ein neu vorbereitetes gesundes Startbecken geprüft. Kein neuer Spielfehler. Frische17Profile bleiben streng geprüft; ausschließlich der Altimportpfad darf dessen unveränderte bekannte Gruppenlücke behalten und prüft jetzt zusätzlich alte Wasserparameter exakt. Spielstand wird nicht durch neue Tiere/gelockerte Artansprüche verändert.25 erfolgreiche Questprüfpunkte erhalten; nur dieser Migrationsschritt wird fortgesetzt, danach die noch offenen Gesamtregressionsgruppen. Keine Laufzeitänderung seit27003a4.

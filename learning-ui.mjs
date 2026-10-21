@@ -136,6 +136,7 @@ export function mountLearningUI(host) {
       w: waterIndicators(host.getState()),
       types: host.types,
       showGenes,
+      unlockedMetrics: teacher.unlockMetrics,
     }),
     healthText: () => {
       const h = learningSample(host.getState(), host.types).health;
@@ -146,6 +147,7 @@ export function mountLearningUI(host) {
           : "Die Fische sind in Gefahr.";
     },
     tools,
+    sample: () => learningSample(host.getState(), host.types),
     catalog: () => GRADE_PROFILES[tag.grade].catalog,
     form: interventionForm,
     plot,
@@ -162,13 +164,25 @@ export function mountLearningUI(host) {
     if (tag.grade === 9) return ["dark", "light", "A"];
     const primary = QUESTS[tag.mission]?.experiment.metric;
     return primary
-      ? [primary]
-      : ["oxygen", "health", "algae", "plantBiomass", "organic"];
+      ? [...new Set([primary, ...teacher.unlockMetrics])]
+      : [
+          ...new Set([
+            "oxygen",
+            "health",
+            "algae",
+            "plantBiomass",
+            "organic",
+            ...teacher.unlockMetrics,
+          ]),
+        ];
   }
   function studentManual() {
     if (!session.measurements.length) return "";
     const keys = recordedMetrics(session.measurements, metrics()).filter((k) =>
-        (tag.grade === 9 ? ["individuals"] : studentMetricKeys()).includes(k),
+        (tag.grade === 9
+          ? ["individuals", ...teacher.unlockMetrics]
+          : studentMetricKeys()
+        ).includes(k),
       ),
       key = keys.includes(manualMetric) ? manualMetric : keys[0];
     if (!key) return "";
@@ -189,7 +203,8 @@ export function mountLearningUI(host) {
     if (kind === "ecology") {
       const c = session.comparison;
       // The actual intervention must change the cloned baseline, not merely be selected.
-      const changed = !(c.tool==="water"&&c.value===0) &&
+      const changed =
+        !(c.tool === "water" && c.value === 0) &&
         JSON.stringify(
           applyLearningIntervention(session.baseline, c.tool, c.value, host),
         ) !== JSON.stringify(session.baseline);
@@ -319,7 +334,9 @@ export function mountLearningUI(host) {
           ? "Dieses Ergebnis gehört zum aktuellen Plan."
           : "Plan geändert – neu berechnen. Gezeigt und exportiert wird weiterhin der ältere Lauf mit seiner unten festgehaltenen Konfiguration."
         : matches
-          ? "Becken 1 blieb gleich. Becken 2 wurde verändert."
+          ? session.comparison.kind === "population"
+            ? "Gruppe 1: keine Farbe bevorzugt. Gruppe 2: deine Umgebung."
+            : "Becken 1 blieb gleich. Becken 2 wurde verändert."
           : "Du hast etwas geändert. Starte den Versuch neu.";
       state.classList.toggle("learn-outdated", !matches);
     }

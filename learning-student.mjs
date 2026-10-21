@@ -11,8 +11,8 @@ import { genotypeText } from "./fish-variants.mjs";
 export const STUDENT_METRICS = {
   temp: ["Temperatur", "°C"],
   oxygen: ["Sauerstoff", "mg/L"],
-  no3: ["Pflanzennährstoff", "mg/L"],
-  no2: ["Schädlicher Stoff", "mg/L"],
+  no3: ["Nitrat", "mg/L"],
+  no2: ["Nitrit", "mg/L"],
   co2: ["Kohlenstoffdioxid", "mg/L"],
   algae: ["Algenmenge", ""],
   organic: ["Reste", ""],
@@ -126,7 +126,7 @@ export function createStudentViews(api) {
     return `<div class="learn-two learn-reading"><div><small>${r.kind === "population" ? "Gruppe" : "Becken"} 1</small><strong>${value(r.control)}</strong></div><div><small>${r.kind === "population" ? "Gruppe" : "Becken"} 2</small><strong>${value(r.test)}</strong></div></div><small>${esc(r.label)} · ${r.kind === "population" ? "Generation" : "Tag"} ${num(r.time)}</small>`;
   }
   function observe() {
-    const { session, tag, s, w, types, showGenes } = state();
+    const { session, tag, s, w, types, showGenes, unlockedMetrics } = state();
     let content = "";
     if (tag.grade === 9)
       content = `<p>Schau auf die Farbe der Fische.</p><ul>${s.entities
@@ -141,6 +141,9 @@ export function createStudentViews(api) {
     return (
       panelHeader("Beobachten", "observe") +
       content +
+      (unlockedMetrics?.length
+        ? `<h3>Weitere Werte</h3><dl class="learn-values">${unlockedMetrics.map((k) => `<div><dt>${esc(STUDENT_METRICS[k][0])} ${["no2", "no3"].includes(k) ? helpButton("nitrogen") : ""}</dt><dd>${num(api.sample()[k], 3)} ${esc(STUDENT_METRICS[k][1])}</dd></div>`).join("")}</dl>`
+        : "") +
       `<div class="learn-actions">${button("measure", "Werte merken")}${button("advance", "1 Tag warten")}</div><small>${session.measurements.length} Messungen gespeichert.</small>${session.measurements.length ? api.manual() : ""}${tag.mode === "free" && tag.grade !== 9 ? `<details><summary>Becken verändern</summary>${api.form("care")}${button("apply", "Anwenden")}</details>` : ""}`
     );
   }

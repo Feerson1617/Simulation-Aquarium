@@ -1,5 +1,7 @@
 # Fachliches und didaktisches Audit
 
+> Historischer Prüf-/Entwicklungsstand vor dem Auftrag A01–A11. Die [aktuelle Korrekturmatrix](../biology-quality/MATRIX.md) und ihre neuen Lernhandlungen ersetzen frühere Abschlussanforderungen. Alte Testergebnisse bleiben als historische Belege erhalten.
+
 Stand: 21.10.2026; ergänzt nach unabhängiger Prüfung von PR #8. Basis: PR #7 / `666df90`. Originalcurriculum als Nutzer-PDF vollständig textuell erschlossen; relevante Abschnitte S. 3–4, 9–10, 14–15, 19–20 im Zusammenhang gelesen. PDF: 36 Seiten, 6.203.103 Bytes, SHA-256 `faa37c2dafb2824dda8e890c21f05a69d4f479ea64c255ca815892174889b90f`.
 
 ## Befund und Umsetzung

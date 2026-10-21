@@ -1,4 +1,5 @@
 """Check that the existing complete-HTML download remains playable offline."""
+from biology_browser_helpers import reveal
 import json
 import os
 import tempfile
@@ -110,7 +111,7 @@ try:
         offline.locator('[data-learn="free"]').click()
         offline.locator('[data-learn="investigate"]').click()
         offline.locator('[data-learning-note="question"]').fill('Was verändert Licht?')
-        offline.locator('[data-learning-value]').fill('0')
+        reveal(offline.locator('[data-learning-value]')).fill('0')
         offline.locator('[data-learn="compare"]').click()
         comparison=offline.evaluate('window.aquariumLearningSnapshot().comparison')
         assert comparison['runs'][0]['control'][-1]['oxygen']>comparison['runs'][0]['test'][-1]['oxygen']

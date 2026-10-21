@@ -1,5 +1,7 @@
 # Gezielte Korrektur nach unabhängiger Prüfung
 
+> Historischer Prüf-/Entwicklungsstand vor dem Auftrag A01–A11. Die [aktuelle Korrekturmatrix](../biology-quality/MATRIX.md) und ihre neuen Lernhandlungen ersetzen frühere Abschlussanforderungen. Alte Testergebnisse bleiben als historische Belege erhalten.
+
 Die drei P2-Befunde aus der unabhängigen Prüfung sind korrigiert: Fensterlicht behält Stärke und Dauer, Geräte speichern mit sinnvollem Tastaturfokus, neue Lernprodukte werden gegen die maßgebliche Modellkonstante geprüft. Hinzu kommen gemeinsame Schalter für Belüfter/Abschäumer, exakte alte Futterwerte und ein Schutz gegen alte ausstehende Questantworten nach einer wirkungslosen Neuberechnung. [Änderungen und Fundstellen](CHANGES.md).
 
 Ausgangsstand: tatsächlicher PR-Head `5440886a4a6970558cba27379b7b847455aa4756`, main `666df90ac05de61181f380f2190539a9cef04044`. Der lokal saubere Vorgänger `b5751b0` wurde zuerst per Fast-forward aktualisiert; keine fremden Änderungen verworfen. Nur bestehender [PR #8](https://github.com/Feerson1617/Simulation-Aquarium/pull/8), Branch `feature/biology-learning-environments`; kein Merge und kein Push auf main. [Korrekturprompt](REQUEST.txt), [unabhängiger Prüfbericht](INDEPENDENT_REVIEW.txt).

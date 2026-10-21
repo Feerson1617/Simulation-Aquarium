@@ -1,5 +1,7 @@
 # Abnahme des Fortsetzungsauftrags
 
+> Historischer Prüf-/Entwicklungsstand vor dem Auftrag A01–A11. Die [aktuelle Korrekturmatrix](../../biology-quality/MATRIX.md) und ihre neuen Lernhandlungen ersetzen frühere Abschlussanforderungen. Alte Testergebnisse bleiben als historische Belege erhalten.
+
 Die letzte Spalte bezeichnet den konkreten Prüfweg, keine Aussage über empirischen Lernerfolg. Endstatus und Rohbelege stehen in [VALIDATION.md](VALIDATION.md).
 
 | Auftrag | Umsetzung | Prüfung |

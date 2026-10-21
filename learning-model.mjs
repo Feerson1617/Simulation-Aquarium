@@ -354,10 +354,21 @@ export function runLearningComparison(
       const markFailure = () => {
         if (!state.failed) return false;
         status.state = "failed";
-        status.cause = typeof state.failureCause === "string" ? state.failureCause.slice(0,80) : null;
-        const label = {nitrite:"Nitritbelastung",oxygen:"Sauerstoffmangel",ammonia:"Ammoniakbelastung",nutrients:"Versorgung/Lebensbedingungen"}[status.cause] || status.cause;
+        status.cause =
+          typeof state.failureCause === "string"
+            ? state.failureCause.slice(0, 80)
+            : null;
+        const label =
+          {
+            nitrite: "Nitritbelastung",
+            oxygen: "Sauerstoffmangel",
+            ammonia: "Ammoniakbelastung",
+            nutrients: "Versorgung/Lebensbedingungen",
+          }[status.cause] || status.cause;
         status.reason = label
-          ? "Biologischer Modellabbruch; vom Rechenkern zugeordnete Ursache: " + label + ". Dies ist eine Modelldiagnose, kein Nachweis einer einzigen realen Ursache. Keine weiteren Messungen berechnet."
+          ? "Biologischer Modellabbruch; vom Rechenkern zugeordnete Ursache: " +
+            label +
+            ". Dies ist eine Modelldiagnose, kein Nachweis einer einzigen realen Ursache. Keine weiteren Messungen berechnet."
           : "Biologischer Modellabbruch: kritischer Beckenverlauf. Keine weiteren Messungen berechnet.";
         status.end = state.day;
         return true;
@@ -718,7 +729,19 @@ function evidenceSamples(raw, population = false, limit = 100, manual = false) {
     return clean;
   });
 }
-function evidenceConfiguration(raw) {
+function evidenceConfiguration(raw, draft = false) {
+  let incomplete = false;
+  const planNumber = (value, min, max, integer = false) => {
+    try {
+      return evidenceNumber(value, min, max, integer);
+    } catch (error) {
+      if (!draft) throw error;
+      incomplete = true;
+      return Number.isFinite(value) && Math.abs(value) <= 1000000
+        ? value
+        : null;
+    }
+  };
   if (raw == null) return null;
   if (!["ecology", "population"].includes(raw.kind))
     throw new Error("Unbekannter Untersuchungsplan.");
@@ -732,12 +755,10 @@ function evidenceConfiguration(raw) {
     modelVersion: evidenceText(raw.modelVersion, 80),
     tool: population ? null : raw.tool,
     value: population ? null : raw.value,
-    days: population ? null : evidenceNumber(raw.days, 1, 14, true),
+    days: population ? null : planNumber(raw.days, 1, 14, true),
     environment: population ? raw.environment : null,
-    generations: population
-      ? evidenceNumber(raw.generations, 1, 15, true)
-      : null,
-    repetitions: evidenceNumber(raw.repetitions, 1, 4, true),
+    generations: population ? planNumber(raw.generations, 1, 15, true) : null,
+    repetitions: planNumber(raw.repetitions, 1, 4, true),
     baseline: {
       time: evidenceNumber(baseline.time),
       seed: evidenceNumber(baseline.seed, 0, 4294967295, true),
@@ -756,10 +777,10 @@ function evidenceConfiguration(raw) {
     if (!["neutral", "dark", "light"].includes(clean.environment))
       throw new Error("Modellumwelt fehlt.");
   } else {
+    if (!Object.hasOwn(LEARNING_TOOLS, clean.tool))
+      throw new Error("Unbekanntes Werkzeug im Plan.");
     const d = LEARNING_TOOLS[clean.tool];
     if (
-      !Object.hasOwn(LEARNING_TOOLS, clean.tool) ||
-      !d ||
       !Number.isFinite(clean.value) ||
       clean.value < d.min ||
       clean.value > d.max ||
@@ -767,9 +788,14 @@ function evidenceConfiguration(raw) {
         (clean.value - d.min) / d.step -
           Math.round((clean.value - d.min) / d.step),
       ) > 1e-6
-    )
-      throw new Error("Ungültiger dokumentierter Eingriff.");
+    ) {
+      if (!draft) throw new Error("Ungültiger dokumentierter Eingriff.");
+      incomplete = true;
+      if (!Number.isFinite(clean.value) || Math.abs(clean.value) > 1000000)
+        clean.value = null;
+    }
   }
+  if (incomplete) clean.incomplete = true;
   return clean;
 }
 export function validateLearningProduct(raw) {
@@ -810,7 +836,7 @@ export function validateLearningProduct(raw) {
         : null,
     modelVersion: evidenceText(raw.modelVersion, 80),
     comparison: validateLearningComparison(raw.comparison),
-    currentPlan: evidenceConfiguration(raw.currentPlan),
+    currentPlan: evidenceConfiguration(raw.currentPlan, true),
     measurements,
     measurementMetrics,
     population: validateLearningPopulation(raw.population),
@@ -880,7 +906,12 @@ export function validateLearningComparison(raw) {
         start: first,
         end: last,
         requestedEnd: evidenceNumber(requestedEnd),
-        cause: evidenceText(old?.cause || run[side === "control" ? "finalControl" : "finalTest"]?.failureCause,80),
+        cause: evidenceText(
+          old?.cause ||
+            run[side === "control" ? "finalControl" : "finalTest"]
+              ?.failureCause,
+          80,
+        ),
         reason: evidenceText(
           old?.reason ||
             (state !== "completed"

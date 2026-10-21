@@ -1,17 +1,11 @@
-# GitHub-Übergabe
+# GitHub-Übergabe zu PR #8
 
-Entwicklungsbranch: [`feature/biology-learning-environments`](https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/biology-learning-environments). Implementierung und lokale Gesamtprüfung sind abgeschlossen; [Abschlussbericht](REPORT.md), [Testergebnisse und Screenshots](VALIDATION.md), [Fortschrittsdatei](WORK_STATE.md).
+Der bestehende [PR #8](https://github.com/Feerson1617/Simulation-Aquarium/pull/8) verwendet [`feature/biology-learning-environments`](https://github.com/Feerson1617/Simulation-Aquarium/tree/feature/biology-learning-environments). Der Nutzer hat ihn nach der früheren Übergabe angelegt. Die Korrekturen R1–R8 werden auf genau diesen Branch gepusht; es wird kein zweiter PR benötigt. Beim Beginn stimmten Branch und PR-Ref mit `5b00ea1` überein. `main` stand auf `666df90` und wurde nicht verändert.
 
-## Pull Request und automatische Vorschau
+[Abschlussbericht](REPORT.md), [fachliches Audit](AUDIT.md), [Tests/Screenshots](VALIDATION.md), [Master- und Missionsabnahme](ACCEPTANCE.md), [wiederaufnehmbarer Stand](WORK_STATE.md). Die überarbeitete PR-Beschreibung liegt in [PR_BODY.md](PR_BODY.md).
 
-Die Erstellung eines Entwurfs-PR gegen `main` wurde mit `gh pr create --draft --base main --head feature/biology-learning-environments` versucht. Die GitHub-API antwortete mit:
+Git-Push funktioniert. Die GitHub-API bleibt in dieser Umgebung durch die Netzwerk-Allowlist gesperrt (`api.github.com`, `Forbidden`); deshalb können PR-Beschreibung, neue Checkläufe und deren Ergebnisse hier nicht über die API bestätigt werden. Das ist kein Hindernis für die Sicherung der Codeänderungen im bestehenden PR. Grüne lokale Modultests werden nicht als bereits grüne GitHub-Checks ausgegeben.
 
-```text
-Post "https://api.github.com/graphql": Forbidden
-```
+Der unveränderte bestehende Workflow `pages-pr-previews.yml` stellt offene PRs desselben Repositorys separat zu `main` bereit. Die vom unabhängigen Review bestätigte Adresse lautet [Spielvorschau für PR #8](https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-8/). Die aktuelle Ausführung nach den Korrektur-Pushes und der aktuelle Inhalt dieser externen Adresse wurden hier nicht live geprüft. Alle neuen Browsernachweise beziehen sich ausdrücklich auf den lokalen statischen Projektunterpfad.
 
-Der Versuch wurde nach dem Push des vollständigen Abschlussstands am 20.10.2026 erneut ausgeführt, mit identischem Fehler. Git-Push funktioniert; die API-Sperre verhindert die bestätigte PR-Erstellung in dieser Umgebung. Zum Abschluss wurde kein neuer PR-Ref gefunden. Deshalb gibt es keine bestätigte PR-Nummer und keine als erreichbar geprüfte Spielvorschau. Zugangsdaten oder zusätzliche Konten wurden nicht angefordert.
-
-[Pull Request für den gesicherten Branch auf GitHub anlegen](https://github.com/Feerson1617/Simulation-Aquarium/pull/new/feature/biology-learning-environments). Zielbranch `main`, Titel **Biologie-Lernumgebungen für Klassen 8–10**; die fertige Beschreibung steht in [PR_BODY.md](PR_BODY.md). Es ist keine weitere Implementierung nötig, um den Stand zu prüfen.
-
-Der unveränderte bestehende Workflow `.github/workflows/pages-pr-previews.yml` reagiert auf offene PRs aus demselben Repository und veröffentlicht deren Inhalt separat zur Hauptseite. Nach erfolgreicher PR-Erstellung und erfolgreichem Pages-Lauf trägt er den Vorschau-Link beim PR ein. Dessen Ausführung lässt sich hier ohne erstellten PR nicht bestätigen. Weder ein Merge noch eine Veröffentlichung auf `main` wurde vorgenommen.
+Der neue Workflow `module-tests.yml` führt bei Pull Requests die vorhandenen und neuen Node-Modultests aus, ohne Paketinstallation, Geheimnisse, zusätzlichen Dienst oder Veröffentlichung. Sein YAML und der tatsächliche Befehl wurden lokal geprüft. Die bisherigen Pages-Checks sind weiterhin Veröffentlichungsprüfungen, kein fachlicher Wirksamkeitsnachweis. Kein Merge und kein Push auf `main`.

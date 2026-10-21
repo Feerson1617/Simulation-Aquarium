@@ -180,15 +180,31 @@ test("R2/R3: JSON round trip keeps actual run, frozen planning, status, manual d
   assert.ok(!("finalControl" in clean.comparison.runs[0]));
 });
 test("R2: old valid products remain readable, with honest missing provenance", async () => {
-  for (const grade of [8,9]) {
-    const source=JSON.parse(await readFile(new URL(`./fixtures/learning-v1-grade-${grade}.json`,import.meta.url)));
-    const checked=validateLearningProduct(source);
-    assert.equal(checked.profile.grade,grade);
-    assert.equal(checked.comparison.configuration,null);
-    assert.deepEqual(checked.measurements,source.measurements);
-    assert.equal(checked.comparison.planning.prediction,source.comparison.planning.prediction);
-    if(grade===8){assert.equal(checked.comparison.tool,source.comparison.tool);assert.equal(checked.comparison.value,source.comparison.value);assert.equal(checked.comparison.days,source.comparison.days);}
-    else {assert.equal(checked.comparison.environment,source.comparison.environment);assert.deepEqual(checked.population.archive,source.population.archive);}
+  for (const grade of [8, 9]) {
+    const source = JSON.parse(
+      await readFile(
+        new URL(`./fixtures/learning-v1-grade-${grade}.json`, import.meta.url),
+      ),
+    );
+    const checked = validateLearningProduct(source);
+    assert.equal(checked.profile.grade, grade);
+    assert.equal(checked.comparison.configuration, null);
+    assert.deepEqual(checked.measurements, source.measurements);
+    assert.equal(
+      checked.comparison.planning.prediction,
+      source.comparison.planning.prediction,
+    );
+    if (grade === 8) {
+      assert.equal(checked.comparison.tool, source.comparison.tool);
+      assert.equal(checked.comparison.value, source.comparison.value);
+      assert.equal(checked.comparison.days, source.comparison.days);
+    } else {
+      assert.equal(
+        checked.comparison.environment,
+        source.comparison.environment,
+      );
+      assert.deepEqual(checked.population.archive, source.population.archive);
+    }
   }
   const p = validateLearningProduct({
     version: 1,
@@ -345,6 +361,27 @@ test("R6: counts, phenotype weights and reproductive success reconstruct from ea
   assert.equal(clean.environment, "dark");
   assert.equal(clean.generations, 6);
   assert.ok(clean.assumption);
+  const fixed = crossLearningPopulation(createLearningPopulation(), 1, 4);
+  const lost = compareLearningPopulations(fixed, "light", 5, 2);
+  for (const run of lost.runs)
+    for (const side of ["control", "test"]) {
+      assert.ok(run[side].every((s) => s.a === 0));
+      assert.ok(
+        run.archives[side].archive
+          .filter((i) => i.generation > 1)
+          .every((i) => i.loci.A.join("") === "AA"),
+      );
+    }
+  const reverse = compareLearningPopulations(
+    createLearningPopulation(),
+    "light",
+    6,
+    3,
+  );
+  assert.ok(
+    c.runs.reduce((s, r) => s + r.test.at(-1).A, 0) >
+      reverse.runs.reduce((s, r) => s + r.test.at(-1).A, 0),
+  );
   const neutral = compareLearningPopulations(
     createLearningPopulation(),
     "neutral",
@@ -420,4 +457,31 @@ test("R8: CSV identifies profile, intervention value, units, model, seed, time s
   );
   assert.equal(pop.find((r) => r.Messschluessel === "AA").Typ, "Anzahl");
   assert.equal(pop.find((r) => r.Messschluessel === "A").Typ, "Anteil");
+});
+
+test("R2/R3: an unfinished edited draft cannot make a valid previous result unreadable", () => {
+  const currentPlan = config();
+  currentPlan.days = 99;
+  currentPlan.value = NaN;
+  const product = {
+    version: 2,
+    type: "aquarium-learning-product",
+    profile,
+    notes,
+    currentPlan,
+    comparison: comparison(),
+  };
+  const read = validateLearningProduct(JSON.parse(JSON.stringify(product)));
+  assert.equal(read.currentPlan.incomplete, true);
+  assert.equal(read.currentPlan.days, 99);
+  assert.equal(read.currentPlan.value, null);
+  assert.equal(read.comparison.days, 14);
+  assert.equal(read.comparison.value, 50);
+  assert.equal(read.comparison.runs[0].status.test.end, 59);
+  assert.throws(() =>
+    validateLearningComparison({
+      ...comparison(),
+      configuration: { ...config(), days: 99 },
+    }),
+  );
 });

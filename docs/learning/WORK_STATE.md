@@ -26,3 +26,11 @@ Gezielter Browserprüfer: tests/learning_review_browser.py. Erster Lauf /tmp/pr8
 10. REPORT/AUDIT/VALIDATION und vollständige Master-/14-Missionen-Abnahmematrix aktualisieren.
 
 Die bisherigen 87/71 Nachweise gehören zum Ausgangsstand; sie belegen die Korrekturen R1–R8 noch nicht. Neue Tests und Codeänderungen getrennt dokumentieren. Lokale Werkzeuge und Projektunterpfad sind vorhanden; nicht neu installieren. GPU-Tests nacheinander ausführen. Physische Safari-iPads und empirische Lernwirksamkeit weiter offen. PR #8 ist angehängt; derselbe Branch wird aktualisiert. Git-Push funktioniert; api.github.com ist weiterhin nicht in der Netzwerk-Allowlist.
+
+## Vor der abschließenden Gesamtregression
+
+R1–R8-Browserfälle sind in zwei Abschnitten bestanden: /tmp/pr8-review-browser-2.log (Ökologie, Export/Import, eigene Messreihen sowie Mendelprüfung) und /tmp/pr8-review-browser-3.log (Genetikarchive, Kohlenstoff und Touch). Lauf 2 stoppte nach bestandener Mendelprüfung, weil das Skript Selektionswerkzeuge in der absichtlich reduzierten Mendelmission suchte; Abschnitt 3 wechselt dafür korrekt ins freie Forschen. Kein Produktfehler. Nachweise bleiben erhalten.
+
+Zusätzlicher Randfall R2/R3 behoben: Ein noch unvollständig/ungültig bearbeiteter neuer Plan macht vorhandene gültige Ergebnisse beim Import nicht mehr unlesbar. Reine Entwürfe werden begrenzt als unberechnet markiert; berechnete Konfigurationen bleiben strikt validiert. Jetzt 12 neue gezielte Modultests (zusammen mit den bisherigen 87 = 99); die 12 bestehen. Die abschließende vollständige Suite wird auf dem folgenden eingefrorenen Laufzeitstand ausgeführt. Währenddessen keine Laufzeitdateien bearbeiten.
+
+Nächste Schritte: unabhängigen seriellen Runner /tmp/pr8-final-runner.py ausführen/prüfen; Ergebnisse /tmp/pr8-final-validation/status.json und pro Gruppe .log. Danach Rohberichte/Screenshots nach docs/learning/evidence/revision-2 übernehmen; REPORT/AUDIT/VALIDATION/ACCEPTANCE finalisieren. PR #8 existiert tatsächlich; GITHUB.md ist korrigiert. CSV_SCHEMA.md und vollständige Master-/14-Missionen-Matrix ACCEPTANCE.md angelegt. Keine bestandenen Prüfungen ohne neue Änderung wiederholen.

@@ -127,3 +127,48 @@ test("quest records survive version-2 teacher validation; old products without a
   assert.throws(() => validateQuest({ ...s, id: "9-mendel" }, "8-oxygen"));
   assert.throws(() => validateQuest({ ...s, step: 8 }, "8-oxygen"));
 });
+
+test("visible rounding permits an honest near-equal answer; a repeated experiment replaces the pending reading", () => {
+  const d = QUESTS["8-oxygen"];
+  assert.equal(
+    resultQuestion(d, { control: 8.00011, test: 8.00014 }).correct,
+    2,
+  );
+  const s = newQuest(d.id);
+  questEvent(s, "observe");
+  answerQuest(s, 0);
+  answerQuest(s, 1);
+  assert.equal(
+    questEvent(s, "ecology", {
+      compatible: false,
+      changed: true,
+      result: { control: 8, test: 4 },
+    }),
+    false,
+  );
+  questEvent(s, "ecology", { changed: true, result: { control: 8, test: 4 } });
+  questEvent(s, "ecology", { changed: true, result: { control: 4, test: 8 } });
+  assert.equal(s.step, 3);
+  assert.equal(s.entries.length, 3);
+  assert.equal(s.result.test, 8);
+  assert.equal(resultQuestion(d, s.result).correct, 1);
+});
+test("older notes are retained in the read-only product; malformed imported quest entries are rejected", () => {
+  const old = JSON.parse(
+    fs.readFileSync(
+      new URL("./fixtures/learning-v1-grade-8.json", import.meta.url),
+    ),
+  );
+  old.earlierNotes = {
+    prior: "Meine vorherige Erklärung",
+    explanation: "Meine frühere Auswertung",
+  };
+  assert.equal(
+    validateLearningProduct(old).earlierNotes.explanation,
+    "Meine frühere Auswertung",
+  );
+  const s = newQuest("8-oxygen");
+  s.step = 1;
+  s.entries = [null];
+  assert.throws(() => validateQuest(s, "8-oxygen"));
+});

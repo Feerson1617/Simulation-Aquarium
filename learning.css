@@ -872,3 +872,8 @@ html.learning-mode #app > .timebar {
     scroll-behavior: auto;
   }
 }
+#learning-root .learn-panel .learn-help,
+#learning-root .learn-values dt button {
+  min-width: 44px !important;
+  min-height: 44px !important;
+}

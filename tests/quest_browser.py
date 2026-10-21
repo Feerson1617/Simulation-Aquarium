@@ -8,7 +8,7 @@ from playwright.sync_api import sync_playwright,expect
 ROOT=Path(__file__).resolve().parents[1]
 OUT=Path(os.environ.get('AQUARIUM_QUEST_RESULTS','/tmp/aquarium-quest-results'))/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S');OUT.mkdir(parents=True)
 URL=os.environ.get('AQUARIUM_URL','http://127.0.0.1:8000/aquarium-simulation/').split('?')[0]
-SECTIONS=os.environ.get('AQUARIUM_QUEST_SECTIONS','desktop,touch,free,teacher').split(',')
+SECTIONS=os.environ.get('AQUARIUM_QUEST_SECTIONS','desktop,touch,free,teacher,help').split(',')
 report={'checks':[],'errors':[],'failed_requests':[],'missions':[],'screenshots':[],'sections':SECTIONS}
 IDS={8:['8-ecosystem','8-oxygen','8-foodweb','8-health','8-forest'],9:['9-traits','9-mendel','9-population','9-darwin'],10:['10-enrichment','10-carbon','10-restore','10-northsea','10-wadden']}
 BAN=re.compile(r'\b(JSON|CSV|SVG|Seed|Seeds|Modellkonfiguration|Messmetadaten|Curriculum|Fachanforderungen|didaktisch\w*|Versorgungsindikator|Tierkondition)\b',re.I)
@@ -59,7 +59,7 @@ def complete(p,g,id,touch=False):
  assert snap(p)['quest']['step']==3,snap(p)['quest'];r=snap(p)['quest']['result'];short(p)
  if id=='9-traits':correct=0
  elif id=='9-mendel':correct=0 if r['dark']==1 else 1 if r['light']==1 else 2
- else:correct=2 if abs(r['control']-r['test'])<=1e-9 else 0 if r['control']>r['test'] else 1
+ else:correct=2 if int(r['control']*1000+.5)==int(r['test']*1000+.5) else 0 if r['control']>r['test'] else 1
  answer(p,(correct+1)% (2 if id=='9-traits' else 3));assert snap(p)['quest']['step']==3;expect(p.locator('.learn-quest-feedback')).to_contain_text('erneut')
  if id in ['8-oxygen','9-mendel','10-carbon']:shot(p,f'{"touch" if touch else "desktop"}-{id}-compare.png')
  answer(p,correct);assert snap(p)['quest']['step']==4;answer(p,1);assert snap(p)['quest']['step']==4;answer(p,0);assert snap(p)['quest']['step']==5;short(p)
@@ -104,6 +104,26 @@ with sync_playwright() as pw:
     if f.name.startswith('desktop-'):expect(p.locator('.learn-imported-product')).to_contain_text('5 von 5 Aufgaben')
    passed('teacher: real quest exports and v1 products remain readable; carbon source material and limits available')
    p.get_by_text('Alle Missionshintergründe und Modellgrenzen',exact=True).click();action(p,'teacher-launch');assert snap(p)['detailed'];assert p.locator('[data-learning-note="hypothesis"]').count();passed('teacher: full technical investigation remains accessible without exposing it in regular student views');c.close()
+  if 'help' in SECTIONS:
+   expected={'observe':('Beobachten','Schau genau hin.'),'oxygen':('Sauerstoff','Fische und Pflanzen brauchen Sauerstoff.'),'nutrients':('Nährstoffe','Pflanzen brauchen Nährstoffe'),'load':('Probleme im Wasser','Futterreste oder schädliche Stoffe'),'control':('Zwei Becken','Beide Becken starten gleich.'),'genotype':('Erbanlagen und Farbe','Genotyp heißt:'),'selection':('Über Generationen','Manche Tiere haben mehr Nachkommen'),'species':('Tiere und Pflanzen','Wähle eine Art.'),'results':('Meine Ergebnisse','Hier findest du deine Antworten')}
+   c,p=context(b,True)
+   for g in [8,9,10]:
+    start(p,g);seen=set()
+    for view in ['observe','investigate','material','notebook']:
+     action(p,view)
+     for key in p.locator('.learn-panel [data-learn-help]').evaluate_all('(bs)=>bs.map(b=>b.dataset.learnHelp)'):
+      assert key in expected,key
+      loc=p.locator(f'[data-learn-help="{key}"]');box=loc.bounding_box();assert box["width"]>=44 and box["height"]>=44;loc.focus();p.keyboard.press('Enter');title,fragment=expected[key];expect(p.locator('.learn-help-pop h2')).to_have_text(title);expect(p.locator('.learn-help-pop')).to_contain_text(fragment);assert p.evaluate('document.querySelector(".learn-panel").inert');p.keyboard.press('Tab');assert p.evaluate('document.querySelector(".learn-help-pop").contains(document.activeElement)');p.keyboard.press('Escape');assert p.evaluate('document.activeElement.dataset.learnHelp')==key;seen.add(key)
+     short(p);action(p,'close')
+    assert {'observe','results'}.issubset(seen)
+    if g!=9:assert {'oxygen','nutrients','load','control','species'}.issubset(seen)
+    else:assert {'genotype','selection'}.issubset(seen)
+    action(p,'more');action(p,'glossary');short(p);action(p,'close');action(p,'home');passed(f'grade {g}: every regular question-mark help has the correct topic, short text, keyboard focus and touch-size controls')
+   # Genuine old tank+notes migrate without replacing the previous plan or explanation.
+   tank=json.loads((ROOT/'tests/fixtures/legacy-v1.json').read_text());old=json.loads((ROOT/'tests/fixtures/learning-v1-grade-8.json').read_text());tank['learning']={'version':1,'grade':8,'mode':'missions','mission':'8-oxygen'}
+   prior={'version':1,'notes':{'question':'Meine alte Frage','explanation':'Meine frühere Erklärung'},'measurements':[],'baseline':tank,'comparison':None,'study':{'tool':'light','value':12,'days':4,'repetitions':1,'metric':'oxygen','environment':'dark','generations':5}}
+   p.evaluate('(v)=>{localStorage.setItem("aquarium-learning-tank-v1:8:8-oxygen",JSON.stringify(v.tank));localStorage.setItem("aquarium-learning-notes-v1:aquarium-learning-tank-v1:8:8-oxygen",JSON.stringify(v.prior))}',{'tank':tank,'prior':prior})
+   start(p,8,'8-oxygen');assert snap(p)['study']['value']==12 and snap(p)['study']['days']==4;action(p,'notebook');p.get_by_text('Frühere Ergebnisse',exact=True).click();expect(p.locator('.learn-panel')).to_contain_text('Meine frühere Erklärung');f=download(p,'migrated-notes.json');assert json.loads(f.read_text())['earlierNotes']['explanation']=='Meine frühere Erklärung';passed('old learning session: previous settings and notes survive quest migration and file export');c.close()
   assert not report['errors'],report['errors'];assert not report['failed_requests'],report['failed_requests'];report['status']='passed'
  except Exception as e:
   report['status']='failed';report['failure']=str(e)

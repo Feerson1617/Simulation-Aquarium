@@ -51,7 +51,7 @@ export const QUESTS = Object.fromEntries(
     q(
       "8-ecosystem",
       "Ein Aquarium ist ein Ökosystem",
-      "Wasserbedingungen wirken auf Lebewesen.",
+      "Zum Lebensraum gehören Lebewesen und Umweltbedingungen.",
       ecology("temperature", 20, "temp", "Temperatur", "°C"),
       pick(
         "Was ist kein Lebewesen?",
@@ -440,11 +440,11 @@ export function resultQuestion(q, result) {
           }[q.experiment.metric],
     choices:
       q.experiment.kind === "population"
-        ? ["In Gruppe 1", "In Gruppe 2", "Gleich groß"]
+        ? ["In Gruppe 1", "In Gruppe 2", "Etwa gleich groß"]
         : ["In Becken 1", "In Becken 2", "Gleich viel"],
     correct: !result
       ? -1
-      : Math.abs(result.control - result.test) <= 1e-9
+      : Math.round(result.control * 1000) === Math.round(result.test * 1000)
         ? 2
         : result.control > result.test
           ? 0
@@ -460,7 +460,7 @@ export function questEvent(state, event, evidence = {}) {
   }
   const d = QUESTS[state.id],
     kind = d.experiment.kind;
-  if (state.step !== 2 || event !== kind) return false;
+  if (![2, 3].includes(state.step) || event !== kind) return false;
   if (
     kind === "ecology" &&
     (!evidence.changed || evidence.compatible === false || !evidence.result)
@@ -477,6 +477,7 @@ export function questEvent(state, event, evidence = {}) {
     return false;
   if (kind === "traits" && (!evidence.hasAA || !evidence.hasAa)) return false;
   state.result = structuredClone(evidence.result || { kind: "traits" });
+  state.entries = state.entries.filter((e) => e.step !== 2);
   state.entries.push({
     step: 2,
     event,

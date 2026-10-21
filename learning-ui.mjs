@@ -286,6 +286,7 @@ export function mountLearningUI(host) {
       measurements: session.measurements,
       measurementMetrics: recordedMetrics(session.measurements, metrics()),
       quest: session.quest || null,
+      earlierNotes: session.earlierNotes || null,
     };
   }
   function currentPlan(kind = tag?.grade === 9 ? "population" : "ecology") {
@@ -389,6 +390,13 @@ export function mountLearningUI(host) {
     };
     session.population ??= grade === 9 ? createLearningPopulation() : null;
     const freshQuest = !session.quest;
+    if (
+      freshQuest &&
+      saved &&
+      tag.mode === "missions" &&
+      Object.values(session.notes).some(Boolean)
+    )
+      session.earlierNotes ??= structuredClone(session.notes);
     try {
       session.quest =
         validateQuest(session.quest, tag.mission) || newQuest(tag.mission);
@@ -483,7 +491,7 @@ export function mountLearningUI(host) {
   }
   function hud() {
     if (!detailed)
-      return `<header class="learn-hud learn-simple-hud"><div><small>Klasse ${tag.grade} · ${tag.mode === "free" ? "Freies Forschen" : "Lernmission"}</small><h1>${esc(QUESTS[tag.mission]?.title || GRADE_PROFILES[tag.grade].title)}</h1></div><div>${button("more", "Mehr")}</div></header><nav class="learn-tools" aria-label="Lernwerkzeuge">${button("observe", "Beobachten")}${button("investigate", "Ausprobieren")}${button("material", tag.grade === 9 ? "Farbe & Nachkommen" : "Tiere & Pflanzen")}${button("notebook", "Meine Ergebnisse")}<div class="learn-time"><span>Tag ${num(host.getState().day, 1)}</span>${button("advance", "+ 1 Tag")}</div></nav>${tag.mode === "missions" ? student.quest() : ""}${storageError ? `<div class="learn-storage" role="alert">${esc(storageError)}</div>` : ""}`;
+      return `<header class="learn-hud learn-simple-hud"><div><small>Klasse ${tag.grade} · ${tag.mode === "free" ? "Freies Forschen" : "Lernmission"}</small><h1>${esc(QUESTS[tag.mission]?.title || GRADE_PROFILES[tag.grade].title)}</h1></div><div>${host.tweezersActive() ? button("tweezers", "Pinzette beenden", 'aria-pressed="true"') : ""}${button("more", "Mehr")}</div></header><nav class="learn-tools" aria-label="Lernwerkzeuge">${button("observe", "Beobachten")}${button("investigate", "Ausprobieren")}${button("material", tag.grade === 9 ? "Farbe & Nachkommen" : "Tiere & Pflanzen")}${button("notebook", "Meine Ergebnisse")}<div class="learn-time"><span>Tag ${num(host.getState().day, 1)}</span>${button("advance", "+ 1 Tag")}</div></nav>${tag.mode === "missions" ? student.quest() : ""}${storageError ? `<div class="learn-storage" role="alert">${esc(storageError)}</div>` : ""}`;
     return `<header class="learn-hud"><div><small>Klasse ${tag.grade} · ${tag.mode === "free" ? "Freies Forschen" : "Lernmission"}</small><h1>${esc(mission()?.title || GRADE_PROFILES[tag.grade].title)}</h1>${button("mission-info", esc(mission()?.question || "Deine Frage und dein Untersuchungsweg"), 'class="learn-question"')}</div><div>${button("home", "Start")}${button("display", "Darstellung")}${teacher.help ? button("glossary", "Glossar") : ""}</div></header><div class="learn-status" aria-label="Kurzer Beckenüberblick">${status()}</div><nav class="learn-tools" aria-label="Lernwerkzeuge">${button("observe", "Beobachten")}${button("investigate", "Untersuchen")}${button("notebook", "Notizbuch")}${button("material", tag.grade === 9 ? "Vererbung" : "Beziehungen & Arten")}${button("tweezers", "Pinzette", 'aria-pressed="' + String(host.tweezersActive()) + '"')}<div class="learn-time"><span>Tag ${num(host.getState().day, 1)}</span>${button("advance", "+ 1 Tag")}</div></nav>${storageError ? `<div class="learn-storage" role="alert">${esc(storageError)}</div>` : ""}`;
   }
   function observe() {
@@ -566,7 +574,7 @@ export function mountLearningUI(host) {
       m = mission();
     return (
       panelHeader("Mein Forschungsnotizbuch", "hypothesis") +
-      `<p>${esc(m?.question || p.question)}</p><p class="learn-guidance">${SUPPORT[teacher.support].prompt}</p>${textArea("prior", session.notes.prior, p.diagnosis)}${textArea("question", session.notes.question)}${textArea("hypothesis", session.notes.hypothesis)}${textArea("prediction", session.notes.prediction)}${textArea("plan", session.notes.plan)}${textArea("observation", session.notes.observation)}${textArea("explanation", session.notes.explanation, m?.consolidation || p.reflection)}${textArea("reflection", session.notes.reflection)}${session ? textArea("transfer", session.notes.transfer) : ""}${manualData({ measurements: session.measurements, measurementMetrics: recordedMetrics(session.measurements, metrics()) })}<p>Vergleiche deine erste und deine jetzige Erklärung. Nutze mindestens zwei Datenpunkte und nenne eine Unsicherheit. Gepflegte Fische allein belegen noch kein Verständnis.</p><div class="learn-actions">${button("export", "Lernprodukt als JSON")}${button("export-text", "Lesbares Protokoll")}</div><small>Automatisch lokal gespeichert. Ein Dateiexport schützt deine Arbeit auch beim Löschen von Browserdaten. Namen sind nicht erforderlich.</small>`
+      `<p>${esc(m?.question || p.question)}</p><p class="learn-guidance">${SUPPORT[teacher.support].prompt}</p>${textArea("prior", session.notes.prior, p.diagnosis)}${textArea("question", session.notes.question)}${textArea("hypothesis", session.notes.hypothesis)}${textArea("prediction", session.notes.prediction)}${textArea("plan", session.notes.plan)}${textArea("observation", session.notes.observation)}${textArea("explanation", session.notes.explanation, m?.consolidation || p.reflection)}${textArea("reflection", session.notes.reflection)}${session && withNotes ? textArea("transfer", session.notes.transfer) : ""}${manualData({ measurements: session.measurements, measurementMetrics: recordedMetrics(session.measurements, metrics()) })}<p>Vergleiche deine erste und deine jetzige Erklärung. Nutze mindestens zwei Datenpunkte und nenne eine Unsicherheit. Gepflegte Fische allein belegen noch kein Verständnis.</p><div class="learn-actions">${button("export", "Lernprodukt als JSON")}${button("export-text", "Lesbares Protokoll")}</div><small>Automatisch lokal gespeichert. Ein Dateiexport schützt deine Arbeit auch beim Löschen von Browserdaten. Namen sind nicht erforderlich.</small>`
     );
   }
   function investigation() {
@@ -580,9 +588,24 @@ export function mountLearningUI(host) {
     );
   }
   function plot(comp, key) {
+    const technical = detailed || panel === "teacher";
+    const percent =
+      !technical &&
+      comp.kind === "population" &&
+      POPULATION_METRICS[key]?.[1].includes("Anteil");
     const run = comp.runs[0],
-      a = run.control,
-      b = run.test,
+      a = percent
+        ? run.control.map((v) => ({
+            ...v,
+            [key]: Number.isFinite(v[key]) ? v[key] * 100 : v[key],
+          }))
+        : run.control,
+      b = percent
+        ? run.test.map((v) => ({
+            ...v,
+            [key]: Number.isFinite(v[key]) ? v[key] * 100 : v[key],
+          }))
+        : run.test,
       all = [...a, ...b],
       x = (k) => (comp.kind === "population" ? k.generation : k.day);
     const minX = Math.min(...all.map(x)),
@@ -592,17 +615,19 @@ export function mountLearningUI(host) {
       maxY =
         comp.kind === "population" &&
         POPULATION_METRICS[key]?.[1].includes("Anteil")
-          ? 1
+          ? percent
+            ? 100
+            : 1
           : Math.max(0.01, ...finite.map((v) => v[key]));
     const xx = (v) => 45 + ((x(v) - minX) / (maxX - minX || 1)) * 405,
       yy = (v) => 180 - ((v[key] - minY) / (maxY - minY || 1)) * 150;
-    const technical = detailed || panel === "teacher";
     const title = (
-      (!technical && STUDENT_METRICS[key]) ||
+      (!technical &&
+        (percent ? [STUDENT_METRICS[key][0], "%"] : STUDENT_METRICS[key])) ||
       LEARNING_METRICS[key] ||
       POPULATION_METRICS[key] || [key, ""]
     ).join(" · ");
-    return `<svg class="learn-chart" viewBox="0 0 480 270" role="img" aria-label="Verlauf ${esc(title)}: ${comp.kind === "manual" ? "Dein Becken" : technical ? "Kontrolle und Versuch" : "Becken 1 und Becken 2"}"><desc>${esc(technical ? runDescription(comp) : "Messwerte aus deinem Versuch.")}</desc><text x="45" y="13" font-size="12">${esc(title)}</text><path d="M45 24 V180 H455" fill="none" stroke="currentColor"/><text x="5" y="33">${num(maxY)}</text><text x="7" y="184">${num(minY)}</text><text x="45" y="204">${num(minX)}</text><text x="420" y="204">${num(maxX)}</text>${[
+    return `<svg class="learn-chart" viewBox="0 0 480 270" role="img" aria-label="Verlauf ${esc(title)}: ${comp.kind === "manual" ? "Dein Becken" : technical ? "Kontrolle und Versuch" : comp.kind === "population" ? "Gruppe 1 und Gruppe 2" : "Becken 1 und Becken 2"}"><desc>${esc(technical ? runDescription(comp) : "Messwerte aus deinem Versuch.")}</desc><text x="45" y="13" font-size="12">${esc(title)}</text><path d="M45 24 V180 H455" fill="none" stroke="currentColor"/><text x="5" y="33">${num(maxY)}</text><text x="7" y="184">${num(minY)}</text><text x="45" y="204">${num(minX)}</text><text x="420" y="204">${num(maxX)}</text>${[
       a,
       b,
     ]
@@ -810,7 +835,7 @@ export function mountLearningUI(host) {
       return (
         panelHeader(
           tag.mode === "free" ? "Freies Forschen" : "Questbuch",
-          "quest",
+          tag.mode === "free" ? "free" : "quest",
         ) +
         (tag.mode === "free"
           ? "<p>Wähle deine eigene Frage. Probiere sie aus.</p>"
@@ -822,9 +847,9 @@ export function mountLearningUI(host) {
       `<p>${esc(m?.question || GRADE_PROFILES[tag.grade].question)}</p><h3>Dein Erkenntnisziel</h3><p>${esc(m?.goal || "Entwickle eine eigene prüfbare Frage und untersuche sie mit einem passenden Vergleich. Begründe deine Erklärung mit Daten.")}</p>${m && SUPPORT[teacher.support].steps ? "<ol>" + m.path.map((x) => "<li>" + esc(x) + "</li>").join("") + "</ol>" : ""}<p>${esc(m?.limits || "Begründe, was dein Versuch im Modell zeigt und welche Beobachtung in der Natur noch nötig wäre.")}</p>${m?.transfer ? transfer(m.transfer) : ""}<details><summary>Curriculum und Modellklärung</summary><p>${esc(m?.curriculum || CURRICULUM.pages)} · ${esc(CURRICULUM.title)}</p><p>${esc(m?.misconception || "Eine stabile Simulation beweist noch keine Erklärung.")}</p><p>${esc(CURRICULUM.scope)}</p><a href="${CURRICULUM.url}" target="_blank" rel="noopener">Originalcurriculum</a></details>${button("notebook", "Eigene Erklärung festhalten")}`
     );
   }
-  function transfer(key) {
+  function transfer(key, withNotes = true) {
     const t = TRANSFER[key];
-    return `<section class="learn-transfer"><h3>${esc(t.title)}</h3>${t.facts.map((f) => "<p>" + esc(f) + "</p>").join("")}<ol>${t.tasks.map((f) => "<li>" + esc(f) + "</li>").join("")}</ol>${t.consolidation ? `<h4>Fachliche Sicherung</h4><p>${esc(t.consolidation)}</p>` : ""}${t.limits ? `<h4>Grenzen dieser Übertragung</h4><p>${esc(t.limits)}</p>` : ""}<details><summary>Quellen zum Prüfen und Weiterforschen</summary><ul>${t.sources.map(([label, url]) => `<li><a href="${url}" target="_blank" rel="noopener">${esc(label)}</a></li>`).join("")}</ul><small>Amtliche bzw. institutionelle Quellen. Externe Inhalte sind keine Simulationsdaten; notiere die genaue Fundstelle. Die hier genannten externen Webinhalte wurden nicht live abgerufen; die Schulcurriculum-PDF wurde im Original geprüft.</small></details>${session ? textArea("transfer", session.notes.transfer) : ""}</section>`;
+    return `<section class="learn-transfer"><h3>${esc(t.title)}</h3>${t.facts.map((f) => "<p>" + esc(f) + "</p>").join("")}<ol>${t.tasks.map((f) => "<li>" + esc(f) + "</li>").join("")}</ol>${t.consolidation ? `<h4>Fachliche Sicherung</h4><p>${esc(t.consolidation)}</p>` : ""}${t.limits ? `<h4>Grenzen dieser Übertragung</h4><p>${esc(t.limits)}</p>` : ""}<details><summary>Quellen zum Prüfen und Weiterforschen</summary><ul>${t.sources.map(([label, url]) => `<li><a href="${url}" target="_blank" rel="noopener">${esc(label)}</a></li>`).join("")}</ul><small>Amtliche bzw. institutionelle Quellen. Externe Inhalte sind keine Simulationsdaten; notiere die genaue Fundstelle. Die hier genannten externen Webinhalte wurden nicht live abgerufen; die Schulcurriculum-PDF wurde im Original geprüft.</small></details>${session && withNotes ? textArea("transfer", session.notes.transfer) : ""}</section>`;
   }
   function glossary() {
     if (!detailed) return student.glossary();
@@ -922,11 +947,20 @@ export function mountLearningUI(host) {
                 ([k, v]) =>
                   `<h4>${esc(noteFields[k] || k)}</h4><p class="learn-pre">${esc(v || "Noch kein Eintrag.")}</p>`,
               )
-              .join(
-                "",
-              )}${imported.quest ? `<h3>Questbuch</h3><p>${imported.quest.step} von 5 Aufgaben</p>${imported.quest.entries.map((e) => `<p>${esc(e.question || e.event)}: ${esc(e.answer || "Handlung im Spiel")}</p>`).join("")}` : ""}${imported.comparison ? teacherData(imported.comparison) : ""}${manualData(imported, true)}${imported.population ? `<h3>Separater Zuchtversuch</h3><p>Startseed ${imported.population.initialSeed ?? "nicht dokumentiert"}; aktueller Zufallszustand ${imported.population.seed}. Dieses Archiv ersetzt nicht die Archive der Kontroll-/Selektionsläufe.</p>${archiveView(imported.population, "separater Mendelversuch")}` : ""}${imported.populationRepeats?.length ? `<h4>Dokumentierte Wiederholungen</h4>${imported.populationRepeats.map((r) => `<p>Seed ${r.seed}: AA ${r.final.AA}, Aa ${r.final.Aa}, aa ${r.final.aa}.</p>`).join("")}` : ""}</section>`
+              .join("")}${
+              imported.earlierNotes
+                ? `<h3>Frühere Notizen vor dem Questbuch</h3>${Object.entries(
+                    imported.earlierNotes,
+                  )
+                    .map(
+                      ([k, v]) =>
+                        `<h4>${esc(noteFields[k] || k)}</h4><p>${esc(v)}</p>`,
+                    )
+                    .join("")}`
+                : ""
+            }${imported.quest ? `<h3>Questbuch</h3><p>${imported.quest.step} von 5 Aufgaben</p>${imported.quest.entries.map((e) => `<p>${esc(e.question || e.event)}: ${esc(e.answer || "Handlung im Spiel")}</p>`).join("")}` : ""}${imported.comparison ? teacherData(imported.comparison) : ""}${manualData(imported, true)}${imported.population ? `<h3>Separater Zuchtversuch</h3><p>Startseed ${imported.population.initialSeed ?? "nicht dokumentiert"}; aktueller Zufallszustand ${imported.population.seed}. Dieses Archiv ersetzt nicht die Archive der Kontroll-/Selektionsläufe.</p>${archiveView(imported.population, "separater Mendelversuch")}` : ""}${imported.populationRepeats?.length ? `<h4>Dokumentierte Wiederholungen</h4>${imported.populationRepeats.map((r) => `<p>Seed ${r.seed}: AA ${r.final.AA}, Aa ${r.final.Aa}, aa ${r.final.aa}.</p>`).join("")}` : ""}</section>`
           : ""
-      }<details><summary>Alle Missionshintergründe und Modellgrenzen</summary>${MISSIONS.map((m) => `<h3>${esc(m.title)}</h3><p>${esc(m.goal)}</p><p>${esc(m.curriculum)}</p><p>${esc(m.limits)}</p>${m.transfer ? transfer(m.transfer) : ""}`).join("")}</details><h3>Versuche verwalten</h3><p>Ein Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.</p>${button("teacher-reset", "Ausgewählte Mission neu beginnen")}${button("teacher-restore", "Gesicherte Mission wiederherstellen")}<details><summary>Fachliche und curriculare Grundlage</summary><p>${CURRICULUM.title}, ${CURRICULUM.pages}; Original-PDF am 20.10.2026 abgeglichen. Die Simulation deckt ausgewählte Einheiten ab, nicht alle Inhalte der Klassen.</p><p>Gesundheit, Biomasse und Belastung sind Modellgrößen. Kohlenstoff nur qualitativ; Selektion nutzt offengelegte hypothetische Gewichte.</p></details>`
+      }<details><summary>Alle Missionshintergründe und Modellgrenzen</summary>${MISSIONS.map((m) => `<h3>${esc(m.title)}</h3><p>${esc(m.goal)}</p><p>${esc(m.curriculum)}</p><p>${esc(m.limits)}</p>${m.transfer ? transfer(m.transfer, false) : ""}`).join("")}</details><h3>Versuche verwalten</h3><p>Ein Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.</p>${button("teacher-reset", "Ausgewählte Mission neu beginnen")}${button("teacher-restore", "Gesicherte Mission wiederherstellen")}<details><summary>Fachliche und curriculare Grundlage</summary><p>${CURRICULUM.title}, ${CURRICULUM.pages}; Original-PDF am 20.10.2026 abgeglichen. Die Simulation deckt ausgewählte Einheiten ab, nicht alle Inhalte der Klassen.</p><p>Gesundheit, Biomasse und Belastung sind Modellgrößen. Kohlenstoff nur qualitativ; Selektion nutzt offengelegte hypothetische Gewichte.</p></details>`
     );
   }
   function render() {
@@ -1238,6 +1272,7 @@ export function mountLearningUI(host) {
                 learningMetrics(tank.learning),
               ),
               quest: x.quest || null,
+              earlierNotes: x.earlierNotes || null,
               currentPlan:
                 x.baseline &&
                 x.study &&
@@ -1450,6 +1485,8 @@ export function mountLearningUI(host) {
       if (a === "tweezers") {
         host.tweezers();
         t.setAttribute("aria-pressed", String(host.tweezersActive()));
+        if (!detailed && panel === "more") closePanel();
+        else if (!detailed) render();
         return;
       }
       if (a === "measure") {

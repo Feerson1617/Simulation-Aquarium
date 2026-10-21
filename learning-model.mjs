@@ -831,6 +831,7 @@ export function validateLearningProduct(raw) {
     profile,
     notes: evidenceNotes(raw.notes),
     quest: validateQuest(raw.quest, profile.mission),
+    earlierNotes: raw.earlierNotes ? evidenceNotes(raw.earlierNotes) : null,
     created: evidenceText(raw.created, 80),
     support: Object.hasOwn(SUPPORT, raw.support) ? raw.support : null,
     model:

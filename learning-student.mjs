@@ -229,6 +229,15 @@ export function createStudentViews(api) {
                 "",
               )}</ol>${session.quest.step === 5 ? `<p>${esc(d.conclusion.feedback)}</p>` : button("quest-open", "Zur Aufgabe")}`
           : `<p>Du bestimmst deinen Weg.</p><label>Was möchtest du untersuchen?<textarea data-learning-note="question" maxlength="20000">${esc(session.notes.question || "")}</textarea></label><label>Was hast du herausgefunden?<textarea data-learning-note="explanation" maxlength="20000">${esc(session.notes.explanation || "")}</textarea></label>`
+      }${
+        session.earlierNotes
+          ? `<details><summary>Frühere Ergebnisse</summary>${Object.values(
+              session.earlierNotes,
+            )
+              .filter(Boolean)
+              .map((v) => `<p>${esc(v)}</p>`)
+              .join("")}</details>`
+          : ""
       }${session.comparison ? results() : ""}${api.manual()}<div class="learn-actions">${button("export", "Für die Lehrkraft speichern")}${button("export-text", "Ergebnis speichern")}</div><small>Dein Stand bleibt auf diesem Gerät gespeichert.</small>`
     );
   }

@@ -1,0 +1,146 @@
+{
+  "version": 2,
+  "type": "aquarium-learning-product",
+  "profile": {
+    "version": 1,
+    "grade": 8,
+    "mode": "free",
+    "mission": null
+  },
+  "notes": {},
+  "provenance": {
+    "version": 1,
+    "notes": {},
+    "questAnswers": "selection",
+    "experiments": "game-action",
+    "measurements": "simulation",
+    "explanations": "game-explanation"
+  },
+  "gameExplanation": null,
+  "created": "2026-10-21T20:41:27.012Z",
+  "support": "partial",
+  "model": {
+    "title": "Eider-Treene-Schule · Fachcurriculum Biologie 2025/26",
+    "url": "https://ets-toenning.de/wp-content/uploads/2025/07/Schulinternes-Fachcurriculum-Biologie-SJ-2025-26.pdf",
+    "pages": "S. 3–4, 9–10, 14–15, 19–20",
+    "scope": "Ausgewählte Unterrichtseinheiten, kein Ersatz für das gesamte Fachcurriculum."
+  },
+  "modelVersion": "learning-biology-4",
+  "comparison": null,
+  "currentPlan": {
+    "kind": "ecology",
+    "profile": {
+      "version": 1,
+      "grade": 8,
+      "mode": "free",
+      "mission": null
+    },
+    "modelVersion": "learning-biology-4",
+    "tool": "light",
+    "value": 8,
+    "days": 3,
+    "environment": null,
+    "generations": null,
+    "repetitions": 2,
+    "baseline": {
+      "time": 45,
+      "seed": 47291,
+      "fingerprint": "b90b90a5",
+      "size": 19
+    },
+    "planning": {
+      "question": "",
+      "hypothesis": "",
+      "prediction": "",
+      "plan": ""
+    },
+    "metrics": [
+      "oxygen",
+      "health",
+      "algae",
+      "plantBiomass",
+      "organic",
+      "fishAlive",
+      "respiration"
+    ]
+  },
+  "population": null,
+  "populationRepeats": [],
+  "comparisonHistory": [],
+  "measurements": [
+    {
+      "day": 45,
+      "temp": 25,
+      "oxygen": 7.8,
+      "no3": 12,
+      "no2": 0.015,
+      "co2": 8,
+      "algae": 0.1,
+      "organic": 0.35,
+      "plantBiomass": 3.645430842088535,
+      "metricsVersion": 2,
+      "fishAlive": 6,
+      "fishDead": 0,
+      "health": 100,
+      "fishOutcome": 100,
+      "otherAnimals": 7,
+      "individuals": 13,
+      "photosynthesis": null,
+      "respiration": null,
+      "loadLevel": 0,
+      "failed": false,
+      "metrics": [
+        "oxygen",
+        "health",
+        "algae",
+        "plantBiomass",
+        "organic",
+        "fishAlive",
+        "respiration"
+      ]
+    },
+    {
+      "day": 46,
+      "temp": 25,
+      "oxygen": 8.18532023034708,
+      "no3": 11.793765849360463,
+      "no2": 0,
+      "co2": 6.465380185838054,
+      "algae": 0.09361868846006323,
+      "organic": 0.37246802573461857,
+      "plantBiomass": 3.8428599940360524,
+      "metricsVersion": 2,
+      "fishAlive": 6,
+      "fishDead": 0,
+      "health": 100,
+      "fishOutcome": 100,
+      "otherAnimals": 7,
+      "individuals": 13,
+      "photosynthesis": 0,
+      "respiration": 0.03088317665246868,
+      "loadLevel": 0,
+      "failed": false,
+      "metrics": [
+        "oxygen",
+        "health",
+        "algae",
+        "plantBiomass",
+        "organic",
+        "fishAlive",
+        "respiration"
+      ]
+    }
+  ],
+  "measurementMetrics": [
+    "oxygen",
+    "health",
+    "algae",
+    "plantBiomass",
+    "organic",
+    "fishAlive",
+    "respiration"
+  ],
+  "quest": null,
+  "earlierNotes": null,
+  "earlierQuest": null
+}

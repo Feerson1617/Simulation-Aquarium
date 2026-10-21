@@ -18,6 +18,6 @@ Ausgangspunkt: `6c86274bac47f96fe6309355f851713f2d42cbc0`; bestehender [PR #8](h
 
 ## Ausführung und Abgrenzung
 
-Alle 139 Node-Tests bestehen auf `c904add`. Der vollständige gekoppelte Browserlauf ist noch aktiv; seine endgültigen Ergebnisse werden in VALIDATION.md mit unveränderten Quellhashes belegt. Die hier benannten Browserprüfungen sind bis dahin Prüfumfang, keine pauschale Erfolgserklärung. Alte120/81-Resultate gehören zum früheren Geräteauftrag und werden nicht addiert.
+Alle 139 Node-Tests bestehen erneut auf `27003a4`. Nach den vollständigen Missionswegen wurde allein die kontextsensitive Sauerstoffhilfe wiederhergestellt; [exakter Unterschied](evidence/help-delta.json). Der vollständige gekoppelte Browserlauf ist noch aktiv; seine endgültigen Ergebnisse werden in VALIDATION.md mit unveränderten Quellhashes belegt. Die hier benannten Browserprüfungen sind bis dahin Prüfumfang, keine pauschale Erfolgserklärung. Alte120/81-Resultate gehören zum früheren Geräteauftrag und werden nicht addiert.
 
 Originalcurriculum: bereitgestellte PDF, S. 9–10,14–15,19–20 im Zusammenhang abgeglichen. Modellgrenzen und curriculare Zuordnung liegen in Lehrkraftansicht/Entwicklungsdokumentation. Regionale Informationen sind kurze fachliche Zusammenfassungen mit Quellen, keine Originalzitate oder erfundenen regionalen Messdaten. Externe Webseitenabrufe und offizieller WebKit-Download werden derzeit vom Cloud-Proxy mit403 blockiert; kein physisches Safari-iPad verfügbar.

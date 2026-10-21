@@ -1,10 +1,10 @@
 # Prüfung der biologischen Lernqualität A01–A11
 
-**Laufender Bericht, noch keine vollständige Abnahme.** Ausgangspunkt6c86274, neuer Spielcode c904add. Ausschließlich bestehender PR8/Branch feature/biology-learning-environments, kein Merge/main-Push. [Auftrag](REQUEST.md), [Korrekturmatrix](MATRIX.md), [alle 14 Lernziele und Handlungen](MISSIONS.md).
+**Laufender Bericht, noch keine vollständige Abnahme.** Ausgangspunkt6c86274, biologischer Kernstand c904add, aktueller Spielcode27003a4 nach alleiniger Wiederherstellung der Sauerstoff-Begriffshilfe. Ausschließlich bestehender PR8/Branch feature/biology-learning-environments, kein Merge/main-Push. [Auftrag](REQUEST.md), [Korrekturmatrix](MATRIX.md), [alle 14 Lernziele und Handlungen](MISSIONS.md).
 
 ## Bereits tatsächlich bestanden
 
-- **139/139 Node-Modultests**, 0 fehlgeschlagen/übersprungen. [Ungekürztes Protokoll](evidence/modules.log).
+- **139/139 Node-Modultests** erneut auf27003a4, 0 fehlgeschlagen/übersprungen. [Ungekürztes Protokoll](evidence/modules.log).
 - **11/11 biologische Browserprüfpunkte** am tatsächlichen Simulationskern und der normalen Oberfläche. [Protokoll](evidence/biology.log), [strukturierter Bericht](evidence/biology/report.json).
 - AST-/Bytevergleich gegen6c86274: nur qs/Qf/tp/z1 am eingebetteten Kern gezielt verändert. hd/ud/y1/ep und geschützte Mendel-/Populationsalgorithmen bytegleich; AGENTS, Assets und Pagesworkflows unverändert. [Quellaudit](evidence/source-audit.json).
 
@@ -25,7 +25,7 @@ Mendel: tatsächliche F1-Eltern1/6, F2-Eltern25/26 aus der erzeugten F1. Die im 
 
 ## Noch laufend / ausstehend
 
-Alle 14 vollständigen biologischen Lernwege, zusätzliche Touchmissionen, alle Gerätefälle in drei Browserprofilen, R1–R8, Tutorial/Freispiel, Import/Export, Platzierung und einzelner HTML-Download. Ergebnisse werden erst nach tatsächlicher Ausführung übernommen. Während der gekoppelten Prüfung bleiben sämtliche HTML-/MJS-/CSS-Dateien unverändert; der serielle Runner kontrolliert ihre SHA-256-Werte vor jeder Gruppe und danach. Dokumentations-/Testanpassungen werden getrennt berichtet.
+Alle 14 vollständigen biologischen Lernwege, zusätzliche Touchmissionen, alle Gerätefälle in drei Browserprofilen, R1–R8, Tutorial/Freispiel, Import/Export, Platzierung und einzelner HTML-Download. Ergebnisse werden erst nach tatsächlicher Ausführung übernommen. Innerhalb jedes seriellen Laufs bleiben sämtliche HTML-/MJS-/CSS-Dateien unverändert; der Runner kontrolliert ihre SHA-256-Werte vor jeder Gruppe und danach. Nach den17 bestandenen Missionswegen wurde zwischen zwei Läufen ausschließlich die Sauerstoff-Begriffshilfe ergänzt. [Exakter Einfügevergleich](evidence/help-delta.json); keine biologische Regel, Lernhandlung, Messwert- oder Speicherfunktion geändert. Node- und betroffene Browserhilfen/-ansichten werden am neuen Stand geprüft; frühere erfolgreiche Abschnitte bleiben mit ihrem tatsächlichen Quellstand dokumentiert. Dokumentations-/Testanpassungen werden getrennt berichtet.
 
 ## Grenzen
 

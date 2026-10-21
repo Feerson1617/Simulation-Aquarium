@@ -1,0 +1,11 @@
+{
+  "baseline": "c904add",
+  "head": "27003a429d1498083a14e68ca3fceb5c65618d04",
+  "only_runtime_file_changed": "learning-student.mjs",
+  "exact_replacement": {
+    "before": "${esc(STUDENT_METRICS[k][0])}</dt><dd>${num(sample[k]",
+    "after": "${esc(STUDENT_METRICS[k][0])}${k === \"oxygen\" ? helpButton(\"oxygen\") : \"\"}</dt><dd>${num(sample[k]"
+  },
+  "all_other_runtime_files_byte_equal": true,
+  "reason": "Restore contextual oxygen question-mark help; no metrics, calculations, phase gates or recorded actions changed."
+}

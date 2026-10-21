@@ -231,7 +231,7 @@ export function createStudentViews(api) {
               .join(
                 "",
               )}</ol>${session.quest.step === 5 ? `<p>${esc(d.conclusion.feedback)}</p>` : button("quest-open", "Zur Aufgabe")}`
-          : `<p>Du bestimmst deinen Weg.</p><label>Was möchtest du untersuchen?<textarea data-learning-note="question" maxlength="20000">${esc(session.notes.question || "")}</textarea></label><label>Was hast du herausgefunden?<textarea data-learning-note="explanation" maxlength="20000">${esc(session.notes.explanation || "")}</textarea></label>`
+          : `<p>Du bestimmst deinen Weg.</p><details><summary>Hilfe beim Forschen</summary><ol><li>Schau dir das Becken an.</li><li>Wähle eine eigene Frage.</li><li>Was glaubst du, wird passieren?</li><li>Probiere es aus. Vergleiche beide Verläufe.</li><li>Was hast du herausgefunden?</li></ol><label>Deine Vermutung (freiwillig)<textarea data-learning-note="prediction" maxlength="20000">${esc(session.notes.prediction || "")}</textarea></label>${button("investigate", "Ausprobieren")}</details><label>Was möchtest du untersuchen?<textarea data-learning-note="question" maxlength="20000">${esc(session.notes.question || "")}</textarea></label><label>Was hast du herausgefunden?<textarea data-learning-note="explanation" maxlength="20000">${esc(session.notes.explanation || "")}</textarea></label>`
       }${
         session.earlierNotes
           ? `<details><summary>Frühere Ergebnisse</summary>${Object.values(

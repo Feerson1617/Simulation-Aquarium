@@ -139,6 +139,14 @@ export function mountLearningUI(host) {
       unlockedMetrics: teacher.unlockMetrics,
     }),
     healthText: () => {
+      const s = host.getState();
+      if (s.failed) return "Das Becken ist in Gefahr. Prüfe das Wasser.";
+      if (
+        s.entities.some(
+          (e) => e.dead && host.types[e.species]?.category === "fish",
+        )
+      )
+        return "Ein Fisch ist gestorben. Prüfe das Wasser.";
       const h = learningSample(host.getState(), host.types).health;
       return h >= 80
         ? "Den Fischen geht es gut."

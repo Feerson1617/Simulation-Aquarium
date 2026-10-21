@@ -1,0 +1,17 @@
+import fs from 'node:fs';import {execFileSync} from 'node:child_process';import crypto from 'node:crypto';
+import * as acorn from '/workspace/aquarium-devtools/source-analysis/node_modules/acorn/dist/acorn.mjs';
+const baseline='6c86274bac47f96fe6309355f851713f2d42cbc0';
+const code=html=>html.slice(html.indexOf('<script type="module">')+'<script type="module">'.length,html.lastIndexOf('</script>'));
+const read=(file,old)=>old?execFileSync('git',['show',baseline+':'+file],{maxBuffer:40*1024*1024}).toString():fs.readFileSync(file,'utf8');
+const declarations=source=>new Map(acorn.parse(source,{ecmaVersion:'latest',sourceType:'module'}).body.flatMap(n=>n.type==='ExportNamedDeclaration'&&n.declaration?[n.declaration]:[n]).filter(n=>['FunctionDeclaration','ClassDeclaration'].includes(n.type)&&n.id).map(n=>[n.id.name,crypto.createHash('sha256').update(source.slice(n.start,n.end)).digest('hex')]));
+const before=declarations(code(read('index.html',true))),after=declarations(code(read('index.html',false)));
+const changed=[...before.keys()].filter(k=>before.get(k)!==after.get(k));
+if(changed.slice().sort().join(',')!==['Qf','qs','tp','z1'].sort().join(','))throw new Error('Unexpected inline changes: '+changed);
+const protectedCore=Object.fromEntries(['hd','ud','y1','ep'].map(k=>[k,{equal:before.get(k)===after.get(k),sha256:after.get(k)}]));
+if(Object.values(protectedCore).some(v=>!v.equal))throw new Error('Protected core changed');
+const oldPop=declarations(read('learning-population.mjs',true)),newPop=declarations(read('learning-population.mjs',false));
+const protectedGenetics=Object.fromEntries(['inheritGenotype','punnettSquare'].map(k=>[k,'genetics.mjs']).concat(['reproductiveWeight','nextLearningGeneration','crossLearningPopulation'].map(k=>[k,'learning-population.mjs'])).map(([k,file])=>{const a=file==='learning-population.mjs'?oldPop:declarations(read(file,true)),b=file==='learning-population.mjs'?newPop:declarations(read(file,false));return[k,{file,equal:a.get(k)===b.get(k),sha256:b.get(k)}]}));
+if(Object.values(protectedGenetics).some(v=>!v.equal))throw new Error('Genetic mechanism changed');
+const protectedDiff=execFileSync('git',['diff',baseline,'HEAD','--','AGENTS.md','.github/workflows','assets'],{maxBuffer:1000000}).toString();if(protectedDiff)throw new Error('Protected assets/instructions changed');
+const report={baseline,head:execFileSync('git',['rev-parse','HEAD']).toString().trim(),changedInlineFunctions:changed,justification:{Qf:'Growth follows actual oxidation; NH3 health penalty shared with indicator',qs:'NH3 warning uses free concentration rather than raw NH4 cutoff',tp:'Prepared replacement water GH12/25C independent of heater target',z1:'Distinguish NH4 measurement from live NH3 risk; shared concentration thresholds'},protectedCore,protectedGenetics,protectedPathsUnchanged:['AGENTS.md','.github/workflows','assets']};
+fs.writeFileSync('/tmp/biology-quality-source-audit.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report));

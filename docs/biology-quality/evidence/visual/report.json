@@ -1,0 +1,17 @@
+{
+  "commit": "5ab21c49b8fe4fd78aa895aa89defda9e4450f75",
+  "checks": [
+    "Neutral population actual curve and correct drift explanation",
+    "Directed population actual curve, group legend and conditional selection explanation",
+    "Final portrait primary device path with numeric alternative and visible actual scene"
+  ],
+  "screenshots": [
+    "population-neutral.png",
+    "population-selected.png",
+    "warming-plan-final-portrait.png",
+    "warming-device-final-portrait.png"
+  ],
+  "errors": [],
+  "engine": "chromium",
+  "status": "passed"
+}

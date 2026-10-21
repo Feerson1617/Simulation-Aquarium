@@ -1,0 +1,15 @@
+PASS desktop: 8-ecosystem completed with required biological actions, actual evidence, retry, provenance and explanation
+PASS desktop: 8-oxygen completed with required biological actions, actual evidence, retry, provenance and explanation
+PASS desktop: 8-foodweb completed with required biological actions, actual evidence, retry, provenance and explanation
+PASS desktop: 8-health completed with required biological actions, actual evidence, retry, provenance and explanation
+PASS desktop: 8-forest completed with required biological actions, actual evidence, retry, provenance and explanation
+PASS desktop: 9-traits completed with required biological actions, actual evidence, retry, provenance and explanation
+RESULTS /tmp/biology-quality-final-v3/quests/20261021T182803
+Traceback (most recent call last):
+  File "/workspace/Simulation-Aquarium/tests/quest_browser.py", line 80, in <module>
+    for id in ids:complete(p,g,id)
+                  ^^^^^^^^^^^^^^^^
+  File "/workspace/Simulation-Aquarium/tests/quest_browser.py", line 70, in complete
+    p.reload();p.wait_for_function('!!window.aquariumLearningSnapshot');start(p,g,id);assert snap(p)['quest']==before['quest'];assert snap(p)['comparison']==before['comparison'];assert snap(p)['population']==before['population']
+                                                                                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

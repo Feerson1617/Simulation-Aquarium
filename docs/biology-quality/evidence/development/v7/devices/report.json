@@ -1,0 +1,9 @@
+{
+  "checks": [],
+  "errors": [],
+  "failed_requests": [],
+  "console_errors": [],
+  "commit": "10cbe3b672e852acc95dcbc798c44438b2b0e1bf",
+  "status": "failed",
+  "failure": "Locator.click: Timeout 45000ms exceeded.\nCall log:\n  - waiting for locator(\".equipment-sheet\").locator(\".device-numeric:not([open]) > summary\").nth(1)\n"
+}

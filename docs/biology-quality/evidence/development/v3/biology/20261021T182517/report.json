@@ -1,0 +1,74 @@
+{
+  "commit": "50b90397fbc7bd25f78ad3f1aa295e6e034eb268",
+  "checks": [
+    {
+      "name": "A10 actual Qf: no substrate -> no nitrifier growth or invented nitrogen",
+      "bacteria": 0.19177093418742783,
+      "bacteria2": 0.19177093418742783
+    },
+    {
+      "name": "A10 actual Qf: growth uses actual oxidation and conserves compound nitrogen"
+    },
+    {
+      "name": "A10 actual Qf: high pH free ammonia harms below old NH4-only threshold",
+      "nh3": 0.06982853293725481,
+      "high_health": 98.81464333828431,
+      "control_health": 99.5
+    },
+    {
+      "name": "A10 actual Qf: acid ammonium does not trigger false ammonia damage",
+      "nh3": 0.0003513706354494627
+    },
+    {
+      "name": "A03 actual import and student view: real fish deaths plus live snails cannot show positive fish health",
+      "sample": {
+        "day": 45.75,
+        "temp": 25,
+        "oxygen": 8.19185648011808,
+        "no3": 11.616523490069488,
+        "no2": 0,
+        "co2": 6.859190821159264,
+        "algae": 0.09771638760166605,
+        "organic": 3.8627109409860263,
+        "plantBiomass": 3.8428599940360524,
+        "metricsVersion": 2,
+        "fishAlive": 0,
+        "fishDead": 6,
+        "health": null,
+        "fishOutcome": 0,
+        "otherAnimals": 3,
+        "individuals": 3,
+        "photosynthesis": 0.08777391841667674,
+        "respiration": 0.030983079294592583,
+        "loadLevel": 1,
+        "failed": false
+      }
+    },
+    {
+      "name": "A10 expert lab distinguishes measured NH4 from current free NH3 alkaline",
+      "nh3": 0.06982853293725481,
+      "level": 1
+    },
+    {
+      "name": "A10 expert lab distinguishes measured NH4 from current free NH3 acid",
+      "nh3": 0.0003513706354494627,
+      "level": 0
+    },
+    {
+      "name": "A09 regular quest support guided"
+    },
+    {
+      "name": "A09 regular quest support partial"
+    },
+    {
+      "name": "A09 regular quest support independent"
+    },
+    {
+      "name": "A09 changing support leaves actual biological starting values unchanged"
+    }
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "console_errors": [],
+  "status": "passed"
+}

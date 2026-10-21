@@ -1,5 +1,7 @@
 # Biologische Lernqualität – Arbeitsstand
 
+**Aktueller Abschlussstand:** 139 Modultests und 95 Browserprüfpunkte plus Einzel-HTML bestanden. Wissenschaftlicher Kern c904add, letzte Spielquellenänderung 27003a4 (Sauerstoffhilfe). Portables WebKit-Bibliothekenset ohne Root geprüft; Browserdownload/-Spieltests sowie externe Vorschau/Quellenprüfung durch aktive Netzwerkregel blockiert. Maßgeblich: [Prüfbericht](VALIDATION.md), [Korrekturmatrix](MATRIX.md), [Umgebung](ENVIRONMENT.md). Die folgenden Einträge sind chronologische Entwicklungsstände, keine zusätzlichen aktuellen Testerfolge.
+
 Auftrag: [REQUEST.md](REQUEST.md), bestehender PR #8, Branch `feature/biology-learning-environments`.
 
 Übernommen: sauberer lokaler und bestätigter GitHub-Head `6c86274bac47f96fe6309355f851713f2d42cbc0`; main unverändert `666df90ac05de61181f380f2190539a9cef04044`. Keine fremden oder ungesicherten Änderungen vorhanden. Alte Testberichte sind frühere Prüfstände, keine Abnahme dieses neuen Auftrags.
@@ -85,3 +87,9 @@ Stand20:47UTC: R1–R8 vollständig12/12 Browserprüfpunkte bestanden. Tatsächl
 
 
 Bereitschaftsgruppe13/13 bestanden: tatsächlicher Projektpfad/HTML-Fingerprint,3D,Becken/Katalog, Wasser/Spielzeit, Datei-/LocalStorage-Wiederherstellung, alle8Touch-Tutorialstufen und freies Spiel/Portrait; keine gemeldetenHTTP-/Laufzeit-/externenLaufzeitanfragen. Platzierung läuft nun seriell. A11-Prototyp vor Übertragung zusätzlich als historische Entwicklungsevidenz sichern (keine zusätzlichen aktuellen Tests zählen).
+
+
+Alle Hauptgruppen abgeschlossen:139Node,11Biologie,26Quest,18Geräte,12R1–R8,13Bereitschaft,12Platzierung sowie vollständigerHTML-Download(151.198.382Bytes) als einzige Datei ohne zusätzlicheHTTP-Ressourcen. NativefileNavigation bleibtverwaltetgesperrt, Loopback-Einzeldateifall separatbelegt. Abschließender Bildprüfer fand nach beiden tatsächlich erzeugten Populationsbildern einen eigenen SVG-API-Fehler: inner_text erfordertHTMLElement, learn-chart istSVG. Nachweis verwendetjetzt text_content fürdenselben Gruppentext;keineAppänderung/Assertionentfernung. KleinevisuelleGruppe wird erneutvollständig ausgeführt; ersterFehlbericht bleibt erhalten.
+
+
+Abschluss der unabhängig ausführbaren Arbeit: Alle139 Modultests/95 Browserprüfpunkte und der151.198.382-Byte-Einzel-HTML-Fall bestanden; finale tatsächliche Diagramm-/Hochformatbilder beurteilt. Der zunächst fehlende administrative Systempaketzugriff ist für den Bibliothekenteil durch den tatsächlich geprüften privaten Präfix gelöst:19 authentifizierte Debianarchive,16 auflösbareELF-Objekte, sechs geladeneBibliothekswurzeln, wiederholtesSetup und sauber initialisierter/beendeterPlaywrighttreiber. Kein Systempaket geändert, kein Root/zusätzlicherAccount, keine Umgehung der Browserdownload-Regel. Jetzt ist nur der WebKit-Browserdownload/Spieltest sowie externer Quellen-/Pages-/APIabruf durch die alte aktive Netzwerkregel blockiert. Gespeicherte Konfiguration wird auf den getesteten portablen Weg aktualisiert; Entwurf und tatsächliche Aktivierung bleiben getrennt.

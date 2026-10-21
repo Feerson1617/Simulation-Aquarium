@@ -1,0 +1,103 @@
+{
+  "commit": "c904addd9a38ac85aea34cb5a582e8d388c8e1e0",
+  "started": "2026-10-21T18:49:23.193328+00:00",
+  "fingerprints": {
+    "aquascaping.css": "cbaf61e59b116ad90747d9ea8504b480319a120d0b28594bc42dfabe7cef15b9",
+    "aquascaping.mjs": "7be4508b63d046b8dde5a35fff05416012baa339f513a499541c914a65794d55",
+    "biology-quality.mjs": "abd84877125d3597ca222b6d0716c6bcce92c48b5fd74f73eb495c4d92260c6f",
+    "bioprocesses.mjs": "bd6a9ee22dd39449bee2514a2935cc4e004a00888ae0ba095ae8538db36ed75e",
+    "catalog-assets.mjs": "1725e5493f14bd1ba68cd49251a4be542d24029ccec36cc6ce97c8fdbab0d791",
+    "catalog-studio.mjs": "5c0e58a4c4f74d2b4fabec453acbea7e0056393b5472ad14d5ecb5b1287dcd03",
+    "catalog.css": "85d3ee019ac0aee8cea7e5f058414df06b64809463b658a28ebcd1769a96176a",
+    "catalog.mjs": "eaa4db288f4bd1e5bfe82a2e1daf50f54d16ebdac43635d08258dd880fc37504",
+    "control-dial.mjs": "a7217998cd8bba325c0003419538bdcdcad1774cd0ef755d5281a8bf7fc3f056",
+    "control-values.mjs": "ea918839a5c4136d8b6dc4f0f7743accfff1f6e9287a4649e45a99cb892344f2",
+    "ecology.mjs": "0a4d2f971ef52e5a933f112bcd153fdf59aafa28d9ea8a4a0f700fd72213a1a2",
+    "equipment-ui.mjs": "63d1aaf7a68213e8be16a1d8b14329119379dddd965354a3170c71c32c42d823",
+    "equipment.css": "7bbe961ddc163a7484e0f70a2e50c541a5867b61d443be6a19c33728bf66f932",
+    "fish-variants.mjs": "001365c4ae594847c4aec741340734b3c1c43c9058afde6368310adf68e3cac2",
+    "genetics-shop.mjs": "d0cf542391fa1d391e35cb7a9d033b986d08f610b2fa2b9c84a85e3b0b19bb9b",
+    "genetics-ui.mjs": "ffee9241dbda4952847aa51b395b5e45111ef6b23011ed98309967db9d9c5a72",
+    "genetics.css": "458cbc124c9f16cde4b6760c6e8fdfba2978b19f61152c899939c4b9c9de8684",
+    "genetics.mjs": "301b841789853d6ed8dac91d3090f2cc85ab858701577473a35e3ab82122a532",
+    "graphics-profiles.mjs": "5d1f586679fcee3c3316bb3b0ebf952500a8fcaac42449ccf9c67806bd0ed98a",
+    "graphics.css": "17c48328c83603daabc10887a71603e36e51a6d30ceb062a053295f69a890199",
+    "index.html": "324bae256e958257868c51c01c01987c55219b3d65a789ffbf41865309906de1",
+    "individual-appearance.mjs": "0a8365eabceca7f2c6e982effe9af498c230aae702f9d44810c6ff0a292e4b58",
+    "learning-activities.mjs": "a46a1751ad903c21c079364e1c43963edf1d9b402790a17ba7cfb5c7fbdb9cd2",
+    "learning-content.mjs": "41120a780c512f8e4c42f601d447da6da0c74acc4697eb027bda287ef60dc726",
+    "learning-model.mjs": "130c8737c40a5f341b9a10993646cb6de0c2e77ee95aa2fa1a565cab041bdfc5",
+    "learning-population.mjs": "803fbfc12cd0553caf5edb381336da8f7f83313061b5517e0930ee5eecec6742",
+    "learning-provenance.mjs": "569ba626e23973fdf4a8b5f5b32c5d58b137fb929b4ed31bf29e57a175194999",
+    "learning-quests.mjs": "15f4117584d6ad4e79d90a698c4fa7c0e1edd778e3f11c57fa1260838af1b53f",
+    "learning-student.mjs": "fd5a8eb31fc1760fedf714cd82191d792724e14fabc1332dd85c5f5126f71a54",
+    "learning-ui.mjs": "f0a91e5debaa0f004734cbd25707357a42b6d780704236c84ae4d6fb708eae29",
+    "learning.css": "b63afc0bd8d49af5844b7e441c3357df3efaabe6e172ff55c7804fad8e2749ff",
+    "organic-shapes.mjs": "8f22e1c4b9a9195a689608a69af0fd0ced1e3173ec2b44e81349129617e3c80e",
+    "photo-volume.mjs": "0d1dbecc908e1ffc04df00d97827b91b70556ea1540bdcb114caf3efa6d9a724",
+    "physical-renderer.mjs": "46ff0ab3bc8cc82faadb798230a15cbf460f04cba9e50e5bfa092925c2360709",
+    "physical-scale.mjs": "a948d0affb65fe354f90dfebb53e0d26b63567a35645714a3b4795f5dc68b041",
+    "realism-assets.mjs": "f0d2b01a660dc9bd96f8ca5902555c129dcbe6cf53d16ec96e0bbe8b303d39dc",
+    "realism-materials.mjs": "32ae354c89791d4d86dc157a8c3ec58b76c3b6b0fd4bfd68f7c8ae363ec8fc54",
+    "realism-renderer.mjs": "1c3fc92567c2dcfc6d42e4cd70b6f77ebf9c4617380d6c9c4b0d17f76218efde",
+    "render-population.mjs": "e0d70fa5cdcd933f325a56fd6d687fbd2f8ef65e59d6b32c84200cff6d8a7304",
+    "scenarios.mjs": "ee2873b59ff2e4e5c2aec8c79fd4ed3be56f043d7ad16002063db7ccd106754b",
+    "species-assets.mjs": "7539167cbf8c92e0bfce1f5efd89c8dd66403a9586da94c0214d3b0b630b7c30",
+    "species-dimensions.mjs": "9aaa6d3e0425998f83652825402b95a569cadd4c914f5e517f319d4afb5fbd0b",
+    "species-provenance.mjs": "7e1324dc173cc0e41a1d23eb216ecfe4165e3eac0e02a650f5046b89bd5f3d58",
+    "study-ui.mjs": "76aff3a82c71b76faf0a46c6b62b1d8399f1f7559aa5f1d6326763da6462fcfa",
+    "study.css": "ed534d337c339cb1a1602fcd4412ae8059720b1c4684136e401f870bfda26ee5",
+    "underwater.mjs": "df3c746f19f3f20348cb7442ec7c216b8cd863bab3e7f7e4105785e92223e941"
+  },
+  "suites": [
+    {
+      "name": "modules",
+      "command": [
+        "node",
+        "--test",
+        "tests/aquascaping.test.mjs",
+        "tests/biology-quality.test.mjs",
+        "tests/bioprocesses.test.mjs",
+        "tests/catalog.test.mjs",
+        "tests/device-controls.test.mjs",
+        "tests/ecology.test.mjs",
+        "tests/genetics.test.mjs",
+        "tests/graphics.test.mjs",
+        "tests/learning-quests.test.mjs",
+        "tests/learning-review.test.mjs",
+        "tests/learning.test.mjs",
+        "tests/physical-scale.test.mjs"
+      ],
+      "commit": "c904addd9a38ac85aea34cb5a582e8d388c8e1e0",
+      "status": "passed",
+      "started": "2026-10-21T18:49:23.226177+00:00",
+      "exit_code": 0,
+      "seconds": 13.97
+    },
+    {
+      "name": "biology",
+      "command": [
+        "python3",
+        "tests/biology_quality_browser.py"
+      ],
+      "commit": "c904addd9a38ac85aea34cb5a582e8d388c8e1e0",
+      "status": "passed",
+      "started": "2026-10-21T18:49:37.220457+00:00",
+      "exit_code": 0,
+      "seconds": 205.91
+    },
+    {
+      "name": "quests",
+      "command": [
+        "python3",
+        "tests/quest_browser.py"
+      ],
+      "commit": "c904addd9a38ac85aea34cb5a582e8d388c8e1e0",
+      "status": "failed",
+      "started": "2026-10-21T18:53:03.168105+00:00",
+      "exit_code": 1,
+      "seconds": 2131.92
+    }
+  ],
+  "status": "failed"
+}

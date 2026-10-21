@@ -1,0 +1,29 @@
+{
+  "method": "dpkg-query -W -f=${Status} package; official Playwright install-deps --dry-run also failed with missing package indexes/config permission",
+  "packages": {
+    "libgles2": {
+      "installed": false
+    },
+    "libgtk-4-1": {
+      "installed": false
+    },
+    "libharfbuzz-icu0": {
+      "installed": false
+    },
+    "libhyphen0": {
+      "installed": false
+    },
+    "libmanette-0.2-0": {
+      "installed": false
+    },
+    "libwoff1": {
+      "installed": false
+    },
+    "gstreamer1.0-libav": {
+      "installed": false
+    },
+    "xvfb": {
+      "installed": false
+    }
+  }
+}

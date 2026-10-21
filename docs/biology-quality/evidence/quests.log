@@ -1,0 +1,90 @@
+SOURCE /tmp/biology-quality-final-v4
+PASS desktop: 8-ecosystem completed with required biological actions, actual evidence, retry, provenance and explanation
+PASS desktop: 8-oxygen completed with required biological actions, actual evidence, retry, provenance and explanation
+PASS desktop: 8-foodweb completed with required biological actions, actual evidence, retry, provenance and explanation
+PASS desktop: 8-health completed with required biological actions, actual evidence, retry, provenance and explanation
+PASS desktop: 8-forest completed with required biological actions, actual evidence, retry, provenance and explanation
+PASS desktop: 9-traits completed with required biological actions, actual evidence, retry, provenance and explanation
+PASS desktop: 9-mendel completed with required biological actions, actual evidence, retry, provenance and explanation
+PASS desktop: 9-population completed with required biological actions, actual evidence, retry, provenance and explanation
+PASS desktop: 9-darwin completed with required biological actions, actual evidence, retry, provenance and explanation
+PASS desktop: 10-enrichment completed with required biological actions, actual evidence, retry, provenance and explanation
+PASS desktop: 10-carbon completed with required biological actions, actual evidence, retry, provenance and explanation
+PASS desktop: 10-restore completed with required biological actions, actual evidence, retry, provenance and explanation
+PASS desktop: 10-northsea completed with required biological actions, actual evidence, retry, provenance and explanation
+PASS desktop: 10-wadden completed with required biological actions, actual evidence, retry, provenance and explanation
+PASS touch: 8-oxygen completed with required biological actions, actual evidence, retry, provenance and explanation
+PASS touch: 9-mendel completed with required biological actions, actual evidence, retry, provenance and explanation
+PASS touch: 10-carbon completed with required biological actions, actual evidence, retry, provenance and explanation
+RESULTS /tmp/biology-quality-final-v4/quests/20261021T185303
+Traceback (most recent call last):
+  File "/workspace/Simulation-Aquarium/tests/quest_browser.py", line 91, in <module>
+    c,p=context(b,True)
+          ^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 18242, in fill
+    self._sync(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_locator.py", line 219, in fill
+    return await self._frame.fill(self._selector, strict=True, **params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py", line 636, in fill
+    await self._fill(**locals_to_params(locals()))
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py", line 648, in _fill
+    await self._channel.send("fill", self._timeout, locals_to_params(locals()))
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 76, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 632, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Locator.fill: Timeout 90000ms exceeded.
+Call log:
+  - waiting for locator("[data-learning-value]")
+    - locator resolved to <input value="8" type="text" required="" autocomplete="off" inputmode="decimal" data-learning-value=""/>
+    - fill("0")
+  - attempting fill action
+    2 × waiting for element to be visible, enabled and editable
+      - element is not visible
+    - retrying fill action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and editable
+      - element is not visible
+    - retrying fill action
+      - waiting 100ms
+    176 × waiting for element to be visible, enabled and editable
+        - element is not visible
+      - retrying fill action
+        - waiting 500ms
+
+
+SOURCE /tmp/biology-quality-final-v5
+PASS free grade 8: no mandatory quest or writing; actual experiment, measurements, export and legacy save preserved
+PASS free grade 9: no mandatory quest or writing; actual experiment, measurements, export and legacy save preserved
+PASS free grade 10: no mandatory quest or writing; actual experiment, measurements, export and legacy save preserved
+PASS teacher: real quest exports and v1 products remain readable; carbon source material and limits available
+PASS teacher: full technical investigation remains accessible without exposing it in regular student views
+RESULTS /tmp/biology-quality-final-v4/quests/20261021T185303
+Traceback (most recent call last):
+  File "/workspace/Simulation-Aquarium/tests/quest_browser.py", line 126, in <module>
+    if g!=9:assert {'oxygen','nutrients','load','control','species'}.issubset(seen)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+SOURCE /tmp/biology-quality-final-v6
+PASS grade 8: every regular question-mark help has the correct topic, short text, keyboard focus and touch-size controls
+PASS grade 9: every regular question-mark help has the correct topic, short text, keyboard focus and touch-size controls
+PASS grade 10: every regular question-mark help has the correct topic, short text, keyboard focus and touch-size controls
+RESULTS /tmp/biology-quality-final-v4/quests/20261021T185303
+Traceback (most recent call last):
+  File "/workspace/Simulation-Aquarium/tests/quest_browser.py", line 135, in <module>
+    start(p,8,'8-oxygen');assert snap(p)['study']['value']==12 and snap(p)['study']['days']==4;action(p,'notebook');p.get_by_text('Frühere Ergebnisse',exact=True).click();expect(p.locator('.learn-panel')).to_contain_text('Meine frühere Erklärung');f=download(p,'migrated-notes.json');assert json.loads(f.read_text())['earlierNotes']['explanation']=='Meine frühere Erklärung';passed('old learning session: previous settings and notes survive quest migration and file export');c.close()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/Simulation-Aquarium/tests/quest_browser.py", line 35, in start
+    state=snap(p);disturbed=id in ['8-health','10-restore'];assert not [item for item in state['habitat'] if not disturbed or item['key']!='nitrite'],state['habitat']
+                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [{'uid': 2, 'species': 'neon', 'key': 'group'}]
+
+SOURCE /tmp/biology-quality-final-v7
+PASS old learning session: previous settings and notes survive quest migration and file export
+RESULTS /tmp/biology-quality-final-v4/quests/20261021T185303

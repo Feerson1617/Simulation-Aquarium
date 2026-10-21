@@ -1,0 +1,44 @@
+{
+  "draft_id": "caa0ecca-c46d-4185-9396-c8edcf5c9d47~cecfgdraft_6ad4f4292ef081979518e3376aed5207",
+  "status": "saved",
+  "requires_publish": true,
+  "repositories": [
+    {
+      "name": "Feerson1617/Simulation-Aquarium",
+      "host": "github.com",
+      "commit": "5ab21c49b8fe4fd78aa895aa89defda9e4450f75",
+      "mount_path": "Simulation-Aquarium"
+    }
+  ],
+  "saved_fields": [
+    "repositories",
+    "install_script",
+    "start_skill",
+    "network.allowed_domains"
+  ],
+  "custom_allowed_domains": [
+    "api.github.com",
+    "feerson1617.github.io",
+    "cdn.playwright.dev",
+    "playwright.download.prss.microsoft.com",
+    "www.ospar.org",
+    "www.nationalpark-wattenmeer.de"
+  ],
+  "new_custom_domains": [
+    "cdn.playwright.dev",
+    "playwright.download.prss.microsoft.com",
+    "www.ospar.org",
+    "www.nationalpark-wattenmeer.de"
+  ],
+  "existing_presets_preserved": true,
+  "secrets_added": [],
+  "environment_variables_added": [],
+  "current_setup_repeated_successfully": true,
+  "current_server_exact_html_verified": true,
+  "proposed_install_script_bash_syntax_checked": true,
+  "webkit_installation_executed": false,
+  "webkit_tests_executed": false,
+  "system_installation_blocker": "Current shell UID1000 has no sudo; required OS package installation needs an administrative cloud installation context.",
+  "runtime_activation": "Not established by this saved draft; requires user review/save/publish and new readiness observations.",
+  "receipt_recorded": "2026-10-21T21:01:56.681436+00:00"
+}

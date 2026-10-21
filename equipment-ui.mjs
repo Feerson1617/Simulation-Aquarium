@@ -106,7 +106,7 @@ export function mountEquipmentUI(host, T) {
     const context = host.context(), view = host.view();
     root.hidden = !context.visible || !view || view.state.tankPlaced === false;
     if (root.hidden) { if (opened) close(false); else clearOutline(); return; }
-    const rect = view.renderer.domElement.getBoundingClientRect(), outer = host.root.getBoundingClientRect();
+    const rect = view.renderer.domElement.getBoundingClientRect(), outer = host.root.getBoundingClientRect(), placed = [];
     for (const key of Object.keys(kinds)) {
       const button = root.querySelector(`[data-equipment="${key}"]`), object = meshFor(key);
       button.hidden = !object || !context.tools.includes(key) || (opened && opened.key !== key);
@@ -114,8 +114,16 @@ export function mountEquipmentUI(host, T) {
       object.updateWorldMatrix(true,true);
       const center = new T.Box3().setFromObject(object).getCenter(new T.Vector3()).project(view.camera);
       button.hidden = center.z < -1 || center.z > 1;
-      button.style.left = Math.max(50,Math.min(outer.width-65,rect.left-outer.left+(center.x+1)*rect.width/2)) + "px";
-      button.style.top = Math.max(80,Math.min(outer.height-170,rect.top-outer.top+(1-center.y)*rect.height/2-42)) + "px";
+      if (button.hidden) continue;
+      const width = button.offsetWidth, height = button.offsetHeight;
+      const x = Math.max(width/2+10,Math.min(outer.width-width/2-10,rect.left-outer.left+(center.x+1)*rect.width/2));
+      const baseY = rect.top-outer.top+(1-center.y)*rect.height/2-42;
+      // Nearby equipment must keep separate large targets, including on tablets.
+      const y = [0,-1,1,-2,2,-3,3,-4,4].map(offset => Math.max(80,Math.min(outer.height-170,baseY+offset*(height+8))))
+        .find(y => placed.every(other => Math.abs(x-other.x) >= (width+other.width)/2+6 || Math.abs(y-other.y) >= (height+other.height)/2+6)) ?? Math.max(80,Math.min(outer.height-170,baseY));
+      placed.push({x,y,width,height});
+      button.style.left = x + "px";
+      button.style.top = y + "px";
     }
     if (opened || context.focus) highlight(opened?.key || context.focus); else clearOutline();
   }

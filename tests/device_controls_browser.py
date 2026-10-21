@@ -5,7 +5,7 @@ Uses isolated browser contexts; does not overwrite an existing browser profile.
 import json, os, subprocess
 from pathlib import Path
 from playwright.sync_api import sync_playwright, expect
-from device_browser_helpers import expert_checks, adoption_checks
+from device_browser_helpers import expert_checks, adoption_checks, rendered
 
 ROOT = Path(__file__).resolve().parents[1]
 URL = os.environ.get('AQUARIUM_URL', 'http://127.0.0.1:8000/aquarium-simulation/')
@@ -93,6 +93,7 @@ with sync_playwright() as w:
                             assert tank(p,grade)['params']==before['params']
                     field.fill(value)
                     if key=='light':editor.locator('[data-equipment-intensity]').fill('85')
+                    if grade==8 and key=='temperature':rendered(p);p.screenshot(path=str(OUT/f'{mode}-heater-editor.png'))
                     editor.locator('[data-equipment-save]').tap() if touch else editor.locator('[data-equipment-save]').click()
                     continued_focus(p)
                     assert p.evaluate('document.activeElement.dataset.equipment')==key
@@ -112,11 +113,12 @@ with sync_playwright() as w:
                 for enabled in [False,True]:
                     anchor=p.locator('[data-equipment="air"]'); anchor.tap() if touch else anchor.click()
                     expect(p.locator('[data-equipment-toggle]')).to_be_checked() if not enabled else expect(p.locator('[data-equipment-toggle]')).not_to_be_checked()
-                    p.locator('[data-equipment-toggle]').set_checked(enabled);p.locator('[data-equipment-save]').click();continued_focus(p)
+                    toggle=p.locator('[data-equipment-toggle]');toggle.tap() if touch else toggle.press('Space');assert toggle.is_checked()==enabled
+                    p.locator('[data-equipment-save]').click();continued_focus(p)
                     assert tank(p,grade)['air']==enabled
                     expect(anchor).to_be_visible()
                 assert tank(p,grade)['params']==before_switch['params'] and tank(p,grade)['day']==before_switch['day']
-                p.screenshot(path=str(OUT/f'{mode}-free-{grade}.png'))
+                rendered(p);p.screenshot(path=str(OUT/f'{mode}-free-{grade}.png'))
                 home(p)
                 passed(f'{mode}, grade {grade}: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload')
             start(p, 8, '8-ecosystem'); action(p, 'observe')

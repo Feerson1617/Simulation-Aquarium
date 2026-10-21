@@ -5,6 +5,15 @@ from playwright.sync_api import expect
 from learning_technical_browser_helpers import technical_start
 ROOT=Path(__file__).resolve().parents[1]
 
+def rendered(p):
+    frame=p.evaluate('window.aquariumSnapshot().graphics.renderFrame')
+    p.wait_for_function('(frame)=>{const g=window.aquariumSnapshot().graphics;return g.renderFrame>frame+2 && g.triangles>3000}',arg=frame)
+    boxes=p.locator('.equipment-anchors button:visible').evaluate_all('(buttons)=>buttons.map(b=>{const r=b.getBoundingClientRect();return {key:b.dataset.equipment,x:r.x,y:r.y,w:r.width,h:r.height}})')
+    for i,a in enumerate(boxes):
+        assert a['x']>=0 and a['y']>=0
+        for b in boxes[i+1:]:
+            assert a['x']+a['w']<=b['x'] or b['x']+b['w']<=a['x'] or a['y']+a['h']<=b['y'] or b['y']+b['h']<=a['y'],(a,b)
+
 def settings(p):
     if not p.locator('[data-act="open-settings"]:visible').count():p.locator('[data-panel="shop"]').click()
     p.locator('[data-act="open-settings"]').click()
@@ -26,6 +35,7 @@ def expert_checks(p,mode,touch,out,continued_focus,dialog_keyboard):
     updated=saved();assert updated['hours']==12 and updated['intensity']==90 and updated['light']=='sun'
     assert {k:v for k,v in updated.items() if k not in ['hours','intensity']}=={k:v for k,v in before.items() if k not in ['hours','intensity']}
     assert not p.locator('[data-equipment="light"]:visible').count()
+    rendered(p);p.screenshot(path=str(out/f'{mode}-window-light-settings.png'))
     p.locator('[data-panel="care"]').click();field=p.locator('[data-expert-setting="feedRate"]')
     expect(field).to_have_value('0.65');expect(p.get_by_role('slider',name='Tägliche Futtermenge drehen')).to_have_attribute('aria-valuenow','0.65')
     field.fill('');p.locator('[data-expert-save="feedRate"]').click();assert saved()['feedRate']==.65
@@ -37,17 +47,19 @@ def expert_checks(p,mode,touch,out,continued_focus,dialog_keyboard):
     dial=p.get_by_role('slider');dial.focus();p.keyboard.press('ArrowLeft');p.keyboard.press('ArrowRight')
     p.locator('[data-equipment-value]').fill('40');p.locator('[data-equipment-save]').focus();p.keyboard.press('Enter');continued_focus(p)
     assert p.evaluate('document.activeElement.dataset.equipment')=='filter'
-    p.locator('[data-equipment="temperature"]').click();dialog_keyboard(p);p.keyboard.press('Escape');continued_focus(p)
+    p.locator('[data-equipment="temperature"]').click();expect(p.locator('.equipment-sheet h2')).to_have_text('Heizstab einstellen');dialog_keyboard(p);p.keyboard.press('Escape');continued_focus(p)
     assert saved()['setTemp']==before['setTemp']
     for name in ['air','skimmer']:
         for enabled in [False,True]:
             anchor=p.locator(f'[data-equipment="{name}"]');anchor.tap() if touch else anchor.click();dialog_keyboard(p)
-            p.locator('[data-equipment-toggle]').set_checked(enabled);p.locator('[data-equipment-save]').click();continued_focus(p)
+            toggle=p.locator('[data-equipment-toggle]');toggle.tap() if touch else toggle.press('Space');assert toggle.is_checked()==enabled
+            if name=='skimmer' and not enabled:rendered(p);p.screenshot(path=str(out/f'{mode}-skimmer-editor.png'))
+            p.locator('[data-equipment-save]').click();continued_focus(p)
             assert saved()[name]==enabled;expect(anchor).to_be_visible()
     final=saved();assert final['bacteria']==before['bacteria'] and final['bacteria2']==before['bacteria2']
     assert final['params']==before['params'] and final['history']==before['history'] and final['entities']==before['entities']
-    p.screenshot(path=str(out/f'{mode}-expert-devices.png'))
-    p.reload();p.locator('[data-scenarios]').click();p.locator('[data-scenario-start="foodweb"]').click()
+    rendered(p);p.screenshot(path=str(out/f'{mode}-expert-devices.png'))
+    p.reload();p.locator('[data-learn="expert"]').click();p.locator('[data-scenarios]').click();p.locator('[data-scenario-start="foodweb"]').click()
     restored=saved();assert restored['hours']==12 and restored['intensity']==90 and restored['feedRate']==.65 and restored['flow']==40
     assert restored['history']==final['history'] and restored['entities']==final['entities'] and restored['params']==final['params']
     settings(p)
@@ -64,8 +76,12 @@ def adoption_checks(p,mode,touch,out):
     for tool,value in [('temperature','26'),('water','50')]:
         p.locator(f'[data-learning-tool-choice="{tool}"]').click();p.locator('[data-learning-value]').fill(value)
         p.locator('[data-learning-days]').fill('2');p.locator('[data-learning-repetitions]').fill('1');action('compare')
-        result=p.evaluate('window.aquariumLearningSnapshot().comparison.runs[0].finalTest');action('show-test');assert live()==result
+        result=p.evaluate('window.aquariumLearningSnapshot().comparison.runs[0].finalTest');action('show-test');actual=live()
+        # The existing loader records one load event; every other saved field is exact.
+        assert actual['events'][0]['title']=='Spielstand geladen' and actual['events'][0]['day']==result['day']
+        assert actual['events'][1:]==result['events'][:99]
+        assert {k:v for k,v in actual.items() if k!='events'}=={k:v for k,v in result.items() if k!='events'}
         expected=p.evaluate('s=>window.aquariumSimulationProbe(s,1)',result);action('advance');assert live()['params']==expected['params'] and live()['day']==result['day']+1
         if tool=='temperature':assert live()['setTemp']==26
         action('investigate')
-    action('close');p.screenshot(path=str(out/f'{mode}-adopted-test.png'));action('home')
+    action('close');rendered(p);p.screenshot(path=str(out/f'{mode}-adopted-test.png'));action('home')

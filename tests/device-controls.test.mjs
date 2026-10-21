@@ -1,11 +1,28 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {controlNumber, validControlValue, requireControlValue, snapControlValue, EQUIPMENT_CONTROLS, applyEquipmentSetting, advanceWaterTemperature} from "../control-values.mjs";
+import {controlNumber, validControlValue, requireControlValue, snapControlValue, EQUIPMENT_CONTROLS, EXPERT_ENVIRONMENT_CONTROLS, applyEquipmentSetting, advanceWaterTemperature} from "../control-values.mjs";
 import {LEARNING_TOOLS, reconcileLearningStudy, applyLearningIntervention, runLearningComparison, snapshotLearningPlan, planMatchesComparison, validateLearningProduct} from "../learning-model.mjs";
 import {MISSIONS} from "../learning-content.mjs";
 import {QUESTS, newQuest, questEvent, answerQuest, comparisonReading, resultQuestion} from "../learning-quests.mjs";
 import {dialControl} from "../control-dial.mjs";
 const tank = () => ({day:45,seed:47291,liters:180,heater:true,setTemp:25,hours:8,intensity:80,filter:"external300",flow:75,autoFeed:true,feedRate:.65,co2Dose:0,bacteria:.85,bacteria2:.82,entities:[],params:{temp:25,ph:7.15,nh4:.015,no2:.015,no3:12,po4:.4,fe:.08,oxygen:7.5,co2:8},detritus:.2,algae:.07});
+test("switching old installed aerators and skimmers preserves ownership, water, time and unrelated data",()=>{
+  for (const key of ["air", "skimmer"]) {
+    const before={...tank(),[key]:true,history:[{day:44,no2:.02}]};
+    const off=applyEquipmentSetting(before,key,false);
+    assert.equal(off[key],false);assert.ok(off.ownedEquipment.includes(key));
+    assert.deepEqual({...off,[key]:true,ownedEquipment:undefined},{...before,ownedEquipment:undefined});
+    assert.equal(applyEquipmentSetting(off,key,true)[key],true);
+    assert.equal(before[key],true);assert.throws(()=>applyEquipmentSetting(before,key,"false"),/Ein oder Aus/);
+  }
+});
+test("expert feeding retains 0.65 exactly; window-light controls share decimal validation without adding a lamp",()=>{
+  const before=tank();assert.equal(requireControlValue("0,65",EXPERT_ENVIRONMENT_CONTROLS.feedRate),before.feedRate);
+  assert.equal(requireControlValue("11",EXPERT_ENVIRONMENT_CONTROLS.hours),11);
+  assert.equal(requireControlValue("95",EXPERT_ENVIRONMENT_CONTROLS.intensity),95);
+  for (const def of Object.values(EXPERT_ENVIRONMENT_CONTROLS)) assert.throws(()=>requireControlValue("",def));
+  assert.equal(before.feedRate,.65);
+});
 test("all defaults and all fourteen quest interventions obey the shared numeric contract",()=>{
   for(const def of Object.values(LEARNING_TOOLS)) assert.ok(validControlValue(def.value,def),def.label);
   for(const mission of MISSIONS) {

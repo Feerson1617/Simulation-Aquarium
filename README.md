@@ -14,7 +14,7 @@ Der **Lehrkraftmodus** bietet Vorbereitung, gezielte Freigaben, vollständige te
 
 ## Geräte direkt einstellen
 
-Heizstab, Filter und Lampe lassen sich am sichtbaren 3D-Gerät oder dessen großer Schaltfläche öffnen. Das hervorgehobene Gerät hat einen gemeinsamen Drehregler mit Ziehen, Pfeiltasten, Plus/Minus und direkter Eingabe, auch mit Dezimalkomma. Im Freien Forschen gelten die Änderungen für das aktuelle Becken; beim Planen eines Vergleichs für Becken 2. Licht bietet im aktuellen Becken auch einen Helligkeitsregler. Die fachlichen Freischaltungen einer Mission gelten weiter.
+Heizstab, Filter und Lampe sowie eingebaute Belüfter und Abschäumer lassen sich am sichtbaren 3D-Gerät oder dessen großer Schaltfläche öffnen. Das hervorgehobene Gerät hat einen gemeinsamen Drehregler mit Ziehen, Pfeiltasten, Plus/Minus und direkter Eingabe, auch mit Dezimalkomma. Im Freien Forschen gelten die Änderungen für das aktuelle Becken; beim Planen eines Vergleichs für Becken 2. Licht bietet im aktuellen Becken auch einen Helligkeitsregler. Belüfter und Abschäumer haben Ein-/Aus-Schalter. Nach Speichern oder Abbrechen bleibt die Tastaturbedienung am Gerät oder in den Lernwerkzeugen möglich. Natürliches Fensterlicht behält Stärke und Dauer im Einstellmenü ohne erfundene Lampe. Alte Futterwerte wie 0,65 bleiben erhalten. Die fachlichen Freischaltungen einer Mission gelten weiter.
 
 Einstellungen bleiben bis zur nächsten Änderung bestehen. Der getrennte **Beobachtungszeitraum** begrenzt nur die berechnete Datenreihe. Wasserwechsel, Nährstoffeintrag und Pflanzenzugabe sind einmalige Aktionen. Wassertemperatur und biologische Folgen reagieren erst mit vergehender Spielzeit. Nach einem geänderten Versuchsplan müssen ausstehende Quest-Ergebnisse erneut berechnet und ausgewertet werden.
 
@@ -89,6 +89,7 @@ Das Speicherformat bleibt Version 1 mit dem bisherigen `localStorage`-Schlüssel
 
 ```bash
 node --test tests/*.test.mjs
+python3 tests/device_controls_browser.py
 python3 tests/quest_browser.py
 python3 tests/quest_controls_browser.py
 python3 tests/learning_review_browser.py

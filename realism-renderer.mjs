@@ -34,7 +34,7 @@ export function buildEquipment(view,T){
    }
   }
  }
- if(s.heater||s.ownedEquipment?.includes('heater'))add(equipmentModel(T,'heater'),-3.2,2.4,-1.4);if(s.skimmer)add(equipmentModel(T,'skimmer'),-2.1,2.7,-1.25);if(s.air)add(equipmentModel(T,'air'),2.85,.28,1);
+ if(s.heater||s.ownedEquipment?.includes('heater'))add(equipmentModel(T,'heater'),-3.2,2.4,-1.4);if(s.skimmer||s.ownedEquipment?.includes('skimmer'))add(equipmentModel(T,'skimmer'),-2.1,2.7,-1.25);if(s.air||s.ownedEquipment?.includes('air'))add(equipmentModel(T,'air'),2.85,.28,1);
 }
 export function finishTank(view,T){const p=graphicsProfile();if(view.caustic)view.caustic.material.opacity=.035;view.tank.traverse(o=>{if(!o.isMesh)return;const m=o.material;if(m?.isMeshPhysicalMaterial&&m.opacity<.10){m.color.set('#ffffff');m.roughness=0;m.metalness=0;m.transmission=0;m.opacity=p.transmission?.045:.035;m.clearcoat=1;m.clearcoatRoughness=.02;m.thickness=.006;m.ior=1.52;m.envMapIntensity=1.2;m.needsUpdate=true}});
  if(view.waterSurface){const m=view.waterSurface.material;m.color.set('#deeee7');m.roughness=.018;m.metalness=0;m.ior=1.333;m.transmission=p.transmission?.94:0;m.opacity=p.transmission?1:.12;m.thickness=.10;m.envMapIntensity=1.05;m.normalMap=surfaceDetail(T,'water');m.normalScale=new T.Vector2(.025,.025);m.needsUpdate=true}

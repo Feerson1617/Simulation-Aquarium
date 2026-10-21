@@ -1,7 +1,7 @@
-import { EQUIPMENT_CONTROLS, requireControlValue } from "./control-values.mjs";
+import { EQUIPMENT_CONTROLS, EQUIPMENT_SWITCHES, requireControlValue } from "./control-values.mjs";
 import { dialControl, mountDials } from "./control-dial.mjs";
-const kinds = {temperature:"heater", light:"light", filter:"filter"};
-const names = {temperature:"Heizstab", light:"Licht", filter:"Filter"};
+const kinds = {temperature:"heater", light:"light", filter:"filter", air:"air", skimmer:"skimmer"};
+const names = {temperature:"Heizstab", light:"Licht", filter:"Filter", air:"Belüfter", skimmer:"Abschäumer"};
 /** Accessible hit areas follow actual equipment bounds, including external filters. */
 export function mountEquipmentUI(host, T) {
   const root = document.createElement("section");
@@ -34,39 +34,49 @@ export function mountEquipmentUI(host, T) {
     const box = new T.Box3().setFromObject(object);
     box.getCenter(outline.position); box.getSize(outline.scale); outline.scale.addScalar(.04);
   }
-  function close(restore = true) {
+  function close(restore = true, afterClose) {
+    const saved = opened, original = returnFocus;
     opened = null; root.querySelector(".equipment-editor").innerHTML = ""; root.classList.remove("editing");
     clearOutline(); host.lock(false);
-    if (restore && returnFocus?.isConnected) returnFocus.focus();
+    afterClose?.();
+    if (!restore) return;
+    const usable = element => element?.isConnected && element !== document.body && !element.disabled && !element.closest('[inert],[hidden]') && element.getClientRects().length;
+    // Commits/cancellation may replace the original button while redrawing tools.
+    const targets = [saved?.focusTarget?.(), original, root.querySelector(`[data-equipment="${saved?.key}"]`)];
+    targets.find(usable)?.focus({preventScroll:true});
   }
   function open(key, options = {}) {
     if (!meshFor(key)) {host.notify("Dieses Gerät ist noch nicht eingebaut. Wähle es im Zooladen."); return;}
     returnFocus = document.activeElement;
-    const def = options.definition || EQUIPMENT_CONTROLS[key], state = host.state();
+    const def = options.definition || EQUIPMENT_CONTROLS[key] || EQUIPMENT_SWITCHES[key], state = host.state();
     opened = {key, def, ...options}; host.lock(true); root.classList.add("editing");
-    root.querySelector(".equipment-editor").innerHTML = `<section role="dialog" aria-modal="true" aria-label="${names[key]} einstellen" class="equipment-sheet"><header><h2>${names[key]} einstellen</h2><button type="button" data-equipment-close aria-label="Geräteregler schließen">×</button></header><p>${options.scope === "study" ? "Versuchsbecken 2 · Die Ausgangslage bleibt für den Vergleich gesichert." : "Aktuelles Becken · Die Einstellung bleibt bis zur nächsten Änderung bestehen."}</p>${dialControl(def, options.value ?? state[def.field || EQUIPMENT_CONTROLS[key].field], "data-equipment-value")}${key === "light" && options.scope !== "study" ? dialControl(EQUIPMENT_CONTROLS.intensity, state.intensity, "data-equipment-intensity") : ""}<p data-equipment-reading>${key === "temperature" ? `Wasser jetzt: ${state.params.temp.toLocaleString("de-DE",{maximumFractionDigits:1})} °C. Der Sollwert wirkt erst mit der Zeit. Ein Heizstab kühlt nicht aktiv unter 22 °C Raumtemperatur.` : key === "filter" ? "Du regelst den Durchfluss des vorhandenen Filters. Seine Bakterien bleiben erhalten; die Wasserwerte reagieren mit der Zeit." : "Die Lampe folgt dieser täglichen Beleuchtungsdauer. Sauerstoff und Wachstum reagieren im zeitlichen Verlauf."}</p><button type="button" data-equipment-save>${options.scope === "study" ? "Für Versuch übernehmen" : "Einstellung speichern"}</button></section>`;
-    highlight(key); root.querySelector(".device-dial").focus();
+    root.querySelector(".equipment-editor").innerHTML = `<section role="dialog" aria-modal="true" aria-label="${names[key]} einstellen" class="equipment-sheet"><header><h2>${names[key]} einstellen</h2><button type="button" data-equipment-close aria-label="Geräteregler schließen">×</button></header><p>${options.scope === "study" ? "Versuchsbecken 2 · Die Ausgangslage bleibt für den Vergleich gesichert." : "Aktuelles Becken · Die Einstellung bleibt bis zur nächsten Änderung bestehen."}</p>${def.kind === "switch" ? `<label class="equipment-toggle">${def.label}<input type="checkbox" role="switch" data-equipment-toggle ${state[def.field] ? "checked" : ""}></label>` : dialControl(def, options.value ?? state[def.field || EQUIPMENT_CONTROLS[key].field], "data-equipment-value")}${key === "light" && options.scope !== "study" ? dialControl(EQUIPMENT_CONTROLS.intensity, state.intensity, "data-equipment-intensity") : ""}<p data-equipment-reading>${key === "temperature" ? `Wasser jetzt: ${state.params.temp.toLocaleString("de-DE",{maximumFractionDigits:1})} °C. Der Sollwert wirkt erst mit der Zeit. Ein Heizstab kühlt nicht aktiv unter 22 °C Raumtemperatur.` : key === "filter" ? "Du regelst den Durchfluss des vorhandenen Filters. Seine Bakterien bleiben erhalten; die Wasserwerte reagieren mit der Zeit." : "Die Lampe folgt dieser täglichen Beleuchtungsdauer. Sauerstoff und Wachstum reagieren im zeitlichen Verlauf."}</p><button type="button" data-equipment-save>${options.scope === "study" ? "Für Versuch übernehmen" : "Einstellung speichern"}</button></section>`;
+    if (def.kind === "switch") {
+      root.querySelector("[data-equipment-reading]").textContent = "Das eingebaute Gerät bleibt auch ausgeschaltet erreichbar. Sauerstoff und Wasserwerte reagieren erst mit der Zeit.";
+    }
+    highlight(key); root.querySelector(".device-dial,[data-equipment-toggle]").focus();
   }
   root.addEventListener("click", e => {
     const choose = e.target.closest("[data-equipment]");
     if (choose) { host.choose(choose.dataset.equipment); return; }
     if (e.target.closest("[data-equipment-close]")) {
-      const cancel = opened?.onCancel; close(); cancel?.(); return;
+      const cancel = opened?.onCancel; close(true, cancel); return;
     }
     if (!e.target.closest("[data-equipment-save]") || !opened) return;
     try {
-      const value = requireControlValue(root.querySelector("[data-equipment-value]").value, opened.def), saved = opened;
+      const saved = opened;
+      const value = saved.def.kind === "switch" ? root.querySelector("[data-equipment-toggle]").checked : requireControlValue(root.querySelector("[data-equipment-value]").value, saved.def);
       // Keep invalid drafts open, close only after the state mutation succeeds.
       const extra = root.querySelector("[data-equipment-intensity]");
       const intensity = extra ? requireControlValue(extra.value, EQUIPMENT_CONTROLS.intensity) : null;
-      saved.onCommit(value, intensity); close(false);
+      saved.onCommit(value, intensity); close();
     } catch (error) {
-      root.querySelector("[data-control-error]").textContent = error.message;
-      root.querySelector("[data-equipment-value]").focus();
+      (root.querySelector("[data-control-error]") || root.querySelector("[data-equipment-reading]")).textContent = error.message;
+      root.querySelector("[data-equipment-value],[data-equipment-toggle]").focus();
     }
   });
   root.addEventListener("keydown", e => {
-    if (e.key === "Escape" && opened) {e.preventDefault(); e.stopPropagation(); const cancel = opened.onCancel;close();cancel?.();}
+    if (e.key === "Escape" && opened) {e.preventDefault(); e.stopPropagation(); const cancel = opened.onCancel;close(true,cancel);}
     if (e.key === "Tab" && opened) {
       const controls = [...root.querySelectorAll('.equipment-sheet button,.equipment-sheet input')];
       if (e.shiftKey && e.target === controls[0]) {e.preventDefault();controls.at(-1).focus();}

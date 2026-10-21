@@ -1,5 +1,5 @@
 import { dialControl, mountDials } from "./control-dial.mjs";
-import { controlNumber, requireControlValue, applyEquipmentSetting } from "./control-values.mjs";
+import { controlNumber, requireControlValue, applyEquipmentSetting, EQUIPMENT_SWITCHES } from "./control-values.mjs";
 import {
   QUESTS,
   newQuest,
@@ -606,18 +606,24 @@ export function mountLearningUI(host) {
     session.study.value = session.study.values[key] ?? LEARNING_TOOLS[key].value;
   }
   function openDevice(key, scope = panel === "investigate" || tag?.mode === "missions" ? "study" : "care") {
-    selectTool(key);
+    const toggle = EQUIPMENT_SWITCHES[key];
+    if (toggle) {
+      if (tag?.mode !== "free") throw new Error("Dieses Gerät gehört nicht zum Versuchsplan dieser Mission.");
+      scope = "care";
+    } else selectTool(key);
     const previous = panel;
     closePanel();
     host.deviceOpen(key, {
       scope: scope === "study" ? "study" : "live",
-      definition: LEARNING_TOOLS[key],
+      definition: toggle || LEARNING_TOOLS[key],
       value: scope === "study" ? session.study.value : host.getState()[{temperature:"setTemp",light:"hours",filter:"flow"}[key]],
       onCommit: (value, intensity) => {
-        session.study.value = value;
-        if (session.study.drafts) delete session.study.drafts[key];
+        if (!toggle) {
+          session.study.value = value;
+          if (session.study.drafts) delete session.study.drafts[key];
+        }
         if (scope !== "study") {
-          let next = applyLearningIntervention(host.getState(), key, value, host);
+          let next = toggle ? applyEquipmentSetting(host.getState(), key, value) : applyLearningIntervention(host.getState(), key, value, host);
           if (intensity != null) next = applyEquipmentSetting(next, "intensity", intensity);
           host.open(next);
         }
@@ -625,6 +631,7 @@ export function mountLearningUI(host) {
         if (scope === "study") showPanel("investigate"); else render();
       },
       onCancel: () => {if (previous) showPanel(previous);},
+      focusTarget: () => root.querySelector(`[data-learn="device-${key}"],[data-learning-tool-choice="${key}"]`) || root.querySelector(`[data-learn="${previous}"]`),
     });
   }
   function interventionForm(prefix) {
@@ -1298,7 +1305,9 @@ export function mountLearningUI(host) {
       }
       if (d.questAnswer !== undefined) {
         const old = session.quest.step;
-        if ([3, 4].includes(old) && session.comparison && !planMatchesComparison(session.comparison, currentPlan(session.comparison.kind)))
+        if ([3, 4].includes(old) && session.comparison &&
+            (!planMatchesComparison(session.comparison, currentPlan(session.comparison.kind)) ||
+             !planMatchesComparison(session.quest.result, currentPlan(session.comparison.kind))))
           throw new Error("Der Versuch wurde geändert. Starte ihn erneut, bevor du diese Ergebnisse vergleichst.");
         if (answerQuest(session.quest, Number(d.questAnswer))) {
           const entry = session.quest.entries.at(-1);
@@ -1889,7 +1898,7 @@ export function mountLearningUI(host) {
     openDevice,
     deviceContext: () => ({
       visible: screen === "active" && !helpKey && (!panel || panel === "investigate"),
-      tools: tag ? tools() : [],
+      tools: tag ? [...tools(), ...(tag.mode === "free" ? Object.keys(EQUIPMENT_SWITCHES) : [])] : [],
       focus: panel === "investigate" && tag?.grade !== 9 ? session.study.tool : null,
     }),
     blocksScene: () =>

@@ -23,7 +23,24 @@ export const EQUIPMENT_CONTROLS = {
   filter: { label: "Filter · Durchfluss", unit: "%", min: 0, max: 100, step: 5, field: "flow" },
   intensity: { label: "Licht · Helligkeit", unit: "%", min: 0, max: 140, step: 5, field: "intensity" },
 };
+export const EQUIPMENT_SWITCHES = {
+  air: { label: "Belüfter eingeschaltet", field: "air", kind: "switch" },
+  skimmer: { label: "Abschäumer eingeschaltet", field: "skimmer", kind: "switch" },
+};
+export const EXPERT_ENVIRONMENT_CONTROLS = {
+  hours: { ...EQUIPMENT_CONTROLS.light, label: "Fensterlicht · tägliche Dauer" },
+  intensity: { ...EQUIPMENT_CONTROLS.intensity, label: "Fensterlicht · Stärke" },
+  feedRate: { label: "Tägliche Futtermenge", unit: "Bedarf ×", min: 0, max: 5, step: .01, field: "feedRate" },
+};
 export function applyEquipmentSetting(payload, key, raw, def = EQUIPMENT_CONTROLS[key]) {
+  if (EQUIPMENT_SWITCHES[key]) {
+    if (typeof raw !== "boolean") throw new Error("Bitte Ein oder Aus wählen.");
+    const next = structuredClone(payload);
+    next[key] = raw;
+    // Old saves can own a running device without an explicit ownership list.
+    next.ownedEquipment = [...new Set([...(next.ownedEquipment || []), key])];
+    return next;
+  }
   const value = requireControlValue(raw, def), next = structuredClone(payload);
   if (!EQUIPMENT_CONTROLS[key]) throw new Error("Unbekanntes Gerät.");
   next[EQUIPMENT_CONTROLS[key].field] = value;

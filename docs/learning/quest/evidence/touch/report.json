@@ -1,0 +1,448 @@
+{
+  "checks": [
+    "touch: 8-oxygen completed through actual observation, prediction, experiment, retry, comparison and explanation",
+    "touch: 9-mendel completed through actual observation, prediction, experiment, retry, comparison and explanation",
+    "touch: 10-carbon completed through actual observation, prediction, experiment, retry, comparison and explanation"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "missions": [
+    {
+      "id": "8-oxygen",
+      "touch": true,
+      "quest": {
+        "version": 1,
+        "id": "8-oxygen",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was bleibt am Anfang gleich?",
+            "answer": "Die Tiere und Pflanzen",
+            "at": "2026-10-21T09:19:32.144Z"
+          },
+          {
+            "step": 1,
+            "question": "Was passiert ohne Licht mit dem Sauerstoff?",
+            "answer": "Es gibt weniger Sauerstoff.",
+            "at": "2026-10-21T09:19:33.923Z"
+          },
+          {
+            "step": 2,
+            "event": "ecology",
+            "evidence": {
+              "changed": true,
+              "result": {
+                "kind": "ecology",
+                "key": "oxygen",
+                "label": "Sauerstoff",
+                "unit": "mg/L",
+                "time": 48,
+                "control": 8.28389496015925,
+                "test": 8.163889709536656,
+                "statuses": {
+                  "control": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  },
+                  "test": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  }
+                },
+                "configuration": {
+                  "kind": "ecology",
+                  "profile": {
+                    "version": 1,
+                    "grade": 8,
+                    "mode": "missions",
+                    "mission": "8-oxygen"
+                  },
+                  "modelVersion": "learning-evidence-2",
+                  "tool": "light",
+                  "value": 0,
+                  "days": 3,
+                  "environment": null,
+                  "generations": null,
+                  "repetitions": 2,
+                  "baseline": {
+                    "time": 45,
+                    "seed": 47291,
+                    "fingerprint": "9a47c26f",
+                    "size": 19
+                  },
+                  "planning": {
+                    "question": "Was passiert ohne Licht mit dem Sauerstoff?",
+                    "hypothesis": "Es gibt weniger Sauerstoff.",
+                    "prediction": "Es gibt weniger Sauerstoff.",
+                    "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+                  },
+                  "metrics": [
+                    "oxygen",
+                    "health",
+                    "algae",
+                    "plantBiomass",
+                    "organic",
+                    "photosynthesis",
+                    "respiration"
+                  ]
+                }
+              },
+              "tool": "light",
+              "compatible": true,
+              "value": 0
+            },
+            "at": "2026-10-21T09:19:40.679Z"
+          },
+          {
+            "step": 3,
+            "question": "Wo ist mehr Sauerstoff?",
+            "answer": "In Becken 1",
+            "at": "2026-10-21T09:19:49.095Z"
+          },
+          {
+            "step": 4,
+            "question": "Was fällt ohne Licht weg?",
+            "answer": "Die Sauerstoffbildung durch Licht",
+            "at": "2026-10-21T09:19:52.650Z"
+          }
+        ],
+        "result": {
+          "kind": "ecology",
+          "key": "oxygen",
+          "label": "Sauerstoff",
+          "unit": "mg/L",
+          "time": 48,
+          "control": 8.28389496015925,
+          "test": 8.163889709536656,
+          "statuses": {
+            "control": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            },
+            "test": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            }
+          },
+          "configuration": {
+            "kind": "ecology",
+            "profile": {
+              "version": 1,
+              "grade": 8,
+              "mode": "missions",
+              "mission": "8-oxygen"
+            },
+            "modelVersion": "learning-evidence-2",
+            "tool": "light",
+            "value": 0,
+            "days": 3,
+            "environment": null,
+            "generations": null,
+            "repetitions": 2,
+            "baseline": {
+              "time": 45,
+              "seed": 47291,
+              "fingerprint": "9a47c26f",
+              "size": 19
+            },
+            "planning": {
+              "question": "Was passiert ohne Licht mit dem Sauerstoff?",
+              "hypothesis": "Es gibt weniger Sauerstoff.",
+              "prediction": "Es gibt weniger Sauerstoff.",
+              "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+            },
+            "metrics": [
+              "oxygen",
+              "health",
+              "algae",
+              "plantBiomass",
+              "organic",
+              "photosynthesis",
+              "respiration"
+            ]
+          }
+        },
+        "feedback": "Pflanzen geben bei Licht Sauerstoff ab. Ohne Licht fällt diese Quelle weg. Tiere und Pflanzen verbrauchen weiter Sauerstoff. Auch die Luft wirkt auf den Wert.",
+        "collapsed": false
+      }
+    },
+    {
+      "id": "9-mendel",
+      "touch": true,
+      "quest": {
+        "version": 1,
+        "id": "9-mendel",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was lebt im Aquarium?",
+            "answer": "Ein Fisch",
+            "at": "2026-10-21T09:21:27.306Z"
+          },
+          {
+            "step": 1,
+            "question": "Welche Farbe erwartest du bei den Nachkommen?",
+            "answer": "Nur hell",
+            "at": "2026-10-21T09:21:28.154Z"
+          },
+          {
+            "step": 2,
+            "event": "cross",
+            "evidence": {
+              "generation": 1,
+              "result": {
+                "kind": "cross",
+                "generation": 1,
+                "n": 24,
+                "AA": 0,
+                "Aa": 24,
+                "aa": 0,
+                "A": 0.5,
+                "a": 0.5,
+                "dark": 1,
+                "light": 0
+              },
+              "parents": [
+                1,
+                6
+              ]
+            },
+            "at": "2026-10-21T09:21:30.277Z"
+          },
+          {
+            "step": 3,
+            "question": "Welche Farben haben deine Nachkommen?",
+            "answer": "Nur dunkel",
+            "at": "2026-10-21T09:21:33.793Z"
+          },
+          {
+            "step": 4,
+            "question": "Woher kommen die Erbanlagen eines Nachkommen?",
+            "answer": "Von beiden Eltern",
+            "at": "2026-10-21T09:21:35.543Z"
+          }
+        ],
+        "result": {
+          "kind": "cross",
+          "generation": 1,
+          "n": 24,
+          "AA": 0,
+          "Aa": 24,
+          "aa": 0,
+          "A": 0.5,
+          "a": 0.5,
+          "dark": 1,
+          "light": 0
+        },
+        "feedback": "Jedes Elternteil gibt eine Genvariante weiter. Eine Genvariante heißt Allel. Welche Variante weitergeht, wird zufällig bestimmt.",
+        "collapsed": false
+      }
+    },
+    {
+      "id": "10-carbon",
+      "touch": true,
+      "quest": {
+        "version": 1,
+        "id": "10-carbon",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was gehört zu Pflanzen und Tieren?",
+            "answer": "Kohlenstoff",
+            "at": "2026-10-21T09:22:34.760Z"
+          },
+          {
+            "step": 1,
+            "question": "Was passiert bei mehr Zufuhr mit dem Kohlenstoffdioxid?",
+            "answer": "Es gibt weniger Kohlenstoffdioxid.",
+            "at": "2026-10-21T09:22:36.595Z"
+          },
+          {
+            "step": 2,
+            "event": "ecology",
+            "evidence": {
+              "changed": true,
+              "result": {
+                "kind": "ecology",
+                "key": "co2",
+                "label": "Kohlenstoffdioxid",
+                "unit": "mg/L",
+                "time": 48,
+                "control": 5.030986046934305,
+                "test": 7.208935886871365,
+                "statuses": {
+                  "control": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  },
+                  "test": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  }
+                },
+                "configuration": {
+                  "kind": "ecology",
+                  "profile": {
+                    "version": 1,
+                    "grade": 10,
+                    "mode": "missions",
+                    "mission": "10-carbon"
+                  },
+                  "modelVersion": "learning-evidence-2",
+                  "tool": "co2",
+                  "value": 6,
+                  "days": 3,
+                  "environment": null,
+                  "generations": null,
+                  "repetitions": 2,
+                  "baseline": {
+                    "time": 45,
+                    "seed": 47291,
+                    "fingerprint": "0ac6f2fc",
+                    "size": 19
+                  },
+                  "planning": {
+                    "question": "Was passiert bei mehr Zufuhr mit dem Kohlenstoffdioxid?",
+                    "hypothesis": "Es gibt weniger Kohlenstoffdioxid.",
+                    "prediction": "Es gibt weniger Kohlenstoffdioxid.",
+                    "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+                  },
+                  "metrics": [
+                    "oxygen",
+                    "health",
+                    "algae",
+                    "plantBiomass",
+                    "organic",
+                    "co2",
+                    "photosynthesis",
+                    "respiration"
+                  ]
+                }
+              },
+              "tool": "co2",
+              "compatible": true,
+              "value": 6
+            },
+            "at": "2026-10-21T09:22:40.714Z"
+          },
+          {
+            "step": 3,
+            "question": "Wo ist mehr Kohlenstoffdioxid?",
+            "answer": "In Becken 2",
+            "at": "2026-10-21T09:22:48.263Z"
+          },
+          {
+            "step": 4,
+            "question": "Was passiert beim Verbrennen von Kohle?",
+            "answer": "Gespeicherter Kohlenstoff gelangt als Kohlenstoffdioxid in die Luft",
+            "at": "2026-10-21T09:22:51.803Z"
+          }
+        ],
+        "result": {
+          "kind": "ecology",
+          "key": "co2",
+          "label": "Kohlenstoffdioxid",
+          "unit": "mg/L",
+          "time": 48,
+          "control": 5.030986046934305,
+          "test": 7.208935886871365,
+          "statuses": {
+            "control": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            },
+            "test": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            }
+          },
+          "configuration": {
+            "kind": "ecology",
+            "profile": {
+              "version": 1,
+              "grade": 10,
+              "mode": "missions",
+              "mission": "10-carbon"
+            },
+            "modelVersion": "learning-evidence-2",
+            "tool": "co2",
+            "value": 6,
+            "days": 3,
+            "environment": null,
+            "generations": null,
+            "repetitions": 2,
+            "baseline": {
+              "time": 45,
+              "seed": 47291,
+              "fingerprint": "0ac6f2fc",
+              "size": 19
+            },
+            "planning": {
+              "question": "Was passiert bei mehr Zufuhr mit dem Kohlenstoffdioxid?",
+              "hypothesis": "Es gibt weniger Kohlenstoffdioxid.",
+              "prediction": "Es gibt weniger Kohlenstoffdioxid.",
+              "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+            },
+            "metrics": [
+              "oxygen",
+              "health",
+              "algae",
+              "plantBiomass",
+              "organic",
+              "co2",
+              "photosynthesis",
+              "respiration"
+            ]
+          }
+        },
+        "feedback": "Pflanzen nehmen Kohlenstoffdioxid auf. Atmung gibt es wieder ab. Menschen bringen durch Kohle, Öl und Gas zusätzlichen Kohlenstoff in die Luft. Das Aquarium berechnet diese weltweiten Mengen nicht.",
+        "collapsed": false
+      }
+    }
+  ],
+  "screenshots": [
+    "touch-8-oxygen-start.png",
+    "touch-8-oxygen-compare.png",
+    "touch-8-oxygen-done.png",
+    "touch-9-mendel-start.png",
+    "touch-9-mendel-compare.png",
+    "touch-9-mendel-done.png",
+    "touch-10-carbon-start.png",
+    "touch-10-carbon-compare.png",
+    "touch-10-carbon-done.png"
+  ],
+  "sections": [
+    "touch"
+  ],
+  "status": "passed"
+}

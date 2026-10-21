@@ -9,7 +9,7 @@ export const CURRICULUM = {
 export const GRADE_PROFILES = {
   8: {
     title: "Ökologie",
-    subtitle: "Beziehungen im Lebensraum entdecken",
+    subtitle: "Tiere, Pflanzen und Wasser entdecken",
     catalog: [
       "guppy",
       "ramshorn",
@@ -30,7 +30,7 @@ export const GRADE_PROFILES = {
   },
   9: {
     title: "Vererbung und Evolution",
-    subtitle: "Von Individuen zu Populationen",
+    subtitle: "Farbe und Nachkommen untersuchen",
     catalog: ["molly", "platy", "zebra", "waterweed", "anubias"],
     observations: ["individuals", "traits", "generations"],
     tools: ["cross", "selection", "light", "feed", "water"],
@@ -42,7 +42,7 @@ export const GRADE_PROFILES = {
   },
   10: {
     title: "Mensch und Ökosysteme",
-    subtitle: "Eingriffe untersuchen und begründet bewerten",
+    subtitle: "Probleme erkennen. Lösungen prüfen.",
     catalog: [
       "guppy",
       "ramshorn",
@@ -399,72 +399,90 @@ export const SUPPORT = {
   },
 };
 export const HELP = {
-  oxygen: {
-    term: "Sauerstoff",
-    8: "Gelöster Sauerstoff wird bei der Zellatmung verbraucht. Bei Licht können Pflanzen ihn durch Fotosynthese bilden. Beobachte den Verlauf statt nur einen Wert.",
-    9: "Sauerstoff ist eine Umweltbedingung für die untersuchten Tiere. Ein Unterschied im Fortpflanzungserfolg braucht eine überprüfbare Erklärung.",
-    10: "Die O₂-Bilanz umfasst Fotosynthese, Atmung, Zersetzung, Nitrifikation und Gasaustausch. Der Messwert allein trennt diese Prozesse nicht.",
+  "observe": {
+    "term": "Beobachten",
+    "8": "Schau genau hin. Was passiert im Aquarium?",
+    "9": "Schau genau hin. Was passiert im Aquarium?",
+    "10": "Schau genau hin. Was passiert im Aquarium?"
   },
-  nutrients: {
-    term: "Nährstoffe",
-    8: "Pflanzen benötigen unter anderem Stickstoff, Phosphor und Eisen. Zu wenig begrenzt Wachstum; zu viel kann das Zusammenleben belasten.",
-    9: "Nährstoffe sind Umweltfaktoren. Sie sind keine Allele und ändern im Modell nicht gezielt den Genotyp.",
-    10: "Die Anzeige fasst Versorgungsbedingungen zusammen. Nitrat und Phosphat können Wachstum fördern; Überschüsse können indirekt über Algen und Zersetzung belasten.",
+  "oxygen": {
+    "term": "Sauerstoff",
+    "8": "Fische und Pflanzen brauchen Sauerstoff. Bei Licht geben Pflanzen auch Sauerstoff ins Wasser ab.",
+    "9": "Fische und Pflanzen brauchen Sauerstoff. Bei Licht geben Pflanzen auch Sauerstoff ins Wasser ab.",
+    "10": "Fische und Pflanzen brauchen Sauerstoff. Bei Licht geben Pflanzen auch Sauerstoff ins Wasser ab."
   },
-  load: {
-    term: "Wasserbelastung",
-    8: "Ein vereinfachter Hinweis aus organischen Resten, problematischen Stickstoffverbindungen und Sauerstoffmangel. Kein chemischer Messwert. Untersuche die angezeigten Gründe.",
-    9: "Dieser Zustandsindikator beschreibt Umweltprobleme und misst keine genetische Fitness.",
-    10: "Ein didaktischer Zustandsindikator mit getrennten Warnpfaden. Kein Mittelwert aus Chemiewerten und keine allgemeine Trinkwasser- oder Tierhaltungsnorm.",
+  "nutrients": {
+    "term": "Nährstoffe",
+    "8": "Pflanzen brauchen Nährstoffe zum Wachsen. Zu viel davon kann dem Becken schaden.",
+    "9": "Pflanzen brauchen Nährstoffe zum Wachsen. Zu viel davon kann dem Becken schaden.",
+    "10": "Pflanzen brauchen Nährstoffe zum Wachsen. Zu viel davon kann dem Becken schaden."
   },
-  hypothesis: {
-    term: "Hypothese",
-    8: "Eine begründete Vermutung, die du prüfen kannst: Wenn …, dann …, weil …. Eine andere Erklärung ist möglich.",
-    9: "Formuliere eine prüfbare Erklärung und eine Vorhersage vor der Kreuzung oder dem Generationsvergleich.",
-    10: "Trenne Annahme, erwarteten Zusammenhang und Messkriterium. Benenne auch eine konkurrierende Erklärung.",
+  "load": {
+    "term": "Probleme im Wasser",
+    "8": "Futterreste oder schädliche Stoffe können Tiere belasten. Auch zu wenig Sauerstoff ist ein Problem.",
+    "9": "Futterreste oder schädliche Stoffe können Tiere belasten. Auch zu wenig Sauerstoff ist ein Problem.",
+    "10": "Futterreste oder schädliche Stoffe können Tiere belasten. Auch zu wenig Sauerstoff ist ein Problem."
   },
-  control: {
-    term: "Kontrollbecken",
-    8: "Es startet genau wie das Versuchsbecken. Nur dort änderst du eine Bedingung. Beide werden gleich lange beobachtet.",
-    9: "Gleiche Ausgangspopulation, gleiche Rahmenbedingungen. Wiederholungen können wegen Zufall verschiedene Ergebnisse liefern.",
-    10: "Der Vergleich isoliert einen Eingriff. Gleiche Startwerte sind nötig, aber nicht jede Modellannahme ist damit geprüft.",
+  "hypothesis": {
+    "term": "Vermutung",
+    "8": "Was glaubst du, wird passieren? Probiere es danach aus.",
+    "9": "Was glaubst du, wird passieren? Probiere es danach aus.",
+    "10": "Was glaubst du, wird passieren? Probiere es danach aus."
   },
-  energy: {
-    term: "Stoffe und Energie",
-    8: "Stoffe können erneut in Lebewesen eingebaut werden. Energie fließt durch das System; bei Umwandlungen wird Wärme an die Umgebung abgegeben.",
-    9: "Lebewesen brauchen Stoffe und Energie für Fortpflanzung. Energie kreist nicht und Dominanz erzeugt keinen Energiebonus.",
-    10: "Stoffkreisläufe sind offen für Eintrag und Austrag. Energie wird umgewandelt; kontinuierliche Lichtzufuhr ist nicht dasselbe wie ein Energiekreislauf.",
+  "control": {
+    "term": "Zwei Becken",
+    "8": "Beide Becken starten gleich. Du veränderst nur Becken 2.",
+    "9": "Beide Becken starten gleich. Du veränderst nur Becken 2.",
+    "10": "Beide Becken starten gleich. Du veränderst nur Becken 2."
   },
-  genotype: {
-    term: "Genotyp und Phänotyp",
-    8: "Erbanlagen und sichtbare Merkmale sind verschieden. Näher untersucht ihr das in Klasse 9.",
-    9: "Genotyp: Allelkombination, hier AA, Aa oder aa. Phänotyp: sichtbares Merkmal. A ist im Lernmodell dominant; AA und Aa sehen gleich aus.",
-    10: "Die einfache Farbvererbung erklärt nicht jedes Merkmal. Umwelt und weitere Gene können den Phänotyp mitbestimmen.",
+  "energy": {
+    "term": "Nahrung und Licht",
+    "8": "Die Pfeile zeigen: Was wird von wem gefressen? Licht liefert Energie; Wärme geht nach außen.",
+    "9": "Die Pfeile zeigen: Was wird von wem gefressen? Licht liefert Energie; Wärme geht nach außen.",
+    "10": "Die Pfeile zeigen: Was wird von wem gefressen? Licht liefert Energie; Wärme geht nach außen."
   },
-  selection: {
-    term: "Selektion und Drift",
-    8: "Nicht alle Individuen haben gleich viele Nachkommen. Auch Zufall kann Bestände verändern.",
-    9: "Selektion: erbliche Unterschiede beeinflussen Fortpflanzungserfolg in einer Umwelt. Drift: zufällige Allelhäufigkeitsänderung in endlichen Populationen. Dominanz beschreibt Merkmalsausprägung, keinen automatischen Vorteil.",
-    10: "Ein angenommener Fitnessunterschied muss als Annahme offengelegt werden. Selektion handelt nicht vorausschauend und verändert nicht zielgerichtet das einzelne Tier.",
+  "genotype": {
+    "term": "Erbanlagen und Farbe",
+    "8": "Genotyp heißt: die Erbanlagen, hier AA, Aa oder aa. Phänotyp heißt: das sichtbare Merkmal, hier die Farbe.",
+    "9": "Genotyp heißt: die Erbanlagen, hier AA, Aa oder aa. Phänotyp heißt: das sichtbare Merkmal, hier die Farbe.",
+    "10": "Genotyp heißt: die Erbanlagen, hier AA, Aa oder aa. Phänotyp heißt: das sichtbare Merkmal, hier die Farbe."
   },
-  nitrogen: {
-    term: "Nitrat und Nitrit",
-    8: "Verschiedene Stickstoffverbindungen wirken unterschiedlich. Pflanzen benötigen Stickstoff; manche Verbindungen können Tiere schon in kleinen Mengen belasten.",
-    9: "Nitrat und Nitrit sind unterschiedliche Umweltgrößen, keine Vererbungsmerkmale.",
-    10: "Nitrat kann als Pflanzennährstoff dienen, Nitrit die Tiere belasten. Mikroben wandeln Ammonium über Nitrit zu Nitrat um und brauchen dabei Sauerstoff. Formeln: NO₃⁻, NO₂⁻, NH₄⁺.",
+  "selection": {
+    "term": "Über Generationen",
+    "8": "Manche Tiere haben mehr Nachkommen als andere. Auch Zufall kann die Anteile verändern.",
+    "9": "Manche Tiere haben mehr Nachkommen als andere. Auch Zufall kann die Anteile verändern.",
+    "10": "Manche Tiere haben mehr Nachkommen als andere. Auch Zufall kann die Anteile verändern."
   },
-  carbon: {
-    term: "Kohlenstoff",
-    8: "Kohlenstoff ist ein Bestandteil vieler Stoffe in Lebewesen. Pflanzen bauen ihn bei der Fotosynthese aus Kohlenstoffdioxid ein.",
-    9: "Kohlenstoff ist ein Stoffelement, kein Gen oder Allel.",
-    10: "Kohlenstoff wechselt zwischen CO₂ und organischen Verbindungen. Fotosynthese, Atmung, Zersetzung und Luftaustausch verknüpfen die Speicher. Hier nur qualitative Bilanz.",
+  "nitrogen": {
+    "term": "Nitrat und Nitrit",
+    "8": "Nitrat ist ein Nährstoff für Pflanzen. Nitrit kann Fischen schaden.",
+    "9": "Nitrat ist ein Nährstoff für Pflanzen. Nitrit kann Fischen schaden.",
+    "10": "Nitrat ist ein Nährstoff für Pflanzen. Nitrit kann Fischen schaden."
   },
-  model: {
-    term: "Ein Modell prüfen",
-    8: "Ein Modell hilft bei einer Frage und lässt vieles weg. Welche Beobachtung am echten Lebensraum bräuchtest du zusätzlich?",
-    9: "Modellfarben sind keine DNA-Messung. Generationsschritte kürzen Entwicklungszeit ab. Ein Familien-Stammbaum zeigt Eltern und Kinder, kein Arten-Stammbaum.",
-    10: "Das Becken ist weder Nordsee noch Wattenmeer. Gezeiten, marine Arten und Meeresmüllwirkungen fehlen. Kennzeichne jede Übertragung als begründet oder noch offen.",
+  "carbon": {
+    "term": "Kohlenstoff",
+    "8": "Kohlenstoff steckt in Lebewesen. Pflanzen nehmen ihn aus Kohlenstoffdioxid auf.",
+    "9": "Kohlenstoff steckt in Lebewesen. Pflanzen nehmen ihn aus Kohlenstoffdioxid auf.",
+    "10": "Kohlenstoff steckt in Lebewesen. Pflanzen nehmen ihn aus Kohlenstoffdioxid auf."
   },
+  "model": {
+    "term": "Das Aquarium",
+    "8": "Das Aquarium zeigt einen Teil der Natur. Nicht alles passiert draußen genauso.",
+    "9": "Das Aquarium zeigt einen Teil der Natur. Nicht alles passiert draußen genauso.",
+    "10": "Das Aquarium zeigt einen Teil der Natur. Nicht alles passiert draußen genauso."
+  },
+  "quest": {
+    "term": "Questbuch",
+    "8": "Hier steht deine nächste Aufgabe. Deine Antworten und Handlungen werden gespeichert.",
+    "9": "Hier steht deine nächste Aufgabe. Deine Antworten und Handlungen werden gespeichert.",
+    "10": "Hier steht deine nächste Aufgabe. Deine Antworten und Handlungen werden gespeichert."
+  },
+  "measure": {
+    "term": "Werte ansehen",
+    "8": "Ein Messwert zeigt den Zustand zu einem Zeitpunkt. Vergleiche mehrere Zeitpunkte.",
+    "9": "Ein Messwert zeigt den Zustand zu einem Zeitpunkt. Vergleiche mehrere Zeitpunkte.",
+    "10": "Ein Messwert zeigt den Zustand zu einem Zeitpunkt. Vergleiche mehrere Zeitpunkte."
+  }
 };
 export const TRANSFER = {
   carbon: {

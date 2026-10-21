@@ -90,6 +90,7 @@ export function mountLearningUI(host) {
     tag = null,
     session = null,
     panel = null,
+    detailed = false,
     selected = null,
     showGenes = false,
     homeMode = null,
@@ -216,6 +217,7 @@ export function mountLearningUI(host) {
     render();
   }
   function start(mode, id = null) {
+    detailed = false;
     grade = Number(grade || teacher.grade);
     tag = { version: 1, grade, mode, mission: id };
     const key = learningSlot(tag),
@@ -299,7 +301,7 @@ export function mountLearningUI(host) {
     root.querySelector('[data-learn-help="' + key + '"]')?.focus();
   }
   function gradeHome() {
-    return `<div class="learn-welcome"><p class="learn-kicker">Ökosystem-Werkstatt · Klassen 8–10</p><h1>Biologie im Aquarium</h1><p>Beobachten. Fragen stellen. Mit Daten begründen.</p><div class="learn-grades">${Object.entries(
+    return `<div class="learn-welcome"><p class="learn-kicker">Ökosystem-Werkstatt · Klassen 8–10</p><h1>Biologie im Aquarium</h1><p>Schau hin. Probiere aus. Finde Zusammenhänge.</p><div class="learn-grades">${Object.entries(
       GRADE_PROFILES,
     )
       .map(
@@ -314,13 +316,13 @@ export function mountLearningUI(host) {
     const p = GRADE_PROFILES[grade];
     return `<div class="learn-welcome">${button("back", "← Jahrgang wechseln")}<p class="learn-kicker">Klasse ${grade}</p><h1>${p.title}</h1><p>${p.question}</p>${
       homeMode !== "missions"
-        ? `<div class="learn-modes">${button("missions", "<strong>Lernmissionen</strong><span>Eine Leitfrage untersuchen und Ergebnisse begründen.</span>")}${button("free", "<strong>Freies Forschen</strong><span>Eigene Frage, eigener Versuch, dieselben passenden Werkzeuge.</span>")}</div>`
+        ? `<div class="learn-modes">${button("missions", "<strong>Lernmissionen</strong><span>Eine Aufgabe nach der anderen.</span>")}${button("free", "<strong>Freies Forschen</strong><span>Probiere deine eigenen Ideen aus.</span>")}</div>`
         : `<div class="learn-mission-list">${MISSIONS.filter(
             (m) => m.grade === grade,
           )
             .map(
               (m) =>
-                `<button data-learn-mission="${m.id}"><strong>${esc(m.title)}</strong><span>${esc(m.question)}</span><small>${esc(m.curriculum)}</small></button>`,
+                `<button data-learn-mission="${m.id}"><strong>${esc(m.title)}</strong></button>`,
             )
             .join("")}</div>`
     }<footer>${button("display", "Darstellung: " + host.graphics().label)}<p>Du kannst deinen letzten lokalen Stand in jeder Mission fortsetzen.</p></footer></div>`;
@@ -373,7 +375,7 @@ export function mountLearningUI(host) {
     if (selectedEntity) {
       const type = host.types[selectedEntity.species];
       content =
-        `<section><h3>${esc(type.name)} · Nr. ${selectedEntity.uid}</h3><p>${esc(type.description)}</p><p>${selectedEntity.dead ? "Im Modell verstorben" : selectedEntity.health >= 80 ? "Kondition unauffällig" : selectedEntity.health >= 50 ? "Kondition beeinträchtigt" : "Kondition kritisch"}. ${showGenes && tag.grade === 9 ? esc(genotypeText(selectedEntity.genetics?.loci)) : ""}</p></section>` +
+        `<section><h3>${esc(type.name)} · Nr. ${selectedEntity.uid}</h3><p>${esc(type.description)}</p><p>${selectedEntity.dead ? "Im Modell verstorben" : selectedEntity.health >= 80 ? "Dem Fisch geht es gut" : selectedEntity.health >= 50 ? "Dem Fisch geht es nicht gut" : "Der Fisch ist in Gefahr"}. ${showGenes && tag.grade === 9 ? esc(genotypeText(selectedEntity.genetics?.loci)) : ""}</p></section>` +
         content;
     }
     const chemistry = allowed.filter(
@@ -386,9 +388,9 @@ export function mountLearningUI(host) {
       content += `<h3>Messung für diese Untersuchung</h3><dl class="learn-values">${chemistry.map((k) => `<div><dt>${LEARNING_METRICS[k][0]}</dt><dd>${num(s.params[k], 3)} ${LEARNING_METRICS[k][1]}</dd></div>`).join("")}</dl>`;
     const snap = learningSample(s, host.types);
     return (
-      panelHeader("Beobachten", "load") +
+      panelHeader("Beobachten", "observe") +
       content +
-      `<h3>Beobachtung festhalten</h3><p>${num(snap.individuals, 0)} Tiere · Algen ${s.algae < 0.2 ? "wenig" : s.algae < 0.6 ? "zunehmend" : "viel"} · Tierkondition ${snap.health >= 80 ? "unauffällig" : snap.health >= 50 ? "beeinträchtigt" : "kritisch"}.</p>${button("measure", "Messzeitpunkt protokollieren")}<p>${session.measurements.length} Messzeitpunkte gespeichert.</p>${manualData({ measurements: session.measurements, measurementMetrics: recordedMetrics(session.measurements, metrics()) })}<h3>Einen Eingriff bewusst wählen</h3>${interventionForm("care")}${tools().some((k) => LEARNING_TOOLS[k]) ? button("apply", "Im Becken anwenden") : ""}<p class="learn-caption">Für einen kontrollierten Vergleich öffne „Untersuchen“. Ein Eingriff hier verändert nur dein aktuelles Becken.</p>`
+      `<h3>Beobachtung festhalten</h3><p>${num(snap.individuals, 0)} Tiere · Algen ${s.algae < 0.2 ? "wenig" : s.algae < 0.6 ? "zunehmend" : "viel"} · ${snap.health >= 80 ? "Den Fischen geht es gut" : snap.health >= 50 ? "Den Fischen geht es nicht gut" : "Die Fische sind in Gefahr"}.</p>${button("measure", "Messzeitpunkt protokollieren")}<p>${session.measurements.length} Messzeitpunkte gespeichert.</p>${manualData({ measurements: session.measurements, measurementMetrics: recordedMetrics(session.measurements, metrics()) })}<h3>Einen Eingriff bewusst wählen</h3>${interventionForm("care")}${tools().some((k) => LEARNING_TOOLS[k]) ? button("apply", "Im Becken anwenden") : ""}<p class="learn-caption">Für einen kontrollierten Vergleich öffne „Untersuchen“. Ein Eingriff hier verändert nur dein aktuelles Becken.</p>`
     );
   }
   function interventionForm(prefix) {
@@ -1164,6 +1166,7 @@ export function mountLearningUI(host) {
       if (a === "teacher-launch") {
         grade = teacher.grade;
         start("missions", teacher.mission);
+        detailed = true;
         showPanel("investigate");
         return;
       }

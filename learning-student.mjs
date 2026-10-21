@@ -162,7 +162,7 @@ export function createStudentViews(api) {
         .join("")}</ul>${button("material", "Farbe und Erbanlagen")}`;
     else {
       const sample=api.sample(),keys=OBSERVATION_METRICS[tag.mission] || ["oxygen","fishAlive"];
-      content=`<dl class="learn-values">${keys.map(k=>`<div><dt>${esc(STUDENT_METRICS[k][0])}</dt><dd>${num(sample[k],k === "fishAlive" ? 0 : 2)} ${esc(STUDENT_METRICS[k][1])}</dd></div>`).join("")}</dl><p>${api.healthText()}</p>`;
+      content=`<dl class="learn-values">${keys.map(k=>`<div><dt>${esc(STUDENT_METRICS[k][0])}${k === "oxygen" ? helpButton("oxygen") : ""}</dt><dd>${num(sample[k],k === "fishAlive" ? 0 : 2)} ${esc(STUDENT_METRICS[k][1])}</dd></div>`).join("")}</dl><p>${api.healthText()}</p>`;
     }
     return (
       panelHeader("Beobachten", "observe") +

@@ -1,6 +1,6 @@
 # Lernziele und überprüfbare Handlungen
 
-Grundlage: Originalcurriculum Eider-Treene-Schule2025/26, S.9–10,14–15,19–20. Diese Matrix beschreibt die neuen Anforderungen; ein technischer Start/Abschluss allein ist kein Nachweis. Vollständige Browserergebnisse werden erst nach Ausführung eingetragen. Fünf Questphasen bleiben bestehen; kleine Zuordnungen werden nacheinander angezeigt, eigene Texte sind freiwillig.
+Grundlage: Originalcurriculum Eider-Treene-Schule2025/26, S. 9–10,14–15,19–20. Diese Matrix beschreibt die neuen Anforderungen; ein technischer Start/Abschluss allein ist kein Nachweis. Vollständige Browserergebnisse werden erst nach Ausführung eingetragen. Fünf Questphasen bleiben bestehen; kleine Zuordnungen werden nacheinander angezeigt, eigene Texte sind freiwillig.
 
 | Mission | Biologisches Lernziel | Tatsächlich erforderliche Handlungen und gespeicherte Belege | Curriculum | Browserabnahme |
 | --- | --- | --- | --- | --- |

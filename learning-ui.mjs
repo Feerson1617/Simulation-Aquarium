@@ -189,7 +189,7 @@ export function mountLearningUI(host) {
     if (kind === "ecology") {
       const c = session.comparison;
       // The actual intervention must change the cloned baseline, not merely be selected.
-      const changed =
+      const changed = !(c.tool==="water"&&c.value===0) &&
         JSON.stringify(
           applyLearningIntervention(session.baseline, c.tool, c.value, host),
         ) !== JSON.stringify(session.baseline);
@@ -574,7 +574,7 @@ export function mountLearningUI(host) {
       m = mission();
     return (
       panelHeader("Mein Forschungsnotizbuch", "hypothesis") +
-      `<p>${esc(m?.question || p.question)}</p><p class="learn-guidance">${SUPPORT[teacher.support].prompt}</p>${textArea("prior", session.notes.prior, p.diagnosis)}${textArea("question", session.notes.question)}${textArea("hypothesis", session.notes.hypothesis)}${textArea("prediction", session.notes.prediction)}${textArea("plan", session.notes.plan)}${textArea("observation", session.notes.observation)}${textArea("explanation", session.notes.explanation, m?.consolidation || p.reflection)}${textArea("reflection", session.notes.reflection)}${session && withNotes ? textArea("transfer", session.notes.transfer) : ""}${manualData({ measurements: session.measurements, measurementMetrics: recordedMetrics(session.measurements, metrics()) })}<p>Vergleiche deine erste und deine jetzige Erklärung. Nutze mindestens zwei Datenpunkte und nenne eine Unsicherheit. Gepflegte Fische allein belegen noch kein Verständnis.</p><div class="learn-actions">${button("export", "Lernprodukt als JSON")}${button("export-text", "Lesbares Protokoll")}</div><small>Automatisch lokal gespeichert. Ein Dateiexport schützt deine Arbeit auch beim Löschen von Browserdaten. Namen sind nicht erforderlich.</small>`
+      `<p>${esc(m?.question || p.question)}</p><p class="learn-guidance">${SUPPORT[teacher.support].prompt}</p>${textArea("prior", session.notes.prior, p.diagnosis)}${textArea("question", session.notes.question)}${textArea("hypothesis", session.notes.hypothesis)}${textArea("prediction", session.notes.prediction)}${textArea("plan", session.notes.plan)}${textArea("observation", session.notes.observation)}${textArea("explanation", session.notes.explanation, m?.consolidation || p.reflection)}${textArea("reflection", session.notes.reflection)}${session ? textArea("transfer", session.notes.transfer) : ""}${manualData({ measurements: session.measurements, measurementMetrics: recordedMetrics(session.measurements, metrics()) })}<p>Vergleiche deine erste und deine jetzige Erklärung. Nutze mindestens zwei Datenpunkte und nenne eine Unsicherheit. Gepflegte Fische allein belegen noch kein Verständnis.</p><div class="learn-actions">${button("export", "Lernprodukt als JSON")}${button("export-text", "Lesbares Protokoll")}</div><small>Automatisch lokal gespeichert. Ein Dateiexport schützt deine Arbeit auch beim Löschen von Browserdaten. Namen sind nicht erforderlich.</small>`
     );
   }
   function investigation() {

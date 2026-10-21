@@ -52,7 +52,10 @@ with sync_playwright() as w:
         launch['executable_path'] = os.environ['AQUARIUM_CHROMIUM']
     b = w.chromium.launch(**launch)
     try:
-        for mode, touch, width in [('mouse',False,1366),('touch-portrait',True,768),('touch-landscape',True,1366)]:
+        for index, (mode, touch, width) in enumerate([('mouse',False,1366),('touch-portrait',True,768),('touch-landscape',True,1366)]):
+            # Each emulated device owns its browser/GPU lifecycle as well as storage.
+            if index:
+                b.close();b=w.chromium.launch(**launch)
             c = b.new_context(viewport={'width': width, 'height': 1024}, has_touch=touch, is_mobile=touch)
             c.add_init_script("localStorage.setItem('aquarium-graphics-v1',JSON.stringify({version:1,profile:'ipad'}))")
             p = c.new_page(); p.set_default_timeout(45000)

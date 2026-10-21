@@ -28,7 +28,7 @@ Ergebnisse müssen ihre tatsächliche Konfiguration behalten. Änderungen am Pla
 
 Lies zusätzlich `AGENTS.md`. Prüfe alle betroffenen Lernprofile über den gemeinsamen Codepfad. Neue Controls brauchen gültige Standardwerte, verständliche Einheiten, Grenzen, Schritte, leere Eingaben, Dezimalkomma, Tastatur und Touch. Prüfe Speichern/Laden, zeitliche Reaktion, Einmaligkeit von Aktionen, unveränderte Vergleichsausgangslagen sowie Quest-Abschluss und veraltete Ergebnisse.
 
-`node --test tests/*.test.mjs` enthält die Regressionen in `tests/device-controls.test.mjs`. `tests/device_controls_browser.py` ergänzt echte UI-Abläufe mit Maus und emuliertem Touch für alle drei Jahrgänge sowie Mission 1. Die vorhandene vollständige Quest-Suite steht in `tests/quest_browser.py`. Ein emulierter Touch-Test ersetzt keinen Test auf einem echten Schul-iPad mit Safari.
+`node --test tests/*.test.mjs` enthält die Regressionen in `tests/device-controls.test.mjs`. `tests/device_controls_browser.py` ergänzt echte UI-Abläufe mit Maus und emuliertem Touch für alle drei Jahrgänge sowie Mission 1. Die vorhandene vollständige Quest-Suite steht in `tests/quest_browser.py`. Jeder emulierte Gerätetyp verwendet eine eigene Browserinstanz. Bildnachweise warten auf fertig gerenderte Geometrie; überdeckende Geräteziele werden gemessen. Ein emulierter Touch-Test ersetzt keinen Test auf einem echten Schul-iPad mit Safari.
 
 Die Prüfung vom 21. Oktober 2026 mit Prioritäten, Reproduktionen und Testmatrix steht in `docs/device-controls-audit.md`. Für selbstständige Folgearbeiten steht der vollständige Auftrag in `docs/device-controls-codex-instruction.md`.
 

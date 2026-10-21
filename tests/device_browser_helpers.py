@@ -7,7 +7,11 @@ ROOT=Path(__file__).resolve().parents[1]
 
 def rendered(p):
     frame=p.evaluate('window.aquariumSnapshot().graphics.renderFrame')
-    p.wait_for_function('(frame)=>{const g=window.aquariumSnapshot().graphics;return g.renderFrame>frame+2 && g.triangles>3000}',arg=frame)
+    try:
+        p.wait_for_function('(frame)=>{const g=window.aquariumSnapshot().graphics;return g.renderFrame>frame+2 && g.triangles>3000}',arg=frame)
+    except Exception as error:
+        details=p.evaluate('()=>({graphics:window.aquariumSnapshot().graphics,classes:document.documentElement.className,hidden:document.hidden,focus:document.hasFocus(),visibility:document.visibilityState,canvas:document.querySelector("#scene canvas").getBoundingClientRect().toJSON()})')
+        raise AssertionError({'initial_frame':frame,'after_wait':details}) from error
     boxes=p.locator('.equipment-anchors button:visible').evaluate_all('(buttons)=>buttons.map(b=>{const r=b.getBoundingClientRect();return {key:b.dataset.equipment,x:r.x,y:r.y,w:r.width,h:r.height}})')
     for i,a in enumerate(boxes):
         assert a['x']>=0 and a['y']>=0

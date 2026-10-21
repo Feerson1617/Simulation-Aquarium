@@ -1,0 +1,22 @@
+{
+  "checks": [
+    "R1/R8: real 10-restore 50%/14d stops control at day 48, test reaches 59; independent real-core continuation, cause and CSV provenance",
+    "R1: real failure at final requested step retains time and cause"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "screenshots": [
+    "r1-independent-tank-series.png",
+    "failure.png"
+  ],
+  "sections": [
+    "ecology",
+    "manual",
+    "genetics",
+    "carbon",
+    "touch",
+    "draft"
+  ],
+  "status": "failed",
+  "failure": "'modelVersion'"
+}

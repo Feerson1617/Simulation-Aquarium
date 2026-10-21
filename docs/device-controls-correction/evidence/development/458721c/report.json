@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "mouse, grade 8: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "mouse, grade 9: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "mouse, grade 10: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "mouse: Quest 1 device plan/cancel focus, 20/24.5/25/26 C, no-op, stale result/conclusion, recompute, completion, reload"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "console_errors": [],
+  "commit": "458721cdfa89a48ef707e0d5dba08652ef120857",
+  "status": "failed",
+  "failure": "Locator.click: Timeout 45000ms exceeded.\nCall log:\n  - waiting for locator(\"[data-scenarios]\")\n    - locator resolved to <button data-scenarios=\"\" class=\"mode-choice\">…</button>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n      - waiting 100ms\n    82 × waiting for element to be visible, enabled and stable\n       - element is not visible\n     - retrying click action\n       - waiting 500ms\n"
+}

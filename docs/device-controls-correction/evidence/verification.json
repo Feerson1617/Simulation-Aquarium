@@ -1,0 +1,64 @@
+{
+  "testing_commit": "38702602ec5700c08a750e0255a3e7cc3a85bf80",
+  "suite_source_commits": {
+    "modules": "106199d665e80ce7cf842b785053a503ff1e72cc",
+    "devices": "106199d665e80ce7cf842b785053a503ff1e72cc",
+    "quests": "106199d665e80ce7cf842b785053a503ff1e72cc",
+    "review": "38702602ec5700c08a750e0255a3e7cc3a85bf80",
+    "readiness": "38702602ec5700c08a750e0255a3e7cc3a85bf80",
+    "placement": "38702602ec5700c08a750e0255a3e7cc3a85bf80",
+    "standalone": "38702602ec5700c08a750e0255a3e7cc3a85bf80"
+  },
+  "source_policy": "Each suite retains its actual commit and original run. Earlier modules/devices/quests are reused only after proving identical runtime fingerprints and test/helper bytes. No runtime changes since703ee49.",
+  "repository_head_at_collection": "38702602ec5700c08a750e0255a3e7cc3a85bf80",
+  "module_tests": {
+    "tests": 120,
+    "pass": 120,
+    "fail": 0,
+    "skipped": 0
+  },
+  "browser_groups": {
+    "devices": {
+      "checks": 18,
+      "report": "devices/report.json",
+      "commit": "106199d665e80ce7cf842b785053a503ff1e72cc"
+    },
+    "quests": {
+      "checks": 26,
+      "report": "quests/report.json",
+      "commit": "106199d665e80ce7cf842b785053a503ff1e72cc"
+    },
+    "review": {
+      "checks": 12,
+      "report": "review/report.json",
+      "commit": "38702602ec5700c08a750e0255a3e7cc3a85bf80"
+    },
+    "readiness": {
+      "checks": 13,
+      "report": "readiness/report.json",
+      "commit": "38702602ec5700c08a750e0255a3e7cc3a85bf80"
+    },
+    "placement": {
+      "checks": 12,
+      "report": "placement/report.json",
+      "commit": "38702602ec5700c08a750e0255a3e7cc3a85bf80"
+    }
+  },
+  "browser_checkpoints": 81,
+  "standalone": {
+    "status": "passed",
+    "bytes": 151156244,
+    "file_url_tested": false,
+    "proof": "standalone.log"
+  },
+  "limits": [
+    "Physical Safari/iPad unavailable",
+    "Public Pages fingerprint and interactive preview require blocked host feerson1617.github.io",
+    "Native file: navigation may be blocked; see standalone log"
+  ],
+  "historical_counts_not_added": [
+    74,
+    117
+  ],
+  "runtime_fingerprints": "runtime.sha256"
+}

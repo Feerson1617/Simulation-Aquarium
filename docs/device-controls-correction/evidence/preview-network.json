@@ -1,0 +1,10 @@
+{
+  "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-8/",
+  "observed_at": "2026-10-21T15:49:36.103651+00:00",
+  "checked_git_head": "38702602ec5700c08a750e0255a3e7cc3a85bf80",
+  "last_runtime_change": "703ee49e04251bcad69325cfa1cf8845e46fd583",
+  "curl_exit_code": 56,
+  "headers": "HTTP/1.1 403 Forbidden\ncontent-length: 16\ncontent-type: text/plain\ndate: Wed, 21 Oct 2026 15:49:35 GMT\nserver: envoy\nconnection: close\n\n",
+  "error": "curl: (56) CONNECT tunnel failed, response 403\n",
+  "conclusion": "Preview fingerprint and interactive live tests unavailable; proxy CONNECT denied"
+}

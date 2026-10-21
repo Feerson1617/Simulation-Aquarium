@@ -1,0 +1,11 @@
+{
+  "checks": [],
+  "errors": [],
+  "failed_requests": [],
+  "console_errors": [
+    "Failed to load resource: the server responded with a status of 404 (File not found)"
+  ],
+  "commit": "3a19d48d9cd0ce5bc5c7b12e19125d2d6087a612",
+  "status": "failed",
+  "failure": ""
+}

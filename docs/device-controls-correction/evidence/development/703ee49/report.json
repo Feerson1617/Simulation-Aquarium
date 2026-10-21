@@ -1,0 +1,16 @@
+{
+  "checks": [
+    "mouse, grade 8: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "mouse, grade 9: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "mouse, grade 10: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "mouse: Quest 1 device plan/cancel focus, 20/24.5/25/26 C, no-op, stale result/conclusion, recompute, completion, reload",
+    "mouse: genuine old window-light save, unchanged history, 0.65 feed, expert focus, aerator/skimmer off/on, reload",
+    "mouse: adopt and continue test tank; persistent heater and one-off water change use actual core exactly once"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "console_errors": [],
+  "commit": "703ee49e04251bcad69325cfa1cf8845e46fd583",
+  "status": "failed",
+  "failure": "Page.wait_for_function: Timeout 45000ms exceeded."
+}

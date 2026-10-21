@@ -1,0 +1,8 @@
+PASS R1/R8: real 10-restore 50%/14d stops control at day 48, test reaches 59; independent real-core continuation, cause and CSV provenance
+PASS R1: real failure at final requested step retains time and cause
+RESULTS /tmp/aquarium-correction-final-106199d/review/20261021T153134
+Traceback (most recent call last):
+  File "/workspace/Simulation-Aquarium/tests/learning_review_browser.py", line 54, in <module>
+    product=download(p,'export','r2-r3-full-learning-product.json');raw=json.loads(product.read_text());assert raw['modelVersion']==CURRENT_MODEL;assert raw['comparison']['modelVersion']==CURRENT_MODEL;assert raw['currentPlan']['baseline']['time']==46 and raw['currentPlan']['tool']=='feed';assert raw['comparison']['configuration']['tool']=='water' and raw['comparison']['configuration']['value']==50;assert raw['comparison']['planning']['plan']!=raw['notes']['plan'];assert len(raw['measurements'])==2;shot(p,'r3-plan-changed-old-result.png');passed('R3: baseline label updates immediately; changed baseline/input/notes cannot relabel old data or JSON provenance')
+                                                                                                                                                         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'modelVersion'

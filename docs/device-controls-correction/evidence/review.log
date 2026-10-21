@@ -1,0 +1,13 @@
+PASS R1/R8: real 10-restore 50%/14d stops control at day 48, test reaches 59; independent real-core continuation, cause and CSV provenance
+PASS R1: real failure at final requested step retains time and cause
+PASS R3: baseline label updates immediately; changed baseline/input/notes cannot relabel old data or JSON provenance
+PASS R2 historical product: original learning-evidence-2 identity and file bytes retained; complete read-only measurements/configuration/notes preserved, executable tank payloads excluded by existing teacher-import contract
+PASS R2: actual JSON import and local teacher view retain intervention/value/duration/status/seed/model/frozen planning, nitrite values and manual records
+PASS R7/R2/R8: manual observations without any comparison survive table, SVG/CSV/JSON and teacher import, including unknown initial flux
+PASS R5: same seed reproduces browser F1/F2; new documented seed preserves founders; chosen seed changes actual gamete draws
+PASS R2/R5: real Mendel JSON retains seed, repeated trials and F1/F2 parent-child evidence in teacher view
+PASS R6/R2: browser selection run archives reconstruct frequencies and actual parent success; JSON teacher view exposes phenotype, weights, parents and children
+PASS R4: retained teacher technical carbon transfer includes human influence, background material, sources, consolidation and explicit limits
+PASS touch: new measurement/seed/transfer controls fit portrait, operate via touch and preserve help/canvas focus gating
+PASS R2/R3: actual export with unfinished invalid draft preserves the previous valid result in teacher import
+RESULTS /tmp/aquarium-correction-final-3870260/review/20261021T153956

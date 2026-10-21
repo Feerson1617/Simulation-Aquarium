@@ -18,7 +18,7 @@ Heizstab, Filter und Lampe sowie eingebaute Belüfter und Abschäumer lassen sic
 
 Einstellungen bleiben bis zur nächsten Änderung bestehen. Der getrennte **Beobachtungszeitraum** begrenzt nur die berechnete Datenreihe. Wasserwechsel, Nährstoffeintrag und Pflanzenzugabe sind einmalige Aktionen. Wassertemperatur und biologische Folgen reagieren erst mit vergehender Spielzeit. Nach einem geänderten Versuchsplan müssen ausstehende Quest-Ergebnisse erneut berechnet und ausgewertet werden.
 
-Die [aktuelle gezielte Korrektur und ihre Prüfstände](docs/device-controls-correction/VALIDATION.md) trennen frische Läufe von historischen Belegen. Für alle Jahrgänge, den Expertenmodus und künftige Codex-Aufträge gelten die [gemeinsamen Bedienregeln](docs/device-controls.md). [Priorisierte Fehlerprüfung und Testmatrix](docs/device-controls-audit.md), [vollständige eigenständige Codex-Anweisung für PR 8](docs/device-controls-codex-instruction.md). `AGENTS.md` bleibt unverändert maßgeblich.
+Die aktuelle Korrektur ist lokal mit 120 Modultests, 81 Browserprüfpunkten und dem vollständigen HTML-Download geprüft; öffentliche Vorschau und physisches Safari-iPad bleiben offen. Die [gezielte Korrektur und ihre Quellstände](docs/device-controls-correction/VALIDATION.md) trennen frische Läufe von historischen Belegen. Für alle Jahrgänge, den Expertenmodus und künftige Codex-Aufträge gelten die [gemeinsamen Bedienregeln](docs/device-controls.md). [Priorisierte Fehlerprüfung und Testmatrix](docs/device-controls-audit.md), [vollständige eigenständige Codex-Anweisung für PR 8](docs/device-controls-codex-instruction.md). `AGENTS.md` bleibt unverändert maßgeblich.
 
 ## Desktop- und iPad-Darstellung
 

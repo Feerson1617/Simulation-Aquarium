@@ -1,0 +1,25 @@
+{
+  "checks": [
+    "R1/R8: real 10-restore 50%/14d stops control at day 48, test reaches 59; independent real-core continuation, cause and CSV provenance",
+    "R1: real failure at final requested step retains time and cause",
+    "R3: baseline label updates immediately; changed baseline/input/notes cannot relabel old data or JSON provenance"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "screenshots": [
+    "r1-independent-tank-series.png",
+    "r3-plan-changed-old-result.png",
+    "r2-teacher-nitrite-status.png",
+    "failure.png"
+  ],
+  "sections": [
+    "ecology",
+    "manual",
+    "genetics",
+    "carbon",
+    "touch",
+    "draft"
+  ],
+  "status": "failed",
+  "failure": "initialControl"
+}

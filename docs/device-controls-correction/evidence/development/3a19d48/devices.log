@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/workspace/Simulation-Aquarium/tests/device_controls_browser.py", line 97, in <module>
+    continued_focus(p)
+  File "/workspace/Simulation-Aquarium/tests/device_controls_browser.py", line 23, in continued_focus
+    assert p.evaluate('document.activeElement.outerHTML')==before
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

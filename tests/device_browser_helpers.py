@@ -26,9 +26,9 @@ def expert_checks(p,mode,touch,out,continued_focus,dialog_keyboard):
     def saved():return p.evaluate('(k)=>JSON.parse(localStorage.getItem(k))',key)
     p.wait_for_function('(k)=>JSON.parse(localStorage.getItem(k))?.light==="sun"',arg=key)
     before=saved();assert before['feedRate']==.65 and before['light']=='sun'
-    settings(p)
+    settings(p);expect(p.locator('#equipment-controls')).to_be_hidden()
     for field,value in [('hours','12'),('intensity','90')]:
-        control=p.locator(f'[data-expert-control="{field}"]');input=control.locator('input')
+        control=p.locator(f'[data-expert-control="{field}"]');input=control.locator('input');input.click();expect(input).to_be_focused()
         input.fill('');control.locator('[data-expert-save]').click();expect(control.locator('[data-control-error]')).to_contain_text('Bitte')
         assert saved()==before if field=='hours' else saved()['intensity']==95
         input.fill(value);control.locator('[data-expert-save]').click();expect(p.locator(f'[data-expert-setting="{field}"]')).to_be_focused()
@@ -37,7 +37,7 @@ def expert_checks(p,mode,touch,out,continued_focus,dialog_keyboard):
     assert not p.locator('[data-equipment="light"]:visible').count()
     rendered(p);p.screenshot(path=str(out/f'{mode}-window-light-settings.png'))
     p.locator('[data-panel="care"]').click();field=p.locator('[data-expert-setting="feedRate"]')
-    expect(field).to_have_value('0.65');expect(p.get_by_role('slider',name='Tägliche Futtermenge drehen')).to_have_attribute('aria-valuenow','0.65')
+    field.click();expect(field).to_be_focused();expect(field).to_have_value('0.65');expect(p.get_by_role('slider',name='Tägliche Futtermenge drehen')).to_have_attribute('aria-valuenow','0.65')
     field.fill('');p.locator('[data-expert-save="feedRate"]').click();assert saved()['feedRate']==.65
     expect(p.locator('[data-control-error]')).to_contain_text('0 bis 5')
     field.fill('0,65');p.locator('[data-expert-save="feedRate"]').click();assert saved()['feedRate']==.65

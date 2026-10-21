@@ -3908,7 +3908,7 @@ learningUI=mountLearningUI({root:tt("#app"),types:De,getState:()=>I,isHome:()=>B
 });
 window.aquariumLearningSnapshot=()=>learningUI.snapshot();
 equipmentUI=mountEquipmentUI({root:tt("#app"),view:()=>vt,state:()=>I,notify:Ft,
- context:()=>learningUI.active()?learningUI.deviceContext():{visible:!Bn&&!et&&!learningUI.blocksScene(),tools:["temperature","light","filter","air","skimmer"]},
+ context:()=>learningUI.active()?learningUI.deviceContext():{visible:!Bn&&!et&&!ot&&!learningUI.blocksScene(),tools:["temperature","light","filter","air","skimmer"]},
  lock:value=>{document.documentElement.classList.toggle("device-adjusting",value);tt("#learning-root").inert=value;if(value){Gn=0;vt?.aquascaping?.setEnabled(false)}vt?.setInteractive(!value&&!Bn&&!et&&!ot&&!learningUI.blocksScene());requestAnimationFrame(()=>{vt?.resize();if(vt)fitPhysicalCamera(vt)})},
  choose:key=>{if(learningUI.active()){learningUI.openDevice(key);return}Gn=0;ot=null;$e();equipmentUI.open(key,{onCommit:(value,intensity)=>{I=applyEquipmentSetting(I,key,value);if(intensity!=null)I=applyEquipmentSetting(I,"intensity",intensity);vt?.setState(I);$e();At()}})}
 },RealismTHREE);

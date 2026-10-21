@@ -666,7 +666,7 @@ export function mountLearningUI(host) {
       LEARNING_METRICS[key] ||
       POPULATION_METRICS[key] || [key, ""]
     ).join(" · ");
-    return `<svg class="learn-chart" viewBox="0 0 480 270" role="img" aria-label="Verlauf ${esc(title)}: ${comp.kind === "manual" ? "Dein Becken" : technical ? "Kontrolle und Versuch" : comp.kind === "population" ? "Gruppe 1 und Gruppe 2" : "Becken 1 und Becken 2"}"><desc>${esc(technical ? runDescription(comp) : "Messwerte aus deinem Versuch.")}</desc><text x="45" y="13" font-size="12">${esc(title)}</text><path d="M45 24 V180 H455" fill="none" stroke="currentColor"/><text x="5" y="33">${num(maxY)}</text><text x="7" y="184">${num(minY)}</text><text x="45" y="204">${num(minX)}</text><text x="420" y="204">${num(maxX)}</text>${[
+    return `<svg class="learn-chart" viewBox="0 0 480 270" role="img" aria-label="Verlauf ${esc(title)}: ${comp.kind === "manual" ? (technical ? "Eigenes Becken" : "Dein Becken") : technical ? "Kontrolle und Versuch" : comp.kind === "population" ? "Gruppe 1 und Gruppe 2" : "Becken 1 und Becken 2"}"><desc>${esc(technical ? runDescription(comp) : "Messwerte aus deinem Versuch.")}</desc><text x="45" y="13" font-size="12">${esc(title)}</text><path d="M45 24 V180 H455" fill="none" stroke="currentColor"/><text x="5" y="33">${num(maxY)}</text><text x="7" y="184">${num(minY)}</text><text x="45" y="204">${num(minX)}</text><text x="420" y="204">${num(maxX)}</text>${[
       a,
       b,
     ]
@@ -677,7 +677,7 @@ export function mountLearningUI(host) {
       })
       .join(
         "",
-      )}<text x="170" y="224" font-size="12">${comp.kind === "population" ? "Generation" : technical ? "Tag · Modellzeit" : "Tag"} ${technical ? "(Wiederholung 1)" : ""}</text><path d="M50 246 H80" stroke="#216c70" stroke-width="3"/><text x="88" y="250" font-size="12">${comp.kind === "manual" ? "Dein Becken" : technical ? "Kontrolle" : comp.kind === "population" ? "Gruppe 1" : "Becken 1"}</text>${comp.kind === "manual" ? "" : `<path d="M250 246 H280" stroke="#a35325" stroke-width="3" stroke-dasharray="7 3"/><text x="288" y="250" font-size="12">${technical ? "Versuch" : comp.kind === "population" ? "Gruppe 2" : "Becken 2"}</text>`}</svg>`;
+      )}<text x="170" y="224" font-size="12">${comp.kind === "population" ? "Generation" : technical ? "Tag · Modellzeit" : "Tag"} ${technical ? (comp.kind === "manual" ? "(eigene Messreihe)" : "(Wiederholung 1)") : ""}</text><path d="M50 246 H80" stroke="#216c70" stroke-width="3"/><text x="88" y="250" font-size="12">${comp.kind === "manual" ? (technical ? "Eigenes Becken" : "Dein Becken") : technical ? "Kontrolle" : comp.kind === "population" ? "Gruppe 1" : "Becken 1"}</text>${comp.kind === "manual" ? "" : `<path d="M250 246 H280" stroke="#a35325" stroke-width="3" stroke-dasharray="7 3"/><text x="288" y="250" font-size="12">${technical ? "Versuch" : comp.kind === "population" ? "Gruppe 2" : "Becken 2"}</text>`}</svg>`;
   }
   function numRaw(v) {
     return Number(v.toFixed(3));

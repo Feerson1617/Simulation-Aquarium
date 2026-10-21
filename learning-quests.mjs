@@ -122,7 +122,7 @@ export const QUESTS = Object.fromEntries(
         0,
         "Ja. Schau auf die Tiere und auf das Wasser.",
       ),
-      "Was bewirkt frisches Wasser für die Fische?",
+      "Wie geht es den Fischen nach deiner Maßnahme?",
       pick(
         "Was zeigt der Versuch?",
         [
@@ -303,7 +303,7 @@ export const QUESTS = Object.fromEntries(
         0,
         "Ja. Nur eine Bedingung soll sich unterscheiden.",
       ),
-      "Wie wirkt ein Wasserwechsel auf die Fische?",
+      "Wie geht es den Fischen nach deiner Maßnahme?",
       pick(
         "Wie prüfst du deine Entscheidung?",
         [

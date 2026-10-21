@@ -1,0 +1,22 @@
+{
+  "state": "completed_prefix_before_visual_followup",
+  "source_commit": "303c869adcf4d799dd2adaea79bceacccbf9ebb4",
+  "started": 1792571707.902231,
+  "steps": [
+    {
+      "name": "unit",
+      "started": 1792571707.9028487,
+      "state": "passed",
+      "exit_code": 0,
+      "finished": 1792571722.7081277
+    },
+    {
+      "name": "quest",
+      "started": 1792571722.708409,
+      "state": "passed",
+      "finished": 1792573771.505096,
+      "report": "/tmp/quest-final-validation/quest/20261021T083522/report.json"
+    }
+  ],
+  "note": "All 26 quest checks completed. Further regression groups are moved to the following runtime after visual inspection found under-sized portrait aquarium framing."
+}

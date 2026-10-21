@@ -1,0 +1,2686 @@
+{
+  "checks": [
+    "desktop: 8-ecosystem completed through actual observation, prediction, experiment, retry, comparison and explanation",
+    "desktop: 8-oxygen completed through actual observation, prediction, experiment, retry, comparison and explanation",
+    "desktop: 8-foodweb completed through actual observation, prediction, experiment, retry, comparison and explanation",
+    "desktop: 8-health completed through actual observation, prediction, experiment, retry, comparison and explanation",
+    "desktop: 8-forest completed through actual observation, prediction, experiment, retry, comparison and explanation",
+    "desktop: 9-traits completed through actual observation, prediction, experiment, retry, comparison and explanation",
+    "desktop: 9-mendel completed through actual observation, prediction, experiment, retry, comparison and explanation",
+    "desktop: 9-population completed through actual observation, prediction, experiment, retry, comparison and explanation",
+    "desktop: 9-darwin completed through actual observation, prediction, experiment, retry, comparison and explanation",
+    "desktop: 10-enrichment completed through actual observation, prediction, experiment, retry, comparison and explanation",
+    "desktop: 10-carbon completed through actual observation, prediction, experiment, retry, comparison and explanation",
+    "desktop: 10-restore completed through actual observation, prediction, experiment, retry, comparison and explanation",
+    "desktop: 10-northsea completed through actual observation, prediction, experiment, retry, comparison and explanation",
+    "desktop: 10-wadden completed through actual observation, prediction, experiment, retry, comparison and explanation",
+    "touch: 8-oxygen completed through actual observation, prediction, experiment, retry, comparison and explanation",
+    "touch: 9-mendel completed through actual observation, prediction, experiment, retry, comparison and explanation",
+    "touch: 10-carbon completed through actual observation, prediction, experiment, retry, comparison and explanation",
+    "free grade 8: no mandatory quest or writing; actual experiment, measurements, export and legacy save preserved",
+    "free grade 9: no mandatory quest or writing; actual experiment, measurements, export and legacy save preserved",
+    "free grade 10: no mandatory quest or writing; actual experiment, measurements, export and legacy save preserved",
+    "teacher: real quest exports and v1 products remain readable; carbon source material and limits available",
+    "teacher: full technical investigation remains accessible without exposing it in regular student views",
+    "grade 8: every regular question-mark help has the correct topic, short text, keyboard focus and touch-size controls",
+    "grade 9: every regular question-mark help has the correct topic, short text, keyboard focus and touch-size controls",
+    "grade 10: every regular question-mark help has the correct topic, short text, keyboard focus and touch-size controls",
+    "old learning session: previous settings and notes survive quest migration and file export"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "missions": [
+    {
+      "id": "8-ecosystem",
+      "touch": false,
+      "quest": {
+        "version": 1,
+        "id": "8-ecosystem",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was ist kein Lebewesen?",
+            "answer": "Das Wasser",
+            "at": "2026-10-21T08:36:14.056Z"
+          },
+          {
+            "step": 1,
+            "question": "Was passiert mit der Temperatur bei einem kühleren Heizer?",
+            "answer": "Das Wasser wird kühler.",
+            "at": "2026-10-21T08:36:16.912Z"
+          },
+          {
+            "step": 2,
+            "event": "ecology",
+            "evidence": {
+              "changed": true,
+              "result": {
+                "kind": "ecology",
+                "key": "temp",
+                "label": "Temperatur",
+                "unit": "°C",
+                "time": 48,
+                "control": 25,
+                "test": 22.70180043831318,
+                "statuses": {
+                  "control": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  },
+                  "test": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  }
+                },
+                "configuration": {
+                  "kind": "ecology",
+                  "profile": {
+                    "version": 1,
+                    "grade": 8,
+                    "mode": "missions",
+                    "mission": "8-ecosystem"
+                  },
+                  "modelVersion": "learning-evidence-2",
+                  "tool": "temperature",
+                  "value": 20,
+                  "days": 3,
+                  "environment": null,
+                  "generations": null,
+                  "repetitions": 2,
+                  "baseline": {
+                    "time": 45,
+                    "seed": 47291,
+                    "fingerprint": "39bc8299",
+                    "size": 19
+                  },
+                  "planning": {
+                    "question": "Was passiert mit der Temperatur bei einem kühleren Heizer?",
+                    "hypothesis": "Das Wasser wird kühler.",
+                    "prediction": "Das Wasser wird kühler.",
+                    "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+                  },
+                  "metrics": [
+                    "oxygen",
+                    "health",
+                    "algae",
+                    "plantBiomass",
+                    "organic",
+                    "temp"
+                  ]
+                }
+              },
+              "tool": "temperature",
+              "compatible": true,
+              "value": 20
+            },
+            "at": "2026-10-21T08:36:22.587Z"
+          },
+          {
+            "step": 3,
+            "question": "Wo ist die Temperatur höher?",
+            "answer": "In Becken 1",
+            "at": "2026-10-21T08:36:36.209Z"
+          },
+          {
+            "step": 4,
+            "question": "Was gehört zum Lebensraum?",
+            "answer": "Lebewesen und ihre Umgebung",
+            "at": "2026-10-21T08:36:43.268Z"
+          }
+        ],
+        "result": {
+          "kind": "ecology",
+          "key": "temp",
+          "label": "Temperatur",
+          "unit": "°C",
+          "time": 48,
+          "control": 25,
+          "test": 22.70180043831318,
+          "statuses": {
+            "control": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            },
+            "test": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            }
+          },
+          "configuration": {
+            "kind": "ecology",
+            "profile": {
+              "version": 1,
+              "grade": 8,
+              "mode": "missions",
+              "mission": "8-ecosystem"
+            },
+            "modelVersion": "learning-evidence-2",
+            "tool": "temperature",
+            "value": 20,
+            "days": 3,
+            "environment": null,
+            "generations": null,
+            "repetitions": 2,
+            "baseline": {
+              "time": 45,
+              "seed": 47291,
+              "fingerprint": "39bc8299",
+              "size": 19
+            },
+            "planning": {
+              "question": "Was passiert mit der Temperatur bei einem kühleren Heizer?",
+              "hypothesis": "Das Wasser wird kühler.",
+              "prediction": "Das Wasser wird kühler.",
+              "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+            },
+            "metrics": [
+              "oxygen",
+              "health",
+              "algae",
+              "plantBiomass",
+              "organic",
+              "temp"
+            ]
+          }
+        },
+        "feedback": "Tiere, Pflanzen und Wasser gehören zusammen. Die Temperatur wirkt auf die Lebewesen.",
+        "collapsed": false
+      }
+    },
+    {
+      "id": "8-oxygen",
+      "touch": false,
+      "quest": {
+        "version": 1,
+        "id": "8-oxygen",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was bleibt am Anfang gleich?",
+            "answer": "Die Tiere und Pflanzen",
+            "at": "2026-10-21T08:37:52.038Z"
+          },
+          {
+            "step": 1,
+            "question": "Was passiert ohne Licht mit dem Sauerstoff?",
+            "answer": "Es gibt weniger Sauerstoff.",
+            "at": "2026-10-21T08:37:54.720Z"
+          },
+          {
+            "step": 2,
+            "event": "ecology",
+            "evidence": {
+              "changed": true,
+              "result": {
+                "kind": "ecology",
+                "key": "oxygen",
+                "label": "Sauerstoff",
+                "unit": "mg/L",
+                "time": 48,
+                "control": 8.28389496015925,
+                "test": 8.163889709536656,
+                "statuses": {
+                  "control": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  },
+                  "test": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  }
+                },
+                "configuration": {
+                  "kind": "ecology",
+                  "profile": {
+                    "version": 1,
+                    "grade": 8,
+                    "mode": "missions",
+                    "mission": "8-oxygen"
+                  },
+                  "modelVersion": "learning-evidence-2",
+                  "tool": "light",
+                  "value": 0,
+                  "days": 3,
+                  "environment": null,
+                  "generations": null,
+                  "repetitions": 2,
+                  "baseline": {
+                    "time": 45,
+                    "seed": 47291,
+                    "fingerprint": "9a47c26f",
+                    "size": 19
+                  },
+                  "planning": {
+                    "question": "Was passiert ohne Licht mit dem Sauerstoff?",
+                    "hypothesis": "Es gibt weniger Sauerstoff.",
+                    "prediction": "Es gibt weniger Sauerstoff.",
+                    "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+                  },
+                  "metrics": [
+                    "oxygen",
+                    "health",
+                    "algae",
+                    "plantBiomass",
+                    "organic",
+                    "photosynthesis",
+                    "respiration"
+                  ]
+                }
+              },
+              "tool": "light",
+              "compatible": true,
+              "value": 0
+            },
+            "at": "2026-10-21T08:38:03.517Z"
+          },
+          {
+            "step": 3,
+            "question": "Wo ist mehr Sauerstoff?",
+            "answer": "In Becken 1",
+            "at": "2026-10-21T08:38:14.770Z"
+          },
+          {
+            "step": 4,
+            "question": "Was fällt ohne Licht weg?",
+            "answer": "Die Sauerstoffbildung durch Licht",
+            "at": "2026-10-21T08:38:20.519Z"
+          }
+        ],
+        "result": {
+          "kind": "ecology",
+          "key": "oxygen",
+          "label": "Sauerstoff",
+          "unit": "mg/L",
+          "time": 48,
+          "control": 8.28389496015925,
+          "test": 8.163889709536656,
+          "statuses": {
+            "control": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            },
+            "test": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            }
+          },
+          "configuration": {
+            "kind": "ecology",
+            "profile": {
+              "version": 1,
+              "grade": 8,
+              "mode": "missions",
+              "mission": "8-oxygen"
+            },
+            "modelVersion": "learning-evidence-2",
+            "tool": "light",
+            "value": 0,
+            "days": 3,
+            "environment": null,
+            "generations": null,
+            "repetitions": 2,
+            "baseline": {
+              "time": 45,
+              "seed": 47291,
+              "fingerprint": "9a47c26f",
+              "size": 19
+            },
+            "planning": {
+              "question": "Was passiert ohne Licht mit dem Sauerstoff?",
+              "hypothesis": "Es gibt weniger Sauerstoff.",
+              "prediction": "Es gibt weniger Sauerstoff.",
+              "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+            },
+            "metrics": [
+              "oxygen",
+              "health",
+              "algae",
+              "plantBiomass",
+              "organic",
+              "photosynthesis",
+              "respiration"
+            ]
+          }
+        },
+        "feedback": "Pflanzen geben bei Licht Sauerstoff ab. Ohne Licht fällt diese Quelle weg. Tiere und Pflanzen verbrauchen weiter Sauerstoff. Auch die Luft wirkt auf den Wert.",
+        "collapsed": false
+      }
+    },
+    {
+      "id": "8-foodweb",
+      "touch": false,
+      "quest": {
+        "version": 1,
+        "id": "8-foodweb",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was lebt im Aquarium?",
+            "answer": "Ein Fisch",
+            "at": "2026-10-21T08:40:01.367Z"
+          },
+          {
+            "step": 1,
+            "question": "Was passiert bei mehr Futter mit den Resten?",
+            "answer": "Es bleiben weniger Reste.",
+            "at": "2026-10-21T08:40:04.147Z"
+          },
+          {
+            "step": 2,
+            "event": "ecology",
+            "evidence": {
+              "changed": true,
+              "result": {
+                "kind": "ecology",
+                "key": "organic",
+                "label": "Reste",
+                "unit": "",
+                "time": 48,
+                "control": 0.38952515271109506,
+                "test": 3.9630476739372966,
+                "statuses": {
+                  "control": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  },
+                  "test": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  }
+                },
+                "configuration": {
+                  "kind": "ecology",
+                  "profile": {
+                    "version": 1,
+                    "grade": 8,
+                    "mode": "missions",
+                    "mission": "8-foodweb"
+                  },
+                  "modelVersion": "learning-evidence-2",
+                  "tool": "feed",
+                  "value": 2,
+                  "days": 3,
+                  "environment": null,
+                  "generations": null,
+                  "repetitions": 2,
+                  "baseline": {
+                    "time": 45,
+                    "seed": 47291,
+                    "fingerprint": "60da136b",
+                    "size": 19
+                  },
+                  "planning": {
+                    "question": "Was passiert bei mehr Futter mit den Resten?",
+                    "hypothesis": "Es bleiben weniger Reste.",
+                    "prediction": "Es bleiben weniger Reste.",
+                    "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+                  },
+                  "metrics": [
+                    "oxygen",
+                    "health",
+                    "algae",
+                    "plantBiomass",
+                    "organic"
+                  ]
+                }
+              },
+              "tool": "feed",
+              "compatible": true,
+              "value": 2
+            },
+            "at": "2026-10-21T08:40:14.374Z"
+          },
+          {
+            "step": 3,
+            "question": "Wo gibt es mehr Reste?",
+            "answer": "In Becken 2",
+            "at": "2026-10-21T08:40:20.697Z"
+          },
+          {
+            "step": 4,
+            "question": "Was geschieht mit Futterresten?",
+            "answer": "Kleine Lebewesen bauen sie ab",
+            "at": "2026-10-21T08:40:26.265Z"
+          }
+        ],
+        "result": {
+          "kind": "ecology",
+          "key": "organic",
+          "label": "Reste",
+          "unit": "",
+          "time": 48,
+          "control": 0.38952515271109506,
+          "test": 3.9630476739372966,
+          "statuses": {
+            "control": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            },
+            "test": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            }
+          },
+          "configuration": {
+            "kind": "ecology",
+            "profile": {
+              "version": 1,
+              "grade": 8,
+              "mode": "missions",
+              "mission": "8-foodweb"
+            },
+            "modelVersion": "learning-evidence-2",
+            "tool": "feed",
+            "value": 2,
+            "days": 3,
+            "environment": null,
+            "generations": null,
+            "repetitions": 2,
+            "baseline": {
+              "time": 45,
+              "seed": 47291,
+              "fingerprint": "60da136b",
+              "size": 19
+            },
+            "planning": {
+              "question": "Was passiert bei mehr Futter mit den Resten?",
+              "hypothesis": "Es bleiben weniger Reste.",
+              "prediction": "Es bleiben weniger Reste.",
+              "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+            },
+            "metrics": [
+              "oxygen",
+              "health",
+              "algae",
+              "plantBiomass",
+              "organic"
+            ]
+          }
+        },
+        "feedback": "Kleine Lebewesen bauen Reste ab. Dabei werden Nährstoffe frei. Pflanzen können sie aufnehmen. Stoffe werden wieder genutzt; Energie geht auch als Wärme nach außen.",
+        "collapsed": false
+      }
+    },
+    {
+      "id": "8-health",
+      "touch": false,
+      "quest": {
+        "version": 1,
+        "id": "8-health",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Worauf solltest du achten?",
+            "answer": "Auf die Fische und das Wasser",
+            "at": "2026-10-21T08:41:28.104Z"
+          },
+          {
+            "step": 1,
+            "question": "Was bewirkt frisches Wasser für die Fische?",
+            "answer": "Den Fischen geht es schlechter.",
+            "at": "2026-10-21T08:41:30.962Z"
+          },
+          {
+            "step": 2,
+            "event": "ecology",
+            "evidence": {
+              "changed": true,
+              "result": {
+                "kind": "ecology",
+                "key": "health",
+                "label": "Zustand der Fische",
+                "unit": "Punkte",
+                "time": 48,
+                "control": 1.6266247041865718,
+                "test": 51.46249182407837,
+                "statuses": {
+                  "control": {
+                    "state": "failed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": "Biologischer Modellabbruch; vom Rechenkern zugeordnete Ursache: Nitritbelastung. Dies ist eine Modelldiagnose, kein Nachweis einer einzigen realen Ursache. Keine weiteren Messungen berechnet.",
+                    "cause": "nitrite"
+                  },
+                  "test": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  }
+                },
+                "configuration": {
+                  "kind": "ecology",
+                  "profile": {
+                    "version": 1,
+                    "grade": 8,
+                    "mode": "missions",
+                    "mission": "8-health"
+                  },
+                  "modelVersion": "learning-evidence-2",
+                  "tool": "water",
+                  "value": 50,
+                  "days": 3,
+                  "environment": null,
+                  "generations": null,
+                  "repetitions": 2,
+                  "baseline": {
+                    "time": 45,
+                    "seed": 47291,
+                    "fingerprint": "ad31bab2",
+                    "size": 15
+                  },
+                  "planning": {
+                    "question": "Was bewirkt frisches Wasser für die Fische?",
+                    "hypothesis": "Den Fischen geht es schlechter.",
+                    "prediction": "Den Fischen geht es schlechter.",
+                    "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+                  },
+                  "metrics": [
+                    "oxygen",
+                    "health",
+                    "algae",
+                    "plantBiomass",
+                    "organic",
+                    "loadLevel"
+                  ]
+                }
+              },
+              "tool": "water",
+              "compatible": true,
+              "value": 50
+            },
+            "at": "2026-10-21T08:41:37.200Z"
+          },
+          {
+            "step": 3,
+            "question": "Wo geht es den Fischen besser?",
+            "answer": "In Becken 2",
+            "at": "2026-10-21T08:41:43.218Z"
+          },
+          {
+            "step": 4,
+            "question": "Was zeigt der Versuch?",
+            "answer": "Ob die Maßnahme hier geholfen hat",
+            "at": "2026-10-21T08:41:48.981Z"
+          }
+        ],
+        "result": {
+          "kind": "ecology",
+          "key": "health",
+          "label": "Zustand der Fische",
+          "unit": "Punkte",
+          "time": 48,
+          "control": 1.6266247041865718,
+          "test": 51.46249182407837,
+          "statuses": {
+            "control": {
+              "state": "failed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": "Biologischer Modellabbruch; vom Rechenkern zugeordnete Ursache: Nitritbelastung. Dies ist eine Modelldiagnose, kein Nachweis einer einzigen realen Ursache. Keine weiteren Messungen berechnet.",
+              "cause": "nitrite"
+            },
+            "test": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            }
+          },
+          "configuration": {
+            "kind": "ecology",
+            "profile": {
+              "version": 1,
+              "grade": 8,
+              "mode": "missions",
+              "mission": "8-health"
+            },
+            "modelVersion": "learning-evidence-2",
+            "tool": "water",
+            "value": 50,
+            "days": 3,
+            "environment": null,
+            "generations": null,
+            "repetitions": 2,
+            "baseline": {
+              "time": 45,
+              "seed": 47291,
+              "fingerprint": "ad31bab2",
+              "size": 15
+            },
+            "planning": {
+              "question": "Was bewirkt frisches Wasser für die Fische?",
+              "hypothesis": "Den Fischen geht es schlechter.",
+              "prediction": "Den Fischen geht es schlechter.",
+              "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+            },
+            "metrics": [
+              "oxygen",
+              "health",
+              "algae",
+              "plantBiomass",
+              "organic",
+              "loadLevel"
+            ]
+          }
+        },
+        "feedback": "Vergleiche die Fische und die Wasserwerte. Eine Maßnahme kann helfen. Damit ist noch nicht jede Ursache geklärt.",
+        "collapsed": false
+      }
+    },
+    {
+      "id": "8-forest",
+      "touch": false,
+      "quest": {
+        "version": 1,
+        "id": "8-forest",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was lebt im Aquarium?",
+            "answer": "Ein Fisch",
+            "at": "2026-10-21T08:42:46.847Z"
+          },
+          {
+            "step": 1,
+            "question": "Wie wachsen Pflanzen ohne Licht?",
+            "answer": "Die Pflanzen wachsen schwächer.",
+            "at": "2026-10-21T08:42:49.810Z"
+          },
+          {
+            "step": 2,
+            "event": "ecology",
+            "evidence": {
+              "changed": true,
+              "result": {
+                "kind": "ecology",
+                "key": "plantBiomass",
+                "label": "Pflanzenmenge",
+                "unit": "",
+                "time": 48,
+                "control": 4.27723706906673,
+                "test": 3.645430842088535,
+                "statuses": {
+                  "control": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  },
+                  "test": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  }
+                },
+                "configuration": {
+                  "kind": "ecology",
+                  "profile": {
+                    "version": 1,
+                    "grade": 8,
+                    "mode": "missions",
+                    "mission": "8-forest"
+                  },
+                  "modelVersion": "learning-evidence-2",
+                  "tool": "light",
+                  "value": 0,
+                  "days": 3,
+                  "environment": null,
+                  "generations": null,
+                  "repetitions": 2,
+                  "baseline": {
+                    "time": 45,
+                    "seed": 47291,
+                    "fingerprint": "8e366a20",
+                    "size": 19
+                  },
+                  "planning": {
+                    "question": "Wie wachsen Pflanzen ohne Licht?",
+                    "hypothesis": "Die Pflanzen wachsen schwächer.",
+                    "prediction": "Die Pflanzen wachsen schwächer.",
+                    "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+                  },
+                  "metrics": [
+                    "oxygen",
+                    "health",
+                    "algae",
+                    "plantBiomass",
+                    "organic"
+                  ]
+                }
+              },
+              "tool": "light",
+              "compatible": true,
+              "value": 0
+            },
+            "at": "2026-10-21T08:42:55.379Z"
+          },
+          {
+            "step": 3,
+            "question": "Wo gibt es mehr Pflanzen?",
+            "answer": "In Becken 1",
+            "at": "2026-10-21T08:43:08.968Z"
+          },
+          {
+            "step": 4,
+            "question": "Was passt auch zum Wald?",
+            "answer": "Auch Bäume brauchen Licht",
+            "at": "2026-10-21T08:43:17.534Z"
+          }
+        ],
+        "result": {
+          "kind": "ecology",
+          "key": "plantBiomass",
+          "label": "Pflanzenmenge",
+          "unit": "",
+          "time": 48,
+          "control": 4.27723706906673,
+          "test": 3.645430842088535,
+          "statuses": {
+            "control": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            },
+            "test": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            }
+          },
+          "configuration": {
+            "kind": "ecology",
+            "profile": {
+              "version": 1,
+              "grade": 8,
+              "mode": "missions",
+              "mission": "8-forest"
+            },
+            "modelVersion": "learning-evidence-2",
+            "tool": "light",
+            "value": 0,
+            "days": 3,
+            "environment": null,
+            "generations": null,
+            "repetitions": 2,
+            "baseline": {
+              "time": 45,
+              "seed": 47291,
+              "fingerprint": "8e366a20",
+              "size": 19
+            },
+            "planning": {
+              "question": "Wie wachsen Pflanzen ohne Licht?",
+              "hypothesis": "Die Pflanzen wachsen schwächer.",
+              "prediction": "Die Pflanzen wachsen schwächer.",
+              "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+            },
+            "metrics": [
+              "oxygen",
+              "health",
+              "algae",
+              "plantBiomass",
+              "organic"
+            ]
+          }
+        },
+        "feedback": "Auch Bäume brauchen Licht. Der Wald hat aber Boden und andere Tiere. Nicht alles aus dem Aquarium passt zum Wald.",
+        "collapsed": false
+      }
+    },
+    {
+      "id": "9-traits",
+      "touch": false,
+      "quest": {
+        "version": 1,
+        "id": "9-traits",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was kannst du direkt sehen?",
+            "answer": "Die Farbe",
+            "at": "2026-10-21T08:44:14.696Z"
+          },
+          {
+            "step": 1,
+            "question": "Haben gleichfarbige Fische immer gleiche Erbanlagen?",
+            "answer": "Nein",
+            "at": "2026-10-21T08:44:16.641Z"
+          },
+          {
+            "step": 2,
+            "event": "traits",
+            "evidence": {
+              "hasAA": true,
+              "hasAa": true,
+              "result": {
+                "kind": "traits",
+                "AA": 8,
+                "Aa": 8
+              }
+            },
+            "at": "2026-10-21T08:44:20.506Z"
+          },
+          {
+            "step": 3,
+            "question": "Haben alle dunklen Fische dieselben Erbanlagen?",
+            "answer": "Nein",
+            "at": "2026-10-21T08:44:24.492Z"
+          },
+          {
+            "step": 4,
+            "question": "Was hast du gesehen?",
+            "answer": "AA und Aa können gleich aussehen",
+            "at": "2026-10-21T08:44:28.312Z"
+          }
+        ],
+        "result": {
+          "kind": "traits",
+          "AA": 8,
+          "Aa": 8
+        },
+        "feedback": "Genotyp heißt: die Erbanlagen. Phänotyp heißt: das sichtbare Merkmal. Hier sehen AA und Aa beide dunkel aus. Die Buchstaben gehören zu unserem Farbversuch.",
+        "collapsed": false
+      }
+    },
+    {
+      "id": "9-mendel",
+      "touch": false,
+      "quest": {
+        "version": 1,
+        "id": "9-mendel",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was lebt im Aquarium?",
+            "answer": "Ein Fisch",
+            "at": "2026-10-21T08:45:11.292Z"
+          },
+          {
+            "step": 1,
+            "question": "Welche Farbe erwartest du bei den Nachkommen?",
+            "answer": "Nur hell",
+            "at": "2026-10-21T08:45:13.330Z"
+          },
+          {
+            "step": 2,
+            "event": "cross",
+            "evidence": {
+              "generation": 1,
+              "result": {
+                "kind": "cross",
+                "generation": 1,
+                "n": 24,
+                "AA": 0,
+                "Aa": 24,
+                "aa": 0,
+                "A": 0.5,
+                "a": 0.5,
+                "dark": 1,
+                "light": 0
+              },
+              "parents": [
+                1,
+                6
+              ]
+            },
+            "at": "2026-10-21T08:45:17.416Z"
+          },
+          {
+            "step": 3,
+            "question": "Welche Farben haben deine Nachkommen?",
+            "answer": "Nur dunkel",
+            "at": "2026-10-21T08:45:25.665Z"
+          },
+          {
+            "step": 4,
+            "question": "Woher kommen die Erbanlagen eines Nachkommen?",
+            "answer": "Von beiden Eltern",
+            "at": "2026-10-21T08:45:29.723Z"
+          }
+        ],
+        "result": {
+          "kind": "cross",
+          "generation": 1,
+          "n": 24,
+          "AA": 0,
+          "Aa": 24,
+          "aa": 0,
+          "A": 0.5,
+          "a": 0.5,
+          "dark": 1,
+          "light": 0
+        },
+        "feedback": "Jedes Elternteil gibt eine Genvariante weiter. Eine Genvariante heißt Allel. Welche Variante weitergeht, wird zufällig bestimmt.",
+        "collapsed": false
+      }
+    },
+    {
+      "id": "9-population",
+      "touch": false,
+      "quest": {
+        "version": 1,
+        "id": "9-population",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was ist eine Population?",
+            "answer": "Eine Gruppe derselben Art",
+            "at": "2026-10-21T08:46:45.944Z"
+          },
+          {
+            "step": 1,
+            "question": "Wie verändert sich der Anteil dunkler Fische?",
+            "answer": "Der Anteil sinkt.",
+            "at": "2026-10-21T08:46:48.256Z"
+          },
+          {
+            "step": 2,
+            "event": "population",
+            "evidence": {
+              "generations": 5,
+              "compatible": true,
+              "result": {
+                "kind": "population",
+                "key": "dark",
+                "label": "dunkle Fische",
+                "unit": "Anteil",
+                "time": 5,
+                "control": 0.5833333333333334,
+                "test": 1,
+                "statuses": {
+                  "control": {
+                    "state": "completed",
+                    "start": 0,
+                    "end": 5,
+                    "requestedEnd": 5,
+                    "reason": null
+                  },
+                  "test": {
+                    "state": "completed",
+                    "start": 0,
+                    "end": 5,
+                    "requestedEnd": 5,
+                    "reason": null
+                  }
+                },
+                "configuration": {
+                  "kind": "population",
+                  "profile": {
+                    "version": 1,
+                    "grade": 9,
+                    "mode": "missions",
+                    "mission": "9-population"
+                  },
+                  "modelVersion": "learning-evidence-2",
+                  "tool": null,
+                  "value": null,
+                  "days": null,
+                  "environment": "dark",
+                  "generations": 5,
+                  "repetitions": 2,
+                  "baseline": {
+                    "time": 0,
+                    "seed": 47291,
+                    "fingerprint": "6353623c",
+                    "size": 24
+                  },
+                  "planning": {
+                    "question": "Wie verändert sich der Anteil dunkler Fische?",
+                    "hypothesis": "Der Anteil sinkt.",
+                    "prediction": "Der Anteil sinkt.",
+                    "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+                  },
+                  "metrics": [
+                    "AA",
+                    "Aa",
+                    "aa",
+                    "n",
+                    "A",
+                    "a",
+                    "dark",
+                    "light"
+                  ]
+                }
+              }
+            },
+            "at": "2026-10-21T08:46:54.740Z"
+          },
+          {
+            "step": 3,
+            "question": "Wo ist der Anteil dunkler Fische größer?",
+            "answer": "In Gruppe 2",
+            "at": "2026-10-21T08:47:00.190Z"
+          },
+          {
+            "step": 4,
+            "question": "Warum können sich Farbanteile ändern?",
+            "answer": "Unterschiedlich viele Nachkommen und Zufall",
+            "at": "2026-10-21T08:47:04.811Z"
+          }
+        ],
+        "result": {
+          "kind": "population",
+          "key": "dark",
+          "label": "dunkle Fische",
+          "unit": "Anteil",
+          "time": 5,
+          "control": 0.5833333333333334,
+          "test": 1,
+          "statuses": {
+            "control": {
+              "state": "completed",
+              "start": 0,
+              "end": 5,
+              "requestedEnd": 5,
+              "reason": null
+            },
+            "test": {
+              "state": "completed",
+              "start": 0,
+              "end": 5,
+              "requestedEnd": 5,
+              "reason": null
+            }
+          },
+          "configuration": {
+            "kind": "population",
+            "profile": {
+              "version": 1,
+              "grade": 9,
+              "mode": "missions",
+              "mission": "9-population"
+            },
+            "modelVersion": "learning-evidence-2",
+            "tool": null,
+            "value": null,
+            "days": null,
+            "environment": "dark",
+            "generations": 5,
+            "repetitions": 2,
+            "baseline": {
+              "time": 0,
+              "seed": 47291,
+              "fingerprint": "6353623c",
+              "size": 24
+            },
+            "planning": {
+              "question": "Wie verändert sich der Anteil dunkler Fische?",
+              "hypothesis": "Der Anteil sinkt.",
+              "prediction": "Der Anteil sinkt.",
+              "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+            },
+            "metrics": [
+              "AA",
+              "Aa",
+              "aa",
+              "n",
+              "A",
+              "a",
+              "dark",
+              "light"
+            ]
+          }
+        },
+        "feedback": "Manche Tiere haben mehr Nachkommen. Dadurch können ihre Varianten häufiger werden. Das heißt Selektion. Auch Zufall verändert Anteile. Das heißt Drift.",
+        "collapsed": false
+      }
+    },
+    {
+      "id": "9-darwin",
+      "touch": false,
+      "quest": {
+        "version": 1,
+        "id": "9-darwin",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was ist schon vor dem Versuch verschieden?",
+            "answer": "Die Farben der Fische",
+            "at": "2026-10-21T08:47:44.009Z"
+          },
+          {
+            "step": 1,
+            "question": "Werden dunkle Fische in dunkler Umgebung häufiger?",
+            "answer": "Der Anteil sinkt.",
+            "at": "2026-10-21T08:47:46.047Z"
+          },
+          {
+            "step": 2,
+            "event": "population",
+            "evidence": {
+              "generations": 5,
+              "compatible": true,
+              "result": {
+                "kind": "population",
+                "key": "dark",
+                "label": "dunkle Fische",
+                "unit": "Anteil",
+                "time": 5,
+                "control": 0.5833333333333334,
+                "test": 1,
+                "statuses": {
+                  "control": {
+                    "state": "completed",
+                    "start": 0,
+                    "end": 5,
+                    "requestedEnd": 5,
+                    "reason": null
+                  },
+                  "test": {
+                    "state": "completed",
+                    "start": 0,
+                    "end": 5,
+                    "requestedEnd": 5,
+                    "reason": null
+                  }
+                },
+                "configuration": {
+                  "kind": "population",
+                  "profile": {
+                    "version": 1,
+                    "grade": 9,
+                    "mode": "missions",
+                    "mission": "9-darwin"
+                  },
+                  "modelVersion": "learning-evidence-2",
+                  "tool": null,
+                  "value": null,
+                  "days": null,
+                  "environment": "dark",
+                  "generations": 5,
+                  "repetitions": 2,
+                  "baseline": {
+                    "time": 0,
+                    "seed": 47291,
+                    "fingerprint": "6353623c",
+                    "size": 24
+                  },
+                  "planning": {
+                    "question": "Werden dunkle Fische in dunkler Umgebung häufiger?",
+                    "hypothesis": "Der Anteil sinkt.",
+                    "prediction": "Der Anteil sinkt.",
+                    "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+                  },
+                  "metrics": [
+                    "AA",
+                    "Aa",
+                    "aa",
+                    "n",
+                    "A",
+                    "a",
+                    "dark",
+                    "light"
+                  ]
+                }
+              }
+            },
+            "at": "2026-10-21T08:47:54.368Z"
+          },
+          {
+            "step": 3,
+            "question": "Wo ist der Anteil dunkler Fische größer?",
+            "answer": "In Gruppe 2",
+            "at": "2026-10-21T08:47:59.721Z"
+          },
+          {
+            "step": 4,
+            "question": "Welche Erklärung passt zur Auswahl der Eltern?",
+            "answer": "Vorhandene Varianten haben verschieden viele Nachkommen",
+            "at": "2026-10-21T08:48:04.578Z"
+          }
+        ],
+        "result": {
+          "kind": "population",
+          "key": "dark",
+          "label": "dunkle Fische",
+          "unit": "Anteil",
+          "time": 5,
+          "control": 0.5833333333333334,
+          "test": 1,
+          "statuses": {
+            "control": {
+              "state": "completed",
+              "start": 0,
+              "end": 5,
+              "requestedEnd": 5,
+              "reason": null
+            },
+            "test": {
+              "state": "completed",
+              "start": 0,
+              "end": 5,
+              "requestedEnd": 5,
+              "reason": null
+            }
+          },
+          "configuration": {
+            "kind": "population",
+            "profile": {
+              "version": 1,
+              "grade": 9,
+              "mode": "missions",
+              "mission": "9-darwin"
+            },
+            "modelVersion": "learning-evidence-2",
+            "tool": null,
+            "value": null,
+            "days": null,
+            "environment": "dark",
+            "generations": 5,
+            "repetitions": 2,
+            "baseline": {
+              "time": 0,
+              "seed": 47291,
+              "fingerprint": "6353623c",
+              "size": 24
+            },
+            "planning": {
+              "question": "Werden dunkle Fische in dunkler Umgebung häufiger?",
+              "hypothesis": "Der Anteil sinkt.",
+              "prediction": "Der Anteil sinkt.",
+              "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+            },
+            "metrics": [
+              "AA",
+              "Aa",
+              "aa",
+              "n",
+              "A",
+              "a",
+              "dark",
+              "light"
+            ]
+          }
+        },
+        "feedback": "Die Tiere haben nicht alle gleich viele Nachkommen. Über Generationen kann sich die Gruppe ändern. Einzelne Fische wählen keine neuen Erbanlagen aus Bedarf.",
+        "collapsed": false
+      }
+    },
+    {
+      "id": "10-enrichment",
+      "touch": false,
+      "quest": {
+        "version": 1,
+        "id": "10-enrichment",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was lebt im Aquarium?",
+            "answer": "Ein Fisch",
+            "at": "2026-10-21T08:48:54.924Z"
+          },
+          {
+            "step": 1,
+            "question": "Was passiert bei mehr Nährstoffen mit den Algen?",
+            "answer": "Es gibt weniger Algen.",
+            "at": "2026-10-21T08:48:57.665Z"
+          },
+          {
+            "step": 2,
+            "event": "ecology",
+            "evidence": {
+              "changed": true,
+              "result": {
+                "kind": "ecology",
+                "key": "algae",
+                "label": "Algenmenge",
+                "unit": "",
+                "time": 48,
+                "control": 0.08081732690951393,
+                "test": 0.10952780193090632,
+                "statuses": {
+                  "control": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  },
+                  "test": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  }
+                },
+                "configuration": {
+                  "kind": "ecology",
+                  "profile": {
+                    "version": 1,
+                    "grade": 10,
+                    "mode": "missions",
+                    "mission": "10-enrichment"
+                  },
+                  "modelVersion": "learning-evidence-2",
+                  "tool": "nutrients",
+                  "value": 40,
+                  "days": 3,
+                  "environment": null,
+                  "generations": null,
+                  "repetitions": 2,
+                  "baseline": {
+                    "time": 45,
+                    "seed": 47291,
+                    "fingerprint": "b885f004",
+                    "size": 19
+                  },
+                  "planning": {
+                    "question": "Was passiert bei mehr Nährstoffen mit den Algen?",
+                    "hypothesis": "Es gibt weniger Algen.",
+                    "prediction": "Es gibt weniger Algen.",
+                    "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+                  },
+                  "metrics": [
+                    "oxygen",
+                    "health",
+                    "algae",
+                    "plantBiomass",
+                    "organic",
+                    "no3"
+                  ]
+                }
+              },
+              "tool": "nutrients",
+              "compatible": true,
+              "value": 40
+            },
+            "at": "2026-10-21T08:49:03.555Z"
+          },
+          {
+            "step": 3,
+            "question": "Wo gibt es mehr Algen?",
+            "answer": "In Becken 2",
+            "at": "2026-10-21T08:49:09.510Z"
+          },
+          {
+            "step": 4,
+            "question": "Warum kann zu viel Dünger schaden?",
+            "answer": "Mehr Algen können später mehr Sauerstoffverbrauch bedeuten",
+            "at": "2026-10-21T08:49:15.390Z"
+          }
+        ],
+        "result": {
+          "kind": "ecology",
+          "key": "algae",
+          "label": "Algenmenge",
+          "unit": "",
+          "time": 48,
+          "control": 0.08081732690951393,
+          "test": 0.10952780193090632,
+          "statuses": {
+            "control": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            },
+            "test": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            }
+          },
+          "configuration": {
+            "kind": "ecology",
+            "profile": {
+              "version": 1,
+              "grade": 10,
+              "mode": "missions",
+              "mission": "10-enrichment"
+            },
+            "modelVersion": "learning-evidence-2",
+            "tool": "nutrients",
+            "value": 40,
+            "days": 3,
+            "environment": null,
+            "generations": null,
+            "repetitions": 2,
+            "baseline": {
+              "time": 45,
+              "seed": 47291,
+              "fingerprint": "b885f004",
+              "size": 19
+            },
+            "planning": {
+              "question": "Was passiert bei mehr Nährstoffen mit den Algen?",
+              "hypothesis": "Es gibt weniger Algen.",
+              "prediction": "Es gibt weniger Algen.",
+              "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+            },
+            "metrics": [
+              "oxygen",
+              "health",
+              "algae",
+              "plantBiomass",
+              "organic",
+              "no3"
+            ]
+          }
+        },
+        "feedback": "Mehr Nährstoffe können Algen fördern. Werden Reste abgebaut, wird Sauerstoff verbraucht. Wie stark das passiert, hängt auch von Licht und Wasserbewegung ab.",
+        "collapsed": false
+      }
+    },
+    {
+      "id": "10-carbon",
+      "touch": false,
+      "quest": {
+        "version": 1,
+        "id": "10-carbon",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was gehört zu Pflanzen und Tieren?",
+            "answer": "Kohlenstoff",
+            "at": "2026-10-21T08:50:19.686Z"
+          },
+          {
+            "step": 1,
+            "question": "Was passiert bei mehr Zufuhr mit dem Kohlenstoffdioxid?",
+            "answer": "Es gibt weniger Kohlenstoffdioxid.",
+            "at": "2026-10-21T08:50:22.388Z"
+          },
+          {
+            "step": 2,
+            "event": "ecology",
+            "evidence": {
+              "changed": true,
+              "result": {
+                "kind": "ecology",
+                "key": "co2",
+                "label": "Kohlenstoffdioxid",
+                "unit": "mg/L",
+                "time": 48,
+                "control": 5.030986046934305,
+                "test": 7.208935886871365,
+                "statuses": {
+                  "control": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  },
+                  "test": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  }
+                },
+                "configuration": {
+                  "kind": "ecology",
+                  "profile": {
+                    "version": 1,
+                    "grade": 10,
+                    "mode": "missions",
+                    "mission": "10-carbon"
+                  },
+                  "modelVersion": "learning-evidence-2",
+                  "tool": "co2",
+                  "value": 6,
+                  "days": 3,
+                  "environment": null,
+                  "generations": null,
+                  "repetitions": 2,
+                  "baseline": {
+                    "time": 45,
+                    "seed": 47291,
+                    "fingerprint": "0ac6f2fc",
+                    "size": 19
+                  },
+                  "planning": {
+                    "question": "Was passiert bei mehr Zufuhr mit dem Kohlenstoffdioxid?",
+                    "hypothesis": "Es gibt weniger Kohlenstoffdioxid.",
+                    "prediction": "Es gibt weniger Kohlenstoffdioxid.",
+                    "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+                  },
+                  "metrics": [
+                    "oxygen",
+                    "health",
+                    "algae",
+                    "plantBiomass",
+                    "organic",
+                    "co2",
+                    "photosynthesis",
+                    "respiration"
+                  ]
+                }
+              },
+              "tool": "co2",
+              "compatible": true,
+              "value": 6
+            },
+            "at": "2026-10-21T08:50:27.785Z"
+          },
+          {
+            "step": 3,
+            "question": "Wo ist mehr Kohlenstoffdioxid?",
+            "answer": "In Becken 2",
+            "at": "2026-10-21T08:50:40.161Z"
+          },
+          {
+            "step": 4,
+            "question": "Was passiert beim Verbrennen von Kohle?",
+            "answer": "Gespeicherter Kohlenstoff gelangt als Kohlenstoffdioxid in die Luft",
+            "at": "2026-10-21T08:50:51.358Z"
+          }
+        ],
+        "result": {
+          "kind": "ecology",
+          "key": "co2",
+          "label": "Kohlenstoffdioxid",
+          "unit": "mg/L",
+          "time": 48,
+          "control": 5.030986046934305,
+          "test": 7.208935886871365,
+          "statuses": {
+            "control": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            },
+            "test": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            }
+          },
+          "configuration": {
+            "kind": "ecology",
+            "profile": {
+              "version": 1,
+              "grade": 10,
+              "mode": "missions",
+              "mission": "10-carbon"
+            },
+            "modelVersion": "learning-evidence-2",
+            "tool": "co2",
+            "value": 6,
+            "days": 3,
+            "environment": null,
+            "generations": null,
+            "repetitions": 2,
+            "baseline": {
+              "time": 45,
+              "seed": 47291,
+              "fingerprint": "0ac6f2fc",
+              "size": 19
+            },
+            "planning": {
+              "question": "Was passiert bei mehr Zufuhr mit dem Kohlenstoffdioxid?",
+              "hypothesis": "Es gibt weniger Kohlenstoffdioxid.",
+              "prediction": "Es gibt weniger Kohlenstoffdioxid.",
+              "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+            },
+            "metrics": [
+              "oxygen",
+              "health",
+              "algae",
+              "plantBiomass",
+              "organic",
+              "co2",
+              "photosynthesis",
+              "respiration"
+            ]
+          }
+        },
+        "feedback": "Pflanzen nehmen Kohlenstoffdioxid auf. Atmung gibt es wieder ab. Menschen bringen durch Kohle, Öl und Gas zusätzlichen Kohlenstoff in die Luft. Das Aquarium berechnet diese weltweiten Mengen nicht.",
+        "collapsed": false
+      }
+    },
+    {
+      "id": "10-restore",
+      "touch": false,
+      "quest": {
+        "version": 1,
+        "id": "10-restore",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was braucht ein fairer Vergleich?",
+            "answer": "Zwei gleiche Becken am Anfang",
+            "at": "2026-10-21T08:52:35.647Z"
+          },
+          {
+            "step": 1,
+            "question": "Wie wirkt ein Wasserwechsel auf die Fische?",
+            "answer": "Den Fischen geht es schlechter.",
+            "at": "2026-10-21T08:52:38.182Z"
+          },
+          {
+            "step": 2,
+            "event": "ecology",
+            "evidence": {
+              "changed": true,
+              "result": {
+                "kind": "ecology",
+                "key": "health",
+                "label": "Zustand der Fische",
+                "unit": "Punkte",
+                "time": 48,
+                "control": 1.6266247041865718,
+                "test": 51.46249182407837,
+                "statuses": {
+                  "control": {
+                    "state": "failed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": "Biologischer Modellabbruch; vom Rechenkern zugeordnete Ursache: Nitritbelastung. Dies ist eine Modelldiagnose, kein Nachweis einer einzigen realen Ursache. Keine weiteren Messungen berechnet.",
+                    "cause": "nitrite"
+                  },
+                  "test": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  }
+                },
+                "configuration": {
+                  "kind": "ecology",
+                  "profile": {
+                    "version": 1,
+                    "grade": 10,
+                    "mode": "missions",
+                    "mission": "10-restore"
+                  },
+                  "modelVersion": "learning-evidence-2",
+                  "tool": "water",
+                  "value": 50,
+                  "days": 3,
+                  "environment": null,
+                  "generations": null,
+                  "repetitions": 2,
+                  "baseline": {
+                    "time": 45,
+                    "seed": 47291,
+                    "fingerprint": "e801011a",
+                    "size": 15
+                  },
+                  "planning": {
+                    "question": "Wie wirkt ein Wasserwechsel auf die Fische?",
+                    "hypothesis": "Den Fischen geht es schlechter.",
+                    "prediction": "Den Fischen geht es schlechter.",
+                    "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+                  },
+                  "metrics": [
+                    "oxygen",
+                    "health",
+                    "algae",
+                    "plantBiomass",
+                    "organic",
+                    "no2"
+                  ]
+                }
+              },
+              "tool": "water",
+              "compatible": true,
+              "value": 50
+            },
+            "at": "2026-10-21T08:52:44.061Z"
+          },
+          {
+            "step": 3,
+            "question": "Wo geht es den Fischen besser?",
+            "answer": "In Becken 2",
+            "at": "2026-10-21T08:52:51.769Z"
+          },
+          {
+            "step": 4,
+            "question": "Wie prüfst du deine Entscheidung?",
+            "answer": "Mit beiden Verläufen und mehreren Werten",
+            "at": "2026-10-21T08:52:56.869Z"
+          }
+        ],
+        "result": {
+          "kind": "ecology",
+          "key": "health",
+          "label": "Zustand der Fische",
+          "unit": "Punkte",
+          "time": 48,
+          "control": 1.6266247041865718,
+          "test": 51.46249182407837,
+          "statuses": {
+            "control": {
+              "state": "failed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": "Biologischer Modellabbruch; vom Rechenkern zugeordnete Ursache: Nitritbelastung. Dies ist eine Modelldiagnose, kein Nachweis einer einzigen realen Ursache. Keine weiteren Messungen berechnet.",
+              "cause": "nitrite"
+            },
+            "test": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            }
+          },
+          "configuration": {
+            "kind": "ecology",
+            "profile": {
+              "version": 1,
+              "grade": 10,
+              "mode": "missions",
+              "mission": "10-restore"
+            },
+            "modelVersion": "learning-evidence-2",
+            "tool": "water",
+            "value": 50,
+            "days": 3,
+            "environment": null,
+            "generations": null,
+            "repetitions": 2,
+            "baseline": {
+              "time": 45,
+              "seed": 47291,
+              "fingerprint": "e801011a",
+              "size": 15
+            },
+            "planning": {
+              "question": "Wie wirkt ein Wasserwechsel auf die Fische?",
+              "hypothesis": "Den Fischen geht es schlechter.",
+              "prediction": "Den Fischen geht es schlechter.",
+              "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+            },
+            "metrics": [
+              "oxygen",
+              "health",
+              "algae",
+              "plantBiomass",
+              "organic",
+              "no2"
+            ]
+          }
+        },
+        "feedback": "Prüfe den ganzen Verlauf. Eine schnelle Verbesserung muss nicht dauerhaft sein. Auch die Ursache des Problems bleibt wichtig.",
+        "collapsed": false
+      }
+    },
+    {
+      "id": "10-northsea",
+      "touch": false,
+      "quest": {
+        "version": 1,
+        "id": "10-northsea",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was lebt im Aquarium?",
+            "answer": "Ein Fisch",
+            "at": "2026-10-21T08:54:05.849Z"
+          },
+          {
+            "step": 1,
+            "question": "Was bewirken zusätzliche Nährstoffe für Algen?",
+            "answer": "Es gibt weniger Algen.",
+            "at": "2026-10-21T08:54:08.472Z"
+          },
+          {
+            "step": 2,
+            "event": "ecology",
+            "evidence": {
+              "changed": true,
+              "result": {
+                "kind": "ecology",
+                "key": "algae",
+                "label": "Algenmenge",
+                "unit": "",
+                "time": 48,
+                "control": 0.08081732690951393,
+                "test": 0.10952780193090632,
+                "statuses": {
+                  "control": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  },
+                  "test": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  }
+                },
+                "configuration": {
+                  "kind": "ecology",
+                  "profile": {
+                    "version": 1,
+                    "grade": 10,
+                    "mode": "missions",
+                    "mission": "10-northsea"
+                  },
+                  "modelVersion": "learning-evidence-2",
+                  "tool": "nutrients",
+                  "value": 40,
+                  "days": 3,
+                  "environment": null,
+                  "generations": null,
+                  "repetitions": 2,
+                  "baseline": {
+                    "time": 45,
+                    "seed": 47291,
+                    "fingerprint": "8123c1e1",
+                    "size": 19
+                  },
+                  "planning": {
+                    "question": "Was bewirken zusätzliche Nährstoffe für Algen?",
+                    "hypothesis": "Es gibt weniger Algen.",
+                    "prediction": "Es gibt weniger Algen.",
+                    "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+                  },
+                  "metrics": [
+                    "oxygen",
+                    "health",
+                    "algae",
+                    "plantBiomass",
+                    "organic",
+                    "no3"
+                  ]
+                }
+              },
+              "tool": "nutrients",
+              "compatible": true,
+              "value": 40
+            },
+            "at": "2026-10-21T08:54:14.141Z"
+          },
+          {
+            "step": 3,
+            "question": "Wo gibt es mehr Algen?",
+            "answer": "In Becken 2",
+            "at": "2026-10-21T08:54:20.162Z"
+          },
+          {
+            "step": 4,
+            "question": "Welche Maßnahme passt zum Problem?",
+            "answer": "Weniger Nährstoffe über Flüsse eintragen",
+            "at": "2026-10-21T08:54:25.493Z"
+          }
+        ],
+        "result": {
+          "kind": "ecology",
+          "key": "algae",
+          "label": "Algenmenge",
+          "unit": "",
+          "time": 48,
+          "control": 0.08081732690951393,
+          "test": 0.10952780193090632,
+          "statuses": {
+            "control": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            },
+            "test": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            }
+          },
+          "configuration": {
+            "kind": "ecology",
+            "profile": {
+              "version": 1,
+              "grade": 10,
+              "mode": "missions",
+              "mission": "10-northsea"
+            },
+            "modelVersion": "learning-evidence-2",
+            "tool": "nutrients",
+            "value": 40,
+            "days": 3,
+            "environment": null,
+            "generations": null,
+            "repetitions": 2,
+            "baseline": {
+              "time": 45,
+              "seed": 47291,
+              "fingerprint": "8123c1e1",
+              "size": 19
+            },
+            "planning": {
+              "question": "Was bewirken zusätzliche Nährstoffe für Algen?",
+              "hypothesis": "Es gibt weniger Algen.",
+              "prediction": "Es gibt weniger Algen.",
+              "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+            },
+            "metrics": [
+              "oxygen",
+              "health",
+              "algae",
+              "plantBiomass",
+              "organic",
+              "no3"
+            ]
+          }
+        },
+        "feedback": "Nährstoffe gelangen auch über Flüsse ins Meer. Weniger Eintrag kann helfen. Das Becken zeigt nicht die ganze Nordsee.",
+        "collapsed": false
+      }
+    },
+    {
+      "id": "10-wadden",
+      "touch": false,
+      "quest": {
+        "version": 1,
+        "id": "10-wadden",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was kannst du im Becken prüfen?",
+            "answer": "Die Wirkung von frischem Wasser",
+            "at": "2026-10-21T08:55:27.193Z"
+          },
+          {
+            "step": 1,
+            "question": "Wie wirkt frisches Wasser auf die Wasserprobleme?",
+            "answer": "Die Probleme nehmen ab.",
+            "at": "2026-10-21T08:55:29.960Z"
+          },
+          {
+            "step": 2,
+            "event": "ecology",
+            "evidence": {
+              "changed": true,
+              "result": {
+                "kind": "ecology",
+                "key": "loadLevel",
+                "label": "Probleme im Wasser",
+                "unit": "Stufe",
+                "time": 48,
+                "control": 0,
+                "test": 0,
+                "statuses": {
+                  "control": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  },
+                  "test": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  }
+                },
+                "configuration": {
+                  "kind": "ecology",
+                  "profile": {
+                    "version": 1,
+                    "grade": 10,
+                    "mode": "missions",
+                    "mission": "10-wadden"
+                  },
+                  "modelVersion": "learning-evidence-2",
+                  "tool": "water",
+                  "value": 50,
+                  "days": 3,
+                  "environment": null,
+                  "generations": null,
+                  "repetitions": 2,
+                  "baseline": {
+                    "time": 45,
+                    "seed": 47291,
+                    "fingerprint": "3a0e740a",
+                    "size": 19
+                  },
+                  "planning": {
+                    "question": "Wie wirkt frisches Wasser auf die Wasserprobleme?",
+                    "hypothesis": "Die Probleme nehmen ab.",
+                    "prediction": "Die Probleme nehmen ab.",
+                    "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+                  },
+                  "metrics": [
+                    "oxygen",
+                    "health",
+                    "algae",
+                    "plantBiomass",
+                    "organic"
+                  ]
+                }
+              },
+              "tool": "water",
+              "compatible": true,
+              "value": 50
+            },
+            "at": "2026-10-21T08:55:37.493Z"
+          },
+          {
+            "step": 3,
+            "question": "Wo sind die Wasserprobleme größer?",
+            "answer": "Etwa gleich",
+            "at": "2026-10-21T08:55:45.556Z"
+          },
+          {
+            "step": 4,
+            "question": "Müll kann Tiere verletzen. Wie vermeiden wir neuen Müll?",
+            "answer": "Mehrweg nutzen und Müll vermeiden",
+            "at": "2026-10-21T08:55:51.245Z"
+          }
+        ],
+        "result": {
+          "kind": "ecology",
+          "key": "loadLevel",
+          "label": "Probleme im Wasser",
+          "unit": "Stufe",
+          "time": 48,
+          "control": 0,
+          "test": 0,
+          "statuses": {
+            "control": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            },
+            "test": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            }
+          },
+          "configuration": {
+            "kind": "ecology",
+            "profile": {
+              "version": 1,
+              "grade": 10,
+              "mode": "missions",
+              "mission": "10-wadden"
+            },
+            "modelVersion": "learning-evidence-2",
+            "tool": "water",
+            "value": 50,
+            "days": 3,
+            "environment": null,
+            "generations": null,
+            "repetitions": 2,
+            "baseline": {
+              "time": 45,
+              "seed": 47291,
+              "fingerprint": "3a0e740a",
+              "size": 19
+            },
+            "planning": {
+              "question": "Wie wirkt frisches Wasser auf die Wasserprobleme?",
+              "hypothesis": "Die Probleme nehmen ab.",
+              "prediction": "Die Probleme nehmen ab.",
+              "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+            },
+            "metrics": [
+              "oxygen",
+              "health",
+              "algae",
+              "plantBiomass",
+              "organic"
+            ]
+          }
+        },
+        "feedback": "Weniger Müll schützt Tiere. Mehrweg braucht Rückgabe und Reinigung. Plastik ist kein Pflanzennährstoff. Unser Wasserwert misst keine Plastikschäden.",
+        "collapsed": false
+      }
+    },
+    {
+      "id": "8-oxygen",
+      "touch": true,
+      "quest": {
+        "version": 1,
+        "id": "8-oxygen",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was bleibt am Anfang gleich?",
+            "answer": "Die Tiere und Pflanzen",
+            "at": "2026-10-21T08:56:55.994Z"
+          },
+          {
+            "step": 1,
+            "question": "Was passiert ohne Licht mit dem Sauerstoff?",
+            "answer": "Es gibt weniger Sauerstoff.",
+            "at": "2026-10-21T08:56:58.953Z"
+          },
+          {
+            "step": 2,
+            "event": "ecology",
+            "evidence": {
+              "changed": true,
+              "result": {
+                "kind": "ecology",
+                "key": "oxygen",
+                "label": "Sauerstoff",
+                "unit": "mg/L",
+                "time": 48,
+                "control": 8.28389496015925,
+                "test": 8.163889709536656,
+                "statuses": {
+                  "control": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  },
+                  "test": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  }
+                },
+                "configuration": {
+                  "kind": "ecology",
+                  "profile": {
+                    "version": 1,
+                    "grade": 8,
+                    "mode": "missions",
+                    "mission": "8-oxygen"
+                  },
+                  "modelVersion": "learning-evidence-2",
+                  "tool": "light",
+                  "value": 0,
+                  "days": 3,
+                  "environment": null,
+                  "generations": null,
+                  "repetitions": 2,
+                  "baseline": {
+                    "time": 45,
+                    "seed": 47291,
+                    "fingerprint": "9a47c26f",
+                    "size": 19
+                  },
+                  "planning": {
+                    "question": "Was passiert ohne Licht mit dem Sauerstoff?",
+                    "hypothesis": "Es gibt weniger Sauerstoff.",
+                    "prediction": "Es gibt weniger Sauerstoff.",
+                    "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+                  },
+                  "metrics": [
+                    "oxygen",
+                    "health",
+                    "algae",
+                    "plantBiomass",
+                    "organic",
+                    "photosynthesis",
+                    "respiration"
+                  ]
+                }
+              },
+              "tool": "light",
+              "compatible": true,
+              "value": 0
+            },
+            "at": "2026-10-21T08:57:04.258Z"
+          },
+          {
+            "step": 3,
+            "question": "Wo ist mehr Sauerstoff?",
+            "answer": "In Becken 1",
+            "at": "2026-10-21T08:57:11.854Z"
+          },
+          {
+            "step": 4,
+            "question": "Was fällt ohne Licht weg?",
+            "answer": "Die Sauerstoffbildung durch Licht",
+            "at": "2026-10-21T08:57:15.588Z"
+          }
+        ],
+        "result": {
+          "kind": "ecology",
+          "key": "oxygen",
+          "label": "Sauerstoff",
+          "unit": "mg/L",
+          "time": 48,
+          "control": 8.28389496015925,
+          "test": 8.163889709536656,
+          "statuses": {
+            "control": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            },
+            "test": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            }
+          },
+          "configuration": {
+            "kind": "ecology",
+            "profile": {
+              "version": 1,
+              "grade": 8,
+              "mode": "missions",
+              "mission": "8-oxygen"
+            },
+            "modelVersion": "learning-evidence-2",
+            "tool": "light",
+            "value": 0,
+            "days": 3,
+            "environment": null,
+            "generations": null,
+            "repetitions": 2,
+            "baseline": {
+              "time": 45,
+              "seed": 47291,
+              "fingerprint": "9a47c26f",
+              "size": 19
+            },
+            "planning": {
+              "question": "Was passiert ohne Licht mit dem Sauerstoff?",
+              "hypothesis": "Es gibt weniger Sauerstoff.",
+              "prediction": "Es gibt weniger Sauerstoff.",
+              "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+            },
+            "metrics": [
+              "oxygen",
+              "health",
+              "algae",
+              "plantBiomass",
+              "organic",
+              "photosynthesis",
+              "respiration"
+            ]
+          }
+        },
+        "feedback": "Pflanzen geben bei Licht Sauerstoff ab. Ohne Licht fällt diese Quelle weg. Tiere und Pflanzen verbrauchen weiter Sauerstoff. Auch die Luft wirkt auf den Wert.",
+        "collapsed": false
+      }
+    },
+    {
+      "id": "9-mendel",
+      "touch": true,
+      "quest": {
+        "version": 1,
+        "id": "9-mendel",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was lebt im Aquarium?",
+            "answer": "Ein Fisch",
+            "at": "2026-10-21T08:58:13.597Z"
+          },
+          {
+            "step": 1,
+            "question": "Welche Farbe erwartest du bei den Nachkommen?",
+            "answer": "Nur hell",
+            "at": "2026-10-21T08:58:14.500Z"
+          },
+          {
+            "step": 2,
+            "event": "cross",
+            "evidence": {
+              "generation": 1,
+              "result": {
+                "kind": "cross",
+                "generation": 1,
+                "n": 24,
+                "AA": 0,
+                "Aa": 24,
+                "aa": 0,
+                "A": 0.5,
+                "a": 0.5,
+                "dark": 1,
+                "light": 0
+              },
+              "parents": [
+                1,
+                6
+              ]
+            },
+            "at": "2026-10-21T08:58:16.149Z"
+          },
+          {
+            "step": 3,
+            "question": "Welche Farben haben deine Nachkommen?",
+            "answer": "Nur dunkel",
+            "at": "2026-10-21T08:58:19.387Z"
+          },
+          {
+            "step": 4,
+            "question": "Woher kommen die Erbanlagen eines Nachkommen?",
+            "answer": "Von beiden Eltern",
+            "at": "2026-10-21T08:58:20.947Z"
+          }
+        ],
+        "result": {
+          "kind": "cross",
+          "generation": 1,
+          "n": 24,
+          "AA": 0,
+          "Aa": 24,
+          "aa": 0,
+          "A": 0.5,
+          "a": 0.5,
+          "dark": 1,
+          "light": 0
+        },
+        "feedback": "Jedes Elternteil gibt eine Genvariante weiter. Eine Genvariante heißt Allel. Welche Variante weitergeht, wird zufällig bestimmt.",
+        "collapsed": false
+      }
+    },
+    {
+      "id": "10-carbon",
+      "touch": true,
+      "quest": {
+        "version": 1,
+        "id": "10-carbon",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was gehört zu Pflanzen und Tieren?",
+            "answer": "Kohlenstoff",
+            "at": "2026-10-21T08:59:20.117Z"
+          },
+          {
+            "step": 1,
+            "question": "Was passiert bei mehr Zufuhr mit dem Kohlenstoffdioxid?",
+            "answer": "Es gibt weniger Kohlenstoffdioxid.",
+            "at": "2026-10-21T08:59:21.771Z"
+          },
+          {
+            "step": 2,
+            "event": "ecology",
+            "evidence": {
+              "changed": true,
+              "result": {
+                "kind": "ecology",
+                "key": "co2",
+                "label": "Kohlenstoffdioxid",
+                "unit": "mg/L",
+                "time": 48,
+                "control": 5.030986046934305,
+                "test": 7.208935886871365,
+                "statuses": {
+                  "control": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  },
+                  "test": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  }
+                },
+                "configuration": {
+                  "kind": "ecology",
+                  "profile": {
+                    "version": 1,
+                    "grade": 10,
+                    "mode": "missions",
+                    "mission": "10-carbon"
+                  },
+                  "modelVersion": "learning-evidence-2",
+                  "tool": "co2",
+                  "value": 6,
+                  "days": 3,
+                  "environment": null,
+                  "generations": null,
+                  "repetitions": 2,
+                  "baseline": {
+                    "time": 45,
+                    "seed": 47291,
+                    "fingerprint": "0ac6f2fc",
+                    "size": 19
+                  },
+                  "planning": {
+                    "question": "Was passiert bei mehr Zufuhr mit dem Kohlenstoffdioxid?",
+                    "hypothesis": "Es gibt weniger Kohlenstoffdioxid.",
+                    "prediction": "Es gibt weniger Kohlenstoffdioxid.",
+                    "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+                  },
+                  "metrics": [
+                    "oxygen",
+                    "health",
+                    "algae",
+                    "plantBiomass",
+                    "organic",
+                    "co2",
+                    "photosynthesis",
+                    "respiration"
+                  ]
+                }
+              },
+              "tool": "co2",
+              "compatible": true,
+              "value": 6
+            },
+            "at": "2026-10-21T08:59:25.116Z"
+          },
+          {
+            "step": 3,
+            "question": "Wo ist mehr Kohlenstoffdioxid?",
+            "answer": "In Becken 2",
+            "at": "2026-10-21T08:59:35.397Z"
+          },
+          {
+            "step": 4,
+            "question": "Was passiert beim Verbrennen von Kohle?",
+            "answer": "Gespeicherter Kohlenstoff gelangt als Kohlenstoffdioxid in die Luft",
+            "at": "2026-10-21T08:59:38.758Z"
+          }
+        ],
+        "result": {
+          "kind": "ecology",
+          "key": "co2",
+          "label": "Kohlenstoffdioxid",
+          "unit": "mg/L",
+          "time": 48,
+          "control": 5.030986046934305,
+          "test": 7.208935886871365,
+          "statuses": {
+            "control": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            },
+            "test": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            }
+          },
+          "configuration": {
+            "kind": "ecology",
+            "profile": {
+              "version": 1,
+              "grade": 10,
+              "mode": "missions",
+              "mission": "10-carbon"
+            },
+            "modelVersion": "learning-evidence-2",
+            "tool": "co2",
+            "value": 6,
+            "days": 3,
+            "environment": null,
+            "generations": null,
+            "repetitions": 2,
+            "baseline": {
+              "time": 45,
+              "seed": 47291,
+              "fingerprint": "0ac6f2fc",
+              "size": 19
+            },
+            "planning": {
+              "question": "Was passiert bei mehr Zufuhr mit dem Kohlenstoffdioxid?",
+              "hypothesis": "Es gibt weniger Kohlenstoffdioxid.",
+              "prediction": "Es gibt weniger Kohlenstoffdioxid.",
+              "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+            },
+            "metrics": [
+              "oxygen",
+              "health",
+              "algae",
+              "plantBiomass",
+              "organic",
+              "co2",
+              "photosynthesis",
+              "respiration"
+            ]
+          }
+        },
+        "feedback": "Pflanzen nehmen Kohlenstoffdioxid auf. Atmung gibt es wieder ab. Menschen bringen durch Kohle, Öl und Gas zusätzlichen Kohlenstoff in die Luft. Das Aquarium berechnet diese weltweiten Mengen nicht.",
+        "collapsed": false
+      }
+    }
+  ],
+  "screenshots": [
+    "desktop-8-ecosystem-done.png",
+    "desktop-8-oxygen-start.png",
+    "desktop-8-oxygen-compare.png",
+    "desktop-8-oxygen-done.png",
+    "desktop-8-foodweb-done.png",
+    "desktop-8-health-done.png",
+    "desktop-8-forest-done.png",
+    "desktop-9-traits-done.png",
+    "desktop-9-mendel-start.png",
+    "desktop-9-mendel-compare.png",
+    "desktop-9-mendel-done.png",
+    "desktop-9-population-done.png",
+    "desktop-9-darwin-done.png",
+    "desktop-10-enrichment-done.png",
+    "desktop-10-carbon-start.png",
+    "desktop-10-carbon-compare.png",
+    "desktop-10-carbon-done.png",
+    "desktop-10-restore-done.png",
+    "desktop-10-northsea-done.png",
+    "desktop-10-wadden-done.png",
+    "touch-8-oxygen-start.png",
+    "touch-8-oxygen-compare.png",
+    "touch-8-oxygen-done.png",
+    "touch-9-mendel-start.png",
+    "touch-9-mendel-compare.png",
+    "touch-9-mendel-done.png",
+    "touch-10-carbon-start.png",
+    "touch-10-carbon-compare.png",
+    "touch-10-carbon-done.png"
+  ],
+  "sections": [
+    "desktop",
+    "touch",
+    "free",
+    "teacher",
+    "help"
+  ],
+  "status": "passed"
+}

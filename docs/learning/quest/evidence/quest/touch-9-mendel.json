@@ -1,0 +1,1381 @@
+{
+  "version": 2,
+  "type": "aquarium-learning-product",
+  "profile": {
+    "version": 1,
+    "grade": 9,
+    "mode": "missions",
+    "mission": "9-mendel"
+  },
+  "notes": {
+    "prediction": "Nur hell",
+    "question": "Welche Farbe erwartest du bei den Nachkommen?",
+    "hypothesis": "Nur hell",
+    "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen.",
+    "observation": "Nur dunkel",
+    "explanation": "Jedes Elternteil gibt eine Genvariante weiter. Eine Genvariante heißt Allel. Welche Variante weitergeht, wird zufällig bestimmt."
+  },
+  "created": "2026-10-21T08:58:28.944Z",
+  "support": "partial",
+  "model": {
+    "title": "Eider-Treene-Schule · Fachcurriculum Biologie 2025/26",
+    "url": "https://ets-toenning.de/wp-content/uploads/2025/07/Schulinternes-Fachcurriculum-Biologie-SJ-2025-26.pdf",
+    "pages": "S. 3–4, 9–10, 14–15, 19–20",
+    "scope": "Ausgewählte Unterrichtseinheiten, kein Ersatz für das gesamte Fachcurriculum."
+  },
+  "modelVersion": "learning-evidence-2",
+  "comparison": null,
+  "currentPlan": {
+    "kind": "population",
+    "profile": {
+      "version": 1,
+      "grade": 9,
+      "mode": "missions",
+      "mission": "9-mendel"
+    },
+    "modelVersion": "learning-evidence-2",
+    "tool": null,
+    "value": null,
+    "days": null,
+    "environment": "dark",
+    "generations": 5,
+    "repetitions": 2,
+    "baseline": {
+      "time": 1,
+      "seed": 34212867,
+      "fingerprint": "a07cf9d3",
+      "size": 24
+    },
+    "planning": {
+      "question": "Welche Farbe erwartest du bei den Nachkommen?",
+      "hypothesis": "Nur hell",
+      "prediction": "Nur hell",
+      "plan": "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen."
+    },
+    "metrics": [
+      "AA",
+      "Aa",
+      "aa",
+      "n",
+      "A",
+      "a",
+      "dark",
+      "light"
+    ]
+  },
+  "population": {
+    "version": 1,
+    "seed": 34212867,
+    "initialSeed": 47291,
+    "generation": 1,
+    "nextId": 49,
+    "individuals": [
+      {
+        "uid": 25,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 26,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 27,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 28,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 29,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 30,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 31,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 32,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 33,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 34,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 35,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 36,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 37,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 38,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 39,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 40,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 41,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 42,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 43,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 44,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 45,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 46,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 47,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 48,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      }
+    ],
+    "archive": [
+      {
+        "uid": 1,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "A"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 2,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 3,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "a",
+            "a"
+          ]
+        },
+        "phenotype": "gold",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 4,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "A"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 5,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 6,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "a",
+            "a"
+          ]
+        },
+        "phenotype": "gold",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 7,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "A"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 8,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 9,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "a",
+            "a"
+          ]
+        },
+        "phenotype": "gold",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 10,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "A"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 11,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 12,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "a",
+            "a"
+          ]
+        },
+        "phenotype": "gold",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 13,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "A"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 14,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 15,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "a",
+            "a"
+          ]
+        },
+        "phenotype": "gold",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 16,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "A"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 17,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 18,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "a",
+            "a"
+          ]
+        },
+        "phenotype": "gold",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 19,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "A"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 20,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 21,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "a",
+            "a"
+          ]
+        },
+        "phenotype": "gold",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 22,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "A"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 23,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 24,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "a",
+            "a"
+          ]
+        },
+        "phenotype": "gold",
+        "parents": [],
+        "generation": 0
+      },
+      {
+        "uid": 25,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 26,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 27,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 28,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 29,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 30,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 31,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 32,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 33,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 34,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 35,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 36,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 37,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 38,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 39,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 40,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 41,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 42,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 43,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 44,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 45,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 46,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 47,
+        "sex": "♂",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      },
+      {
+        "uid": 48,
+        "sex": "♀",
+        "model": "molly-mono",
+        "loci": {
+          "A": [
+            "A",
+            "a"
+          ]
+        },
+        "phenotype": "black",
+        "parents": [
+          1,
+          6
+        ],
+        "generation": 1
+      }
+    ],
+    "history": [
+      {
+        "generation": 0,
+        "n": 24,
+        "AA": 8,
+        "Aa": 8,
+        "aa": 8,
+        "A": 0.5,
+        "a": 0.5,
+        "dark": 0.6666666666666666,
+        "light": 0.3333333333333333
+      },
+      {
+        "generation": 1,
+        "n": 24,
+        "AA": 0,
+        "Aa": 24,
+        "aa": 0,
+        "A": 0.5,
+        "a": 0.5,
+        "dark": 1,
+        "light": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "cross",
+        "parents": [
+          1,
+          6
+        ],
+        "prediction": {
+          "rows": [
+            {
+              "alleles": {
+                "A": "A"
+              },
+              "probability": 1
+            }
+          ],
+          "columns": [
+            {
+              "alleles": {
+                "A": "a"
+              },
+              "probability": 1
+            }
+          ],
+          "cells": [
+            [
+              {
+                "loci": {
+                  "A": [
+                    "A",
+                    "a"
+                  ]
+                },
+                "genotype": "Aa",
+                "phenotype": "black",
+                "probability": 1
+              }
+            ]
+          ],
+          "genotypes": {
+            "Aa": 1
+          },
+          "phenotypes": {
+            "black": 1
+          }
+        },
+        "generation": 1,
+        "offspring": {
+          "1": 24,
+          "6": 24
+        },
+        "predictionText": "Nur hell"
+      }
+    ]
+  },
+  "populationRepeats": [],
+  "measurements": [],
+  "measurementMetrics": [],
+  "quest": {
+    "version": 1,
+    "id": "9-mendel",
+    "step": 5,
+    "observed": true,
+    "entries": [
+      {
+        "step": 0,
+        "question": "Was lebt im Aquarium?",
+        "answer": "Ein Fisch",
+        "at": "2026-10-21T08:58:13.597Z"
+      },
+      {
+        "step": 1,
+        "question": "Welche Farbe erwartest du bei den Nachkommen?",
+        "answer": "Nur hell",
+        "at": "2026-10-21T08:58:14.500Z"
+      },
+      {
+        "step": 2,
+        "event": "cross",
+        "evidence": {
+          "generation": 1,
+          "result": {
+            "kind": "cross",
+            "generation": 1,
+            "n": 24,
+            "AA": 0,
+            "Aa": 24,
+            "aa": 0,
+            "A": 0.5,
+            "a": 0.5,
+            "dark": 1,
+            "light": 0
+          },
+          "parents": [
+            1,
+            6
+          ]
+        },
+        "at": "2026-10-21T08:58:16.149Z"
+      },
+      {
+        "step": 3,
+        "question": "Welche Farben haben deine Nachkommen?",
+        "answer": "Nur dunkel",
+        "at": "2026-10-21T08:58:19.387Z"
+      },
+      {
+        "step": 4,
+        "question": "Woher kommen die Erbanlagen eines Nachkommen?",
+        "answer": "Von beiden Eltern",
+        "at": "2026-10-21T08:58:20.947Z"
+      }
+    ],
+    "result": {
+      "kind": "cross",
+      "generation": 1,
+      "n": 24,
+      "AA": 0,
+      "Aa": 24,
+      "aa": 0,
+      "A": 0.5,
+      "a": 0.5,
+      "dark": 1,
+      "light": 0
+    },
+    "feedback": "Jedes Elternteil gibt eine Genvariante weiter. Eine Genvariante heißt Allel. Welche Variante weitergeht, wird zufällig bestimmt.",
+    "collapsed": false
+  },
+  "earlierNotes": null
+}

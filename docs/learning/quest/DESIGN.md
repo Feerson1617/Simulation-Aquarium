@@ -4,7 +4,7 @@ Der Auftrag [REQUEST.md](REQUEST.md) setzt auf dem geprüften Stand 677e6ce auf.
 
 ## Oberfläche und Sprache
 
-Die normale Ansicht enthält Aquarium, Missionsnamen, eine einklappbare Aufgabe und vier Werkzeuge. „Mehr“ enthält Darstellung, Wörterhilfe, Pinzette, Start und Lehrkraftzugang. Es öffnet jeweils nur ein Werkzeug. Das Aquarium verkleinert sich neben dem Werkzeug, statt vollständig dahinter zu verschwinden. Auf schmalen Telefonen nutzt das Werkzeug die volle Breite. Auf Desktop und iPad bleibt das aktuelle Questziel im Werkzeug sichtbar.
+Die normale Ansicht enthält Aquarium, Missionsnamen, eine einklappbare Aufgabe und vier Werkzeuge. „Mehr“ enthält Darstellung, Wörterhilfe, Pinzette, Start und Lehrkraftzugang. Es öffnet jeweils nur ein Werkzeug. Das Aquarium verkleinert sich neben dem Werkzeug, statt vollständig dahinter zu verschwinden. Auf schmalen Telefonen nutzt das Werkzeug die volle Breite. Auf Desktop und iPad bleibt das aktuelle Questziel im Werkzeug sichtbar. Die Bildanpassung wurde nach der visuellen Prüfung korrigiert: schmale Lernansichten wenden keinen doppelten Zoom-Abstand an. Die Kamera passt sich bei tatsächlicher Größenänderung neu an; Expertenansichten behalten die bisherige Anpassung.
 
 Durchgesehen wurden sämtliche neu sichtbaren Texte in `learning-student.mjs`, alle 14 Questdefinitionen, die Start-/Missionsauswahl und Hilfen. Vergleich und Sicherung haben konkrete Fragen; Vermutungen bekommen inhaltlich passende Antwortsätze. Keine Pflichttexte, Papierzeichnungen oder Wirkungsgefüge. Vorhandene Lernnotizen bleiben als frühere Ergebnisse zugänglich.
 

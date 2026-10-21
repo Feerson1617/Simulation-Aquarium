@@ -163,11 +163,19 @@ export function createStudentViews(api) {
             Number.isFinite(x.control?.[key]) && Number.isFinite(x.test?.[key]),
         )
         .at(-1);
+    const tableValue = (row) => {
+      if (!row) return "beendet";
+      const value = row[key];
+      if (!Number.isFinite(value)) return "—";
+      return c.kind === "population" && ["dark", "light", "A"].includes(key)
+        ? num(value * 100, 1) + " %"
+        : num(value, 3);
+    };
     const stale = !api.matches();
     return `<section class="learn-results"><h3>Dein Vergleich</h3><p data-learning-result-state role="status" class="${stale ? "learn-outdated" : ""}">${stale ? "Du hast etwas geändert. Starte den Versuch neu." : c.kind === "population" ? "Gruppe 1: keine Farbe bevorzugt. Gruppe 2: deine Umgebung." : "Becken 1 blieb gleich. Becken 2 wurde verändert."}</p><label>Was möchtest du ansehen?<select data-learning-metric>${options(
       keys.map((k) => [k, STUDENT_METRICS[k][0]]),
       key,
-    )}</select></label>${r ? reading({ kind: c.kind, label: STUDENT_METRICS[key][0], unit: STUDENT_METRICS[key][1], time: r.time, control: r.control[key], test: r.test[key] }) : ""}${api.plot(c, key)}<p class="learn-caption">Eine Linie zeigt ein Becken. Vergleiche beide Linien.</p>${c.runs[0].status?.control?.state === "failed" || c.runs[0].status?.test?.state === "failed" ? "<p>Ein Becken konnte nicht weiterlaufen. Die Linie endet dort. Vergleiche nur Zeitpunkte mit zwei Werten.</p>" : ""}<details><summary>Alle Werte</summary><div class="learn-table-wrap"><table><thead><tr><th>${c.kind === "population" ? "Generation" : "Tag"}</th><th>${c.kind === "population" ? "Gruppe" : "Becken"} 1</th><th>${c.kind === "population" ? "Gruppe" : "Becken"} 2</th></tr></thead><tbody>${rows.map((r) => `<tr><td>${num(r.time)}</td><td>${r.control ? num(r.control[key], 3) : "beendet"}</td><td>${r.test ? num(r.test[key], 3) : "beendet"}</td></tr>`).join("")}</tbody></table></div></details><div class="learn-actions">${button("export", "Für die Lehrkraft speichern")}${c.kind === "ecology" ? button("show-control", "Becken 1 ansehen") + button("show-test", "Becken 2 ansehen") : ""}</div></section>`;
+    )}</select></label>${r ? reading({ kind: c.kind, label: STUDENT_METRICS[key][0], unit: STUDENT_METRICS[key][1], time: r.time, control: r.control[key], test: r.test[key] }) : ""}${api.plot(c, key)}<p class="learn-caption">Eine Linie zeigt ein Becken. Vergleiche beide Linien.</p>${c.runs[0].status?.control?.state === "failed" || c.runs[0].status?.test?.state === "failed" ? "<p>Ein Becken konnte nicht weiterlaufen. Die Linie endet dort. Vergleiche nur Zeitpunkte mit zwei Werten.</p>" : ""}<details><summary>Alle Werte</summary><div class="learn-table-wrap"><table><thead><tr><th>${c.kind === "population" ? "Generation" : "Tag"}</th><th>${c.kind === "population" ? "Gruppe" : "Becken"} 1</th><th>${c.kind === "population" ? "Gruppe" : "Becken"} 2</th></tr></thead><tbody>${rows.map((r) => `<tr><td>${num(r.time)}</td><td>${tableValue(r.control)}</td><td>${tableValue(r.test)}</td></tr>`).join("")}</tbody></table></div></details><div class="learn-actions">${button("export", "Für die Lehrkraft speichern")}${c.kind === "ecology" ? button("show-control", "Becken 1 ansehen") + button("show-test", "Becken 2 ansehen") : ""}</div></section>`;
   }
   function investigation() {
     const { session, tag } = state();

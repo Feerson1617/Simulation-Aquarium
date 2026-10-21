@@ -223,7 +223,7 @@ export function mountLearningUI(host) {
         compatible:
           c.tool === d.experiment.tool ||
           (["8-health", "10-restore"].includes(d.id) &&
-            ["water", "feed", "light"].includes(c.tool)),
+            mission().tools.includes(c.tool)),
         value: c.value,
       };
     } else if (kind === "population")
@@ -249,9 +249,23 @@ export function mountLearningUI(host) {
     }
     if (questEvent(session.quest, kind, evidence))
       session.notes.observation = "";
-    else if (session.quest.step === 2)
+    else if (session.quest.step === 2) {
+      const expected = d.experiment.kind;
       session.quest.feedback =
-        "Prüfe die Aufgabe: Ändere eine passende Bedingung. Starte den Versuch mit mindestens zwei Generationen, wenn du Gruppen vergleichst.";
+        expected === "traits"
+          ? "Starte den Farbversuch neu. Zeige dann die Erbanlagen."
+          : expected === "cross"
+            ? "Wähle zwei Eltern. Erzeuge ihre Nachkommen."
+            : expected === "population"
+              ? evidence.compatible === false
+                ? "Wähle eine helle oder dunkle Umgebung."
+                : "Vergleiche mindestens zwei Generationen."
+              : evidence.compatible === false
+                ? "Nutze für diese Aufgabe " +
+                  STUDENT_TOOLS[d.experiment.tool][0] +
+                  "."
+                : "Hier ist noch alles gleich. Ändere einen Wert.";
+    }
   }
   function loadJSON(key, fallback) {
     try {
@@ -1826,10 +1840,14 @@ export function mountLearningUI(host) {
     blocksScene: () =>
       screen !== "expert" && (screen !== "active" || !!panel || !!helpKey),
     active: () => screen === "active",
-    tweezersChanged: () =>
-      root
-        .querySelector('[data-learn="tweezers"]')
-        ?.setAttribute("aria-pressed", String(host.tweezersActive())),
+    tweezersChanged: () => {
+      const control = root.querySelector('[data-learn="tweezers"]');
+      control?.setAttribute("aria-pressed", String(host.tweezersActive()));
+      if (control && !detailed)
+        control.textContent = host.tweezersActive()
+          ? "Pinzette beenden"
+          : "Pinzette";
+    },
     select: (uid) => {
       selected = uid;
       showPanel("observe");

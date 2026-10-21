@@ -12,3 +12,16 @@ PASS desktop: 10-carbon completed through actual observation, prediction, experi
 PASS desktop: 10-restore completed through actual observation, prediction, experiment, retry, comparison and explanation
 PASS desktop: 10-northsea completed through actual observation, prediction, experiment, retry, comparison and explanation
 PASS desktop: 10-wadden completed through actual observation, prediction, experiment, retry, comparison and explanation
+PASS touch: 8-oxygen completed through actual observation, prediction, experiment, retry, comparison and explanation
+PASS touch: 9-mendel completed through actual observation, prediction, experiment, retry, comparison and explanation
+PASS touch: 10-carbon completed through actual observation, prediction, experiment, retry, comparison and explanation
+PASS free grade 8: no mandatory quest or writing; actual experiment, measurements, export and legacy save preserved
+PASS free grade 9: no mandatory quest or writing; actual experiment, measurements, export and legacy save preserved
+PASS free grade 10: no mandatory quest or writing; actual experiment, measurements, export and legacy save preserved
+PASS teacher: real quest exports and v1 products remain readable; carbon source material and limits available
+PASS teacher: full technical investigation remains accessible without exposing it in regular student views
+PASS grade 8: every regular question-mark help has the correct topic, short text, keyboard focus and touch-size controls
+PASS grade 9: every regular question-mark help has the correct topic, short text, keyboard focus and touch-size controls
+PASS grade 10: every regular question-mark help has the correct topic, short text, keyboard focus and touch-size controls
+PASS old learning session: previous settings and notes survive quest migration and file export
+RESULTS /tmp/quest-final-validation/quest/20261021T083522

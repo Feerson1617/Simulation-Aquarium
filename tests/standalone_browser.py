@@ -89,6 +89,14 @@ try:
         expect(offline.locator('.genetics-overlay')).to_be_visible()
         assert not errors, errors
         offline.locator('[data-gen-close]').click()
+        # The new environmental controls and shared device modules ship in the sole file.
+        offline.locator('#import-file').set_input_files(str(ROOT/'tests/fixtures/legacy-window-light-b5751b0.json'))
+        offline.locator('[data-panel="shop"]').click();offline.locator('[data-act="open-settings"]').click()
+        offline.locator('[data-expert-setting="intensity"]').fill('90');offline.locator('[data-expert-save="intensity"]').click()
+        assert offline.evaluate('JSON.parse(localStorage.getItem("aquarium-scenario-v1:foodweb")).intensity')==90
+        offline.locator('[data-device-open="filter"]').click();offline.locator('[data-equipment-value]').fill('40');offline.locator('[data-equipment-save]').click()
+        assert offline.evaluate('document.activeElement.dataset.equipment')=='filter'
+        print('PASS: sole-file window-light settings, shared dial, device focus and equipment styles',flush=True)
         # Student curriculum and the paired core must also work inside the sole file.
         offline.locator('.learn-expert-entry').click()
         offline.locator('[data-learn-grade="10"]').click()

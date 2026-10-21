@@ -5,6 +5,7 @@ Uses isolated browser contexts; does not overwrite an existing browser profile.
 import json, os, subprocess
 from pathlib import Path
 from playwright.sync_api import sync_playwright, expect
+from device_browser_helpers import expert_checks, adoption_checks
 
 ROOT = Path(__file__).resolve().parents[1]
 URL = os.environ.get('AQUARIUM_URL', 'http://127.0.0.1:8000/aquarium-simulation/')
@@ -80,6 +81,16 @@ with sync_playwright() as w:
                             p.mouse.move(box['x'] + box['width']/2, box['y'] + box['height']/2)
                             p.mouse.down(); p.mouse.move(box['x'] + box['width']/2, box['y'] + box['height']/2 - 16); p.mouse.up()
                             expect(dial).to_have_attribute('aria-valuenow', '26')
+                        else:
+                            session=c.new_cdp_session(p);x=box['x']+box['width']/2;y=box['y']+box['height']/2
+                            session.send('Input.dispatchTouchEvent',{'type':'touchStart','touchPoints':[{'x':x,'y':y}]})
+                            session.send('Input.dispatchTouchEvent',{'type':'touchMove','touchPoints':[{'x':x,'y':y-16}]})
+                            session.send('Input.dispatchTouchEvent',{'type':'touchEnd','touchPoints':[]})
+                            expect(dial).to_have_attribute('aria-valuenow','26')
+                            session.send('Input.dispatchTouchEvent',{'type':'touchStart','touchPoints':[{'x':x,'y':y}]})
+                            session.send('Input.dispatchTouchEvent',{'type':'touchMove','touchPoints':[{'x':x,'y':y-8}]})
+                            session.send('Input.dispatchTouchEvent',{'type':'touchCancel','touchPoints':[]});session.detach()
+                            assert tank(p,grade)['params']==before['params']
                     field.fill(value)
                     if key=='light':editor.locator('[data-equipment-intensity]').fill('85')
                     editor.locator('[data-equipment-save]').tap() if touch else editor.locator('[data-equipment-save]').click()
@@ -110,6 +121,7 @@ with sync_playwright() as w:
                 passed(f'{mode}, grade {grade}: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload')
             start(p, 8, '8-ecosystem'); action(p, 'observe')
             p.locator('[data-quest-answer="0"]').click(); p.locator('[data-quest-answer="1"]').click(); action(p, 'investigate')
+            p.locator('[data-learning-value]').fill('25');action(p,'compare');assert p.evaluate('window.aquariumLearningSnapshot().quest.step')==2
             # Real device entry returns focus to the rebuilt investigation tools.
             action(p,'device-temperature');dialog_keyboard(p);p.locator('[data-equipment-value]').fill('20');p.locator('[data-equipment-save]').click();continued_focus(p)
             assert p.evaluate('document.activeElement.dataset.learningToolChoice==="temperature" || document.activeElement.dataset.learn==="device-temperature"')
@@ -132,6 +144,8 @@ with sync_playwright() as w:
             assert p.evaluate('window.aquariumLearningSnapshot().quest.step') == 5
             p.reload(); start(p, 8, '8-ecosystem'); assert p.evaluate('window.aquariumLearningSnapshot().quest.step') == 5
             passed(f'{mode}: Quest 1 device plan/cancel focus, 20/24.5/25/26 C, no-op, stale result/conclusion, recompute, completion, reload')
+            home(p);expert_checks(p,mode,touch,OUT,continued_focus,dialog_keyboard);passed(f'{mode}: genuine old window-light save, unchanged history, 0.65 feed, expert focus, aerator/skimmer off/on, reload')
+            adoption_checks(p,mode,touch,OUT);passed(f'{mode}: adopt and continue test tank; persistent heater and one-off water change use actual core exactly once')
             c.close()
         assert not report['errors'], report['errors']
         assert not report['failed_requests'],report['failed_requests']

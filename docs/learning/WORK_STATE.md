@@ -1,5 +1,7 @@
 # Abgeschlossener Stand: Questbuch für PR #8
 
+> Historischer Abschluss der Questphase b5751b0. Danach wurde die Gerätefassung 5440886 übernommen; die gezielte Nachprüfung wird in [Geräte-Korrektur](../device-controls-correction/VALIDATION.md) fortgeschrieben. Die folgenden 107/74 Belege bleiben ihrem früheren Quellstand zugeordnet.
+
 Branch `feature/biology-learning-environments`, bestehender PR #8. Ausgangsstand 677e6ce übernommen, keine Fremdänderungen verworfen. Alle Implementierungen regelmäßig auf denselben Branch gesichert; kein Merge, kein Push auf main.
 
 ## P1–P5 abgeschlossen

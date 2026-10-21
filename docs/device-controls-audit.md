@@ -1,5 +1,7 @@
 # Prüfung der Aquarium Eingaben und Gerätebedienung
 
+> Historisches Geräte-Audit des Ausgangsstands b5751b0 und der Gerätefassung 5440886. Die neuere unabhängige Nachprüfung und gezielte Korrektur stehen unter [device-controls-correction](device-controls-correction/VALIDATION.md). Die unten genannten früheren Läufe sind kein Browsernachweis des neuen Heads.
+
 Am 21. Oktober 2026 wurde der offene [PR 8](https://github.com/Feerson1617/Simulation-Aquarium/pull/8) auf `feature/biology-learning-environments` geprüft. Ausgangspunkt war der neueste GitHub-Head `b5751b01f826bbf14b26b743155a05e8756c38bd`; Zielbranch war main bei `666df90ac05de61181f380f2190539a9cef04044`. Die [tatsächliche PR-Vorschau](https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-8/) und die lokale Korrektur wurden jeweils durch alle 14 Quests bis zum Abschluss bedient. Freies Forschen wurde für alle drei Jahrgänge mit Vergleich und Messungen geprüft, der Expertenmodus zusätzlich mit seinen Geräteeinstellungen.
 
 Der gemeldete pauschale Fehler „Temperatur immer ungültig“ ist auf diesem Stand mit 20 °C nicht reproduzierbar. Bestätigt sind dagegen die Ablehnung von 24,5 °C, ein ungültiger Futter-Standardwert und eine Lücke bei ausstehenden Quest-Ergebnissen. Das ursprüngliche Feld „Tage“ steuert bereits die Vergleichsrechnung; im Modell gibt es keinen Ablauf-Timer für die Heizung. Die Oberfläche erklärt diese Trennung jedoch nicht ausreichend.

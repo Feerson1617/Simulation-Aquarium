@@ -1305,8 +1305,8 @@ export function mountLearningUI(host) {
       }
       if (d.questAnswer !== undefined) {
         const old = session.quest.step;
-        if ([3, 4].includes(old) && session.comparison &&
-            (!planMatchesComparison(session.comparison, currentPlan(session.comparison.kind)) ||
+        if ([3, 4].includes(old) && ["ecology", "population"].includes(QUESTS[session.quest.id].experiment.kind) &&
+            (!session.comparison || !planMatchesComparison(session.comparison, currentPlan(session.comparison.kind)) ||
              !planMatchesComparison(session.quest.result, currentPlan(session.comparison.kind))))
           throw new Error("Der Versuch wurde geändert. Starte ihn erneut, bevor du diese Ergebnisse vergleichst.");
         if (answerQuest(session.quest, Number(d.questAnswer))) {

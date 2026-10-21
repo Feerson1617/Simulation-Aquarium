@@ -27,6 +27,15 @@ def context(browser,touch=False):
  c.add_init_script("if(!localStorage.getItem('aquarium-graphics-v1'))localStorage.setItem('aquarium-graphics-v1',JSON.stringify({version:1,profile:'ipad'}))")
  p=c.new_page();p.set_default_timeout(90000);p.on('pageerror',lambda e:report['errors'].append(str(e)));p.on('requestfailed',lambda r:report['failed_requests'].append(r.url));p.goto(URL);p.wait_for_function('!!window.aquariumLearningSnapshot');return c,p
 def records(path):return list(csv.DictReader(io.StringIO(path.read_text()),delimiter=';'))
+def retained(expected,actual):
+ # The legacy reader can add empty optional fields; every original value stays exact.
+ if isinstance(expected,dict):
+  for key,value in expected.items():assert key in actual,key;retained(value,actual[key])
+ elif isinstance(expected,list):
+  assert len(expected)==len(actual)
+  for before,after in zip(expected,actual):retained(before,after)
+ else:assert actual==expected,(actual,expected)
+
 def open_run(p):
  run=p.locator('.learn-teacher-comparison .learn-run').first;run.locator('summary').first.click();return run
 with sync_playwright() as pw:
@@ -47,7 +56,7 @@ with sync_playwright() as pw:
    p.locator('[data-learning-imported-metric]').select_option('no2');run=open_run(p);rowsdom=run.locator('tbody tr');assert rowsdom.count()==57;assert rowsdom.last.locator('td').first.inner_text()=='59';assert rowsdom.last.locator('td').nth(1).inner_text()=='keine Folgemessung';expected=p.evaluate('n=>n.toLocaleString("de-DE",{maximumFractionDigits:4})',r['test'][-1]['no2']);assert rowsdom.last.locator('td').nth(2).inner_text()==expected;expect(p.locator('.learn-teacher-comparison svg')).to_have_attribute('aria-label','Verlauf Nitrit · mg/L: Kontrolle und Versuch');assert p.locator('.learn-imported-product .learn-measurements tbody tr').count()==2;shot(p,'r2-teacher-nitrite-status.png')
    historical=ROOT/'docs/learning/quest/evidence/review/r2-r3-full-learning-product.json';historical_bytes=historical.read_bytes();history=json.loads(historical_bytes);assert history['modelVersion']=='learning-evidence-2' and history['modelVersion']!=CURRENT_MODEL
    p.locator('[data-learning-import="product"]').set_input_files(str(historical));expect(p.locator('.learn-imported-product')).to_contain_text('learning-evidence-2');historical_run=open_run(p);assert historical_run.locator('tbody tr').count()==len(history['comparison']['runs'][0]['test']);expect(historical_run).to_contain_text('59');assert historical.read_bytes()==historical_bytes
-   validated=json.loads(subprocess.check_output(['node','--input-type=module','-e',"import fs from 'node:fs';import {validateLearningProduct} from './learning-model.mjs';process.stdout.write(JSON.stringify(validateLearningProduct(JSON.parse(fs.readFileSync(process.argv[1],'utf8')))))",str(historical)],cwd=ROOT,text=True));assert validated['modelVersion']==history['modelVersion'];assert validated['comparison']==history['comparison'];assert validated['notes']==history['notes'];assert validated['measurements']==history['measurements'];passed('R2 historical product: original learning-evidence-2 identity, complete saved comparison, notes and measurements preserved without relabeling')
+   validated=json.loads(subprocess.check_output(['node','--input-type=module','-e',"import fs from 'node:fs';import {validateLearningProduct} from './learning-model.mjs';process.stdout.write(JSON.stringify(validateLearningProduct(JSON.parse(fs.readFileSync(process.argv[1],'utf8')))))",str(historical)],cwd=ROOT,text=True));assert validated['modelVersion']==history['modelVersion'];retained(history['comparison'],validated['comparison']);retained(history['notes'],validated['notes']);retained(history['measurements'],validated['measurements']);passed('R2 historical product: original learning-evidence-2 identity, complete saved comparison, notes and measurements preserved without relabeling')
    p.locator('[data-learning-import="product"]').set_input_files(str(product));p.locator('[data-learning-imported-metric]').select_option('no2');open_run(p)
    importedtext=p.locator('.learn-teacher-comparison .learn-run-metadata').inner_text();p.locator('[data-learning-product$=":10:10-restore"]').click();expect(p.locator('.learn-imported-product')).to_contain_text('Lernprodukt Klasse 10');assert p.locator('.learn-teacher-comparison .learn-run-metadata').inner_text()==importedtext;expect(p.locator('.learn-imported-product')).to_contain_text('Späterer neuer Plan ab Tag 46');assert p.locator('.learn-imported-product .learn-measurements tbody tr').count()==2;passed('R2: actual JSON import and local teacher view retain intervention/value/duration/status/seed/model/frozen planning, nitrite values and manual records');c.close()
   if 'manual' in SECTIONS:

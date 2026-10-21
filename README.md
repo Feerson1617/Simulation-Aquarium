@@ -10,7 +10,7 @@ Beim Start **Klasse 8**, **9** oder **10** wählen. Danach stehen **Lernmissione
 
 Der **Lehrkraftmodus** bietet Vorbereitung, gezielte Freigaben, vollständige technische Untersuchungen, JSON/CSV/SVG, Seeds, Quellen, Modellgrenzen und lesbare Eltern-/Nachkommenarchive. Er kann auch die normale Schüleransicht starten. Der **Expertenmodus** erhält Freispiel, Tutorial, Szenarien, den vollständigen Katalog und alte Spielstände (`?expert=1`). Alles funktioniert lokal ohne zusätzliches Konto oder bezahlten Dienst. Frühere Lernnotizen und Einstellungen bleiben beim Wechsel zum Questbuch erhalten.
 
-[Neue Oberfläche und Datenübergang](docs/learning/quest/DESIGN.md), [alle 14 Questfolgen](docs/learning/quest/MISSIONS.md), [aktueller Prüfbericht](docs/learning/quest/VALIDATION.md), [Abnahme des Fortsetzungsauftrags](docs/learning/quest/ACCEPTANCE.md). Die [Fachprüfung](docs/learning/AUDIT.md), der [frühere Masterbericht](docs/learning/REPORT.md) und die [Abnahme R1–R8](docs/learning/ACCEPTANCE.md) dokumentieren den erhaltenen fachlichen Unterbau. Die Zuordnung zum Originalcurriculum ist geprüft; Unterrichtserprobung und physische Safari-iPads bleiben gesonderte Aufgaben.
+[Neue Oberfläche und Datenübergang](docs/learning/quest/DESIGN.md), [alle 14 Questfolgen](docs/learning/quest/MISSIONS.md), [historische Questprüfung](docs/learning/quest/VALIDATION.md), [Abnahme des Fortsetzungsauftrags](docs/learning/quest/ACCEPTANCE.md). Die [Fachprüfung](docs/learning/AUDIT.md), der [frühere Masterbericht](docs/learning/REPORT.md) und die [Abnahme R1–R8](docs/learning/ACCEPTANCE.md) dokumentieren den erhaltenen fachlichen Unterbau. Die Zuordnung zum Originalcurriculum ist geprüft; Unterrichtserprobung und physische Safari-iPads bleiben gesonderte Aufgaben.
 
 ## Geräte direkt einstellen
 
@@ -18,7 +18,7 @@ Heizstab, Filter und Lampe sowie eingebaute Belüfter und Abschäumer lassen sic
 
 Einstellungen bleiben bis zur nächsten Änderung bestehen. Der getrennte **Beobachtungszeitraum** begrenzt nur die berechnete Datenreihe. Wasserwechsel, Nährstoffeintrag und Pflanzenzugabe sind einmalige Aktionen. Wassertemperatur und biologische Folgen reagieren erst mit vergehender Spielzeit. Nach einem geänderten Versuchsplan müssen ausstehende Quest-Ergebnisse erneut berechnet und ausgewertet werden.
 
-Für alle Jahrgänge, den Expertenmodus und künftige Codex-Aufträge gelten die [gemeinsamen Bedienregeln](docs/device-controls.md). [Priorisierte Fehlerprüfung und Testmatrix](docs/device-controls-audit.md), [vollständige eigenständige Codex-Anweisung für PR 8](docs/device-controls-codex-instruction.md). `AGENTS.md` bleibt unverändert maßgeblich.
+Die [aktuelle gezielte Korrektur und ihre Prüfstände](docs/device-controls-correction/VALIDATION.md) trennen frische Läufe von historischen Belegen. Für alle Jahrgänge, den Expertenmodus und künftige Codex-Aufträge gelten die [gemeinsamen Bedienregeln](docs/device-controls.md). [Priorisierte Fehlerprüfung und Testmatrix](docs/device-controls-audit.md), [vollständige eigenständige Codex-Anweisung für PR 8](docs/device-controls-codex-instruction.md). `AGENTS.md` bleibt unverändert maßgeblich.
 
 ## Desktop- und iPad-Darstellung
 

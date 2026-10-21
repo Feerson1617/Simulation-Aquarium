@@ -7,6 +7,15 @@ const catalog=JSON.parse(await readFile(new URL('./fixtures/ecology-species.json
 const entity=(species,uid=1,extra={})=>({uid,species,x:0,z:0,age:30,biomass:.8,rotation:1,scale:1,sex:'♂',health:100,...extra});
 const state=(entities=[],extra={})=>({entities,liters:180,substrate:'sand',filter:'none',...extra});
 
+test('switching installed hardware off keeps its physical clearance and never relocates saved objects',()=>{
+ const before=state([entity('anubias')],{heater:true,air:true,skimmer:true,ownedEquipment:['heater','air','skimmer']});
+ normalizeSpatialState(before,null,catalog);
+ const after=structuredClone(before);after.heater=after.air=after.skimmer=false;
+ assert.deepEqual(hardwareFootprints(after),hardwareFootprints(before));
+ normalizeSpatialState(after,after.spatial,catalog);
+ assert.deepEqual(after.entities,before.entities);assert.deepEqual(after.spatial,before.spatial);
+});
+
 test('all seven tanks use actual length, depth and height in the same centimetre scale',()=>{
  assert.equal(Object.keys(TANK_DIMENSIONS).length,7);assert.equal(WORLD_PER_CM,.05);
  assert.deepEqual(TANK_DIMENSIONS[60],[60,30,35]);assert.deepEqual(TANK_DIMENSIONS[700],[200,60,60]);

@@ -1,5 +1,7 @@
 # Prüfung der Questfassung
 
+> Historische Questprüfung bis b3b7814 / Dokumentationsstand b5751b0. Die 107/74 unten sind keine frische Prüfung der späteren Gerätefassung. Aktuelle Korrekturen und neue Läufe: [Geräte-Nachprüfung](../../device-controls-correction/VALIDATION.md).
+
 **Bestanden: 107 Modultests, 74 verschiedene Browserprüfpunkte und der vollständige Einzeldatei-Export.** Keine früheren 100/82 Prüfungen aus Revision 2 addiert. Erneute Touchdurchläufe nach der Bildkorrektur zählen nur einmal.
 
 ## Was wirklich ausgeführt wurde

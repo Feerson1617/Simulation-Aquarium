@@ -1,0 +1,66 @@
+{
+  "baseline": "6c86274bac47f96fe6309355f851713f2d42cbc0",
+  "head": "c904addd9a38ac85aea34cb5a582e8d388c8e1e0",
+  "changedInlineFunctions": [
+    "qs",
+    "Qf",
+    "tp",
+    "z1"
+  ],
+  "justification": {
+    "Qf": "Growth follows actual oxidation; NH3 health penalty shared with indicator",
+    "qs": "NH3 warning uses free concentration rather than raw NH4 cutoff",
+    "tp": "Prepared replacement water GH12/25C independent of heater target",
+    "z1": "Distinguish NH4 measurement from live NH3 risk; shared concentration thresholds"
+  },
+  "protectedCore": {
+    "hd": {
+      "equal": true,
+      "sha256": "46b1a7939ce754edf17b7ca6554fd8decda716a8ff24b670e861f049a3c2d84a"
+    },
+    "ud": {
+      "equal": true,
+      "sha256": "ad41f6a45d798674546081a933febb4acfb2e0549b4b6a220c64bbfb4509c00e"
+    },
+    "y1": {
+      "equal": true,
+      "sha256": "2a60da6a1563ba5742c1c127a2acf6d0ebecf770bf2a24acc3e47ff58246c00e"
+    },
+    "ep": {
+      "equal": true,
+      "sha256": "953b4651f3043ae098701f02dd1332fec00f6324b64b99c4bea5dd58cfec8d28"
+    }
+  },
+  "protectedGenetics": {
+    "inheritGenotype": {
+      "file": "genetics.mjs",
+      "equal": true,
+      "sha256": "c8bf0f0e1d680b71ac852fc321fce90f583542dff8749c1e03ffd6a651d9ecab"
+    },
+    "punnettSquare": {
+      "file": "genetics.mjs",
+      "equal": true,
+      "sha256": "4bdcabac310108131b0e319c0104f62d85a0e818456795b131f137f3b7b5d7b4"
+    },
+    "reproductiveWeight": {
+      "file": "learning-population.mjs",
+      "equal": true,
+      "sha256": "409719694a6cccf2ec4eb6178ce1366a8a8c1857afc6f114fcbf7cc19e512a6c"
+    },
+    "nextLearningGeneration": {
+      "file": "learning-population.mjs",
+      "equal": true,
+      "sha256": "4f9760ee521d3d148cf7685e2a04dfc2ba31ca42a675db638456fe991e785c31"
+    },
+    "crossLearningPopulation": {
+      "file": "learning-population.mjs",
+      "equal": true,
+      "sha256": "802894e0552ce6d12fe7858848372d02f56d2b4cdcb92f431c95a6132cd23bbe"
+    }
+  },
+  "protectedPathsUnchanged": [
+    "AGENTS.md",
+    ".github/workflows",
+    "assets"
+  ]
+}

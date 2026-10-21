@@ -4,7 +4,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {fishStatus,fishStatusText,habitatProblems,populationExplanation,replacementWater,ammoniaRisk,ammoniaConcentration} from '../biology-quality.mjs';
-import {learningSample,createLearningTank,validateLearningProduct,waterIndicators} from '../learning-model.mjs';
+import {learningSample,createLearningTank,validateLearningProduct,waterIndicators,measurementCSV} from '../learning-model.mjs';
 import {learningProvenance,validateProvenance} from '../learning-provenance.mjs';
 import {createLearningPopulation,compareLearningPopulations,crossLearningPopulation,reproductiveWeight} from '../learning-population.mjs';
 import {MISSIONS} from '../learning-content.mjs';
@@ -119,4 +119,13 @@ test('A03: rescue comparison cannot prefer a healthy survivor average over more 
 test('A08/A11: each ecological observation starts with at most two relevant values; health includes its actual water cause',()=>{
  for(const keys of Object.values(OBSERVATION_METRICS))assert.ok(keys.length>=1&&keys.length<=2);
  assert.deepEqual(OBSERVATION_METRICS['8-health'],['fishAlive','no2']);assert.deepEqual(OBSERVATION_METRICS['10-enrichment'],['algae','oxygen']);assert.deepEqual(OBSERVATION_METRICS['10-carbon'],['co2','plantBiomass']);
+});
+
+test('A03: mixed old and new health rows retain values and distinct metric meanings in CSV',()=>{
+ const rows=[{day:45,health:60},{day:46,health:100,metricsVersion:2}],before=structuredClone(rows);
+ const csv=measurementCSV(rows,{profile:{version:1,grade:8,mode:'free',mission:null},metrics:['health']});
+ assert.match(csv,/Tierkondition \(historischer Wert: Fische und Wirbellose\)/);assert.match(csv,/Kondition lebender Fische/);assert.ok(csv.includes('"60"')&&csv.includes('"100"'));assert.deepEqual(rows,before);
+});
+test('A07/A09: a wrong observation receives a biological hint without affirmative feedback',()=>{
+ const q=newQuest('8-oxygen');questEvent(q,'observe');assert.equal(answerQuest(q,1),false);assert.equal(q.step,0);assert.doesNotMatch(q.feedback,/^Ja/);assert.match(q.feedback,/Beide Becken/);
 });

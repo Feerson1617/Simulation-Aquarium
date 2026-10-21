@@ -549,8 +549,9 @@ export function answerQuest(state, index) {
       ? d.experiment.kind === "cross" ? "Zähle die Farben im tatsächlich entstandenen Wurf. Ein theoretisches Verhältnis ist keine feste Anzahl."
         : d.experiment.kind === "traits" ? "Vergleiche AA und Aa: Beide können dunkel aussehen."
         : d.experiment.kind === "case" ? "Prüfe Tiernutzen und den Aufwand für die Menschen am Hafen."
-        : "Vergleiche die gezeigten Werte zur selben Zeit; kleine Unterschiede können etwa gleich sein."
-      : (step === 0 ? d.observe.feedback : questConclusion(d,state.result).feedback).split(". ")[0] + ". Probiere deine Zuordnung erneut.";
+        : d.experiment.metric === "fishOutcome" && state.result.fish ? `Vergleiche zuerst das Überleben: ${state.result.fish.control.fishAlive} Fische leben in Becken 1, ${state.result.fish.test.fishAlive} in Becken 2. Bei gleicher Zahl prüfst du ihren Zustand.`
+        : `Vergleiche ${d.experiment.label}: ${state.result.control?.toLocaleString("de-DE",{maximumFractionDigits:3})} in Becken/Gruppe 1 und ${state.result.test?.toLocaleString("de-DE",{maximumFractionDigits:3})} in 2. Kleine Unterschiede können etwa gleich sein.`
+      : (step === 0 ? d.observe.feedback : questConclusion(d,state.result).feedback).replace(/^(Ja|Richtig)\.\s*/,"").split(". ")[0] + ". Probiere deine Zuordnung erneut.";
     return false;
   }
   state.entries.push({
@@ -579,7 +580,8 @@ export function answerQuest(state, index) {
 }
 export function predictionPrompt(d) {
   if (d.experiment.kind === "population") return "Was erwartest du bei den neutralen Wiederholungen?";
-  if (d.experiment.kind === "ecology") return `Nach gleich langer Spielzeit: Wo ist ${d.experiment.label.toLowerCase()} höher?`;
+  if (d.experiment.kind === "ecology") return "Nach gleich langer Spielzeit: " + ({temp:"Welches Becken ist wärmer?",oxygen:"In welchem Becken gibt es mehr Sauerstoff?",organic:"In welchem Becken bleiben mehr Reste?",health:"Welches Becken hilft den Fischen mehr?",fishOutcome:"Welches Becken hilft den Fischen mehr?",plantBiomass:"In welchem Becken gibt es mehr Pflanzenmasse?",algae:"In welchem Becken gibt es mehr Algen?",co2:"In welchem Becken gibt es mehr Kohlenstoffdioxid?",loadLevel:"In welchem Becken sind die Wasserprobleme größer?"})[d.experiment.metric];
+  if (d.experiment.kind === "cross") return "Welche Farben erwartest du in der F2 aus Aa × Aa?";
   return d.prediction;
 }
 export function predictionChoices(d) {
@@ -590,7 +592,7 @@ export function predictionChoices(d) {
     return ["Nur dunkel", "Nur hell", "Dunkel und hell"];
   if (d.experiment.kind === "population")
     return ["Die neutralen Wiederholungen enden gleich","Die Endanteile der neutralen Wiederholungen unterscheiden sich","Ich bin noch unsicher"];
-  const labels=Object.fromEntries(["temp","oxygen","health","fishOutcome","organic","plantBiomass","algae","co2","loadLevel"].map(k=>[k,["In Becken 1 mehr/höher","In Becken 2 mehr/höher","In beiden etwa gleich"]]));
+  const labels=Object.fromEntries(["temp","oxygen","health","fishOutcome","organic","plantBiomass","algae","co2","loadLevel"].map(k=>[k,["Becken 1","Becken 2","In beiden etwa gleich"]]));
   return labels[d.experiment.metric];
 }
 /** Bounded, read-only quest records; no imported record can advance the simulation. */

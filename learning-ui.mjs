@@ -197,7 +197,7 @@ export function mountLearningUI(host) {
     return `<section class="learn-measurements"><h3>Deine Messungen</h3><label>Wert<select data-learning-manual-metric="local">${options(
       keys.map((k) => [k, STUDENT_METRICS[k][0]]),
       key,
-    )}</select></label>${plot({ kind: "manual", runs: [{ control: rows, test: [] }] }, key)}<div class="learn-table-wrap"><table><thead><tr><th>Tag</th><th>${esc(STUDENT_METRICS[key][0])}</th></tr></thead><tbody>${rows.map((r) => `<tr><td>${num(r.day)}</td><td>${num(r[key], 3)}</td></tr>`).join("")}</tbody></table></div><small>— bedeutet: Hier fehlt ein Wert.</small></section>`;
+    )}</select></label>${plot({ kind: "manual", runs: [{ control: rows, test: [] }] }, key)}<div class="learn-table-wrap"><table><thead><tr><th>Tag</th><th>${esc(STUDENT_METRICS[key][0])}</th></tr></thead><tbody>${rows.map((r) => `<tr><td>${num(r.day)}</td><td>${key === "health" && r.metricsVersion !== 2 ? "Früherer Tierwert: " : ""}${num(r[key], 3)}</td></tr>`).join("")}</tbody></table></div><small>— bedeutet: Hier fehlt ein Wert.</small></section>`;
   }
   function recordQuestExperiment(kind) {
     if (detailed || !session.quest) return;
@@ -687,7 +687,8 @@ export function mountLearningUI(host) {
       !technical &&
       comp.kind === "population" &&
       POPULATION_METRICS[key]?.[1].includes("Anteil");
-    const run = comp.runs[0],
+    const rawRun=comp.runs[0],oldHealth=key === "health" && [...rawRun.control,...rawRun.test].some(s=>s.metricsVersion !== 2),mixedHealth=oldHealth && [...rawRun.control,...rawRun.test].some(s=>s.metricsVersion === 2);
+    const run = mixedHealth ? {...rawRun,control:rawRun.control.map(s=>({...s,health:s.metricsVersion===2?s.health:null})),test:rawRun.test.map(s=>({...s,health:s.metricsVersion===2?s.health:null}))} : rawRun,
       a = percent
         ? run.control.map((v) => ({
             ...v,
@@ -716,6 +717,7 @@ export function mountLearningUI(host) {
     const xx = (v) => 45 + ((x(v) - minX) / (maxX - minX || 1)) * 405,
       yy = (v) => 180 - ((v[key] - minY) / (maxY - minY || 1)) * 150;
     const title = (
+      (!technical && oldHealth && [mixedHealth ? "Fischzustand ab neuer Messreihe" : "Früherer Tierzustand","Punkte"]) ||
       (!technical &&
         (percent ? [STUDENT_METRICS[key][0], "%"] : STUDENT_METRICS[key])) ||
       comparisonMetricDefinitions(comp)[key] || [key, ""]
@@ -786,7 +788,7 @@ export function mountLearningUI(host) {
           )
             .map(
               (row) =>
-                `<tr><td>${num(row.time)}</td><td>${row.control ? num(row.control[metric], 4) : "keine Folgemessung"}</td><td>${row.test ? num(row.test[metric], 4) : "keine Folgemessung"}</td></tr>`,
+                `<tr><td>${num(row.time)}</td><td>${row.control ? (metric === "health" && row.control.metricsVersion !== 2 ? "Früherer Tierwert: " : "") + num(row.control[metric], 4) : "keine Folgemessung"}</td><td>${row.test ? (metric === "health" && row.test.metricsVersion !== 2 ? "Früherer Tierwert: " : "") + num(row.test[metric], 4) : "keine Folgemessung"}</td></tr>`,
             )
             .join(
               "",
@@ -810,7 +812,7 @@ export function mountLearningUI(host) {
     return `<section class="learn-measurements"><h3>Eigene Messreihe · ${rows.length} Zeitpunkte</h3><p>Aufeinanderfolgende Beobachtungen desselben Beckens. Kein automatischer Kontrollversuch; mehrere Eingriffe oder Zeitabstände können sich unterscheiden.</p><label>Eigene Messgröße<select data-learning-manual-metric="${readOnly ? "imported" : "local"}">${options(
       keys.map((k) => [k, defs[k].join(" · ")]),
       key,
-    )}</select></label>${plot({ kind: "manual", runs: [{ control: filtered, test: [] }] }, key)}<div class="learn-table-wrap"><table><caption>${esc(defs[key].join(" · "))}</caption><thead><tr><th>Tag · Modellzeit</th><th>Eigenes Becken</th></tr></thead><tbody>${filtered.map((s) => `<tr><td>${num(s.day)}</td><td>${num(s[key], 4)}</td></tr>`).join("")}</tbody></table></div><p>„—“: unbekannt oder zum Aufnahmezeitpunkt nicht freigegeben. Reale Nullwerte stehen als 0.</p><div class="learn-actions">${button(readOnly ? "imported-manual-csv" : "manual-csv", "Eigene Messreihe als CSV")}${button("manual-chart", "Eigene Messreihe als SVG")}${!readOnly ? button("export", "Messreihe und Notizen als JSON") : ""}</div></section>`;
+    )}</select></label>${plot({ kind: "manual", runs: [{ control: filtered, test: [] }] }, key)}<div class="learn-table-wrap"><table><caption>${esc(defs[key].join(" · "))}</caption><thead><tr><th>Tag · Modellzeit</th><th>Eigenes Becken</th></tr></thead><tbody>${filtered.map((s) => `<tr><td>${num(s.day)}</td><td>${key === "health" && s.metricsVersion !== 2 ? "Früherer Tierwert: " : ""}${num(s[key], 4)}</td></tr>`).join("")}</tbody></table></div><p>„—“: unbekannt oder zum Aufnahmezeitpunkt nicht freigegeben. Reale Nullwerte stehen als 0.</p><div class="learn-actions">${button(readOnly ? "imported-manual-csv" : "manual-csv", "Eigene Messreihe als CSV")}${button("manual-chart", "Eigene Messreihe als SVG")}${!readOnly ? button("export", "Messreihe und Notizen als JSON") : ""}</div></section>`;
   }
   function archiveView(population, label) {
     const id = String(archiveRefs.size);

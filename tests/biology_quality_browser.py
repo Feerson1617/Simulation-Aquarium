@@ -37,6 +37,13 @@ with sync_playwright() as w:
   assert all(e.get('dead') for e in dead['entities'] if e['species']=='guppy')
   dead['entities']=[e for e in dead['entities'] if e['species']!='ramshorn']+[e for e in base['entities'] if e['species']=='ramshorn'];dead['failed']=False;dead['params']['no2']=0;fixture=OUT/'controlled-fish-deaths-live-snails.json';fixture.write_text(json.dumps(dead))
   p.locator('#import-file').set_input_files(str(fixture));p.wait_for_function('window.aquariumLearningSnapshot().sample.fishAlive===0');s=snap(p);assert s['sample']['health'] is None and s['sample']['otherAnimals']>0;action(p,'observe');expect(p.locator('.learn-panel')).to_contain_text('Keine lebenden Fische');assert 'Den Fischen geht es gut' not in p.locator('.learn-panel').inner_text();p.screenshot(path=str(OUT/'no-fish-live-snails.png'));passed('A03 actual import and student view: real fish deaths plus live snails cannot show positive fish health',sample=s['sample']);c.close()
+  c,p=context(b);action(p,'expert');p.locator('[data-start="free"]').click()
+  for label,state in [('alkaline',high),('acid',acid)]:
+   payload=json.loads(json.dumps(state));payload.pop('learning',None);file=OUT/f'ammonia-lab-{label}.json';file.write_text(json.dumps(payload));p.locator('#import-file').set_input_files(str(file));p.locator('[data-panel="lab"]').click()
+   value=nh3(payload);level=2 if value>=.1 else 1 if value>=.02 else 0;expect(p.locator('[data-ammonia-level]')).to_have_attribute('data-ammonia-level',str(level));shown=float(p.locator('[data-ammonia-value]').inner_text().replace(',','.'));assert abs(shown-value)<.0001
+   p.locator('[data-act="quick-test"]').click();cell=p.locator('[data-test="nh4"]');expect(cell).to_contain_text('Ammonium');assert 'bad' not in (cell.get_attribute('class') or '').split();p.screenshot(path=str(OUT/f'ammonia-lab-{label}.png'));passed('A10 expert lab distinguishes measured NH4 from current free NH3 '+label,nh3=value,level=level)
+   p.locator('[data-act="close-panel"]').click()
+  c.close()
   samples=[]
   for support in ['guided','partial','independent']:
    c,p=context(b);action(p,'teacher');p.locator('[data-teacher="mission"]').select_option('8-oxygen');p.locator('[data-teacher="support"]').select_option(support);action(p,'student-launch');s=snap(p);samples.append(s['sample']);assert s['support']==support

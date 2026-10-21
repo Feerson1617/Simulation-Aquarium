@@ -537,7 +537,7 @@ export function comparisonCSV(comparison) {
       for (const row of times)
         for (const key of metrics) {
           const sample = row[side],
-            def = defs[key],
+            def = key === "health" && sample && sample.metricsVersion !== 2 ? ["Tierkondition (historischer Wert: Fische und Wirbellose)","Modellindex %"] : defs[key],
             value = sample?.[key],
             measured =
               sample && (!sample.metrics || sample.metrics.includes(key)),

@@ -12,6 +12,15 @@ export function learningProvenance(session) {
   return {version:1, notes:noteOrigins(session.notes,session.noteOrigins),
     questAnswers:"selection", experiments:"game-action", measurements:"simulation", explanations:"game-explanation"};
 }
+/** A selected F2 forecast belongs to F2, never to the preceding F1 or a later cross. */
+export function crossingPrediction(session,generation,targetGeneration=null) {
+  if (typeof session.notes?.prediction === "string" && session.notes.prediction.trim())
+    return {predictionText:session.notes.prediction,predictionOrigin:session.noteOrigins?.prediction === "own-input" ? "own-input" : "unknown"};
+  const selected=session.quest?.id === "9-mendel" && generation === targetGeneration
+    ? session.quest.entries.find(e=>e.step===1)?.answer : null;
+  return selected ? {predictionText:selected,predictionOrigin:"selection",predictionTargetGeneration:targetGeneration}
+    : {predictionText:"",predictionOrigin:"unknown"};
+}
 export function validateProvenance(raw, notes) {
   if (raw == null) return {version:1,notes:noteOrigins(notes),legacy:true};
   if (raw.version !== 1 || !raw.notes || typeof raw.notes !== "object") throw new Error("Ungültige Herkunftsangaben.");

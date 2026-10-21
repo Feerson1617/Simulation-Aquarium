@@ -10,6 +10,11 @@ URL=os.environ.get('AQUARIUM_URL','http://127.0.0.1:8000/aquarium-simulation/')
 report={'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'checks':[],'errors':[],'failed_requests':[],'console_errors':[]}
 def passed(s,**data):report['checks'].append({'name':s,**data});print('PASS',s,flush=True)
 def snap(p):return p.evaluate('window.aquariumLearningSnapshot()')
+def capture(p,path):
+ frame=p.evaluate('window.aquariumSnapshot().graphics.renderFrame')
+ p.wait_for_function('(f)=>window.aquariumSnapshot().graphics.renderFrame>f+2&&window.aquariumSnapshot().graphics.triangles>3000',arg=frame)
+ if p.locator('[data-ammonia-level]').count():p.locator('[data-ammonia-level]').scroll_into_view_if_needed()
+ p.screenshot(path=str(path),animations='disabled')
 def context(b):
  c=b.new_context(viewport={'width':1366,'height':1024},accept_downloads=True);c.add_init_script("localStorage.setItem('aquarium-graphics-v1',JSON.stringify({version:1,profile:'ipad'}))")
  p=c.new_page();p.set_default_timeout(90000);p.on('pageerror',lambda e:report['errors'].append(str(e)));p.on('requestfailed',lambda r:report['failed_requests'].append(r.url));p.on('console',lambda m:report['console_errors'].append(m.text) if m.type=='error' else None);p.goto(URL);p.wait_for_function('!!window.aquariumLearningSnapshot');return c,p
@@ -36,12 +41,12 @@ with sync_playwright() as w:
   poison=json.loads(json.dumps(base));poison['params']['no2']=10;poison['bacteria2']=0;poison['flow']=0;dead=probe(poison,3)
   assert all(e.get('dead') for e in dead['entities'] if e['species']=='guppy')
   dead['entities']=[e for e in dead['entities'] if e['species']!='ramshorn']+[e for e in base['entities'] if e['species']=='ramshorn'];dead['failed']=False;dead['params']['no2']=0;fixture=OUT/'controlled-fish-deaths-live-snails.json';fixture.write_text(json.dumps(dead))
-  p.locator('#import-file').set_input_files(str(fixture));p.wait_for_function('window.aquariumLearningSnapshot().sample.fishAlive===0');s=snap(p);assert s['sample']['health'] is None and s['sample']['otherAnimals']>0;action(p,'observe');expect(p.locator('.learn-panel')).to_contain_text('Keine lebenden Fische');assert 'Den Fischen geht es gut' not in p.locator('.learn-panel').inner_text();p.screenshot(path=str(OUT/'no-fish-live-snails.png'));passed('A03 actual import and student view: real fish deaths plus live snails cannot show positive fish health',sample=s['sample']);c.close()
+  p.locator('#import-file').set_input_files(str(fixture));p.wait_for_function('window.aquariumLearningSnapshot().sample.fishAlive===0');s=snap(p);assert s['sample']['health'] is None and s['sample']['otherAnimals']>0;action(p,'observe');expect(p.locator('.learn-panel')).to_contain_text('Keine lebenden Fische');assert 'Den Fischen geht es gut' not in p.locator('.learn-panel').inner_text();capture(p,OUT/'no-fish-live-snails.png');passed('A03 actual import and student view: real fish deaths plus live snails cannot show positive fish health',sample=s['sample']);c.close()
   c,p=context(b);action(p,'expert');p.locator('[data-start="free"]').click()
   for label,state in [('alkaline',high),('acid',acid)]:
    payload=json.loads(json.dumps(state));payload.pop('learning',None);file=OUT/f'ammonia-lab-{label}.json';file.write_text(json.dumps(payload));p.locator('#import-file').set_input_files(str(file));p.locator('[data-panel="lab"]').click()
    value=nh3(payload);level=2 if value>=.1 else 1 if value>=.02 else 0;expect(p.locator('[data-ammonia-level]')).to_have_attribute('data-ammonia-level',str(level));shown=float(p.locator('[data-ammonia-value]').inner_text().replace(',','.'));assert abs(shown-value)<.0001
-   p.locator('[data-act="quick-test"]').click();cell=p.locator('[data-test="nh4"]');expect(cell).to_contain_text('Ammonium');assert 'bad' not in (cell.get_attribute('class') or '').split();p.screenshot(path=str(OUT/f'ammonia-lab-{label}.png'));passed('A10 expert lab distinguishes measured NH4 from current free NH3 '+label,nh3=value,level=level)
+   p.locator('[data-act="quick-test"]').click();cell=p.locator('[data-test="nh4"]');expect(cell).to_contain_text('Ammonium');assert 'bad' not in (cell.get_attribute('class') or '').split();capture(p,OUT/f'ammonia-lab-{label}.png');passed('A10 expert lab distinguishes measured NH4 from current free NH3 '+label,nh3=value,level=level)
    p.locator('[data-act="close-panel"]').click()
   c.close()
   samples=[]
@@ -50,7 +55,7 @@ with sync_playwright() as w:
    if support=='guided':expect(p.locator('.learn-step-hint')).to_contain_text('Öffne')
    else:
     assert not p.locator('.learn-step-hint').count();action(p,'quest-hint');text=p.locator('.learn-step-hint').inner_text();assert 'Schau genau' in text if support=='partial' else 'Welche Beobachtung' in text
-   p.screenshot(path=str(OUT/f'support-{support}.png'));passed('A09 regular quest support '+support);c.close()
+   capture(p,OUT/f'support-{support}.png');passed('A09 regular quest support '+support);c.close()
   assert samples[0]==samples[1]==samples[2];passed('A09 changing support leaves actual biological starting values unchanged')
   assert not report['errors'],report['errors'];assert not report['failed_requests'],report['failed_requests'];assert not report['console_errors'],report['console_errors'];report['status']='passed'
  except Exception as e:

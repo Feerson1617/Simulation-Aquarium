@@ -5,8 +5,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {fishStatus,fishStatusText,habitatProblems,populationExplanation,replacementWater,ammoniaRisk,ammoniaConcentration} from '../biology-quality.mjs';
 import {learningSample,createLearningTank,validateLearningProduct,waterIndicators,measurementCSV} from '../learning-model.mjs';
-import {learningProvenance,validateProvenance} from '../learning-provenance.mjs';
-import {createLearningPopulation,compareLearningPopulations,crossLearningPopulation,reproductiveWeight} from '../learning-population.mjs';
+import {learningProvenance,validateProvenance,crossingPrediction} from '../learning-provenance.mjs';
+import {createLearningPopulation,compareLearningPopulations,crossLearningPopulation,reproductiveWeight,validateLearningPopulation} from '../learning-population.mjs';
 import {MISSIONS} from '../learning-content.mjs';
 import {QUESTS,questConclusion,newQuest,questEvent,answerQuest,resultQuestion,resultTolerance} from '../learning-quests.mjs';
 const types=JSON.parse(fs.readFileSync(new URL('./fixtures/ecology-species.json',import.meta.url)));
@@ -128,4 +128,11 @@ test('A03: mixed old and new health rows retain values and distinct metric meani
 });
 test('A07/A09: a wrong observation receives a biological hint without affirmative feedback',()=>{
  const q=newQuest('8-oxygen');questEvent(q,'observe');assert.equal(answerQuest(q,1),false);assert.equal(q.step,0);assert.doesNotMatch(q.feedback,/^Ja/);assert.match(q.feedback,/Beide Becken/);
+});
+
+test('A04/A05: chosen F2 prediction is explicit, survives JSON reload and is not assigned to F1 or F3',()=>{
+ const session={notes:{},quest:{id:'9-mendel',entries:[{step:1,answer:'Dunkel und hell'}]}};
+ let pop=createLearningPopulation();pop=crossLearningPopulation(pop,1,6);Object.assign(pop.events.at(-1),crossingPrediction(session,1,2));assert.equal(pop.events[0].predictionText,'');assert.equal(pop.events[0].predictionOrigin,'unknown');
+ const a=pop.individuals.find(i=>i.sex==='♀'),b=pop.individuals.find(i=>i.sex==='♂');pop=crossLearningPopulation(pop,a.uid,b.uid);Object.assign(pop.events.at(-1),crossingPrediction(session,2,2));assert.equal(pop.events[1].predictionOrigin,'selection');assert.equal(pop.events[1].predictionTargetGeneration,2);
+ assert.deepEqual(JSON.parse(JSON.stringify(pop)),pop);const clean=validateLearningPopulation(pop);assert.equal(clean.events[1].predictionText,'Dunkel und hell');assert.equal(clean.events[1].predictionOrigin,'selection');assert.equal(clean.events[1].predictionTargetGeneration,2);assert.equal(crossingPrediction(session,3,2).predictionText,'');
 });

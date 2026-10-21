@@ -1,5 +1,5 @@
 import {pendingActivity,assignActivity,recordActivityView,mendelEvidence,populationPairEvidence,REGIONAL_CASES} from "./learning-activities.mjs";
-import {learningProvenance, ORIGIN_LABELS} from "./learning-provenance.mjs";
+import {learningProvenance, crossingPrediction, ORIGIN_LABELS} from "./learning-provenance.mjs";
 import {fishStatusText,habitatProblems} from "./biology-quality.mjs";
 import { dialControl, mountDials } from "./control-dial.mjs";
 import { controlNumber, requireControlValue, applyEquipmentSetting, EQUIPMENT_SWITCHES } from "./control-values.mjs";
@@ -1724,8 +1724,8 @@ export function mountLearningUI(host) {
             mother,
             father,
           );
-          session.population.events.at(-1).predictionText =
-            session.notes.prediction;
+          const event=session.population.events.at(-1),mendel=mendelEvidence(session.population);
+          Object.assign(event,crossingPrediction(session,event.generation,mendel.f1 ? mendel.f1.generation+1 : null));
           session.mother = null;
           session.father = null;
           session.punnett = null;

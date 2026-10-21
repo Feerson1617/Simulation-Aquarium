@@ -386,6 +386,12 @@ export function validateLearningPopulation(raw) {
         typeof event.predictionText === "string"
           ? event.predictionText.slice(0, 20000)
           : "";
+      if (event.predictionOrigin != null) {
+        if (!["own-input","selection","unknown"].includes(event.predictionOrigin)) throw new Error("Unbekannte Vorhersageherkunft.");
+        clean.predictionOrigin=event.predictionOrigin;
+      }
+      if (event.predictionTargetGeneration != null)
+        clean.predictionTargetGeneration=integer(event.predictionTargetGeneration,0,15);
     }
     return clean;
   });

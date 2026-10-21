@@ -1,0 +1,30 @@
+{
+  "verified_at": "2026-10-21T04:56:31.267543+00:00",
+  "source_commit": "7e8204634eea11357db67b690a5badfa012ab29e",
+  "reports": {
+    "review": "review-report.json",
+    "learning": "learning-report.json",
+    "focused": "focused-report.json",
+    "readiness": "readiness-report.json",
+    "aquascaping": "aquascaping-report.json",
+    "ecosystem": "ecosystem-report.json",
+    "genetics": "genetics-report.json"
+  },
+  "counts": {
+    "unit": 100,
+    "review": 11,
+    "learning": 19,
+    "focused": 6,
+    "readiness": 13,
+    "aquascaping": 12,
+    "ecosystem": 12,
+    "genetics": 9
+  },
+  "curriculum_sha256": "faa37c2dafb2824dda8e890c21f05a69d4f479ea64c255ca815892174889b90f",
+  "standalone": {
+    "status": "passed",
+    "file_navigation_tested": false,
+    "bytes": 151070285
+  },
+  "browser_check_count": 82
+}

@@ -1,0 +1,71 @@
+{
+  "state": "passed",
+  "source_commit": "7e8204634eea11357db67b690a5badfa012ab29e",
+  "started": 1792555892.7691271,
+  "steps": [
+    {
+      "name": "unit",
+      "state": "passed",
+      "started": 1792555892.7695467,
+      "exit_code": 0,
+      "finished": 1792555906.1112218
+    },
+    {
+      "name": "review",
+      "state": "passed",
+      "started": 1792555906.1114693,
+      "exit_code": 0,
+      "finished": 1792556337.047436
+    },
+    {
+      "name": "learning",
+      "state": "passed",
+      "started": 1792556337.0493383,
+      "exit_code": 0,
+      "finished": 1792557141.0922132
+    },
+    {
+      "name": "focused",
+      "state": "passed",
+      "started": 1792557141.0947797,
+      "exit_code": 0,
+      "finished": 1792557294.9462147
+    },
+    {
+      "name": "readiness",
+      "state": "passed",
+      "started": 1792557294.9465997,
+      "exit_code": 0,
+      "finished": 1792557537.8716674
+    },
+    {
+      "name": "aquascaping",
+      "state": "passed",
+      "started": 1792557537.8751233,
+      "exit_code": 0,
+      "finished": 1792557834.096054
+    },
+    {
+      "name": "ecosystem",
+      "state": "passed",
+      "started": 1792557834.0968149,
+      "exit_code": 0,
+      "finished": 1792558031.0057256
+    },
+    {
+      "name": "genetics",
+      "state": "passed",
+      "started": 1792558031.0060751,
+      "exit_code": 0,
+      "finished": 1792558347.7432394
+    },
+    {
+      "name": "standalone",
+      "state": "passed",
+      "started": 1792558347.744808,
+      "exit_code": 0,
+      "finished": 1792558463.3132744
+    }
+  ],
+  "finished": 1792558463.3137436
+}

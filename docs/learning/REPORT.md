@@ -1,6 +1,6 @@
 # Abschlussbericht: Biologische Lernumgebungen für Klassen 8–10
 
-Arbeitsstand vom 21.10.2026: Überarbeitung des bestehenden PR #8 nach dem unabhängigen Prüfbericht R1–R8, ausgehend von `5b00ea1`. Der vollständige ursprüngliche Masterauftrag ist hier vorhanden und wird in der [Master- und 14-Missionen-Abnahmematrix](ACCEPTANCE.md) ausdrücklich zugeordnet. Die Korrekturen sind implementiert; die vollständige Endprüfung auf dem eingefrorenen Laufzeitstand `a498124` läuft. Ergebnisse und Belege werden in [VALIDATION.md](VALIDATION.md) auf genau diesen Stand aktualisiert. Physische Safari-iPads und empirische Unterrichtswirksamkeit bleiben offen.
+Arbeitsstand vom 21.10.2026: Der bestehende PR #8 ist nach der unabhängigen Prüfung R1–R8 überarbeitet. Der vollständige ursprüngliche Masterauftrag liegt vor und ist in der [Master- und 14-Missionen-Abnahmematrix](ACCEPTANCE.md) ausdrücklich zugeordnet. Die Endprüfung auf dem eingefrorenen Laufzeitstand `7e82046` ist abgeschlossen: **100 Modultests, 82 Browserprüfpunkte und der HTML-Einzeldatei-Export bestanden**. Einzelbelege und tatsächliche Grenzen stehen in [VALIDATION.md](VALIDATION.md). Physische Safari-iPads und empirische Unterrichtswirksamkeit bleiben offen.
 
 ## Korrekturen nach der unabhängigen Prüfung
 

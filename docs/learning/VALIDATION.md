@@ -1,61 +1,58 @@
-# Fachliche und technische Prüfung der Lernumgebungen
+# Fachliche und technische Prüfung nach PR-8-Review
 
-Geprüfter Laufzeitstand: `9e13bbb`. Prüfumgebung: Node 24, Python 3.12, Playwright/Chromium 154, CPU-Softwaregrafik (SwiftShader); statischer Server unter einem Projekt-Unterpfad. Keine kostenpflichtigen Werkzeuge, Konten oder externen Laufzeitdienste.
+Stand: 21.10.2026. Geprüfter eingefrorener Laufzeitstand: **`7e82046`**. Alle neun seriellen Prüfgruppen wurden abgeschlossen. Die sieben bearbeiteten Laufzeitdateien blieben dabei unverändert; [Prüfsummen](evidence/revision-2/runtime.sha256), [Runnerstatus](evidence/revision-2/runner-status.json), [maschinenlesbare Zuordnung](evidence/revision-2/verification.json).
 
-## Abgeschlossene Prüfungen
+Werkzeuge: Node 24.19.0, Python 3.12.14, Playwright 1.62.0, Chromium 154.0.8037.57 mit SwiftShader. Statischer Server unter einem Projektunterpfad; isolierte Browserprofile. Keine zusätzlichen Konten, kostenpflichtigen Werkzeuge oder externen Laufzeitdienste. Softwaregrafik ist keine Hardware-Leistungsmessung.
 
-| Prüfung | Ergebnis / Nachweis |
-|---|---|
-| Rechenkern und reine Module | **87 erfolgreich**, 0 Fehler, 0 übersprungen; [Protokoll](evidence/node-tests.log) |
-| Gezielte wissenschaftliche und Bedienprüfungen im echten Browser | **6 erfolgreich**, keine JavaScript-Ausnahme; [Bericht](evidence/focused-report.json) |
-| Lernprofile, alle 14 Missionen, Lehrkraft und Touch | **19 verschiedene Prüfpunkte erfolgreich**, in zwei Abschnitten; [zusammengeführter Nachweis](evidence/learning-combined-report.json) |
-| Bisheriger Spielstart, Katalog, Speichern/Laden und vollständiges Touch-Tutorial | **13 erfolgreich**; [Bericht](evidence/readiness-report.json) |
-| Pinzette, Platzierung, Kollisionen, Dekorationen, Maus/Touch/Tastatur | **12 erfolgreich**; [Bericht](evidence/aquascaping-report.json) |
-| Bisherige Ökosystemanalyse und alle fünf Szenarien | **12 erfolgreich**; [Bericht](evidence/ecosystem-report.json) |
-| Bestehende Genetik, reale F1/F2, Platy, Eier und Jungfische | **9 erfolgreich**; [Bericht](evidence/genetics-report.json) |
-| Eigenständiger HTML-Gesamtdownload | **erfolgreich**, 151.023.814 Bytes; [Protokoll](evidence/standalone.log) |
+## Abschließende Ergebnisse
 
-Damit sind **87 Modultests und 71 Browserprüfpunkte** sowie die Einzeldatei-Prüfung abgeschlossen. [Maschinenlesbare Übersicht](evidence/verification.json). Die Browsergruppen wurden wegen der Softwaregrafik nacheinander ausgeführt. Die sieben bearbeiteten Laufzeitdateien blieben während der Endprüfung unverändert; die [Prüfsummen](evidence/runtime.sha256) wurden bei der Übernahme der Ergebnisse erneut abgeglichen.
+| Gruppe | Ergebnis | Rohbeleg |
+|---|---|---|
+| Vorhandene 87 und 13 neue Modultests | **100 bestanden**, keine Fehler oder übersprungenen Tests | [Node-Protokoll](evidence/revision-2/unit.log) |
+| Gezielte R1–R8-Verhaltenstests im Browser | **11 Prüfpunkte bestanden** | [Bericht](evidence/revision-2/review-report.json) |
+| Drei Lernprofile, freie Forschung, alle 14 Missionen, Lehrkraft und Touch | **19 Prüfpunkte bestanden** | [Bericht](evidence/revision-2/learning-report.json) |
+| Zusätzliche Fach-/Fokus-/Speicherprüfungen | **6 bestanden** | [Bericht](evidence/revision-2/focused-report.json) |
+| Expertenstart, Platzierung, Katalog, Speichern/Laden und alle acht Touch-Tutorialschritte | **13 bestanden** | [Bericht](evidence/revision-2/readiness-report.json) |
+| Pinzette, Dekoration, Kollisionen, Maus/Touch/Tastatur | **12 bestanden** | [Bericht](evidence/revision-2/aquascaping-report.json) |
+| Ökosystemanalyse und alle fünf bisherigen Szenarien | **12 bestanden** | [Bericht](evidence/revision-2/ecosystem-report.json) |
+| Bisherige reale Genetik, F1/F2, Platy, Eier und Jungfische | **9 bestanden** | [Bericht](evidence/revision-2/genetics-report.json) |
+| Eigenständiger HTML-Gesamtdownload | **bestanden**, 151.070.285 Bytes | [Protokoll](evidence/revision-2/standalone.log) |
 
-Die Lernprüfung wurde ohne Wiederholung bereits bestandener Missionen abgeschlossen: Der [erste Abschnitt](evidence/learning-missions-report.json) bestand 14 Prüfpunkte einschließlich aller freien Forschungspfade und aller Missionen. Anschließend versuchte das Prüfskript, eine Option in einem noch eingeklappten Lehrkraftbereich anzuklicken. Dieses ursprüngliche Protokoll bleibt mit seinem Status `failed` erhalten. Nach Korrektur des Skripts wurde ausschließlich der noch offene [Lehrkraft-/Touch-Abschnitt](evidence/learning-report.json) fortgesetzt. Beide Abschnitte ergeben nach Abzug des gemeinsamen Startprüfpunkts 19 verschiedene erfolgreiche Prüfungen. Es war keine Änderung am Spielcode erforderlich.
+Damit sind **100 Modultests und 82 Browserprüfpunkte** sowie die zusätzliche Einzeldatei-Prüfung abgeschlossen. Gruppen-/Sammelprüfpunkte werden nicht nachträglich als einzelne Unterrichtsversuche gezählt. Der Missionsprüfer öffnet jede der 14 Missionen und rechnet einen echten Tag; das ist keine vollständige Unterrichtserprobung aller möglichen Untersuchungswege.
 
-Frühere unvollständige Läufe werden nicht zusätzlich als Erfolge gezählt. Ein Prozess verlor die Ausgabeverbindung (`Broken pipe`); die Endprüfung lief deshalb unabhängig vom Chat mit dauerhaften Statusdateien. Importprüfungen warten auf das tatsächliche Ende der asynchronen Dateilesung. In den abschließenden Browsergruppen gab es keine JavaScript-Ausnahmen, Shaderfehler oder fehlenden Spielressourcen. Einige bestehende Prüfer protokollieren einen harmlosen 404-Abruf für das nicht vorhandene `/favicon.ico`; dieser ist in den Rohberichten sichtbar.
+## Was die R1–R8-Prüfungen tatsächlich nachweisen
 
-Der heruntergeladene HTML-Stand wurde allein über einen lokalen HTTP-Server geöffnet: Szene, Dekoration, Farbvarianten, Genetik, Pinzette, Curriculumtransfer und der echte Vergleichsrechenkern funktionieren ohne weitere HTTP-Ressourcen. Eine direkte `file:`-Navigation wurde vom verwalteten Chromium blockiert und ist daher **nicht** als bestanden ausgewiesen.
+- **R1:** Echter Sanierungsfall, 50 % einmaliger Wasserwechsel, 14 Tage: Kontrolle fällt an Tag 48 nach 13 Messpunkten aus; Versuch bleibt lauffähig und erreicht Tag 59 mit 57 Messpunkten. Die unabhängig aus dem tatsächlich veränderten Becken weitergerechnete Kernprobe stimmt numerisch mit dem Versuch überein. Der Kern meldet Nitrit als Modelldiagnose. Der zusätzliche 3-Tage-Fall erfasst den Ausfall genau im letzten angeforderten Schritt. Keine künstlich aufgefüllten Arrays; Tabelle/CSV unterscheiden fehlende Folgemessung und echte Null.
+- **R2:** Echter Download → validierter Dateiimport → Lehrkraftansicht: Werkzeug/Wert, geplante und tatsächliche Dauer, Status/Ursache, Seed/Umwelt, Modellstand/Annahmen, eingefrorene Planung, eigene Messungen und Genetikbelege bleiben lesbar. Ausgewählte Nitritwerte werden mit den exportierten Zahlen verglichen; lokale Ansicht und Import zeigen dieselbe Laufkonfiguration. Zwei echte Exporte der bisherigen Version 1 sind zusätzlich als Modultestfixtures geprüft. Importierte Enginezustände werden nicht ausgeführt.
+- **R3:** Nach dem Wechsel von Ausgangstag 45 auf 46 aktualisiert sich der Plan sofort; Eingriffs-/Planänderungen markieren das ältere Ergebnis. JSON erhält getrennt den aktuellen Plan und die unveränderte tatsächlich berechnete Wasserwechsel-Konfiguration. Auch ein unvollständiger neuer Entwurf lässt die alten Daten im Lehrkraftimport lesbar.
+- **R4:** S. 19 des Originalcurriculums erneut textuell und visuell gelesen. Die fertige Schüleransicht enthält fossile Verbrennung, Landnutzung, Speicher/Flüsse, Hintergrundquellen, Aufgaben, Sicherung und Modellkritik. Aquariumdaten und globale Schlussfolgerungen sind getrennt; CO₂-Dosierstufen werden nicht zu globalen Emissionen hochgerechnet. Externe IPCC-Webinhalte wurden hier nicht live abgerufen.
+- **R5:** Gleicher dokumentierter Seed und gleiche Elternwahl reproduzieren echte F1/F2. Neuer/gewählter Seed erhält die Gründer und ändert die Keimzellziehungen. AA × aa bleibt Aa; F2 wird nicht auf ein genaues Verhältnis gezwungen. Export und Lehrkraftansicht enthalten die tatsächlichen Eltern-/Kindbelege und Wiederholungsdaten.
+- **R6:** Aus jedem gespeicherten Kontroll-/Selektionsarchiv werden Genotypzahlen, Allel-/Phänotypfrequenzen und Nachkommenzahl je Elternteil rekonstruiert und gegen die Zeitreihen geprüft. Neutralität, Umweltumkehr und fehlendes Wiedererscheinen verlorener Allele sind als Module geprüft. Die Browseransicht macht Eltern, Phänotyp, hypothetisches Gewicht und Kinder tatsächlich zugänglich.
+- **R7:** Eigene Messungen ohne automatischen Vergleich erscheinen in Tabelle, Diagramm, SVG/CSV/JSON und Lehrkraftansicht. Unbekannter Anfangsumsatz bleibt unbekannt; bei genau einem bekannten Wert wird ein sichtbarer Punkt gezeichnet. Die Browserassertion prüft diesen Punkt auch nach dem Import.
+- **R8:** CSV wird tatsächlich heruntergeladen und unabhängig geparst. Namen, Einheiten, Typen, Profil, Eingriff/Wert, Umfang, Seed, Zeit und Status stimmen; unbekannt/fehlend bleibt von 0 unterscheidbar. Textmetadaten werden in Tabellenkalkulationen als Literal geschützt. [Schema und Grenzen](CSV_SCHEMA.md).
 
-## Was tatsächlich geprüft ist
+## Tatsächliche Ansichten und Datenbelege
 
-- 14 didaktische Missionsprofile mit fachlicher Klärung, Vorvorstellung, Untersuchungsweg, Sicherung und Modellgrenzen; Jahrgangszuordnung aus dem Original-PDF.
-- Getrennte Warnpfade im Belastungsindikator; ein kritischer Einzelwert wird nicht herausgemittelt. Gleichzeitiger Nährstoffüberschuss und -mangel sind möglich.
-- Tatsächlich gezogene F1-/F2-Keimzellen, Elternarchive und gezählte Allele. Neutrale Kontrollen stimmen bei gleichen Seeds überein; Umkehr der hypothetischen Umwelt kehrt den Selektionsvorteil um. Verlorene Allele entstehen nicht aus Bedarf neu.
-- Pflanzenwachstum stoppt im tatsächlichen gemeinsamen Rechenkern bei erschöpften Ressourcen, während Atmung weiterläuft. Algenaufnahme ist ressourcen-/kapazitätsbegrenzt; organischer Rückfluss wird berechnet.
-- Ein noch nicht berechneter Anfangsumsatz bleibt `null`/„—“, kein erfundener Nullmesswert. Diagramm, Tabelle, CSV, JSON und validierter Lehrkraftimport erhalten diese Unterscheidung.
-- Kontext-? per Tastatur, Fokus innerhalb der Hilfe und korrekte Rückkehr. Das Becken bleibt bei offenem Werkzeug für Eingaben gesperrt.
-- Pinzettenanzeige folgt Esc; leere numerische Eingaben werden abgewiesen. Die verdeckte Startansicht hält Rendererframes konstant und lässt sie beim Wiederöffnen weiterlaufen.
-- Bei gesperrtem Browserspeicher erscheint ein sichtbarer Hinweis; das im Arbeitsspeicher vorhandene Lernprodukt lässt sich weiterhin als Datei exportieren.
+![R1: unabhängige Beckenseiten, tatsächliche Enden und Modellabbruch](evidence/revision-2/r1-independent-tank-series.png)
 
-![Tatsächliche Atmungsumsätze mit beschriftetem Diagramm](evidence/process-flux.png)
+![R6: tatsächliche Eltern, Phänotyp, Gewicht und Nachkommen](evidence/revision-2/r6-teacher-selection-archive.png)
 
-[Exportiertes eigenständig beschriftetes SVG](evidence/process-flux.svg). Der Anfangswert des Prozessumsatzes wird nicht gezeichnet, weil noch kein Rechenschritt vorliegt.
+![R7: tatsächlicher SVG-Export mit unbekanntem Anfang und bekanntem Einzelpunkt](evidence/revision-2/r7-exported-single-value.png)
 
-## Tatsächliche Ansichten
+Die Einzelpunkt-Abbildung zeigt den im Browser gerenderten tatsächlichen SVG-Export; die [zugehörige Spielansicht mit Datentabelle](evidence/revision-2/r7-own-measurement-series.png) ist separat erhalten.
 
-Die folgenden Aufnahmen stammen aus den bestandenen Prüfabschnitten, nicht aus Entwürfen. Desktop: 1360 × 960; Tablet-Hochformat: 768 × 1024 mit emulierter Touch-Eingabe.
+Weitere Aufnahmen: [R2 Lehrkraft/Nitrit](evidence/revision-2/r2-teacher-nitrite-status.png), [R3 neuer Plan / alter Lauf](evidence/revision-2/r3-plan-changed-old-result.png), [R4 Kohlenstofftransfer am Tablet](evidence/revision-2/r4-tablet-carbon-transfer.png), [R5 Wiederholungswerkzeuge am Tablet](evidence/revision-2/r5-tablet-repetition-controls.png). Die vollständigen Jahrgangsansichten stammen aus dem allgemeinen Lernprüfer: [Klasse 8](evidence/revision-2/ipad-grade-8-observe.png), [Klasse 9](evidence/revision-2/ipad-grade-9-genetics.png), [Klasse 10](evidence/revision-2/ipad-grade-10-transfer.png).
 
-![Klasse 8: reduzierter freier Forschungsmodus](evidence/02-grade-8-playfield.png)
+Die Texte, Tabellen und Schaltflächen wurden visuell geprüft. Hochformatansichten haben keinen horizontalen Seitenüberlauf; lange Inhalte sind scrollbar, Archive öffnen einzelne Generationen bedarfsweise. Das Becken wird neben einem offenen Werkzeug deutlich kleiner. Für genaue Beobachtungen Werkzeug schließen oder Querformat nutzen; Lesbarkeit und Bedienbarkeit auf echten Schulgeräten sind noch praktisch zu prüfen.
 
-![Klasse 9: tatsächliche Allelhäufigkeiten in Kontroll- und Selektionspopulation](evidence/grade-9-comparison.png)
+Echte Exportbelege: [Sanierung/Plan/Notizen](evidence/revision-2/r2-r3-full-learning-product.json), [eigene Messungen](evidence/revision-2/r7-own-observations.json), [Mendelarchiv](evidence/revision-2/r5-mendel-evidence.json), [Selektionsarchive](evidence/revision-2/r6-population-evidence.json), [CSV mit fehlenden Folgemessungen](evidence/revision-2/r1-restoration.csv), [eigene Reihe als SVG](evidence/revision-2/r7-own-observations.svg).
 
-![Klasse 10: gemessene Sauerstoff-Zeitreihe im gepaarten Versuch](evidence/grade-10-comparison.png)
+## Abgrenzung und Historie
 
-Die Texte und Schaltflächen der drei Tabletansichten wurden zusätzlich visuell geprüft: [Klasse 8 mit auftragsbezogener O₂-Messung](evidence/ipad-grade-8-observe.png), [Klasse 9 mit Vererbung statt Chemietabelle](evidence/ipad-grade-9-genetics.png), [Klasse 10 mit Wattenmeer-Transfer](evidence/ipad-grade-10-transfer.png). Es gibt keinen horizontalen Seitenüberlauf; längere Inhalte sind im Werkzeug scrollbar. Im Hochformat bleibt das Becken bei offenem Seitenwerkzeug sichtbar, wird aber deutlich kleiner. Für genaue Beobachtungen das Werkzeug schließen oder ins Querformat wechseln; die Lesbarkeit auf physischen Schulgeräten muss noch erprobt werden.
+Vorläuferläufe stoppten an Prüfskriptfehlern (Unterstützungsbeschriftung bzw. Auswahl der Mendelmission für Selektionswerkzeuge). Ein bereits weit fortgeschrittener Lauf auf `a498124` wurde bewusst unterbrochen, um die sichtbare Markierung eines einzelnen bekannten Messwerts zu ergänzen. [Historische Rohprotokolle](evidence/revision-2/intermediate/README.md). Diese Teilergebnisse werden nicht als vollständige Abnahme und nicht zusätzlich gezählt. Maßgeblich ist der anschließend vollständig ausgeführte Stand `7e82046` mit eigenem Prüfsummenverzeichnis. Die alten 87/71-Belege im übergeordneten Evidenzordner bleiben als historischer erster Masterstand erhalten.
 
-Weitere Belege: [Lehrkraftvorbereitung](evidence/teacher-preparation.png), [tatsächlich erzeugte F2](evidence/grade-9-f2.png), [Wattenmeerauftrag am Desktop](evidence/grade-10-wadden-transfer.png), [Klasse-8-Vergleich](evidence/grade-8-comparison.png), [Jahrgangsauswahl](evidence/01-grade-start.png).
+Die heruntergeladene Einzeldatei wurde allein über HTTP geöffnet, ohne zusätzliche Modul-/Bild-/GLB-Abrufe. Direkte `file:`-Navigation wurde von der verwalteten Chromium-Richtlinie blockiert und ist nicht als Erfolg ausgewiesen. Einige bestehende Prüfer protokollieren einen harmlosen 404-Abruf für `/favicon.ico`; dies ist von fehlenden Spielressourcen getrennt und in den Rohberichten sichtbar.
 
-## Grenzen der Abnahme
+Physische Safari-/Schul-iPads, vollständige Hilfstechnikprüfung, Unterrichtserprobung und empirische Lernwirksamkeit sind **offen**. Es gibt keine Hardware-FPS-/Akkulaufzeitaussage aus SwiftShader. Die fachlichen Modellgrenzen stehen im [Audit](AUDIT.md), alle Masteranforderungen/14 Missionen in der [Abnahmematrix](ACCEPTANCE.md). Keine geschlossene Kohlenstoff-/Energiebilanz; Wald, Nordsee und Wattenmeer bleiben begrenzte Transfers.
 
-Die Browserprüfungen sind technische Integration und begründete Oberflächenprüfung, kein empirischer Wirksamkeitsnachweis. Eine echte Unterrichtserprobung sowie physische Schul-iPads/Safari wurden hier nicht durchgeführt. Aus Softwaregrafik werden keine Hardware-FPS oder Akkulaufzeiten abgeleitet.
-
-Der wissenschaftliche Abgleich, die Modellannahmen und alle Indikatorschwellen stehen im [Audit](AUDIT.md). Die curriculare Zuordnung und offenen Modellgrenzen stehen im [Bericht](REPORT.md). Wald, Nordsee und Wattenmeer werden ausdrücklich als begrenzter Transfer behandelt; die Simulation berechnet keine Gezeiten, Plastiktoxikologie oder geschlossene Kohlenstoffbilanz.
-
-Die [Prüfsummen](evidence/runtime.sha256) beziehen sich auf die bearbeiteten Laufzeitdateien. Die vorhandenen hochwertigen GLBs, Texturen, `AGENTS.md` und Veröffentlichungsworkflows wurden nicht geändert.
+Der neue PR-Modultestworkflow wurde als YAML und mit seinem tatsächlichen Node-Befehl lokal geprüft. Seine externe GitHub-Ausführung ist wegen des API-Zugriffs nicht bestätigt. Pages-Checks sind keine fachliche Abnahme. Kein Merge und keine Änderung an `main`, `AGENTS.md`, Assets oder den bestehenden Veröffentlichungsworkflows.

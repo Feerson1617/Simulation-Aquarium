@@ -1,44 +1,37 @@
-# PR #8 – Korrekturen nach unabhängiger Prüfung
+# PR #8 – abgeschlossener, wiederaufnehmbarer Korrekturstand
 
-Ausgangspunkt: 5b00ea1538cb740a28287ed5f83038f2df96d052 auf feature/biology-learning-environments; main 666df90. Remote-Branch und PR-Ref am 20.10.2026 abgeglichen, keine fremden oder ungesicherten Änderungen. Kein Merge. AGENTS.md gilt unverändert.
+Stand: 21.10.2026. Branch `feature/biology-learning-environments`, bestehender PR [#8](https://github.com/Feerson1617/Simulation-Aquarium/pull/8). R1–R8 sind umgesetzt und abschließend geprüft. **Nicht erneut bei null beginnen.** Letzte Laufzeitcodeänderung: `7e82046`; spätere Abschlusscommits betreffen Berichte und Belege. Genaue aktuelle Git-Sicherung mit `git log -1` und `git ls-remote` prüfen.
 
-Auftrag und Prüfbericht: review/REQUEST.md und review/REVIEW.md. Der vollständige ursprüngliche Masterauftrag ist in dieser Umgebung vorhanden und unter review/MASTER_REQUEST.md gesichert. Originalcurriculum-PDF ebenfalls vorhanden und SHA-256 faa37c2dafb2824dda8e890c21f05a69d4f479ea64c255ca815892174889b90f bestätigt. Seite 19 ausdrücklich gelesen: anthropogene Beeinflussung des Kohlenstoffkreislaufs verpflichtend.
+## Erhaltene Grundlage
 
-## Zwischenstand der Korrektur, 21.10.2026
+- Beginn bei `5b00ea1`; Remote-Branch und PR-Ref stimmten überein. `main` war `666df90` (PR #7 bereits enthalten). Keine fremden/ungesicherten Änderungen überschrieben.
+- Originale: `review/REQUEST.md`, `review/REVIEW.md`, vollständiger biologischer Masterauftrag `review/MASTER_REQUEST.md`. Vollständige Zuordnung: [ACCEPTANCE.md](ACCEPTANCE.md).
+- Originalcurriculum als Nutzer-PDF tatsächlich vorhanden und gelesen; 36 Seiten, 6.203.103 Bytes, SHA-256 `faa37c2dafb2824dda8e890c21f05a69d4f479ea64c255ca815892174889b90f`. S. 19 bei Korrektur erneut textuell und visuell geprüft.
+- `AGENTS.md`, Modelle/Texturen und bestehende Pages-Workflows unverändert. Nur der ausdrücklich verlangte Modultestworkflow wurde ergänzt. Kein Merge und keine Änderung an `main`.
 
-R1–R8 sind im Datenmodell und in den Oberflächen implementiert; endgültige Browserabnahme noch offen. 98 Modultests bestanden im ersten Gesamtstand; nach Ergänzung der konkreten Abbruchursache und echter Version-1-Exportfixtures bestehen die elf gezielten Tests erneut. Vor der finalen Übergabe alle Modultests erneut ausführen.
+## Vorhandene Korrekturen
 
-Neue Daten: Status/Ende/Ursache je Beckenseite; ungleiche Messreihen; unveränderte Laufkonfiguration neben aktuellem Plan; vollständiger begrenzter lesender Import; Selektionsarchive; reproduzierbare und neue Mendelstichproben; eigene Messreihen; CSV-Schema 2. Kohlenstofftransfer ergänzt. Neuer, vom Korrekturauftrag ausdrücklich verlangter Workflow module-tests.yml; Pages-Workflows bleiben unverändert.
+1. R1: Enden/Status/Modelldiagnose je Beckenseite, unabhängig weiterlaufende andere Seite, letzter Ausfallschritt, echte ungleiche Reihen.
+2. R2: Begrenzter vollständiger lesender Import und Lehrkraftdarstellung, echte Version-1-Exportfixtures, wählbare Größen und Genetikbelege; keine importierte Engineausführung.
+3. R3: Feste Laufkonfiguration/Planung getrennt vom bearbeiteten Plan, sofortige Kennzeichnung, auch bei unvollständigem neuem Entwurf lesbare alte Ergebnisse.
+4. R4: Anthropogener Kohlenstofftransfer, Hintergrundmaterial zu Verbrennung/Landnutzung, Aufgaben, Sicherung, Quellen und Modellgrenzen.
+5. R5: Gleiche Gründer mit gleichem oder neuem dokumentiertem Seed; tatsächliche F1/F2 und Versuchssicherung.
+6. R6: Tatsächliche Eltern-/Nachkommenarchive je Seite/Wiederholung; rekonstruierbare Gewichte, Nachkommen und Frequenzen.
+7. R7: Eigene Messreihen als Tabelle/Diagramm/Export, auch ohne Vergleich; sichtbarer Einzelpunkt bei nur einem bekannten Wert.
+8. R8: [CSV-Schema 2](CSV_SCHEMA.md), Einheiten/Typen/Herkunft/Status; unbekannt und fehlend getrennt von Null, Textmetadaten als Literal.
 
-Gezielter Browserprüfer: tests/learning_review_browser.py. Erster Lauf /tmp/pr8-review-browser.log bestätigte drei Prüfpunkte (R1/R3/R8), stoppte danach an einer falschen erwarteten Unterstützungsbeschriftung im Prüfskript. Zweiter Lauf /tmp/pr8-review-browser-2.log läuft nach Korrektur und mit unabhängiger realer Kernfortsetzung. Rohberichte unter /tmp/aquarium-pr8-review. Keine vergangenen Browsererfolge als aktuelle vollständige Abnahme ausgeben.
+## Endprüfung
 
-## Noch abzuarbeiten / abschließend nachzuweisen
+**100 Modultests, 82 Browserprüfpunkte und Einzeldatei-Export bestanden.** Darunter Review 11, Lernen 19, gezielte Fach-/Fokusfälle 6, Bereitschaft/Tutorial 13, Aquascaping 12, Ökosystem 12, Genetik 9. Alle acht alten Touch-Tutorialschritte und alle 14 Missionsöffnungen sind enthalten.
 
-1. R1: Status und Fortsetzung je Becken, ungleiche Reihen, letzter Ausfallschritt.
-2. R2: Begrenzter vollständiger lesender Import und Lehrkraftdarstellung.
-3. R3: Feste Laufkonfiguration und sichtbare Trennung vom bearbeiteten Plan.
-4. R4: Menschliche Beeinflussung des Kohlenstoffkreislaufs mit Material, Aufgabe, Sicherung und Grenzen.
-5. R5: Neue Mendelstichprobe und identischen Seed reproduzieren.
-6. R6: Archive und Fortpflanzungserfolg je Selektionslauf.
-7. R7: Eigene Messreihen als Tabelle, Diagramm und Export.
-8. R8: CSV mit eindeutigen Messnamen, Einheiten, Typen und Herkunft.
-9. Gezielte Verhaltenstests, bestehende 87 Modultests und relevante Browserregressionen; PR-Modultestworkflow ergänzen.
-10. REPORT/AUDIT/VALIDATION und vollständige Master-/14-Missionen-Abnahmematrix aktualisieren.
+Dauerhafte Nachweise: [VALIDATION.md](VALIDATION.md), `evidence/revision-2/verification.json`, Berichte/Exports/Screenshots und `evidence/revision-2/runtime.sha256`. Die Endgruppen liefen seriell auf unveränderten Laufzeitdateien. Ein früherer Gesamtlauf auf a498124 wurde für die Einzelpunktkorrektur gestoppt; historische Rohberichte bleiben erhalten und werden nicht zusätzlich gezählt. Der gültige vollständige Endlauf gehört zu `7e82046`.
 
-Die bisherigen 87/71 Nachweise gehören zum Ausgangsstand; sie belegen die Korrekturen R1–R8 noch nicht. Neue Tests und Codeänderungen getrennt dokumentieren. Lokale Werkzeuge und Projektunterpfad sind vorhanden; nicht neu installieren. GPU-Tests nacheinander ausführen. Physische Safari-iPads und empirische Lernwirksamkeit weiter offen. PR #8 ist angehängt; derselbe Branch wird aktualisiert. Git-Push funktioniert; api.github.com ist weiterhin nicht in der Netzwerk-Allowlist.
+Lokale temporäre Helfer: `/tmp/pr8-final-runner.py`, `/tmp/pr8-final-validation/status.json`, `/tmp/pr8-collect-evidence.py`, `/tmp/pr8-finalize-docs.py`. Zur späteren Wiederaufnahme sind sie nicht erforderlich; alle Endbelege und Testskripte stehen im Repository. Browsergruppen bei neuen relevanten Änderungen einzeln ausführen, nicht parallel auf der CPU-Grafik.
 
-## Vor der abschließenden Gesamtregression
+## GitHub und nächste Schritte
 
-R1–R8-Browserfälle sind in zwei Abschnitten bestanden: /tmp/pr8-review-browser-2.log (Ökologie, Export/Import, eigene Messreihen sowie Mendelprüfung) und /tmp/pr8-review-browser-3.log (Genetikarchive, Kohlenstoff und Touch). Lauf 2 stoppte nach bestandener Mendelprüfung, weil das Skript Selektionswerkzeuge in der absichtlich reduzierten Mendelmission suchte; Abschnitt 3 wechselt dafür korrekt ins freie Forschen. Kein Produktfehler. Nachweise bleiben erhalten.
+Code wurde regelmäßig auf denselben PR-Branch gesichert. PR #8 ist diesem Task angehängt. Git-Push funktioniert; GitHub-API-Zugriff ist durch die Allowlist gesperrt. Deshalb keine erfolgreiche externe Check-/Preview-Ausführung oder Änderung der PR-Beschreibung behaupten. Beschreibung in `PR_BODY.md`, Ablauf in [GITHUB.md](GITHUB.md). Keine neue PR-Erstellung nötig und kein eigenständiger Merge.
 
-Zusätzlicher Randfall R2/R3 behoben: Ein noch unvollständig/ungültig bearbeiteter neuer Plan macht vorhandene gültige Ergebnisse beim Import nicht mehr unlesbar. Reine Entwürfe werden begrenzt als unberechnet markiert; berechnete Konfigurationen bleiben strikt validiert. Jetzt 12 neue gezielte Modultests (zusammen mit den bisherigen 87 = 99); die 12 bestehen. Die abschließende vollständige Suite wird auf dem folgenden eingefrorenen Laufzeitstand ausgeführt. Währenddessen keine Laufzeitdateien bearbeiten.
+Bei Fortsetzung zuerst Status/Branches/Commits und etwaige Benutzeränderungen prüfen. Bestehenden PR weiterverwenden; keine bestandenen Gruppen ohne neue Änderungen wiederholen. Reproduktionsbefehle stehen in README und den Testskripten.
 
-Nächste Schritte: unabhängigen seriellen Runner /tmp/pr8-final-runner.py ausführen/prüfen; Ergebnisse /tmp/pr8-final-validation/status.json und pro Gruppe .log. Danach Rohberichte/Screenshots nach docs/learning/evidence/revision-2 übernehmen; REPORT/AUDIT/VALIDATION/ACCEPTANCE finalisieren. PR #8 existiert tatsächlich; GITHUB.md ist korrigiert. CSV_SCHEMA.md und vollständige Master-/14-Missionen-Matrix ACCEPTANCE.md angelegt. Keine bestandenen Prüfungen ohne neue Änderung wiederholen.
-
-Aktueller eingefrorener Laufzeitstand: **a498124fc9d6495ee0452d404a25a906a8f91d1e**. Der unabhängige serielle Runner läuft. 99 Modultests und der vollständige gezielte Review-Browserlauf mit 11 Prüfpunkten sind erfolgreich beendet. Die allgemeine Lernprüfung läuft danach; folgende Gruppen werden automatisch seriell ausgeführt. Status/Logs unter /tmp/pr8-final-validation. Keine Laufzeitdatei ändern. README/REPORT/PR_BODY wurden für die Übergabe vorbereitet, enthalten noch einen Hinweis auf die laufende Endregression; nach Abschluss ersetzen. Der Sammler /tmp/pr8-collect-evidence.py ist vorbereitet, darf erst bei Gesamtstatus passed ausgeführt werden.
-
-
-Visuelle Zusatzkorrektur R7: Die Endprüfung auf a498124 wurde nach erfolgreichen 99 Modultests und 11 Reviewprüfpunkten bewusst gestoppt (eigene Prozessgruppe 124567). Bei einer eigenen Reihe mit unbekanntem Anfangsumsatz und nur einem später bekannten Wert zeichnete SVG eine unsichtbare Einpunkt-Polyline. Tabelle/Export waren richtig. learning-ui.mjs zeichnet jetzt den einen endlichen Wert als sichtbaren Punkt, unabhängig von der Gesamtzahl der Zeilen. Browserassertionen werden für Schüler- und Lehrkraftansicht ergänzt. Der alte serielle Status ist als interrupted markiert, kein vollständiger Durchlauf. Vor Neubeginn alten Ordner /tmp/pr8-final-validation nach /tmp/pr8-validation-a498124 sichern. Ein einzelner manueller Browserlauf läuft gerade unter /tmp/pr8-marker-browser.log; anschließend auf neuem Code eingefrorene Suite starten.
-
-
-Der isolierte manuelle Browserlauf /tmp/pr8-marker-browser.log ist bestanden; das SVG enthält genau einen sichtbaren Punkt (x=450, y=30) für den bekannten Wert. Browserassertionen prüfen ihn jetzt auch in der Lehrkraftansicht. CSV-Textmetadaten werden als Literale geschützt; 13 gezielte Modultests bestehen, zusammen mit den bisherigen 87 sind es nun 100 Tests. Voriger Endlauf liegt unter /tmp/pr8-validation-a498124. Der neue Endläufer wird nach dem folgenden Commit gestartet; aktueller Laufzeitcommit ist danach ausschließlich aus /tmp/pr8-final-validation/status.json zu lesen. /tmp/pr8-collect-evidence.py erwartet 100 Modultests. README/REPORT/PR_BODY/VALIDATION nach dem aktuellen Endlauf final aktualisieren; Angaben zu a498124 und 99 Tests sind dann historische Zwischenstände.
+Offen außerhalb dieser technischen Umsetzung: physische Safari-/Schul-iPads, vollständige Hilfstechnikprüfung, Unterrichtserprobung/Verständnisinterviews und empirische Lernwirksamkeit. Modellraten bleiben kalibriert; keine geschlossene Kohlenstoff-/Energiebilanz, Gezeiten-, Plastiktoxikologie- oder globale Klimasimulation. Externe IPCC-/Regionalwebinhalte nicht live geprüft. Vollständiger Fotorealismus bleibt ein früheres separates Ziel, vorhandene Modelle erhalten.

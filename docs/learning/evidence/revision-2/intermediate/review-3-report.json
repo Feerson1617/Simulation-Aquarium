@@ -1,0 +1,24 @@
+{
+  "checks": [
+    "R5: same seed reproduces browser F1/F2; new documented seed preserves founders; chosen seed changes actual gamete draws",
+    "R2/R5: real Mendel JSON retains seed, repeated trials and F1/F2 parent-child evidence in teacher view",
+    "R6/R2: browser selection run archives reconstruct frequencies and actual parent success; JSON teacher view exposes phenotype, weights, parents and children",
+    "R4: finished student carbon transfer includes human influence, background material, sources, consolidation and explicit limits",
+    "touch: new measurement/seed/transfer controls fit portrait, operate via touch and preserve help/canvas focus gating"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "screenshots": [
+    "r5-independent-mendel-seed.png",
+    "r6-teacher-selection-archive.png",
+    "r4-anthropogenic-carbon-transfer.png",
+    "r5-tablet-repetition-controls.png",
+    "r4-tablet-carbon-transfer.png"
+  ],
+  "sections": [
+    "genetics",
+    "carbon",
+    "touch"
+  ],
+  "status": "passed"
+}

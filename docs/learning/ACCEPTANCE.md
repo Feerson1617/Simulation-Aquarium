@@ -4,7 +4,7 @@ Stand: 21.10.2026. Diese Matrix bezieht sich ausdrücklich auf den **vorliegende
 
 Grundlage: Originalcurriculum der Eider-Treene-Schule ab 2025/26, 36 Seiten; SHA-256 `faa37c2dafb2824dda8e890c21f05a69d4f479ea64c255ca815892174889b90f`. S. 3–4, 9–10, 14–15 und 19–20 sind abgeglichen; S. 19 wurde bei der Korrektur erneut textuell und visuell gelesen. Der anthropogene Kohlenstoffteil ist verbindlich. Die Matrix gilt für die ausgewählten Einheiten, nicht für das gesamte Biologiecurriculum dieser Klassen.
 
-**Lesart:** „umgesetzt“ bezeichnet vorhandenen Code/Material. „geprüft“ wird nur im tatsächlich dokumentierten Umfang verwendet. Modultests und Chromium mit Touch-Emulation beweisen weder empirische Lernwirksamkeit noch die Funktion auf einem physischen Safari-iPad. Endgültige Durchlaufnachweise werden in [VALIDATION.md](VALIDATION.md) zusammengeführt.
+**Lesart:** „umgesetzt“ bezeichnet vorhandenen Code/Material. „geprüft“ wird nur im tatsächlich dokumentierten Umfang verwendet. Modultests und Chromium mit Touch-Emulation beweisen weder empirische Lernwirksamkeit noch die Funktion auf einem physischen Safari-iPad. Die abgeschlossenen Durchlaufnachweise stehen in [VALIDATION.md](VALIDATION.md).
 
 ## Anforderungen des vollständigen Masterauftrags
 

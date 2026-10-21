@@ -1,0 +1,29 @@
+{
+  "checks": [
+    "R1/R8: real 10-restore 50%/14d stops control at day 48, test reaches 59; independent real-core continuation, cause and CSV provenance",
+    "R1: real failure at final requested step retains time and cause",
+    "R3: baseline label updates immediately; changed baseline/input/notes cannot relabel old data or JSON provenance",
+    "R2: actual JSON import and local teacher view retain intervention/value/duration/status/seed/model/frozen planning, nitrite values and manual records",
+    "R7/R2/R8: manual observations without any comparison survive table, SVG/CSV/JSON and teacher import, including unknown initial flux",
+    "R5: same seed reproduces browser F1/F2; new documented seed preserves founders; chosen seed changes actual gamete draws"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "screenshots": [
+    "r1-independent-tank-series.png",
+    "r3-plan-changed-old-result.png",
+    "r2-teacher-nitrite-status.png",
+    "r7-own-measurement-series.png",
+    "r5-independent-mendel-seed.png",
+    "failure.png"
+  ],
+  "sections": [
+    "ecology",
+    "manual",
+    "genetics",
+    "carbon",
+    "touch"
+  ],
+  "status": "failed",
+  "failure": "Locator.select_option: Timeout 90000ms exceeded.\nCall log:\n  - waiting for locator(\"[data-learning-environment]\")\n"
+}

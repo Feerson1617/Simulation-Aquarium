@@ -1,3 +1,4 @@
+import { validateQuest } from "./learning-quests.mjs";
 import {
   GRADE_PROFILES,
   MISSIONS,
@@ -829,6 +830,7 @@ export function validateLearningProduct(raw) {
     type: raw.type,
     profile,
     notes: evidenceNotes(raw.notes),
+    quest: validateQuest(raw.quest, profile.mission),
     created: evidenceText(raw.created, 80),
     support: Object.hasOwn(SUPPORT, raw.support) ? raw.support : null,
     model:

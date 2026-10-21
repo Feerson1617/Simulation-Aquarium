@@ -717,3 +717,158 @@ html.learning-mode #app > .timebar {
   margin-top: 24px;
   padding-top: 12px;
 }
+/* Quest revision: one task beside the tank, one drawer at a time. */
+.learn-simple-hud {
+  right: 18px;
+}
+.learn-quest {
+  position: absolute;
+  top: 105px;
+  left: 20px;
+  width: min(310px, calc(100vw - 40px));
+  max-height: calc(100dvh - 215px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  pointer-events: auto;
+  background: #f4f2e8f7;
+  border: 1px solid var(--learn-line);
+  border-left: 4px solid var(--learn-accent);
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 8px 30px #10272540;
+}
+.learn-quest > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.learn-quest > header strong {
+  font-size: 12px;
+  line-height: 1.3;
+}
+#learning-root .learn-quest h2 {
+  font-size: 19px;
+  line-height: 1.35;
+  margin: 9px 0 13px;
+}
+#learning-root .learn-quest p {
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 9px 0;
+}
+.learn-quest progress {
+  width: 100%;
+  height: 6px;
+  accent-color: var(--learn-accent);
+  margin: 10px 0;
+}
+.learn-quest-answers {
+  display: grid;
+  gap: 6px;
+  margin-top: 10px;
+}
+#learning-root .learn-quest-answers button {
+  font-weight: 500;
+  font-size: 14px;
+  padding: 8px 10px;
+}
+.learn-quest-feedback:empty {
+  display: none;
+}
+.learn-quest-feedback {
+  color: #285f48;
+  font-weight: 600;
+}
+.learn-quest-chip {
+  position: absolute;
+  top: 102px;
+  left: 20px;
+  pointer-events: auto;
+}
+.learn-quest-inline {
+  position: static;
+  width: auto;
+  max-height: none;
+  box-shadow: none;
+  margin: 0 0 20px;
+  background: #e7eddf;
+}
+.learn-reading {
+  margin: 10px 0;
+}
+.learn-reading > div {
+  padding: 10px;
+  background: #e5ebdf;
+  border-radius: 8px;
+}
+.learn-reading strong {
+  display: block;
+  font-size: 20px;
+}
+.learn-population > button {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.learn-population > button.gold {
+  background: #ecdeb0 !important;
+}
+.learn-population > button.dark {
+  border-left: 5px solid #384c4d !important;
+}
+.learn-simple-hud ~ .learn-tools {
+  bottom: max(12px, env(safe-area-inset-bottom));
+}
+@media (max-width: 900px) {
+  .learn-quest {
+    width: 280px;
+    left: 12px;
+    top: 96px;
+    max-height: calc(100dvh - 220px);
+  }
+  .learn-simple-hud ~ .learn-tools {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: max-content;
+    max-width: calc(100vw - 24px);
+  }
+  .learn-quest-chip {
+    top: 94px;
+    left: 12px;
+  }
+  .learn-panel {
+    width: min(420px, 55vw);
+  }
+}
+@media (max-width: 600px) {
+  .learn-quest {
+    top: 90px;
+    width: 250px;
+    max-height: calc(100dvh - 250px);
+    padding: 12px;
+  }
+  .learn-panel {
+    width: 100%;
+  }
+  .learn-panel ~ .learn-help-pop {
+    z-index: 6;
+  }
+  .learn-quest-chip:has(+ .learn-panel) {
+    display: none;
+  }
+  .learn-simple-hud ~ .learn-tools {
+    width: calc(100vw - 24px);
+  }
+  .learn-simple-hud ~ .learn-tools button {
+    min-height: 44px;
+  }
+  .learn-simple-hud ~ .learn-tools .learn-time {
+    border: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #learning-root * {
+    scroll-behavior: auto;
+  }
+}

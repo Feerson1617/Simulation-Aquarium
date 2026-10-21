@@ -1,4 +1,17 @@
 import {
+  QUESTS,
+  newQuest,
+  questEvent,
+  answerQuest,
+  comparisonReading,
+  validateQuest,
+} from "./learning-quests.mjs";
+import {
+  createStudentViews,
+  STUDENT_METRICS,
+  STUDENT_TOOLS,
+} from "./learning-student.mjs";
+import {
   CURRICULUM,
   GRADE_PROFILES,
   MISSIONS,
@@ -108,6 +121,110 @@ export function mountLearningUI(host) {
   } catch {
     teacher = normalizeTeacher();
   }
+  const student = createStudentViews({
+    esc,
+    num,
+    button,
+    helpButton,
+    panelHeader,
+    options,
+    state: () => ({
+      session,
+      tag,
+      panel,
+      s: host.getState(),
+      w: waterIndicators(host.getState()),
+      types: host.types,
+      showGenes,
+    }),
+    healthText: () => {
+      const h = learningSample(host.getState(), host.types).health;
+      return h >= 80
+        ? "Den Fischen geht es gut."
+        : h >= 50
+          ? "Den Fischen geht es nicht gut."
+          : "Die Fische sind in Gefahr.";
+    },
+    tools,
+    catalog: () => GRADE_PROFILES[tag.grade].catalog,
+    form: interventionForm,
+    plot,
+    times: comparisonTimes,
+    matches: () =>
+      planMatchesComparison(
+        session.comparison,
+        currentPlan(session.comparison.kind),
+      ),
+    studentMetrics: () => studentMetricKeys(),
+    manual: () => studentManual(),
+  });
+  function studentMetricKeys() {
+    if (tag.grade === 9) return ["dark", "light", "A"];
+    const primary = QUESTS[tag.mission]?.experiment.metric;
+    return primary
+      ? [primary]
+      : ["oxygen", "health", "algae", "plantBiomass", "organic"];
+  }
+  function studentManual() {
+    if (!session.measurements.length) return "";
+    const keys = recordedMetrics(session.measurements, metrics()).filter((k) =>
+        studentMetricKeys().includes(k),
+      ),
+      key = keys.includes(manualMetric) ? manualMetric : keys[0];
+    if (!key) return "";
+    const rows = session.measurements.map((r) => ({
+      ...r,
+      [key]: r.metrics && !r.metrics.includes(key) ? null : r[key],
+    }));
+    return `<section class="learn-measurements"><h3>Deine Messungen</h3><label>Wert<select data-learning-manual-metric="local">${options(
+      keys.map((k) => [k, STUDENT_METRICS[k][0]]),
+      key,
+    )}</select></label>${plot({ kind: "manual", runs: [{ control: rows, test: [] }] }, key)}<div class="learn-table-wrap"><table><thead><tr><th>Tag</th><th>${esc(STUDENT_METRICS[key][0])}</th></tr></thead><tbody>${rows.map((r) => `<tr><td>${num(r.day)}</td><td>${num(r[key], 3)}</td></tr>`).join("")}</tbody></table></div><small>— bedeutet: Hier fehlt ein Wert.</small></section>`;
+  }
+  function recordQuestExperiment(kind) {
+    if (detailed || !session.quest) return;
+    const d = QUESTS[tag.mission];
+    if (!d) return;
+    let evidence;
+    if (kind === "ecology") {
+      const c = session.comparison,
+        first = c?.runs[0];
+      // The actual intervention must change the cloned baseline, not merely be selected.
+      const changed =
+        JSON.stringify(
+          applyLearningIntervention(session.baseline, c.tool, c.value, host),
+        ) !== JSON.stringify(session.baseline);
+      evidence = {
+        changed,
+        result: comparisonReading(c, d.experiment),
+        tool: c.tool,
+        value: c.value,
+      };
+    } else if (kind === "population")
+      evidence = {
+        generations: session.comparison.generations,
+        result: comparisonReading(session.comparison, d.experiment),
+      };
+    else if (kind === "cross")
+      evidence = {
+        generation: session.population.generation,
+        result: { kind: "cross", ...populationCounts(session.population) },
+        parents: session.population.events.at(-1)?.parents,
+      };
+    else {
+      const c = populationCounts(session.population);
+      evidence = {
+        hasAA: c.AA > 0,
+        hasAa: c.Aa > 0,
+        result: { kind: "traits", AA: c.AA, Aa: c.Aa },
+      };
+    }
+    if (questEvent(session.quest, kind, evidence))
+      session.notes.observation = "";
+    else if (session.quest.step === 2)
+      session.quest.feedback =
+        "Ändere zuerst eine passende Bedingung. Starte dann den Versuch.";
+  }
   function loadJSON(key, fallback) {
     try {
       return JSON.parse(localStorage.getItem(key)) ?? fallback;
@@ -122,7 +239,7 @@ export function mountLearningUI(host) {
       return true;
     } catch {
       storageError =
-        "Auf diesem Gerät konnte nicht gespeichert werden. Exportiere dein Protokoll als Datei.";
+        "Dein Stand konnte hier nicht gespeichert werden. Nutze „Für die Lehrkraft speichern“.";
       host.notify(storageError);
       return false;
     }
@@ -163,6 +280,7 @@ export function mountLearningUI(host) {
       populationRepeats: session.populationRepeats || [],
       measurements: session.measurements,
       measurementMetrics: recordedMetrics(session.measurements, metrics()),
+      quest: session.quest || null,
     };
   }
   function currentPlan(kind = tag?.grade === 9 ? "population" : "ecology") {
@@ -261,6 +379,22 @@ export function mountLearningUI(host) {
       generations: 5,
     };
     session.population ??= grade === 9 ? createLearningPopulation() : null;
+    const freshQuest = !session.quest;
+    try {
+      session.quest =
+        validateQuest(session.quest, tag.mission) || newQuest(tag.mission);
+    } catch {
+      session.quest = newQuest(tag.mission);
+    }
+    if (freshQuest && session.quest) {
+      const e = QUESTS[tag.mission].experiment;
+      if (e.kind === "ecology") {
+        session.study.tool = e.tool;
+        session.study.value = e.value;
+        session.study.metric = e.metric;
+      }
+      if (e.kind === "population") session.study.metric = "dark";
+    }
     selected = null;
     showGenes = false;
     screen = "active";
@@ -276,6 +410,10 @@ export function mountLearningUI(host) {
     host.pause();
     host.tweezers(false);
     panel = next;
+    if (next === "observe") {
+      questEvent(session?.quest, "observe");
+      persist();
+    }
     helpKey = null;
     host.interactive(false);
     render();
@@ -335,9 +473,12 @@ export function mountLearningUI(host) {
     return `<span>${num(s.params.temp, 1)} °C</span><span>Sauerstoff ${w.oxygen}</span><span>Nährstoffe: ${w.nutrients}</span><span>Belastung ${w.load}</span>`;
   }
   function hud() {
+    if (!detailed)
+      return `<header class="learn-hud learn-simple-hud"><div><small>Klasse ${tag.grade} · ${tag.mode === "free" ? "Freies Forschen" : "Lernmission"}</small><h1>${esc(QUESTS[tag.mission]?.title || GRADE_PROFILES[tag.grade].title)}</h1></div><div>${button("more", "Mehr")}</div></header><nav class="learn-tools" aria-label="Lernwerkzeuge">${button("observe", "Beobachten")}${button("investigate", "Ausprobieren")}${button("material", tag.grade === 9 ? "Farbe & Nachkommen" : "Tiere & Pflanzen")}${button("notebook", "Meine Ergebnisse")}<div class="learn-time"><span>Tag ${num(host.getState().day, 1)}</span>${button("advance", "+ 1 Tag")}</div></nav>${tag.mode === "missions" ? student.quest() : ""}${storageError ? `<div class="learn-storage" role="alert">${esc(storageError)}</div>` : ""}`;
     return `<header class="learn-hud"><div><small>Klasse ${tag.grade} · ${tag.mode === "free" ? "Freies Forschen" : "Lernmission"}</small><h1>${esc(mission()?.title || GRADE_PROFILES[tag.grade].title)}</h1>${button("mission-info", esc(mission()?.question || "Deine Frage und dein Untersuchungsweg"), 'class="learn-question"')}</div><div>${button("home", "Start")}${button("display", "Darstellung")}${teacher.help ? button("glossary", "Glossar") : ""}</div></header><div class="learn-status" aria-label="Kurzer Beckenüberblick">${status()}</div><nav class="learn-tools" aria-label="Lernwerkzeuge">${button("observe", "Beobachten")}${button("investigate", "Untersuchen")}${button("notebook", "Notizbuch")}${button("material", tag.grade === 9 ? "Vererbung" : "Beziehungen & Arten")}${button("tweezers", "Pinzette", 'aria-pressed="' + String(host.tweezersActive()) + '"')}<div class="learn-time"><span>Tag ${num(host.getState().day, 1)}</span>${button("advance", "+ 1 Tag")}</div></nav>${storageError ? `<div class="learn-storage" role="alert">${esc(storageError)}</div>` : ""}`;
   }
   function observe() {
+    if (!detailed) return student.observe();
     const s = host.getState(),
       w = waterIndicators(s),
       allowed = metrics();
@@ -400,20 +541,27 @@ export function mountLearningUI(host) {
     let key = list.includes(session.study.tool) ? session.study.tool : list[0],
       d = LEARNING_TOOLS[key],
       value = session.study.value ?? d.value;
+    if (!detailed)
+      return `<label>Was änderst du?<select data-learning-tool="${prefix}">${options(
+        list.map((k) => [k, STUDENT_TOOLS[k][0]]),
+        key,
+      )}</select></label><label>${esc(STUDENT_TOOLS[key][0])} (${esc(STUDENT_TOOLS[key][1])})<input type="number" data-learning-value value="${esc(value)}" min="${d.min}" max="${d.max}" step="${d.step}" required></label><small>${esc(STUDENT_TOOLS[key][2])}</small>`;
     return `<label>Veränderte Bedingung<select data-learning-tool="${prefix}">${options(
       list.map((k) => [k, LEARNING_TOOLS[k].label]),
       key,
     )}</select></label><label>${esc(d.label)} (${d.unit})<input type="number" data-learning-value value="${esc(value)}" min="${d.min}" max="${d.max}" step="${d.step}" required></label><small>${esc(d.description)}</small>`;
   }
   function notebook() {
+    if (!detailed) return student.notebook();
     const p = GRADE_PROFILES[tag.grade],
       m = mission();
     return (
       panelHeader("Mein Forschungsnotizbuch", "hypothesis") +
-      `<p>${esc(m?.question || p.question)}</p><p class="learn-guidance">${SUPPORT[teacher.support].prompt}</p>${textArea("prior", session.notes.prior, p.diagnosis)}${textArea("question", session.notes.question)}${textArea("hypothesis", session.notes.hypothesis)}${textArea("prediction", session.notes.prediction)}${textArea("plan", session.notes.plan)}${textArea("observation", session.notes.observation)}${textArea("explanation", session.notes.explanation, m?.consolidation || p.reflection)}${textArea("reflection", session.notes.reflection)}${textArea("transfer", session.notes.transfer)}${manualData({ measurements: session.measurements, measurementMetrics: recordedMetrics(session.measurements, metrics()) })}<p>Vergleiche deine erste und deine jetzige Erklärung. Nutze mindestens zwei Datenpunkte und nenne eine Unsicherheit. Gepflegte Fische allein belegen noch kein Verständnis.</p><div class="learn-actions">${button("export", "Lernprodukt als JSON")}${button("export-text", "Lesbares Protokoll")}</div><small>Automatisch lokal gespeichert. Ein Dateiexport schützt deine Arbeit auch beim Löschen von Browserdaten. Namen sind nicht erforderlich.</small>`
+      `<p>${esc(m?.question || p.question)}</p><p class="learn-guidance">${SUPPORT[teacher.support].prompt}</p>${textArea("prior", session.notes.prior, p.diagnosis)}${textArea("question", session.notes.question)}${textArea("hypothesis", session.notes.hypothesis)}${textArea("prediction", session.notes.prediction)}${textArea("plan", session.notes.plan)}${textArea("observation", session.notes.observation)}${textArea("explanation", session.notes.explanation, m?.consolidation || p.reflection)}${textArea("reflection", session.notes.reflection)}${session ? textArea("transfer", session.notes.transfer) : ""}${manualData({ measurements: session.measurements, measurementMetrics: recordedMetrics(session.measurements, metrics()) })}<p>Vergleiche deine erste und deine jetzige Erklärung. Nutze mindestens zwei Datenpunkte und nenne eine Unsicherheit. Gepflegte Fische allein belegen noch kein Verständnis.</p><div class="learn-actions">${button("export", "Lernprodukt als JSON")}${button("export-text", "Lesbares Protokoll")}</div><small>Automatisch lokal gespeichert. Ein Dateiexport schützt deine Arbeit auch beim Löschen von Browserdaten. Namen sind nicht erforderlich.</small>`
     );
   }
   function investigation() {
+    if (!detailed) return student.investigation();
     if (tag.grade === 9 && tools().includes("selection"))
       return selectionView();
     if (tag.grade === 9) return breedingView();
@@ -439,11 +587,13 @@ export function mountLearningUI(host) {
           : Math.max(0.01, ...finite.map((v) => v[key]));
     const xx = (v) => 45 + ((x(v) - minX) / (maxX - minX || 1)) * 405,
       yy = (v) => 180 - ((v[key] - minY) / (maxY - minY || 1)) * 150;
+    const technical = detailed || panel === "teacher";
     const title = (
+      (!technical && STUDENT_METRICS[key]) ||
       LEARNING_METRICS[key] ||
       POPULATION_METRICS[key] || [key, ""]
     ).join(" · ");
-    return `<svg class="learn-chart" viewBox="0 0 480 270" role="img" aria-label="Verlauf ${esc(title)}: ${comp.kind === "manual" ? "Eigene Messreihe" : "Kontrolle und Versuch"}"><desc>${esc(runDescription(comp))}</desc><text x="45" y="13" font-size="12">${esc(title)}</text><path d="M45 24 V180 H455" fill="none" stroke="currentColor"/><text x="5" y="33">${num(maxY)}</text><text x="7" y="184">${num(minY)}</text><text x="45" y="204">${num(minX)}</text><text x="420" y="204">${num(maxX)}</text>${[
+    return `<svg class="learn-chart" viewBox="0 0 480 270" role="img" aria-label="Verlauf ${esc(title)}: ${comp.kind === "manual" ? "Eigene Messreihe" : "Kontrolle und Versuch"}"><desc>${esc(technical ? runDescription(comp) : "Messwerte aus deinem Versuch.")}</desc><text x="45" y="13" font-size="12">${esc(title)}</text><path d="M45 24 V180 H455" fill="none" stroke="currentColor"/><text x="5" y="33">${num(maxY)}</text><text x="7" y="184">${num(minY)}</text><text x="45" y="204">${num(minX)}</text><text x="420" y="204">${num(maxX)}</text>${[
       a,
       b,
     ]
@@ -454,7 +604,7 @@ export function mountLearningUI(host) {
       })
       .join(
         "",
-      )}<text x="170" y="224" font-size="12">${comp.kind === "population" ? "Generation" : "Tag · Modellzeit"} (${comp.kind === "manual" ? "eigene Messreihe" : "Wiederholung 1"})</text><path d="M50 246 H80" stroke="#216c70" stroke-width="3"/><text x="88" y="250" font-size="12">${comp.kind === "manual" ? "Eigenes Becken" : "Kontrolle"}</text>${comp.kind === "manual" ? "" : `<path d="M250 246 H280" stroke="#a35325" stroke-width="3" stroke-dasharray="7 3"/><text x="288" y="250" font-size="12">Versuch</text>`}</svg>`;
+      )}<text x="170" y="224" font-size="12">${comp.kind === "population" ? "Generation" : technical ? "Tag · Modellzeit" : "Tag"} ${technical ? "(Wiederholung 1)" : ""}</text><path d="M50 246 H80" stroke="#216c70" stroke-width="3"/><text x="88" y="250" font-size="12">${comp.kind === "manual" ? "Dein Becken" : technical ? "Kontrolle" : "Becken 1"}</text>${comp.kind === "manual" ? "" : `<path d="M250 246 H280" stroke="#a35325" stroke-width="3" stroke-dasharray="7 3"/><text x="288" y="250" font-size="12">${technical ? "Versuch" : "Becken 2"}</text>`}</svg>`;
   }
   function numRaw(v) {
     return Number(v.toFixed(3));
@@ -579,6 +729,7 @@ export function mountLearningUI(host) {
     );
   }
   function material() {
+    if (!detailed) return student.material();
     if (tag.grade === 9) return breedingView();
     const s = host.getState(),
       web = buildFoodWeb(s, host.types),
@@ -603,6 +754,7 @@ export function mountLearningUI(host) {
     );
   }
   function breedingView() {
+    if (!detailed) return student.breeding();
     const p = session.population,
       c = populationCounts(p),
       f = p.individuals.filter((i) => i.sex === "♀"),
@@ -645,6 +797,16 @@ export function mountLearningUI(host) {
     );
   }
   function missionInfo() {
+    if (!detailed)
+      return (
+        panelHeader(
+          tag.mode === "free" ? "Freies Forschen" : "Questbuch",
+          "quest",
+        ) +
+        (tag.mode === "free"
+          ? "<p>Wähle deine eigene Frage. Probiere sie aus.</p>"
+          : student.quest(true))
+      );
     const m = mission();
     return (
       panelHeader(m ? "Meine Lernmission" : "Freies Forschen", "model") +
@@ -653,9 +815,10 @@ export function mountLearningUI(host) {
   }
   function transfer(key) {
     const t = TRANSFER[key];
-    return `<section class="learn-transfer"><h3>${esc(t.title)}</h3>${t.facts.map((f) => "<p>" + esc(f) + "</p>").join("")}<ol>${t.tasks.map((f) => "<li>" + esc(f) + "</li>").join("")}</ol>${t.consolidation ? `<h4>Fachliche Sicherung</h4><p>${esc(t.consolidation)}</p>` : ""}${t.limits ? `<h4>Grenzen dieser Übertragung</h4><p>${esc(t.limits)}</p>` : ""}<details><summary>Quellen zum Prüfen und Weiterforschen</summary><ul>${t.sources.map(([label, url]) => `<li><a href="${url}" target="_blank" rel="noopener">${esc(label)}</a></li>`).join("")}</ul><small>Amtliche bzw. institutionelle Quellen. Externe Inhalte sind keine Simulationsdaten; notiere die genaue Fundstelle. Die hier genannten externen Webinhalte wurden nicht live abgerufen; die Schulcurriculum-PDF wurde im Original geprüft.</small></details>${textArea("transfer", session.notes.transfer)}</section>`;
+    return `<section class="learn-transfer"><h3>${esc(t.title)}</h3>${t.facts.map((f) => "<p>" + esc(f) + "</p>").join("")}<ol>${t.tasks.map((f) => "<li>" + esc(f) + "</li>").join("")}</ol>${t.consolidation ? `<h4>Fachliche Sicherung</h4><p>${esc(t.consolidation)}</p>` : ""}${t.limits ? `<h4>Grenzen dieser Übertragung</h4><p>${esc(t.limits)}</p>` : ""}<details><summary>Quellen zum Prüfen und Weiterforschen</summary><ul>${t.sources.map(([label, url]) => `<li><a href="${url}" target="_blank" rel="noopener">${esc(label)}</a></li>`).join("")}</ul><small>Amtliche bzw. institutionelle Quellen. Externe Inhalte sind keine Simulationsdaten; notiere die genaue Fundstelle. Die hier genannten externen Webinhalte wurden nicht live abgerufen; die Schulcurriculum-PDF wurde im Original geprüft.</small></details>${session ? textArea("transfer", session.notes.transfer) : ""}</section>`;
   }
   function glossary() {
+    if (!detailed) return student.glossary();
     return (
       panelHeader("Glossar") +
       `<p>Kurze Hilfen zum Begriff und zur Untersuchung. Sie geben dir keine fertige Versuchslösung.</p>${Object.entries(
@@ -671,10 +834,10 @@ export function mountLearningUI(host) {
   function display() {
     return (
       panelHeader("Darstellung") +
-      `<p>Die Grafikqualität ist unabhängig von Jahrgang, Hilfen und biologischen Regeln.</p><label>Grafikprofil<select data-learning-graphics>${options(
+      `<p>Wähle eine Darstellung, die auf deinem Gerät flüssig läuft.</p><label>Grafikprofil<select data-learning-graphics>${options(
         host.profiles.map((p) => [p.id, p.label]),
         host.graphics().id,
-      )}</select></label><p>iPad nutzt angepasste Geometrien und Schatten. Desktop Maximum braucht leistungsfähige Hardware.</p>`
+      )}</select></label><p>Für Tablets gibt es die Einstellung iPad.</p>`
     );
   }
   function teacherData(comp) {
@@ -731,7 +894,7 @@ export function mountLearningUI(host) {
         )
         .join(
           "",
-        )}</details><div class="learn-actions">${button("teacher-launch", "Mission und Vergleich vorbereiten")}${button("config-export", "Konfiguration exportieren")}<label class="learn-file">Konfiguration importieren<input type="file" data-learning-import="config" accept=".json,application/json"></label></div><h3>Lernprodukte auf diesem Gerät</h3><p>Beurteile Frage und Hypothese, Kontrolle, Datenbezug, Erklärung und Modellkritik. Keine automatische Note aus Tierkondition.</p>${
+        )}</details><div class="learn-actions">${button("student-launch", "Schüleransicht starten")}${button("teacher-launch", "Technische Untersuchung öffnen")}${button("config-export", "Konfiguration exportieren")}<label class="learn-file">Konfiguration importieren<input type="file" data-learning-import="config" accept=".json,application/json"></label></div><h3>Lernprodukte auf diesem Gerät</h3><p>Beurteile Frage und Hypothese, Kontrolle, Datenbezug, Erklärung und Modellkritik. Keine automatische Note aus Tierkondition.</p>${
         savedKeys.length
           ? savedKeys
               .map((key, i) => {
@@ -752,9 +915,9 @@ export function mountLearningUI(host) {
               )
               .join(
                 "",
-              )}${imported.comparison ? teacherData(imported.comparison) : ""}${manualData(imported, true)}${imported.population ? `<h3>Separater Zuchtversuch</h3><p>Startseed ${imported.population.initialSeed ?? "nicht dokumentiert"}; aktueller Zufallszustand ${imported.population.seed}. Dieses Archiv ersetzt nicht die Archive der Kontroll-/Selektionsläufe.</p>${archiveView(imported.population, "separater Mendelversuch")}` : ""}${imported.populationRepeats?.length ? `<h4>Dokumentierte Wiederholungen</h4>${imported.populationRepeats.map((r) => `<p>Seed ${r.seed}: AA ${r.final.AA}, Aa ${r.final.Aa}, aa ${r.final.aa}.</p>`).join("")}` : ""}</section>`
+              )}${imported.quest ? `<h3>Questbuch</h3><p>${imported.quest.step} von 5 Aufgaben</p>${imported.quest.entries.map((e) => `<p>${esc(e.question || e.event)}: ${esc(e.answer || "Handlung im Spiel")}</p>`).join("")}` : ""}${imported.comparison ? teacherData(imported.comparison) : ""}${manualData(imported, true)}${imported.population ? `<h3>Separater Zuchtversuch</h3><p>Startseed ${imported.population.initialSeed ?? "nicht dokumentiert"}; aktueller Zufallszustand ${imported.population.seed}. Dieses Archiv ersetzt nicht die Archive der Kontroll-/Selektionsläufe.</p>${archiveView(imported.population, "separater Mendelversuch")}` : ""}${imported.populationRepeats?.length ? `<h4>Dokumentierte Wiederholungen</h4>${imported.populationRepeats.map((r) => `<p>Seed ${r.seed}: AA ${r.final.AA}, Aa ${r.final.Aa}, aa ${r.final.aa}.</p>`).join("")}` : ""}</section>`
           : ""
-      }<h3>Versuche verwalten</h3><p>Ein Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.</p>${button("teacher-reset", "Ausgewählte Mission neu beginnen")}${button("teacher-restore", "Gesicherte Mission wiederherstellen")}<details><summary>Fachliche und curriculare Grundlage</summary><p>${CURRICULUM.title}, ${CURRICULUM.pages}; Original-PDF am 20.10.2026 abgeglichen. Die Simulation deckt ausgewählte Einheiten ab, nicht alle Inhalte der Klassen.</p><p>Gesundheit, Biomasse und Belastung sind Modellgrößen. Kohlenstoff nur qualitativ; Selektion nutzt offengelegte hypothetische Gewichte.</p></details>`
+      }<details><summary>Alle Missionshintergründe und Modellgrenzen</summary>${MISSIONS.map((m) => `<h3>${esc(m.title)}</h3><p>${esc(m.goal)}</p><p>${esc(m.curriculum)}</p><p>${esc(m.limits)}</p>${m.transfer ? transfer(m.transfer) : ""}`).join("")}</details><h3>Versuche verwalten</h3><p>Ein Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.</p>${button("teacher-reset", "Ausgewählte Mission neu beginnen")}${button("teacher-restore", "Gesicherte Mission wiederherstellen")}<details><summary>Fachliche und curriculare Grundlage</summary><p>${CURRICULUM.title}, ${CURRICULUM.pages}; Original-PDF am 20.10.2026 abgeglichen. Die Simulation deckt ausgewählte Einheiten ab, nicht alle Inhalte der Klassen.</p><p>Gesundheit, Biomasse und Belastung sind Modellgrößen. Kohlenstoff nur qualitativ; Selektion nutzt offengelegte hypothetische Gewichte.</p></details>`
     );
   }
   function render() {
@@ -790,7 +953,12 @@ export function mountLearningUI(host) {
                     ? display
                     : panel === "teacher"
                       ? teacherView
-                      : null;
+                      : panel === "more"
+                        ? student.more
+                        : null;
+    const body=view?view():"";
+    const panelBody=active&&!detailed&&tag.mode==="missions"&&!["mission-info","teacher","more"].includes(panel)
+      ? body.replace("</header>","</header>"+student.quest(true)) : body;
     root.innerHTML =
       (active
         ? hud()
@@ -800,7 +968,7 @@ export function mountLearningUI(host) {
             ? modeHome()
             : gradeHome()) +
       (view
-        ? `<section class="learn-panel ${panel === "teacher" ? "learn-teacher" : ""}" role="dialog" aria-modal="${!active}" aria-label="${panel === "teacher" ? "Lehrkraftmodus" : "Lernwerkzeug"}">${view()}</section>`
+        ? `<section class="learn-panel ${panel === "teacher" ? "learn-teacher" : ""}" role="dialog" aria-modal="${!active}" aria-label="${panel === "teacher" ? "Lehrkraftmodus" : "Lernwerkzeug"}">${panelBody}</section>`
         : "") +
       (helpKey
         ? `<section class="learn-help-pop" role="dialog" aria-modal="true" aria-label="Begriffshilfe"><h2>${esc(HELP[helpKey].term)}</h2><p>${esc(HELP[helpKey][tag?.grade || grade || teacher.grade])}</p>${button("help-close", "Hilfe schließen")}</section>`
@@ -810,6 +978,8 @@ export function mountLearningUI(host) {
       root.querySelector(".learn-panel")?.setAttribute("inert", "");
       root.querySelector(".learn-hud")?.setAttribute("inert", "");
       root.querySelector(".learn-tools")?.setAttribute("inert", "");
+      root.querySelector(".learn-quest")?.setAttribute("inert", "");
+      root.querySelector(".learn-quest-chip")?.setAttribute("inert", "");
     }
     if (!teacher.help)
       root.querySelectorAll("[data-learn-help]").forEach((b) => b.remove());
@@ -817,6 +987,21 @@ export function mountLearningUI(host) {
     host.layout(active && !!panel);
   }
   function requirePlan(predictionOnly = false) {
+    if (!detailed) {
+      if (session.quest && session.quest.step < 2) {
+        host.notify("Wähle zuerst deine Vermutung im Questbuch.");
+        return false;
+      }
+      if (session.quest) {
+        const q = QUESTS[tag.mission];
+        session.notes.question = q.prediction;
+        session.notes.hypothesis =
+          session.notes.prediction || "Vermutung im Questbuch gespeichert.";
+        session.notes.plan =
+          "Gleicher Anfang für beide Seiten. Eine Bedingung ändern; beide Verläufe vergleichen.";
+      }
+      return true;
+    }
     const ok =
       (tag.mode !== "free" || session.notes.question?.trim()) &&
       (predictionOnly
@@ -977,6 +1162,30 @@ export function mountLearningUI(host) {
     if (!t) return;
     const d = t.dataset;
     try {
+      if (d.questAnswer !== undefined) {
+        const old = session.quest.step;
+        if (answerQuest(session.quest, Number(d.questAnswer))) {
+          const entry = session.quest.entries.at(-1);
+          if (old === 1) session.notes.prediction = entry.answer;
+          if (old === 3) session.notes.observation = entry.answer;
+          if (old === 4)
+            session.notes.explanation = QUESTS[tag.mission].conclusion.feedback;
+        }
+        persist();
+        render();
+        root.querySelector(".learn-quest-inline h2,.learn-quest h2")?.focus();
+        return;
+      }
+      if (d.learningIndividual) {
+        questEvent(session.quest, "observe");
+        persist();
+        const i = session.population.individuals.find(
+          (x) => x.uid === Number(d.learningIndividual),
+        );
+        root.querySelector("[data-individual-detail]").textContent =
+          `Fisch ${i.uid}: ${i.phenotype === "gold" ? "hell" : "dunkel"}${showGenes ? " · " + genotypeText(i.loci) : ""}`;
+        return;
+      }
       if (d.learnGrade) {
         grade = Number(d.learnGrade);
         screen = "grade";
@@ -1014,6 +1223,7 @@ export function mountLearningUI(host) {
                 x.measurements || [],
                 learningMetrics(tank.learning),
               ),
+              quest: x.quest || null,
               currentPlan:
                 x.baseline &&
                 x.study &&
@@ -1047,9 +1257,37 @@ export function mountLearningUI(host) {
           "mission-info",
           "glossary",
           "display",
+          "more",
         ].includes(a)
       ) {
         showPanel(a);
+        return;
+      }
+      if (a === "quest-toggle" && panel) {
+        showPanel("mission-info");
+        return;
+      }
+      if (a === "quest-toggle") {
+        session.quest.collapsed = !session.quest.collapsed;
+        persist();
+        render();
+        return;
+      }
+      if (a === "quest-open") {
+        session.quest.collapsed = false;
+        closePanel();
+        return;
+      }
+      if (a === "quest-restart") {
+        rememberBackup();
+        session.quest = newQuest(tag.mission);
+        persist();
+        render();
+        return;
+      }
+      if (a === "student-launch") {
+        grade = teacher.grade;
+        start("missions", teacher.mission);
         return;
       }
       if (a === "close") {
@@ -1205,6 +1443,8 @@ export function mountLearningUI(host) {
       }
       if (a === "genes") {
         showGenes = !showGenes;
+        if (showGenes) recordQuestExperiment("traits");
+        persist();
         render();
         return;
       }
@@ -1249,6 +1489,7 @@ export function mountLearningUI(host) {
           host,
         );
         session.comparison.planning = structuredClone(session.notes);
+        recordQuestExperiment("ecology");
         persist();
         render();
         return;
@@ -1273,6 +1514,7 @@ export function mountLearningUI(host) {
           currentPlan("population"),
         );
         session.comparison.planning = structuredClone(session.notes);
+        recordQuestExperiment("population");
         persist();
         render();
         return;
@@ -1294,6 +1536,7 @@ export function mountLearningUI(host) {
           session.mother = null;
           session.father = null;
           session.punnett = null;
+          recordQuestExperiment("cross");
         } else
           session.punnett = punnettSquare(
             session.population.individuals.find((i) => i.uid === mother),
@@ -1412,6 +1655,16 @@ export function mountLearningUI(host) {
         return;
       }
       if (a.startsWith("species-")) {
+        if (!detailed) {
+          selected = a.slice(8);
+          const type = host.types[selected];
+          root.querySelector(".learn-panel").innerHTML =
+            panelHeader(type.name, "observe") +
+            `<p>Diese Art braucht Platz und passendes Wasser.</p><p>Mindestens ${type.minL} Liter · ${type.temp?.join("–") || "—"} °C</p>${button("add-species", "Einsetzen")}${button("material", "Zurück")}`;
+          questEvent(session.quest, "observe");
+          persist();
+          return;
+        }
         selected = a.slice(8);
         const s = host.types[selected];
         root.querySelector(".learn-panel").innerHTML =
@@ -1513,6 +1766,8 @@ export function mountLearningUI(host) {
       measurements: session?.measurements,
       storageError,
       study: session?.study,
+      quest: session?.quest,
+      detailed,
       resultMatchesPlan: session?.comparison
         ? planMatchesComparison(
             session.comparison,

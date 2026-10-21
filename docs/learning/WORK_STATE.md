@@ -11,3 +11,7 @@ P1 begonnen: eindeutige Hilfe „Beobachten“, kurze Hilfen für alle Jahrgäng
 P2 interaktives, gespeichertes Questbuch; P3 alle 14 Folgen mit echten Ereignissen; P4 reduzierte Schülerwerkzeuge und Ergebnisse, technische Ansichten für Lehrkräfte; P5 neue Quest-, Browser- und Regressionstests. Bisherige 100/82 Nachweise gelten nur für den alten Laufzeitstand 7e82046, nicht als Prüfung neuer Änderungen.
 
 Nur diesen Branch pushen. Kein Merge. GitHub-API ist bisher gesperrt; Beschreibung unter PR_BODY.md vorbereiten. Keine kostenpflichtigen Dienste. Physisches Safari/iPad und Unterricht bleiben offen.
+
+## Gesicherter Zwischenschritt P2/P3/P4
+
+Questzustand und 14 Folgen in learning-quests.mjs, reduzierte Ansichten in learning-student.mjs integriert. Fortschritt prüft echte Beobachtung, Vorhersage, geänderten berechneten Versuch, Kreuzung/Erbanlagen oder Generationen. Auswertung aus letzten gemeinsamen Messwerten, falsche Antwort wiederholbar. Bestehender Kern unverändert. Technische Untersuchung weiterhin über Lehrkraftmodus. Erste reale Desktop-Mission bis Auswertung getestet; 105 Modultests bestanden. Vollständiger Quest-/Touch-/Regressionslauf und Enddokumentation folgen, noch keine Endabnahme.

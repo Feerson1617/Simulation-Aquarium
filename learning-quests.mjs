@@ -1,0 +1,535 @@
+/** Short learner tasks. Scientific background remains in learning-content and teacher views. */
+
+const pick = (prompt, choices, correct, feedback) => ({
+  prompt,
+  choices,
+  correct,
+  feedback,
+});
+const q = (id, title, goal, experiment, observe, prediction, conclusion) => ({
+  id,
+  title,
+  goal,
+  experiment,
+  observe,
+  prediction,
+  conclusion,
+});
+const ecology = (tool, value, metric, label, unit = "") => ({
+  kind: "ecology",
+  tool,
+  value,
+  metric,
+  label,
+  unit,
+});
+const population = {
+  kind: "population",
+  metric: "dark",
+  label: "dunkle Fische",
+  unit: "Anteil",
+};
+const living = pick(
+  "Was lebt im Aquarium?",
+  ["Ein Fisch", "Das Wasser", "Das Licht"],
+  0,
+  "Ja. Ein Fisch ist ein Lebewesen.",
+);
+const pair = pick(
+  "Was bleibt am Anfang gleich?",
+  [
+    "Die Tiere und Pflanzen",
+    "Die spätere Lichtdauer",
+    "Die späteren Messwerte",
+  ],
+  0,
+  "Ja. Beide Becken starten mit denselben Tieren und Pflanzen.",
+);
+const trend = "Was erwartest du in Becken 2?";
+export const QUESTS = Object.fromEntries(
+  [
+    q(
+      "8-ecosystem",
+      "Ein Aquarium ist ein Ökosystem",
+      "Wasserbedingungen wirken auf Lebewesen.",
+      ecology("temperature", 20, "temp", "Temperatur", "°C"),
+      pick(
+        "Was ist kein Lebewesen?",
+        ["Das Wasser", "Ein Fisch", "Eine Pflanze"],
+        0,
+        "Ja. Wasser gehört trotzdem zum Lebensraum.",
+      ),
+      "Was passiert mit der Temperatur bei einem kühleren Heizer?",
+      pick(
+        "Was gehört zum Lebensraum?",
+        [
+          "Lebewesen und ihre Umgebung",
+          "Nur die Fische",
+          "Nur Tiere und Pflanzen",
+        ],
+        0,
+        "Tiere, Pflanzen und Wasser gehören zusammen. Die Temperatur wirkt auf die Lebewesen.",
+      ),
+    ),
+    q(
+      "8-oxygen",
+      "Woher kommt der Sauerstoff?",
+      "Licht ermöglicht die Sauerstoffbildung durch Pflanzen.",
+      ecology("light", 0, "oxygen", "Sauerstoff", "mg/L"),
+      pair,
+      "Was passiert ohne Licht mit dem Sauerstoff?",
+      pick(
+        "Was fällt ohne Licht weg?",
+        [
+          "Die Sauerstoffbildung durch Licht",
+          "Jeder Sauerstoffverbrauch",
+          "Der Austausch mit der Luft",
+        ],
+        0,
+        "Pflanzen geben bei Licht Sauerstoff ab. Ohne Licht fällt diese Quelle weg. Tiere und Pflanzen verbrauchen weiter Sauerstoff. Auch die Luft wirkt auf den Wert.",
+      ),
+    ),
+    q(
+      "8-foodweb",
+      "Wer ist mit wem verbunden?",
+      "Futterreste werden Teil des Stoffkreislaufs.",
+      ecology("feed", 2, "organic", "Futterreste", ""),
+      living,
+      "Was passiert bei mehr Futter mit den Resten?",
+      pick(
+        "Was geschieht mit Futterresten?",
+        [
+          "Kleine Lebewesen bauen sie ab",
+          "Der Filter macht sie zu nichts",
+          "Sie werden wieder zu Licht",
+        ],
+        0,
+        "Kleine Lebewesen bauen Reste ab. Dabei werden Nährstoffe frei. Pflanzen können sie aufnehmen. Stoffe werden wieder genutzt; Energie geht auch als Wärme nach außen.",
+      ),
+    ),
+    q(
+      "8-health",
+      "Den Fischen geht es nicht gut.",
+      "Eine Pflegemaßnahme mit einem Vergleich prüfen.",
+      ecology("water", 50, "health", "Zustand der Fische", "Punkte"),
+      pick(
+        "Worauf solltest du achten?",
+        [
+          "Auf die Fische und das Wasser",
+          "Nur auf klares Wasser",
+          "Nur auf die Farbe des Kieses",
+        ],
+        0,
+        "Ja. Schau auf die Tiere und auf das Wasser.",
+      ),
+      "Was bewirkt frisches Wasser für die Fische?",
+      pick(
+        "Was zeigt der Versuch?",
+        [
+          "Ob die Maßnahme hier geholfen hat",
+          "Dass klares Wasser immer gut ist",
+          "Dass es nur eine Ursache geben kann",
+        ],
+        0,
+        "Vergleiche die Fische und die Wasserwerte. Eine Maßnahme kann helfen. Damit ist noch nicht jede Ursache geklärt.",
+      ),
+    ),
+    q(
+      "8-forest",
+      "Vom Aquarium in den Wald",
+      "Pflanzen brauchen Licht – auch im Wald.",
+      ecology("light", 0, "plantBiomass", "Pflanzenmenge", ""),
+      living,
+      "Wie wachsen Pflanzen ohne Licht?",
+      pick(
+        "Was passt auch zum Wald?",
+        [
+          "Auch Bäume brauchen Licht",
+          "Waldboden ist dasselbe wie Wasser",
+          "Jede Aquariumpflanze wächst im Wald",
+        ],
+        0,
+        "Auch Bäume brauchen Licht. Der Wald hat aber Boden und andere Tiere. Nicht alles aus dem Aquarium passt zum Wald.",
+      ),
+    ),
+    q(
+      "9-traits",
+      "Gleiche Art, verschiedene Individuen",
+      "Gleiche Farbe kann verschiedene Erbanlagen haben.",
+      { kind: "traits" },
+      pick(
+        "Was kannst du direkt sehen?",
+        ["Die Farbe", "Die Erbanlagen", "Die späteren Nachkommen"],
+        0,
+        "Ja. Die Farbe ist sichtbar.",
+      ),
+      "Haben gleichfarbige Fische immer gleiche Erbanlagen?",
+      pick(
+        "Was hast du gesehen?",
+        [
+          "AA und Aa können gleich aussehen",
+          "Gleiche Farbe bedeutet immer gleiche Erbanlagen",
+          "Erbanlagen sind mit bloßem Auge sichtbar",
+        ],
+        0,
+        "Genotyp heißt: die Erbanlagen. Phänotyp heißt: das sichtbare Merkmal. Hier sehen AA und Aa beide dunkel aus. Die Buchstaben gehören zu unserem Farbversuch.",
+      ),
+    ),
+    q(
+      "9-mendel",
+      "Eine Kreuzung vorhersagen",
+      "Jedes Elternteil gibt eine Genvariante weiter.",
+      { kind: "cross" },
+      living,
+      "Welche Farbe erwartest du bei den Nachkommen?",
+      pick(
+        "Woher kommen die Erbanlagen eines Nachkommen?",
+        [
+          "Von beiden Eltern",
+          "Nur von der Mutter",
+          "Die Fische wählen sie selbst",
+        ],
+        0,
+        "Jedes Elternteil gibt eine Genvariante weiter. Eine Genvariante heißt Allel. Welche Variante weitergeht, wird zufällig bestimmt.",
+      ),
+    ),
+    q(
+      "9-population",
+      "Eine Population verändert sich",
+      "Nachkommen und Zufall verändern Farbanteile.",
+      population,
+      pick(
+        "Was ist eine Population?",
+        [
+          "Eine Gruppe derselben Art",
+          "Ein einzelner Fisch",
+          "Alle Tiere der Erde",
+        ],
+        0,
+        "Hier untersuchst du eine Gruppe derselben Art.",
+      ),
+      "Wie verändert sich der Anteil dunkler Fische?",
+      pick(
+        "Warum können sich Farbanteile ändern?",
+        [
+          "Unterschiedlich viele Nachkommen und Zufall",
+          "Ein Fisch wählt neue Erbanlagen",
+          "Dunkel ist immer besser",
+        ],
+        0,
+        "Manche Tiere haben mehr Nachkommen. Dadurch können ihre Varianten häufiger werden. Das heißt Selektion. Auch Zufall verändert Anteile. Das heißt Drift.",
+      ),
+    ),
+    q(
+      "9-darwin",
+      "Darwin und Lamarck prüfen",
+      "Selektion verändert Gruppen über Generationen.",
+      population,
+      pick(
+        "Was ist schon vor dem Versuch verschieden?",
+        [
+          "Die Farben der Fische",
+          "Die Fischart",
+          "Die Anzahl der Generationen",
+        ],
+        0,
+        "Die Farbvarianten sind schon vorher vorhanden.",
+      ),
+      "Werden dunkle Fische in dunkler Umgebung häufiger?",
+      pick(
+        "Welche Erklärung passt zur Auswahl der Eltern?",
+        [
+          "Vorhandene Varianten haben verschieden viele Nachkommen",
+          "Ein Fisch wird dunkel, weil er es braucht",
+          "Alle Fische verändern gezielt ihre Erbanlagen",
+        ],
+        0,
+        "Vorhandene Unterschiede wirken auf den Fortpflanzungserfolg. Über Generationen kann sich die Gruppe ändern. Einzelne Fische wählen keine neuen Erbanlagen aus Bedarf.",
+      ),
+    ),
+    q(
+      "10-enrichment",
+      "Zu viele Nährstoffe",
+      "Zusätzliche Nährstoffe können Algen fördern.",
+      ecology("nutrients", 40, "algae", "Algenmenge", ""),
+      living,
+      "Was passiert bei mehr Nährstoffen mit den Algen?",
+      pick(
+        "Warum kann zu viel Dünger schaden?",
+        [
+          "Mehr Biomasse kann später mehr Sauerstoffverbrauch bedeuten",
+          "Nährstoffe sind dasselbe wie Sauerstoff",
+          "Mehr Algen sind immer gut für Fische",
+        ],
+        0,
+        "Mehr Nährstoffe können Algen fördern. Werden Reste abgebaut, wird Sauerstoff verbraucht. Wie stark das passiert, hängt auch von Licht und Wasserbewegung ab.",
+      ),
+    ),
+    q(
+      "10-carbon",
+      "Kohlenstoff in Bewegung",
+      "Kohlenstoff wechselt zwischen Luft, Wasser und Lebewesen.",
+      ecology("co2", 6, "co2", "Kohlenstoffdioxid", "mg/L"),
+      pick(
+        "Was gehört zu Pflanzen und Tieren?",
+        ["Kohlenstoff", "Nur Wasser", "Nur Sauerstoff"],
+        0,
+        "Kohlenstoff steckt in Lebewesen und in Kohlenstoffdioxid.",
+      ),
+      "Was passiert bei mehr Zufuhr mit dem Kohlenstoffdioxid?",
+      pick(
+        "Was passiert beim Verbrennen von Kohle?",
+        [
+          "Gespeicherter Kohlenstoff gelangt als Kohlenstoffdioxid in die Luft",
+          "Kohlenstoff verschwindet",
+          "Es wirkt nur auf das Aquarium",
+        ],
+        0,
+        "Pflanzen nehmen Kohlenstoffdioxid auf. Atmung gibt es wieder ab. Menschen bringen durch Kohle, Öl und Gas zusätzlichen Kohlenstoff in die Luft. Das Aquarium berechnet diese weltweiten Mengen nicht.",
+      ),
+    ),
+    q(
+      "10-restore",
+      "Ein gestörtes System stabilisieren",
+      "Die Wirkung einer Maßnahme anhand von Daten prüfen.",
+      ecology("water", 50, "health", "Zustand der Fische", "Punkte"),
+      pick(
+        "Was braucht ein fairer Vergleich?",
+        [
+          "Zwei gleiche Becken am Anfang",
+          "Zwei ganz verschiedene Becken",
+          "Nur einen Wert am Ende",
+        ],
+        0,
+        "Ja. Nur eine Bedingung soll sich unterscheiden.",
+      ),
+      "Wie wirkt ein Wasserwechsel auf die Fische?",
+      pick(
+        "Wie prüfst du deine Entscheidung?",
+        [
+          "Mit beiden Verläufen und mehreren Werten",
+          "Nur mit dem schönsten Becken",
+          "Mit einem Wert ohne Vergleich",
+        ],
+        0,
+        "Prüfe den ganzen Verlauf. Eine schnelle Verbesserung muss nicht dauerhaft sein. Auch die Ursache des Problems bleibt wichtig.",
+      ),
+    ),
+    q(
+      "10-northsea",
+      "Vom Becken in die Nordsee",
+      "Nährstoffeinträge können auch im Meer Folgen haben.",
+      ecology("nutrients", 40, "algae", "Algenmenge", ""),
+      living,
+      "Was bewirken zusätzliche Nährstoffe für Algen?",
+      pick(
+        "Welche Maßnahme passt zum Problem?",
+        [
+          "Weniger Nährstoffe über Flüsse eintragen",
+          "Mehr Nährstoffe ins Meer leiten",
+          "Aquariumwerte für die ganze Nordsee übernehmen",
+        ],
+        0,
+        "Nährstoffe gelangen auch über Flüsse ins Meer. Weniger Eintrag kann helfen. Strömung und Schichtung wirken ebenfalls mit. Das Becken zeigt nicht die ganze Nordsee.",
+      ),
+    ),
+    q(
+      "10-wadden",
+      "Wattenmeer nutzen und schützen",
+      "Müllschutz braucht passende Maßnahmen.",
+      ecology("water", 50, "loadLevel", "Probleme im Wasser", "Stufe"),
+      pick(
+        "Was kannst du im Becken prüfen?",
+        [
+          "Die Wirkung von frischem Wasser",
+          "Alle Folgen von Plastik im Meer",
+          "Die Gezeiten des Wattenmeers",
+        ],
+        0,
+        "Im Becken kannst du einen Wasserwechsel prüfen.",
+      ),
+      "Wie wirkt frisches Wasser auf die Wasserprobleme?",
+      pick(
+        "Müll kann Tiere verletzen. Was hilft, ohne nur eine Reinigung zu verschieben?",
+        [
+          "Mehrweg nutzen und Müll vermeiden",
+          "Nur Wasser austauschen",
+          "Plastik als Pflanzennährstoff nutzen",
+        ],
+        0,
+        "Weniger Müll schützt Tiere. Mehrweg braucht Rückgabe und Reinigung. Plastik ist kein Pflanzennährstoff. Unser Wasserwert misst keine Plastikschäden.",
+      ),
+    ),
+  ].map((d) => [d.id, d]),
+);
+export const STEP_NAMES = [
+  "Anschauen",
+  "Vermuten",
+  "Ausprobieren",
+  "Vergleichen",
+  "Erklären",
+];
+export function newQuest(id) {
+  if (!QUESTS[id]) return null;
+  return {
+    version: 1,
+    id,
+    step: 0,
+    observed: false,
+    entries: [],
+    result: null,
+    feedback: "",
+    collapsed: false,
+  };
+}
+export function comparisonReading(comp, experiment) {
+  const run = comp?.runs?.[0];
+  if (!run) return null;
+  const axis = comp.kind === "population" ? "generation" : "day";
+  const row = run.control
+    .map((control) => ({
+      time: control[axis],
+      control,
+      test: run.test.find((test) => test[axis] === control[axis]),
+    }))
+    .filter(
+      (r) =>
+        Number.isFinite(r.control?.[experiment.metric]) &&
+        Number.isFinite(r.test?.[experiment.metric]),
+    )
+    .at(-1);
+  if (!row) return null;
+  return {
+    kind: comp.kind,
+    key: experiment.metric,
+    label: experiment.label,
+    unit: experiment.unit,
+    time: row.time,
+    control: row.control[experiment.metric],
+    test: row.test[experiment.metric],
+    statuses: structuredClone(run.status || {}),
+    configuration: structuredClone(comp.configuration || null),
+  };
+}
+export function resultQuestion(q, result) {
+  if (q.experiment.kind === "traits")
+    return {
+      prompt: "Haben alle dunklen Fische dieselben Erbanlagen?",
+      choices: ["Nein", "Ja"],
+      correct: 0,
+    };
+  if (q.experiment.kind === "cross")
+    return {
+      prompt: "Welche Farben haben deine Nachkommen?",
+      choices: ["Nur dunkel", "Nur hell", "Dunkel und hell"],
+      correct: result?.dark === 1 ? 0 : result?.light === 1 ? 1 : 2,
+    };
+  return {
+    prompt: `Wo ist beim letzten gemeinsamen Wert mehr ${q.experiment.label}?`,
+    choices: ["In Becken 1", "In Becken 2", "Gleich viel"],
+    correct: !result
+      ? -1
+      : Math.abs(result.control - result.test) <= 1e-9
+        ? 2
+        : result.control > result.test
+          ? 0
+          : 1,
+  };
+}
+/** Only real UI/engine handlers call events. A missing or irrelevant action cannot advance a task. */
+export function questEvent(state, event, evidence = {}) {
+  if (!state || !QUESTS[state.id]) return false;
+  if (event === "observe") {
+    state.observed = true;
+    return false;
+  }
+  const d = QUESTS[state.id],
+    kind = d.experiment.kind;
+  if (state.step !== 2 || event !== kind) return false;
+  if (kind === "ecology" && (!evidence.changed || !evidence.result))
+    return false;
+  if (kind === "population" && (!evidence.result || evidence.generations < 2))
+    return false;
+  if (kind === "cross" && (!evidence.result || evidence.generation < 1))
+    return false;
+  if (kind === "traits" && (!evidence.hasAA || !evidence.hasAa)) return false;
+  state.result = structuredClone(evidence.result || { kind: "traits" });
+  state.entries.push({
+    step: 2,
+    event,
+    evidence: structuredClone(evidence),
+    at: new Date().toISOString(),
+  });
+  state.step = 3;
+  state.feedback = "Der Versuch ist fertig. Vergleiche jetzt die Ergebnisse.";
+  return true;
+}
+export function answerQuest(state, index) {
+  if (!state || !QUESTS[state.id] || !Number.isInteger(index)) return false;
+  const d = QUESTS[state.id],
+    step = state.step;
+  const question =
+    step === 0
+      ? d.observe
+      : step === 1
+        ? { prompt: d.prediction, choices: predictionChoices(d) }
+        : step === 3
+          ? resultQuestion(d, state.result)
+          : step === 4
+            ? d.conclusion
+            : null;
+  if (!question || index < 0 || index >= question.choices.length) return false;
+  if (step === 0 && !state.observed) {
+    state.feedback = "Schau zuerst ins Aquarium. Öffne „Beobachten“.";
+    return false;
+  }
+  if (step === 3 && !state.result) {
+    state.feedback = "Starte zuerst den Versuch.";
+    return false;
+  }
+  if (step !== 1 && index !== question.correct) {
+    state.feedback =
+      step === 3
+        ? "Schau noch einmal auf die Ergebnisse. Versuche es erneut."
+        : "Schau noch einmal hin. Versuche es erneut.";
+    return false;
+  }
+  state.entries.push({
+    step,
+    question: question.prompt,
+    answer: question.choices[index],
+    at: new Date().toISOString(),
+  });
+  state.step++;
+  state.feedback =
+    step === 1
+      ? "Deine Vermutung ist gespeichert. Probiere es aus."
+      : question.feedback || "Ja. Das passt zu deinen Ergebnissen.";
+  return true;
+}
+export function predictionChoices(d) {
+  return d.experiment.kind === "traits"
+    ? ["Ja", "Nein", "Ich bin noch unsicher"]
+    : d.experiment.kind === "cross"
+      ? ["Nur dunkel", "Nur hell", "Dunkel und hell"]
+      : ["Es wird mehr.", "Es wird weniger.", "Es bleibt gleich."];
+}
+/** Bounded, read-only quest records; no imported record can advance the simulation. */
+export function validateQuest(raw, mission) {
+  if (raw == null) return null;
+  if (
+    raw.version !== 1 ||
+    raw.id !== mission ||
+    !QUESTS[raw.id] ||
+    !Number.isInteger(raw.step) ||
+    raw.step < 0 ||
+    raw.step > 5 ||
+    !Array.isArray(raw.entries) ||
+    raw.entries.length > 5
+  )
+    throw new Error("Ungültiges Questbuch.");
+  // Exported evidence is plain bounded JSON, never commands or executable state.
+  const text = JSON.stringify(raw);
+  if (text.length > 32000) throw new Error("Questbuch ist zu groß.");
+  return JSON.parse(text);
+}

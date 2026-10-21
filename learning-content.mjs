@@ -399,90 +399,90 @@ export const SUPPORT = {
   },
 };
 export const HELP = {
-  "observe": {
-    "term": "Beobachten",
-    "8": "Schau genau hin. Was passiert im Aquarium?",
-    "9": "Schau genau hin. Was passiert im Aquarium?",
-    "10": "Schau genau hin. Was passiert im Aquarium?"
+  observe: {
+    term: "Beobachten",
+    8: "Schau genau hin. Was passiert im Aquarium?",
+    9: "Schau genau hin. Was passiert im Aquarium?",
+    10: "Schau genau hin. Was passiert im Aquarium?",
   },
-  "oxygen": {
-    "term": "Sauerstoff",
-    "8": "Fische und Pflanzen brauchen Sauerstoff. Bei Licht geben Pflanzen auch Sauerstoff ins Wasser ab.",
-    "9": "Fische und Pflanzen brauchen Sauerstoff. Bei Licht geben Pflanzen auch Sauerstoff ins Wasser ab.",
-    "10": "Fische und Pflanzen brauchen Sauerstoff. Bei Licht geben Pflanzen auch Sauerstoff ins Wasser ab."
+  oxygen: {
+    term: "Sauerstoff",
+    8: "Fische und Pflanzen brauchen Sauerstoff. Bei Licht geben Pflanzen auch Sauerstoff ins Wasser ab.",
+    9: "Fische und Pflanzen brauchen Sauerstoff. Bei Licht geben Pflanzen auch Sauerstoff ins Wasser ab.",
+    10: "Fische und Pflanzen brauchen Sauerstoff. Bei Licht geben Pflanzen auch Sauerstoff ins Wasser ab.",
   },
-  "nutrients": {
-    "term": "Nährstoffe",
-    "8": "Pflanzen brauchen Nährstoffe zum Wachsen. Zu viel davon kann dem Becken schaden.",
-    "9": "Pflanzen brauchen Nährstoffe zum Wachsen. Zu viel davon kann dem Becken schaden.",
-    "10": "Pflanzen brauchen Nährstoffe zum Wachsen. Zu viel davon kann dem Becken schaden."
+  nutrients: {
+    term: "Nährstoffe",
+    8: "Pflanzen brauchen Nährstoffe zum Wachsen. Zu viel davon kann dem Becken schaden.",
+    9: "Pflanzen brauchen Nährstoffe zum Wachsen. Zu viel davon kann dem Becken schaden.",
+    10: "Pflanzen brauchen Nährstoffe zum Wachsen. Zu viel davon kann dem Becken schaden.",
   },
-  "load": {
-    "term": "Probleme im Wasser",
-    "8": "Futterreste oder schädliche Stoffe können Tiere belasten. Auch zu wenig Sauerstoff ist ein Problem.",
-    "9": "Futterreste oder schädliche Stoffe können Tiere belasten. Auch zu wenig Sauerstoff ist ein Problem.",
-    "10": "Futterreste oder schädliche Stoffe können Tiere belasten. Auch zu wenig Sauerstoff ist ein Problem."
+  load: {
+    term: "Probleme im Wasser",
+    8: "Futterreste oder schädliche Stoffe können Tiere belasten. Auch zu wenig Sauerstoff ist ein Problem.",
+    9: "Futterreste oder schädliche Stoffe können Tiere belasten. Auch zu wenig Sauerstoff ist ein Problem.",
+    10: "Futterreste oder schädliche Stoffe können Tiere belasten. Auch zu wenig Sauerstoff ist ein Problem.",
   },
-  "hypothesis": {
-    "term": "Vermutung",
-    "8": "Was glaubst du, wird passieren? Probiere es danach aus.",
-    "9": "Was glaubst du, wird passieren? Probiere es danach aus.",
-    "10": "Was glaubst du, wird passieren? Probiere es danach aus."
+  hypothesis: {
+    term: "Vermutung",
+    8: "Was glaubst du, wird passieren? Probiere es danach aus.",
+    9: "Was glaubst du, wird passieren? Probiere es danach aus.",
+    10: "Was glaubst du, wird passieren? Probiere es danach aus.",
   },
-  "control": {
-    "term": "Zwei Becken",
-    "8": "Beide Becken starten gleich. Du veränderst nur Becken 2.",
-    "9": "Beide Becken starten gleich. Du veränderst nur Becken 2.",
-    "10": "Beide Becken starten gleich. Du veränderst nur Becken 2."
+  control: {
+    term: "Zwei Becken",
+    8: "Beide Becken starten gleich. Du veränderst nur Becken 2.",
+    9: "Beide Becken starten gleich. Du veränderst nur Becken 2.",
+    10: "Beide Becken starten gleich. Du veränderst nur Becken 2.",
   },
-  "energy": {
-    "term": "Nahrung und Licht",
-    "8": "Die Pfeile zeigen: Was wird von wem gefressen? Licht liefert Energie; Wärme geht nach außen.",
-    "9": "Die Pfeile zeigen: Was wird von wem gefressen? Licht liefert Energie; Wärme geht nach außen.",
-    "10": "Die Pfeile zeigen: Was wird von wem gefressen? Licht liefert Energie; Wärme geht nach außen."
+  energy: {
+    term: "Nahrung und Licht",
+    8: "Die Pfeile zeigen: Was wird von wem gefressen? Licht liefert Energie; Wärme geht nach außen.",
+    9: "Die Pfeile zeigen: Was wird von wem gefressen? Licht liefert Energie; Wärme geht nach außen.",
+    10: "Die Pfeile zeigen: Was wird von wem gefressen? Licht liefert Energie; Wärme geht nach außen.",
   },
-  "genotype": {
-    "term": "Erbanlagen und Farbe",
-    "8": "Genotyp heißt: die Erbanlagen, hier AA, Aa oder aa. Phänotyp heißt: das sichtbare Merkmal, hier die Farbe.",
-    "9": "Genotyp heißt: die Erbanlagen, hier AA, Aa oder aa. Phänotyp heißt: das sichtbare Merkmal, hier die Farbe.",
-    "10": "Genotyp heißt: die Erbanlagen, hier AA, Aa oder aa. Phänotyp heißt: das sichtbare Merkmal, hier die Farbe."
+  genotype: {
+    term: "Erbanlagen und Farbe",
+    8: "Genotyp heißt: die Erbanlagen, hier AA, Aa oder aa. Phänotyp heißt: das sichtbare Merkmal, hier die Farbe.",
+    9: "Genotyp heißt: die Erbanlagen, hier AA, Aa oder aa. Phänotyp heißt: das sichtbare Merkmal, hier die Farbe.",
+    10: "Genotyp heißt: die Erbanlagen, hier AA, Aa oder aa. Phänotyp heißt: das sichtbare Merkmal, hier die Farbe.",
   },
-  "selection": {
-    "term": "Über Generationen",
-    "8": "Manche Tiere haben mehr Nachkommen als andere. Auch Zufall kann die Anteile verändern.",
-    "9": "Manche Tiere haben mehr Nachkommen als andere. Auch Zufall kann die Anteile verändern.",
-    "10": "Manche Tiere haben mehr Nachkommen als andere. Auch Zufall kann die Anteile verändern."
+  selection: {
+    term: "Über Generationen",
+    8: "Manche Tiere haben mehr Nachkommen als andere. Auch Zufall kann die Anteile verändern.",
+    9: "Manche Tiere haben mehr Nachkommen als andere. Auch Zufall kann die Anteile verändern.",
+    10: "Manche Tiere haben mehr Nachkommen als andere. Auch Zufall kann die Anteile verändern.",
   },
-  "nitrogen": {
-    "term": "Nitrat und Nitrit",
-    "8": "Nitrat ist ein Nährstoff für Pflanzen. Nitrit kann Fischen schaden.",
-    "9": "Nitrat ist ein Nährstoff für Pflanzen. Nitrit kann Fischen schaden.",
-    "10": "Nitrat ist ein Nährstoff für Pflanzen. Nitrit kann Fischen schaden."
+  nitrogen: {
+    term: "Nitrat und Nitrit",
+    8: "Nitrat ist ein Nährstoff für Pflanzen. Nitrit kann Fischen schaden.",
+    9: "Nitrat ist ein Nährstoff für Pflanzen. Nitrit kann Fischen schaden.",
+    10: "Nitrat ist ein Nährstoff für Pflanzen. Nitrit kann Fischen schaden.",
   },
-  "carbon": {
-    "term": "Kohlenstoff",
-    "8": "Kohlenstoff steckt in Lebewesen. Pflanzen nehmen ihn aus Kohlenstoffdioxid auf.",
-    "9": "Kohlenstoff steckt in Lebewesen. Pflanzen nehmen ihn aus Kohlenstoffdioxid auf.",
-    "10": "Kohlenstoff steckt in Lebewesen. Pflanzen nehmen ihn aus Kohlenstoffdioxid auf."
+  carbon: {
+    term: "Kohlenstoff",
+    8: "Kohlenstoff steckt in Lebewesen. Pflanzen nehmen ihn aus Kohlenstoffdioxid auf.",
+    9: "Kohlenstoff steckt in Lebewesen. Pflanzen nehmen ihn aus Kohlenstoffdioxid auf.",
+    10: "Kohlenstoff steckt in Lebewesen. Pflanzen nehmen ihn aus Kohlenstoffdioxid auf.",
   },
-  "model": {
-    "term": "Das Aquarium",
-    "8": "Das Aquarium zeigt einen Teil der Natur. Nicht alles passiert draußen genauso.",
-    "9": "Das Aquarium zeigt einen Teil der Natur. Nicht alles passiert draußen genauso.",
-    "10": "Das Aquarium zeigt einen Teil der Natur. Nicht alles passiert draußen genauso."
+  model: {
+    term: "Das Aquarium",
+    8: "Das Aquarium zeigt einen Teil der Natur. Nicht alles passiert draußen genauso.",
+    9: "Das Aquarium zeigt einen Teil der Natur. Nicht alles passiert draußen genauso.",
+    10: "Das Aquarium zeigt einen Teil der Natur. Nicht alles passiert draußen genauso.",
   },
-  "quest": {
-    "term": "Questbuch",
-    "8": "Hier steht deine nächste Aufgabe. Deine Antworten und Handlungen werden gespeichert.",
-    "9": "Hier steht deine nächste Aufgabe. Deine Antworten und Handlungen werden gespeichert.",
-    "10": "Hier steht deine nächste Aufgabe. Deine Antworten und Handlungen werden gespeichert."
+  quest: {
+    term: "Questbuch",
+    8: "Hier steht deine nächste Aufgabe. Deine Antworten und Handlungen werden gespeichert.",
+    9: "Hier steht deine nächste Aufgabe. Deine Antworten und Handlungen werden gespeichert.",
+    10: "Hier steht deine nächste Aufgabe. Deine Antworten und Handlungen werden gespeichert.",
   },
-  "measure": {
-    "term": "Werte ansehen",
-    "8": "Ein Messwert zeigt den Zustand zu einem Zeitpunkt. Vergleiche mehrere Zeitpunkte.",
-    "9": "Ein Messwert zeigt den Zustand zu einem Zeitpunkt. Vergleiche mehrere Zeitpunkte.",
-    "10": "Ein Messwert zeigt den Zustand zu einem Zeitpunkt. Vergleiche mehrere Zeitpunkte."
-  }
+  measure: {
+    term: "Werte ansehen",
+    8: "Ein Messwert zeigt den Zustand zu einem Zeitpunkt. Vergleiche mehrere Zeitpunkte.",
+    9: "Ein Messwert zeigt den Zustand zu einem Zeitpunkt. Vergleiche mehrere Zeitpunkte.",
+    10: "Ein Messwert zeigt den Zustand zu einem Zeitpunkt. Vergleiche mehrere Zeitpunkte.",
+  },
 };
 export const TRANSFER = {
   carbon: {

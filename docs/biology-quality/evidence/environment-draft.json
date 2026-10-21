@@ -1,0 +1,49 @@
+{
+  "draft_id": "caa0ecca-c46d-4185-9396-c8edcf5c9d47~cecfgdraft_6ad4f4292ef081979518e3376aed5207",
+  "status": "saved",
+  "requires_publish": true,
+  "repositories": [
+    {
+      "name": "Feerson1617/Simulation-Aquarium",
+      "host": "github.com",
+      "commit": "fae8e98383ef80c01a691ec0edbe6466a57a06c3",
+      "mount_path": "Simulation-Aquarium"
+    }
+  ],
+  "draft_revision": 8,
+  "saved_fields": [
+    "repositories",
+    "install_script",
+    "start_skill",
+    "network.allowed_domains"
+  ],
+  "custom_allowed_domains": [
+    "api.github.com",
+    "cdn.playwright.dev",
+    "feerson1617.github.io",
+    "playwright.download.prss.microsoft.com",
+    "www.nationalpark-wattenmeer.de",
+    "www.ospar.org"
+  ],
+  "presets": [
+    "package_managers"
+  ],
+  "secrets_added": [],
+  "portable_packages": 19,
+  "portable_elf_objects_resolved": 16,
+  "portable_setup_repeated": true,
+  "root_required": false,
+  "system_packages_changed": false,
+  "entire_available_local_install_section_executed": true,
+  "bash_syntax_checked": true,
+  "webkit_binary_present": false,
+  "webkit_game_tests_executed": false,
+  "observed_runtime": {
+    "observations_current": true,
+    "spec_revision": "1",
+    "network_state": "enforced",
+    "custom_allowed_hosts": []
+  },
+  "activation_verified": false,
+  "receipt_recorded": "2026-10-21T21:37:46.751064+00:00"
+}

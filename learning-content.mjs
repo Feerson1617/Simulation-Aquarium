@@ -34,7 +34,7 @@ export const GRADE_PROFILES = {
     catalog: ["molly", "platy", "zebra", "waterweed", "anubias"],
     observations: ["individuals", "traits", "generations"],
     tools: ["cross", "selection", "light", "feed", "water"],
-    question: "Wie verändern sich Merkmale und Allele über Generationen?",
+    question: "Welche Farben haben die Nachkommen?",
     diagnosis:
       "Ist ein dominantes Allel immer häufig oder vorteilhaft? Begründe.",
     reflection:
@@ -62,8 +62,7 @@ export const GRADE_PROFILES = {
       "temperature",
       "co2",
     ],
-    question:
-      "Wie kannst du einen Eingriff untersuchen und seine Folgen bewerten?",
+    question: "Welche Veränderung hilft dem Aquarium?",
     diagnosis:
       "Kann mehr Pflanzennährstoff zugleich Wachstum fördern und Tiere gefährden? Erkläre.",
     reflection:
@@ -483,6 +482,24 @@ export const HELP = {
     9: "Ein Messwert zeigt den Zustand zu einem Zeitpunkt. Vergleiche mehrere Zeitpunkte.",
     10: "Ein Messwert zeigt den Zustand zu einem Zeitpunkt. Vergleiche mehrere Zeitpunkte.",
   },
+};
+HELP.species = {
+  term: "Tiere und Pflanzen",
+  8: "Wähle eine Art. Schau nach, was sie braucht.",
+  9: "Wähle eine Art. Schau nach, was sie braucht.",
+  10: "Wähle eine Art. Schau nach, was sie braucht.",
+};
+HELP.results = {
+  term: "Meine Ergebnisse",
+  8: "Hier findest du deine Antworten und Messungen. Du kannst sie speichern.",
+  9: "Hier findest du deine Antworten und Messungen. Du kannst sie speichern.",
+  10: "Hier findest du deine Antworten und Messungen. Du kannst sie speichern.",
+};
+HELP.free = {
+  term: "Freies Forschen",
+  8: "Wähle deine eigene Frage. Probiere sie mit einem Versuch aus.",
+  9: "Wähle deine eigene Frage. Probiere sie mit einem Versuch aus.",
+  10: "Wähle deine eigene Frage. Probiere sie mit einem Versuch aus.",
 };
 export const TRANSFER = {
   carbon: {

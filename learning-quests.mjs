@@ -93,7 +93,7 @@ export const QUESTS = Object.fromEntries(
       "8-foodweb",
       "Wer ist mit wem verbunden?",
       "Futterreste werden Teil des Stoffkreislaufs.",
-      ecology("feed", 2, "organic", "Futterreste", ""),
+      ecology("feed", 2, "organic", "Reste", ""),
       living,
       "Was passiert bei mehr Futter mit den Resten?",
       pick(
@@ -425,8 +425,23 @@ export function resultQuestion(q, result) {
       correct: result?.dark === 1 ? 0 : result?.light === 1 ? 1 : 2,
     };
   return {
-    prompt: `Wo ist beim letzten gemeinsamen Wert mehr ${q.experiment.label}?`,
-    choices: ["In Becken 1", "In Becken 2", "Gleich viel"],
+    prompt:
+      q.experiment.kind === "population"
+        ? "Wo ist der Anteil dunkler Fische größer?"
+        : {
+            temp: "Wo ist die Temperatur höher?",
+            oxygen: "Wo ist mehr Sauerstoff?",
+            health: "Wo geht es den Fischen besser?",
+            organic: "Wo gibt es mehr Reste?",
+            plantBiomass: "Wo gibt es mehr Pflanzen?",
+            algae: "Wo gibt es mehr Algen?",
+            co2: "Wo ist mehr Kohlenstoffdioxid?",
+            loadLevel: "Wo sind die Wasserprobleme größer?",
+          }[q.experiment.metric],
+    choices:
+      q.experiment.kind === "population"
+        ? ["In Gruppe 1", "In Gruppe 2", "Gleich groß"]
+        : ["In Becken 1", "In Becken 2", "Gleich viel"],
     correct: !result
       ? -1
       : Math.abs(result.control - result.test) <= 1e-9
@@ -446,9 +461,17 @@ export function questEvent(state, event, evidence = {}) {
   const d = QUESTS[state.id],
     kind = d.experiment.kind;
   if (state.step !== 2 || event !== kind) return false;
-  if (kind === "ecology" && (!evidence.changed || !evidence.result))
+  if (
+    kind === "ecology" &&
+    (!evidence.changed || evidence.compatible === false || !evidence.result)
+  )
     return false;
-  if (kind === "population" && (!evidence.result || evidence.generations < 2))
+  if (
+    kind === "population" &&
+    (!evidence.result ||
+      evidence.compatible === false ||
+      evidence.generations < 2)
+  )
     return false;
   if (kind === "cross" && (!evidence.result || evidence.generation < 1))
     return false;
@@ -508,11 +531,59 @@ export function answerQuest(state, index) {
   return true;
 }
 export function predictionChoices(d) {
-  return d.experiment.kind === "traits"
-    ? ["Ja", "Nein", "Ich bin noch unsicher"]
-    : d.experiment.kind === "cross"
-      ? ["Nur dunkel", "Nur hell", "Dunkel und hell"]
-      : ["Es wird mehr.", "Es wird weniger.", "Es bleibt gleich."];
+  if (d.experiment.kind === "traits")
+    return ["Ja", "Nein", "Ich bin noch unsicher"];
+  if (d.experiment.kind === "cross")
+    return ["Nur dunkel", "Nur hell", "Dunkel und hell"];
+  if (d.experiment.kind === "population")
+    return [
+      "Der Anteil steigt.",
+      "Der Anteil sinkt.",
+      "Der Anteil bleibt gleich.",
+    ];
+  const labels = {
+    temp: [
+      "Das Wasser wird wärmer.",
+      "Das Wasser wird kühler.",
+      "Die Temperatur bleibt gleich.",
+    ],
+    oxygen: [
+      "Es gibt mehr Sauerstoff.",
+      "Es gibt weniger Sauerstoff.",
+      "Es bleibt gleich viel Sauerstoff.",
+    ],
+    health: [
+      "Den Fischen geht es besser.",
+      "Den Fischen geht es schlechter.",
+      "Den Fischen geht es gleich.",
+    ],
+    organic: [
+      "Es bleiben mehr Reste.",
+      "Es bleiben weniger Reste.",
+      "Es bleibt gleich viel übrig.",
+    ],
+    plantBiomass: [
+      "Die Pflanzen wachsen stärker.",
+      "Die Pflanzen wachsen schwächer.",
+      "Die Pflanzen wachsen gleich stark.",
+    ],
+    algae: [
+      "Es gibt mehr Algen.",
+      "Es gibt weniger Algen.",
+      "Die Algenmenge bleibt gleich.",
+    ],
+    co2: [
+      "Es gibt mehr Kohlenstoffdioxid.",
+      "Es gibt weniger Kohlenstoffdioxid.",
+      "Die Menge bleibt gleich.",
+    ],
+    loadLevel: [
+      "Die Probleme nehmen zu.",
+      "Die Probleme nehmen ab.",
+      "Die Probleme bleiben gleich.",
+    ],
+  };
+  return labels[d.experiment.metric];
 }
 /** Bounded, read-only quest records; no imported record can advance the simulation. */
 export function validateQuest(raw, mission) {
@@ -528,7 +599,35 @@ export function validateQuest(raw, mission) {
     raw.entries.length > 5
   )
     throw new Error("Ungültiges Questbuch.");
-  // Exported evidence is plain bounded JSON, never commands or executable state.
+  if (
+    raw.entries.length !== raw.step ||
+    typeof raw.observed !== "boolean" ||
+    typeof raw.collapsed !== "boolean" ||
+    typeof raw.feedback !== "string" ||
+    raw.feedback.length > 2000
+  )
+    throw new Error("Unvollständiges Questbuch.");
+  for (const [i, e] of raw.entries.entries()) {
+    if (!e || e.step !== i || typeof e.at !== "string" || e.at.length > 80)
+      throw new Error("Ungültige Questantwort.");
+    if (i === 2) {
+      if (
+        e.event !== QUESTS[raw.id].experiment.kind ||
+        !e.evidence ||
+        typeof e.evidence !== "object"
+      )
+        throw new Error("Ungültiger Versuchsbeleg.");
+    } else if (
+      typeof e.question !== "string" ||
+      typeof e.answer !== "string" ||
+      e.question.length > 2000 ||
+      e.answer.length > 2000
+    )
+      throw new Error("Ungültige Questantwort.");
+  }
+  if (raw.step >= 3 && (!raw.result || typeof raw.result !== "object"))
+    throw new Error("Versuchsergebnis fehlt.");
+  // Plain bounded JSON is read only and never used as commands or executable state.
   const text = JSON.stringify(raw);
   if (text.length > 32000) throw new Error("Questbuch ist zu groß.");
   return JSON.parse(text);

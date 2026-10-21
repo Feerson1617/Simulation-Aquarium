@@ -5,6 +5,7 @@ AQUARIUM_LEARNING_SECTION=teacher and AQUARIUM_LEARNING_PREVIOUS=<results folder
 The original grade-8 export is used to verify the real learning-product import.
 """
 import json,os,shutil
+from learning_technical_browser_helpers import technical_start
 from pathlib import Path
 from datetime import datetime,timezone
 from playwright.sync_api import sync_playwright,expect
@@ -17,10 +18,7 @@ def passed(name):report['checks'].append(name);print('PASS',name,flush=True)
 def click(p,a):p.locator('[data-learn="'+a+'"]').filter(visible=True).first.click()
 def snap(p):return p.evaluate('window.aquariumLearningSnapshot()')
 def screenshot(p,name):p.screenshot(path=str(OUT/name));report['screenshots'].append(name)
-def prepare(p,grade,mode='free',mission=None):
- p.locator(f'[data-learn-grade="{grade}"]').click()
- if mode=='free':click(p,'free')
- else:click(p,'missions');p.locator(f'[data-learn-mission="{mission}"]').click()
+def prepare(p,grade,mode='free',mission=None):technical_start(p,grade,mission)
 def plan(p):
  for key,text in {'question':'Wie verändert eine Bedingung den Verlauf?','hypothesis':'Ich vermute eine Veränderung durch den Eingriff.','prediction':'Im Versuch erwarte ich einen anderen Verlauf als in der Kontrolle.','plan':'Ich ändere eine Bedingung, messe beide und halte den Anfang gleich.'}.items():
   loc=p.locator(f'[data-learning-note="{key}"]')
@@ -42,7 +40,7 @@ with sync_playwright() as pw:
     if grade==9:assert 'Modellgenotypen einblenden' in text;assert 'Temperatur' not in text
     if grade==10:assert 'Nährstoffe' in text and 'Wasserbelastung' in text
     click(page,'measure');assert len(snap(page)['measurements'])==1
-    page.locator('[data-learn-help="load"]').click();expect(page.get_by_role('dialog',name='Begriffshilfe')).to_be_visible();page.keyboard.press('Escape');assert not page.locator('.learn-help-pop').count();assert page.evaluate('document.querySelector("#scene").inert');click(page,'close');assert not page.evaluate('document.querySelector("#scene").inert')
+    page.locator('[data-learn-help="observe"]').click();expect(page.get_by_role('dialog',name='Begriffshilfe')).to_be_visible();page.keyboard.press('Escape');assert not page.locator('.learn-help-pop').count();assert page.evaluate('document.querySelector("#scene").inert');click(page,'close');assert not page.evaluate('document.querySelector("#scene").inert')
     passed(f'grade {grade}: reduced observations, contextual help, actual measurement, camera gating')
     click(page,'investigate');
     if grade==9:click(page,'population-compare')

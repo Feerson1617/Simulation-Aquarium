@@ -168,7 +168,7 @@ export function mountLearningUI(host) {
   function studentManual() {
     if (!session.measurements.length) return "";
     const keys = recordedMetrics(session.measurements, metrics()).filter((k) =>
-        studentMetricKeys().includes(k),
+        (tag.grade === 9 ? ["individuals"] : studentMetricKeys()).includes(k),
       ),
       key = keys.includes(manualMetric) ? manualMetric : keys[0];
     if (!key) return "";
@@ -187,8 +187,7 @@ export function mountLearningUI(host) {
     if (!d) return;
     let evidence;
     if (kind === "ecology") {
-      const c = session.comparison,
-        first = c?.runs[0];
+      const c = session.comparison;
       // The actual intervention must change the cloned baseline, not merely be selected.
       const changed =
         JSON.stringify(
@@ -198,11 +197,17 @@ export function mountLearningUI(host) {
         changed,
         result: comparisonReading(c, d.experiment),
         tool: c.tool,
+        compatible:
+          c.tool === d.experiment.tool ||
+          (["8-health", "10-restore"].includes(d.id) &&
+            ["water", "feed", "light"].includes(c.tool)),
         value: c.value,
       };
     } else if (kind === "population")
       evidence = {
         generations: session.comparison.generations,
+        compatible:
+          d.id !== "9-darwin" || session.comparison.environment !== "neutral",
         result: comparisonReading(session.comparison, d.experiment),
       };
     else if (kind === "cross")
@@ -223,7 +228,7 @@ export function mountLearningUI(host) {
       session.notes.observation = "";
     else if (session.quest.step === 2)
       session.quest.feedback =
-        "Ändere zuerst eine passende Bedingung. Starte dann den Versuch.";
+        "Prüfe die Aufgabe: Ändere eine passende Bedingung. Starte den Versuch mit mindestens zwei Generationen, wenn du Gruppen vergleichst.";
   }
   function loadJSON(key, fallback) {
     try {
@@ -308,9 +313,13 @@ export function mountLearningUI(host) {
         session.comparison,
         currentPlan(session.comparison.kind),
       );
-      state.textContent = matches
-        ? "Dieses Ergebnis gehört zum aktuellen Plan."
-        : "Plan geändert – neu berechnen. Gezeigt und exportiert wird weiterhin der ältere Lauf mit seiner unten festgehaltenen Konfiguration.";
+      state.textContent = detailed
+        ? matches
+          ? "Dieses Ergebnis gehört zum aktuellen Plan."
+          : "Plan geändert – neu berechnen. Gezeigt und exportiert wird weiterhin der ältere Lauf mit seiner unten festgehaltenen Konfiguration."
+        : matches
+          ? "Becken 1 blieb gleich. Becken 2 wurde verändert."
+          : "Du hast etwas geändert. Starte den Versuch neu.";
       state.classList.toggle("learn-outdated", !matches);
     }
   }
@@ -386,7 +395,7 @@ export function mountLearningUI(host) {
     } catch {
       session.quest = newQuest(tag.mission);
     }
-    if (freshQuest && session.quest) {
+    if (freshQuest && session.quest && !saved) {
       const e = QUESTS[tag.mission].experiment;
       if (e.kind === "ecology") {
         session.study.tool = e.tool;
@@ -593,7 +602,7 @@ export function mountLearningUI(host) {
       LEARNING_METRICS[key] ||
       POPULATION_METRICS[key] || [key, ""]
     ).join(" · ");
-    return `<svg class="learn-chart" viewBox="0 0 480 270" role="img" aria-label="Verlauf ${esc(title)}: ${comp.kind === "manual" ? "Eigene Messreihe" : "Kontrolle und Versuch"}"><desc>${esc(technical ? runDescription(comp) : "Messwerte aus deinem Versuch.")}</desc><text x="45" y="13" font-size="12">${esc(title)}</text><path d="M45 24 V180 H455" fill="none" stroke="currentColor"/><text x="5" y="33">${num(maxY)}</text><text x="7" y="184">${num(minY)}</text><text x="45" y="204">${num(minX)}</text><text x="420" y="204">${num(maxX)}</text>${[
+    return `<svg class="learn-chart" viewBox="0 0 480 270" role="img" aria-label="Verlauf ${esc(title)}: ${comp.kind === "manual" ? "Dein Becken" : technical ? "Kontrolle und Versuch" : "Becken 1 und Becken 2"}"><desc>${esc(technical ? runDescription(comp) : "Messwerte aus deinem Versuch.")}</desc><text x="45" y="13" font-size="12">${esc(title)}</text><path d="M45 24 V180 H455" fill="none" stroke="currentColor"/><text x="5" y="33">${num(maxY)}</text><text x="7" y="184">${num(minY)}</text><text x="45" y="204">${num(minX)}</text><text x="420" y="204">${num(maxX)}</text>${[
       a,
       b,
     ]
@@ -604,7 +613,7 @@ export function mountLearningUI(host) {
       })
       .join(
         "",
-      )}<text x="170" y="224" font-size="12">${comp.kind === "population" ? "Generation" : technical ? "Tag · Modellzeit" : "Tag"} ${technical ? "(Wiederholung 1)" : ""}</text><path d="M50 246 H80" stroke="#216c70" stroke-width="3"/><text x="88" y="250" font-size="12">${comp.kind === "manual" ? "Dein Becken" : technical ? "Kontrolle" : "Becken 1"}</text>${comp.kind === "manual" ? "" : `<path d="M250 246 H280" stroke="#a35325" stroke-width="3" stroke-dasharray="7 3"/><text x="288" y="250" font-size="12">${technical ? "Versuch" : "Becken 2"}</text>`}</svg>`;
+      )}<text x="170" y="224" font-size="12">${comp.kind === "population" ? "Generation" : technical ? "Tag · Modellzeit" : "Tag"} ${technical ? "(Wiederholung 1)" : ""}</text><path d="M50 246 H80" stroke="#216c70" stroke-width="3"/><text x="88" y="250" font-size="12">${comp.kind === "manual" ? "Dein Becken" : technical ? "Kontrolle" : comp.kind === "population" ? "Gruppe 1" : "Becken 1"}</text>${comp.kind === "manual" ? "" : `<path d="M250 246 H280" stroke="#a35325" stroke-width="3" stroke-dasharray="7 3"/><text x="288" y="250" font-size="12">${technical ? "Versuch" : comp.kind === "population" ? "Gruppe 2" : "Becken 2"}</text>`}</svg>`;
   }
   function numRaw(v) {
     return Number(v.toFixed(3));
@@ -894,7 +903,7 @@ export function mountLearningUI(host) {
         )
         .join(
           "",
-        )}</details><div class="learn-actions">${button("student-launch", "Schüleransicht starten")}${button("teacher-launch", "Technische Untersuchung öffnen")}${button("config-export", "Konfiguration exportieren")}<label class="learn-file">Konfiguration importieren<input type="file" data-learning-import="config" accept=".json,application/json"></label></div><h3>Lernprodukte auf diesem Gerät</h3><p>Beurteile Frage und Hypothese, Kontrolle, Datenbezug, Erklärung und Modellkritik. Keine automatische Note aus Tierkondition.</p>${
+        )}</details><div class="learn-actions">${button("student-launch", "Schüleransicht starten")}${button("teacher-launch", "Technische Untersuchung öffnen")}${button("teacher-free", "Freies Forschen technisch öffnen")}${button("config-export", "Konfiguration exportieren")}<label class="learn-file">Konfiguration importieren<input type="file" data-learning-import="config" accept=".json,application/json"></label></div><h3>Lernprodukte auf diesem Gerät</h3><p>Beurteile Frage und Hypothese, Kontrolle, Datenbezug, Erklärung und Modellkritik. Keine automatische Note aus Tierkondition.</p>${
         savedKeys.length
           ? savedKeys
               .map((key, i) => {
@@ -956,9 +965,14 @@ export function mountLearningUI(host) {
                       : panel === "more"
                         ? student.more
                         : null;
-    const body=view?view():"";
-    const panelBody=active&&!detailed&&tag.mode==="missions"&&!["mission-info","teacher","more"].includes(panel)
-      ? body.replace("</header>","</header>"+student.quest(true)) : body;
+    const body = view ? view() : "";
+    const panelBody =
+      active &&
+      !detailed &&
+      tag.mode === "missions" &&
+      !["mission-info", "teacher", "more"].includes(panel)
+        ? body.replace("</header>", "</header>" + student.quest(true))
+        : body;
     root.innerHTML =
       (active
         ? hud()
@@ -1401,6 +1415,13 @@ export function mountLearningUI(host) {
         render();
         return;
       }
+      if (a === "teacher-free") {
+        grade = teacher.grade;
+        start("free");
+        detailed = true;
+        render();
+        return;
+      }
       if (a === "teacher-launch") {
         grade = teacher.grade;
         start("missions", teacher.mission);
@@ -1659,7 +1680,7 @@ export function mountLearningUI(host) {
           selected = a.slice(8);
           const type = host.types[selected];
           root.querySelector(".learn-panel").innerHTML =
-            panelHeader(type.name, "observe") +
+            panelHeader(type.name, "species") +
             `<p>Diese Art braucht Platz und passendes Wasser.</p><p>Mindestens ${type.minL} Liter · ${type.temp?.join("–") || "—"} °C</p>${button("add-species", "Einsetzen")}${button("material", "Zurück")}`;
           questEvent(session.quest, "observe");
           persist();

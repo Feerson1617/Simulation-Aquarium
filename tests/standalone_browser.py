@@ -94,20 +94,19 @@ try:
         offline.locator('[data-learn-grade="10"]').click()
         offline.locator('[data-learn="missions"]').click()
         offline.locator('[data-learn-mission="10-wadden"]').click()
-        offline.locator('[data-learn="mission-info"]').click()
-        assert 'Plastik ist kein Pflanzennährstoff' in offline.locator('.learn-panel').inner_text()
-        offline.locator('[data-learn="close"]').click()
+        expect(offline.locator('.learn-quest')).to_be_visible()
+        assert offline.evaluate('window.aquariumLearningSnapshot().quest.id')=='10-wadden'
+        offline.locator('[data-learn="more"]').click()
         offline.locator('[data-learn="home"]').click()
         offline.locator('[data-learn-grade="8"]').click()
         offline.locator('[data-learn="free"]').click()
         offline.locator('[data-learn="investigate"]').click()
-        for key in ['question','hypothesis','prediction','plan']:
-            offline.locator('[data-learning-note="'+key+'"]').fill('Eigene begründete Untersuchung mit Kontrolle.')
+        offline.locator('[data-learning-note="question"]').fill('Was verändert Licht?')
         offline.locator('[data-learning-value]').fill('0')
         offline.locator('[data-learn="compare"]').click()
         comparison=offline.evaluate('window.aquariumLearningSnapshot().comparison')
         assert comparison['runs'][0]['control'][-1]['oxygen']>comparison['runs'][0]['test'][-1]['oxygen']
-        print('PASS: sole-file curriculum transfer and actual paired biological engine', flush=True)
+        print('PASS: sole-file quest module and actual paired biological engine', flush=True)
         dependencies = [url for url in http_requests if url != document_url and not url.endswith('/favicon.ico')]
         assert not dependencies, dependencies
         print('PASS: Downloaded HTML alone starts, renders decoration and quantized variant fish, opens genetics and enables tweezers without additional HTTP resources. bytes='+str(document.stat().st_size)+'. file: tested=' + str(file_url_tested), flush=True)

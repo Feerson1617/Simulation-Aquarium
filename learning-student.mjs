@@ -15,7 +15,7 @@ export const STUDENT_METRICS = {
   no2: ["Schädlicher Stoff", "mg/L"],
   co2: ["Kohlenstoffdioxid", "mg/L"],
   algae: ["Algenmenge", ""],
-  organic: ["Futterreste", ""],
+  organic: ["Reste", ""],
   plantBiomass: ["Pflanzenmenge", ""],
   health: ["Zustand der Fische", "Punkte"],
   individuals: ["Tiere", "Anzahl"],
@@ -102,7 +102,7 @@ export function createStudentViews(api) {
       if (q)
         body += `<div class="learn-quest-answers">${q.choices.map((c, i) => `<button data-quest-answer="${i}">${esc(c)}</button>`).join("")}</div>`;
     }
-    return `<aside class="learn-quest ${inline ? "learn-quest-inline" : ""}" aria-label="Questbuch"><header><strong>${esc(d.title)}</strong>${inline ? "" : button("quest-toggle", "−", 'aria-label="Questbuch einklappen" aria-expanded="true"')}</header><progress value="${s.step}" max="5" aria-label="Erledigte Aufgaben">${s.step} von 5</progress>${body}<p class="learn-quest-feedback" role="status" aria-live="polite">${esc(s.feedback)}</p></aside>`;
+    return `<aside class="learn-quest ${inline ? "learn-quest-inline" : ""}" aria-label="Questbuch"><header><strong>${esc(d.title)}</strong>${inline ? "" : button("quest-toggle", "−", 'aria-label="Questbuch einklappen" aria-expanded="true"')}</header><progress value="${s.step}" max="5" aria-label="Erledigte Aufgaben">${s.step} von 5</progress>${body}<p class="learn-quest-feedback" role="status" aria-live="polite">${esc(done ? "" : s.feedback)}</p></aside>`;
   }
   function experimentTask(d) {
     const e = d.experiment;
@@ -123,7 +123,7 @@ export function createStudentViews(api) {
     const fraction = r.unit === "Anteil",
       value = (v) =>
         fraction ? num(v * 100, 1) + " %" : num(v, 3) + " " + esc(r.unit || "");
-    return `<div class="learn-two learn-reading"><div><small>Becken 1</small><strong>${value(r.control)}</strong></div><div><small>Becken 2</small><strong>${value(r.test)}</strong></div></div><small>${esc(r.label)} · ${r.kind === "population" ? "Generation" : "Tag"} ${num(r.time)}</small>`;
+    return `<div class="learn-two learn-reading"><div><small>${r.kind === "population" ? "Gruppe" : "Becken"} 1</small><strong>${value(r.control)}</strong></div><div><small>${r.kind === "population" ? "Gruppe" : "Becken"} 2</small><strong>${value(r.test)}</strong></div></div><small>${esc(r.label)} · ${r.kind === "population" ? "Generation" : "Tag"} ${num(r.time)}</small>`;
   }
   function observe() {
     const { session, tag, s, w, types, showGenes } = state();
@@ -141,7 +141,7 @@ export function createStudentViews(api) {
     return (
       panelHeader("Beobachten", "observe") +
       content +
-      `<div class="learn-actions">${button("measure", "Werte merken")}${button("advance", "1 Tag warten")}</div><small>${session.measurements.length} Messungen gespeichert.</small>${session.measurements.length ? api.manual() : ""}`
+      `<div class="learn-actions">${button("measure", "Werte merken")}${button("advance", "1 Tag warten")}</div><small>${session.measurements.length} Messungen gespeichert.</small>${session.measurements.length ? api.manual() : ""}${tag.mode === "free" && tag.grade !== 9 ? `<details><summary>Becken verändern</summary>${api.form("care")}${button("apply", "Anwenden")}</details>` : ""}`
     );
   }
   function results() {
@@ -161,10 +161,10 @@ export function createStudentViews(api) {
         )
         .at(-1);
     const stale = !api.matches();
-    return `<section class="learn-results"><h3>Dein Vergleich</h3><p data-learning-result-state role="status" class="${stale ? "learn-outdated" : ""}">${stale ? "Du hast etwas geändert. Starte den Versuch neu." : "Becken 1 blieb gleich. Becken 2 wurde verändert."}</p><label>Was möchtest du ansehen?<select data-learning-metric>${options(
+    return `<section class="learn-results"><h3>Dein Vergleich</h3><p data-learning-result-state role="status" class="${stale ? "learn-outdated" : ""}">${stale ? "Du hast etwas geändert. Starte den Versuch neu." : c.kind === "population" ? "Gruppe 1: keine Farbe bevorzugt. Gruppe 2: deine Umgebung." : "Becken 1 blieb gleich. Becken 2 wurde verändert."}</p><label>Was möchtest du ansehen?<select data-learning-metric>${options(
       keys.map((k) => [k, STUDENT_METRICS[k][0]]),
       key,
-    )}</select></label>${r ? reading({ kind: c.kind, label: STUDENT_METRICS[key][0], unit: STUDENT_METRICS[key][1], time: r.time, control: r.control[key], test: r.test[key] }) : ""}${api.plot(c, key)}<p class="learn-caption">Eine Linie zeigt ein Becken. Vergleiche beide Linien.</p>${c.runs[0].status?.control?.state === "failed" || c.runs[0].status?.test?.state === "failed" ? "<p>Ein Becken konnte nicht weiterlaufen. Die Linie endet dort. Vergleiche nur Zeitpunkte mit zwei Werten.</p>" : ""}<details><summary>Alle Werte</summary><div class="learn-table-wrap"><table><thead><tr><th>${c.kind === "population" ? "Generation" : "Tag"}</th><th>Becken 1</th><th>Becken 2</th></tr></thead><tbody>${rows.map((r) => `<tr><td>${num(r.time)}</td><td>${r.control ? num(r.control[key], 3) : "beendet"}</td><td>${r.test ? num(r.test[key], 3) : "beendet"}</td></tr>`).join("")}</tbody></table></div></details><div class="learn-actions">${button("export", "Für die Lehrkraft speichern")}${c.kind === "ecology" ? button("show-control", "Becken 1 ansehen") + button("show-test", "Becken 2 ansehen") : ""}</div></section>`;
+    )}</select></label>${r ? reading({ kind: c.kind, label: STUDENT_METRICS[key][0], unit: STUDENT_METRICS[key][1], time: r.time, control: r.control[key], test: r.test[key] }) : ""}${api.plot(c, key)}<p class="learn-caption">Eine Linie zeigt ein Becken. Vergleiche beide Linien.</p>${c.runs[0].status?.control?.state === "failed" || c.runs[0].status?.test?.state === "failed" ? "<p>Ein Becken konnte nicht weiterlaufen. Die Linie endet dort. Vergleiche nur Zeitpunkte mit zwei Werten.</p>" : ""}<details><summary>Alle Werte</summary><div class="learn-table-wrap"><table><thead><tr><th>${c.kind === "population" ? "Generation" : "Tag"}</th><th>${c.kind === "population" ? "Gruppe" : "Becken"} 1</th><th>${c.kind === "population" ? "Gruppe" : "Becken"} 2</th></tr></thead><tbody>${rows.map((r) => `<tr><td>${num(r.time)}</td><td>${r.control ? num(r.control[key], 3) : "beendet"}</td><td>${r.test ? num(r.test[key], 3) : "beendet"}</td></tr>`).join("")}</tbody></table></div></details><div class="learn-actions">${button("export", "Für die Lehrkraft speichern")}${c.kind === "ecology" ? button("show-control", "Becken 1 ansehen") + button("show-test", "Becken 2 ansehen") : ""}</div></section>`;
   }
   function investigation() {
     const { session, tag } = state();
@@ -173,7 +173,7 @@ export function createStudentViews(api) {
     const population = tag.grade === 9;
     return (
       panelHeader("Ausprobieren", population ? "selection" : "control") +
-      `<p>${population ? "Beide Gruppen starten gleich. In der gewählten Umgebung können manche Farben mehr Nachkommen haben." : "Beide Becken starten gleich. Du änderst nur Becken 2."}</p>${tag.mode === "free" ? '<label>Deine Idee (freiwillig)<input data-learning-note="question" maxlength="20000" value="' + esc(session.notes.question || "") + '"></label>' : ""}${
+      `<p>${population ? "Beide Gruppen starten gleich. Hier wählen wir passende Farben öfter als Eltern. Auch Zufall wirkt mit." : "Beide Becken starten gleich. Du änderst nur Becken 2."}</p>${tag.mode === "free" ? '<label>Deine Idee (freiwillig)<input data-learning-note="question" maxlength="20000" value="' + esc(session.notes.question || "") + '"></label>' : ""}${
         population
           ? `<label>Umgebung<select data-learning-environment>${options(
               [
@@ -209,14 +209,14 @@ export function createStudentViews(api) {
       )}</select></label>`;
     return (
       panelHeader("Farbe und Nachkommen", "genotype") +
-      `<p>Diese Fische gehören zum Farbversuch. Die Tiere im Aquarium bleiben dort.</p>${showGenes ? "<p>Genotyp: Erbanlagen. Phänotyp: sichtbares Merkmal. Hier ist A dominant: AA und Aa sehen dunkel aus. aa ist hell.</p>" : ""}<div class="learn-two">${select("♀", "mother", "Mutter")}${select("♂", "father", "Vater")}</div><div class="learn-actions">${button("genes", showGenes ? "Erbanlagen ausblenden" : "Erbanlagen zeigen")}${button("cross", "Nachkommen erzeugen")}</div><h3>Generation ${p.generation} · ${c.n} Fische</h3><p>${Math.round(c.dark * c.n)} dunkel · ${Math.round(c.light * c.n)} hell</p><div class="learn-population">${p.individuals.map((i) => `<button data-learning-individual="${i.uid}" class="${i.phenotype === "gold" ? "gold" : "dark"}" aria-label="Fisch ${i.uid} ansehen"><strong>Fisch ${i.uid} ${i.sex}</strong><span>${showGenes ? genotypeText(i.loci) : i.phenotype === "gold" ? "hell" : "dunkel"}</span></button>`).join("")}</div><p data-individual-detail role="status"></p><div class="learn-actions">${button("population-new", "Versuch wiederholen")}${button("export", "Für die Lehrkraft speichern")}${api.tools().includes("selection") ? button("investigate", "Gruppen vergleichen") : ""}</div>`
+      `<p>Diese Fische gehören zum Farbversuch. Die Tiere im Aquarium bleiben dort.</p>${showGenes ? "<p>Genotyp: Erbanlagen. Phänotyp: sichtbares Merkmal. Hier ist A dominant: AA und Aa sehen dunkel aus. aa ist hell. Dominant beschreibt hier die Farbe, nicht einen Vorteil.</p>" : ""}<div class="learn-two">${select("♀", "mother", "Mutter")}${select("♂", "father", "Vater")}</div><div class="learn-actions">${button("genes", showGenes ? "Erbanlagen ausblenden" : "Erbanlagen zeigen")}${button("cross", "Nachkommen erzeugen")}</div><h3>Generation ${p.generation} · ${c.n} Fische</h3><p>${Math.round(c.dark * c.n)} dunkel · ${Math.round(c.light * c.n)} hell</p><div class="learn-population">${p.individuals.map((i) => `<button data-learning-individual="${i.uid}" class="${i.phenotype === "gold" ? "gold" : "dark"}" aria-label="Fisch ${i.uid} ansehen"><strong>Fisch ${i.uid} ${i.sex}</strong><span>${showGenes ? genotypeText(i.loci) : i.phenotype === "gold" ? "hell" : "dunkel"}</span></button>`).join("")}</div><p data-individual-detail role="status"></p><div class="learn-actions">${button("population-new", "Versuch wiederholen")}${button("export", "Für die Lehrkraft speichern")}${api.tools().includes("selection") ? button("investigate", "Gruppen vergleichen") : ""}</div>`
     );
   }
   function notebook() {
     const { session, tag } = state(),
       d = QUESTS[tag.mission];
     return (
-      panelHeader("Meine Ergebnisse", "quest") +
+      panelHeader("Meine Ergebnisse", "results") +
       `${
         d
           ? `<h3>${esc(d.title)}</h3><p>${session.quest.step} von 5 Aufgaben erledigt.</p><ol>${session.quest.entries
@@ -245,7 +245,7 @@ export function createStudentViews(api) {
       spiderwood: "Ein Stück Holz. Es bietet Verstecke.",
     };
     return (
-      panelHeader("Tiere und Pflanzen", "energy") +
+      panelHeader("Tiere und Pflanzen", "species") +
       `<p>Wer braucht was?</p><div class="learn-catalog">${api
         .catalog()
         .filter((id) => types[id])

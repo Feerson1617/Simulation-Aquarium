@@ -84,7 +84,9 @@ def complete(p,g,id,touch=False):
  act('home')
 
 with sync_playwright() as pw:
- b=pw.chromium.launch(executable_path=os.environ.get('AQUARIUM_CHROMIUM','/usr/bin/chromium'),args=['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'])
+ engine=os.environ.get('AQUARIUM_BROWSER','chromium');report['engine']=engine
+ launch={'executable_path':os.environ.get('AQUARIUM_CHROMIUM','/usr/bin/chromium'),'args':['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']} if engine=='chromium' else {}
+ b=getattr(pw,engine).launch(**launch)
  try:
   if 'desktop' in SECTIONS:
    c,p=context(b)

@@ -15,7 +15,9 @@ def capture(p,name,selector=None):
  frame=p.evaluate('window.aquariumSnapshot().graphics.renderFrame');p.wait_for_function('(f)=>window.aquariumSnapshot().graphics.renderFrame>f+2&&window.aquariumSnapshot().graphics.triangles>3000',arg=frame)
  p.screenshot(path=str(OUT/name),animations='disabled');report['screenshots'].append(name)
 with sync_playwright() as w:
- b=w.chromium.launch(executable_path=os.environ.get('AQUARIUM_CHROMIUM','/usr/bin/chromium'),args=['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'])
+ engine=os.environ.get('AQUARIUM_BROWSER','chromium');report['engine']=engine
+ launch={'executable_path':os.environ.get('AQUARIUM_CHROMIUM','/usr/bin/chromium'),'args':['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']} if engine=='chromium' else {}
+ b=getattr(w,engine).launch(**launch)
  try:
   c=b.new_context(viewport={'width':1366,'height':1024});c.add_init_script("localStorage.setItem('aquarium-graphics-v1',JSON.stringify({version:1,profile:'ipad'}))");p=c.new_page();p.set_default_timeout(90000);p.on('pageerror',lambda e:report['errors'].append(str(e)));p.goto(os.environ.get('AQUARIUM_URL','http://127.0.0.1:8000/aquarium-simulation/'));p.wait_for_function('!!window.aquariumLearningSnapshot');p.locator('[data-learn-grade="9"]').click();action(p,'missions');p.locator('[data-learn-mission="9-population"]').click();action(p,'observe');action(p,'close');p.locator('[data-quest-answer="0"]').click();p.locator('[data-quest-answer="1"]').click();action(p,'investigate');reveal(p.locator('[data-learning-repetitions]')).fill('2')
   p.locator('[data-learning-environment]').select_option('neutral');action(p,'population-compare');expect(p.locator('.learn-results')).to_contain_text('Keine Farbe hat hier einen Vorteil');capture(p,'population-neutral.png','.learn-chart');passed('Neutral population actual curve and correct drift explanation')

@@ -39,7 +39,9 @@ def retained(expected,actual):
 def open_run(p):
  run=p.locator('.learn-teacher-comparison .learn-run').first;run.locator('summary').first.click();return run
 with sync_playwright() as pw:
- browser=pw.chromium.launch(executable_path=os.environ.get('AQUARIUM_CHROMIUM','/usr/bin/chromium'),args=['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'])
+ engine=os.environ.get('AQUARIUM_BROWSER','chromium');report['engine']=engine
+ launch={'executable_path':os.environ.get('AQUARIUM_CHROMIUM','/usr/bin/chromium'),'args':['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']} if engine=='chromium' else {}
+ browser=getattr(pw,engine).launch(**launch)
  try:
   if 'ecology' in SECTIONS:
    c,p=context(browser);prepare(p,10,'10-restore');click(p,'investigate');plan(p);p.locator('[data-learning-tool-choice="water"]').click();p.locator('[data-learning-value]').fill('50');p.locator('[data-learning-days]').fill('14');p.locator('[data-learning-repetitions]').fill('1');click(p,'compare')

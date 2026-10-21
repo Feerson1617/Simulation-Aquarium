@@ -39,6 +39,7 @@ export function mountEquipmentUI(host, T) {
     opened = null; root.querySelector(".equipment-editor").innerHTML = ""; root.classList.remove("editing");
     clearOutline(); host.lock(false);
     afterClose?.();
+    refresh();
     if (!restore) return;
     const usable = element => element?.isConnected && element !== document.body && !element.disabled && !element.closest('[inert],[hidden]') && element.getClientRects().length;
     // Commits/cancellation may replace the original button while redrawing tools.
@@ -54,7 +55,7 @@ export function mountEquipmentUI(host, T) {
     if (def.kind === "switch") {
       root.querySelector("[data-equipment-reading]").textContent = "Das eingebaute Gerät bleibt auch ausgeschaltet erreichbar. Sauerstoff und Wasserwerte reagieren erst mit der Zeit.";
     }
-    highlight(key); root.querySelector(".device-dial,[data-equipment-toggle]").focus();
+    refresh(); root.querySelector(".device-dial,[data-equipment-toggle]").focus();
   }
   root.addEventListener("click", e => {
     const choose = e.target.closest("[data-equipment]");
@@ -101,10 +102,7 @@ export function mountEquipmentUI(host, T) {
     if (!key) return;
     e.preventDefault(); requestAnimationFrame(() => host.choose(key));
   }, true);
-  let last = 0;
-  function frame(time) {
-    requestAnimationFrame(frame);
-    if (time-last < 80) return; last = time;
+  function refresh() {
     const context = host.context(), view = host.view();
     root.hidden = !context.visible || !view || view.state.tankPlaced === false;
     if (root.hidden) { if (opened) close(false); else clearOutline(); return; }
@@ -120,6 +118,12 @@ export function mountEquipmentUI(host, T) {
       button.style.top = Math.max(80,Math.min(outer.height-170,rect.top-outer.top+(1-center.y)*rect.height/2-42)) + "px";
     }
     if (opened || context.focus) highlight(opened?.key || context.focus); else clearOutline();
+  }
+  let last = 0;
+  function frame(time) {
+    requestAnimationFrame(frame);
+    if (time-last < 80) return; last = time;
+    refresh();
   }
   requestAnimationFrame(frame);
   return {open, close};

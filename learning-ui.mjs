@@ -631,7 +631,7 @@ export function mountLearningUI(host) {
         if (scope === "study") showPanel("investigate"); else render();
       },
       onCancel: () => {if (previous) showPanel(previous);},
-      focusTarget: () => root.querySelector(`[data-learn="device-${key}"],[data-learning-tool-choice="${key}"]`) || root.querySelector(`[data-learn="${previous}"]`),
+      focusTarget: () => root.querySelector(`[data-learn="device-${key}"],[data-learning-tool-choice="${key}"]`) || root.querySelector(".learn-panel button") || root.querySelector(`[data-learn="${previous}"]`),
     });
   }
   function interventionForm(prefix) {

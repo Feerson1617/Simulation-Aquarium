@@ -18,9 +18,9 @@ def passed(text):
 
 def continued_focus(p):
     assert p.evaluate('document.activeElement !== document.body && document.activeElement.isConnected && !document.activeElement.closest("[inert],[hidden]") && !!document.activeElement.getClientRects().length')
-    before=p.evaluate('document.activeElement.outerHTML')
+    before=p.evaluate('window.__deviceFocusBefore=document.activeElement;document.activeElement.dataset')
     p.keyboard.press('Tab'); p.keyboard.press('Shift+Tab')
-    assert p.evaluate('document.activeElement.outerHTML')==before
+    assert p.evaluate('document.activeElement===window.__deviceFocusBefore'),(before,p.evaluate('document.activeElement.outerHTML'))
 
 def dialog_keyboard(p):
     editor=p.locator('.equipment-sheet')
@@ -58,7 +58,7 @@ with sync_playwright() as w:
             p = c.new_page(); p.set_default_timeout(45000)
             p.on('pageerror', lambda error: report['errors'].append(str(error)))
             p.on('requestfailed',lambda request: report['failed_requests'].append({'url':request.url,'failure':request.failure}))
-            p.on('console',lambda message: report['console_errors'].append(message.text) if message.type=='error' else None)
+            p.on('console',lambda message: report['console_errors'].append({'text':message.text,'location':message.location}) if message.type=='error' else None)
             p.goto(URL); p.wait_for_function('!!window.aquariumLearningSnapshot')
             for grade in [8, 9, 10]:
                 start(p, grade)

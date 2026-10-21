@@ -23,3 +23,9 @@ Weitere Fach-/Bedienkorrekturen: Passende Antworten zu Temperatur, Fischzustand 
 Entwicklungsprüfung fand zusätzlich eine durch die Herauslösung der Hintergrundtexte eingeführte ungültige Variablenreferenz im technischen Notizbuch; vor dem Endlauf korrigiert. Ein Wasserwechsel von 0 % zählt nicht als Eingriff, auch falls die alte Pflegefunktion dabei einen Logeintrag erstellt.
 
 Explizite Freigaben zusätzlicher Messgrößen durch Lehrkräfte werden auch in der neuen Schüleransicht berücksichtigt. Nitrat/Nitrit erscheinen ausschließlich bei konkreter Freigabe und erhalten unmittelbar die passende kurze Begriffshilfe. Standardansichten bleiben reduziert.
+
+## Endlauf gestartet
+
+Laufzeit eingefroren auf dd491b5. 107 Modultests im Endlauf bestanden. Jetzt laufen seriell: alle 14 Quests vollständig, drei zusätzliche Touchdurchläufe, freies Forschen, Lehrkraft/Altprodukte/Hilfen/Migration; danach Review R1–R8, gezielte Fach-/Speicherfälle, Bereitschaft mit Tutorial, Aquascaping und Einzeldatei. Status temporär /tmp/quest-final-validation/status.json, später dauerhafte Belege unter quest/evidence. Nicht die früheren 100/82 als neue Endprüfung ausgeben.
+
+P1–P4 implementiert. Neue Erläuterung in quest/DESIGN.md, 14-Folgen-Matrix in quest/MISSIONS.md. Prüfbericht quest/VALIDATION.md noch ausdrücklich vorläufig. Nach abgeschlossenen Prüfungen Endzahlen/Belege/PR-Beschreibung und diesen Status finalisieren, Commit und Push auf denselben Branch; kein Merge.

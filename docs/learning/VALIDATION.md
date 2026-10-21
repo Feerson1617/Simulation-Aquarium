@@ -1,5 +1,7 @@
 # Fachliche und technische Prüfung nach PR-8-Review
 
+> Historischer Bericht zum Stand vor dem Questbuch (677e6ce / Laufzeit 7e82046). Die aktuellen Schüleransichten, freiwilligen Schreibfelder und verschobenen Lehrkraftinformationen beschreibt [quest/DESIGN.md](quest/DESIGN.md); aktuelle Nachweise stehen in [quest/VALIDATION.md](quest/VALIDATION.md). Die hier genannten früheren Prüfungen werden nicht als neue Tests gezählt.
+
 Stand: 21.10.2026. Geprüfter eingefrorener Laufzeitstand: **`7e82046`**. Alle neun seriellen Prüfgruppen wurden abgeschlossen. Die sieben bearbeiteten Laufzeitdateien blieben dabei unverändert; [Prüfsummen](evidence/revision-2/runtime.sha256), [Runnerstatus](evidence/revision-2/runner-status.json), [maschinenlesbare Zuordnung](evidence/revision-2/verification.json).
 
 Werkzeuge: Node 24.19.0, Python 3.12.14, Playwright 1.62.0, Chromium 154.0.8037.57 mit SwiftShader. Statischer Server unter einem Projektunterpfad; isolierte Browserprofile. Keine zusätzlichen Konten, kostenpflichtigen Werkzeuge oder externen Laufzeitdienste. Softwaregrafik ist keine Hardware-Leistungsmessung.

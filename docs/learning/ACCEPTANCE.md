@@ -1,5 +1,7 @@
 # Abnahmematrix für Masterauftrag und PR-8-Korrekturen
 
+> Historischer Bericht zum Stand vor dem Questbuch (677e6ce / Laufzeit 7e82046). Die aktuellen Schüleransichten, freiwilligen Schreibfelder und verschobenen Lehrkraftinformationen beschreibt [quest/DESIGN.md](quest/DESIGN.md); aktuelle Nachweise stehen in [quest/VALIDATION.md](quest/VALIDATION.md). Die hier genannten früheren Prüfungen werden nicht als neue Tests gezählt.
+
 Stand: 21.10.2026. Diese Matrix bezieht sich ausdrücklich auf den **vorliegenden vollständigen [Masterauftrag](review/MASTER_REQUEST.md)**, den [Korrekturauftrag](review/REQUEST.md) und den [unabhängigen Prüfbericht](review/REVIEW.md). Der frühere Hinweis, dem unabhängigen Reviewer habe der Masterauftrag gefehlt, bleibt als historische Grenze seines Berichts erhalten. Für diese Umsetzung liegt der Wortlaut vor.
 
 Grundlage: Originalcurriculum der Eider-Treene-Schule ab 2025/26, 36 Seiten; SHA-256 `faa37c2dafb2824dda8e890c21f05a69d4f479ea64c255ca815892174889b90f`. S. 3–4, 9–10, 14–15 und 19–20 sind abgeglichen; S. 19 wurde bei der Korrektur erneut textuell und visuell gelesen. Der anthropogene Kohlenstoffteil ist verbindlich. Die Matrix gilt für die ausgewählten Einheiten, nicht für das gesamte Biologiecurriculum dieser Klassen.

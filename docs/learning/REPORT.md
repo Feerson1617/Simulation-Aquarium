@@ -1,5 +1,7 @@
 # Abschlussbericht: Biologische Lernumgebungen für Klassen 8–10
 
+> Historischer Bericht zum Stand vor dem Questbuch (677e6ce / Laufzeit 7e82046). Die aktuellen Schüleransichten, freiwilligen Schreibfelder und verschobenen Lehrkraftinformationen beschreibt [quest/DESIGN.md](quest/DESIGN.md); aktuelle Nachweise stehen in [quest/VALIDATION.md](quest/VALIDATION.md). Die hier genannten früheren Prüfungen werden nicht als neue Tests gezählt.
+
 Arbeitsstand vom 21.10.2026: Der bestehende PR #8 ist nach der unabhängigen Prüfung R1–R8 überarbeitet. Der vollständige ursprüngliche Masterauftrag liegt vor und ist in der [Master- und 14-Missionen-Abnahmematrix](ACCEPTANCE.md) ausdrücklich zugeordnet. Die Endprüfung auf dem eingefrorenen Laufzeitstand `7e82046` ist abgeschlossen: **100 Modultests, 82 Browserprüfpunkte und der HTML-Einzeldatei-Export bestanden**. Einzelbelege und tatsächliche Grenzen stehen in [VALIDATION.md](VALIDATION.md). Physische Safari-iPads und empirische Unterrichtswirksamkeit bleiben offen.
 
 ## Korrekturen nach der unabhängigen Prüfung

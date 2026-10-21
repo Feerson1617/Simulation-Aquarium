@@ -4,13 +4,13 @@ Deutschsprachiges Aquariumsimulationsspiel zum Aufbauen, Beobachten und Erforsch
 
 ## Lernumgebungen für Klassen 8–10
 
-Beim Start zuerst **Klasse 8 – Ökologie**, **Klasse 9 – Vererbung und Evolution** oder **Klasse 10 – Mensch und Ökosysteme** wählen. Danach stehen **Lernmissionen** (insgesamt 14) und **Freies Forschen** mit passenden, deutlich reduzierten Werkzeugen bereit. Die Zuordnung ist mit dem Fachcurriculum der Eider-Treene-Schule 2025/26 abgeglichen. Grafikqualität und Lernprofil sind unabhängig. Ein Klick auf die Leitfrage über dem Becken öffnet den Auftrag, Modellgrenzen und gegebenenfalls Wald-, Evolutions- oder Küstenmaterialien.
+Beim Start **Klasse 8**, **9** oder **10** wählen. Danach stehen **Lernmissionen** (14) und **Freies Forschen** bereit. Jede Mission öffnet automatisch ein kleines, einklappbares **Questbuch**: Anschauen → Vermuten → Ausprobieren → Vergleichen → Erklären. Es erkennt tatsächliche Handlungen und berechnete Ergebnisse. Falsche Antworten lassen sich erneut versuchen. Keine Pflichtzeichnungen oder langen Texteingaben.
 
-**Untersuchen** erstellt gleiche Kontroll- und Versuchsbecken, rechnet einen ausgewählten Eingriff mit dem bisherigen biologischen Kern und zeigt echte Daten. **Vererbung** bietet vorhergesagte F1/F2-Kreuzungen, tatsächliche Modellallele und endliche Populationsvergleiche mit Drift und offengelegter hypothetischer Selektion. **Notizbuch** trennt Vorwissen, Hypothese, Beobachtung, Erklärung und Modellkritik. JSON-/CSV-/SVG-Exporte und lokale Speicherung benötigen kein Konto.
+**Beobachten** zeigt wenige Wasserwerte bzw. Fischfarben. **Ausprobieren** berechnet zwei gleiche Ausgangsbecken mit einer veränderten Bedingung. **Meine Ergebnisse** sammelt Questantworten und Messungen; **Für die Lehrkraft speichern** erhält auch die vollständigen wissenschaftlichen Daten. Freies Forschen hat keine Pflichtfolge; die Forschungshilfe und eigenen Notizen sind freiwillig. **Mehr** öffnet Wörterhilfe, Darstellung, Pinzette und den Weg zurück zum Start. Grafik und biologische Regeln bleiben unabhängig.
 
-Der **Lehrkraftmodus** bereitet Missionen vor, wählt drei Unterstützungsstufen, schaltet gezielt Werkzeuge/Messwerte frei und liest Lernprodukte. Der **Expertenmodus** erhält das bisherige Freispiel, Tutorial, Szenarien, den vollständigen Katalog und alte Spielstände. Auch direkt über `?expert=1` erreichbar. Lernbecken, Notizen, Unterrichtskonfiguration und Grafik werden getrennt gespeichert; die alte freie Runde wird nicht überschrieben.
+Der **Lehrkraftmodus** bietet Vorbereitung, gezielte Freigaben, vollständige technische Untersuchungen, JSON/CSV/SVG, Seeds, Quellen, Modellgrenzen und lesbare Eltern-/Nachkommenarchive. Er kann auch die normale Schüleransicht starten. Der **Expertenmodus** erhält Freispiel, Tutorial, Szenarien, den vollständigen Katalog und alte Spielstände (`?expert=1`). Alles funktioniert lokal ohne zusätzliches Konto oder bezahlten Dienst. Frühere Lernnotizen und Einstellungen bleiben beim Wechsel zum Questbuch erhalten.
 
-Wasserbelastung ist ausdrücklich ein didaktischer Zustandsindikator, keine chemische Messgröße. Kohlenstoff ist qualitativ modelliert; Nordsee, Wattenmeer und Wald sind begrenzte Transfers. Generationsklicks behaupten keine natürliche Entwicklungszeit. [Vollständiger deutscher Bericht mit allen Missionen](docs/learning/REPORT.md), [Fachprüfung und Indikatorschwellen](docs/learning/AUDIT.md), [Browserprüfung und Screenshots](docs/learning/VALIDATION.md), [Abnahme aller Masteranforderungen und 14 Missionen](docs/learning/ACCEPTANCE.md).
+[Neue Oberfläche und Datenübergang](docs/learning/quest/DESIGN.md), [alle 14 Questfolgen](docs/learning/quest/MISSIONS.md), [aktueller Prüfbericht](docs/learning/quest/VALIDATION.md). Die [Fachprüfung](docs/learning/AUDIT.md), der [frühere Masterbericht](docs/learning/REPORT.md) und die [Abnahme R1–R8](docs/learning/ACCEPTANCE.md) dokumentieren den erhaltenen fachlichen Unterbau. Die Zuordnung zum Originalcurriculum ist geprüft; Unterrichtserprobung und physische Safari-iPads bleiben gesonderte Aufgaben.
 
 ## Desktop- und iPad-Darstellung
 
@@ -81,6 +81,7 @@ Das Speicherformat bleibt Version 1 mit dem bisherigen `localStorage`-Schlüssel
 
 ```bash
 node --test tests/*.test.mjs
+python3 tests/quest_browser.py
 python3 tests/learning_review_browser.py
 python3 tests/learning_additional_browser.py
 python3 tests/learning_browser.py

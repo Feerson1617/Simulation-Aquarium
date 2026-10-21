@@ -485,3 +485,13 @@ test("R2/R3: an unfinished edited draft cannot make a valid previous result unre
     }),
   );
 });
+
+test("R8: imported textual metadata stays literal in spreadsheet CSV, numbers remain numeric", () => {
+  const data = comparison();
+  data.configuration.modelVersion = "=1+1";
+  data.runs[0].status.control.reason = "-text";
+  const row = csvRows(comparisonCSV(data))[0];
+  assert.equal(row.Modellstand, "'=1+1");
+  assert.equal(row.Abbruchgrund, "'-text");
+  assert.equal(row.Wert, "25");
+});

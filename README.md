@@ -10,7 +10,7 @@ Beim Start zuerst **Klasse 8 – Ökologie**, **Klasse 9 – Vererbung und Evolu
 
 Der **Lehrkraftmodus** bereitet Missionen vor, wählt drei Unterstützungsstufen, schaltet gezielt Werkzeuge/Messwerte frei und liest Lernprodukte. Der **Expertenmodus** erhält das bisherige Freispiel, Tutorial, Szenarien, den vollständigen Katalog und alte Spielstände. Auch direkt über `?expert=1` erreichbar. Lernbecken, Notizen, Unterrichtskonfiguration und Grafik werden getrennt gespeichert; die alte freie Runde wird nicht überschrieben.
 
-Wasserbelastung ist ausdrücklich ein didaktischer Zustandsindikator, keine chemische Messgröße. Kohlenstoff ist qualitativ modelliert; Nordsee, Wattenmeer und Wald sind begrenzte Transfers. Generationsklicks behaupten keine natürliche Entwicklungszeit. [Vollständiger deutscher Bericht mit allen Missionen](docs/learning/REPORT.md), [Fachprüfung und Indikatorschwellen](docs/learning/AUDIT.md), [Browserprüfung und Screenshots](docs/learning/VALIDATION.md).
+Wasserbelastung ist ausdrücklich ein didaktischer Zustandsindikator, keine chemische Messgröße. Kohlenstoff ist qualitativ modelliert; Nordsee, Wattenmeer und Wald sind begrenzte Transfers. Generationsklicks behaupten keine natürliche Entwicklungszeit. [Vollständiger deutscher Bericht mit allen Missionen](docs/learning/REPORT.md), [Fachprüfung und Indikatorschwellen](docs/learning/AUDIT.md), [Browserprüfung und Screenshots](docs/learning/VALIDATION.md), [Abnahme aller Masteranforderungen und 14 Missionen](docs/learning/ACCEPTANCE.md).
 
 ## Desktop- und iPad-Darstellung
 
@@ -81,6 +81,7 @@ Das Speicherformat bleibt Version 1 mit dem bisherigen `localStorage`-Schlüssel
 
 ```bash
 node --test tests/*.test.mjs
+python3 tests/learning_review_browser.py
 python3 tests/learning_additional_browser.py
 python3 tests/learning_browser.py
 python3 tests/readiness_browser.py
@@ -91,6 +92,8 @@ python3 tests/catalog_ui_browser.py
 python3 tests/aquascaping_browser.py
 python3 tests/standalone_browser.py
 ```
+
+Bei Pull Requests führt `module-tests.yml` die kostenlosen Node-Modultests automatisch aus; Pages-Checks prüfen weiterhin die Veröffentlichung. CSV-Schema 2 beschreibt Messnamen, Einheiten, Typen, Seeds und Status: [Datenformat](docs/learning/CSV_SCHEMA.md).
 
 Die Browserprüfungen benötigen Python-Playwright und Chromium und verwenden isolierte Browserprofile. Maßstab-, Katalog-, Aquascaping- und Standalone-Tests starten ihren eigenen vorübergehenden Server. Technik- und Genetiktests erwarten den eingerichteten lokalen Entwicklungsserver; `AQUARIUM_TEST_URL` erlaubt einen anderen Projektpfad. Der Ökosystemtest verwendet dafür `AQUARIUM_URL`. GPU-Browserläufe auf dieser CPU-Cloud nacheinander ausführen. In dieser Cloud-Umgebung sind beide vorhanden. Auf anderen Entwicklungsrechnern lässt sich ein installierter Browser über `AQUARIUM_CHROMIUM` auswählen. Optional kann Playwrights eigener Chromium verwendet werden. Es sind keine zusätzlichen Konten nötig.
 

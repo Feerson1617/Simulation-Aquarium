@@ -589,7 +589,13 @@ export function comparisonCSV(comparison) {
   return rows
     .map((row) =>
       row
-        .map((v) => '"' + String(v ?? "").replaceAll('"', '""') + '"')
+        .map((v) => {
+          const text =
+            typeof v === "string" && /^[=+@\t\r-]/.test(v)
+              ? "'" + v
+              : String(v ?? "");
+          return '"' + text.replaceAll('"', '""') + '"';
+        })
         .join(";"),
     )
     .join("\r\n");

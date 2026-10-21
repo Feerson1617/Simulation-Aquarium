@@ -445,15 +445,11 @@ export function mountLearningUI(host) {
       a,
       b,
     ]
-      .map(
-        (rows, i) =>
-          `${rows.length === 1 && Number.isFinite(rows[0][key]) ? `<circle cx="${numRaw(xx(rows[0]))}" cy="${numRaw(yy(rows[0]))}" r="4" fill="#216c70"/>` : ""}<polyline points="${rows
-            .filter((v) => Number.isFinite(v[key]))
-            .map((v) => numRaw(xx(v)) + "," + numRaw(yy(v)))
-            .join(
-              " ",
-            )}" fill="none" stroke="${i ? "#a35325" : "#216c70"}" stroke-width="3" ${i ? 'stroke-dasharray="7 3"' : ""}/>`,
-      )
+      .map((rows, i) => {
+        const known = rows.filter((v) => Number.isFinite(v[key])),
+          color = i ? "#a35325" : "#216c70";
+        return `${known.length === 1 ? `<circle cx="${numRaw(xx(known[0]))}" cy="${numRaw(yy(known[0]))}" r="4" fill="${color}"/>` : ""}<polyline points="${known.map((v) => numRaw(xx(v)) + "," + numRaw(yy(v))).join(" ")}" fill="none" stroke="${color}" stroke-width="3" ${i ? 'stroke-dasharray="7 3"' : ""}/>`;
+      })
       .join(
         "",
       )}<text x="170" y="224" font-size="12">${comp.kind === "population" ? "Generation" : "Tag · Modellzeit"} (${comp.kind === "manual" ? "eigene Messreihe" : "Wiederholung 1"})</text><path d="M50 246 H80" stroke="#216c70" stroke-width="3"/><text x="88" y="250" font-size="12">${comp.kind === "manual" ? "Eigenes Becken" : "Kontrolle"}</text>${comp.kind === "manual" ? "" : `<path d="M250 246 H280" stroke="#a35325" stroke-width="3" stroke-dasharray="7 3"/><text x="288" y="250" font-size="12">Versuch</text>`}</svg>`;

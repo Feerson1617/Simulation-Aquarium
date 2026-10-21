@@ -30,3 +30,5 @@ Fotosynthese/Atmung sind Mengen im letzten Modellschritt (`mg O₂/L je Schritt`
 Bei **eigenen Beobachtungen** ist kein automatischer Kontrollversuch vorausgesetzt. Unbestimmte Eingriffs-, Dauer- oder Seedfelder werden nicht aus einem späteren Plan erfunden. Die Datei kennzeichnet solche Reihen als `manual` / `Eigenes Becken`; Eingriffe und konstant gehaltene Bedingungen gehören zusätzlich ins Forschungsprotokoll. Die Messzeitpunkte können unregelmäßig sein. JSON erhält Notizen und Messungen zusammen, SVG die ausgewählte beschriftete Reihe.
 
 Nach Ausfall einer Seite können nur die verbliebenen Einzelverläufe verfolgt werden. Unterschiede nach diesem Zeitpunkt sind kein vollständiger gepaarter Vergleich. Der vom Kern zugeordnete Abbruchgrund ist eine Modelldiagnose und kein empirischer Nachweis einer einzigen Ursache in einem echten Aquarium.
+
+Textmetadaten, die in Tabellenkalkulationen als Formel beginnen könnten, werden beim CSV-Schreiben als Literal gekennzeichnet. Zahlen bleiben Zahlen; der JSON-Import führt keine Formeln aus.

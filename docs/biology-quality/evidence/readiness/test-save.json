@@ -1,0 +1,262 @@
+{
+  "version": 1,
+  "seed": 815551911,
+  "nextId": 3,
+  "day": 1,
+  "liters": 120,
+  "water": "fresh",
+  "filter": "none",
+  "light": "none",
+  "substrate": "bare",
+  "hours": 8,
+  "intensity": 80,
+  "flow": 75,
+  "heater": false,
+  "setTemp": 25,
+  "air": false,
+  "skimmer": false,
+  "co2Dose": 0,
+  "feedRate": 1,
+  "autoFeed": false,
+  "params": {
+    "nh4": 0.0051892152293044015,
+    "no2": 0.041552932009892345,
+    "no3": 12.004795568870206,
+    "po4": 0.40000133854903747,
+    "co2": 4.806724991105086,
+    "fe": 0.08,
+    "oxygen": 7.811311777745682,
+    "ph": 7.193156719889755,
+    "temp": 22,
+    "salinity": 0,
+    "kh": 2.499681871428827,
+    "gh": 8,
+    "calcium": 60
+  },
+  "bacteria": 0.03829797507167674,
+  "bacteria2": 0.015655018279390205,
+  "detritus": 0.00485747058580797,
+  "algae": 0,
+  "entities": [
+    {
+      "uid": 1,
+      "species": "anubias",
+      "x": 0.6752526538912207,
+      "z": -0.0743689581751823,
+      "rotation": 4.503158909655608,
+      "scale": 1,
+      "health": 93.5,
+      "biomass": 0.6626481435494497,
+      "age": 31,
+      "sex": "♀",
+      "genotype": null,
+      "pregnancy": 0,
+      "acclimation": 0,
+      "dead": false,
+      "cause": null
+    },
+    {
+      "uid": 2,
+      "species": "neon",
+      "x": -0.38636739912908524,
+      "z": -0.8276341047137975,
+      "rotation": 3.5405749205956973,
+      "scale": 1,
+      "health": 90.80159299346401,
+      "biomass": 0.8809084190055727,
+      "age": 31,
+      "sex": "♀",
+      "genotype": null,
+      "pregnancy": 0,
+      "acclimation": 0,
+      "dead": false,
+      "cause": null
+    }
+  ],
+  "events": [
+    {
+      "day": 0,
+      "title": "1 × Neonsalmler eingesetzt",
+      "text": "Kleine Schwarmfische. Sie brauchen viele Artgenossen und ruhige Verstecke.",
+      "type": "info",
+      "cause": null
+    },
+    {
+      "day": 0,
+      "title": "1 × Anubias eingesetzt",
+      "text": "Wächst langsam. Das dicke Rhizom liegt auf Holz oder Stein, nicht tief im Boden.",
+      "type": "info",
+      "cause": null
+    },
+    {
+      "day": 0,
+      "title": "Dein Becken steht",
+      "text": "120 Liter Süßwasser. Wähle nun Boden, Technik und Lebewesen.",
+      "type": "info",
+      "cause": null
+    }
+  ],
+  "measurements": {
+    "nh4": {
+      "value": 0.015,
+      "day": 0
+    },
+    "no2": {
+      "value": 0.015,
+      "day": 0
+    },
+    "no3": {
+      "value": 12,
+      "day": 0
+    },
+    "po4": {
+      "value": 0.4,
+      "day": 0
+    },
+    "co2": {
+      "value": 5,
+      "day": 0
+    },
+    "fe": {
+      "value": 0.08,
+      "day": 0
+    },
+    "oxygen": {
+      "value": 7.5,
+      "day": 0
+    },
+    "ph": {
+      "value": 7.15,
+      "day": 0
+    },
+    "temp": {
+      "value": 22,
+      "day": 0
+    },
+    "salinity": {
+      "value": 0,
+      "day": 0
+    },
+    "kh": {
+      "value": 2.5,
+      "day": 0
+    },
+    "gh": {
+      "value": 8,
+      "day": 0
+    },
+    "calcium": {
+      "value": 60,
+      "day": 0
+    }
+  },
+  "history": [
+    {
+      "day": 1,
+      "nh4": 0.0051892152293044015,
+      "no2": 0.041552932009892345,
+      "no3": 12.004795568870206,
+      "po4": 0.40000133854903747,
+      "co2": 4.806724991105086,
+      "fe": 0.08,
+      "oxygen": 7.811311777745682,
+      "ph": 7.193156719889755,
+      "temp": 22,
+      "salinity": 0,
+      "kh": 2.499681871428827,
+      "gh": 8,
+      "calcium": 60,
+      "algae": 0,
+      "animals": 1
+    }
+  ],
+  "stableDays": 0,
+  "failed": false,
+  "won": false,
+  "hadLife": true,
+  "deaths": [],
+  "offspring": [],
+  "quizDone": false,
+  "feedReserve": 0,
+  "topup": true,
+  "selected": null,
+  "tankPlaced": true,
+  "mode": "free",
+  "tutorialStep": 0,
+  "tutorialReadSpecies": false,
+  "tutorialCompleted": false,
+  "ownedEquipment": [],
+  "foodType": null,
+  "ecology": {
+    "version": 1,
+    "heterotrophs": 0.04980135172345463,
+    "microfauna": 0.0022224802770062667,
+    "plankton": 0.000021274173574203513,
+    "nitrogenGas": 0,
+    "lastFlux": {
+      "day": 1,
+      "dt": 0.25,
+      "decomposition": 0.00007246257247865748,
+      "mineralization": 0.00001207709541310958,
+      "decomposerOxygen": 0.000010869385871798622,
+      "decomposerCO2": 0.000014945405573723106,
+      "ammoniaOxidation": 0.0029757531719879606,
+      "nitriteOxidation": 0.0008977827892719349,
+      "nitrificationOxygen": 0.008247614066497265,
+      "algaeGrowth": 0,
+      "algaeGrazing": 0,
+      "algaeDecay": 0,
+      "algaePhotosynthesis": 0,
+      "algaeCO2Uptake": 0,
+      "denitrification": 0,
+      "photosynthesis": 0,
+      "respiration": 0.004672786031844322,
+      "respirationCO2": 0.005609245380740751,
+      "co2Assimilation": 0
+    },
+    "trace": [
+      {
+        "day": 0.25,
+        "oxygen": 7.5879005248354625,
+        "no2": 0.021569791666666664,
+        "co2": 4.949598123848023
+      },
+      {
+        "day": 0.5,
+        "oxygen": 7.668715831228797,
+        "no2": 0.028185047394856767,
+        "co2": 4.900611262297391
+      },
+      {
+        "day": 0.75,
+        "oxygen": 7.743012499095471,
+        "no2": 0.03484601224852838,
+        "co2": 4.852999738399532
+      },
+      {
+        "day": 1,
+        "oxygen": 7.811311777745682,
+        "no2": 0.041552932009892345,
+        "co2": 4.806724991105086
+      }
+    ]
+  },
+  "spatial": {
+    "version": 1,
+    "unit": "cm",
+    "positions": "tank-normalized-v1",
+    "originalOverrides": {},
+    "relocations": [],
+    "unplaced": [],
+    "layout": "120:none:false:false:false:canopy-v2"
+  },
+  "genetics": {
+    "version": 1,
+    "enabled": true,
+    "pairs": {},
+    "pedigree": {},
+    "clutches": [],
+    "notes": "",
+    "lastProcessedDay": 1
+  }
+}

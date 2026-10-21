@@ -82,3 +82,6 @@ Stand20:36UTC: Gerätegruppe vollständig18/18 bestanden, alle3 Jahrgänge mit M
 
 
 Stand20:47UTC: R1–R8 vollständig12/12 Browserprüfpunkte bestanden. Tatsächliche Sanierung Kontrolle48,25/Versuch59 mit Ursache/Messlücken und unabhängiger Kernfortrechnung; unveränderte alte learning-evidence-2-Datei; aktuelle/Historische Modellkennungen; eingefrorene Planung; eigene unbekannte Prozesswerte und CSV/SVG/JSON; reproduzierbare/andereSeeds; rekonstruierbare Eltern/Nachkommenarchive; Kohlenstofftransfer; Touch; unfertiger Plan erhält altes gültiges Ergebnis. Bericht/Exporte/Bilder gesichert,0gemeldeteLaufzeit-/Anfragefehler. Bereitschaft/Tutorial läuft anschließend seriell; keine Spielquellen geändert.
+
+
+Bereitschaftsgruppe13/13 bestanden: tatsächlicher Projektpfad/HTML-Fingerprint,3D,Becken/Katalog, Wasser/Spielzeit, Datei-/LocalStorage-Wiederherstellung, alle8Touch-Tutorialstufen und freies Spiel/Portrait; keine gemeldetenHTTP-/Laufzeit-/externenLaufzeitanfragen. Platzierung läuft nun seriell. A11-Prototyp vor Übertragung zusätzlich als historische Entwicklungsevidenz sichern (keine zusätzlichen aktuellen Tests zählen).

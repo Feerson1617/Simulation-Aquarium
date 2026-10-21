@@ -244,7 +244,7 @@ export const QUESTS = Object.fromEntries(
           "Alle Fische verändern gezielt ihre Erbanlagen",
         ],
         0,
-        "Vorhandene Unterschiede wirken auf den Fortpflanzungserfolg. Über Generationen kann sich die Gruppe ändern. Einzelne Fische wählen keine neuen Erbanlagen aus Bedarf.",
+        "Die Tiere haben nicht alle gleich viele Nachkommen. Über Generationen kann sich die Gruppe ändern. Einzelne Fische wählen keine neuen Erbanlagen aus Bedarf.",
       ),
     ),
     q(
@@ -257,7 +257,7 @@ export const QUESTS = Object.fromEntries(
       pick(
         "Warum kann zu viel Dünger schaden?",
         [
-          "Mehr Biomasse kann später mehr Sauerstoffverbrauch bedeuten",
+          "Mehr Algen können später mehr Sauerstoffverbrauch bedeuten",
           "Nährstoffe sind dasselbe wie Sauerstoff",
           "Mehr Algen sind immer gut für Fische",
         ],
@@ -330,7 +330,7 @@ export const QUESTS = Object.fromEntries(
           "Aquariumwerte für die ganze Nordsee übernehmen",
         ],
         0,
-        "Nährstoffe gelangen auch über Flüsse ins Meer. Weniger Eintrag kann helfen. Strömung und Schichtung wirken ebenfalls mit. Das Becken zeigt nicht die ganze Nordsee.",
+        "Nährstoffe gelangen auch über Flüsse ins Meer. Weniger Eintrag kann helfen. Das Becken zeigt nicht die ganze Nordsee.",
       ),
     ),
     q(
@@ -350,7 +350,7 @@ export const QUESTS = Object.fromEntries(
       ),
       "Wie wirkt frisches Wasser auf die Wasserprobleme?",
       pick(
-        "Müll kann Tiere verletzen. Was hilft, ohne nur eine Reinigung zu verschieben?",
+        "Müll kann Tiere verletzen. Wie vermeiden wir neuen Müll?",
         [
           "Mehrweg nutzen und Müll vermeiden",
           "Nur Wasser austauschen",
@@ -441,7 +441,7 @@ export function resultQuestion(q, result) {
     choices:
       q.experiment.kind === "population"
         ? ["In Gruppe 1", "In Gruppe 2", "Etwa gleich groß"]
-        : ["In Becken 1", "In Becken 2", "Gleich viel"],
+        : ["In Becken 1", "In Becken 2", "Etwa gleich"],
     correct: !result
       ? -1
       : Math.round(result.control * 1000) === Math.round(result.test * 1000)

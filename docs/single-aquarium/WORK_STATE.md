@@ -1,27 +1,40 @@
-# Ein Aquarium: neuer Auftrag
+# Ein Aquarium: Stand am neuen M1-Gate
 
-Ausgangspunkt: `4e59de3beb4d4af8017472301c9d28cc8ade653c`, sauber wiederhergestellt. PR #9 ist offen; Fortsetzung auf `feature/coherent-learning-workspaces`. Main bleibt unberührt. Referenz-ZIP vollständig vorhanden unter `/workspace/exports/Simulation-Aquarium-4e59de3.zip` (SHA-256 `55ca0303d867a3e6e4cd9f75472c5a90c3347e90e666c75ae4f500ab0a85259f`).
+Ausgangspunkt `4e59de3beb4d4af8017472301c9d28cc8ade653c` wurde sauber wiederhergestellt und als `backup/coherent-learning-4e59de3` auf GitHub gesichert. Die Referenz-ZIP liegt unverändert unter `/workspace/exports/Simulation-Aquarium-4e59de3.zip`, SHA-256 `55ca0303d867a3e6e4cd9f75472c5a90c3347e90e666c75ae4f500ab0a85259f`.
 
-Der [neue Auftrag](REQUEST.txt) ersetzt die früheren Zwei-Becken-/14-Missions-Vorgaben. [Bedienmatrix](CONTROL_MATRIX_SOURCE.md), [beigefügte Gegenprüfung](REVIEW.html). Deren Quellen-/Kernproben sind fremde Prüfbelege, keine eigenen neuen Browserläufe.
+Fortsetzung: `feature/coherent-learning-workspaces`, [PR #9](https://github.com/Feerson1617/Simulation-Aquarium/pull/9), weiterhin offen und als Entwurf. Kein Merge, kein Push auf main. [Aktuelle Vorschau](https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/).
 
-## Verbindliches neues Gate
+## Auftrag und Gate
 
-Abschnitt 15: „Nur M1 als vollständigen vertikalen Prototyp bauen“ und „Vor Freigabe keine flächendeckende Oberflächenumstellung.“ Abschnitt 17: „Am vereinbarten Prototyp-Gate stoppen und Sichtfreigabe abwarten“. Die frühere Temperaturfreigabe gilt ausdrücklich nicht. Phase 1 (Inventur/Architektur/Migrationsentwurf) und Phase 2 (M1) sind jetzt beauftragt; M2–M6 und die komplette freie Oberfläche folgen nach neuer Sichtfreigabe.
+Der [neue Masterauftrag](REQUEST.txt) ersetzt die Zwei-Becken-/14-Missions-Vorgaben. [Bedienmatrix des Auftraggebers](CONTROL_MATRIX_SOURCE.md) und [beigefügte Gegenprüfung](REVIEW.html) sind Eingaben; deren Quellen-/Kernproben sind keine eigenen Browserbelege.
 
-## Architekturentscheidung
+Phase 1 und der vollständige M1-Prototyp aus Phase 2 sind umgesetzt. **Eine neue menschliche Sichtfreigabe steht aus.** Abschnitt 15 verlangt: „Nur M1 als vollständigen vertikalen Prototyp bauen“ und „Vor Freigabe keine flächendeckende Oberflächenumstellung.“ Abschnitt 17: „Am vereinbarten Prototyp-Gate stoppen und Sichtfreigabe abwarten“. Die frühere Temperaturfreigabe gilt ausdrücklich nicht.
 
-Ein aktives Becken ist der tatsächliche Zustand des vorhandenen Haupt-Renderers. Die normale M1-Route instanziiert weder Paarrenderer noch Paarrechnung noch zusätzliche Population. Alte Module bleiben für ausdrücklich aufgerufene historische Expertenwerkzeuge erhalten. Neue stabile Missionskennungen und getrennte Speicherplätze verhindern die Umdeutung/Überschreibung alter Produkte.
+M2–M6 haben neue stabile Kennungen und fachliche Entwürfe, aber noch keine neuen spielbaren Wege. Die Startseite kennzeichnet sie als „In Vorbereitung“. Auch die vollständige neue freie Oberfläche und die abschließende Lehrkraft-/Curriculumüberarbeitung folgen nach dem Gate. [Alle sechs Lernhandlungen und sämtliche 14 Altzuordnungen](MISSIONS.md).
 
-Ein Durchgang enthält vollständigen Start, getätigten Eingriff, eine tatsächliche Zeitreihe und unveränderliche Checkpoints. Nur das aktuelle Becken wird während der ausdrücklich gestarteten Beobachtung fortgeschaltet. Der zweite Durchgang setzt sichtbar den gesamten Anfang zurück; nur die Lichtdauer ändert sich. Alte Läufe werden als Daten betrachtet, nicht als zusätzlich gerenderte Becken. Anzeigen und Export tragen dieselbe Zustands-/Zeitkennung.
+## Gesicherter Anwendungscode
 
-## Nächster Schritt
+- `ac4c0d5`: neuer Auftrag und Anhänge gesichert.
+- `1f217b5`: tatsächliches Einbeckenmodell und M1, alte Speicherplätze getrennt.
+- `824324c`: echte automatische Verlaufslinie.
+- `ff96365`: stabile laufende Bedienelemente und ausdrücklicher historischer Expertenzugang.
+- `c6a4383`: kompakte Tabletansicht und tatsächliche Geometrieprüfung.
+- **`260cc516eff7242ff86482b0a086b707d64f3a86`**: aktueller Anwendungscode; aufgabenbezogene gestufte Hilfen, Datenrückmeldung statt vorweggenommener Lösung, Tastaturfokus bei Aufgabenwechseln. Nachfolgende Beleg-/Dokumentationscommits ändern diesen Laufzeitcode nicht.
 
-Missionszuordnung und aktuelle Bedieninventur erstellen, M1 auf vorhandenen Renderer aufsetzen, echte Chromium-/WebKit-Läufe und Screenshots einschließlich Tablet durchführen. Aktueller Anwendungscode und konkrete Testzahlen werden nach der Umsetzung getrennt von den historischen 173 Tests dokumentiert. Keine vorweggenommene Gesamtfreigabe.
+## Umsetzung
 
-## Erster Implementierungsstand
+Die normale Route verwendet den Zustand des vorhandenen Haupt-Renderers und kehrt vor der Konstruktion des alten Paarcontrollers zurück. M1 erzeugt keine zusätzliche aktive Population und keinen Paarrenderer. Vorhandene Modelle, Maßstäbe, Geräte und biologische Kernfunktionen sind unverändert.
 
-M1 ist auf der neuen Standardroute implementiert; fünf weitere Missionen sind nur als kommende Fragen sichtbar. `?expert=1` erhält die bisherigen detaillierten Werkzeuge. Neues Lernprofil Version 2 und eigener Speicherschlüssel schützen alte freie Becken/Produkte. Vollständiger Start wird um 06:00 Uhr vorbereitet, beide Beobachtungen dauern exakt drei Tage. Alle Originalraten und Modelle bleiben erhalten.
+Je drei Tage mit 8 h täglichem Licht und ohne Licht werden nacheinander am einzigen Aquarium ab 06:00 Uhr beobachtet. Dazwischen stellt eine benannte Handlung den **vollständigen** Start wieder her, einschließlich Individuen, Ressourcen, Zeit und Zufallszustand. Ausschließlich `hours` wird anschließend auf 0 gesetzt. Gespeicherte Durchgänge laufen nicht weiter.
 
-179 Modultests bestanden (173 bestehende Kern-/Archivprüfungen plus sechs neue gezielte Einbeckenprüfungen). Ein erster tatsächlicher Chromium-Weg besteht einschließlich Ergebnissicherung und Reload: Sauerstoff 7,80 → 8,24 mit Licht, 7,80 → 8,16 ohne Licht. Das sind eigene Modellwerte bei diesem Start; kein erzwungener Rückgang. Ein Konflikt mit einem alten Quiz-Handler (`data-answer`) wurde durch getrennte Ereignisse/Attribute behoben; der anschließende Weg hat keine Seitenfehler. Das ausgeblendete Dateifeld wird ausdrücklich verborgen. Diese Entwicklungsläufe sind noch keine abgeschlossene Desktop-/Tablet-Abnahme.
+Messkarte, Szene, Kurve, Aufgabenbeleg und Export tragen dieselben Zustands-/Zeitkennungen. Der reale Gegenbefund bleibt sichtbar: **7,80 → 8,24 mg/L mit Licht; 7,80 → 8,16 mg/L ohne Licht**. Beide Werte steigen. Keine geänderten Raten und keine erfundene fallende Dunkelkurve.
 
-Nächster Schritt: vollständige neue Browserprüfungen mit plausiblem Fehlerweg, tatsächlicher Objektwahl, Speicherfehlern und Geometrie; aktuelle PR-Vorschau und Einzel-HTML. Danach am neuen Gate vorlegen, nicht alle sechs Missionen als fertig melden.
+Zeit läuft nur nach ausdrücklichem Start. Hilfe, Menü, ausgeblendete Seite und Neuladen halten an. Ein neuer Speicherbereich, validierter Import, verlustfreie Kompression, unveränderte Altstände und eine direkte Dateisicherung bei Speicherfehlern erhalten Ergebnisse. Herkunft von Vermutung, Auswahl, Messwert, Spieltext und freiwilliger eigener Formulierung bleibt getrennt.
+
+## Eigene Prüfbelege und Wiederaufnahme
+
+[Prüfbericht mit Versionsgrenzen, Bildern und Rohbelegen](VALIDATION.md), [tatsächliches Bedieninventar](CONTROL_AUDIT.md). 179 Modultests bestanden. Der komplette M1-Weg wurde in Chromium und WebKit jeweils auf Desktop und Tablet im Hoch-/Querformat geprüft; die letzte Hilfe-/Fokusänderung zusätzlich gezielt in beiden Engines. Freies Spiel, Katalog, Beckenplatzierung, Speichern/Laden und alle acht Tutorialschritte wurden gesondert geprüft. Einzel-HTML, GitHub-Unterpfad und ausgelieferte Quelldateien sind getrennte Nachweise.
+
+Keine Aussage über Lernerfolg, physische iPads/Safari, natives `file:`-Starten oder fertige M2–M6. Neue Dokumente/Belege haben Vorrang vor historischen 14-Missions-Protokollen.
+
+**Nächster fachlicher Schritt:** ausschließlich nach ausdrücklicher Sichtfreigabe mit Phase 3 fortsetzen. Zuerst M2/M5 nach demselben Prinzip und früh die Genetik-Identitätsbrücke für M3/M4 prüfen. Kein automatischer Merge. Bei Verbindungsabbruch zuerst Branch, Status, PR-Head und dieses Dokument prüfen und gesicherte Arbeit fortsetzen.

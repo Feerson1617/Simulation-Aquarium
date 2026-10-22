@@ -1,0 +1,22 @@
+{
+  "kind": "failed development smoke, not final evidence",
+  "exactHead": "not recorded in this smoke log",
+  "result": {
+    "errors": [
+      "Cannot read properties of null (reading 'cause')",
+      "Cannot read properties of null (reading 'cause')"
+    ],
+    "stage": "complete",
+    "endpoints": [
+      [
+        7.8,
+        8.238664367529305
+      ],
+      [
+        7.8,
+        8.163889709536656
+      ]
+    ]
+  },
+  "fix": "data-single-choice namespace and event propagation separation; all final reports separately preserved"
+}

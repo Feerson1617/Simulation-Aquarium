@@ -1,0 +1,51 @@
+{
+  "baseline": "4e59de3beb4d4af8017472301c9d28cc8ade653c",
+  "applicationHead": "260cc516eff7242ff86482b0a086b707d64f3a86",
+  "changedTopLevelDeclarations": [],
+  "protectedDeclarations": {
+    "hd": {
+      "exists": true,
+      "unchanged": true,
+      "sha256": "46b1a7939ce754edf17b7ca6554fd8decda716a8ff24b670e861f049a3c2d84a"
+    },
+    "Qf": {
+      "exists": true,
+      "unchanged": true,
+      "sha256": "d6afdc78bb1ee2aa947c8a028ba50a47e8dde1aef5205883a161a1e08d7a28bc"
+    },
+    "qs": {
+      "exists": true,
+      "unchanged": true,
+      "sha256": "a2e146b7d197cf7bf3a0e68774cec34f1638a34c15b92b8740a3a375422b0c6f"
+    },
+    "tp": {
+      "exists": true,
+      "unchanged": true,
+      "sha256": "81261a5a9d48ebcb169de9c4bcdecdad19e0981e8f71f3e055ccc8fb0b52c2b8"
+    },
+    "At": {
+      "exists": true,
+      "unchanged": true,
+      "sha256": "21f142132200da0dde914b609d2daed3187a792c9f8ce7d0d621fcf7ee302103"
+    },
+    "Df": {
+      "exists": true,
+      "unchanged": true,
+      "sha256": "2f54c7fd32ece409163cbc9234ac4dbd0ba6d8462094001c1c5b34a25965783c"
+    },
+    "ud": {
+      "exists": true,
+      "unchanged": true,
+      "sha256": "41c1cbd1db2521aaef6da83d24a8f673fbf767967774016d6c7f76e6cbb98b6e"
+    },
+    "y1": {
+      "exists": true,
+      "unchanged": true,
+      "sha256": "0a9cb6de399aefc30070640e07f36a795371b58b47581130b5433b2eb3ffdc6c"
+    }
+  },
+  "protectedPathsDiff": "",
+  "defaultRoutesBeforeLegacyConstruction": true,
+  "singleModelDoesNotInvokePair": true,
+  "scope": "Source comparison complements real browser identity checks; does not prove learning or physical Safari performance"
+}

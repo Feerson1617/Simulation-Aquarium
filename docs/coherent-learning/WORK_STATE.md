@@ -6,9 +6,9 @@ Auftrag: [Masterauftrag](REQUEST.txt), [Prüfbericht](REVIEW.html). Neuer Branch
 
 ## Verbindliche Arbeitsgrenze
 
-Abschnitt 15 des Masterauftrags verlangt: „Vor dieser Freigabe keine flächendeckende Neugestaltung aller Missionen.“ Es liegt noch keine Sichtfreigabe vor. Dieser PR legt deshalb die gemeinsame Datengrundlage und den Temperaturprototyp zur Prüfung vor. **Der Gesamtauftrag ist am Gate nicht abgeschlossen.**
+Abschnitt 15 des Masterauftrags verlangt: „Vor dieser Freigabe keine flächendeckende Neugestaltung aller Missionen.“ Die ausdrückliche Sichtfreigabe liegt seit dem 22.10.2026 vor: Der Auftraggeber antwortete „ist freigegeben“. Phase 3 wird auf dem sauberen Branch-Head `15d9ebc` fortgesetzt. **Der Gesamtauftrag ist damit noch nicht abgeschlossen.**
 
-Vor der nächsten Entwicklungsphase muss der Auftraggeber den Temperaturvergleich in der PR-Vorschau ansehen und ausdrücklich freigeben. Technische Tests erteilen diese Freigabe nicht. Kein Merge, kein direkter main-Push, keine Änderungen an Konten oder Umgebungsberechtigungen.
+Das Temperaturgate ist durch den Auftraggeber freigegeben. Die neuen Muster für Populationen und regionale Fälle werden vor breiter Übertragung gesondert sichtbar geprüft. Kein Merge, kein direkter main-Push, keine Änderungen an Konten oder Umgebungsberechtigungen.
 
 ## Umgesetzt
 
@@ -56,4 +56,4 @@ python3 tests/coherent_compat_browser.py
 python3 tests/coherent_tools_browser.py
 ```
 
-WebKit und ausführliche Aufrufvariablen: [ENVIRONMENT.md](ENVIRONMENT.md). **Nächster Produktschritt: ausdrückliche Sichtfreigabe des Temperaturprototyps einholen; danach Phase 3 fortsetzen.** Keine automatischen Hintergrund-Fortsetzungsversprechen.
+WebKit und ausführliche Aufrufvariablen: [ENVIRONMENT.md](ENVIRONMENT.md). **Aktueller Produktschritt: Phase 3 umsetzen; die Temperaturfreigabe nicht erneut einholen.** Keine automatischen Hintergrund-Fortsetzungsversprechen.

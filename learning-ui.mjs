@@ -2281,8 +2281,11 @@ export function mountLearningUI(host) {
   );
   const entry = document.createElement("button");
   entry.className = "learn-expert-entry glass-button";
-  entry.textContent = "Klassen 8–10";
+  const historicalTools=new URLSearchParams(location.search).get("archive-tools")==="1";
+  entry.textContent = historicalTools ? "Historische Lehrkraftwerkzeuge" : "Klassen 8–10";
+  if(historicalTools)document.documentElement.setAttribute("data-historical-tools","");
   entry.addEventListener("click", () => {
+    if(!historicalTools){location.href=location.pathname;return;}
     host.home();
     tag = null;
     session = null;

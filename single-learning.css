@@ -2,6 +2,7 @@
 html.single-aquarium {--single-paper:#f5f2e6;--single-ink:#1e3e3c;--single-accent:#2d685c;--single-line:#c9d2c4}
 html.single-aquarium #learning-root {font:15px/1.45 "DM Sans",system-ui,sans-serif;color:var(--single-ink)}
 html.single-aquarium #learning-root [data-single-file][hidden] {display:none!important}
+html[data-historical-tools] #learning-root::before {content:"Historische Lehrkraftwerkzeuge · frühere Lernwege";position:absolute;top:0;left:0;right:0;z-index:60;padding:2px 12px;background:#f0dca5;color:#473d24;font-size:11px;pointer-events:none}
 .single-surface {position:absolute;inset:0;pointer-events:none}
 .single-brand {position:absolute;top:20px;left:24px;color:#edf2e8;text-shadow:0 1px 4px #142f33;display:grid;gap:3px;max-width:65%}
 .single-brand span {font-size:18px;font-weight:650}

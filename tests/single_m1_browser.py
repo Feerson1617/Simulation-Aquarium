@@ -68,7 +68,9 @@ def select_predict(p,touch,profile):
  report.setdefault('selection',[]).append({'profile':profile,'directCanvasPick':direct,'actualPlantUid':chosen['uid']})
 def complete(p,touch,profile):
  start(p,touch);geometry(p,profile+'-plant');shot(p,profile+'-start.png');select_predict(p,touch,profile)
- click(p,'play',touch);p.wait_for_function('window.aquariumLearningSnapshot().session.tank.day>45.25')
+ click(p,'play',touch)
+ # Pause immediately through a real keyboard action; a slow software GPU may otherwise finish a short observation before another automated click.
+ p.locator('[data-single=pause]').press('Enter');assert not snap(p)['running'];assert snap(p)['session']['stage']=='light-observing'
  click(p,'help',touch);held=snap(p);assert not held['running'];assert p.evaluate('document.querySelector("#scene").inert')
  p.wait_for_timeout(1300);assert snap(p)['session']['tank']==held['session']['tank']
  p.keyboard.press('Escape');assert p.evaluate('document.activeElement.dataset.single')=='help'

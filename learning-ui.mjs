@@ -1579,7 +1579,7 @@ export function mountLearningUI(host) {
         const v=populationWorkspaceView(session,LEARNING_MODEL_REVISION),i=v.sides[d.cohortPick]?.cohort?.individuals.find(i=>i.uid===Number(d.cohortUid));
         if(!i) return;
         session.selectedIndividual={side:d.cohortPick,uid:i.uid,cohortId:v.context.cohortIds[d.cohortPick]};
-        if(v.mode === "cohort" && v.context.time === session.population.generation) session[i.sex === "♀" ? "mother" : "father"]=i.uid;
+        if(v.mode === "cohort" && v.context.time === session.population.generation && (tag.mode === "free" || tag.mission === "9-mendel")) session[i.sex === "♀" ? "mother" : "father"]=i.uid;
         questEvent(session.quest,"observe");
         if(tag.mission === "9-traits" && session.quest) {
           if(!showGenes) {

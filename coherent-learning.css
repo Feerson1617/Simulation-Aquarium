@@ -126,3 +126,7 @@
 .forest-pair svg {width:100%;max-height:180px}
 .forest-pair [aria-pressed=true] {outline:3px solid #96691b}
 @media (max-width:800px) {.process-scene {min-height:400px}#learning-root .process-node {font-size:11px;padding:6px;max-width:100px;min-width:44px}}
+.cohort-workspace .coherent-clock {position:sticky;top:0;z-index:3;background:#21464a;padding:3px 0}
+.cohort-selection {position:sticky;top:52px;z-index:2;background:#fff0c9;border:1px solid #b39956;border-radius:10px;padding:9px 12px;margin:8px 0;font-size:13px;display:flex;flex-direction:column;gap:3px;color:#3a4c42}
+.cohort-fish-grid button {scroll-margin-top:180px}
+.coherent-instrument details {width:100%;font-size:13px}

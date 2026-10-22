@@ -1230,7 +1230,7 @@ export function mountLearningUI(host) {
     document.documentElement.classList.toggle("learning-history-view",active && panel === "saved-view");
     if(tag?.mission === "10-northsea" && session?.regionalMode === "northsea" && screen === "active" && !detailed && panel !== "teacher") {
       tankViews.dispose();
-      const v=resolveComparisonView(session),drawer=panel === "more" ? student.more() : panel === "notebook" ? notebook() : "";
+      const v=resolveComparisonView(session),drawer=panel === "more" ? student.more() : panel === "notebook" ? notebook() : panel === "display" ? display() : panel === "glossary" ? glossary() : panel === "mission-info" ? missionInfo() : panel === "restart-attempt" ? restartView() : "";
       root.innerHTML=`<header class="coherent-header"><div><small>Regionaler Fall · Klasse 10</small><h1>Vom Land in die Nordsee</h1></div>${button("more","Mehr")}</header><main class="coherent-workspace"><section class="coherent-views">${processWorkspace({session,mission:tag.mission,context:{...v.context,domain:"regional-qualitative"},esc,button})}<section class="coherent-run">${button("regional-local","Zum gespeicherten Beckenvergleich")}<p>Qualitativer Eintragsweg. Keine Aquariumtage oder regionale Mengenprognose.</p><a href="${REGIONAL_CASES[tag.mission].url}" target="_blank" rel="noopener">OSPAR: Eutrophierung</a></section></section><aside class="coherent-notebook">${drawer || student.quest(true)}</aside></main>`;
       document.documentElement.classList.add("learning-domain");if(host.comparisonRenderer?.())host.comparisonRenderer().learningDraw=domainDraw;
       host.layout(false);host.sceneInert(true);host.interactive(false);return;

@@ -62,3 +62,12 @@ test('K: legacy numbers retain an undocumented basis; new contracts explicitly d
  assert.equal(old.version,0);assert.match(ammoniaPoolLabel(old).unit,/nicht dokumentierte/);assert.deepEqual(raw,before);
  assert.deepEqual(ammoniaPoolContract(newAmmoniaPoolContract()),newAmmoniaPoolContract());
 });
+
+test('P4: plant display ratios preserve original values and use one beginning across both sides',async()=>{
+ const {relativePlantComparison,learnerPrecision}=await import('../learning-display.mjs');
+ const comp={kind:'ecology',runs:[{control:[{day:45,plantBiomass:4},{day:46,plantBiomass:6}],test:[{day:45,plantBiomass:4},{day:46,plantBiomass:8}]}]};
+ const before=structuredClone(comp),view=relativePlantComparison(comp);
+ assert.deepEqual(view.runs[0].control.map(s=>s.plantBiomass),[1,1.5]);assert.deepEqual(view.runs[0].test.map(s=>s.plantBiomass),[1,2]);assert.deepEqual(comp,before);
+ assert.equal(learnerPrecision('fishDead'),0);assert.equal(learnerPrecision('temp'),1);
+ comp.runs[0].control[0].plantBiomass=0;assert.equal(relativePlantComparison(comp).runs[0].test[1].plantBiomass,null);
+});

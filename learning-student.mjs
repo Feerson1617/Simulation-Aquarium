@@ -1,3 +1,4 @@
+import {relativePlantComparison,learnerPrecision} from "./learning-display.mjs";
 import {PROCESS_TASKS} from "./learning-process-workspace.mjs";
 import {pendingActivity,REGIONAL_CASES,OBSERVATION_METRICS,choiceOrder,questHint} from "./learning-activities.mjs";
 import {populationExplanation} from "./biology-quality.mjs";
@@ -21,7 +22,7 @@ export const STUDENT_METRICS = {
   co2: ["Kohlenstoffdioxid", "mg/L"],
   algae: ["Algenmenge", ""],
   organic: ["Reste", ""],
-  plantBiomass: ["Pflanzenmenge", ""],
+  plantBiomass: ["Pflanzenmasse (Anfang = 1)", "Vielfaches des Anfangs"],
   health: ["Lebende Fische: Zustand", "Punkte"],
   fishAlive: ["Lebende Fische", "Anzahl"],
   fishDead: ["Verstorbene Fische", "Anzahl"],
@@ -121,9 +122,9 @@ export function createStudentViews(api) {
     if (!done && s.step === 3 && state().populationWorkspace && !observedResult) body=`<h2>Sieh dir die aktuelle Nachkommengeneration an.</h2>${button("cohort-latest","Zur aktuellen Generation")}`;
     if (!done && s.step === 3 && ["ecology","population"].includes(d.experiment.kind) && !observedResult && !activity)
       body = `<h2 tabindex="-1">Zu deinem aktuellen Plan fehlt hier ein vollständiger Vergleich.</h2><p>Wähle einen Zeitpunkt mit beiden Seiten. Frühere Reihen bleiben zum Ansehen erhalten.</p>${state().prototype && session.comparison && !api.matches() ? button("workspace-plan","Neuen Versuch planen") : button("latest-series","Aktuellen Versuch ansehen")}`;
-    if (!done && state().help !== false) body += state().support === "guided" || s.showHint ? `<p class="learn-step-hint">${esc(questHint(d,s,state().support))}</p>` : button("quest-hint","Tipp");
+    if (!done && state().help !== false) body += state().support === "guided" || s.showHint ? `<p class="learn-step-hint">${esc(questHint(d,s,state().support))}</p>${(s.hintLevels?.[s.step+":"+(activity?.id || "question")] || 0)<2 ? button("quest-hint-next","Weiterer Tipp") : ""}` : button("quest-hint","Tipp");
     if (s.predictionCheck && s.step >= 4) body += `<details class="learn-prediction-check"><summary>Deine Vermutung prüfen</summary><p>Ausgewählt: ${esc(s.predictionCheck.selection)}</p><p>Beobachtet: ${esc(s.predictionCheck.observed)}</p><p>${s.predictionCheck.matches ? "Das passt zu deiner Vermutung." : "Die Beobachtung passt hier nicht zu deiner Vermutung. Das ist ein Anlass zum Weiterfragen."}</p></details>`;
-    return `<aside class="learn-quest ${inline ? "learn-quest-inline" : ""}" aria-label="Questbuch"><header><strong>${esc(d.title)}</strong>${inline ? "" : button("quest-toggle", "−", 'aria-label="Questbuch einklappen" aria-expanded="true"')}</header><progress value="${s.step}" max="5" aria-label="Erledigte Aufgaben">${s.step} von 5</progress>${body}<p class="learn-quest-feedback" data-feedback-kind="${s.feedbackKind || "neutral"}" role="status" aria-live="polite">${esc(done ? "" : s.feedback)}</p></aside>`;
+    return `<aside class="learn-quest ${inline ? "learn-quest-inline" : ""}" aria-label="Questbuch"><header><strong>${esc(d.title)}</strong>${inline ? "" : button("quest-toggle", "−", 'aria-label="Questbuch einklappen" aria-expanded="true"')}</header><progress value="${s.step}" max="5" aria-label="Erledigte Aufgaben">${s.step} von 5</progress>${body}<p class="learn-quest-feedback" data-feedback-kind="${s.feedbackKind || "neutral"}" role="status" aria-live="polite">${!done && s.feedback ? `<span aria-hidden="true">${({error:"✕",success:"✓",neutral:"•"})[s.feedbackKind || "neutral"]}</span> ` : ""}${esc(done ? "" : s.feedback)}</p></aside>`;
   }
   function activityControl(a) {
     if(a.id === "river-route" && !state().session.regionalMode) return button("regional-northsea","Regionalen Eintragsweg ansehen");
@@ -155,7 +156,7 @@ export function createStudentViews(api) {
     if (r.fish) return `<div class="learn-two learn-reading">${["control","test"].map((side,i)=>`<div><small>Becken ${i+1}</small><strong>${r.fish[side].fishAlive} leben</strong><span>${r.fish[side].fishDead} gestorben</span><span>${r.fish[side].health == null ? "Keine lebenden Fische" : `Zustand der lebenden Fische: ${num(r.fish[side].health,0)} Punkte`}</span></div>`).join("")}</div>`;
     const fraction = r.unit === "Anteil",
       value = (v) =>
-        fraction ? num(v * 100, 1) + " %" : num(v, r.key === "temp" || r.label === "Temperatur" ? 1 : 3) + " " + esc(r.unit || "");
+        fraction ? num(v * 100, 1) + " %" : num(v, learnerPrecision(r.key || (r.label === "Temperatur" ? "temp" : ""))) + " " + esc(r.unit || "");
     return `${r.fish ? `<p>Becken 1: ${r.fish.control.fishAlive} leben, ${r.fish.control.fishDead} gestorben. Becken 2: ${r.fish.test.fishAlive} leben, ${r.fish.test.fishDead} gestorben.</p>` : ""}<div class="learn-two learn-reading"><div><small>${r.kind === "population" ? "Gruppe" : "Becken"} 1</small><strong>${value(r.control)}</strong></div><div><small>${r.kind === "population" ? "Gruppe" : "Becken"} 2</small><strong>${value(r.test)}</strong></div></div><small>${esc(r.label)} · Wiederholung ${r.repetition || 1} · ${r.kind === "population" ? "Generation" : "Tag"} ${num(r.time)}</small>`;
   }
   function observe() {
@@ -187,11 +188,11 @@ export function createStudentViews(api) {
     const {session} = state(), v = api.comparisonView();
     if (!v) return "";
     const {comparison:all,run,context,rows,row:r} = v;
-    const c = {...all,runs:[run]}, series = [...(session.comparisonHistory || []),session.comparison].filter(Boolean);
+    const raw = {...all,runs:[run]}, c=relativePlantComparison(raw),displayRun=c.runs[0],displayRow={control:displayRun.control.find(s=>s[all.kind === "population"?"generation":"day"]===context.time),test:displayRun.test.find(s=>s[all.kind === "population"?"generation":"day"]===context.time)}, series = [...(session.comparisonHistory || []),session.comparison].filter(Boolean);
     const keys = c.kind === "population" ? ["dark","light","A"] : api.studentMetrics();
     const key = keys.includes(session.study.metric) ? session.study.metric : keys[0];
     const value = sample => !sample ? "keine Folgemessung" : !Number.isFinite(sample[key]) ? "—" :
-      c.kind === "population" && ["dark","light","A"].includes(key) ? num(sample[key]*100,1)+" %" : num(sample[key],key === "temp" ? 1 : 3);
+      c.kind === "population" && ["dark","light","A"].includes(key) ? num(sample[key]*100,1)+" %" : num(sample[key],learnerPrecision(key));
     const stale = context.series === series.length-1 && !api.matches();
     return `<section class="learn-results" data-selected-series="${context.series}" data-series-id="${esc(context.seriesId)}" data-view-time="${context.time}" data-repetition="${context.repetition}"><h3>Dein Vergleich</h3>
       ${series.length>1 ? `<details><summary>Versuche vergleichen</summary><label>Versuchsreihe<select data-learning-series>${options(series.map((item,i)=>[i,`${i+1}: ${item.kind === "population" ? item.environment === "neutral" ? "Keine Farbe bevorzugt" : item.environment === "dark" ? "Dunkle Farbe bevorzugt" : "Helle Farbe bevorzugt" : "Beckenversuch"}`]),context.series)}</select></label></details>` : ""}
@@ -201,10 +202,10 @@ export function createStudentViews(api) {
       <label>Was möchtest du ansehen?<select data-learning-metric>${options(keys.map(k=>[k,STUDENT_METRICS[k][0]]),key)}</select></label>
       ${c.kind === "population" ? `<p>${esc(populationExplanation(c.environment))}</p>` : ""}
       ${session.inspection && session.inspection.time === context.time ? `<p data-inspected-time>Angesehener Zeitpunkt: Tag ${num(context.time)}.</p>` : ""}
-      ${r.control && r.test ? reading({kind:c.kind,label:STUDENT_METRICS[key][0],unit:STUDENT_METRICS[key][1],key,time:context.time,repetition:context.repetition,control:r.control[key],test:r.test[key]}) : `<p>Kein vollständiger Paarvergleich zu diesem Zeitpunkt. Becken 1: ${value(r.control)}. Becken 2: ${value(r.test)}.</p>`}
-      ${api.plot(c,key,context)}<p class="learn-caption">Eine Linie zeigt ${c.kind === "population" ? "eine Gruppe" : "ein Becken"}. Der Zeiger markiert den gewählten Zeitpunkt.</p>
+      ${r.control && r.test ? reading({kind:c.kind,label:STUDENT_METRICS[key][0],unit:STUDENT_METRICS[key][1],key,time:context.time,repetition:context.repetition,control:displayRow.control[key],test:displayRow.test[key]}) : `<p>Kein vollständiger Paarvergleich zu diesem Zeitpunkt. Becken 1: ${value(r.control)}. Becken 2: ${value(r.test)}.</p>`}
+      ${key === "plantBiomass" ? "<p>Die Pflanzenmasse wird durch ihren gemeinsamen Anfangsbestand geteilt. Anfang = 1; ohne Anfangsbestand ist kein Verhältnis bestimmbar.</p>" : ""}${api.plot(c,key,context)}<p class="learn-caption">Eine Linie zeigt ${c.kind === "population" ? "eine Gruppe" : "ein Becken"}. Der Zeiger markiert den gewählten Zeitpunkt.</p>
       ${Object.values(run.status || {}).some(s=>s.state === "failed") ? "<p>Ein Becken konnte nicht weiterlaufen. Seine Linie endet dort; danach fehlen seine Werte.</p>" : ""}
-      <details><summary>Alle Werte</summary><div class="learn-table-wrap"><table><thead><tr><th>${c.kind === "population" ? "Generation" : "Tag"}</th><th>${c.kind === "population" ? "Gruppe" : "Becken"} 1</th><th>${c.kind === "population" ? "Gruppe" : "Becken"} 2</th></tr></thead><tbody>${rows.map(x=>`<tr data-table-time="${x.time}" ${x.time===context.time ? 'aria-current="true"' : ""}><td>${num(x.time)}</td><td>${value(x.control)}</td><td>${value(x.test)}</td></tr>`).join("")}</tbody></table></div></details>
+      <details><summary>Alle Werte</summary><div class="learn-table-wrap"><table><thead><tr><th>${c.kind === "population" ? "Generation" : "Tag"}</th><th>${c.kind === "population" ? "Gruppe" : "Becken"} 1</th><th>${c.kind === "population" ? "Gruppe" : "Becken"} 2</th></tr></thead><tbody>${rows.map(x=>`<tr data-table-time="${x.time}" ${x.time===context.time ? 'aria-current="true"' : ""}><td>${num(x.time)}</td><td>${value(key === "plantBiomass" ? displayRun.control.find(s=>s.day===x.time) : x.control)}</td><td>${value(key === "plantBiomass" ? displayRun.test.find(s=>s.day===x.time) : x.test)}</td></tr>`).join("")}</tbody></table></div></details>
       <div class="learn-actions">${button("export","Für die Lehrkraft speichern")}${button("csv","Gewählte Werte speichern")}${button("chart","Verlauf als Bild speichern")}${c.kind === "ecology" ? button("show-control",state().prototype ? "Becken 1 auswählen" : "Becken 1 ansehen")+button("show-test",state().prototype ? "Becken 2 auswählen" : "Becken 2 ansehen") : ""}</div></section>`;
   }
   function investigation(hideResults = false) {

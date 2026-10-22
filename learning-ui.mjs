@@ -1,3 +1,4 @@
+import {relativePlantComparison,learnerCSVComparison,learnerPrecision} from "./learning-display.mjs";
 import {PROCESS_SCENES,PROCESS_TASKS,processWorkspace,forestWorkspace,connectProcess} from "./learning-process-workspace.mjs";
 import {fossilWorkspace,FOSSIL_EVIDENCE} from "./learning-evolution-evidence.mjs";
 import {harbourWorkspace,HARBOUR_OBJECTS,HARBOUR_MEASURES,harbourMeasure} from "./learning-regional-workspace.mjs";
@@ -193,6 +194,7 @@ export function mountLearningUI(host) {
     if (!v || v.comparison !== session.comparison) return null;
     if (!planMatchesComparison(v.comparison,currentPlan(v.comparison.kind))) return null;
     const r = comparisonReading({...v.comparison,runs:[{...v.run,control:v.row.control?[v.row.control]:[],test:v.row.test?[v.row.test]:[]}]},QUESTS[tag.mission].experiment);
+    if(r && QUESTS[tag.mission]?.experiment.metric === "plantBiomass") {const start=v.run.control[0]?.plantBiomass;if(!(start>0))return null;r.control/=start;r.test/=start;r.displayPrecision=2;r.unit="Vielfaches des Anfangs";}
     return r ? {...session.quest.result,...r,...(QUESTS[tag.mission]?.experiment.metric === "temp"?{displayPrecision:1}:{}),viewContext:v.context} : null;
   }
   function stopPlayback() {clearInterval(playback); playback = null;}
@@ -399,6 +401,7 @@ export function mountLearningUI(host) {
     return {
       version: 2,
       type: "aquarium-learning-product",
+      visibleDomain:session.regionalMode === "northsea" ? "regional-northsea" : isRegionalWorkspace() ? "harbour" : isPopulationWorkspace() ? "population" : "aquarium",
       profile: tag,
       notes: structuredClone(session.notes),
       provenance: learningProvenance(session),
@@ -411,6 +414,8 @@ export function mountLearningUI(host) {
       currentPlan: currentPlan(),
       population: session.population,
       populationRepeats: session.populationRepeats || [],
+      processEvidence:structuredClone(session.processes || {}),
+      forestEvidence:session.forestSelection ? {leaves:[...session.forestSelection],origin:"game-action"} : null,
       comparisonHistory: session.comparisonHistory || [],
       viewContext: visible?.mode === "plan" ? null : resolveComparisonView(session)?.context || null,
       cohortView:isPopulationWorkspace() && session.populationMode !== "comparison" ? {context:populationWorkspaceView(session,LEARNING_MODEL_REVISION).context,selected:session.selectedIndividual || null,genesShown:showGenes} : null,
@@ -839,7 +844,7 @@ export function mountLearningUI(host) {
         (percent ? [STUDENT_METRICS[key][0], "%"] : STUDENT_METRICS[key])) ||
       comparisonMetricDefinitions(comp)[key] || [key, ""]
     ).join(" · ");
-    return `<svg class="learn-chart" data-view-time="${context?.time ?? ""}" data-series-id="${esc(context?.seriesId || "")}" viewBox="0 0 480 270" role="img" aria-label="Verlauf ${esc(title)}: ${comp.kind === "manual" ? (technical ? "Eigenes Becken" : "Dein Becken") : technical ? "Kontrolle und Versuch" : comp.kind === "population" ? "Gruppe 1 und Gruppe 2" : "Becken 1 und Becken 2"}"><desc>${esc(technical ? runDescription(comp) : "Messwerte aus deinem Versuch.")}</desc><text x="45" y="13" font-size="12">${esc(title)}</text>${context ? `<line data-time-cursor x1="${numRaw(45+(context.time-minX)/(maxX-minX || 1)*410)}" x2="${numRaw(45+(context.time-minX)/(maxX-minX || 1)*410)}" y1="24" y2="180" stroke="#8a6822" stroke-width="2"/><text x="240" y="13" font-size="12">${comp.kind === "population" ? "Generation" : "Tag"} ${num(context.time)}</text>` : ""}<path d="M45 24 V180 H455" fill="none" stroke="currentColor"/><text x="5" y="33">${num(maxY)}</text><text x="7" y="184">${num(minY)}</text><text x="45" y="204">${num(minX)}</text><text x="420" y="204">${num(maxX)}</text>${[
+    return `<svg class="learn-chart" data-view-time="${context?.time ?? ""}" data-series-id="${esc(context?.seriesId || "")}" viewBox="0 0 480 270" role="img" aria-label="Verlauf ${esc(title)}: ${comp.kind === "manual" ? (technical ? "Eigenes Becken" : "Dein Becken") : technical ? "Kontrolle und Versuch" : comp.kind === "population" ? "Gruppe 1 und Gruppe 2" : "Becken 1 und Becken 2"}"><desc>${esc(technical ? runDescription(comp) : "Messwerte aus deinem Versuch.")}</desc><text x="45" y="13" font-size="12">${esc(title)}</text>${context ? `<line data-time-cursor x1="${numRaw(45+(context.time-minX)/(maxX-minX || 1)*410)}" x2="${numRaw(45+(context.time-minX)/(maxX-minX || 1)*410)}" y1="24" y2="180" stroke="#8a6822" stroke-width="2"/><text x="240" y="13" font-size="12">${comp.kind === "population" ? "Generation" : "Tag"} ${num(context.time)}</text>` : ""}<path d="M45 24 V180 H455" fill="none" stroke="currentColor"/><text x="5" y="33">${num(maxY,technical?2:percent?1:learnerPrecision(key))}</text><text x="7" y="184">${num(minY,technical?2:percent?1:learnerPrecision(key))}</text><text x="45" y="204">${num(minX)}</text><text x="420" y="204">${num(maxX)}</text>${[
       a,
       b,
     ]
@@ -1537,6 +1542,22 @@ export function mountLearningUI(host) {
     if (!t) return;
     const d = t.dataset;
     try {
+      if(d.processNode) {
+        const mission=tag.mission, state=(session.processes ??= {})[mission] ??= {links:[],actions:[]};
+        if(state.selected && state.selected !== d.processNode) {
+          const context={...temperatureView(session,host,LEARNING_MODEL_REVISION).context,...(session.regionalMode ? {domain:"regional-qualitative"} : {})};
+          const result=connectProcess(session,mission,state.selected,d.processNode,context);state.feedback=result.feedback;state.selected=null;
+          if(session.quest){session.quest.feedback=result.feedback;session.quest.feedbackKind=result.accepted ? result.completed ? "success" : "neutral" : "error";}
+        }else state.selected=d.processNode;
+        persist();render();return;
+      }
+      if(d.forestLeaf) {const list=session.forestSelection ??= [];if(!list.includes(d.forestLeaf))list.push(d.forestLeaf);persist();render();return;}
+      if(d.fossil) {
+        const q=session.quest,order=q.fossilOrder ??= [];
+        if(d.fossil !== FOSSIL_EVIDENCE[order.length]?.id) {q.fossilOrder=[];q.feedback="Prüfe die Altersangaben. Ein größeres Alter liegt weiter zurück.";q.feedbackKind="error";}
+        else {order.push(d.fossil);q.feedback="Fund ausgewählt. Prüfe die zeitliche Reihenfolge.";q.feedbackKind="neutral";if(order.length===2 && assignActivity(q,"fossil-evidence",0)){Object.assign(q.activities.at(-1),{origin:"game-action",kind:"fossil-order",objects:[...order],references:FOSSIL_EVIDENCE.map(f=>f.url)});q.feedbackKind="success";}}
+        persist();render();return;
+      }
       if(d.harbourObject && HARBOUR_OBJECTS[d.harbourObject]) {
         session.harbourSelection=d.harbourObject;
         (session.quest.caseObjects ??= {})[d.harbourObject]={id:d.harbourObject,origin:"game-action",attemptId:session.attemptId};
@@ -1596,6 +1617,7 @@ export function mountLearningUI(host) {
         const accepted = assignActivity(session.quest,d.activityId,Number(d.activityChoice));
         session.quest.feedbackKind = accepted ? "success" : "error";
         if (accepted && isPrototype()) session.quest.activities.at(-1).object = structuredClone(session.prototypeSelection);
+        if(accepted && tag.mission === "8-forest") session.quest.activities.at(-1).objects={leaves:structuredClone(session.forestSelection),kind:"qualitative-leaf-comparison"};
         const q=session.quest;
         if (q.id === "10-wadden" && q.step === 2 && !pendingActivity(q,2)) {
           const choice=q.activities.find(a=>a.id==="harbour-interest");
@@ -1724,6 +1746,7 @@ export function mountLearningUI(host) {
       if (a === "workspace-pause") {stopPlayback();render();return;}
       if (a === "latest-series") {delete session.study.series;delete session.view;selectComparisonView(session);persist();render();return;}
       if (a === "workspace-plan") {stopPlayback();session.view={mode:"plan"};persist();render();return;}
+      if(a === "quest-hint-next") {const key=session.quest.step+":"+(pendingActivity(session.quest)?.id || "question");session.quest.hintLevels ??= {};session.quest.hintLevels[key]=Math.min(2,(session.quest.hintLevels[key] || 0)+1);persist();render();return;}
       if (a === "quest-hint") {session.quest.showHint=!session.quest.showHint;persist();render();return;}
       if (a.startsWith("device-")) {openDevice(a.slice(7));return;}
       if (
@@ -2117,7 +2140,7 @@ export function mountLearningUI(host) {
         const v=resolveComparisonView(session);
         download(
           "aquarium-daten.csv",
-          comparisonCSV({...v.comparison,runs:[v.run],viewContext:v.context}),
+          comparisonCSV(!detailed && panel !== "teacher" ? learnerCSVComparison({...v.comparison,runs:[v.run],viewContext:v.context}) : {...v.comparison,runs:[v.run],viewContext:v.context}),
           "text/csv;charset=utf-8",
         );
         return;
@@ -2290,6 +2313,7 @@ export function mountLearningUI(host) {
       storageError,
       study: session?.study,
       quest: session?.quest,
+      questionResult:tag ? inspectedQuestResult() : null,
       detailed,
       attemptId: session?.attemptId,
       view: visible?.context || null,

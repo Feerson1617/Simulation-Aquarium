@@ -121,6 +121,7 @@ export const LEARNING_METRICS = {
 };
 export function comparisonMetricDefinitions(comp) {
   if (comp.kind === "population") return POPULATION_METRICS;
+  if(comp.displayProjection === "plant-initial-one")return {...LEARNING_METRICS,plantBiomass:["Pflanzenmasse (Anfang = 1)","Vielfaches des Anfangs"]};
   const samples = comp.runs.flatMap(r => [...r.control,...r.test]);
   if (samples.some(s => s.metricsVersion === 2)) return LEARNING_METRICS;
   const defs = {...LEARNING_METRICS,health:["Tierkondition (historischer Wert: Fische und Wirbellose)","Modellindex %"]};
@@ -903,6 +904,14 @@ export function validateLearningProduct(raw) {
         (x.stateIds && ["control","test"].some(side=>v.context.stateIds[side] !== x.stateIds[side]))) throw new Error("Ansicht und gespeicherter Versuch widersprechen sich.");
     if (x.cohortIds && ["control","test"].some(side=>x.cohortIds[side] !== v.context.cohortIds?.[side])) throw new Error("Individuen und Generation widersprechen sich.");
     product.viewContext=v.context;
+  }
+  if(raw.visibleDomain && ["regional-northsea","harbour","population","aquarium"].includes(raw.visibleDomain))product.visibleDomain=raw.visibleDomain;
+  if(raw.processEvidence) {
+    const text=JSON.stringify(raw.processEvidence);if(text.length>131072)throw new Error("Prozessbelege sind zu groß.");product.processEvidence=JSON.parse(text);
+  }
+  if(raw.forestEvidence) {
+    if(!Array.isArray(raw.forestEvidence.leaves) || raw.forestEvidence.leaves.length>2 || raw.forestEvidence.leaves.some(x=>!["tree","waterweed"].includes(x)))throw new Error("Ungültiger Blattvergleich.");
+    product.forestEvidence=structuredClone(raw.forestEvidence);
   }
   if (raw.cohortView) {
     const v=raw.cohortView,x=v.context,cohort=populationCohort(product.population,x?.time);

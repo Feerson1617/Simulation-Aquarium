@@ -68,6 +68,8 @@ def comparison_answer(id,r):
   a,b=r['fish']['control'],r['fish']['test']
   if a['fishAlive']!=b['fishAlive']:return 0 if a['fishAlive']>b['fishAlive'] else 1
   delta=(a['health'] or 0)-(b['health'] or 0);return 2 if abs(delta)<=1 else 0 if delta>0 else 1
+ if r.get('displayPrecision') is not None:
+  a,b=round(r['control'],r['displayPrecision']),round(r['test'],r['displayPrecision']);return 2 if a==b else 0 if a>b else 1
  tolerance={'8-ecosystem':.1,'8-oxygen':.05,'8-foodweb':.01,'8-forest':.01,'10-enrichment':.005,'10-carbon':.1,'10-northsea':.005}.get(id,.5/(r.get('sampleSize') or 24))
  return 2 if abs(r['control']-r['test'])<=tolerance else 0 if r['control']>r['test'] else 1
 

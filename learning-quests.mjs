@@ -471,8 +471,8 @@ export function resultQuestion(q, result) {
       q.experiment.kind === "population"
         ? ["In Gruppe 1", "In Gruppe 2", "Etwa gleich groß"]
         : ["In Becken 1", "In Becken 2", "Etwa gleich"],
-    correct: result?.displayPrecision === 1 && q.experiment.metric === "temp"
-      ? Math.round(result.control*10) === Math.round(result.test*10) ? 2 : result.control > result.test ? 0 : 1
+    correct: Number.isInteger(result?.displayPrecision)
+      ? Math.round(result.control*10**result.displayPrecision) === Math.round(result.test*10**result.displayPrecision) ? 2 : result.control > result.test ? 0 : 1
       : !result
       ? -1
       : Math.abs(result.control-result.test) <= resultTolerance(q.experiment.metric,result)

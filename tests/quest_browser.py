@@ -69,7 +69,7 @@ def complete(p,g,id,touch=False):
  assert p.evaluate('document.querySelector("#scene").inert');act('close');activities(p,touch)
  choose(1);assert snap(p)['quest']['step']==0;choose(0);assert snap(p)['quest']['step']==1;choose(1);assert snap(p)['quest']['step']==2
  biological_experiment(p,id,touch);assert snap(p)['quest']['step']==3,snap(p)['quest'];activities(p,touch)
- r=snap(p)['quest']['result'];correct=comparison_answer(id,r);short(p)
+ r=snap(p).get('questionResult') or snap(p)['quest']['result'];correct=comparison_answer(id,r);short(p)
  choose((correct+1)%(2 if id=='9-traits' else 3));assert snap(p)['quest']['step']==3;assert snap(p)['quest']['feedback']
  if id in ['8-oxygen','9-mendel','10-carbon']:shot(p,f'{"touch" if touch else "desktop"}-{id}-compare.png')
  choose(correct);assert snap(p)['quest']['step']==4;activities(p,touch);choose(1);assert snap(p)['quest']['step']==4;choose(0);assert snap(p)['quest']['step']==5;short(p)

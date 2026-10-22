@@ -1,9 +1,10 @@
+import {harbourMeasure,HARBOUR_MEASURES} from "./learning-regional-workspace.mjs";
 /** Small biological actions inside the five phases. No synthetic measurements or compulsory essays. */
 const link = (id,phase,from,prompt,targets,correct,hint) => ({id,phase,from,prompt,targets,correct,hint,kind:"assignment"});
 const view = (id,phase,prompt,action) => ({id,phase,prompt,action,kind:"view"});
 export const OBSERVATION_METRICS = {
   "8-ecosystem":["temp","fishAlive"],"8-oxygen":["oxygen","temp"],"8-foodweb":["organic","fishAlive"],
-  "8-health":["fishAlive","no2"],"8-forest":["plantBiomass"],
+  "8-health":["fishAlive","oxygen"],"8-forest":["plantBiomass"],
   "10-enrichment":["algae","oxygen"],"10-carbon":["co2","plantBiomass"],"10-restore":["fishAlive","no2"],
   "10-northsea":["algae","oxygen"],
 };
@@ -58,14 +59,17 @@ export const REGIONAL_CASES = {
 };
 export function pendingActivity(state, phase = state.step) {
   if (!state || state.version === 1) return null;
-  return (ACTIVITIES[state.id] || []).find(d => d.phase <= phase && !(state.activities || []).some(a => a.id === d.id));
+  const activity=(ACTIVITIES[state.id] || []).find(d => d.phase <= phase && !(state.activities || []).some(a => a.id === d.id));
+  const measure=state.id === "10-wadden" && HARBOUR_MEASURES[harbourMeasure(state)];
+  const field={"harbour-benefit":"benefit","harbour-effort":"effort","harbour-followup":"followup"}[activity?.id];
+  return measure && field ? {...activity,from:measure.label,targets:[measure[field],activity.targets[1]],hint:"Prüfe den Weg deiner ausgewählten Maßnahme am Hafen."} : activity;
 }
 export function assignActivity(state,id,index) {
   const d = pendingActivity(state);
   if (!d || d.id !== id || d.kind !== "assignment" || !Number.isInteger(index) || index < 0 || index >= d.targets.length) return false;
   if (d.phase === 0 && !state.observed) {state.feedback="Schau zuerst ins Aquarium oder in den Küstenfall.";return false;}
   if (d.correct !== null && d.correct !== index) {state.feedback=d.hint;return false;}
-  (state.activities ??= []).push({id,kind:"assignment",origin:"selection",from:d.from,to:d.targets[index],at:new Date().toISOString()});
+  (state.activities ??= []).push({id,kind:"assignment",origin:"selection",from:d.from,to:d.targets[index],choiceIndex:index,at:new Date().toISOString()});
   state.feedback="Zuordnung gespeichert.";return true;
 }
 export function recordActivityView(state,id,evidence) {

@@ -1,6 +1,8 @@
+import {harbourWorkspace,HARBOUR_OBJECTS,HARBOUR_MEASURES,harbourMeasure} from "./learning-regional-workspace.mjs";
 import {pendingActivity,assignActivity,recordActivityView,mendelEvidence,populationPairEvidence,REGIONAL_CASES} from "./learning-activities.mjs";
 import {investigationId, interventionEvent, bindComparison, resolveComparisonView, selectComparisonView, stateId} from "./learning-context.mjs";
-import {temperatureView, temperatureWorkspace, temperatureRunLabel} from "./learning-workspace.mjs";
+import {temperatureView, temperatureWorkspace, temperatureRunLabel, AQUARIUM_WORKSPACES} from "./learning-workspace.mjs";
+import {populationWorkspace, populationWorkspaceView} from "./learning-population-workspace.mjs";
 import {createTankViews} from "./learning-tank-views.mjs";
 import {learningProvenance, crossingPrediction, ORIGIN_LABELS} from "./learning-provenance.mjs";
 import {fishStatusText,habitatProblems} from "./biology-quality.mjs";
@@ -154,6 +156,9 @@ export function mountLearningUI(host) {
       help: teacher.help,
       comparisonHistory: session?.comparisonHistory || [],
       prototype: isPrototype(),
+      temperaturePrototype:tag?.mission === "8-ecosystem",
+      populationWorkspace:isPopulationWorkspace(),
+      regionalWorkspace:isRegionalWorkspace(),
     }),
     healthText: () => fishStatusText(host.getState(), host.types),
     tools,
@@ -173,21 +178,24 @@ export function mountLearningUI(host) {
     questionResult: () => inspectedQuestResult(),
     attempts: () => archivedAttempts(),
   });
-  const isPrototype = () => screen === "active" && !detailed && tag?.mission === "8-ecosystem";
+  const isPrototype = () => screen === "active" && !detailed && (Object.hasOwn(AQUARIUM_WORKSPACES,tag?.mission) || (tag?.mode === "free" && tag.grade !== 9 && session?.researchView === "comparison"));
+  const isPopulationWorkspace = () => screen === "active" && !detailed && (tag?.mission === "9-mendel" || (tag?.grade === 9 && tag.mode === "free"));
+  const isRegionalWorkspace = () => screen === "active" && !detailed && tag?.mission === "10-wadden";
   function inspectedQuestResult() {
+    if (isPopulationWorkspace() && session.quest?.step === 3 && populationWorkspaceView(session,LEARNING_MODEL_REVISION).context.time !== session.population.generation) return null;
     if (session?.quest?.step !== 3 || !["ecology","population"].includes(QUESTS[tag.mission]?.experiment.kind)) return session?.quest?.result;
     if (isPrototype() && session.view?.mode === "plan") return null;
     const v = resolveComparisonView(session);
     if (!v || v.comparison !== session.comparison) return null;
     if (!planMatchesComparison(v.comparison,currentPlan(v.comparison.kind))) return null;
     const r = comparisonReading({...v.comparison,runs:[{...v.run,control:v.row.control?[v.row.control]:[],test:v.row.test?[v.row.test]:[]}]},QUESTS[tag.mission].experiment);
-    return r ? {...session.quest.result,...r,...(isPrototype()?{displayPrecision:1}:{}),viewContext:v.context} : null;
+    return r ? {...session.quest.result,...r,...(QUESTS[tag.mission]?.experiment.metric === "temp"?{displayPrecision:1}:{}),viewContext:v.context} : null;
   }
   function stopPlayback() {clearInterval(playback); playback = null;}
   function showTime(time) {
     selectComparisonView(session,{time});
     const v = resolveComparisonView(session);
-    if (isPrototype() && v?.comparison.id === session.pendingExperimentId && v.context.time === v.rows.at(-1).time && [2,3,4].includes(session.quest.step)) {
+    if (isPrototype() && v?.comparison.id === session.pendingExperimentId && v.context.time === v.rows.at(-1).time && [2,3,4].includes(session.quest?.step)) {
       recordQuestExperiment("ecology");delete session.pendingExperimentId;
     }
     persist(); render();
@@ -252,6 +260,7 @@ export function mountLearningUI(host) {
       study:{tool:e.tool || tools().find(k=>LEARNING_TOOLS[k]) || "light",value:tag.mission === "8-ecosystem" ? tank.setTemp : e.value ?? null,
         days:3,repetitions:2,metric:e.metric || (tag.grade === 9 ? "dark" : "oxygen"),environment:"neutral",generations:5},quest:newQuest(tag.mission)};
     if(tag.mission === "8-ecosystem") session.quest.visualEvidenceVersion=1;
+    if(tag.mission === "10-wadden") session.quest.visualCaseVersion=1;
     selected=null;showGenes=false;panel=null;host.open(tank);persist();render();
   }
   function restartView() {
@@ -398,6 +407,7 @@ export function mountLearningUI(host) {
       populationRepeats: session.populationRepeats || [],
       comparisonHistory: session.comparisonHistory || [],
       viewContext: visible?.mode === "plan" ? null : resolveComparisonView(session)?.context || null,
+      cohortView:isPopulationWorkspace() && session.populationMode !== "comparison" ? {context:populationWorkspaceView(session,LEARNING_MODEL_REVISION).context,selected:session.selectedIndividual || null,genesShown:showGenes} : null,
       visiblePlan:visible?.mode === "plan" ? {version:1,context:visible.context,control:visible.sides.control.state,test:visible.sides.test.state} : null,
       attemptId: session.attemptId || null,
       measurements: session.measurements,
@@ -543,6 +553,7 @@ export function mountLearningUI(host) {
       }
       if (e.kind === "population") session.study.metric = "dark";
     }
+    if(tag.mission === "10-wadden" && session.quest) session.quest.visualCaseVersion ??= !saved?.quest ? 1 : 0;
     if (tag.mission === "8-ecosystem" && session.quest)
       session.quest.visualEvidenceVersion ??= !saved?.quest ? 1 : 0;
     // Keep an exact archive before upgrading an unfinished older quest's requirements.
@@ -556,7 +567,7 @@ export function mountLearningUI(host) {
     }
     session.study = reconciled;
     selected = null;
-    showGenes = false;
+    showGenes = !!session.genesShown;
     screen = "active";
     homeMode = null;
     host.open(tank);
@@ -567,12 +578,13 @@ export function mountLearningUI(host) {
   }
   function showPanel(next) {
     if (isPrototype()) stopPlayback();
+    if (next === "investigate" && tag.mode === "free" && tag.grade !== 9) session.researchView = "comparison";
     lastOpener = document.activeElement;
     host.pause();
     host.tweezers(false);
     panel = next;
     if (next === "observe") {
-      questEvent(session?.quest, "observe");
+      if (!isRegionalWorkspace()) questEvent(session?.quest, "observe");
       if (session?.quest) recordActivityView(session.quest,"fish-water",learningSample(host.getState(),host.types));
       persist();
     }
@@ -704,7 +716,7 @@ export function mountLearningUI(host) {
     session.study.value = session.study.values[key] ?? LEARNING_TOOLS[key].value;
   }
   function openDevice(key, scope = panel === "investigate" || tag?.mode === "missions" ? "study" : "care") {
-    if (isPrototype()) {stopPlayback(); session.view = {mode:"plan"};}
+    if (isPrototype()) {stopPlayback(); session.view = {mode:"plan"}; scope="study";}
     const toggle = EQUIPMENT_SWITCHES[key];
     if (toggle) {
       if (tag?.mode !== "free") throw new Error("Dieses Gerät gehört nicht zum Versuchsplan dieser Mission.");
@@ -1168,7 +1180,8 @@ export function mountLearningUI(host) {
   }
   function render() {
     archiveRefs.clear();
-    document.documentElement.classList.toggle("learning-coherent",isPrototype());
+    document.documentElement.classList.toggle("learning-coherent",isPrototype() || isPopulationWorkspace() || isRegionalWorkspace());
+    document.documentElement.classList.toggle("learning-domain",isPopulationWorkspace() || isRegionalWorkspace());
     document.documentElement.classList.toggle("learning-history-view",screen === "active" && panel === "saved-view");
     const learner = screen !== "expert";
     document.documentElement.classList.toggle("learning-mode", learner);
@@ -1185,20 +1198,40 @@ export function mountLearningUI(host) {
       return;
     }
     const active = screen === "active";
-    document.documentElement.classList.toggle("learning-coherent",isPrototype());
+    document.documentElement.classList.toggle("learning-coherent",isPrototype() || isPopulationWorkspace() || isRegionalWorkspace());
+    document.documentElement.classList.toggle("learning-domain",isPopulationWorkspace() || isRegionalWorkspace());
     document.documentElement.classList.toggle("learning-history-view",active && panel === "saved-view");
+    if(isRegionalWorkspace() && panel !== "teacher") {
+      tankViews.dispose();
+      const drawer=panel === "more" ? student.more() : panel === "notebook" ? notebook() : panel === "display" ? display() : panel === "glossary" ? glossary() : panel === "restart-attempt" ? restartView() : "";
+      root.innerHTML=harbourWorkspace({session,quest:student.quest(true),drawer,esc,button,source:REGIONAL_CASES["10-wadden"]});
+      host.layout(false);host.sceneInert(true);host.interactive(false);return;
+    }
+    if (isPopulationWorkspace() && panel !== "teacher") {
+      tankViews.dispose();
+      const v=populationWorkspaceView(session,LEARNING_MODEL_REVISION), oldScroll=root.querySelector(".coherent-views")?.scrollTop || 0;
+      const drawer=panel === "more" ? student.more() : panel === "notebook" ? notebook() : panel === "display" ? display() : panel === "glossary" ? glossary() : panel === "restart-attempt" ? restartView() : "";
+      root.innerHTML=populationWorkspace({session,view:v,tag,showGenes,esc,button,helpButton,quest:student.quest(true),drawer,
+        breeding:student.breeding(true),investigation:student.investigation(true),results:student.results()});
+      root.querySelector(".coherent-views").scrollTop=oldScroll;
+      if(helpKey) root.innerHTML+=`<section class="learn-help-pop" role="dialog" aria-modal="true" aria-label="Begriffshilfe"><h2>${esc(HELP[helpKey].term)}</h2><p>${esc(HELP[helpKey][tag.grade])}</p>${button("help-close","Hilfe schließen")}</section>`;
+      root.querySelector(".coherent-workspace").toggleAttribute("inert",!!helpKey);
+      root.querySelector(".coherent-header").toggleAttribute("inert",!!helpKey);
+      if(!teacher.help) root.querySelectorAll("[data-learn-help]").forEach(b=>b.remove());
+      host.layout(false);host.sceneInert(true);host.interactive(false);return;
+    }
     if (isPrototype() && panel !== "teacher") {
       const openDetails=[...root.querySelectorAll("details[open] > summary")].map(s=>s.textContent);
       const scrolls=[".coherent-views",".coherent-notebook"].map(selector=>({selector,top:root.querySelector(selector)?.scrollTop || 0}));
       const active=document.activeElement,focusAttribute=active?.getAttributeNames?.().find(a=>a.startsWith("data-") && !a.startsWith("data-view"));
       const v = temperatureView(session,host,LEARNING_MODEL_REVISION);
       const drawer=panel === "more" ? student.more() : panel === "notebook" ? notebook() : panel === "display" ? display() : panel === "glossary" ? glossary() : panel === "mission-info" ? missionInfo() : panel === "restart-attempt" ? restartView() : "";
-      const panelBody = drawer ? `<section class="coherent-drawer">${drawer}</section>` : panel === "observe" ? `<section class="coherent-note"><h3>Schau auf Fisch und Wasser ${helpButton("observe")}</h3><p>Wähle sie direkt am Becken. Die beiden Temperaturanzeigen gehören zum gleichen Zeitpunkt.</p>${button("close","Zur Aufgabe")}</section>` : "";
-      root.innerHTML = temperatureWorkspace({session,view:v,quest:(storageError ? `<p class="coherent-storage" role="alert">${esc(storageError)}</p>` : "")+(drawer ? "" : student.quest(true)),esc,button,helpButton,types:host.types,playing:!!playback,results:v.mode === "result" ? student.results() : "",panelBody});
+      const panelBody = drawer ? `<section class="coherent-drawer">${drawer}</section>` : panel === "observe" ? `<section class="coherent-note"><h3>Schau auf Fisch und Wasser ${helpButton("observe")}</h3><p>Wähle sie direkt am Becken. Die beiden Messkarten gehören zum gleichen Zeitpunkt.</p>${button("close","Zur Aufgabe")}</section>` : "";
+      root.innerHTML = temperatureWorkspace({session,view:v,quest:(storageError ? `<p class="coherent-storage" role="alert">${esc(storageError)}</p>` : "")+(drawer ? "" : student.quest(true)),esc,button,helpButton,types:host.types,playing:!!playback,results:v.mode === "result" ? student.results() : "",panelBody,tag,form:interventionForm("study")});
       for (const summary of root.querySelectorAll("details > summary")) if (openDetails.includes(summary.textContent)) summary.parentElement.open=true;
       for (const {selector,top} of scrolls) root.querySelector(selector).scrollTop=top;
       if(focusAttribute) [...root.querySelectorAll(`[${focusAttribute}]`)].find(e=>e.getAttribute(focusAttribute)===active.getAttribute(focusAttribute))?.focus({preventScroll:true});
-      if (helpKey) root.innerHTML += `<section class="learn-help-pop" role="dialog" aria-modal="true" aria-label="Begriffshilfe"><h2>${esc(HELP[helpKey].term)}</h2><p>${esc(HELP[helpKey][8])}</p>${button("help-close","Hilfe schließen")}</section>`;
+      if (helpKey) root.innerHTML += `<section class="learn-help-pop" role="dialog" aria-modal="true" aria-label="Begriffshilfe"><h2>${esc(HELP[helpKey].term)}</h2><p>${esc(HELP[helpKey][tag.grade])}</p>${button("help-close","Hilfe schließen")}</section>`;
       root.querySelector(".coherent-workspace")?.toggleAttribute("inert",!!helpKey);
       root.querySelector(".coherent-header")?.toggleAttribute("inert",!!helpKey);
       if (!teacher.help) root.querySelectorAll("[data-learn-help]").forEach(b=>b.remove());
@@ -1324,7 +1357,7 @@ export function mountLearningUI(host) {
       comparisonHistory:previous ? [...history,previous].slice(-3) : history};
     delete draft.study.series;delete draft.view;delete draft.inspection;
     if (isPrototype()) {
-      draft.pendingExperimentId=next.id;
+      if (draft.quest) draft.pendingExperimentId=next.id;
       if ([3,4].includes(draft.quest?.step)) {
         draft.quest=structuredClone(draft.quest);draft.quest.step=2;draft.quest.entries=draft.quest.entries.filter(e=>e.step<2);
         draft.quest.result=null;delete draft.quest.predictionCheck;
@@ -1365,6 +1398,7 @@ export function mountLearningUI(host) {
     const t = e.target,
       d = t.dataset;
     try {
+      if (t.hasAttribute("data-cohort-generation")) {session.cohortGeneration=Number(t.value);delete session.selectedIndividual;persist();render();return;}
       if (t.hasAttribute("data-coherent-time")) {stopPlayback();showTime(Number(t.value));return;}
       if (d.learningTool) {
         selectTool(t.value);
@@ -1472,6 +1506,18 @@ export function mountLearningUI(host) {
     if (!t) return;
     const d = t.dataset;
     try {
+      if(d.harbourObject && HARBOUR_OBJECTS[d.harbourObject]) {
+        session.harbourSelection=d.harbourObject;
+        (session.quest.caseObjects ??= {})[d.harbourObject]={id:d.harbourObject,origin:"game-action",attemptId:session.attemptId};
+        questEvent(session.quest,"observe");persist();render();return;
+      }
+      if (d.cohortPick) {
+        const v=populationWorkspaceView(session,LEARNING_MODEL_REVISION),i=v.sides[d.cohortPick]?.cohort?.individuals.find(i=>i.uid===Number(d.cohortUid));
+        if(!i) return;
+        session.selectedIndividual={side:d.cohortPick,uid:i.uid,cohortId:v.context.cohortIds[d.cohortPick]};
+        if(v.mode === "cohort" && v.context.time === session.population.generation) session[i.sex === "♀" ? "mother" : "father"]=i.uid;
+        questEvent(session.quest,"observe");persist();render();return;
+      }
       if (d.coherentPick) {pickObject(d.coherentPick,d.coherentUid);return;}
       if (d.coherentWater) {pickObject(d.coherentWater,null,true);return;}
       if (d.learningArchivedProduct) {
@@ -1484,6 +1530,10 @@ export function mountLearningUI(host) {
         return;
       }
       if (d.activityId) {
+        if(isRegionalWorkspace() && d.activityId === "harbour-interest") {
+          const key=Number(d.activityChoice)===1 ? "gear" : "returns",object=HARBOUR_MEASURES[key].object;
+          if(!session.quest.caseObjects?.[object]) {session.quest.feedback="Wähle zuerst "+(object==="fishing"?"die Fischerei":"die Besucher")+" im Hafenfall und verfolge den Müllweg.";session.quest.feedbackKind="neutral";persist();render();return;}
+        }
         if (isPrototype() && ["living","water"].includes(d.activityId)) {
           const picked=session.prototypeSelection;
           const v=temperatureView(session,host,LEARNING_MODEL_REVISION), entity=v.sides[picked?.side]?.state?.entities.find(e=>e.uid===picked.uid);
@@ -1498,7 +1548,7 @@ export function mountLearningUI(host) {
         const q=session.quest;
         if (q.id === "10-wadden" && q.step === 2 && !pendingActivity(q,2)) {
           const choice=q.activities.find(a=>a.id==="harbour-interest");
-          questEvent(q,"case",{result:{kind:"case",measure:choice.to,source:REGIONAL_CASES[q.id].source,consequences:q.activities.filter(a=>["harbour-benefit","harbour-effort"].includes(a.id))}});
+          questEvent(q,"case",{result:{kind:"case",measure:choice.to,measureKey:harbourMeasure(q),objects:structuredClone(q.caseObjects || {}),source:REGIONAL_CASES[q.id].source,consequences:q.activities.filter(a=>["harbour-benefit","harbour-effort"].includes(a.id))}});
         }
         persist();render();root.querySelector(".learn-activity h3,.learn-quest h2")?.focus();return;
       }
@@ -1526,7 +1576,7 @@ export function mountLearningUI(host) {
         if (old === 3 && ["ecology","population"].includes(QUESTS[tag.mission].experiment.kind) && !inspectedQuestResult())
           throw new Error("Wähle im aktuellen Versuch einen Zeitpunkt mit Werten für beide Seiten.");
         if (answerQuest(session.quest, Number(d.questAnswer), inspectedQuestResult())) {
-          if (old === 3) session.quest.entries.at(-1).viewContext = resolveComparisonView(session)?.context || null;
+          if (old === 3) session.quest.entries.at(-1).viewContext = isPopulationWorkspace() ? populationWorkspaceView(session,LEARNING_MODEL_REVISION).context : resolveComparisonView(session)?.context || null;
           // Selected answers stay in the questbook; game text never becomes a learner note.
         }
         persist();
@@ -1614,6 +1664,9 @@ export function mountLearningUI(host) {
       }
       const a = d.learn;
       if (!a) return;
+      if (a === "population-cohort" || a === "cohort-latest") {session.populationMode="cohort";delete session.cohortGeneration;delete session.selectedIndividual;panel=null;persist();render();return;}
+      if (a === "population-groups") {session.populationMode="comparison";panel="investigate";persist();render();return;}
+      if (a === "research-own") {stopPlayback();session.researchView="own";panel=null;persist();render();return;}
       if (a === "workspace-play") {playWorkspace();render();return;}
       if (a === "workspace-pause") {stopPlayback();render();return;}
       if (a === "latest-series") {delete session.study.series;delete session.view;selectComparisonView(session);persist();render();return;}
@@ -1824,7 +1877,7 @@ export function mountLearningUI(host) {
       }
       if (a === "genes") {
         if (session.quest?.id === "9-traits" && pendingActivity(session.quest)?.id === "visible-traits") throw new Error("Sieh dir zuerst einen hellen und einen dunklen Fisch ohne Erbanlagen an.");
-        showGenes = !showGenes;
+        showGenes = !showGenes;session.genesShown=showGenes;
         if (showGenes) recordQuestExperiment("traits");
         persist();
         render();
@@ -1846,6 +1899,8 @@ export function mountLearningUI(host) {
         return;
       }
       if (a === "baseline") {
+        session.view={mode:"plan"};
+        session.planId=investigationId();
         session.baseline = structuredClone(host.getState());
         persist();
         host.notify("Aktuelle Ausgangslage für beide Becken gesichert.");
@@ -1920,6 +1975,7 @@ export function mountLearningUI(host) {
           );
           const event=session.population.events.at(-1),mendel=mendelEvidence(session.population);
           Object.assign(event,crossingPrediction(session,event.generation,mendel.f1 ? mendel.f1.generation+1 : null));
+          delete session.cohortGeneration;delete session.selectedIndividual;
           session.mother = null;
           session.father = null;
           session.punnett = null;
@@ -2183,6 +2239,8 @@ export function mountLearningUI(host) {
       attemptId: session?.attemptId,
       view: visible?.context || null,
       viewSamples:visible ? Object.fromEntries(Object.entries(visible.sides).map(([side,data])=>[side,data.sample])) : null,
+      regionalView:isRegionalWorkspace() ? {selection:session.harbourSelection,measureKey:harbourMeasure(session.quest)} : null,
+      domainView:isPopulationWorkspace() ? populationWorkspaceView(session,LEARNING_MODEL_REVISION) : null,
       prototype: isPrototype() ? {mode:session.view?.mode || (session.comparison ? "result" : "plan"),render:tankViews.snapshot(),selection:session.prototypeSelection} : null,
       resultMatchesPlan: session?.comparison
         ? planMatchesComparison(

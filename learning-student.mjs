@@ -78,7 +78,7 @@ export function createStudentViews(api) {
       observedResult = api.questionResult ? api.questionResult() : s?.result,
       d = QUESTS[tag.mission];
     if (!d) return "";
-    const done = s.step === 5, legacy = s.version === 1 || (state().prototype && s.visualEvidenceVersion !== 1), activity = done ? null : pendingActivity(s);
+    const done = s.step === 5, legacy = s.version === 1 || (state().temperaturePrototype && s.visualEvidenceVersion !== 1) || (state().regionalWorkspace && s.visualCaseVersion !== 1), activity = done ? null : pendingActivity(s);
     if (!inline && panel) return "";
     if (!inline && (s.collapsed || panel))
       return `<aside class="learn-quest-chip">${button("quest-toggle", done ? "Quest fertig ✓" : `Questbuch · ${s.step + 1} von 5`, 'aria-expanded="false"')}</aside>`;
@@ -98,7 +98,7 @@ export function createStudentViews(api) {
                   ? questConclusion(d, s.result)
                   : null;
       body = `<small>Aufgabe ${step + 1} von 5 · ${STEP_NAMES[step]}</small><h2 tabindex="-1">${esc(activity?.prompt || q?.prompt || experimentTask(d))}</h2>`;
-      if (step === 0) body += button("observe", d.experiment.kind === "case" ? "Küstenfall ansehen" : "Aquarium anschauen");
+      if (step === 0) body += button("observe", d.experiment.kind === "case" ? "Küstenfall ansehen" : state().populationWorkspace ? "Population anschauen" : "Aquarium anschauen");
       if (step === 4 && d.id === "10-northsea") body += `<p class="learn-case">${esc(REGIONAL_CASES[d.id].text)}</p>`;
       if (step === 2 && !panel && !(state().prototype && session.comparison && session.view?.mode !== "plan")) {
         const device=d.experiment.kind === "ecology" && ["temperature","light","filter"].includes(d.experiment.tool);
@@ -117,6 +117,7 @@ export function createStudentViews(api) {
       if (q && !activity)
         body += `<div class="learn-quest-answers">${choiceOrder(s,"phase-"+s.step,q.choices.length).map(i => `<button data-quest-answer="${i}">${esc(q.choices[i])}</button>`).join("")}</div>`;
     }
+    if (!done && s.step === 3 && state().populationWorkspace && !observedResult) body=`<h2>Sieh dir die aktuelle Nachkommengeneration an.</h2>${button("cohort-latest","Zur aktuellen Generation")}`;
     if (!done && s.step === 3 && ["ecology","population"].includes(d.experiment.kind) && !observedResult)
       body = `<h2 tabindex="-1">Zu deinem aktuellen Plan fehlt hier ein vollständiger Vergleich.</h2><p>Wähle einen Zeitpunkt mit beiden Seiten. Frühere Reihen bleiben zum Ansehen erhalten.</p>${state().prototype && session.comparison && !api.matches() ? button("workspace-plan","Neuen Versuch planen") : button("latest-series","Aktuellen Versuch ansehen")}`;
     if (!done && state().help !== false) body += state().support === "guided" || s.showHint ? `<p class="learn-step-hint">${esc(questHint(d,s,state().support))}</p>` : button("quest-hint","Tipp");
@@ -128,7 +129,7 @@ export function createStudentViews(api) {
     return `<section class="learn-activity"><p class="learn-card-from">${esc(a.from)} →</p><div class="learn-quest-answers">${choiceOrder(state().session.quest,a.id,a.targets.length).map(i=>`<button data-activity-id="${a.id}" data-activity-choice="${i}">${esc(a.targets[i])}</button>`).join("")}</div></section>`;
   }
   function experimentTask(d) {
-    if(state().prototype && state().session.comparison && state().session.view?.mode !== "plan") return "Beobachte beide Wassertemperaturen. Starte den Verlauf an der gemeinsamen Versuchsuhr.";
+    if(state().prototype && state().session.comparison && state().session.view?.mode !== "plan") return "Beobachte beide Becken. Starte den Verlauf an der gemeinsamen Versuchsuhr.";
     const e = d.experiment;
     if (e.kind === "case") return "Wähle eine Schutzmaßnahme. Prüfe die Folgen für Tiere und Menschen.";
     if (e.kind === "traits")
@@ -201,7 +202,7 @@ export function createStudentViews(api) {
       <details><summary>Alle Werte</summary><div class="learn-table-wrap"><table><thead><tr><th>${c.kind === "population" ? "Generation" : "Tag"}</th><th>${c.kind === "population" ? "Gruppe" : "Becken"} 1</th><th>${c.kind === "population" ? "Gruppe" : "Becken"} 2</th></tr></thead><tbody>${rows.map(x=>`<tr data-table-time="${x.time}" ${x.time===context.time ? 'aria-current="true"' : ""}><td>${num(x.time)}</td><td>${value(x.control)}</td><td>${value(x.test)}</td></tr>`).join("")}</tbody></table></div></details>
       <div class="learn-actions">${button("export","Für die Lehrkraft speichern")}${button("csv","Gewählte Werte speichern")}${button("chart","Verlauf als Bild speichern")}${c.kind === "ecology" ? button("show-control",state().prototype ? "Becken 1 auswählen" : "Becken 1 ansehen")+button("show-test",state().prototype ? "Becken 2 auswählen" : "Becken 2 ansehen") : ""}</div></section>`;
   }
-  function investigation() {
+  function investigation(hideResults = false) {
     const { session, tag } = state();
     if (tag.mission === "10-wadden") return material();
     if (tag.grade === 9 && !api.tools().includes("selection"))
@@ -224,7 +225,7 @@ export function createStudentViews(api) {
       }${button(population ? "population-compare" : "compare", "Versuch starten")}<details class="learn-observation-options"><summary>Beobachten und wiederholen</summary><label>Wie oft?<input type="number" data-learning-repetitions min="1" max="4" value="${session.study.repetitions}"></label>${!population ? button("baseline", "Dieses Becken als Anfang nehmen") : ""}</details>${results()}`
     );
   }
-  function breeding() {
+  function breeding(workspace = false) {
     const { session, showGenes } = state(),
       p = session.population,
       c = populationCounts(p);
@@ -244,8 +245,8 @@ export function createStudentViews(api) {
           )?.uid,
       )}</select></label>`;
     return (
-      panelHeader("Farbe und Nachkommen", "genotype") +
-      `<p>Diese Fische gehören zum Farbversuch. Die Tiere im Aquarium bleiben dort.</p><small>Eine Generation fasst Aufwachsen und Fortpflanzung zusammen.</small>${showGenes ? "<p>Genotyp: Erbanlagen. Phänotyp: sichtbares Merkmal. Hier ist A dominant: AA und Aa sehen dunkel aus. aa ist hell. Dominant beschreibt hier die Farbe, nicht einen Vorteil.</p>" : ""}<div class="learn-two">${select("♀", "mother", "Mutter")}${select("♂", "father", "Vater")}</div><div class="learn-actions">${button("genes", showGenes ? "Erbanlagen ausblenden" : "Erbanlagen zeigen")}${button("cross", "Nachkommen erzeugen")}</div><h3>Generation ${p.generation} · ${c.n} Fische</h3><p>${Math.round(c.dark * c.n)} dunkel · ${Math.round(c.light * c.n)} hell</p><div class="learn-population">${p.individuals.map((i) => `<button data-learning-individual="${i.uid}" class="${i.phenotype === "gold" ? "gold" : "dark"}" aria-label="Fisch ${i.uid} ansehen"><strong>Fisch ${i.uid} ${i.sex}</strong><span>${showGenes ? genotypeText(i.loci) : i.phenotype === "gold" ? "hell" : "dunkel"}</span></button>`).join("")}</div><p data-individual-detail role="status"></p><div class="learn-actions">${button("population-new", "Versuch wiederholen")}${button("export", "Für die Lehrkraft speichern")}${api.tools().includes("selection") ? button("investigate", "Gruppen vergleichen") : ""}</div>`
+      (workspace ? "<h3>Eltern für die nächste Generation wählen</h3>" : panelHeader("Farbe und Nachkommen", "genotype")) +
+      `${workspace ? "" : "<p>Diese Fische gehören zum Farbversuch. Die Tiere im Aquarium bleiben dort.</p>"}<small>Eine Generation fasst Aufwachsen und Fortpflanzung zusammen.</small>${showGenes ? "<p>Genotyp: Erbanlagen. Phänotyp: sichtbares Merkmal. Hier ist A dominant: AA und Aa sehen dunkel aus. aa ist hell. Dominant beschreibt hier die Farbe, nicht einen Vorteil.</p>" : ""}<div class="learn-two">${select("♀", "mother", "Mutter")}${select("♂", "father", "Vater")}</div><div class="learn-actions">${workspace ? "" : button("genes", showGenes ? "Erbanlagen ausblenden" : "Erbanlagen zeigen")}${button("cross", "Nachkommen erzeugen")}</div>${workspace ? "" : `<h3>Generation ${p.generation} · ${c.n} Fische</h3><p>${Math.round(c.dark * c.n)} dunkel · ${Math.round(c.light * c.n)} hell</p><div class="learn-population">${p.individuals.map((i) => `<button data-learning-individual="${i.uid}" class="${i.phenotype === "gold" ? "gold" : "dark"}" aria-label="Fisch ${i.uid} ansehen"><strong>Fisch ${i.uid} ${i.sex}</strong><span>${showGenes ? genotypeText(i.loci) : i.phenotype === "gold" ? "hell" : "dunkel"}</span></button>`).join("")}</div><p data-individual-detail role="status"></p>`}<div class="learn-actions">${button("population-new", "Versuch wiederholen")}${button("export", "Für die Lehrkraft speichern")}${api.tools().includes("selection") ? button("investigate", "Gruppen vergleichen") : ""}</div>`
     );
   }
   function notebook() {
@@ -328,7 +329,7 @@ export function createStudentViews(api) {
   function more() {
     return (
       panelHeader("Mehr") +
-      `<div class="learn-actions">${state().prototype ? button("notebook","Meine Ergebnisse") : ""}${state().help === false ? "" : button("glossary", "Wörterhilfe")}${state().prototype ? "" : button("tweezers", "Pinzette")}${button("display", "Darstellung")}${button("teacher", "Lehrkraftmodus")}${button("home", "Zum Start")}</div>${api.attempts?.() || ""}`
+      `<div class="learn-actions">${(state().prototype || state().populationWorkspace || state().regionalWorkspace) ? button("notebook","Meine Ergebnisse") : ""}${state().help === false ? "" : button("glossary", "Wörterhilfe")}${(state().prototype || state().populationWorkspace || state().regionalWorkspace) ? "" : button("tweezers", "Pinzette")}${button("display", "Darstellung")}${button("teacher", "Lehrkraftmodus")}${button("home", "Zum Start")}</div>${api.attempts?.() || ""}`
     );
   }
   return {

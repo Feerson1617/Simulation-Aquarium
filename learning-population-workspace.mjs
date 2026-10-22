@@ -1,0 +1,37 @@
+import {populationCounts, populationCohort} from './learning-population.mjs';
+import {stateId, resolveComparisonView} from './learning-context.mjs';
+import {genotypeText} from './fish-variants.mjs';
+
+/** Countable views of actual archived individuals, never a reconstructed RNG state. */
+export function populationWorkspaceView(session, revision) {
+  if (session.populationMode === 'comparison' && session.comparison?.kind === 'population') {
+    const v = resolveComparisonView(session);
+    return {...v, mode:'comparison'};
+  }
+  const p=session.population, generation=Number.isInteger(session.cohortGeneration) ? session.cohortGeneration : p.generation;
+  const cohort=populationCohort(p,generation) || populationCohort(p,p.generation);
+  const plan=session.populationMode === 'comparison';
+  return {mode:plan?'comparison-plan':'cohort',context:{version:1,investigationId:session.planId,attemptId:session.attemptId,revision,
+    seriesId:session.planId,series:null,run:0,repetition:1,time:cohort.generation,axis:'generation',side:'test',
+    cohortIds:{test:stateId(cohort),...(plan?{control:stateId(cohort)}:{})}},sides:{test:{cohort,sample:cohort.counts},...(plan?{control:{cohort:structuredClone(cohort),sample:cohort.counts}}:{})}};
+}
+const number = v => v.toLocaleString('de-DE',{maximumFractionDigits:1});
+export function populationWorkspace({session,view,tag,showGenes,esc,button,helpButton,quest,drawer,breeding,investigation,results}) {
+  const p=session.population, selected=session.selectedIndividual;
+  const card = (side,label) => {
+    const data=view.sides[side], cohort=data?.cohort, c=cohort?.counts, id=view.context.cohortIds?.[side];
+    return `<article class="cohort-card" data-cohort-side="${side}" data-cohort-id="${id || 'unknown'}" data-generation="${view.context.time}"><header><h2>${label}</h2><p>${c ? `${c.n} Fische · ${Math.round(c.dark*c.n)} dunkel · ${Math.round(c.light*c.n)} hell` : 'Keine Individuen für diese Generation gespeichert'}</p></header>
+    <div class="cohort-fish-grid">${(cohort?.individuals || []).map(i=>`<button data-cohort-pick="${side}" data-cohort-uid="${i.uid}" aria-pressed="${selected?.side===side && selected.uid===i.uid}" aria-label="Fisch ${i.uid}, ${i.sex}, ${i.phenotype==='gold'?'hell':'dunkel'}${showGenes?', '+genotypeText(i.loci):''}"><svg viewBox="0 0 90 42" aria-hidden="true"><path d="M13 21 2 6v30z" fill="${i.phenotype==='gold'?'#c89339':'#33454a'}"/><path d="M13 21Q25 -3 66 9Q86 15 86 21Q76 44 30 35Z" fill="${i.phenotype==='gold'?'#dfbc62':'#44585c'}"/><path d="M32 9 40 1 61 10M32 34 43 41 63 33" fill="${i.phenotype==='gold'?'#b98031':'#2a4146'}"/><circle cx="74" cy="17" r="3" fill="#172d34"/><circle cx="74" cy="16" r="1" fill="white"/></svg><strong>Nr. ${i.uid} · ${i.sex}</strong><span>${showGenes ? genotypeText(i.loci) : i.phenotype==='gold'?'hell':'dunkel'}</span></button>`).join('')}</div>
+    ${c && showGenes ? `<p class="cohort-counts">AA ${c.AA} · Aa ${c.Aa} · aa ${c.aa} · Allel A ${number(c.A*100)} %</p>` : ''}</article>`;
+  };
+  const archive = selected ? view.mode==='comparison' ? view.run.archives?.[selected.side] : p : null;
+  const cohort=selected && view.sides[selected.side]?.cohort;
+  const fish=cohort?.individuals.find(i=>i.uid===selected?.uid);
+  const detail=fish ? `<h3>Fisch ${fish.uid} · ${fish.sex} · ${fish.phenotype==='gold'?'hell':'dunkel'}</h3>${showGenes?`<p>Erbanlagen: ${genotypeText(fish.loci)}.</p>`:''}<p>${fish.parents.length ? 'Eltern: '+fish.parents.map(uid=>{const i=archive.archive.find(x=>x.uid===uid);return `Nr. ${uid}${showGenes?' ('+genotypeText(i.loci)+')':''}`;}).join(' + ') : 'Gründerfisch: keine Eltern im Versuch dokumentiert.'}</p>${showGenes && fish.parents.length ? `<p class="cohort-inheritance">${fish.inheritedAlleles ? fish.parents.map((uid,k)=>`Elternteil Nr. ${uid} → Allel ${esc(fish.inheritedAlleles[k])}`).join(' · ')+` → ${genotypeText(fish.loci)}` : 'Von jedem Elternteil stammt eine Genvariante. In diesem alten Archiv wurde ihre genaue Herkunft nicht einzeln gespeichert.'}</p>`:''}<p>Dokumentierte Kinder: ${archive.archive.filter(i=>i.parents.includes(fish.uid)).map(i=>'Nr. '+i.uid).join(', ') || 'noch keine'}.</p>` : '<p>Wähle einen Fisch. Seine Nummer verbindet Farbe, Erbanlagen und Verwandtschaft.</p>';
+  return `<header class="coherent-header"><div><small>Klasse ${tag.grade} · Farbversuch</small><h1>Fische zählen. Vererbung verfolgen.</h1></div>${button('more','Mehr')}</header><main class="coherent-workspace cohort-workspace" data-workspace-domain="population"><section class="coherent-views"><div class="coherent-clock"><strong>Generation ${view.context.time}</strong><span>Eine Generation ist kein Aquariumtag.</span>${helpButton('genotype')}</div><p class="cohort-boundary">Zählansicht der tatsächlichen Versuchsindividuen. Die Zeichnungen vereinfachen die Körperform. Das Aquarium gehört nicht zu dieser Population.</p>
+    <div class="cohort-controls">${button('population-cohort','Eltern und Nachkommen')}${tag.mode==='free' ? button('population-groups','Zwei Gruppen vergleichen') : ''}${button('genes',showGenes?'Erbanlagen ausblenden':'Erbanlagen zeigen')}</div>
+    ${view.mode==='cohort'?`<label class="cohort-generation">Generation ansehen<select data-cohort-generation>${p.history.map(h=>`<option value="${h.generation}" ${h.generation===view.context.time?'selected':''}>${h.generation===0?'Gründer':h.generation===1?'F1':h.generation===2?'F2':'Generation '+h.generation}</option>`).join('')}</select></label>${card('test',view.context.time===0?'Gründerpopulation':'Nachkommen')}`:`<div class="cohort-pair">${card('control','Gruppe 1 · keine Farbe bevorzugt')}${card('test','Gruppe 2 · '+(view.comparison?.environment==='neutral'?'keine Farbe bevorzugt':view.comparison?.environment==='dark'?'dunkle Fische öfter als Eltern':'helle Fische öfter als Eltern'))}</div>${view.mode==='comparison'?results:''}`}
+    <section class="cohort-detail" data-individual-detail role="status">${detail}</section>
+    ${view.mode==='cohort' ? view.context.time===p.generation ? `<section class="cohort-breeding">${breeding}</section>` : `<section class="coherent-run"><p>Gespeicherte Generation. Die aktuelle Elternpopulation bleibt unverändert.</p>${button('cohort-latest','Zur aktuellen Generation')}</section>` : `<section class="cohort-breeding">${investigation}</section>`}
+    </section><aside class="coherent-notebook">${drawer || quest || `<section class="coherent-note"><h2>Deine Frage, dein Versuch</h2><p>Wähle einzelne Eltern oder vergleiche zwei Gruppen. Texte sind freiwillig.</p>${button('notebook','Notizen und Ergebnisse')}</section>`}</aside></main>`;
+}

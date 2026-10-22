@@ -1,3 +1,4 @@
+import {harbourMeasure,HARBOUR_MEASURES} from "./learning-regional-workspace.mjs";
 import {pendingActivity} from "./learning-activities.mjs";
 /** Short learner tasks. Scientific background remains in learning-content and teacher views. */
 import {populationExplanation} from "./biology-quality.mjs";
@@ -368,6 +369,10 @@ export const STEP_NAMES = [
   "Erklären",
 ];
 export function questConclusion(d, result) {
+  if(d.experiment.kind === "case" && HARBOUR_MEASURES[harbourMeasure(result)]) {
+    const m=HARBOUR_MEASURES[harbourMeasure(result)];
+    return pick("Welche Begründung passt zu deiner Maßnahme?",[m.conclusion,"Ein Wasserwechsel im Aquarium entfernt Meeresmüll","Diese Maßnahme löst alle Meeresprobleme"],0,m.conclusion+". "+m.effort+". "+m.objection+".");
+  }
   if (d.experiment.kind !== "population") return d.conclusion;
   const environment = result?.configuration?.environment ?? result?.environment;
   if (environment === "neutral") return pick(
@@ -429,7 +434,7 @@ export function resultTolerance(metric,result={}) {
   return ({temp:.1,oxygen:.05,co2:.1,algae:.005,organic:.01,plantBiomass:.01,fishOutcome:1,health:1,loadLevel:0,fishAlive:0})[metric] ?? .001;
 }
 export function resultQuestion(q, result) {
-  if (q.experiment.kind === "case") return {prompt:"Welche Folge gehört zu deiner Schutzmaßnahme?",choices:["Weniger Müll, aber auch Aufwand für Rückgabe oder Sammlung","Alle Meeresprobleme sind damit gelöst","Das Aquarium misst nun Plastikschäden"],correct:0};
+  if (q.experiment.kind === "case") return {prompt:"Welche Folge gehört zu deiner Schutzmaßnahme?",choices:[HARBOUR_MEASURES[harbourMeasure(result)]?.effort || "Weniger Müll, aber auch Aufwand für Rückgabe oder Sammlung","Alle Meeresprobleme sind damit gelöst","Das Aquarium misst nun Plastikschäden"],correct:0};
   if (q.experiment.kind === "traits")
     return {
       prompt: "Haben alle dunklen Fische dieselben Erbanlagen?",
@@ -541,7 +546,7 @@ export function answerQuest(state, index, inspectedResult = state?.result) {
   const activity=pendingActivity(state,step);
   if (activity) {state.feedback=activity.prompt;return false;}
   if (step === 0 && !state.observed) {
-    state.feedback = "Schau zuerst ins Aquarium. Öffne „Beobachten“.";
+    state.feedback = d.experiment.kind === "case" ? "Wähle zuerst ein Objekt im Hafenfall." : "Schau zuerst ins Aquarium. Öffne „Beobachten“.";
     return false;
   }
   if (step === 3 && !result) {

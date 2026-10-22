@@ -11,7 +11,7 @@ import {
 } from "./learning-content.mjs";
 import { createScenario } from "./scenarios.mjs";
 import { initializeIndividual } from "./genetics.mjs";
-import { validateLearningPopulation } from "./learning-population.mjs";
+import { validateLearningPopulation, populationCohort } from "./learning-population.mjs";
 import { controlNumber, requireControlValue, validControlValue, applyEquipmentSetting } from "./control-values.mjs";
 export const LEARNING_MODEL_REVISION = "learning-biology-5-views";
 export const POPULATION_METRICS = {
@@ -901,7 +901,15 @@ export function validateLearningProduct(raw) {
         v.context.time !== x.time || v.context.seriesId !== x.seriesId || v.context.revision !== x.revision ||
         v.context.investigationId !== x.investigationId || v.context.attemptId !== x.attemptId ||
         (x.stateIds && ["control","test"].some(side=>v.context.stateIds[side] !== x.stateIds[side]))) throw new Error("Ansicht und gespeicherter Versuch widersprechen sich.");
+    if (x.cohortIds && ["control","test"].some(side=>x.cohortIds[side] !== v.context.cohortIds?.[side])) throw new Error("Individuen und Generation widersprechen sich.");
     product.viewContext=v.context;
+  }
+  if (raw.cohortView) {
+    const v=raw.cohortView,x=v.context,cohort=populationCohort(product.population,x?.time);
+    if(!cohort || x.version !== 1 || x.axis !== "generation" || x.attemptId !== product.attemptId ||
+       x.cohortIds?.test !== stateId(cohort) || (v.selected && (v.selected.side !== "test" || v.selected.cohortId !== stateId(cohort) || !cohort.individuals.some(i=>i.uid===v.selected.uid))))
+      throw new Error("Individuenansicht und gespeicherte Population widersprechen sich.");
+    product.cohortView=structuredClone(v);
   }
   if (raw.visiblePlan) {
     const p=raw.visiblePlan,x=p.context;

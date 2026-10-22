@@ -63,10 +63,12 @@ export function createTankViews(host) {
           if (right<=left || bottom<=top) continue;
           const x = r.left-outer.left, y = outer.bottom-r.bottom;
           if (Math.abs(e.view.camera.aspect-r.width/r.height) > .0001) e.view.resize();
+          const deviceKey=root.ownerDocument.querySelector("[data-equipment-value]")?.closest(".equipment-sheet")?.getAttribute("aria-label") || "";
+          const deviceKind=deviceKey.startsWith("Licht") ? "light" : deviceKey.startsWith("Filter") ? "filter" : "heater";
           const focusDevice=e.side === "test" && document.documentElement.classList.contains("device-adjusting");
-          const focusObject=focusDevice ? e.view.tank.children.find(o=>o.name.startsWith("equipment:heater:")) :
+          const focusObject=focusDevice ? e.view.tank.children.find(o=>o.name.startsWith("equipment:"+deviceKind+":")) :
             selected?.side === e.side && selected.uid ? e.view.objects.get(selected.uid)?.group : null;
-          const focusKey=focusDevice ? "heater" : focusObject ? "fish-"+selected.uid : "overview";
+          const focusKey=focusDevice ? deviceKind : focusObject ? "fish-"+selected.uid : "overview";
           if (e.focusKey !== focusKey) {e.view.resize();e.focusKey=focusKey;}
           e.view.camera.zoom=focusObject ? 2.3 : 1;e.view.camera.updateProjectionMatrix();
           if (focusObject) {focusObject.getWorldPosition(e.view.controls.target);e.view.controls.update();}

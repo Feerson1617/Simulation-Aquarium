@@ -1,4 +1,5 @@
 /** View identities and immutable tank checkpoints. No biological rates or RNG calls. */
+import {populationCohort} from "./learning-population.mjs";
 import {compressArchiveText, decompressArchiveText} from "./vendor/lz-string.mjs";
 export const VIEW_VERSION = 1;
 const clone = value => structuredClone(value);
@@ -132,9 +133,11 @@ export function resolveComparisonView(session, request = {}) {
         if (final?.day === row.time) state = clone(final);
       }
     }
-    return [side, {sample: sample ? clone(sample) : null, state, stateId: state ? stateId(state) : null,
+    const cohort = sample && comparison.kind === "population" ? populationCohort(run.archives?.[side],row.time) : null;
+    return [side, {sample: sample ? clone(sample) : null, cohort, state, stateId: state ? stateId(state) : null,
       availability: !sample ? "ended" : state ? "state" : "measurements-only"}];
   }));
+  if (comparison.kind === "population") context.cohortIds=Object.fromEntries(Object.entries(sides).map(([side,data])=>[side,data.cohort ? stateId(data.cohort) : null]));
   context.stateIds = Object.fromEntries(Object.entries(sides).map(([side,data])=>[side,data.stateId]));
   return {context, comparison, run, rows, row: clone(row), sides};
 }

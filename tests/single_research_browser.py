@@ -14,7 +14,7 @@ with sync_playwright() as pw:
  launch={'executable_path':'/usr/bin/chromium','args':['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']} if ENGINE=='chromium' else {'executable_path':os.environ['AQUARIUM_WEBKIT']}
  b=getattr(pw,ENGINE).launch(**launch)
  try:
-  for grade in [8,9,10]:
+  for grade in [int(v) for v in os.environ.get('AQUARIUM_RESEARCH_GRADES','8,9,10').split(',')]:
    c=b.new_context(viewport={'width':1366,'height':1024},device_scale_factor=1,has_touch=True,accept_downloads=True)
    c.add_init_script("localStorage.setItem('aquarium-graphics-v1',JSON.stringify({version:1,profile:'ipad'}));localStorage.setItem('aquarium-learning-old-sentinel','unchanged');")
    p=c.new_page();p.set_default_timeout(90000);p.on('pageerror',lambda e:r['errors'].append(e.stack));p.on('requestfailed',lambda q:r['failed_requests'].append(q.url))
@@ -30,12 +30,14 @@ with sync_playwright() as pw:
    click(p,'menu');p.locator('[data-class-file]').set_input_files(str(product));ready(p);assert snap(p)['session']['attemptId']==before['attemptId'];assert p.evaluate('localStorage.getItem("aquarium-learning-old-sentinel")')=='unchanged'
    passed(f'free grade {grade}: one actual aquarium, catalog insertion, care, water/light/time, measurement, export/reload/import, old data unchanged')
    if grade==8:
+    p.wait_for_function('window.aquariumAquascapingSnapshot().targets.some(t=>t.species==="anubias")',polling=200)
+    inspected=next(t for t in p.evaluate('window.aquariumAquascapingSnapshot().targets') if t['species']=='anubias');p.mouse.click(inspected['screen']['x'],inspected['screen']['y']);expect(p.locator('[data-selected-individual]')).to_have_attribute('data-selected-individual',str(inspected['uid']));p.keyboard.press('Escape');passed('free direct selection: organism card belongs to the clicked actual individual')
     click(p,'care');click(p,'tweezers');assert snap(p)['tweezers'];p.wait_for_function('window.aquariumAquascapingSnapshot().targets.some(t=>t.species==="anubias")',polling=200)
     points=p.evaluate('window.aquariumAquascapingSnapshot()');target=next(t for t in points['targets'] if t['species']=='anubias');camera=points['camera'];p.mouse.move(target['screen']['x'],target['screen']['y']);p.mouse.down();assert p.evaluate('window.aquariumAquascapingSnapshot().phase')=='dragging'
     p.mouse.move(target['screen']['x']+80,target['screen']['y']-15,steps=6);p.mouse.up();p.wait_for_function('window.aquariumAquascapingSnapshot().phase==="idle"',polling=200)
     after=p.evaluate('window.aquariumAquascapingSnapshot()');moved=next(t for t in after['targets'] if t['uid']==target['uid']);assert after['camera']==camera;assert math.hypot(moved['x']-target['x'],moved['z']-target['z'])>.02
     passed('new free interface: actual model drag with tweezers, unchanged camera and saved coordinates')
-    click(p,'care');click(p,'tweezers');assert not snap(p)['tweezers'];click(p,'menu');click(p,'teacher');click(p,'teacher-hints');click(p,'teacher-notes');p.keyboard.press('Escape');assert not p.locator('[data-class=help]:visible').count()
+    click(p,'tweezers');assert not snap(p)['tweezers'];click(p,'menu');click(p,'teacher');click(p,'teacher-hints');click(p,'teacher-notes');p.keyboard.press('Escape');assert not p.locator('[data-class=help]:visible').count()
     p.reload();ready(p);assert not p.locator('[data-class=help]:visible').count();click(p,'menu');assert not p.locator('[data-class-note]').count();p.keyboard.press('Escape');passed('local teacher options persist: hints off and optional own text hidden, no mandatory writing')
     slot='aquarium-single-investigation-v1:research-8';saved=p.evaluate('(k)=>localStorage.getItem(k)',slot)
     p.evaluate('''slot=>{window.researchOriginalSet=Storage.prototype.setItem;Storage.prototype.setItem=function(k,v){if(k===slot)throw new DOMException('injected quota','QuotaExceededError');return window.researchOriginalSet.call(this,k,v)}}''',slot)

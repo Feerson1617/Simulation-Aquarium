@@ -66,7 +66,7 @@ export function lessonTask(s,host){
  if(stage==='dominance-explanation'){title='Was bedeutet dominant?';choices=[['not-guaranteed','A bestimmt bei A und a die dunkle Farbe. Das sagt nicht, wie häufig die Farbe wird oder wie viele Junge ein Tier hat.'],['more-young','Dominant heißt: Diese Tiere bekommen immer die meisten Jungen.']];}
  if(stage==='complete'){title='Dein Ergebnis ist gespeichert.';body=lessonConclusion(s);actions=b('export','Ergebnis speichern','class="single-primary"')+b('repeat','Noch einmal untersuchen');}
  if(stage==='failed'){title='Diese Beobachtung ist beendet.';body='Die Bedingungen sind kritisch geworden. Es werden keine weiteren Werte ergänzt.';actions=b('export','Bisherigen Stand speichern','class="single-primary"')+b('repeat','Neu beginnen');}
- if(stage==='free'){title='Was möchtest du untersuchen?';actions=b('catalog','Tiere und Pflanzen')+b('care','Pflege')+b('measurements','Messen')+b('free-day','Einen Tag beobachten');body='Ein Aquarium. Deine eigene Frage. Im Menü kannst du deinen Stand sichern.';}
+ if(stage==='free'){title='Was möchtest du untersuchen?';actions=b('catalog','Tiere und Pflanzen')+b('care','Pflege')+b('measurements','Messen')+b('free-day','Einen Tag beobachten')+(host.tweezersActive()?b('tweezers','Pinzette beenden'):'');body='Ein Aquarium. Deine eigene Frage. Im Menü kannst du deinen Stand sichern.';}
  return {title,body,actions,choices};
 }
 export function processExplanation(s){

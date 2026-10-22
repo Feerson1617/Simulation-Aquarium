@@ -1,7 +1,7 @@
 import {applyEquipmentSetting} from './control-values.mjs';
 import {readSingleTeacher,writeSingleTeacher} from './single-teacher-settings.mjs';
 import {createClassroom,CLASSROOM_IDS,classroomSlot,classroomContext,classroomProduct,encodeSingle,decodeSingle,validateClassroom,isGenetic,cohort,counts,predictClassroom,selectClassroom,nextClassroomGeneration,resetClassroomTrial,classroomFeed,classroomMeasure,beginClassroomObservation,advanceClassroom,resetClassroomMeasure,classroomAnswer,openClassroomFilter,compareClassroomTrials} from './single-classroom-model.mjs';
-import {escapeText as esc,control as b,lessonTitle,lessonTask,changeWord,processExplanation,resultTable} from './single-classroom-content.mjs';
+import {escapeText as esc,control as b,lessonTitle,lessonTask,lessonConclusion,changeWord,processExplanation,resultTable} from './single-classroom-content.mjs';
 import {stateId} from './learning-context.mjs';
 export function mountClassroomUI(host,id){
  const root=document.createElement('div');root.id='learning-root';host.root.append(root);
@@ -84,7 +84,7 @@ export function mountClassroomUI(host,id){
    if(a==='reset-trial'){resetClassroomTrial(s);bind();feedback='Der vollständige Anfang ist wieder da. Die frühere Gruppe bleibt gespeichert.';}
    if(a==='compare-trials')compareClassroomTrials(s);
    if(a==='reset-measure'){resetClassroomMeasure(s);bind();feedback='Der vollständige gleiche Anfang ist wieder da.';}
-   if(a==='answer'){const ok=classroomAnswer(s,button.dataset.classChoice);kind=ok?'success':'error';feedback=ok?'Dein Beleg ist gespeichert.':'Schau noch einmal auf deine Beobachtung. Nutze bei Bedarf den Tipp.';}
+   if(a==='answer'){const stage=s.stage,text=lessonTask(s,host).choices?.find(([id])=>id===button.dataset.classChoice)?.[1];const ok=classroomAnswer(s,button.dataset.classChoice);if(ok){s.answers[stage].text=text;if(s.stage==='complete')s.conclusion={text:lessonConclusion(s),origin:'game-explanation',context:classroomContext(s),runIds:s.runs.map(r=>r.id),trialIds:s.trials.map(r=>r.id)};}kind=ok?'success':'error';feedback=ok?'Dein Beleg ist gespeichert.':'Schau noch einmal auf deine Beobachtung. Nutze bei Bedarf den Tipp.';}
    if(a==='more-help'){s.hints??={};s.hints[s.stage]=Math.min(2,(s.hints[s.stage]||0)+1);}
    if(a==='profile')host.setGraphics(button.dataset.classProfile);
    if(a==='repeat'){pause();if(archive()){s=createClassroom(id,host);bind();dialog=null;feedback='Ein neuer Versuch beginnt. Dein vorheriger Stand bleibt im Archiv.';}}

@@ -61,6 +61,10 @@ with sync_playwright() as pw:
    choose(p,0);p.locator('[data-activity-id=harbour-followup][data-activity-choice="0"]').click();choose(p,0)
    assert snap(p)['quest']['step']==5 and snap(p)['quest']['result']['measureKey']==key
    report['checks'].append('harbour '+key+': full chosen-specific path while offline')
+  action(p,'home');p.locator('[data-learn-grade="8"]').click();action(p,'free');action(p,'observe');action(p,'measure')
+  raw=snap(p)['measurements'][0]['plantBiomass'];p.locator('[data-learning-manual-metric=local]').select_option('plantBiomass')
+  expect(p.locator('.learn-measurements tbody tr').first.locator('td').nth(1)).to_have_text('1');assert snap(p)['measurements'][0]['plantBiomass']==raw
+  report['checks'].append('own plant measurement: recorded beginning equals 1, raw data unchanged while offline')
   extra=[u for u in report['http_requests'] if u!=URL and not u.endswith('/favicon.ico')];assert not extra,extra
   assert not report['errors'];p.screenshot(path=str(OUT/'single-html-result.png'));report['status']='passed'
   print('PASS',ENGINE,'single HTTP HTML: two actual scenes, full mission, export, no child HTTP resources, loaded document continues offline',flush=True)

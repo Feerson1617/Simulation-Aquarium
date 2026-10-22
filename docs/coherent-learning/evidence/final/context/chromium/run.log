@@ -1,0 +1,4 @@
+PASS AT05 actual UI/core: zero water cannot fulfil 10-restore
+PASS AT04 actual core: early/late cards, cursor, missing control and read-only view agree
+PASS AT06 actual F1/F2: repeat preserves the old product but requires new crosses
+REPORT /tmp/aquarium-delivery-context4/chromium/report.json

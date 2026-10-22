@@ -1,5 +1,7 @@
 # Messungen und Arbeitsbudgets des Prototyps
 
+**Historische Gate-Messung.** Aktuelle Einzeldatei und Messwerte: [Abschlussprüfung](FINAL_VALIDATION.md#leistung-einzeldatei-und-weitere-grenzen). Die folgenden Budgets bleiben Ziele für die Geräteprüfung.
+
 Anwendungsstand `a7ee966a3116faf4a231050718dc899fc1eea3fb`. Linux, Cloud-Software-Rendering, Profil `ipad`, 1366 × 1024 CSS-Pixel bei Pixeldichte 1. Während der Messung liefen weitere Browserprüfungen. Diese Zahlen sind **keine Messung einer iPad-GPU und keine bestandene Leistungsabnahme**.
 
 ## Tatsächliche Beobachtung

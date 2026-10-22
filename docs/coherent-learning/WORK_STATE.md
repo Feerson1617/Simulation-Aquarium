@@ -1,59 +1,41 @@
-# Wiederaufnahme und Sichtgate
+# Gesicherter Entwicklungsstand
 
-Auftrag: [Masterauftrag](REQUEST.txt), [Prüfbericht](REVIEW.html). Neuer Branch: `feature/coherent-learning-workspaces`. Ausgangspunkt ist exakt `8e41962132fe3778fe73f8e14c650f42e18d848d` auf main; PR #8 ist gemergt. Der bei Arbeitsbeginn vorgefundene Stand war sauber. Frühere Arbeit wurde nicht verworfen. Die neue Entwicklung ist schrittweise auf GitHub gesichert.
+Stand: 22.10.2026. Auftrag: [Masterauftrag](REQUEST.txt), [beigefügte Gegenprüfung](REVIEW.html). Branch: `feature/coherent-learning-workspaces`. PR: [#9](https://github.com/Feerson1617/Simulation-Aquarium/pull/9). [Bedienbare Vorschau](https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/).
 
-**Geprüfter Anwendungsstand: `d0c4b17096289c18efa63a8b93aa49205c4cb1bd`.** Nachfolgende Dokumentations-/Belegcommits ändern diesen Anwendungscode nicht. Den aktuellen Branch-Head liefert `git rev-parse HEAD`.
+**Letzter Anwendungscode: `f12d5e8789cb70268469df8c6a60ecb15547cf91`.** Nachfolgende Dokumentations-/Belegcommits ändern diesen Code nicht. Den aktuellen Branch-Head liefert `git rev-parse HEAD`. Ausgangs-main bleibt `8e41962132fe3778fe73f8e14c650f42e18d848d`; kein Merge und kein Push auf main.
 
-## Verbindliche Arbeitsgrenze
+## Wiederaufnahme und Freigabe
 
-Abschnitt 15 des Masterauftrags verlangt: „Vor dieser Freigabe keine flächendeckende Neugestaltung aller Missionen.“ Die ausdrückliche Sichtfreigabe liegt seit dem 22.10.2026 vor: Der Auftraggeber antwortete „ist freigegeben“. Phase 3 wird auf dem sauberen Branch-Head `15d9ebc` fortgesetzt. **Der Gesamtauftrag ist damit noch nicht abgeschlossen.**
+Nach „ist freigegeben“ wurde der saubere, bereits gesicherte Branch bei `15d9ebc` fortgeführt. Vorherige Änderungen wurden erhalten. Das verbindliche Temperaturgate aus Abschnitt 15 ist damit ausdrücklich freigegeben. Neue Populations- und Regionalmuster wurden vor der breiten Übertragung tatsächlich im Browser geprüft und mit Bildern im Arbeitsverlauf vorgelegt. Es gibt kein ausstehendes zweites Temperaturgate.
 
-Das Temperaturgate ist durch den Auftraggeber freigegeben. Die neuen Muster für Populationen und regionale Fälle werden vor breiter Übertragung gesondert sichtbar geprüft. Kein Merge, kein direkter main-Push, keine Änderungen an Konten oder Umgebungsberechtigungen.
+## Abgeschlossen
 
-## Umgesetzt
+- Phasen 1/2: gemeinsame Untersuchungsidentität, echte Zustände vor/nach Eingriff und historische Checkpoints, Null-Eingriffsschutz, zwei echte Temperaturbecken in einem WebGL-Kontext. Historischer Gatebericht: [VALIDATION.md](VALIDATION.md).
+- Phase 3: gemeinsame Vergleichsfläche für alle neun Beckenmissionen und Freies Forschen 8/10; tatsächliche zählbare Populationen für Klasse 9; getrennte qualitative Hafenansicht. [Bedienprinzipien](PHASE3.md).
+- Phase 4: alle 14 zentralen Lernhandlungen, bedienbare Stoff-/Energie-/Kohlenstoffwege, Blattvergleich, Land–Fluss–Nordsee, tatsächliche Allelherkunft und Fossilzuordnung. Beide Hafenmaßnahmen haben eigene Nutzen-/Aufwands-/Abschlusswege. Hilfen, Anzeigen und Rückmeldungen sind angepasst.
+- Wiederholen archiviert den alten Versuch einschließlich Population/F1/F2 und verlangt neue Handlungen. Fortsetzen erhält den alten Versuch. Fehlende alte Zustände, Herkunft und Chemieeinheiten werden nicht erfunden.
+- [Ammoniumpool-Vertrag](AMMONIA_POOL.md): TAN in mg NH₄-Äquivalent/L, passende freie NH₃-Berechnung, quantitative N-/O₂-Prüfung und unveränderte Altwerte mit unbekannter Grundlage. Keine Neukalibrierung der biologischen Raten.
+- Phase 5: 173 Modultests, alle 14 Missionen in Chromium und WebKit, gezielte Touch-/Speicher-/Abbruch-/Modusprüfungen, Einzel-HTML und tatsächliche HTTPS-Vorschau. Exakte Quellenstände und Belege: [Abschlussprüfung](FINAL_VALIDATION.md), [Missionsmatrix](MISSIONS.md).
 
-- Gemeinsamer Selektor für Untersuchung, Durchgang, Modellrevision, Reihe, Wiederholung, Seite, Zeitpunkt/Generation und Zustandskennung. Er verbindet Ergebnis, gespeicherte Beckenansicht, Diagramm, Tabelle, Frage und Export.
-- Echte Zustände vor und nach dem Eingriff sowie zeitlich zugehörige Checkpoints. Alte Dateien ohne historischen Beckenstand zeigen ausdrücklich nur Messwerte. Nach Ausfall einer Seite entstehen keine erfundenen Folgezustände.
-- Ansicht und aktuelles Spielbecken getrennt; ein gespeicherter Stand wird nur durch die ausdrückliche Übernahmehandlung kopiert. Ein neuer Plan bleibt von früheren Messergebnissen getrennt, auch im Lehrkraftimport.
-- Typisierte Eingriffsbelege; Wasserwechsel 0 % erzeugt keinen Kernaufruf oder bloßen Journalnachweis. Die vorhandene Sonderprüfung auf main verhinderte bereits einzelne Null-Nachweise: Der pauschale alte Berichtsbefund wurde deshalb nicht unverändert übernommen.
-- Temperaturprototyp: zwei reale Becken vor der Vermutung, vorhandene Modelle, ein WebGL-Kontext, Heizer nur in Becken 2, wirkliche Wasserwerte und gemeinsame Versuchsuhr. Fischfokus hält den Partner sichtbar; Ergebnis- und Hilfsansichten behalten denselben Vergleich.
-- Getrennte Fortsetzung und Wiederholung. Ein neuer Durchgang archiviert das bisherige Produkt und setzt Population, F1/F2-Ereignisse und Lernbelege zurück. Alte Abschlüsse werden nicht als neue visuelle Leistung ausgegeben.
-- Verlustfreie lokale Archivkompression mit MIT-lizenziertem lz-string 1.5.0. Abwärtskompatibilität für unkomprimierte Archive. Speicherfehler lassen den vorher gespeicherten Versuch bestehen; die fünfte Reihe archiviert die älteste gesondert.
-- [Matrix aller 14 Missionen](MISSIONS.md) und dauerhafte Prüfregel für alle Klassen/Modi in der README.
+Die gesamte Browserstrecke läuft über sichtbare Bedienelemente. Read-only Prüfzugriffe überprüfen tatsächliche IDs und Werte; sie belegen keine intuitive Auffindbarkeit durch Kinder. Keine neue kostenpflichtige Abhängigkeit, kein neues Konto und keine Änderung von Umgebungsberechtigungen.
 
-Der neue [Entwurfs-PR #9](https://github.com/Feerson1617/Simulation-Aquarium/pull/9) und die [funktionierende Vorschau](https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/) sind vorhanden. Die Quellhashes der Auslieferung und ein tatsächlicher WebKit-Aufruf sind geprüft. Noch kein Merge.
+## Offene Grenzen
 
-Letzte abgegrenzte Datenkorrektur: Auch die technische Lehrkraft-/Expertenansicht löst Reihe, Wiederholung und Zeit über denselben Selektor auf. Geändert wurden ausschließlich `results()` und `runTables()`; [Quellvergleich](evidence/expert-source-audit.json). Gezielte Prüfungen einschließlich CSV/SVG bestehen in beiden Engines; neun zusätzliche WebKit-Schutzprüfungen zu Sanierung, Genetik und alten Produkten bestehen.
+Keine bekannte reproduzierbare zentrale P1/P2-Funktionsstörung in den dokumentierten Schlussläufen. Offen bleiben physische iPads/Mobile Safari, Zielgeräte-Leistung, natives `file:`-Öffnen und Offline-Neustart sowie Unterrichtserprobung. Die etwa 151 MB große Einzeldatei ist kein iPad-Offline-Nachweis. Grafiken der Populationen/Prozesse sind ausdrücklich schematisch; keine neue Fotorealismusabnahme.
 
-## Prüfung und Belege
+Der erneute Abruf der offiziellen SH-Seite wurde mit HTTP 403 blockiert; auch ein neuer OSPAR-Abruf war blockiert. [Quellen und curriculare Reichweite](CURRICULUM.md) trennen die vorliegende Schul-PDF, Angaben aus der beigefügten Gegenprüfung und unabhängig noch nachzuprüfende Landes-/Regionalquellen.
 
-[VALIDATION.md](VALIDATION.md) dokumentiert ausgeführte Prüfungen, genaue Quellenstände, Bilder und Grenzen. Entwicklungsfehlschläge werden dort von den abschließenden Ergebnissen getrennt. Ein technischer Missionsabschluss belegt weder eine neue sachgerechte Darstellung aller Missionen noch Unterrichtswirksamkeit.
+Die genannten ZIPs `Simulation-Aquarium-main 2.zip` und `Aquarium-Pruefpaket.zip` lagen hier nicht vor. Ihr Hash ist eine Auftragsangabe, kein eigener ZIP-Nachweis. Die bereitgestellte ETS-PDF wurde im vorangehenden Arbeitsschritt gelesen: SHA-256 `faa37c2dafb2824dda8e890c21f05a69d4f479ea64c255ca815892174889b90f`, insbesondere S. 9–10, 14–15 und 19–20.
 
-Die Archivkorrektur entstand aus einem echten Fehler im Mehrmissionslauf: Nach neun Abschlüssen überschritt die unkomprimierte Speicherung das lokale Limit; die Kohlenstoffmission fiel beim Neuladen auf Aufgabe 2 zurück. Die korrigierte Version bestand anschließend den gesamten zusammenhängenden Lauf. Gemessenes Beispiel: 744.703 auf 326.040 JSON-Zeichen, 56,2 % weniger, alle Zustände exakt erhalten.
-
-Abschluss dieses Gateabschnitts: 154/154 Modultests; je 15/15 Temperatur-/Kontextpunkte, je 22/22 zusätzliche Missions-/Modusprüfpunkte, 5/4 Kompatibilitätspunkte und je zwei Nebenansichtsprüfungen in Chromium/WebKit. Dazu 13 Start-/Tutorialpunkte, gezielte technische Auswahl einschließlich Einzel-HTML in beiden Engines und neun zusätzliche WebKit-Schutzprüfungen. Details und Unterschiede der Pixeldichten/Quellenstände stehen im Prüfbericht.
-
-## Offen nach dem Sichtgate
-
-1. Architektur auf passende Ökologiemissionen und Freies Forschen übertragen.
-2. Ein gesondertes Muster für tatsächliche Lernindividuen/Generationen und eines für regionale Prozesse vorlegen; erst dann breiter verwenden (P1 E/F).
-3. Übrige Missionsdarstellungen, maßnahmenspezifische Hafenantworten, Sprache/Hilfen und Waldvergleich überarbeiten (insbesondere P2 H/J/L).
-4. Den vollständigen Stoffvertrag des Ammoniumpools einschließlich Einheiten, Schädigung und Altimporten prüfen (P2 K). Die Formel und biologischen Kernraten wurden hier nicht blind geändert.
-5. Curriculare und institutionelle Regionalquellen für diese Überarbeitung gegenprüfen; vollständige Schlussregression und menschliche Sichtabnahme durchführen.
-
-Echte iPad-Hardware/Safari, Unterricht mit Kindern und Leistung des Maximalprofils sind weiterhin offen. Linux-WebKit ist kein Hardwareabnahmesiegel.
-
-## Referenzen und nächste Befehle
-
-Die erwähnten ZIPs `Simulation-Aquarium-main 2.zip` und `Aquarium-Pruefpaket.zip` wurden nicht bereitgestellt. Ihre Hashes sind Angaben aus den Anhängen, kein eigener ZIP-Nachweis. Das Originalcurriculum ETS 2025/26 lag als PDF vor; relevante Seiten 9–10, 14–15 und 19–20 wurden gelesen. SHA-256: `faa37c2dafb2824dda8e890c21f05a69d4f479ea64c255ca815892174889b90f`.
+## Wiederholbare Prüfung und nächster Schritt
 
 ```sh
 git status --short --branch
 git log -5 --oneline
 node --test tests/*.test.mjs
 python3 tests/coherent_workspace_browser.py
-python3 tests/coherent_compat_browser.py
-python3 tests/coherent_tools_browser.py
+python3 tests/coherent_final_browser.py
+AQUARIUM_PHASE3_SECTIONS=population,harbour,free python3 tests/coherent_phase3_browser.py
 ```
 
-WebKit und ausführliche Aufrufvariablen: [ENVIRONMENT.md](ENVIRONMENT.md). **Aktueller Produktschritt: Phase 3 umsetzen; die Temperaturfreigabe nicht erneut einholen.** Keine automatischen Hintergrund-Fortsetzungsversprechen.
+Server, beide Engines und weitere Aufrufe: [ENVIRONMENT.md](ENVIRONMENT.md), [Abschlussprüfung](FINAL_VALIDATION.md). Alle Entwicklungszwischenstände wurden frühzeitig auf dem eigenen Branch gesichert. Nächster Produktschritt ist die menschliche PR-/Vorschauprüfung und die ausgewiesene Geräte-/Unterrichtserprobung. Keine automatische Hintergrundfortsetzung und kein eigenmächtiger Merge.

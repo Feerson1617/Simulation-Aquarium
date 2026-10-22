@@ -3,7 +3,7 @@
 No quest writes. Read-only probes confirm the identity behind the actual pictures.
 Run with AQUARIUM_BROWSER=webkit and AQUARIUM_WEBKIT=<portable launcher> if needed.
 """
-import hashlib,json,os,subprocess,time,traceback
+import hashlib,json,os,shutil,subprocess,time,traceback
 from pathlib import Path
 from playwright.sync_api import sync_playwright,expect
 from biology_browser_helpers import reveal,activities,biological_experiment,comparison_answer
@@ -16,13 +16,28 @@ URL=os.environ.get('AQUARIUM_URL','http://127.0.0.1:8000/aquarium-simulation/')
 sources={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in ROOT.iterdir() if p.suffix in ['.mjs','.css','.html']}
 report={'engine':ENGINE,'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
  'sources':sources,'checks':[],'errors':[],'requests':[],'screenshots':[],'hardware':'Linux browser; no physical iPad'}
+resume=os.environ.get('AQUARIUM_CONTEXT_RESUME')
+if resume:
+ prior_path=Path(resume);prior=json.loads(prior_path.read_text())
+ assert prior['engine']==ENGINE and prior['status']=='failed' and not prior['errors'] and not prior['requests']
+ assert prior['sources']==sources,'Resume is permitted only with byte-identical application sources'
+ assert len(prior['checks']) in [7,13] and 'data-activity-view' in prior['failure'],'Only the known outdated end-observation test flow may resume'
+ assert prior['checks'][-1]['name']=='AT05 actual UI/core: zero water cannot fulfil 10-restore'
+ shutil.copyfile(prior_path,OUT/'report-before-resume.json')
+ for name in [*prior['screenshots'],'selected.json','selected.csv']:
+  shutil.copyfile(prior_path.parent/name,OUT/name)
+ report.update(checks=prior['checks'],screenshots=prior['screenshots'],profiles=prior['profiles'],resumed_from={'file':str(prior_path),'sha256':hashlib.sha256(prior_path.read_bytes()).hexdigest(),'failure':prior['failure'],'commit':prior['commit'],'scope':'All view/profile and older-series checks retained. Remaining restoration/Mendel checks run in fresh contexts; no quest writes.'})
 def snap(p):return p.evaluate('window.aquariumLearningSnapshot()')
 def act(p,name):p.locator(f'[data-learn="{name}"]:visible').first.click()
 def choose(p,i):p.locator(f'[data-quest-answer="{i}"]:visible').first.click()
 def shot(p,name):
  p.wait_for_function('s=>window.aquariumLearningSnapshot().prototype.render.frames>s',arg=snap(p)['prototype']['render']['frames'])
  p.screenshot(path=str(OUT/name),animations='disabled');report['screenshots'].append(name)
-def passed(name,**data):report['checks'].append({'name':name,**data});print('PASS',name,flush=True)
+def passed(name,**data):
+ entry={'name':name,**data}
+ if resume and any(c['name']==name for c in report['checks']):report.setdefault('rechecked',[]).append(entry)
+ else:report['checks'].append(entry)
+ print('PASS',name,flush=True)
 def start(p,grade=8,mission='8-ecosystem'):
  p.locator(f'[data-learn-grade="{grade}"]').click();act(p,'missions');p.locator(f'[data-learn-mission="{mission}"]').click()
 def time_field(p):return p.locator('[data-coherent-time]:visible').first
@@ -52,7 +67,11 @@ with sync_playwright() as pw:
  b=getattr(pw,ENGINE).launch(**launch)
  try:
   profiles=[('desktop',{'width':1366,'height':960},False),('portrait',{'width':768,'height':1024},True),('landscape',{'width':1366,'height':1024},True)]
+  selected_profiles=os.environ.get('AQUARIUM_CONTEXT_PROFILES','desktop,portrait,landscape').split(',')
+  if resume:profiles=[]
+  else:report['profiles']=selected_profiles
   for label,viewport,touch in profiles:
+   if label not in selected_profiles:continue
    c,p=setup_context(b,viewport,touch);started=time.monotonic();start(p)
    p.wait_for_function('window.aquariumLearningSnapshot().prototype.render.sides.every(s=>s.detailModels===s.objects)&&window.aquariumLearningSnapshot().prototype.render.frames>2')
    assert read(p)==['25,0 °C','25,0 °C'];s=snap(p);assert s['prototype']['render']['contexts']==1
@@ -128,6 +147,7 @@ with sync_playwright() as pw:
     passed('AT06: new attempt has fresh evidence; previous completed product remains readable')
    c.close()
   for mission,grade in [('8-health',8),('10-restore',10)]:
+   if resume and mission=='8-health':continue
    c,p=setup_context(b,{'width':1366,'height':1024});start(p,grade,mission)
    act(p,'observe');act(p,'close');activities(p);choose(p,0);choose(p,1);assert snap(p)['quest']['step']==2
    act(p,'investigate');field=reveal(p.locator('[data-learning-value]'));field.fill('0');act(p,'compare')
@@ -135,7 +155,8 @@ with sync_playwright() as pw:
    assert s['comparison']['runs'][0]['control']==s['comparison']['runs'][0]['test']
    passed('AT05 actual UI/core: zero water cannot fulfil '+mission)
    if mission=='10-restore':
-    field=p.locator('[data-learning-value]');field.fill('50');reveal(p.locator('[data-learning-days]')).fill('14');act(p,'compare')
+    act(p,'workspace-plan');field=reveal(p.locator('[data-learning-value]'));field.fill('50');reveal(p.locator('[data-learning-days]')).fill('14');act(p,'compare')
+    time_field(p).select_option('59')  # Observe the actual end before interpretation actions become available.
     baseline=p.evaluate('localStorage.getItem("aquarium-learning-tank-v1:10:10-restore")')
     p.locator('[data-activity-view="early"]').click();s=snap(p);assert s['view']['time']==45.25
     expect(p.locator('.learn-results')).to_have_attribute('data-view-time','45.25')
@@ -143,7 +164,9 @@ with sync_playwright() as pw:
     p.locator('[data-activity-view="late"]').click();s=snap(p);assert s['view']['time']==59
     expect(p.locator('.learn-results')).to_contain_text('Kein vollständiger Paarvergleich')
     assert s['view']['stateIds']['control'] is None
-    act(p,'show-control');expect(p.locator('[data-saved-view]')).to_contain_text('Keine Folgemessung')
+    reveal(p.locator('[data-learn="show-control"]')).click()
+    assert snap(p)['view']['side']=='control' and snap(p)['view']['stateIds']['control'] is None
+    expect(p.locator('[data-view-side="control"]')).to_contain_text('Keine weitere Szene')
     assert not p.locator('[data-learn="adopt-view"]').count()
     assert p.evaluate('localStorage.getItem("aquarium-learning-tank-v1:10:10-restore")')==baseline
     passed('AT04 actual core: early/late cards, cursor, missing control and read-only view agree',view=s['view'])

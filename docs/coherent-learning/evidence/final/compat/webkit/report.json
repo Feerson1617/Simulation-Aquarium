@@ -1,0 +1,25 @@
+{
+  "engine": "webkit",
+  "commit": "d9800372d797c8a01ec6a5a2c799383379ff6f89",
+  "checks": [
+    {
+      "name": "Genuine old completion stays historical; exact migration backup; missing early scene is not invented; new attempt needs new actions",
+      "fixture_sha256": "9fff89bea522f43869a4edb863541f1931718871a7d0137bb22e619d13a454f9"
+    },
+    {
+      "name": "Teacher help switch and portrait-to-landscape resize preserve both actual views and biological values"
+    },
+    {
+      "name": "Full-storage fault leaves previous comparison and saved data intact; successful replan requires a new observation"
+    },
+    {
+      "name": "Fifth series archives the oldest series instead of deleting it; earlier answer evidence stays attached to its run",
+      "storage_characters": 802370
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "legacy-measurements-only.png"
+  ],
+  "status": "passed"
+}

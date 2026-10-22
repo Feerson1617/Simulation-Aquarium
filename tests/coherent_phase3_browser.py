@@ -87,7 +87,7 @@ def free(p,g,label):
  if g==9:
   assert p.locator('[data-cohort-uid]').count()==24;action(p,'population-groups')
   assert p.locator('[data-cohort-uid]').count()==48
-  p.locator('[data-learning-environment]').select_option('light');p.locator('[data-learning-generations]').fill('3');action(p,'population-compare')
+  p.locator('[data-learning-environment]').select_option('light');plan=datafile(p,label+'-free9-plan.json');assert plan['cohortPlanView']['time']==0 and plan['viewContext'] is None;action(p,'close');p.locator('[data-learning-generations]').fill('3');action(p,'population-compare')
   v=snap(p)['domainView'];assert v['context']['axis']=='generation'
   reveal(p.locator('[data-learning-run]')).select_option('1');p.locator('[data-coherent-time]:visible').first.select_option('1')
   v=snap(p)['domainView'];assert v['context']['time']==1 and v['context']['repetition']==2

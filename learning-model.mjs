@@ -914,6 +914,12 @@ export function validateLearningProduct(raw) {
     if(!Array.isArray(raw.forestEvidence.leaves) || raw.forestEvidence.leaves.length>2 || raw.forestEvidence.leaves.some(x=>!["tree","waterweed"].includes(x)))throw new Error("Ungültiger Blattvergleich.");
     product.forestEvidence=structuredClone(raw.forestEvidence);
   }
+  if(raw.cohortPlanView) {
+    const x=raw.cohortPlanView,c=populationCohort(product.population,0);
+    if(!c || x.version!==1 || x.axis!=="generation" || x.time!==0 || x.series!==null || x.run!==0 || x.repetition!==1 || x.attemptId!==product.attemptId || x.revision!==product.modelVersion ||
+      ["control","test"].some(side=>x.cohortIds?.[side]!==stateId(c)) || product.viewContext || product.currentPlan?.kind!=="population")throw new Error("Vorbereitete Gruppen widersprechen den tatsächlichen Gründern.");
+    product.cohortPlanView=structuredClone(x);
+  }
   if (raw.cohortView) {
     const v=raw.cohortView,x=v.context,cohort=populationCohort(product.population,x?.time);
     if(!cohort || x.version !== 1 || x.axis !== "generation" || x.attemptId !== product.attemptId || x.revision !== product.modelVersion || x.side !== "test" || x.series !== null || x.run !== 0 || x.repetition !== 1 ||

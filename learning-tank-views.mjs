@@ -4,11 +4,11 @@ export function createTankViews(host) {
   const dispose = () => {
     if (main) {main.learningDraw = null; main.renderer.setScissorTest(false);}
     for (const e of entries) e.view.destroy();
-    entries = []; main?.resize(); main = null;
+    entries = []; main?.resize(); main = null;error=null;
   };
   function update(root, sides, onSelect, selected) {
     const source = host.comparisonRenderer?.();
-    if (!source) {error = "Die 3D-Ansicht ist hier nicht verfügbar. Die Messwerte bleiben lesbar."; return;}
+    if (!source) {error = "Die 3D-Ansicht ist hier nicht verfügbar. Die Messwerte bleiben lesbar.";const status=root.querySelector("[data-workspace-render-status]");if(status)status.textContent=error;return;}
     main = source;
     for (const side of ["control", "test"]) {
       const container = root.querySelector(`[data-tank-viewport="${side}"]`), data = sides[side];
@@ -47,6 +47,11 @@ export function createTankViews(host) {
       if (now-last < 1000/24 || document.hidden) return;
       last = now;
       const renderer = main.renderer, outer = renderer.domElement.getBoundingClientRect();
+      if (renderer.getContext().isContextLost()) {
+        error="Die Grafikverbindung ist unterbrochen. Dein Becken bleibt gespeichert; lade bei Bedarf neu.";
+        const status=root.querySelector("[data-workspace-render-status]");if(status)status.textContent=error;
+        root.querySelectorAll("[data-coherent-pick],[data-coherent-water]").forEach(b=>b.disabled=true);return;
+      }
       renderer.setScissorTest(false); renderer.clear(); renderer.setScissorTest(true);
       try {
         for (const e of entries) {
@@ -67,9 +72,16 @@ export function createTankViews(host) {
           if (focusObject) {focusObject.getWorldPosition(e.view.controls.target);e.view.controls.update();}
           renderer.setViewport(x,y,r.width,r.height); renderer.setScissor(left-outer.left,outer.bottom-bottom,right-left,bottom-top);
           e.view.animate();
+          root.querySelectorAll(`[data-coherent-pick="${e.side}"]`).forEach(b=>{
+            const group=e.view.objects.get(Number(b.dataset.coherentUid))?.group;
+            b.disabled=!(group?.userData.natural || group?.children.length || group?.isMesh);
+          });
+          root.querySelectorAll(`[data-coherent-water="${e.side}"]`).forEach(b=>b.disabled=false);
         }
         drawTimes.push(performance.now()-now);if(drawTimes.length>120)drawTimes.shift();
         frames++;
+        const status=root.querySelector("[data-workspace-render-status]");
+        if(status && !error)status.textContent=root.querySelector("[data-coherent-pick]:disabled") ? "Die Aquarien werden vorbereitet. Gleich kannst du den Fisch auswählen." : "";
       } catch (e) {
         error = "Die 3D-Ansicht konnte nicht gezeichnet werden. Deine Messwerte sind gespeichert.";
         root.querySelector("[data-workspace-render-status]").textContent = error;

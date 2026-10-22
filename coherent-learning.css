@@ -11,6 +11,7 @@
 .coherent-clock .learn-help {min-width:44px!important;min-height:44px!important}
 .coherent-tanks {display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .coherent-tank {min-width:0;border:1px solid #d0dbc84d;border-radius:15px;overflow:hidden;background:transparent}
+.coherent-tank[aria-current=true] {outline:3px solid #d8ba75;outline-offset:-3px}
 .coherent-tank>header {display:flex;gap:12px;align-items:center;padding:10px 14px;background:#e8eee2;color:#234b48}
 .coherent-tank.test>header {background:#eee5d4;color:#6c452d}
 .coherent-side {display:grid;place-items:center;width:36px;height:36px;flex-shrink:0;border-radius:50%;background:#285c58;color:white;font-weight:700}
@@ -37,6 +38,10 @@
 .coherent-notebook .learn-quest-inline {margin:0;border:0;background:transparent;padding:18px}
 .coherent-notebook .learn-quest>header>strong {display:none}
 .coherent-note {padding:0 18px 16px}
+.coherent-drawer {padding:14px}
+.coherent-drawer>header {display:flex;align-items:center;justify-content:space-between;gap:8px}
+#learning-root .coherent-drawer>header h2 {font-size:20px;margin:4px 0}
+.coherent-object-tools button:disabled {opacity:.5;cursor:wait}
 .coherent-timeline {display:flex;align-items:center;gap:9px;flex-wrap:wrap}
 #learning-root .coherent-timeline label {margin:0;flex:1;min-width:130px;font-size:13px}
 .coherent-timeline select {margin:2px 0 0!important}

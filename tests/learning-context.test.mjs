@@ -2,7 +2,9 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {tankArchive,appendTankFrame,archivedTank,stateId,interventionEvent,bindComparison,
   resolveComparisonView,selectComparisonView,validateTankArchive,packTankArchive,unpackTankArchive} from "../learning-context.mjs";
-import {runLearningComparison,applyLearningIntervention,comparisonCSV,validateLearningComparison} from "../learning-model.mjs";
+import {runLearningComparison,applyLearningIntervention,comparisonCSV,validateLearningComparison,validateLearningProduct,snapshotLearningPlan,LEARNING_MODEL_REVISION} from "../learning-model.mjs";
+import {temperatureView,temperatureRunLabel} from "../learning-workspace.mjs";
+import {readFileSync} from "node:fs";
 import {answerQuest,newQuest,resultQuestion,QUESTS} from "../learning-quests.mjs";
 
 const tank = () => ({day:45,seed:7,liters:180,setTemp:25,hours:8,flow:70,
@@ -100,4 +102,38 @@ test("AT12: the prototype's displayed tenth-degree resolution is also used to an
   const state=newQuest('8-ecosystem');state.step=3;state.result={control:25,test:25.9};state.entries=[];state.activities=[{id:"living"},{id:"water"}];
   assert.equal(answerQuest(state,2,{control:25,test:25,displayPrecision:1}),true);
   assert.deepEqual(state.result,{control:25,test:25.9});assert.equal(state.entries[0].choiceIndex,2);
+});
+test("AT14: a real older completion can be exported with a selected view and imported without changing known final states or inventing original IDs",()=>{
+  const p=JSON.parse(readFileSync(new URL('../docs/biology-quality/evidence/quests/desktop-8-ecosystem.json',import.meta.url)));
+  const v=resolveComparisonView({...p,study:{}});p.viewContext=v.context;
+  const clean=validateLearningProduct(p);assert.deepEqual(clean.viewContext,v.context);
+  assert.equal(clean.viewContext.investigationId,null);assert.equal(clean.viewContext.attemptId,null);
+  const restored=resolveComparisonView({...clean,study:{},view:clean.viewContext});
+  assert.deepEqual(restored.sides.control.state,v.sides.control.state);assert.deepEqual(restored.sides.test.state,v.sides.test.state);
+  assert.equal(resolveComparisonView({...clean,study:{}},{time:45.25}).sides.test.state,null);
+});
+test("AT03/AT14: unrelated old answers are retained as unassigned evidence, rather than assigned to another run",()=>{
+  const p=JSON.parse(readFileSync(new URL('../docs/biology-quality/evidence/quests/desktop-8-ecosystem.json',import.meta.url)));
+  const c=run();c.questEvidence=structuredClone(p.quest);c.questEvidence.result.viewContext={investigationId:'another-run'};
+  let clean=validateLearningComparison(c);assert.equal(clean.questEvidence,undefined);assert.deepEqual(clean.unassignedQuestEvidence,c.questEvidence);
+  assert.deepEqual(validateLearningComparison(clean).unassignedQuestEvidence,c.questEvidence);
+  c.questEvidence.result.viewContext.investigationId=c.id;clean=validateLearningComparison(c);assert.deepEqual(clean.questEvidence,c.questEvidence);
+});
+test("AT14: an unexecuted plan exports its actual prepared states separately from previous measurements",()=>{
+  const profile={version:1,grade:8,mode:"missions",mission:"8-ecosystem"};
+  const session={baseline:tank(),study:{tool:"temperature",value:26,days:4,repetitions:2},attemptId:"attempt-one",planId:"plan-two",comparison:run(),view:{mode:"plan"}};
+  const v=temperatureView(session,host,LEARNING_MODEL_REVISION);
+  const currentPlan=snapshotLearningPlan({kind:"ecology",baseline:session.baseline,study:session.study,profile,notes:{},metrics:["temp"]});
+  const p={version:2,type:"aquarium-learning-product",profile,notes:{},attemptId:session.attemptId,currentPlan,comparison:session.comparison,
+    viewContext:null,visiblePlan:{version:1,context:v.context,control:v.sides.control.state,test:v.sides.test.state}};
+  const clean=validateLearningProduct(p);assert.deepEqual(clean.visiblePlan,p.visiblePlan);assert.equal(clean.viewContext,undefined);
+  assert.equal(clean.visiblePlan.test.params.temp,25);assert.equal(clean.visiblePlan.test.setTemp,26);
+  assert.equal(archivedTank(clean.comparison.runs[0].tanks.test,45).setTemp,27);
+  const altered=structuredClone(p);altered.visiblePlan.test.params.temp=99;assert.throws(()=>validateLearningProduct(altered));
+  const conflicting=structuredClone(p);conflicting.viewContext=resolveComparisonView({...session,view:null}).context;assert.throws(()=>validateLearningProduct(conflicting));
+});
+test("AT02: the action names the chosen observation duration, including a one-day plan",()=>{
+  assert.equal(temperatureRunLabel(1),"1 Spieltag gemeinsam beobachten");
+  for(const d of [3,4,14])assert.equal(temperatureRunLabel(d),`${d} Spieltage gemeinsam beobachten`);
+  assert.equal(temperatureRunLabel(0),"Beobachtung starten");assert.equal(temperatureRunLabel(NaN),"Beobachtung starten");
 });

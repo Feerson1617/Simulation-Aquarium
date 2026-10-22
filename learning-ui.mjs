@@ -1,6 +1,6 @@
 import {pendingActivity,assignActivity,recordActivityView,mendelEvidence,populationPairEvidence,REGIONAL_CASES} from "./learning-activities.mjs";
 import {investigationId, interventionEvent, bindComparison, resolveComparisonView, selectComparisonView, stateId} from "./learning-context.mjs";
-import {temperatureView, temperatureWorkspace} from "./learning-workspace.mjs";
+import {temperatureView, temperatureWorkspace, temperatureRunLabel} from "./learning-workspace.mjs";
 import {createTankViews} from "./learning-tank-views.mjs";
 import {learningProvenance, crossingPrediction, ORIGIN_LABELS} from "./learning-provenance.mjs";
 import {fishStatusText,habitatProblems} from "./biology-quality.mjs";
@@ -179,6 +179,7 @@ export function mountLearningUI(host) {
     if (isPrototype() && session.view?.mode === "plan") return null;
     const v = resolveComparisonView(session);
     if (!v || v.comparison !== session.comparison) return null;
+    if (!planMatchesComparison(v.comparison,currentPlan(v.comparison.kind))) return null;
     const r = comparisonReading({...v.comparison,runs:[{...v.run,control:v.row.control?[v.row.control]:[],test:v.row.test?[v.row.test]:[]}]},QUESTS[tag.mission].experiment);
     return r ? {...session.quest.result,...r,...(isPrototype()?{displayPrecision:1}:{}),viewContext:v.context} : null;
   }
@@ -253,6 +254,9 @@ export function mountLearningUI(host) {
     if(tag.mission === "8-ecosystem") session.quest.visualEvidenceVersion=1;
     selected=null;showGenes=false;panel=null;host.open(tank);persist();render();
   }
+  function restartView() {
+    return panelHeader("Noch einmal")+`<p>Dein bisheriger Durchgang bleibt unter „Frühere Durchgänge“ erhalten. Für neue Aufgaben brauchst du neue Beobachtungen.</p>${button("repeat-attempt","Mit gleichen Bedingungen wiederholen")}${button("new-attempt","Mit frischem Startbecken beginnen")}${button("close","Fortsetzen")}`;
+  }
   function studentManual() {
     if (!session.measurements.length) return "";
     const keys = recordedMetrics(session.measurements, metrics()).filter((k) =>
@@ -300,7 +304,8 @@ export function mountLearningUI(host) {
         populationPair: populationPairEvidence(session.comparisonHistory,session.comparison),
         compatible:
           true,
-        result: {...comparisonReading(session.comparison, d.experiment),populationPair:populationPairEvidence(session.comparisonHistory,session.comparison)},
+        result: {...comparisonReading({...session.comparison,runs:[resolveComparisonView(session)?.run || session.comparison.runs[0]]}, d.experiment),populationPair:populationPairEvidence(session.comparisonHistory,session.comparison),viewContext:resolveComparisonView(session)?.context || null},
+        context:resolveComparisonView(session)?.context || null,
       };
     else if (kind === "cross")
       evidence = {
@@ -375,6 +380,7 @@ export function mountLearningUI(host) {
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
   function product() {
+    const visible=isPrototype() ? temperatureView(session,host,LEARNING_MODEL_REVISION) : null;
     return {
       version: 2,
       type: "aquarium-learning-product",
@@ -391,7 +397,8 @@ export function mountLearningUI(host) {
       population: session.population,
       populationRepeats: session.populationRepeats || [],
       comparisonHistory: session.comparisonHistory || [],
-      viewContext: resolveComparisonView(session)?.context || null,
+      viewContext: visible?.mode === "plan" ? null : resolveComparisonView(session)?.context || null,
+      visiblePlan:visible?.mode === "plan" ? {version:1,context:visible.context,control:visible.sides.control.state,test:visible.sides.test.state} : null,
       attemptId: session.attemptId || null,
       measurements: session.measurements,
       measurementMetrics: recordedMetrics(session.measurements, metrics()),
@@ -418,6 +425,10 @@ export function mountLearningUI(host) {
     );
   }
   function refreshResultNotice() {
+    if(isPrototype()) {
+      const start=root.querySelector('[data-workspace-mode="plan"] [data-learn="compare"]');
+      if(start)start.textContent=temperatureRunLabel(session.study.days);
+    }
     if (!session?.comparison) return;
     const state = root.querySelector("[data-learning-result-state]");
     if (state) {
@@ -555,6 +566,7 @@ export function mountLearningUI(host) {
     render();
   }
   function showPanel(next) {
+    if (isPrototype()) stopPlayback();
     lastOpener = document.activeElement;
     host.pause();
     host.tweezers(false);
@@ -567,7 +579,7 @@ export function mountLearningUI(host) {
     helpKey = null;
     host.interactive(false);
     render();
-    root.querySelector(".learn-panel h2")?.focus();
+    root.querySelector(".coherent-notebook h2,.learn-panel h2")?.focus();
   }
   function closePanel() {
     helpKey = null;
@@ -1144,7 +1156,7 @@ export function mountLearningUI(host) {
                     )
                     .join("")}`
                 : ""
-            }${imported.gameExplanation ? `<h4>Spielerklärung</h4><p>${esc(imported.gameExplanation)}</p>` : ""}${imported.provenance?.legacy ? "<p>Altprodukt: Urheberschaft vorhandener Texte ist nicht dokumentiert. Sie gelten nicht automatisch als selbst formulierte Schülerleistung.</p>" : ""}${imported.earlierQuest ? `<details><summary>Früheres Questbuch · Anforderungen vor der Überarbeitung</summary><p>${imported.earlierQuest.step} von 5 damaligen Schritten. Originaleinträge bleiben im JSON erhalten.</p></details>` : ""}${imported.quest ? `<h3>Questbuch${(imported.quest.version === 1 || imported.quest.visualEvidenceVersion === 0) ? " · historischer Anforderungsstand" : ""}</h3><p>${imported.quest.step} von 5 Aufgaben</p>${imported.quest.entries.map((e) => `<p>${e.answer ? "Auswahl" : "Spielhandlung"} · ${esc(e.question || e.event)}: ${esc(e.answer || "Tatsächlich ausgeführter Eingriff")}</p>`).join("")}` : ""}${imported.comparisonHistory?.length ? `<details class="learn-comparison-history"><summary>Frühere Versuchsreihen (${imported.comparisonHistory.length})</summary>${imported.comparisonHistory.map(c=>`<p>${esc(c.kind)} · ${esc(c.environment || c.tool)} · ${c.runs.length} Wiederholungen · Ausgangslage ${esc(c.configuration?.baseline.fingerprint || "nicht dokumentiert")}</p><p>Seeds ${c.runs.map(r=>r.seed).join(", ")}. Vollständige tatsächliche Messreihen und Archive sind im JSON erhalten.</p>`).join("")}</details>` : ""}${imported.quest?.activities?.length ? `<h4>Bearbeitete Lernhandlungen</h4>${imported.quest.activities.map(a=>`<p>${a.kind === "assignment" ? "Auswahl/Zuordnung" : "Spielhandlung"} · ${esc(a.id)}: ${esc(a.from || "")} ${esc(a.to || "Messwerte angesehen")}</p>`).join("")}` : ""}${imported.comparison ? teacherData(importedComparison()) : ""}${manualData(imported, true)}${imported.population ? `<h3>Separater Zuchtversuch</h3><p>Startseed ${imported.population.initialSeed ?? "nicht dokumentiert"}; aktueller Zufallszustand ${imported.population.seed}. Dieses Archiv ersetzt nicht die Archive der Kontroll-/Selektionsläufe.</p>${archiveView(imported.population, "separater Mendelversuch")}` : ""}${imported.populationRepeats?.length ? `<h4>Dokumentierte Wiederholungen</h4>${imported.populationRepeats.map((r) => `<p>Seed ${r.seed}: AA ${r.final.AA}, Aa ${r.final.Aa}, aa ${r.final.aa}.</p>`).join("")}` : ""}</section>`
+            }${imported.gameExplanation ? `<h4>Spielerklärung</h4><p>${esc(imported.gameExplanation)}</p>` : ""}${imported.visiblePlan ? `<section class="learn-plan-evidence"><h4>Noch nicht durchgeführter Versuchsplan</h4><p>Die vorbereiteten Becken gehören zu Tag ${num(imported.visiblePlan.context.time)}. Dies ist kein berechneter Verlauf.</p><p>Becken 1: Wasser ${num(imported.visiblePlan.control.params.temp,1)} °C, Heizer ${num(imported.visiblePlan.control.setTemp,1)} °C. Becken 2: Wasser ${num(imported.visiblePlan.test.params.temp,1)} °C, Heizer ${num(imported.visiblePlan.test.setTemp,1)} °C.</p></section>` : ""}${imported.provenance?.legacy ? "<p>Altprodukt: Urheberschaft vorhandener Texte ist nicht dokumentiert. Sie gelten nicht automatisch als selbst formulierte Schülerleistung.</p>" : ""}${imported.earlierQuest ? `<details><summary>Früheres Questbuch · Anforderungen vor der Überarbeitung</summary><p>${imported.earlierQuest.step} von 5 damaligen Schritten. Originaleinträge bleiben im JSON erhalten.</p></details>` : ""}${imported.quest ? `<h3>Questbuch${(imported.quest.version === 1 || imported.quest.visualEvidenceVersion === 0) ? " · historischer Anforderungsstand" : ""}</h3><p>${imported.quest.step} von 5 Aufgaben</p>${imported.quest.entries.map((e) => `<p>${e.answer ? "Auswahl" : "Spielhandlung"} · ${esc(e.question || e.event)}: ${esc(e.answer || "Tatsächlich ausgeführter Eingriff")}</p>`).join("")}` : ""}${imported.comparisonHistory?.length ? `<details class="learn-comparison-history"><summary>Frühere Versuchsreihen (${imported.comparisonHistory.length})</summary>${imported.comparisonHistory.map(c=>`<p>${esc(c.kind)} · ${esc(c.environment || c.tool)} · ${c.runs.length} Wiederholungen · Ausgangslage ${esc(c.configuration?.baseline.fingerprint || "nicht dokumentiert")}</p><p>Seeds ${c.runs.map(r=>r.seed).join(", ")}. Vollständige tatsächliche Messreihen und Archive sind im JSON erhalten.</p>`).join("")}</details>` : ""}${imported.quest?.activities?.length ? `<h4>Bearbeitete Lernhandlungen</h4>${imported.quest.activities.map(a=>`<p>${a.kind === "assignment" ? "Auswahl/Zuordnung" : "Spielhandlung"} · ${esc(a.id)}: ${esc(a.from || "")} ${esc(a.to || "Messwerte angesehen")}</p>`).join("")}` : ""}${imported.comparison ? `${imported.visiblePlan ? "<h4>Gespeicherte frühere Messreihe</h4>" : ""}${teacherData(importedComparison())}` : ""}${manualData(imported, true)}${imported.population ? `<h3>Separater Zuchtversuch</h3><p>Startseed ${imported.population.initialSeed ?? "nicht dokumentiert"}; aktueller Zufallszustand ${imported.population.seed}. Dieses Archiv ersetzt nicht die Archive der Kontroll-/Selektionsläufe.</p>${archiveView(imported.population, "separater Mendelversuch")}` : ""}${imported.populationRepeats?.length ? `<h4>Dokumentierte Wiederholungen</h4>${imported.populationRepeats.map((r) => `<p>Seed ${r.seed}: AA ${r.final.AA}, Aa ${r.final.Aa}, aa ${r.final.aa}.</p>`).join("")}` : ""}</section>`
           : ""
       }<details><summary>Alle Missionshintergründe und Modellgrenzen</summary>${MISSIONS.map((m) => `<h3>${esc(m.title)}</h3><p>${esc(m.goal)}</p><p>${esc(m.curriculum)}</p><p>${esc(m.limits)}</p>${m.transfer ? transfer(m.transfer, false) : ""}`).join("")}</details>${archivedAttempts()}<h3>Versuche verwalten</h3><p>Ein Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.</p>${button("teacher-reset", "Ausgewählte Mission neu beginnen")}${button("teacher-restore", "Gesicherte Mission wiederherstellen")}<details><summary>Fachliche und curriculare Grundlage</summary><p>${CURRICULUM.title}, ${CURRICULUM.pages}; Original-PDF am 20.10.2026 abgeglichen. Die Simulation deckt ausgewählte Einheiten ab, nicht alle Inhalte der Klassen.</p><p>Gesundheit, Biomasse und Belastung sind Modellgrößen. Kohlenstoff nur qualitativ; Selektion nutzt offengelegte hypothetische Gewichte.</p></details>`
     );
@@ -1170,13 +1182,14 @@ export function mountLearningUI(host) {
     const active = screen === "active";
     document.documentElement.classList.toggle("learning-coherent",isPrototype());
     document.documentElement.classList.toggle("learning-history-view",active && panel === "saved-view");
-    if (isPrototype() && !["more","notebook","teacher","display","restart-attempt"].includes(panel)) {
+    if (isPrototype() && panel !== "teacher") {
       const openDetails=[...root.querySelectorAll("details[open] > summary")].map(s=>s.textContent);
       const scrolls=[".coherent-views",".coherent-notebook"].map(selector=>({selector,top:root.querySelector(selector)?.scrollTop || 0}));
       const active=document.activeElement,focusAttribute=active?.getAttributeNames?.().find(a=>a.startsWith("data-") && !a.startsWith("data-view"));
       const v = temperatureView(session,host,LEARNING_MODEL_REVISION);
-      const panelBody = panel === "observe" ? `<section class="coherent-note"><h3>Schau auf Fisch und Wasser ${helpButton("observe")}</h3><p>Wähle sie direkt am Becken. Die beiden Temperaturanzeigen gehören zum gleichen Zeitpunkt.</p>${button("close","Zur Aufgabe")}</section>` : "";
-      root.innerHTML = temperatureWorkspace({session,view:v,quest:(storageError ? `<p class="coherent-storage" role="alert">${esc(storageError)}</p>` : "")+student.quest(true),esc,button,helpButton,types:host.types,playing:!!playback,results:v.mode === "result" ? student.results() : "",panelBody});
+      const drawer=panel === "more" ? student.more() : panel === "notebook" ? notebook() : panel === "display" ? display() : panel === "glossary" ? glossary() : panel === "mission-info" ? missionInfo() : panel === "restart-attempt" ? restartView() : "";
+      const panelBody = drawer ? `<section class="coherent-drawer">${drawer}</section>` : panel === "observe" ? `<section class="coherent-note"><h3>Schau auf Fisch und Wasser ${helpButton("observe")}</h3><p>Wähle sie direkt am Becken. Die beiden Temperaturanzeigen gehören zum gleichen Zeitpunkt.</p>${button("close","Zur Aufgabe")}</section>` : "";
+      root.innerHTML = temperatureWorkspace({session,view:v,quest:(storageError ? `<p class="coherent-storage" role="alert">${esc(storageError)}</p>` : "")+(drawer ? "" : student.quest(true)),esc,button,helpButton,types:host.types,playing:!!playback,results:v.mode === "result" ? student.results() : "",panelBody});
       for (const summary of root.querySelectorAll("details > summary")) if (openDetails.includes(summary.textContent)) summary.parentElement.open=true;
       for (const {selector,top} of scrolls) root.querySelector(selector).scrollTop=top;
       if(focusAttribute) [...root.querySelectorAll(`[${focusAttribute}]`)].find(e=>e.getAttribute(focusAttribute)===active.getAttribute(focusAttribute))?.focus({preventScroll:true});
@@ -1209,7 +1222,7 @@ export function mountLearningUI(host) {
                       : panel === "more"
                         ? student.more
                         : panel === "restart-attempt"
-                          ? () => panelHeader("Noch einmal")+`<p>Dein bisheriger Durchgang bleibt unter „Frühere Durchgänge“ erhalten. Für neue Aufgaben brauchst du neue Beobachtungen.</p>${button("repeat-attempt","Mit gleichen Bedingungen wiederholen")}${button("new-attempt","Mit frischem Startbecken beginnen")}${button("close","Fortsetzen")}`
+                          ? restartView
                         : panel === "saved-view"
                           ? savedView
                         : null;
@@ -1299,7 +1312,9 @@ export function mountLearningUI(host) {
         comparison:prior,comparisonHistory:[],measurements:[],measurementMetrics:[],quest:null,population:null,
         viewContext:resolveComparisonView({comparison:prior,study:{}}).context,attemptId:prior.attemptId || session.attemptId}})) return false;
     }
-    const previous=session.comparison ? {...session.comparison,...(session.quest ? {questEvidence:structuredClone(session.quest)} : {})} : null;
+    const evidenceId=session.quest?.result?.viewContext?.investigationId || session.quest?.entries.find(e=>e.step === 3)?.viewContext?.investigationId ||
+      session.quest?.entries.find(e=>e.step === 2)?.evidence?.context?.investigationId;
+    const previous=session.comparison ? {...session.comparison,...(evidenceId && evidenceId === session.comparison.id ? {questEvidence:structuredClone(session.quest)} : {})} : null;
     const draft={...session,study:{...session.study},comparison:next,
       comparisonHistory:previous ? [...history,previous].slice(-3) : history};
     delete draft.study.series;delete draft.view;delete draft.inspection;
@@ -1371,6 +1386,7 @@ export function mountLearningUI(host) {
       if (t.hasAttribute("data-learning-father"))
         session.father = Number(t.value);
       if (t.hasAttribute("data-learning-graphics")) {
+        if (isPrototype()) tankViews.dispose();
         host.setGraphics(t.value);
         render();
       }
@@ -1539,6 +1555,7 @@ export function mountLearningUI(host) {
         return;
       }
       if (d.learnHelp) {
+        if (isPrototype()) stopPlayback();
         helpKey = d.learnHelp;
         host.interactive(false);
         render();
@@ -1782,6 +1799,7 @@ export function mountLearningUI(host) {
         return;
       }
       if (a === "tweezers") {
+        if (isPrototype()) throw new Error("Die Vergleichsbecken sind gespeicherte Ansichten. Im freien Becken kannst du die Pinzette benutzen.");
         // The placement controller deliberately rejects activation behind an open drawer.
         if (!detailed && panel === "more") closePanel();
         host.tweezers();
@@ -2133,7 +2151,9 @@ export function mountLearningUI(host) {
       selected = uid;
       showPanel("observe");
     },
-    snapshot: () => ({
+    snapshot: () => {
+      const visible=tag ? isPrototype() ? temperatureView(session,host,LEARNING_MODEL_REVISION) : resolveComparisonView(session) : null;
+      return ({
       screen,
       grade: tag?.grade || grade,
       profile: tag,
@@ -2149,13 +2169,15 @@ export function mountLearningUI(host) {
       measurements: session?.measurements,
       comparisonHistory: session?.comparisonHistory || [],
       sample: tag ? learningSample(host.getState(),host.types) : null,
+      liveSample:tag ? learningSample(host.getState(),host.types) : null,
       habitat: tag ? habitatProblems(host.getState(),host.types) : null,
       storageError,
       study: session?.study,
       quest: session?.quest,
       detailed,
       attemptId: session?.attemptId,
-      view: session ? resolveComparisonView(session)?.context : null,
+      view: visible?.context || null,
+      viewSamples:visible ? Object.fromEntries(Object.entries(visible.sides).map(([side,data])=>[side,data.sample])) : null,
       prototype: isPrototype() ? {mode:session.view?.mode || (session.comparison ? "result" : "plan"),render:tankViews.snapshot(),selection:session.prototypeSelection} : null,
       resultMatchesPlan: session?.comparison
         ? planMatchesComparison(
@@ -2163,7 +2185,7 @@ export function mountLearningUI(host) {
             currentPlan(session.comparison.kind),
           )
         : null,
-    }),
+    });},
     refresh: () => {
       if (screen === "active" && !panel) render();
     },

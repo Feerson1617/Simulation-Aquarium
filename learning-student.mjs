@@ -118,7 +118,7 @@ export function createStudentViews(api) {
         body += `<div class="learn-quest-answers">${choiceOrder(s,"phase-"+s.step,q.choices.length).map(i => `<button data-quest-answer="${i}">${esc(q.choices[i])}</button>`).join("")}</div>`;
     }
     if (!done && s.step === 3 && ["ecology","population"].includes(d.experiment.kind) && !observedResult)
-      body = `<h2 tabindex="-1">Hier fehlen Werte für deinen aktuellen Vergleich.</h2><p>Wähle einen Zeitpunkt mit beiden Seiten. Frühere Reihen bleiben zum Ansehen erhalten.</p>${button("latest-series","Aktuellen Versuch ansehen")}`;
+      body = `<h2 tabindex="-1">Zu deinem aktuellen Plan fehlt hier ein vollständiger Vergleich.</h2><p>Wähle einen Zeitpunkt mit beiden Seiten. Frühere Reihen bleiben zum Ansehen erhalten.</p>${state().prototype && session.comparison && !api.matches() ? button("workspace-plan","Neuen Versuch planen") : button("latest-series","Aktuellen Versuch ansehen")}`;
     if (!done && state().help !== false) body += state().support === "guided" || s.showHint ? `<p class="learn-step-hint">${esc(questHint(d,s,state().support))}</p>` : button("quest-hint","Tipp");
     if (s.predictionCheck && s.step >= 4) body += `<details class="learn-prediction-check"><summary>Deine Vermutung prüfen</summary><p>Ausgewählt: ${esc(s.predictionCheck.selection)}</p><p>Beobachtet: ${esc(s.predictionCheck.observed)}</p><p>${s.predictionCheck.matches ? "Das passt zu deiner Vermutung." : "Die Beobachtung passt hier nicht zu deiner Vermutung. Das ist ein Anlass zum Weiterfragen."}</p></details>`;
     return `<aside class="learn-quest ${inline ? "learn-quest-inline" : ""}" aria-label="Questbuch"><header><strong>${esc(d.title)}</strong>${inline ? "" : button("quest-toggle", "−", 'aria-label="Questbuch einklappen" aria-expanded="true"')}</header><progress value="${s.step}" max="5" aria-label="Erledigte Aufgaben">${s.step} von 5</progress>${body}<p class="learn-quest-feedback" data-feedback-kind="${s.feedbackKind || "neutral"}" role="status" aria-live="polite">${esc(done ? "" : s.feedback)}</p></aside>`;
@@ -199,7 +199,7 @@ export function createStudentViews(api) {
       ${api.plot(c,key,context)}<p class="learn-caption">Eine Linie zeigt ${c.kind === "population" ? "eine Gruppe" : "ein Becken"}. Der Zeiger markiert den gewählten Zeitpunkt.</p>
       ${Object.values(run.status || {}).some(s=>s.state === "failed") ? "<p>Ein Becken konnte nicht weiterlaufen. Seine Linie endet dort; danach fehlen seine Werte.</p>" : ""}
       <details><summary>Alle Werte</summary><div class="learn-table-wrap"><table><thead><tr><th>${c.kind === "population" ? "Generation" : "Tag"}</th><th>${c.kind === "population" ? "Gruppe" : "Becken"} 1</th><th>${c.kind === "population" ? "Gruppe" : "Becken"} 2</th></tr></thead><tbody>${rows.map(x=>`<tr data-table-time="${x.time}" ${x.time===context.time ? 'aria-current="true"' : ""}><td>${num(x.time)}</td><td>${value(x.control)}</td><td>${value(x.test)}</td></tr>`).join("")}</tbody></table></div></details>
-      <div class="learn-actions">${button("export","Für die Lehrkraft speichern")}${button("csv","Gewählte Werte speichern")}${button("chart","Verlauf als Bild speichern")}${c.kind === "ecology" ? button("show-control","Becken 1 ansehen")+button("show-test","Becken 2 ansehen") : ""}</div></section>`;
+      <div class="learn-actions">${button("export","Für die Lehrkraft speichern")}${button("csv","Gewählte Werte speichern")}${button("chart","Verlauf als Bild speichern")}${c.kind === "ecology" ? button("show-control",state().prototype ? "Becken 1 auswählen" : "Becken 1 ansehen")+button("show-test",state().prototype ? "Becken 2 auswählen" : "Becken 2 ansehen") : ""}</div></section>`;
   }
   function investigation() {
     const { session, tag } = state();
@@ -259,7 +259,7 @@ export function createStudentViews(api) {
               .filter((e) => e.answer)
               .map(
                 (e) =>
-                  `<li>${esc(e.question)}<br><strong>${esc(e.answer)}</strong></li>`,
+                  `<li>${e.viewContext ? `<small>Deine Antwort zu ${e.viewContext.axis === "generation" ? "Generation" : "Tag"} ${num(e.viewContext.time)} · Wiederholung ${e.viewContext.repetition}</small><br>` : ""}${esc(e.question)}<br><strong>${esc(e.answer)}</strong></li>`,
               )
               .join(
                 "",
@@ -274,7 +274,7 @@ export function createStudentViews(api) {
               .map((v) => `<p>${esc(v)}</p>`)
               .join("")}</details>`
           : ""
-      }${session.comparison ? results() : ""}<details><summary>Eigene Begründung (freiwillig)</summary><label>Warum denkst du das?<textarea data-learning-note="explanation" maxlength="20000">${esc(session.notes.explanation || "")}</textarea></label></details>${api.manual()}<div class="learn-actions">${button("export", "Für die Lehrkraft speichern")}${button("export-text", "Ergebnis speichern")}</div><small>Dein Stand bleibt auf diesem Gerät gespeichert.</small>`
+      }${state().prototype && (!session.comparison || session.view?.mode === "plan") ? `<p>Für diesen Plan gibt es noch keine Vergleichswerte.</p>${session.comparison ? button("latest-series","Vorherige Ergebnisse ansehen") : ""}` : session.comparison ? results() : ""}<details><summary>Eigene Begründung (freiwillig)</summary><label>Warum denkst du das?<textarea data-learning-note="explanation" maxlength="20000">${esc(session.notes.explanation || "")}</textarea></label></details>${api.manual()}<div class="learn-actions">${button("export", "Für die Lehrkraft speichern")}${button("export-text", "Ergebnis speichern")}</div><small>Dein Stand bleibt auf diesem Gerät gespeichert.</small>`
     );
   }
   function material() {
@@ -328,7 +328,7 @@ export function createStudentViews(api) {
   function more() {
     return (
       panelHeader("Mehr") +
-      `<div class="learn-actions">${button("glossary", "Wörterhilfe")}${button("tweezers", "Pinzette")}${button("display", "Darstellung")}${button("teacher", "Lehrkraftmodus")}${button("home", "Zum Start")}</div>${api.attempts?.() || ""}`
+      `<div class="learn-actions">${state().prototype ? button("notebook","Meine Ergebnisse") : ""}${state().help === false ? "" : button("glossary", "Wörterhilfe")}${state().prototype ? "" : button("tweezers", "Pinzette")}${button("display", "Darstellung")}${button("teacher", "Lehrkraftmodus")}${button("home", "Zum Start")}</div>${api.attempts?.() || ""}`
     );
   }
   return {

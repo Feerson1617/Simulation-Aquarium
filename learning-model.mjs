@@ -1,5 +1,5 @@
 import {OBSERVATION_METRICS} from "./learning-activities.mjs";
-import {tankArchive, appendTankFrame, interventionEvent, validateTankArchive, resolveComparisonView, packTankArchive} from "./learning-context.mjs";
+import {tankArchive, appendTankFrame, interventionEvent, validateTankArchive, resolveComparisonView, packTankArchive, stateId} from "./learning-context.mjs";
 import {validateProvenance} from "./learning-provenance.mjs";
 import {fishStatus,ammoniaConcentration} from "./biology-quality.mjs";
 import { validateQuest } from "./learning-quests.mjs";
@@ -900,8 +900,25 @@ export function validateLearningProduct(raw) {
     if (!v || v.context.series !== x.series || v.context.run !== x.run || v.context.repetition !== x.repetition ||
         v.context.time !== x.time || v.context.seriesId !== x.seriesId || v.context.revision !== x.revision ||
         v.context.investigationId !== x.investigationId || v.context.attemptId !== x.attemptId ||
-        JSON.stringify(v.context.stateIds) !== JSON.stringify(x.stateIds)) throw new Error("Ansicht und gespeicherter Versuch widersprechen sich.");
+        (x.stateIds && ["control","test"].some(side=>v.context.stateIds[side] !== x.stateIds[side]))) throw new Error("Ansicht und gespeicherter Versuch widersprechen sich.");
     product.viewContext=v.context;
+  }
+  if (raw.visiblePlan) {
+    const p=raw.visiblePlan,x=p.context;
+    if (p.version !== 1 || !x || x.version !== 1 || x.axis !== "day" || x.side !== "both" || x.series !== null ||
+        x.run !== 0 || x.repetition !== 1 || x.revision !== product.currentPlan?.modelVersion ||
+        x.time !== product.currentPlan?.baseline.time || typeof x.investigationId !== "string" ||
+        !/^[a-zA-Z0-9-]{1,80}$/.test(x.investigationId) || x.attemptId !== product.attemptId)
+      throw new Error("Ungültige Ansicht eines noch nicht durchgeführten Plans.");
+    for (const side of ["control","test"]) {
+      const s=p[side];
+      if (!s || s.day !== x.time || !s.params || !Array.isArray(s.entities) || s.entities.length > 240 ||
+          JSON.stringify(s).length > 2000000 || stateId(s) !== x.stateIds?.[side])
+        throw new Error("Planansicht und vorbereiteter Beckenstand widersprechen sich.");
+    }
+    if (stateId(p.control) !== product.currentPlan.baseline.fingerprint || raw.viewContext)
+      throw new Error("Planansicht darf nicht als ausgeführter Lauf ausgegeben werden.");
+    product.visiblePlan=structuredClone(p);
   }
   return product;
 }
@@ -982,6 +999,17 @@ export function validateLearningComparison(raw) {
       clean.tanks = Object.fromEntries(["control", "test"].map(side =>
         [side, validateTankArchive(run.tanks[side], clean[side])]));
     }
+    if (!population && !run.tanks) {
+      for (const side of ["control","test"]) {
+        const key=side === "control" ? "finalControl" : "finalTest",state=run[key],sample=clean[side].at(-1);
+        if (!state) continue;
+        if (state.day !== sample.day || !state.params || !Array.isArray(state.entities) || state.entities.length > 240 ||
+            JSON.stringify(state).length > 2000000 || ["temp","oxygen","no2","no3","co2"].some(k=>Number.isFinite(sample[k]) && state.params[k] !== sample[k]))
+          throw new Error("Früherer Beckenstand und Messreihe widersprechen sich.");
+        // Bounded read-only evidence, never executed as an imported game state.
+        clean[key]=structuredClone(state);
+      }
+    }
     if (run.intervention) {
       const ev = run.intervention;
       if (ev.version !== 1 || !Object.hasOwn(LEARNING_TOOLS, ev.type) || typeof ev.effective !== "boolean")
@@ -1031,7 +1059,12 @@ export function validateLearningComparison(raw) {
       clean[key] = raw[key];
     }
   if (raw.viewVersion === 1) clean.viewVersion = 1;
-  if (raw.questEvidence) clean.questEvidence=validateQuest(raw.questEvidence,configuration?.profile.mission || raw.questEvidence.id);
+  if (raw.questEvidence) {
+    const q=validateQuest(raw.questEvidence,configuration?.profile.mission || raw.questEvidence.id);
+    const id=q.result?.viewContext?.investigationId || q.entries.find(e=>e.step===3)?.viewContext?.investigationId || q.entries.find(e=>e.step===2)?.evidence?.context?.investigationId;
+    if (id && id === raw.id) clean.questEvidence=q;else clean.unassignedQuestEvidence=q;
+  }
+  if (raw.unassignedQuestEvidence) clean.unassignedQuestEvidence=validateQuest(raw.unassignedQuestEvidence,configuration?.profile.mission || raw.unassignedQuestEvidence.id);
   if (population) {
     if (
       raw.environment != null &&

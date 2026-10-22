@@ -108,7 +108,13 @@ export function resolveComparisonView(session, request = {}) {
   const seriesIndex = index(request.series ?? session.study?.series, series.length, series.length-1);
   const comparison = series[seriesIndex], runIndex = index(request.run ?? session.study?.run, comparison.runs.length);
   const run = comparison.runs[runIndex], rows = rowsAtTimes(run, comparison.kind);
-  const seriesId = comparison.id || `legacy-${seriesIndex}-${stateId(comparison.configuration || run.seed)}`;
+  const cfg=comparison.configuration || {};
+  // Old files have no original identity. This local label must survive validation
+  // (which may reorder configuration keys), without inventing an original UUID.
+  const seriesId = comparison.id || `legacy-${seriesIndex}-${stateId([comparison.kind,
+    comparison.tool ?? cfg.tool ?? null,comparison.value ?? cfg.value ?? null,comparison.days ?? cfg.days ?? null,
+    comparison.environment ?? cfg.environment ?? null,comparison.generations ?? cfg.generations ?? null,
+    cfg.baseline?.fingerprint ?? null,comparison.runs.map(r=>r.seed ?? null)])}`;
   const selected = request.time ?? (session.view?.seriesId === seriesId && session.view.run === runIndex ? session.view.time : null);
   const row = rows.find(r => r.time === selected) || rows.filter(r => r.control && r.test).at(-1) || rows.at(-1);
   const context = {version: VIEW_VERSION, investigationId: comparison.id || null, attemptId: comparison.attemptId || null,

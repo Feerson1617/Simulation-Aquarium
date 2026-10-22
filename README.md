@@ -134,3 +134,11 @@ Der letzte Befehl verwendet den lokalen Cloud-Server, isolierte Browserprofile u
 ## Fortsetzung: Detailbilder und realistische Modelle
 
 Artkarten und ausgewählte Beckenobjekte verwenden dieselben artspezifischen Bilder wie der Katalog. Die Fotorealismusprüfung und ihre technischen Grenzen stehen in [UI- und Modellprüfung](docs/UI_MODEL_REVIEW.md). Drei fotobasierte TripoSR-Piloten wurden ohne zusätzliche Konten auf kostenlosen CPU-Standardrunnern erzeugt und tatsächlich im Spiel aus mehreren Blickwinkeln verglichen. Auch der gezielt korrigierte Pflanzenversuch erreicht keine ausreichende anatomische Qualität; deshalb bleibt der bisherige Modellbestand erhalten und es gibt keine Ausweitung auf weitere Arten. [Vergleichsbilder, Quellen und Qualitätsentscheidung](docs/ui-model-review/README.md). Neue vereinfachte Massenmodelle sind nicht Teil dieses Durchgangs.
+
+## Masterauftrag: sichtbare Untersuchungen (22.10.2026)
+
+Der neue Temperatur-Arbeitsbereich zeigt zwei tatsächliche Becken mit vorhandenen 3D-Modellen in einem gemeinsamen WebGL-Kontext. Heizersollwert, gemessene Temperatur und Versuchsuhr sind getrennt. Dieselbe Auswahl aus Reihe, Wiederholung und Zeitpunkt steuert Becken, Messkarten, Diagramm und Exporte. Beckenaufzeichnungen werden verlustfrei lokal komprimiert; frühere unkomprimierte Lernprodukte bleiben lesbar. Die dafür lokal mitgelieferte Bibliothek steht unter der [MIT-Lizenz](vendor/lz-string.LICENSE).
+
+Der Masterauftrag enthält ein **verbindliches Sichtgate nach dem Temperaturprototyp**. Die breitere Umgestaltung der anderen Missionen, eigener Genetik-/Populationsflächen und regionaler Ansichten folgt erst nach ausdrücklicher Sichtfreigabe. [Auftrag und Stand](docs/coherent-learning/WORK_STATE.md), [Missionsmatrix](docs/coherent-learning/MISSIONS.md).
+
+**Dauerhafte Entwicklungsregel:** Bei jeder künftigen Änderung sind die Auswirkungen auf Klasse8/9/10, die betroffenen Missionen, Freies Forschen, Lehrkraft-/Expertenmodus, Tutorial, Spielstände und Touchbedienung ausdrücklich zu prüfen und zu dokumentieren. Ein erfolgreicher technischer Test ist keine Unterrichts- oder Hardwarefreigabe.

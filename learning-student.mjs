@@ -78,13 +78,13 @@ export function createStudentViews(api) {
       observedResult = api.questionResult ? api.questionResult() : s?.result,
       d = QUESTS[tag.mission];
     if (!d) return "";
-    const done = s.step === 5, activity = done ? null : pendingActivity(s);
+    const done = s.step === 5, legacy = s.version === 1 || (state().prototype && s.visualEvidenceVersion !== 1), activity = done ? null : pendingActivity(s);
     if (!inline && panel) return "";
     if (!inline && (s.collapsed || panel))
       return `<aside class="learn-quest-chip">${button("quest-toggle", done ? "Quest fertig ✓" : `Questbuch · ${s.step + 1} von 5`, 'aria-expanded="false"')}</aside>`;
     let body = "";
     if (done)
-      body = `<h2 tabindex="-1">${s.version === 1 ? "Früherer Abschluss" : "Geschafft!"}</h2>${s.version === 1 ? "<p>Dein früherer Stand bleibt erhalten. Neue Lernhandlungen beginnst du mit „Noch einmal“.</p>" : ""}<p>${esc(questConclusion(d, s.result).feedback)}</p>${button("notebook", "Meine Ergebnisse")}${button("quest-restart", "Noch einmal")}`;
+      body = `<h2 tabindex="-1">${legacy ? "Früherer Abschluss" : "Geschafft!"}</h2>${legacy ? "<p>Dein früherer Stand bleibt erhalten. Neue Lernhandlungen beginnst du mit „Noch einmal“.</p>" : ""}<p>${esc(questConclusion(d, s.result).feedback)}</p>${button("notebook", "Meine Ergebnisse")}${button("quest-restart", "Noch einmal")}`;
     else {
       const step = s.step,
         q =
@@ -104,7 +104,7 @@ export function createStudentViews(api) {
         const device=d.experiment.kind === "ecology" && ["temperature","light","filter"].includes(d.experiment.tool);
         body += button(device ? "device-"+d.experiment.tool : ["traits","cross","case"].includes(d.experiment.kind) ? "material" : "investigate", device ? ({temperature:"Heizstab einstellen",light:"Beleuchtung einstellen",filter:"Filter einstellen"})[d.experiment.tool] : d.experiment.kind === "traits" ? "Erbanlagen ansehen" : d.experiment.kind === "cross" ? "Eltern wählen" : "Versuch öffnen");
       }
-      if (step === 3) {
+      if (step === 3 && !state().prototype) {
         body += reading(observedResult);
         body += button(
           ["cross","traits","case"].includes(d.experiment.kind)

@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {tankArchive,appendTankFrame,archivedTank,stateId,interventionEvent,bindComparison,
-  resolveComparisonView,selectComparisonView,validateTankArchive} from "../learning-context.mjs";
+  resolveComparisonView,selectComparisonView,validateTankArchive,packTankArchive,unpackTankArchive} from "../learning-context.mjs";
 import {runLearningComparison,applyLearningIntervention,comparisonCSV,validateLearningComparison} from "../learning-model.mjs";
 import {answerQuest,newQuest,resultQuestion,QUESTS} from "../learning-quests.mjs";
 
@@ -80,10 +80,19 @@ test("AT03: CSV contains only the selected historical repetition, side and time 
 test("AT14: import validates every saved checkpoint and rejects altered histories and unsafe patch paths",()=>{
   const c=run();const clean=validateLearningComparison(c);assert.equal(clean.id,c.id);assert.equal(clean.attemptId,c.attemptId);
   assert.deepEqual(archivedTank(clean.runs[0].tanks.test,45.25),archivedTank(c.runs[0].tanks.test,45.25));
-  const tampered=structuredClone(c.runs[0].tanks.test);tampered.frames[1].patch.push({path:["params","temp"],value:99});
+  const tampered=unpackTankArchive(c.runs[0].tanks.test);tampered.frames[1].patch.push({path:["params","temp"],value:99});
   assert.throws(()=>validateTankArchive(tampered,c.runs[0].test));
-  const unsafe=structuredClone(c.runs[0].tanks.test);unsafe.frames[1].patch.push({path:["__proto__","x"],value:1});
+  const unsafe=unpackTankArchive(c.runs[0].tanks.test);unsafe.frames[1].patch.push({path:["__proto__","x"],value:1});
   assert.throws(()=>validateTankArchive(unsafe,c.runs[0].test));assert.equal({}.x,undefined);
+});
+test("AT14: compact archives round-trip every state and Unicode text exactly; old uncompressed archives still work",()=>{
+  const s=tank();s.events=[{text:"Wasserwechsel, Größe 🌿 – unverändert"}];const a=tankArchive(s);
+  for(let i=0;i<56;i++){const before=structuredClone(s);s.day+=.25;s.params.temp+=.012345;s.events.push({text:"Tatsächliche Beobachtung "+i});appendTankFrame(a,before,s);}
+  const packed=JSON.parse(JSON.stringify(packTankArchive(a)));
+  assert.ok(JSON.stringify(packed).length < JSON.stringify(a).length*.6);
+  for(const frame of a.frames)assert.deepEqual(archivedTank(packed,frame.time),archivedTank(a,frame.time));
+  assert.deepEqual(archivedTank(packed,59),s);assert.deepEqual(unpackTankArchive(packed),a);
+  const broken={...packed,length:packed.length-1};assert.throws(()=>archivedTank(broken,59));
 });
 test("AT12: the prototype's displayed tenth-degree resolution is also used to answer the visible comparison",()=>{
   const q=QUESTS['8-ecosystem'];assert.equal(resultQuestion(q,{control:25.04,test:25.049,displayPrecision:1}).correct,2);

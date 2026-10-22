@@ -237,19 +237,20 @@ export function mountLearningUI(host) {
   function archivedAttempts() {
     const keys=Object.keys(localStorage).filter(k=>k.startsWith("aquarium-learning-attempt-v1:"));
     return keys.length ? `<details><summary>Frühere Durchgänge ansehen</summary>${keys.map(k=>{
-      const p=loadJSON(k,null)?.product;
-      return p ? `<button data-learning-archived-product="${esc(k)}">Klasse ${p.profile.grade} · ${esc(p.profile.mission || "Freies Forschen")} · ${esc(new Date(p.created).toLocaleString("de-DE"))}</button>` : "";
+      const saved=loadJSON(k,null),p=saved?.product;
+      return p ? `<button data-learning-archived-product="${esc(k)}">${saved.kind === "series" ? "Versuchsreihe" : "Durchgang"} · Klasse ${p.profile.grade} · ${esc(QUESTS[p.profile.mission]?.title || "Freies Forschen")} · ${esc(new Date(p.created).toLocaleString("de-DE"))}</button>` : "";
     }).join("")}</details>` : "";
   }
   function restartAttempt(repeat) {
     const previous = {product:product(),tank:structuredClone(host.getState()),session:structuredClone(session)};
-    if (!saveJSON("aquarium-learning-attempt-v1:"+session.attemptId,previous)) return;
+    if (!saveJSON("aquarium-learning-attempt-v1:"+session.attemptId,previous)) {render();return;}
     const old=session, tank=repeat ? structuredClone(old.baseline) : createLearningTank(tag,host);
     const e=QUESTS[tag.mission].experiment;
     session={version:1,viewVersion:1,attemptId:investigationId(),planId:investigationId(),notes:{},measurements:[],baseline:structuredClone(tank),comparison:null,
       population:tag.grade === 9 ? (repeat ? repeatLearningPopulation(old.population) : createLearningPopulation()) : null,
       study:{tool:e.tool || tools().find(k=>LEARNING_TOOLS[k]) || "light",value:tag.mission === "8-ecosystem" ? tank.setTemp : e.value ?? null,
         days:3,repetitions:2,metric:e.metric || (tag.grade === 9 ? "dark" : "oxygen"),environment:"neutral",generations:5},quest:newQuest(tag.mission)};
+    if(tag.mission === "8-ecosystem") session.quest.visualEvidenceVersion=1;
     selected=null;showGenes=false;panel=null;host.open(tank);persist();render();
   }
   function studentManual() {
@@ -531,6 +532,8 @@ export function mountLearningUI(host) {
       }
       if (e.kind === "population") session.study.metric = "dark";
     }
+    if (tag.mission === "8-ecosystem" && session.quest)
+      session.quest.visualEvidenceVersion ??= !saved?.quest ? 1 : 0;
     // Keep an exact archive before upgrading an unfinished older quest's requirements.
     if (session.quest?.version === 1 && session.quest.step < 5) {
       session.earlierQuest ??= structuredClone(session.quest);
@@ -834,7 +837,7 @@ export function mountLearningUI(host) {
     return `<section class="learn-results"><h3>Tatsächlich berechnete Daten</h3><p data-learning-result-state role="status" class="learn-result-state ${matches ? "" : "learn-outdated"}">${matches ? "Dieses Ergebnis gehört zum aktuellen Plan." : "Plan geändert – neu berechnen. Gezeigt und exportiert wird weiterhin der ältere Lauf mit seiner unten festgehaltenen Konfiguration."}</p>${runMetadata(comp)}<label>Messgröße<select data-learning-metric>${options(
       keys.map((k) => [k, defs[k].join(" · ")]),
       metric,
-    )}</select></label>${plot(comp, metric)}<p class="learn-caption">Kontrolle: durchgezogen · Versuch: gestrichelt. Diagramm: Wiederholung 1. „—“ bedeutet unbekannt; „keine Folgemessung“ bedeutet: diese Seite wurde beendet. Nach Ausfall einer Seite gibt es keinen vollständigen Paarvergleich mehr.</p>${runTables(comp, metric)}<div class="learn-actions">${button("csv", "Daten als CSV")}${button("export", "Protokoll mit Daten")}${button("chart", "Diagramm als SVG")}</div>${!population ? `<div class="learn-actions">${button("show-control", "Kontrollbecken ansehen")}${button("show-test", "Versuchsbecken ansehen")}</div>` : ""}${textArea("observation", session.notes.observation)}${textArea("explanation", session.notes.explanation)}${textArea("reflection", session.notes.reflection)}</section>`;
+    )}</select></label>${plot(comp, metric)}<p class="learn-caption">Kontrolle: durchgezogen · Versuch: gestrichelt. Diagramm: Wiederholung 1. „—“ bedeutet unbekannt; „keine Folgemessung“ bedeutet: diese Seite wurde beendet. Nach Ausfall einer Seite gibt es keinen vollständigen Paarvergleich mehr.</p>${runTables(comp, metric)}<div class="learn-actions">${button("csv", "Gewählten Zeitpunkt als CSV")}${button("csv-all", "Diese Reihe vollständig als CSV")}${button("export", "Protokoll mit Daten")}${button("chart", "Diagramm als SVG")}</div>${!population ? `<div class="learn-actions">${button("show-control", "Kontrollbecken ansehen")}${button("show-test", "Versuchsbecken ansehen")}</div>` : ""}${textArea("observation", session.notes.observation)}${textArea("explanation", session.notes.explanation)}${textArea("reflection", session.notes.reflection)}</section>`;
   }
   function runDescription(comp) {
     const c = comp.configuration,
@@ -1060,7 +1063,7 @@ export function mountLearningUI(host) {
     return `<section class="learn-teacher-comparison" data-series-id="${esc(comp.viewContext?.seriesId || "")}" data-view-time="${comp.viewContext?.time ?? ""}"><h3>Datenbezug prüfen</h3>${comp.viewContext ? `<p>Angesehene Reihe ${comp.viewContext.series+1} · Wiederholung ${comp.viewContext.repetition} · ${comp.kind === "population" ? "Generation" : "Tag"} ${num(comp.viewContext.time)}. Die unveränderte vollständige Untersuchung bleibt im Lernprodukt enthalten.</p>` : ""}${runMetadata(comp)}<label>Untersuchte Messgröße<select data-learning-imported-metric>${options(
       keys.map((k) => [k, defs[k].join(" · ")]),
       key,
-    )}</select></label>${plot(comp, key, comp.viewContext)}${button("imported-csv", comp.viewContext ? "Ausgewählten Zeitpunkt als CSV" : "Alle importierten Messreihen als CSV")}${runTables(comp, key)}</section>`;
+    )}</select></label>${plot(comp, key, comp.viewContext)}${button("imported-csv", comp.viewContext ? "Ausgewählten Zeitpunkt als CSV" : "Alle importierten Messreihen als CSV")}${comp.viewContext ? button("imported-csv-all","Diese Reihe vollständig als CSV") : ""}${runTables(comp, key)}</section>`;
   }
   function importedComparison() {
     if (!imported?.viewContext) return imported?.comparison;
@@ -1141,7 +1144,7 @@ export function mountLearningUI(host) {
                     )
                     .join("")}`
                 : ""
-            }${imported.gameExplanation ? `<h4>Spielerklärung</h4><p>${esc(imported.gameExplanation)}</p>` : ""}${imported.provenance?.legacy ? "<p>Altprodukt: Urheberschaft vorhandener Texte ist nicht dokumentiert. Sie gelten nicht automatisch als selbst formulierte Schülerleistung.</p>" : ""}${imported.earlierQuest ? `<details><summary>Früheres Questbuch · Anforderungen vor der Überarbeitung</summary><p>${imported.earlierQuest.step} von 5 damaligen Schritten. Originaleinträge bleiben im JSON erhalten.</p></details>` : ""}${imported.quest ? `<h3>Questbuch${imported.quest.version === 1 ? " · historischer Anforderungsstand" : ""}</h3><p>${imported.quest.step} von 5 Aufgaben</p>${imported.quest.entries.map((e) => `<p>${e.answer ? "Auswahl" : "Spielhandlung"} · ${esc(e.question || e.event)}: ${esc(e.answer || "Tatsächlich ausgeführter Eingriff")}</p>`).join("")}` : ""}${imported.comparisonHistory?.length ? `<details class="learn-comparison-history"><summary>Frühere Versuchsreihen (${imported.comparisonHistory.length})</summary>${imported.comparisonHistory.map(c=>`<p>${esc(c.kind)} · ${esc(c.environment || c.tool)} · ${c.runs.length} Wiederholungen · Ausgangslage ${esc(c.configuration?.baseline.fingerprint || "nicht dokumentiert")}</p><p>Seeds ${c.runs.map(r=>r.seed).join(", ")}. Vollständige tatsächliche Messreihen und Archive sind im JSON erhalten.</p>`).join("")}</details>` : ""}${imported.quest?.activities?.length ? `<h4>Bearbeitete Lernhandlungen</h4>${imported.quest.activities.map(a=>`<p>${a.kind === "assignment" ? "Auswahl/Zuordnung" : "Spielhandlung"} · ${esc(a.id)}: ${esc(a.from || "")} ${esc(a.to || "Messwerte angesehen")}</p>`).join("")}` : ""}${imported.comparison ? teacherData(importedComparison()) : ""}${manualData(imported, true)}${imported.population ? `<h3>Separater Zuchtversuch</h3><p>Startseed ${imported.population.initialSeed ?? "nicht dokumentiert"}; aktueller Zufallszustand ${imported.population.seed}. Dieses Archiv ersetzt nicht die Archive der Kontroll-/Selektionsläufe.</p>${archiveView(imported.population, "separater Mendelversuch")}` : ""}${imported.populationRepeats?.length ? `<h4>Dokumentierte Wiederholungen</h4>${imported.populationRepeats.map((r) => `<p>Seed ${r.seed}: AA ${r.final.AA}, Aa ${r.final.Aa}, aa ${r.final.aa}.</p>`).join("")}` : ""}</section>`
+            }${imported.gameExplanation ? `<h4>Spielerklärung</h4><p>${esc(imported.gameExplanation)}</p>` : ""}${imported.provenance?.legacy ? "<p>Altprodukt: Urheberschaft vorhandener Texte ist nicht dokumentiert. Sie gelten nicht automatisch als selbst formulierte Schülerleistung.</p>" : ""}${imported.earlierQuest ? `<details><summary>Früheres Questbuch · Anforderungen vor der Überarbeitung</summary><p>${imported.earlierQuest.step} von 5 damaligen Schritten. Originaleinträge bleiben im JSON erhalten.</p></details>` : ""}${imported.quest ? `<h3>Questbuch${(imported.quest.version === 1 || imported.quest.visualEvidenceVersion === 0) ? " · historischer Anforderungsstand" : ""}</h3><p>${imported.quest.step} von 5 Aufgaben</p>${imported.quest.entries.map((e) => `<p>${e.answer ? "Auswahl" : "Spielhandlung"} · ${esc(e.question || e.event)}: ${esc(e.answer || "Tatsächlich ausgeführter Eingriff")}</p>`).join("")}` : ""}${imported.comparisonHistory?.length ? `<details class="learn-comparison-history"><summary>Frühere Versuchsreihen (${imported.comparisonHistory.length})</summary>${imported.comparisonHistory.map(c=>`<p>${esc(c.kind)} · ${esc(c.environment || c.tool)} · ${c.runs.length} Wiederholungen · Ausgangslage ${esc(c.configuration?.baseline.fingerprint || "nicht dokumentiert")}</p><p>Seeds ${c.runs.map(r=>r.seed).join(", ")}. Vollständige tatsächliche Messreihen und Archive sind im JSON erhalten.</p>`).join("")}</details>` : ""}${imported.quest?.activities?.length ? `<h4>Bearbeitete Lernhandlungen</h4>${imported.quest.activities.map(a=>`<p>${a.kind === "assignment" ? "Auswahl/Zuordnung" : "Spielhandlung"} · ${esc(a.id)}: ${esc(a.from || "")} ${esc(a.to || "Messwerte angesehen")}</p>`).join("")}` : ""}${imported.comparison ? teacherData(importedComparison()) : ""}${manualData(imported, true)}${imported.population ? `<h3>Separater Zuchtversuch</h3><p>Startseed ${imported.population.initialSeed ?? "nicht dokumentiert"}; aktueller Zufallszustand ${imported.population.seed}. Dieses Archiv ersetzt nicht die Archive der Kontroll-/Selektionsläufe.</p>${archiveView(imported.population, "separater Mendelversuch")}` : ""}${imported.populationRepeats?.length ? `<h4>Dokumentierte Wiederholungen</h4>${imported.populationRepeats.map((r) => `<p>Seed ${r.seed}: AA ${r.final.AA}, Aa ${r.final.Aa}, aa ${r.final.aa}.</p>`).join("")}` : ""}</section>`
           : ""
       }<details><summary>Alle Missionshintergründe und Modellgrenzen</summary>${MISSIONS.map((m) => `<h3>${esc(m.title)}</h3><p>${esc(m.goal)}</p><p>${esc(m.curriculum)}</p><p>${esc(m.limits)}</p>${m.transfer ? transfer(m.transfer, false) : ""}`).join("")}</details>${archivedAttempts()}<h3>Versuche verwalten</h3><p>Ein Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.</p>${button("teacher-reset", "Ausgewählte Mission neu beginnen")}${button("teacher-restore", "Gesicherte Mission wiederherstellen")}<details><summary>Fachliche und curriculare Grundlage</summary><p>${CURRICULUM.title}, ${CURRICULUM.pages}; Original-PDF am 20.10.2026 abgeglichen. Die Simulation deckt ausgewählte Einheiten ab, nicht alle Inhalte der Klassen.</p><p>Gesundheit, Biomasse und Belastung sind Modellgrößen. Kohlenstoff nur qualitativ; Selektion nutzt offengelegte hypothetische Gewichte.</p></details>`
     );
@@ -1173,7 +1176,7 @@ export function mountLearningUI(host) {
       const active=document.activeElement,focusAttribute=active?.getAttributeNames?.().find(a=>a.startsWith("data-") && !a.startsWith("data-view"));
       const v = temperatureView(session,host,LEARNING_MODEL_REVISION);
       const panelBody = panel === "observe" ? `<section class="coherent-note"><h3>Schau auf Fisch und Wasser ${helpButton("observe")}</h3><p>Wähle sie direkt am Becken. Die beiden Temperaturanzeigen gehören zum gleichen Zeitpunkt.</p>${button("close","Zur Aufgabe")}</section>` : "";
-      root.innerHTML = temperatureWorkspace({session,view:v,quest:student.quest(true),esc,button,helpButton,types:host.types,playing:!!playback,results:v.mode === "result" ? student.results() : "",panelBody});
+      root.innerHTML = temperatureWorkspace({session,view:v,quest:(storageError ? `<p class="coherent-storage" role="alert">${esc(storageError)}</p>` : "")+student.quest(true),esc,button,helpButton,types:host.types,playing:!!playback,results:v.mode === "result" ? student.results() : "",panelBody});
       for (const summary of root.querySelectorAll("details > summary")) if (openDetails.includes(summary.textContent)) summary.parentElement.open=true;
       for (const {selector,top} of scrolls) root.querySelector(selector).scrollTop=top;
       if(focusAttribute) [...root.querySelectorAll(`[${focusAttribute}]`)].find(e=>e.getAttribute(focusAttribute)===active.getAttribute(focusAttribute))?.focus({preventScroll:true});
@@ -1285,6 +1288,32 @@ export function mountLearningUI(host) {
         session,
       });
     }
+  }
+  function storeComparison(next) {
+    const history=session.comparisonHistory || [];
+    if (session.comparison && history.length >= 3) {
+      const prior=history[0],notes=structuredClone(prior.planning || prior.configuration?.planning || {});
+      const key="aquarium-learning-attempt-v1:series-"+(prior.id || stateId(prior));
+      if (!loadJSON(key,null) && !saveJSON(key,{kind:"series",product:{version:2,type:"aquarium-learning-product",profile:tag,
+        created:new Date().toISOString(),notes,provenance:null,model:CURRICULUM,modelVersion:prior.configuration?.modelVersion || null,
+        comparison:prior,comparisonHistory:[],measurements:[],measurementMetrics:[],quest:null,population:null,
+        viewContext:resolveComparisonView({comparison:prior,study:{}}).context,attemptId:prior.attemptId || session.attemptId}})) return false;
+    }
+    const previous=session.comparison ? {...session.comparison,...(session.quest ? {questEvidence:structuredClone(session.quest)} : {})} : null;
+    const draft={...session,study:{...session.study},comparison:next,
+      comparisonHistory:previous ? [...history,previous].slice(-3) : history};
+    delete draft.study.series;delete draft.view;delete draft.inspection;
+    if (isPrototype()) {
+      draft.pendingExperimentId=next.id;
+      if ([3,4].includes(draft.quest?.step)) {
+        draft.quest=structuredClone(draft.quest);draft.quest.step=2;draft.quest.entries=draft.quest.entries.filter(e=>e.step<2);
+        draft.quest.result=null;delete draft.quest.predictionCheck;
+        draft.quest.feedback="Der neue Versuch beginnt. Beobachte beide Becken.";draft.quest.feedbackKind="neutral";
+      }
+    }
+    // Verify storage before replacing the current in-memory investigation.
+    if (!saveJSON("aquarium-learning-notes-v1:"+learningSlot(tag),draft)) return false;
+    session=draft;return true;
   }
   mountDials(root);
   root.addEventListener("input", (e) => {
@@ -1817,11 +1846,8 @@ export function mountLearningUI(host) {
           },
           host,
         );
-        delete session.study.series;delete session.inspection;delete session.view;
-        if (session.comparison) session.comparisonHistory=[...(session.comparisonHistory || []),session.comparison].slice(-3);
-        session.comparison = bindComparison(next,session.attemptId);
-        if (isPrototype()) session.pendingExperimentId=session.comparison.id;
-        session.comparison.planning = structuredClone(session.notes);
+        bindComparison(next,session.attemptId);next.planning=structuredClone(session.notes);
+        if (!storeComparison(next)) {render();return;}
         if (isPrototype()) selectComparisonView(session,{time:next.runs[0].control[0].day});
         else {selectComparisonView(session);recordQuestExperiment("ecology");}
         persist();
@@ -1841,16 +1867,16 @@ export function mountLearningUI(host) {
       }
       if (a === "population-compare") {
         if (!requirePlan()) return;
-        delete session.study.series; delete session.inspection;
-        if (session.comparison) session.comparisonHistory=[...(session.comparisonHistory || []),session.comparison].slice(-3);
-        session.comparison = bindComparison(compareLearningPopulations(
+        const next = bindComparison(compareLearningPopulations(
           session.population,
           session.study.environment,
           session.study.generations,
           session.study.repetitions,
           currentPlan("population"),
         ),session.attemptId);
-        session.comparison.planning = structuredClone(session.notes);
+        next.planning=structuredClone(session.notes);
+        if (!storeComparison(next)) {render();return;}
+        selectComparisonView(session);
         recordQuestExperiment("population");
         persist();
         render();
@@ -1947,6 +1973,11 @@ export function mountLearningUI(host) {
           "image/svg+xml",
         );
         return;
+      }
+      if (a === "csv-all" || a === "imported-csv-all") {
+        const item=a === "csv-all" ? session : {...imported,study:{series:imported.viewContext?.series,run:imported.viewContext?.run},view:imported.viewContext};
+        const c=resolveComparisonView(item)?.comparison;
+        if(c)download("aquarium-vollstaendige-reihe.csv",comparisonCSV(c),"text/csv;charset=utf-8");return;
       }
       if (a === "csv") {
         const v=resolveComparisonView(session);

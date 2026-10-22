@@ -33,6 +33,7 @@
 .coherent-run>button {width:100%}
 .coherent-run details {font-size:14px}
 .coherent-notebook {overflow:auto;overscroll-behavior:contain;pointer-events:auto;border-radius:14px;background:#f3f1e6}
+.coherent-storage {padding:12px;margin:12px!important;color:#813d23;background:#fff0dd;border-left:4px solid #a14a2b}
 .coherent-notebook .learn-quest-inline {margin:0;border:0;background:transparent;padding:18px}
 .coherent-notebook .learn-quest>header>strong {display:none}
 .coherent-note {padding:0 18px 16px}

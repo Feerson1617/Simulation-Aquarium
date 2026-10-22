@@ -1,6 +1,28 @@
 /** View identities and immutable tank checkpoints. No biological rates or RNG calls. */
+import {compressArchiveText, decompressArchiveText} from "./vendor/lz-string.mjs";
 export const VIEW_VERSION = 1;
 const clone = value => structuredClone(value);
+const archiveCache = new WeakMap();
+export function packTankArchive(raw) {
+  const text=JSON.stringify(raw);
+  const packed={version:2,codec:"lz-string-utf16-v1",length:text.length,data:compressArchiveText(text)};
+  archiveCache.set(packed,{data:packed.data,length:packed.length,value:raw});
+  return packed;
+}
+function decodedArchive(raw) {
+  if (!raw || raw.version === 1) return raw;
+  if (raw.version !== 2 || raw.codec !== "lz-string-utf16-v1" || typeof raw.data !== "string" ||
+      raw.data.length > 2500000 || !Number.isInteger(raw.length) || raw.length < 1 || raw.length > 2500000)
+    throw new Error("Unbekanntes oder zu großes Beckenarchiv.");
+  const cached=archiveCache.get(raw);
+  if (cached?.data === raw.data && cached.length === raw.length) return cached.value;
+  const text=decompressArchiveText(raw.data);
+  if (typeof text !== "string" || text.length !== raw.length) throw new Error("Beckenarchiv ist beschädigt.");
+  const value=JSON.parse(text);
+  if (value?.version !== 1) throw new Error("Unbekanntes Beckenarchiv.");
+  archiveCache.set(raw,{data:raw.data,length:raw.length,value});return value;
+}
+export function unpackTankArchive(raw) {return clone(decodedArchive(raw));}
 const unsafe = key => ["__proto__", "constructor", "prototype"].includes(key);
 export function stateId(value) {
   let h = 2166136261;
@@ -34,6 +56,7 @@ export function appendTankFrame(archive, before, state) {
   archive.frames.push({time: state.day, stateId: stateId(state), patch: changes(before, state)});
 }
 export function archivedTank(archive, time) {
+  archive=decodedArchive(archive);
   if (!archive || archive.version !== VIEW_VERSION || !archive.frames.some(f => f.time === time)) return null;
   let state = clone(archive.base);
   for (const frame of archive.frames) {
@@ -122,9 +145,10 @@ export function bindComparison(comparison, attemptId, id = investigationId()) {
 /** Bounded, verified view-only archive import. Biological saves still use the game's loader. */
 export function validateTankArchive(raw, samples) {
   if (!raw) return null;
-  if (raw.version !== VIEW_VERSION || !Array.isArray(raw.frames) || raw.frames.length !== samples.length || raw.frames.length > 57)
+  const decoded=decodedArchive(raw);
+  if (decoded.version !== VIEW_VERSION || !Array.isArray(decoded.frames) || decoded.frames.length !== samples.length || decoded.frames.length > 57)
     throw new Error("Ungültiges Beckenarchiv.");
-  const archive = clone(raw);
+  const archive = clone(decoded);
   if (JSON.stringify(archive).length > 2500000) throw new Error("Beckenarchiv ist zu groß.");
   for (let i=0; i<archive.frames.length; i++) {
     const f = archive.frames[i];
@@ -138,5 +162,5 @@ export function validateTankArchive(raw, samples) {
         ["temp", "oxygen", "no2", "no3", "co2"].some(k => Number.isFinite(sample[k]) && state.params[k] !== sample[k]))
       throw new Error("Beckenarchiv und Messwerte widersprechen sich.");
   }
-  return archive;
+  return raw.version === 2 ? clone(raw) : archive;
 }

@@ -78,8 +78,13 @@ def complete(p,g,id,touch=False):
   own=reveal(p.locator('[data-learning-note="explanation"]'));own.fill('Ich habe beide Ergebnisse verglichen. Meine eigene kurze Begründung bleibt getrennt von den Spieltexten.')
   ownfile=download(p,f'{"touch" if touch else "desktop"}-{id}-own.json');ownproduct=json.loads(ownfile.read_text());assert ownproduct['provenance']['notes']['explanation']=='own-input';assert ownproduct['notes']['explanation']==own.input_value()
  short(p);act('close');before=snap(p)
- if id in ['8-oxygen','9-mendel','10-carbon']:
-  p.reload();p.wait_for_function('!!window.aquariumLearningSnapshot');start(p,g,id);assert snap(p)['quest']==before['quest'];assert snap(p)['comparison']==before['comparison'];assert snap(p)['population']==before['population']
+ if True:  # Every mission must now survive reload in the same accumulated local profile.
+  p.reload();p.wait_for_function('!!window.aquariumLearningSnapshot');start(p,g,id)
+  after=snap(p)
+  if after['quest']!=before['quest']:
+   (OUT/f'{id}-before-reload.json').write_text(json.dumps(before,ensure_ascii=False))
+   (OUT/f'{id}-after-reload.json').write_text(json.dumps(after,ensure_ascii=False))
+  assert after['quest']==before['quest'];assert after['comparison']==before['comparison'];assert after['population']==before['population'];assert not after['storageError']
  report['missions'].append({'id':id,'touch':touch,'quest':snap(p)['quest'],'product':f.name});passed(f'{"touch" if touch else "desktop"}: {id} completed with required biological actions, actual evidence, retry, provenance and explanation')
  act('home')
 

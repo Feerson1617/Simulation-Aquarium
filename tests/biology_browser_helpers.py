@@ -35,7 +35,9 @@ def activities(p,touch=False):
    target=p.locator(f'[data-activity-id="{id}"][data-activity-choice="{index}"]:visible').first
    target.tap() if touch else target.click();continue
   views=p.locator('[data-activity-view]:visible')
-  if not views.count():return
+  if not views.count():
+   if p.locator('[data-learn="latest-series"]:visible').count():action(p,'latest-series',touch)
+   return
   name=views.first.get_attribute('data-activity-view')
   views.first.tap() if touch else views.first.click()
   if name=='traits':

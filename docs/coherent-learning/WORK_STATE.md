@@ -32,3 +32,15 @@ Die im Auftrag erwähnten `Simulation-Aquarium-main 2.zip` und `Aquarium-Pruefpa
 - `python3 tests/coherent_workspace_browser.py`
 - WebKit: portabler Starter mit `AQUARIUM_WEBKIT=/workspace/aquarium-devtools/webkit-portable-browser.sh`
 - Als Nächstes: Browserbefunde beheben, aktuelle Quellen hashen, repräsentative Bilder sichten, Regression durchführen und neuen PR/Vorschau bereitstellen. Dann konkrete Nutzer-Sichtfreigabe; keine selbst erteilte Freigabe.
+
+## Ergänzung vor der abschließenden Prüfung
+
+Geprüfter Zwischenstand `6effbd96fed86064c17c9bd29c37a6a523de9cda`: je15 neue Kontext-/Temperatur-/Neustartprüfpunkte in Chromium und WebKit, jeweils Desktop/Hoch-/Querformat; alle13 Start-/Experten-/Tutorialprüfungen bestanden. Die Tests sind auf diesen Stand bezogen und werden nach der folgenden Datenkorrektur nicht ungeprüft als abschließende neue Ergebnisse ausgegeben.
+
+Der zusammenhängende Mehrmissionslauf fand einen tatsächlichen Fehler: Nach neun bereits abgeschlossenen Wegen konnte die Kohlenstoffmission ihr großes Archiv wegen des lokalen Speicherlimits nicht mehr sichern. Nach Reload blieb Aufgabe2 statt des fertigen Durchgangs. Reproduktion unter `/tmp/coherent-regression-webkit/20261022T080334`, alte Vergleichs-/Quotenläufe getrennt von der nächsten Abnahme.
+
+Korrektur: verlustfrei komprimierte `tanks.version=2` mit lokalem MIT-lizenziertem lz-string1.5.0; alte `tanks.version=1` weiter unterstützt. Vergleich derselben tatsächlich erzeugten zwei Reihen:744.703→326.040 JSON-Zeichen (56,2% weniger); jeder Zustand exakt verglichen. Zusätzlicher Codec-/Unicodefall, insgesamt150 Node-Tests bestanden. Keine Biologieraten verändert. Neue Reihen werden vor der Übernahme auf Speicherbarkeit geprüft. Beim fünften Lauf wird die älteste Reihe gesondert archiviert, statt sie still zu verwerfen; frühere Questantworten bleiben am alten Lauf. Normale JSON-Dateien und bestehende Speicherplätze bleiben erhalten.
+
+Zusätzlich: alte Temperaturabschlüsse sind als frühere Abschlüsse markiert, kein Nachweis neuer visueller Handlungen. Die exakte Sicherung vor Ansichts-Migration bleibt erhalten. Das normale Ergebnis-Questbuch verdoppelt die beiden bereits sichtbaren Temperaturkarten nicht mehr. Vollständige CSV-Reihen bleiben zusätzlich zum ausgewählten Zeitpunkt im technischen Bereich exportierbar.
+
+Nächste verbindliche Prüfungen am folgenden Commit:150 Modultests, neuer Temperatur-/Kontextlauf beider Engines, Altprodukt-/Touch-/Quoten-/Archivprüfung und alle14 Lernwege mit Reload im gemeinsam gefüllten lokalen Profil (13 bisherige Wege plus neuer Temperaturweg). Erst danach PR/Vorschau und Sichtgate. Phasen3–5 bleiben bis dahin ausdrücklich offen.

@@ -1,5 +1,5 @@
 import {OBSERVATION_METRICS} from "./learning-activities.mjs";
-import {tankArchive, appendTankFrame, interventionEvent, validateTankArchive, resolveComparisonView} from "./learning-context.mjs";
+import {tankArchive, appendTankFrame, interventionEvent, validateTankArchive, resolveComparisonView, packTankArchive} from "./learning-context.mjs";
 import {validateProvenance} from "./learning-provenance.mjs";
 import {fishStatus,ammoniaConcentration} from "./biology-quality.mjs";
 import { validateQuest } from "./learning-quests.mjs";
@@ -414,6 +414,7 @@ export function runLearningComparison(
       : null;
     row.finalControl = control;
     row.finalTest = test;
+    row.tanks = Object.fromEntries(Object.entries(row.tanks).map(([side,archive])=>[side,packTankArchive(archive)]));
     runs.push(row);
   }
   return {
@@ -566,7 +567,7 @@ export function comparisonCSV(comparison) {
                     ? "Modellindex"
                     : "Messgröße";
           rows.push([
-            "2",
+            view ? "3" : "2",
             comparison.kind,
             profile.grade,
             profile.mode,
@@ -896,7 +897,8 @@ export function validateLearningProduct(raw) {
     const x=raw.viewContext;
     if (x.version !== 1 || !["both","control","test"].includes(x.side)) throw new Error("Ungültige Ansichtskennung.");
     const v=resolveComparisonView({...product,study:{series:x.series,run:x.run},view:x});
-    if (!v || v.context.time !== x.time || v.context.seriesId !== x.seriesId ||
+    if (!v || v.context.series !== x.series || v.context.run !== x.run || v.context.repetition !== x.repetition ||
+        v.context.time !== x.time || v.context.seriesId !== x.seriesId || v.context.revision !== x.revision ||
         v.context.investigationId !== x.investigationId || v.context.attemptId !== x.attemptId ||
         JSON.stringify(v.context.stateIds) !== JSON.stringify(x.stateIds)) throw new Error("Ansicht und gespeicherter Versuch widersprechen sich.");
     product.viewContext=v.context;
@@ -1029,6 +1031,7 @@ export function validateLearningComparison(raw) {
       clean[key] = raw[key];
     }
   if (raw.viewVersion === 1) clean.viewVersion = 1;
+  if (raw.questEvidence) clean.questEvidence=validateQuest(raw.questEvidence,configuration?.profile.mission || raw.questEvidence.id);
   if (population) {
     if (
       raw.environment != null &&

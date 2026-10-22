@@ -299,17 +299,21 @@ export function mountLearningUI(host) {
     const d = QUESTS[tag.mission];
     if (!d) return;
     let evidence;
+    const viewed=["ecology","population"].includes(kind) ? resolveComparisonView(session) : null;
+    const reading=viewed ? comparisonReading({...viewed.comparison,runs:[viewed.run]},d.experiment) : null;
+    const readingContext=reading ? resolveComparisonView(session,{time:reading.time}).context : null;
     if (kind === "ecology") {
       const c = session.comparison;
       // The actual intervention must change the cloned baseline, not merely be selected.
-      const action = c.runs[0].intervention || interventionEvent(session.baseline,
+      const action = viewed.run.intervention || interventionEvent(session.baseline,
         applyLearningIntervention(session.baseline,c.tool,c.value,host),c.tool,c.value);
       const changed = action.effective;
       evidence = {
         changed,
         intervention: action,
-        result: {...comparisonReading({...c,runs:[resolveComparisonView(session)?.run || c.runs[0]]}, d.experiment),viewContext:resolveComparisonView(session)?.context || null},
-        context: resolveComparisonView(session)?.context || null,
+        result: reading ? {...reading,viewContext:readingContext} : null,
+        context: readingContext,
+        observedViewContext:viewed.context,
         tool: c.tool,
         compatible:
           (c.tool === d.experiment.tool || (["8-health", "10-restore"].includes(d.id) && mission().tools.includes(c.tool))) &&
@@ -318,12 +322,13 @@ export function mountLearningUI(host) {
       };
     } else if (kind === "population")
       evidence = {
-        generations: session.comparison.generations,
+        generations: reading?.time ?? 0,
         populationPair: populationPairEvidence(session.comparisonHistory,session.comparison),
         compatible:
           true,
-        result: {...comparisonReading({...session.comparison,runs:[resolveComparisonView(session)?.run || session.comparison.runs[0]]}, d.experiment),populationPair:populationPairEvidence(session.comparisonHistory,session.comparison),viewContext:resolveComparisonView(session)?.context || null},
-        context:resolveComparisonView(session)?.context || null,
+        result: reading ? {...reading,populationPair:populationPairEvidence(session.comparisonHistory,session.comparison),viewContext:readingContext} : null,
+        context:readingContext,
+        observedViewContext:viewed.context,
       };
     else if (kind === "cross")
       evidence = {

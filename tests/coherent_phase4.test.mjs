@@ -71,3 +71,12 @@ test('P4: plant display ratios preserve original values and use one beginning ac
  assert.equal(learnerPrecision('fishDead'),0);assert.equal(learnerPrecision('temp'),1);
  comp.runs[0].control[0].plantBiomass=0;assert.equal(relativePlantComparison(comp).runs[0].test[1].plantBiomass,null);
 });
+
+test('P4: nominal generation settings cannot replace actual generations after reproduction stops',async()=>{
+ const {createLearningPopulation,compareLearningPopulations}=await import('../learning-population.mjs');
+ const {populationPairEvidence}=await import('../learning-activities.mjs');
+ const p=createLearningPopulation(47,4);for(const i of [...p.archive,...p.individuals])i.sex='♀';
+ const neutral=compareLearningPopulations(p,'neutral',5,2),directed=compareLearningPopulations(p,'dark',5,2);
+ assert.equal(neutral.generations,5);assert.ok(neutral.runs.every(r=>r.status.control.state==='stopped' && r.control.at(-1).generation===0));
+ assert.equal(populationPairEvidence([neutral],directed).complete,false);
+});

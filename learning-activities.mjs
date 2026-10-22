@@ -89,7 +89,7 @@ export function mendelEvidence(p) {
     f2:second?{generation:second.generation,parents:second.parents,counts:p.history.find(h=>h.generation===second.generation)}:null};
 }
 export function populationPairEvidence(history,current) {
-  const all=[...(history||[]),current].filter(c=>c?.kind==="population" && c.generations>=2 && c.repetitions>=2);
+  const all=[...(history||[]),current].filter(c=>c?.kind==="population" && c.generations>=2 && c.repetitions>=2 && c.runs.every(r=>r.control.some(a=>a.generation>=2 && r.test.some(b=>b.generation===a.generation))));
   const directed=all.findLast(c=>c.environment!=="neutral"),neutral=directed && all.findLast(c=>c.environment==="neutral" && c.configuration?.baseline.fingerprint===directed.configuration?.baseline.fingerprint);
   return {complete:!!(neutral&&directed),neutral:neutral?{environment:neutral.environment,final:neutral.runs.map(r=>({control:r.control.at(-1),test:r.test.at(-1)})),seeds:neutral.runs.map(r=>r.seed),baseline:neutral.configuration.baseline}:null,
     directed:directed?{environment:directed.environment,seeds:directed.runs.map(r=>r.seed),baseline:directed.configuration.baseline}:null};

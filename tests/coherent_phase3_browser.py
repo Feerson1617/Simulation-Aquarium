@@ -94,6 +94,11 @@ def free(p,g,label):
   for side in ['control','test']:
    assert len(v['sides'][side]['cohort']['individuals'])==24;expect(p.locator(f'[data-cohort-side="{side}"]')).to_have_attribute('data-cohort-id',v['context']['cohortIds'][side])
   shot(p,label+'-free9-groups.png');datafile(p,label+'-free9.json')
+  for action_name,extension in [('csv','csv'),('chart','svg')]:
+   with p.expect_download() as download:action(p,action_name)
+   target=OUT/(label+'-free9.'+extension);download.value.save_as(str(target));text=target.read_text()
+   assert all(value in text for value in v['context']['cohortIds'].values())
+  assert 'Kohortenkennung' in (OUT/(label+'-free9.csv')).read_text()
   action(p,'population-cohort');assert snap(p)['population']['generation']==0
  else:
   before=p.evaluate('JSON.stringify(window.aquariumSnapshot())')

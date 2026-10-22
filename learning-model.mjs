@@ -533,7 +533,7 @@ export function comparisonCSV(comparison) {
         "Wertstatus",
       ],
     ];
-  if (view) rows[0].push("Versuch-ID","Durchgang-ID","Ansicht Zeit","Ansicht Seite","Zustandskennung");
+  if (view) rows[0].push("Versuch-ID","Durchgang-ID","Ansicht Zeit","Ansicht Seite",comparison.kind === "population" ? "Kohortenkennung" : "Zustandskennung");
   for (const run of comparison.runs) {
     const times =
       comparison.kind === "manual"
@@ -615,7 +615,7 @@ export function comparisonCSV(comparison) {
                   ? "berechnet"
                   : "unbekannt",
           ]);
-          if (view) rows.at(-1).push(view.investigationId,view.attemptId,view.time,view.side,view.stateIds?.[side]);
+          if (view) rows.at(-1).push(view.investigationId,view.attemptId,view.time,view.side,view.stateIds?.[side] ?? view.cohortIds?.[side]);
         }
     }
   }

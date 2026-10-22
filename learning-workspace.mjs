@@ -37,7 +37,8 @@ export function temperatureWorkspace({session, view, quest, esc, button, helpBut
   const tool = result ? view.comparison.tool : session.study.tool;
   const toolLabel = ({temperature:"Heizer",light:"Licht",filter:"Filter",water:"Wasserwechsel",feed:"Futter",nutrients:"Nährstoffe",co2:"CO₂-Zufuhr",plants:"Zusätzliche Pflanzen"})[tool];
   const setting = state => tool === "temperature" ? `${n(state?.setTemp)} °C` : tool === "light" ? `${n(state?.hours,0)} Stunden täglich` : tool === "filter" ? `${n(state?.flow,0)} % Durchfluss` : null;
-  const reading = data => metric === "plantBiomass" ? n(data.sample?.plantBiomass / Math.max(.00001,(view.run?.control[0] || learningSample(session.baseline,types)).plantBiomass),2) : n(data.sample?.[metric],metric === "fishAlive" ? 0 : temp ? 1 : 2);
+  const startBiomass=(view.run?.control[0] || learningSample(session.baseline,types)).plantBiomass;
+  const reading = data => metric === "plantBiomass" ? (startBiomass > 0 ? n(data.sample?.plantBiomass / startBiomass,2) : "kein Anfangsbestand") : n(data.sample?.[metric],metric === "fishAlive" ? 0 : temp ? 1 : 2);
   const card = (side, index) => {
     const data = view.sides[side], s = data.state, sample = data.sample;
     const label = `Becken ${index+1}`, heater = s?.setTemp;

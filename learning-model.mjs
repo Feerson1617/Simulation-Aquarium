@@ -11,7 +11,7 @@ import {
 } from "./learning-content.mjs";
 import { createScenario } from "./scenarios.mjs";
 import { initializeIndividual } from "./genetics.mjs";
-import { validateLearningPopulation, populationCohort } from "./learning-population.mjs";
+import { validateLearningPopulation, populationCohort, repeatLearningPopulation } from "./learning-population.mjs";
 import { controlNumber, requireControlValue, validControlValue, applyEquipmentSetting } from "./control-values.mjs";
 export const LEARNING_MODEL_REVISION = "learning-biology-5-views";
 export const POPULATION_METRICS = {
@@ -446,7 +446,7 @@ export function snapshotLearningPlan({
   notes,
   metrics = [],
 }) {
-  const source = kind === "population" ? population : baseline;
+  const source = kind === "population" ? repeatLearningPopulation(population,population.initialSeed ?? population.seed) : baseline;
   return structuredClone({
     kind,
     profile,
@@ -906,7 +906,7 @@ export function validateLearningProduct(raw) {
   }
   if (raw.cohortView) {
     const v=raw.cohortView,x=v.context,cohort=populationCohort(product.population,x?.time);
-    if(!cohort || x.version !== 1 || x.axis !== "generation" || x.attemptId !== product.attemptId ||
+    if(!cohort || x.version !== 1 || x.axis !== "generation" || x.attemptId !== product.attemptId || x.revision !== product.modelVersion || x.side !== "test" || x.series !== null || x.run !== 0 || x.repetition !== 1 ||
        x.cohortIds?.test !== stateId(cohort) || (v.selected && (v.selected.side !== "test" || v.selected.cohortId !== stateId(cohort) || !cohort.individuals.some(i=>i.uid===v.selected.uid))))
       throw new Error("Individuenansicht und gespeicherte Population widersprechen sich.");
     product.cohortView=structuredClone(v);

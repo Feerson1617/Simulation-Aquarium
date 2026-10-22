@@ -59,6 +59,8 @@ def comparison_answer(id,r):
 
 def biological_experiment(p,id,touch=False):
  if id=='10-wadden':
+  if p.locator('[data-harbour-object]').count():
+   for node in ['visitors','packaging','animals']:p.locator(f'[data-harbour-object="{node}"]').click()
   activities(p,touch);assert snap(p)['comparison'] is None;assert snap(p)['quest']['result']['kind']=='case';return
  if id=='9-traits':
   action(p,'material',touch);action(p,'genes',touch);r=snap(p)['quest']['result'];assert r['AA']>0 and r['Aa']>0;return
@@ -71,7 +73,7 @@ def biological_experiment(p,id,touch=False):
   p.locator('[data-learning-mother]').select_option(str(mother));p.locator('[data-learning-father]').select_option(str(father));action(p,'cross',touch)
   result=snap(p);assert result['population']['generation']==2;assert result['quest']['result']['mendel']['complete'];assert result['population']['events'][-1]['parents']==[mother,father]
   assert len(result['population']['individuals'])==24;return
- action(p,'investigate',touch)
+ if not snap(p).get('prototype'):action(p,'investigate',touch)
  if id in ['9-population','9-darwin']:
   p.locator('[data-learning-environment]').select_option('neutral');p.locator('[data-learning-generations]').fill('1');reveal(p.locator('[data-learning-repetitions]')).fill('2');action(p,'population-compare',touch);assert snap(p)['quest']['step']==2
   p.locator('[data-learning-generations]').fill('5');action(p,'population-compare',touch);neutral=snap(p)['comparison'];assert snap(p)['quest']['step']==2
@@ -83,12 +85,14 @@ def biological_experiment(p,id,touch=False):
   reveal(p.locator('[data-learning-run]')).select_option('1');assert 'Gruppe' in p.locator('.learn-chart').get_attribute('aria-label')
   reveal(p.locator('[data-learning-series]')).select_option('2');return
  if id=='8-oxygen':
-  reveal(p.locator('[data-learning-value]')).fill('8');action(p,'compare',touch);assert snap(p)['quest']['step']==2;reveal(p.locator('[data-learning-value]')).fill('0')
+  reveal(p.locator('[data-learning-value]')).fill('8');action(p,'compare',touch);assert snap(p)['quest']['step']==2
+  if p.locator('[data-learn=workspace-plan]').count():action(p,'workspace-plan',touch)
+  reveal(p.locator('[data-learning-value]')).fill('0')
  if id=='10-restore':reveal(p.locator('[data-learning-days]')).fill('14')
  if id=='8-ecosystem':
   action(p,'device-temperature',touch);reveal(p.locator('[data-equipment-value]')).fill('27');p.locator('[data-equipment-save]').click();assert p.evaluate('document.activeElement.dataset.learn')=='device-temperature'
  action(p,'compare',touch)
- if id=='8-ecosystem':
+ if snap(p).get('prototype'):
   action(p,'workspace-play',touch);p.wait_for_function('window.aquariumLearningSnapshot().quest.step===3')
  c=snap(p)['comparison'];run=c['runs'][0];assert run['initialControl']==run['initialTest'];assert run['control'] and run['test']
  if id=='8-ecosystem':assert 25<run['finalTest']['params']['temp']<27;assert run['finalControl']['params']['temp']==25

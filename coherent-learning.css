@@ -111,3 +111,5 @@
 .harbour-object>span {font-size:28px;line-height:1}
 #learning-root .harbour-object.selected {outline:3px solid #7d5b29;background:#ffe7ae}
 @media (max-width:800px) {#learning-root .harbour-object {min-width:70px;font-size:11px;padding:4px}.harbour-scene {min-height:290px}}
+
+.harbour-object>svg {width:70px;height:44px;color:#315054}

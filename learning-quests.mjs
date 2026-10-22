@@ -183,7 +183,7 @@ export const QUESTS = Object.fromEntries(
       "Eine Kreuzung vorhersagen",
       "Jedes Elternteil gibt eine Genvariante weiter.",
       { kind: "cross" },
-      living,
+      {...living,prompt:"Was erkennst du in der Population?"},
       "Welche Farbe erwartest du bei den Nachkommen?",
       pick(
         "Woher kommen die Erbanlagen eines Nachkommen?",
@@ -342,7 +342,7 @@ export const QUESTS = Object.fromEntries(
       "Müllschutz braucht passende Maßnahmen.",
       {kind:"case"},
       pick(
-        "Was hilft gegen neuen Meeresmüll?",
+        "Verfolge einen Müllweg: Quelle, Müll, Tier. Was hilft gegen neuen Müll?",
         ["Müll an Land und im Hafen vermeiden","Die Aquariumlampe heller machen","Plastik als Dünger benutzen"],
         0,
         "Vermeidung beginnt vor dem Eintrag ins Meer.",

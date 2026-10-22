@@ -118,7 +118,7 @@ export function createStudentViews(api) {
         body += `<div class="learn-quest-answers">${choiceOrder(s,"phase-"+s.step,q.choices.length).map(i => `<button data-quest-answer="${i}">${esc(q.choices[i])}</button>`).join("")}</div>`;
     }
     if (!done && s.step === 3 && state().populationWorkspace && !observedResult) body=`<h2>Sieh dir die aktuelle Nachkommengeneration an.</h2>${button("cohort-latest","Zur aktuellen Generation")}`;
-    if (!done && s.step === 3 && ["ecology","population"].includes(d.experiment.kind) && !observedResult)
+    if (!done && s.step === 3 && ["ecology","population"].includes(d.experiment.kind) && !observedResult && !activity)
       body = `<h2 tabindex="-1">Zu deinem aktuellen Plan fehlt hier ein vollständiger Vergleich.</h2><p>Wähle einen Zeitpunkt mit beiden Seiten. Frühere Reihen bleiben zum Ansehen erhalten.</p>${state().prototype && session.comparison && !api.matches() ? button("workspace-plan","Neuen Versuch planen") : button("latest-series","Aktuellen Versuch ansehen")}`;
     if (!done && state().help !== false) body += state().support === "guided" || s.showHint ? `<p class="learn-step-hint">${esc(questHint(d,s,state().support))}</p>` : button("quest-hint","Tipp");
     if (s.predictionCheck && s.step >= 4) body += `<details class="learn-prediction-check"><summary>Deine Vermutung prüfen</summary><p>Ausgewählt: ${esc(s.predictionCheck.selection)}</p><p>Beobachtet: ${esc(s.predictionCheck.observed)}</p><p>${s.predictionCheck.matches ? "Das passt zu deiner Vermutung." : "Die Beobachtung passt hier nicht zu deiner Vermutung. Das ist ein Anlass zum Weiterfragen."}</p></details>`;
@@ -222,7 +222,7 @@ export function createStudentViews(api) {
             )}</select></label><label>Generationen<input type="number" data-learning-generations min="1" max="15" value="${session.study.generations}"></label><small>Eine Generation: Eltern bekommen Nachkommen. Das ist kein einzelner Tag.</small>`
           : api.form("study") +
             `<details class="learn-observation-window"><summary>Beobachtungszeitraum: ${session.study.days} Spieltage</summary><p>So lange beobachtest du beide Becken. Einstellungen bleiben erhalten.</p><label>Beobachtungszeitraum in Spieltagen<input type="number" data-learning-days min="1" max="14" step="1" value="${session.study.days}"></label></details>`
-      }${button(population ? "population-compare" : "compare", "Versuch starten")}<details class="learn-observation-options"><summary>Beobachten und wiederholen</summary><label>Wie oft?<input type="number" data-learning-repetitions min="1" max="4" value="${session.study.repetitions}"></label>${!population ? button("baseline", "Dieses Becken als Anfang nehmen") : ""}</details>${results()}`
+      }${button(population ? "population-compare" : "compare", "Versuch starten")}<details class="learn-observation-options"><summary>Beobachten und wiederholen</summary><label>Wie oft?<input type="number" data-learning-repetitions min="1" max="4" value="${session.study.repetitions}"></label>${!population ? button("baseline", "Dieses Becken als Anfang nehmen") : ""}</details>${hideResults ? "" : results()}`
     );
   }
   function breeding(workspace = false) {

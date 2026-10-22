@@ -110,6 +110,7 @@ export function mountLearningUI(host) {
   host.root.append(root);
   const tankViews = createTankViews(host);
   let playback = null;
+  const domainDraw=()=>{};
   let screen =
       new URLSearchParams(location.search).get("expert") === "1"
         ? "expert"
@@ -193,6 +194,7 @@ export function mountLearningUI(host) {
   }
   function stopPlayback() {clearInterval(playback); playback = null;}
   function showTime(time) {
+    delete session.selectedIndividual;
     selectComparisonView(session,{time});
     const v = resolveComparisonView(session);
     if (isPrototype() && v?.comparison.id === session.pendingExperimentId && v.context.time === v.rows.at(-1).time && [2,3,4].includes(session.quest?.step)) {
@@ -578,7 +580,7 @@ export function mountLearningUI(host) {
   }
   function showPanel(next) {
     if (isPrototype()) stopPlayback();
-    if (next === "investigate" && tag.mode === "free" && tag.grade !== 9) session.researchView = "comparison";
+    if (next === "investigate" && tag.mode === "free") {if(tag.grade !== 9) session.researchView = "comparison";else session.populationMode="comparison";}
     lastOpener = document.activeElement;
     host.pause();
     host.tweezers(false);
@@ -1173,12 +1175,23 @@ export function mountLearningUI(host) {
                     )
                     .join("")}`
                 : ""
-            }${imported.gameExplanation ? `<h4>Spielerklärung</h4><p>${esc(imported.gameExplanation)}</p>` : ""}${imported.visiblePlan ? `<section class="learn-plan-evidence"><h4>Noch nicht durchgeführter Versuchsplan</h4><p>Die vorbereiteten Becken gehören zu Tag ${num(imported.visiblePlan.context.time)}. Dies ist kein berechneter Verlauf.</p><p>Becken 1: Wasser ${num(imported.visiblePlan.control.params.temp,1)} °C, Heizer ${num(imported.visiblePlan.control.setTemp,1)} °C. Becken 2: Wasser ${num(imported.visiblePlan.test.params.temp,1)} °C, Heizer ${num(imported.visiblePlan.test.setTemp,1)} °C.</p></section>` : ""}${imported.provenance?.legacy ? "<p>Altprodukt: Urheberschaft vorhandener Texte ist nicht dokumentiert. Sie gelten nicht automatisch als selbst formulierte Schülerleistung.</p>" : ""}${imported.earlierQuest ? `<details><summary>Früheres Questbuch · Anforderungen vor der Überarbeitung</summary><p>${imported.earlierQuest.step} von 5 damaligen Schritten. Originaleinträge bleiben im JSON erhalten.</p></details>` : ""}${imported.quest ? `<h3>Questbuch${(imported.quest.version === 1 || imported.quest.visualEvidenceVersion === 0) ? " · historischer Anforderungsstand" : ""}</h3><p>${imported.quest.step} von 5 Aufgaben</p>${imported.quest.entries.map((e) => `<p>${e.answer ? "Auswahl" : "Spielhandlung"} · ${esc(e.question || e.event)}: ${esc(e.answer || "Tatsächlich ausgeführter Eingriff")}</p>`).join("")}` : ""}${imported.comparisonHistory?.length ? `<details class="learn-comparison-history"><summary>Frühere Versuchsreihen (${imported.comparisonHistory.length})</summary>${imported.comparisonHistory.map(c=>`<p>${esc(c.kind)} · ${esc(c.environment || c.tool)} · ${c.runs.length} Wiederholungen · Ausgangslage ${esc(c.configuration?.baseline.fingerprint || "nicht dokumentiert")}</p><p>Seeds ${c.runs.map(r=>r.seed).join(", ")}. Vollständige tatsächliche Messreihen und Archive sind im JSON erhalten.</p>`).join("")}</details>` : ""}${imported.quest?.activities?.length ? `<h4>Bearbeitete Lernhandlungen</h4>${imported.quest.activities.map(a=>`<p>${a.kind === "assignment" ? "Auswahl/Zuordnung" : "Spielhandlung"} · ${esc(a.id)}: ${esc(a.from || "")} ${esc(a.to || "Messwerte angesehen")}</p>`).join("")}` : ""}${imported.comparison ? `${imported.visiblePlan ? "<h4>Gespeicherte frühere Messreihe</h4>" : ""}${teacherData(importedComparison())}` : ""}${manualData(imported, true)}${imported.population ? `<h3>Separater Zuchtversuch</h3><p>Startseed ${imported.population.initialSeed ?? "nicht dokumentiert"}; aktueller Zufallszustand ${imported.population.seed}. Dieses Archiv ersetzt nicht die Archive der Kontroll-/Selektionsläufe.</p>${archiveView(imported.population, "separater Mendelversuch")}` : ""}${imported.populationRepeats?.length ? `<h4>Dokumentierte Wiederholungen</h4>${imported.populationRepeats.map((r) => `<p>Seed ${r.seed}: AA ${r.final.AA}, Aa ${r.final.Aa}, aa ${r.final.aa}.</p>`).join("")}` : ""}</section>`
+            }${imported.gameExplanation ? `<h4>Spielerklärung</h4><p>${esc(imported.gameExplanation)}</p>` : ""}${imported.visiblePlan ? `<section class="learn-plan-evidence"><h4>Noch nicht durchgeführter Versuchsplan</h4><p>Die vorbereiteten Becken gehören zu Tag ${num(imported.visiblePlan.context.time)}. Dies ist kein berechneter Verlauf.</p><p>Becken 1: Wasser ${num(imported.visiblePlan.control.params.temp,1)} °C, Heizer ${num(imported.visiblePlan.control.setTemp,1)} °C. Becken 2: Wasser ${num(imported.visiblePlan.test.params.temp,1)} °C, Heizer ${num(imported.visiblePlan.test.setTemp,1)} °C.</p></section>` : ""}${imported.provenance?.legacy ? "<p>Altprodukt: Urheberschaft vorhandener Texte ist nicht dokumentiert. Sie gelten nicht automatisch als selbst formulierte Schülerleistung.</p>" : ""}${imported.earlierQuest ? `<details><summary>Früheres Questbuch · Anforderungen vor der Überarbeitung</summary><p>${imported.earlierQuest.step} von 5 damaligen Schritten. Originaleinträge bleiben im JSON erhalten.</p></details>` : ""}${imported.quest ? `<h3>Questbuch${(imported.quest.version === 1 || imported.quest.visualEvidenceVersion === 0) ? " · historischer Anforderungsstand" : ""}</h3><p>${imported.quest.step} von 5 Aufgaben</p>${imported.quest.entries.map((e) => `<p>${e.answer ? "Auswahl" : "Spielhandlung"} · ${esc(e.question || e.event)}: ${esc(e.answer || "Tatsächlich ausgeführter Eingriff")}</p>`).join("")}` : ""}${imported.comparisonHistory?.length ? `<details class="learn-comparison-history"><summary>Frühere Versuchsreihen (${imported.comparisonHistory.length})</summary>${imported.comparisonHistory.map(c=>`<p>${esc(c.kind)} · ${esc(c.environment || c.tool)} · ${c.runs.length} Wiederholungen · Ausgangslage ${esc(c.configuration?.baseline.fingerprint || "nicht dokumentiert")}</p><p>Seeds ${c.runs.map(r=>r.seed).join(", ")}. Vollständige tatsächliche Messreihen und Archive sind im JSON erhalten.</p>`).join("")}</details>` : ""}${imported.quest?.activities?.length ? `<h4>Bearbeitete Lernhandlungen</h4>${imported.quest.activities.map(a=>`<p>${a.kind === "assignment" ? "Auswahl/Zuordnung" : "Spielhandlung"} · ${esc(a.id)}: ${esc(a.from || "")} ${esc(a.to || "Messwerte angesehen")}</p>`).join("")}` : ""}${imported.comparison ? `${imported.visiblePlan ? "<h4>Gespeicherte frühere Messreihe</h4>" : ""}${teacherData(importedComparison())}` : ""}${manualData(imported, true)}${imported.cohortView ? `<p>Angesehene Lernpopulation: Generation ${imported.cohortView.context.time} · Kohortenkennung ${esc(imported.cohortView.context.cohortIds.test)}${imported.cohortView.selected ? ` · Fisch ${imported.cohortView.selected.uid}` : ""}. Diese Ansicht verändert die aktuelle Elternpopulation nicht.</p>` : ""}${imported.population ? `<h3>Separater Zuchtversuch</h3><p>Startseed ${imported.population.initialSeed ?? "nicht dokumentiert"}; aktueller Zufallszustand ${imported.population.seed}. Dieses Archiv ersetzt nicht die Archive der Kontroll-/Selektionsläufe.</p>${archiveView(imported.population, "separater Mendelversuch")}` : ""}${imported.populationRepeats?.length ? `<h4>Dokumentierte Wiederholungen</h4>${imported.populationRepeats.map((r) => `<p>Seed ${r.seed}: AA ${r.final.AA}, Aa ${r.final.Aa}, aa ${r.final.aa}.</p>`).join("")}` : ""}</section>`
           : ""
       }<details><summary>Alle Missionshintergründe und Modellgrenzen</summary>${MISSIONS.map((m) => `<h3>${esc(m.title)}</h3><p>${esc(m.goal)}</p><p>${esc(m.curriculum)}</p><p>${esc(m.limits)}</p>${m.transfer ? transfer(m.transfer, false) : ""}`).join("")}</details>${archivedAttempts()}<h3>Versuche verwalten</h3><p>Ein Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.</p>${button("teacher-reset", "Ausgewählte Mission neu beginnen")}${button("teacher-restore", "Gesicherte Mission wiederherstellen")}<details><summary>Fachliche und curriculare Grundlage</summary><p>${CURRICULUM.title}, ${CURRICULUM.pages}; Original-PDF am 20.10.2026 abgeglichen. Die Simulation deckt ausgewählte Einheiten ab, nicht alle Inhalte der Klassen.</p><p>Gesundheit, Biomasse und Belastung sind Modellgrößen. Kohlenstoff nur qualitativ; Selektion nutzt offengelegte hypothetische Gewichte.</p></details>`
     );
   }
+  function preserveWorkspacePosition() {
+    const active=document.activeElement,attributes=active?.getAttributeNames?.().filter(a=>a.startsWith("data-")) || [];
+    const values=attributes.map(a=>[a,active.getAttribute(a)]), scrolls=[...root.querySelectorAll(".coherent-views,.coherent-notebook")].map(e=>[e.classList.contains("coherent-views")?".coherent-views":".coherent-notebook",e.scrollTop]);
+    const details=[...root.querySelectorAll("details[open]>summary")].map(e=>e.textContent);
+    return () => {
+      for(const summary of root.querySelectorAll("details>summary")) if(details.includes(summary.textContent))summary.parentElement.open=true;
+      for(const [selector,top] of scrolls)if(root.querySelector(selector))root.querySelector(selector).scrollTop=top;
+      if(values.length && !helpKey) [...root.querySelectorAll("button,input,select,textarea,summary")].find(e=>values.every(([a,v])=>e.getAttribute(a)===v) && !e.disabled)?.focus({preventScroll:true});
+    };
+  }
   function render() {
+    if(host.comparisonRenderer?.()?.learningDraw === domainDraw && !isPopulationWorkspace() && !isRegionalWorkspace()) host.comparisonRenderer().learningDraw=null;
     archiveRefs.clear();
     document.documentElement.classList.toggle("learning-coherent",isPrototype() || isPopulationWorkspace() || isRegionalWorkspace());
     document.documentElement.classList.toggle("learning-domain",isPopulationWorkspace() || isRegionalWorkspace());
@@ -1202,22 +1215,28 @@ export function mountLearningUI(host) {
     document.documentElement.classList.toggle("learning-domain",isPopulationWorkspace() || isRegionalWorkspace());
     document.documentElement.classList.toggle("learning-history-view",active && panel === "saved-view");
     if(isRegionalWorkspace() && panel !== "teacher") {
+      const restorePosition=preserveWorkspacePosition();
       tankViews.dispose();
       const drawer=panel === "more" ? student.more() : panel === "notebook" ? notebook() : panel === "display" ? display() : panel === "glossary" ? glossary() : panel === "restart-attempt" ? restartView() : "";
-      root.innerHTML=harbourWorkspace({session,quest:student.quest(true),drawer,esc,button,source:REGIONAL_CASES["10-wadden"]});
+      root.innerHTML=harbourWorkspace({session,quest:(panel && !drawer ? button("close","Zur Aufgabe") : "")+student.quest(true),drawer,esc,button,source:REGIONAL_CASES["10-wadden"]});
+      if(storageError)root.querySelector(".coherent-notebook").insertAdjacentHTML("afterbegin",`<p class="coherent-storage" role="alert">${esc(storageError)}</p>`);
+      restorePosition();if(host.comparisonRenderer?.())host.comparisonRenderer().learningDraw=domainDraw;
       host.layout(false);host.sceneInert(true);host.interactive(false);return;
     }
     if (isPopulationWorkspace() && panel !== "teacher") {
+      const restorePosition=preserveWorkspacePosition();
       tankViews.dispose();
       const v=populationWorkspaceView(session,LEARNING_MODEL_REVISION), oldScroll=root.querySelector(".coherent-views")?.scrollTop || 0;
       const drawer=panel === "more" ? student.more() : panel === "notebook" ? notebook() : panel === "display" ? display() : panel === "glossary" ? glossary() : panel === "restart-attempt" ? restartView() : "";
-      root.innerHTML=populationWorkspace({session,view:v,tag,showGenes,esc,button,helpButton,quest:student.quest(true),drawer,
+      root.innerHTML=populationWorkspace({session,view:v,tag,showGenes,esc,button,helpButton,quest:(panel && !drawer ? button("close","Zur Aufgabe") : "")+student.quest(true),drawer,
         breeding:student.breeding(true),investigation:student.investigation(true),results:student.results()});
-      root.querySelector(".coherent-views").scrollTop=oldScroll;
+      if(storageError)root.querySelector(".coherent-notebook").insertAdjacentHTML("afterbegin",`<p class="coherent-storage" role="alert">${esc(storageError)}</p>`);
+      root.querySelector(".coherent-views").scrollTop=oldScroll;restorePosition();
       if(helpKey) root.innerHTML+=`<section class="learn-help-pop" role="dialog" aria-modal="true" aria-label="Begriffshilfe"><h2>${esc(HELP[helpKey].term)}</h2><p>${esc(HELP[helpKey][tag.grade])}</p>${button("help-close","Hilfe schließen")}</section>`;
       root.querySelector(".coherent-workspace").toggleAttribute("inert",!!helpKey);
       root.querySelector(".coherent-header").toggleAttribute("inert",!!helpKey);
       if(!teacher.help) root.querySelectorAll("[data-learn-help]").forEach(b=>b.remove());
+      if(host.comparisonRenderer?.())host.comparisonRenderer().learningDraw=domainDraw;
       host.layout(false);host.sceneInert(true);host.interactive(false);return;
     }
     if (isPrototype() && panel !== "teacher") {
@@ -1413,8 +1432,8 @@ export function mountLearningUI(host) {
         session.study.generations = Number(t.value);
       if (t.hasAttribute("data-learning-environment"))
         session.study.environment = t.value;
-      if (t.hasAttribute("data-learning-series")) {stopPlayback();session.study.series=Number(t.value);delete session.view;selectComparisonView(session);persist();render();}
-      if (t.hasAttribute("data-learning-run")) {stopPlayback();session.study.run=Number(t.value);delete session.view;selectComparisonView(session);persist();render();}
+      if (t.hasAttribute("data-learning-series")) {stopPlayback();session.study.series=Number(t.value);delete session.selectedIndividual;delete session.view;selectComparisonView(session);persist();render();}
+      if (t.hasAttribute("data-learning-run")) {stopPlayback();session.study.run=Number(t.value);delete session.selectedIndividual;delete session.view;selectComparisonView(session);persist();render();}
       if (t.hasAttribute("data-learning-metric")) {
         session.study.metric = t.value;
         persist();
@@ -1509,7 +1528,15 @@ export function mountLearningUI(host) {
       if(d.harbourObject && HARBOUR_OBJECTS[d.harbourObject]) {
         session.harbourSelection=d.harbourObject;
         (session.quest.caseObjects ??= {})[d.harbourObject]={id:d.harbourObject,origin:"game-action",attemptId:session.attemptId};
-        questEvent(session.quest,"observe");persist();render();return;
+        const q=session.quest,object=d.harbourObject;
+        if(["visitors","fishing"].includes(object)) q.caseRoute=[object];
+        else if(q.caseRoute?.length===1 && object === (q.caseRoute[0]==="visitors" ? "packaging" : "nets")) q.caseRoute.push(object);
+        else if(q.caseRoute?.length===2 && object === "animals") {
+          q.caseRoute.push(object);const key=q.caseRoute[0]==="visitors" ? "returns" : "gear";
+          (q.casePaths ??= {})[key]={objects:[...q.caseRoute],origin:"game-action",attemptId:session.attemptId};
+          questEvent(q,"observe");q.feedback="Müllweg angesehen. Prüfe jetzt eine passende Maßnahme.";q.feedbackKind="neutral";
+        }
+        persist();render();return;
       }
       if (d.cohortPick) {
         const v=populationWorkspaceView(session,LEARNING_MODEL_REVISION),i=v.sides[d.cohortPick]?.cohort?.individuals.find(i=>i.uid===Number(d.cohortUid));
@@ -1532,7 +1559,7 @@ export function mountLearningUI(host) {
       if (d.activityId) {
         if(isRegionalWorkspace() && d.activityId === "harbour-interest") {
           const key=Number(d.activityChoice)===1 ? "gear" : "returns",object=HARBOUR_MEASURES[key].object;
-          if(!session.quest.caseObjects?.[object]) {session.quest.feedback="Wähle zuerst "+(object==="fishing"?"die Fischerei":"die Besucher")+" im Hafenfall und verfolge den Müllweg.";session.quest.feedbackKind="neutral";persist();render();return;}
+          if(!session.quest.casePaths?.[key]) {session.quest.feedback="Wähle zuerst "+(object==="fishing"?"die Fischerei":"die Besucher")+" im Hafenfall. Folge dem Weg über den passenden Müll bis zu den Tieren.";session.quest.feedbackKind="neutral";persist();render();return;}
         }
         if (isPrototype() && ["living","water"].includes(d.activityId)) {
           const picked=session.prototypeSelection;
@@ -1548,7 +1575,7 @@ export function mountLearningUI(host) {
         const q=session.quest;
         if (q.id === "10-wadden" && q.step === 2 && !pendingActivity(q,2)) {
           const choice=q.activities.find(a=>a.id==="harbour-interest");
-          questEvent(q,"case",{result:{kind:"case",measure:choice.to,measureKey:harbourMeasure(q),objects:structuredClone(q.caseObjects || {}),source:REGIONAL_CASES[q.id].source,consequences:q.activities.filter(a=>["harbour-benefit","harbour-effort"].includes(a.id))}});
+          questEvent(q,"case",{result:{kind:"case",measure:choice.to,measureKey:harbourMeasure(q),objects:structuredClone(q.caseObjects || {}),paths:structuredClone(q.casePaths || {}),source:REGIONAL_CASES[q.id].source,consequences:q.activities.filter(a=>["harbour-benefit","harbour-effort"].includes(a.id))}});
         }
         persist();render();root.querySelector(".learn-activity h3,.learn-quest h2")?.focus();return;
       }
@@ -1945,6 +1972,7 @@ export function mountLearningUI(host) {
       }
       if (a === "population-compare") {
         if (!requirePlan()) return;
+        delete session.selectedIndividual;
         const next = bindComparison(compareLearningPopulations(
           session.population,
           session.study.environment,

@@ -1,4 +1,5 @@
 import {OBSERVATION_METRICS} from "./learning-activities.mjs";
+import {SINGLE_MISSIONS} from "./single-learning-missions.mjs";
 import {tankArchive, appendTankFrame, interventionEvent, validateTankArchive, resolveComparisonView, packTankArchive, stateId} from "./learning-context.mjs";
 import {validateProvenance} from "./learning-provenance.mjs";
 import {fishStatus,ammoniaConcentration} from "./biology-quality.mjs";
@@ -142,6 +143,11 @@ export function reconcileLearningStudy(study, allowed) {
 }
 export function normalizeLearningTag(tag) {
   if (tag == null) return null;
+  if (tag.version === 2) {
+    const mission=SINGLE_MISSIONS.find(m=>m.id===tag.mission);
+    if (!mission || mission.grade!==tag.grade || tag.mode!=="missions") throw new Error("Ungültiges Einbecken-Lernprofil.");
+    return {version:2,grade:mission.grade,mode:"missions",mission:mission.id};
+  }
   if (
     tag.version !== 1 ||
     ![8, 9, 10].includes(tag.grade) ||
@@ -159,6 +165,7 @@ export function normalizeLearningTag(tag) {
 export function learningSlot(tag) {
   const t = normalizeLearningTag(tag);
   if (!t) throw new Error("Lernprofil fehlt.");
+  if (t.version === 2) return "aquarium-single-tank-v2:"+t.grade+":"+t.mission;
   return "aquarium-learning-tank-v1:" + t.grade + ":" + (t.mission || "free");
 }
 export function learningTools(tag, teacher = {}) {

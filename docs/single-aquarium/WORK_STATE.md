@@ -17,3 +17,11 @@ Ein Durchgang enthält vollständigen Start, getätigten Eingriff, eine tatsäch
 ## Nächster Schritt
 
 Missionszuordnung und aktuelle Bedieninventur erstellen, M1 auf vorhandenen Renderer aufsetzen, echte Chromium-/WebKit-Läufe und Screenshots einschließlich Tablet durchführen. Aktueller Anwendungscode und konkrete Testzahlen werden nach der Umsetzung getrennt von den historischen 173 Tests dokumentiert. Keine vorweggenommene Gesamtfreigabe.
+
+## Erster Implementierungsstand
+
+M1 ist auf der neuen Standardroute implementiert; fünf weitere Missionen sind nur als kommende Fragen sichtbar. `?expert=1` erhält die bisherigen detaillierten Werkzeuge. Neues Lernprofil Version 2 und eigener Speicherschlüssel schützen alte freie Becken/Produkte. Vollständiger Start wird um 06:00 Uhr vorbereitet, beide Beobachtungen dauern exakt drei Tage. Alle Originalraten und Modelle bleiben erhalten.
+
+179 Modultests bestanden (173 bestehende Kern-/Archivprüfungen plus sechs neue gezielte Einbeckenprüfungen). Ein erster tatsächlicher Chromium-Weg besteht einschließlich Ergebnissicherung und Reload: Sauerstoff 7,80 → 8,24 mit Licht, 7,80 → 8,16 ohne Licht. Das sind eigene Modellwerte bei diesem Start; kein erzwungener Rückgang. Ein Konflikt mit einem alten Quiz-Handler (`data-answer`) wurde durch getrennte Ereignisse/Attribute behoben; der anschließende Weg hat keine Seitenfehler. Das ausgeblendete Dateifeld wird ausdrücklich verborgen. Diese Entwicklungsläufe sind noch keine abgeschlossene Desktop-/Tablet-Abnahme.
+
+Nächster Schritt: vollständige neue Browserprüfungen mit plausiblem Fehlerweg, tatsächlicher Objektwahl, Speicherfehlern und Geometrie; aktuelle PR-Vorschau und Einzel-HTML. Danach am neuen Gate vorlegen, nicht alle sechs Missionen als fertig melden.

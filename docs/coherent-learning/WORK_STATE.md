@@ -1,4 +1,6 @@
-# Gesicherter Entwicklungsstand
+# Historischer Entwicklungsstand vor dem Einbeckenauftrag
+
+**Dieser Stand wurde durch den neueren Auftrag ersetzt. Aktuelle Entwicklung und neues M1-Sichtgate: [single-aquarium/WORK_STATE.md](../single-aquarium/WORK_STATE.md).**
 
 Stand: 22.10.2026. Auftrag: [Masterauftrag](REQUEST.txt), [beigefügte Gegenprüfung](REVIEW.html). Branch: `feature/coherent-learning-workspaces`. PR: [#9](https://github.com/Feerson1617/Simulation-Aquarium/pull/9). [Bedienbare Vorschau](https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/).
 

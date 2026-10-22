@@ -1,4 +1,5 @@
 import {relativePlantComparison,learnerCSVComparison,learnerPrecision} from "./learning-display.mjs";
+import {mountSingleAquariumUI} from "./single-learning-ui.mjs";
 import {PROCESS_SCENES,PROCESS_TASKS,processWorkspace,forestWorkspace,connectProcess} from "./learning-process-workspace.mjs";
 import {fossilWorkspace,FOSSIL_EVIDENCE} from "./learning-evolution-evidence.mjs";
 import {harbourWorkspace,HARBOUR_OBJECTS,HARBOUR_MEASURES,harbourMeasure} from "./learning-regional-workspace.mjs";
@@ -108,6 +109,7 @@ const helpButton = (key) =>
 const panelHeader = (title, help) =>
   `<header><h2 tabindex="-1">${esc(title)}</h2><div>${help ? helpButton(help) : ""}${button("close", "Schließen", 'aria-label="Werkzeug schließen"')}</div></header>`;
 export function mountLearningUI(host) {
+  if(new URLSearchParams(location.search).get("expert")!=="1")return mountSingleAquariumUI(host);
   const root = document.createElement("div");
   root.id = "learning-root";
   host.root.append(root);

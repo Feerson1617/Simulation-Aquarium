@@ -17,7 +17,19 @@ M2 füttert einmal, zeichnet tatsächliche Abbauflüsse auf und unterscheidet Re
 
 Klasse 8 verwendet verständliche Veränderungen ohne Formeln/Einheiten; genaue Originaldaten bleiben für Lehrkräfte und Exporte erhalten. Freier Einstieg mit Katalog, Pflege, Messung, Pinzette, Objektkarte, Technik und Dateien. Einstellungen ohne Konto. Alte Daten werden nicht als neue Leistung umgedeutet. [Sprachregeln](LANGUAGE.md), [sechs Lernhandlungen und 14 Altzuordnungen](MISSIONS.md), [Lehrkraftübersicht](TEACHER.md).
 
-## Neue Prüfungen – derzeit noch laufend
+## Aktueller Zwischenstand nach der sprachlichen Endkontrolle
+
+Anwendungsstand `6d08bec90200c538385489a461779d2a6e3754e0` ist gepusht. `b3a3476` vereinfachte die F1-Frage zur reinen Farbbeobachtung. `331a926` vergibt eindeutige Genetik-Durchgänge und erhält die ökologische Ergebniskennung, `43ec3c4` prüft vorbereitete/abgeschlossene Becken gegen die wirklichen archivierten Zustände. Der Hochformatlauf fand danach eine mit Fehlerrückmeldung zu große M4-Karte (68,81 % frei). `6d08bec` kürzt die Sprache und zeigt bei der Frage zu gleichen Chancen nur die beiden tatsächlich neutralen Gruppen. Keine Schriftverkleinerung oder geänderte Biologie.
+
+191/191 Modultests auf `6d08bec` bestanden (`/tmp/classroom-node-final.log`). WebKit hat alle fünf neuen Missionen in allen drei Profilen bestanden (`/tmp/classroom-all/webkit/report.json`, Starthead `e86b4e7`, spätere begrenzte Änderungen gesondert prüfen). Chromium bestand fünf Desktop- und zwei Hochformatwege, bevor die echte M4-Verdeckung auffiel (`/tmp/classroom-final-current/chromium/report.json`, als Gesamtlauf **fehlgeschlagen**, Starthead `331a926`). Die vollständigen drei freien Jahrgänge plus tatsächliche Auswahl/Platzierung/sofortige Sicherung, Abbrechen, Lehrkrafteinstellungen und Quotenfehler sind bestanden: acht Prüfungen in `/tmp/classroom-research-verified/chromium/report.json` auf `43ec3c4`.
+
+Aktive Abschlussläufe: Chromium Hoch-/Querformat alle fünf neuen Wege in `/tmp/classroom-final-6d08/chromium/report.json` (Log `/tmp/classroom-final-6d08-chromium.log`); WebKit M3/M4/M5 im Hochformat in `/tmp/classroom-current-webkit/webkit/report.json` (Log `/tmp/classroom-current-webkit.log`). Maximal zwei Browserjobs gleichzeitig. Deren Ende abwarten, nicht erneut starten. Danach aktuelle M1-Sprachansichten beider Engines, freies WebKit, Expertenregression und tatsächliches Einzel-HTML prüfen.
+
+Einzel-HTML auf `6d08bec`: 151.441.753 Bytes; SHA-256 `9e54439e76ebd5e07653fbf329d2f47b8e30429a82870f9b1bca736f39cf730d`, `/workspace/aquarium-devtools/www/standalone-m1/index.html`. Neues `tests/single_classroom_standalone.py` ergänzt die M1-Offlineprüfung um wirkliche F1/F2-Handlungen mit eingebetteten neuen Modulen. Noch nicht ausgeführt. Kein natives `file:`-/iPad-Startversprechen. Der letzte Vorschau-Hashabgleich bestand 65/65 Dateien auf dem davorliegenden `b3a3476`; nach dem M4-Textdelta erneut prüfen. Der Quellvergleich auf diesem Stand zeigte keine veränderten geschützten Kernfunktionen oder Assets.
+
+Die folgenden Laufnotizen sind ältere Zwischenstände; maßgeblich sind die obigen konkreten Ergebnisse und danach der abschließende neue Bericht.
+
+## Frühere Zwischenstände der Prüfungen
 
 188 Modultests bestanden (`/tmp/classroom-node-final-188.log`). Alle fünf neuen Wege bestanden einen vollständigen ersten Chromium-Desktoplauf (`/tmp/classroom-first/chromium/report.json`, damalige Quellstände in dessen Hashes). Der spätere WebKit-Lauf hat bereits alle fünf Hochformat- und Desktopwege sowie Teile des Querformats bestanden; Endbericht erst nach Abschluss prüfen.
 

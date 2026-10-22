@@ -6,7 +6,7 @@ Run with AQUARIUM_BROWSER=webkit and AQUARIUM_WEBKIT=<portable launcher> if need
 import hashlib,json,os,subprocess,time,traceback
 from pathlib import Path
 from playwright.sync_api import sync_playwright,expect
-from biology_browser_helpers import reveal
+from biology_browser_helpers import reveal,activities,biological_experiment,comparison_answer
 
 ROOT=Path(__file__).resolve().parents[1]
 ENGINE=os.environ.get('AQUARIUM_BROWSER','chromium')
@@ -106,7 +106,7 @@ with sync_playwright() as pw:
     reveal(p.locator('[data-learning-series]')).select_option('0');reveal(p.locator('[data-learning-run]')).select_option('1')
     time_field(p).select_option('45.25');s=consistent(p);assert s['view']['repetition']==2
     assert s['view']['investigationId']==old['id'];assert s['comparison']['id']!=old['id']
-    details=p.locator('.coherent-data');details.locator('summary').first.click() if not details.get_attribute('open') else None
+    details=p.locator('.coherent-data');details.locator('summary').first.click() if details.get_attribute('open') is None else None
     act(p,'show-control');assert snap(p)['view']['side']=='control';act(p,'show-test');assert snap(p)['view']['side']=='test'
     assert p.evaluate('localStorage.getItem("aquarium-learning-tank-v1:8:8-ecosystem")')==baseline
     with p.expect_download() as d:act(p,'csv')
@@ -123,8 +123,39 @@ with sync_playwright() as pw:
     keys=p.evaluate('Object.keys(localStorage).filter(k=>k.startsWith("aquarium-learning-attempt-v1:"))');assert len(keys)==1
     act(p,'more');p.get_by_text('Frühere Durchgänge ansehen',exact=True).click();p.locator('[data-learning-archived-product]').click()
     expect(p.locator('.learn-imported-product')).to_contain_text('5 von 5')
+    expect(p.locator('.learn-teacher-comparison')).to_have_attribute('data-series-id',old['id'])
+    expect(p.locator('.learn-teacher-comparison')).to_have_attribute('data-view-time','45.25')
     passed('AT06: new attempt has fresh evidence; previous completed product remains readable')
    c.close()
+  for mission,grade in [('8-health',8),('10-restore',10)]:
+   c,p=setup_context(b,{'width':1366,'height':1024});start(p,grade,mission)
+   act(p,'observe');act(p,'close');activities(p);choose(p,0);choose(p,1);assert snap(p)['quest']['step']==2
+   act(p,'investigate');field=reveal(p.locator('[data-learning-value]'));field.fill('0');act(p,'compare')
+   s=snap(p);assert s['quest']['step']==2;assert not s['comparison']['runs'][0]['intervention']['effective']
+   assert s['comparison']['runs'][0]['control']==s['comparison']['runs'][0]['test']
+   passed('AT05 actual UI/core: zero water cannot fulfil '+mission)
+   if mission=='10-restore':
+    field=p.locator('[data-learning-value]');field.fill('50');reveal(p.locator('[data-learning-days]')).fill('14');act(p,'compare')
+    baseline=p.evaluate('localStorage.getItem("aquarium-learning-tank-v1:10:10-restore")')
+    p.locator('[data-activity-view="early"]').click();s=snap(p);assert s['view']['time']==45.25
+    expect(p.locator('.learn-results')).to_have_attribute('data-view-time','45.25')
+    expect(p.locator('.learn-chart')).to_have_attribute('data-view-time','45.25')
+    p.locator('[data-activity-view="late"]').click();s=snap(p);assert s['view']['time']==59
+    expect(p.locator('.learn-results')).to_contain_text('Kein vollständiger Paarvergleich')
+    assert s['view']['stateIds']['control'] is None
+    act(p,'show-control');expect(p.locator('[data-saved-view]')).to_contain_text('Keine Folgemessung')
+    assert not p.locator('[data-learn="adopt-view"]').count()
+    assert p.evaluate('localStorage.getItem("aquarium-learning-tank-v1:10:10-restore")')==baseline
+    passed('AT04 actual core: early/late cards, cursor, missing control and read-only view agree',view=s['view'])
+   c.close()
+  c,p=setup_context(b,{'width':1366,'height':1024});start(p,9,'9-mendel')
+  act(p,'observe');act(p,'close');activities(p);choose(p,0);choose(p,1)
+  biological_experiment(p,'9-mendel');s=snap(p);choose(p,comparison_answer('9-mendel',s['quest']['result']));activities(p);choose(p,0)
+  assert snap(p)['quest']['step']==5 and snap(p)['population']['generation']==2
+  old_attempt=snap(p)['attemptId'];act(p,'quest-restart');act(p,'repeat-attempt');s=snap(p)
+  assert s['attemptId']!=old_attempt and s['population']['generation']==0 and s['population']['events']==[] and s['quest']['step']==0
+  archives=p.evaluate('Object.keys(localStorage).filter(k=>k.startsWith("aquarium-learning-attempt-v1:"))');assert len(archives)==1
+  passed('AT06 actual F1/F2: repeat preserves the old product but requires new crosses');c.close()
   assert not report['errors'],report['errors'];assert not report['requests'],report['requests']
   report['status']='passed'
  except Exception as exc:

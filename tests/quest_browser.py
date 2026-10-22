@@ -92,7 +92,8 @@ with sync_playwright() as pw:
   if 'desktop' in SECTIONS:
    c,p=context(b)
    for g,ids in IDS.items():
-    for id in ids:complete(p,g,id)
+    for id in ids:
+     if id not in os.environ.get("AQUARIUM_QUEST_SKIP","").split(","):complete(p,g,id)
    c.close()
   if 'touch' in SECTIONS:
    c,p=context(b,True)

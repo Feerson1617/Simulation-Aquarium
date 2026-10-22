@@ -176,6 +176,7 @@ export function mountLearningUI(host) {
   const isPrototype = () => screen === "active" && !detailed && tag?.mission === "8-ecosystem";
   function inspectedQuestResult() {
     if (session?.quest?.step !== 3 || !["ecology","population"].includes(QUESTS[tag.mission]?.experiment.kind)) return session?.quest?.result;
+    if (isPrototype() && session.view?.mode === "plan") return null;
     const v = resolveComparisonView(session);
     if (!v || v.comparison !== session.comparison) return null;
     const r = comparisonReading({...v.comparison,runs:[{...v.run,control:v.row.control?[v.row.control]:[],test:v.row.test?[v.row.test]:[]}]},QUESTS[tag.mission].experiment);
@@ -185,8 +186,9 @@ export function mountLearningUI(host) {
   function showTime(time) {
     selectComparisonView(session,{time});
     const v = resolveComparisonView(session);
-    if (isPrototype() && v?.comparison === session.comparison && v.context.time === v.rows.at(-1).time && session.quest.step === 2)
-      recordQuestExperiment("ecology");
+    if (isPrototype() && v?.comparison.id === session.pendingExperimentId && v.context.time === v.rows.at(-1).time && [2,3,4].includes(session.quest.step)) {
+      recordQuestExperiment("ecology");delete session.pendingExperimentId;
+    }
     persist(); render();
   }
   function playWorkspace() {
@@ -1055,10 +1057,15 @@ export function mountLearningUI(host) {
     const defs = comparisonMetricDefinitions(comp),
       keys = Object.keys(defs),
       key = keys.includes(importedMetric) ? importedMetric : keys[0];
-    return `<section class="learn-teacher-comparison"><h3>Datenbezug prüfen</h3>${runMetadata(comp)}<label>Untersuchte Messgröße<select data-learning-imported-metric>${options(
+    return `<section class="learn-teacher-comparison" data-series-id="${esc(comp.viewContext?.seriesId || "")}" data-view-time="${comp.viewContext?.time ?? ""}"><h3>Datenbezug prüfen</h3>${comp.viewContext ? `<p>Angesehene Reihe ${comp.viewContext.series+1} · Wiederholung ${comp.viewContext.repetition} · ${comp.kind === "population" ? "Generation" : "Tag"} ${num(comp.viewContext.time)}. Die unveränderte vollständige Untersuchung bleibt im Lernprodukt enthalten.</p>` : ""}${runMetadata(comp)}<label>Untersuchte Messgröße<select data-learning-imported-metric>${options(
       keys.map((k) => [k, defs[k].join(" · ")]),
       key,
-    )}</select></label>${plot(comp, key)}${button("imported-csv", "Alle importierten Messreihen als CSV")}${runTables(comp, key)}</section>`;
+    )}</select></label>${plot(comp, key, comp.viewContext)}${button("imported-csv", comp.viewContext ? "Ausgewählten Zeitpunkt als CSV" : "Alle importierten Messreihen als CSV")}${runTables(comp, key)}</section>`;
+  }
+  function importedComparison() {
+    if (!imported?.viewContext) return imported?.comparison;
+    const x=imported.viewContext,v=resolveComparisonView({...imported,study:{series:x.series,run:x.run},view:x});
+    return {...v.comparison,runs:[v.run],viewContext:v.context};
   }
 
   function teacherView() {
@@ -1134,7 +1141,7 @@ export function mountLearningUI(host) {
                     )
                     .join("")}`
                 : ""
-            }${imported.gameExplanation ? `<h4>Spielerklärung</h4><p>${esc(imported.gameExplanation)}</p>` : ""}${imported.provenance?.legacy ? "<p>Altprodukt: Urheberschaft vorhandener Texte ist nicht dokumentiert. Sie gelten nicht automatisch als selbst formulierte Schülerleistung.</p>" : ""}${imported.earlierQuest ? `<details><summary>Früheres Questbuch · Anforderungen vor der Überarbeitung</summary><p>${imported.earlierQuest.step} von 5 damaligen Schritten. Originaleinträge bleiben im JSON erhalten.</p></details>` : ""}${imported.quest ? `<h3>Questbuch${imported.quest.version === 1 ? " · historischer Anforderungsstand" : ""}</h3><p>${imported.quest.step} von 5 Aufgaben</p>${imported.quest.entries.map((e) => `<p>${e.answer ? "Auswahl" : "Spielhandlung"} · ${esc(e.question || e.event)}: ${esc(e.answer || "Tatsächlich ausgeführter Eingriff")}</p>`).join("")}` : ""}${imported.comparisonHistory?.length ? `<details class="learn-comparison-history"><summary>Frühere Versuchsreihen (${imported.comparisonHistory.length})</summary>${imported.comparisonHistory.map(c=>`<p>${esc(c.kind)} · ${esc(c.environment || c.tool)} · ${c.runs.length} Wiederholungen · Ausgangslage ${esc(c.configuration?.baseline.fingerprint || "nicht dokumentiert")}</p><p>Seeds ${c.runs.map(r=>r.seed).join(", ")}. Vollständige tatsächliche Messreihen und Archive sind im JSON erhalten.</p>`).join("")}</details>` : ""}${imported.quest?.activities?.length ? `<h4>Bearbeitete Lernhandlungen</h4>${imported.quest.activities.map(a=>`<p>${a.kind === "assignment" ? "Auswahl/Zuordnung" : "Spielhandlung"} · ${esc(a.id)}: ${esc(a.from || "")} ${esc(a.to || "Messwerte angesehen")}</p>`).join("")}` : ""}${imported.comparison ? teacherData(imported.comparison) : ""}${manualData(imported, true)}${imported.population ? `<h3>Separater Zuchtversuch</h3><p>Startseed ${imported.population.initialSeed ?? "nicht dokumentiert"}; aktueller Zufallszustand ${imported.population.seed}. Dieses Archiv ersetzt nicht die Archive der Kontroll-/Selektionsläufe.</p>${archiveView(imported.population, "separater Mendelversuch")}` : ""}${imported.populationRepeats?.length ? `<h4>Dokumentierte Wiederholungen</h4>${imported.populationRepeats.map((r) => `<p>Seed ${r.seed}: AA ${r.final.AA}, Aa ${r.final.Aa}, aa ${r.final.aa}.</p>`).join("")}` : ""}</section>`
+            }${imported.gameExplanation ? `<h4>Spielerklärung</h4><p>${esc(imported.gameExplanation)}</p>` : ""}${imported.provenance?.legacy ? "<p>Altprodukt: Urheberschaft vorhandener Texte ist nicht dokumentiert. Sie gelten nicht automatisch als selbst formulierte Schülerleistung.</p>" : ""}${imported.earlierQuest ? `<details><summary>Früheres Questbuch · Anforderungen vor der Überarbeitung</summary><p>${imported.earlierQuest.step} von 5 damaligen Schritten. Originaleinträge bleiben im JSON erhalten.</p></details>` : ""}${imported.quest ? `<h3>Questbuch${imported.quest.version === 1 ? " · historischer Anforderungsstand" : ""}</h3><p>${imported.quest.step} von 5 Aufgaben</p>${imported.quest.entries.map((e) => `<p>${e.answer ? "Auswahl" : "Spielhandlung"} · ${esc(e.question || e.event)}: ${esc(e.answer || "Tatsächlich ausgeführter Eingriff")}</p>`).join("")}` : ""}${imported.comparisonHistory?.length ? `<details class="learn-comparison-history"><summary>Frühere Versuchsreihen (${imported.comparisonHistory.length})</summary>${imported.comparisonHistory.map(c=>`<p>${esc(c.kind)} · ${esc(c.environment || c.tool)} · ${c.runs.length} Wiederholungen · Ausgangslage ${esc(c.configuration?.baseline.fingerprint || "nicht dokumentiert")}</p><p>Seeds ${c.runs.map(r=>r.seed).join(", ")}. Vollständige tatsächliche Messreihen und Archive sind im JSON erhalten.</p>`).join("")}</details>` : ""}${imported.quest?.activities?.length ? `<h4>Bearbeitete Lernhandlungen</h4>${imported.quest.activities.map(a=>`<p>${a.kind === "assignment" ? "Auswahl/Zuordnung" : "Spielhandlung"} · ${esc(a.id)}: ${esc(a.from || "")} ${esc(a.to || "Messwerte angesehen")}</p>`).join("")}` : ""}${imported.comparison ? teacherData(importedComparison()) : ""}${manualData(imported, true)}${imported.population ? `<h3>Separater Zuchtversuch</h3><p>Startseed ${imported.population.initialSeed ?? "nicht dokumentiert"}; aktueller Zufallszustand ${imported.population.seed}. Dieses Archiv ersetzt nicht die Archive der Kontroll-/Selektionsläufe.</p>${archiveView(imported.population, "separater Mendelversuch")}` : ""}${imported.populationRepeats?.length ? `<h4>Dokumentierte Wiederholungen</h4>${imported.populationRepeats.map((r) => `<p>Seed ${r.seed}: AA ${r.final.AA}, Aa ${r.final.Aa}, aa ${r.final.aa}.</p>`).join("")}` : ""}</section>`
           : ""
       }<details><summary>Alle Missionshintergründe und Modellgrenzen</summary>${MISSIONS.map((m) => `<h3>${esc(m.title)}</h3><p>${esc(m.goal)}</p><p>${esc(m.curriculum)}</p><p>${esc(m.limits)}</p>${m.transfer ? transfer(m.transfer, false) : ""}`).join("")}</details>${archivedAttempts()}<h3>Versuche verwalten</h3><p>Ein Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.</p>${button("teacher-reset", "Ausgewählte Mission neu beginnen")}${button("teacher-restore", "Gesicherte Mission wiederherstellen")}<details><summary>Fachliche und curriculare Grundlage</summary><p>${CURRICULUM.title}, ${CURRICULUM.pages}; Original-PDF am 20.10.2026 abgeglichen. Die Simulation deckt ausgewählte Einheiten ab, nicht alle Inhalte der Klassen.</p><p>Gesundheit, Biomasse und Belastung sind Modellgrößen. Kohlenstoff nur qualitativ; Selektion nutzt offengelegte hypothetische Gewichte.</p></details>`
     );
@@ -1172,6 +1179,8 @@ export function mountLearningUI(host) {
       if(focusAttribute) [...root.querySelectorAll(`[${focusAttribute}]`)].find(e=>e.getAttribute(focusAttribute)===active.getAttribute(focusAttribute))?.focus({preventScroll:true});
       if (helpKey) root.innerHTML += `<section class="learn-help-pop" role="dialog" aria-modal="true" aria-label="Begriffshilfe"><h2>${esc(HELP[helpKey].term)}</h2><p>${esc(HELP[helpKey][8])}</p>${button("help-close","Hilfe schließen")}</section>`;
       root.querySelector(".coherent-workspace")?.toggleAttribute("inert",!!helpKey);
+      root.querySelector(".coherent-header")?.toggleAttribute("inert",!!helpKey);
+      if (!teacher.help) root.querySelectorAll("[data-learn-help]").forEach(b=>b.remove());
       host.layout(false); host.sceneInert(true); host.interactive(false);
       tankViews.update(root,v.sides,(side,uid)=>pickObject(side,uid),session.prototypeSelection);
       return;
@@ -1728,7 +1737,7 @@ export function mountLearningUI(host) {
       if (a === "imported-csv") {
         download(
           "aquarium-lernprodukt-daten.csv",
-          comparisonCSV(imported.comparison),
+          comparisonCSV(importedComparison()),
           "text/csv;charset=utf-8",
         );
         return;
@@ -1811,6 +1820,7 @@ export function mountLearningUI(host) {
         delete session.study.series;delete session.inspection;delete session.view;
         if (session.comparison) session.comparisonHistory=[...(session.comparisonHistory || []),session.comparison].slice(-3);
         session.comparison = bindComparison(next,session.attemptId);
+        if (isPrototype()) session.pendingExperimentId=session.comparison.id;
         session.comparison.planning = structuredClone(session.notes);
         if (isPrototype()) selectComparisonView(session,{time:next.runs[0].control[0].day});
         else {selectComparisonView(session);recordQuestExperiment("ecology");}

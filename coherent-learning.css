@@ -8,6 +8,7 @@
 .coherent-views {min-width:0;overflow:auto;overscroll-behavior:contain;pointer-events:auto;padding-bottom:8px}
 .coherent-clock {display:flex;align-items:center;gap:12px;flex-wrap:wrap;color:#f0f3e6;min-height:46px;margin-bottom:8px}
 .coherent-clock>span {margin-left:auto;font-size:14px;font-variant-numeric:tabular-nums}
+.coherent-clock .learn-help {min-width:44px!important;min-height:44px!important}
 .coherent-tanks {display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .coherent-tank {min-width:0;border:1px solid #d0dbc84d;border-radius:15px;overflow:hidden;background:transparent}
 .coherent-tank>header {display:flex;gap:12px;align-items:center;padding:10px 14px;background:#e8eee2;color:#234b48}

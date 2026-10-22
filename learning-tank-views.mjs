@@ -12,6 +12,10 @@ export function createTankViews(host) {
     main = source;
     for (const side of ["control", "test"]) {
       const container = root.querySelector(`[data-tank-viewport="${side}"]`), data = sides[side];
+      container?.addEventListener("assetfailed",event=>{
+        error="Ein Modell konnte nicht geladen werden: "+event.detail+". Deine Messwerte bleiben erhalten.";
+        const status=root.querySelector("[data-workspace-render-status]");if(status)status.textContent=error;
+      });
       let entry = entries.find(e => e.side === side);
       if (!container || !data.state) {
         if (entry) {entry.view.destroy(); entries = entries.filter(e => e !== entry);}

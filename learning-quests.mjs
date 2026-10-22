@@ -554,7 +554,7 @@ export function answerQuest(state, index, inspectedResult = state?.result) {
         : d.experiment.kind === "traits" ? "Vergleiche AA und Aa: Beide können dunkel aussehen."
         : d.experiment.kind === "case" ? "Prüfe Tiernutzen und den Aufwand für die Menschen am Hafen."
         : d.experiment.metric === "fishOutcome" && result.fish ? `Vergleiche zuerst das Überleben: ${result.fish.control.fishAlive} Fische leben in Becken 1, ${result.fish.test.fishAlive} in Becken 2. Bei gleicher Zahl prüfst du ihren Zustand.`
-        : `Vergleiche ${d.experiment.label}: ${result.control?.toLocaleString("de-DE",{maximumFractionDigits:3})} in Becken/Gruppe 1 und ${result.test?.toLocaleString("de-DE",{maximumFractionDigits:3})} in 2. Kleine Unterschiede können etwa gleich sein.`
+        : `Vergleiche ${d.experiment.label}: ${result.control?.toLocaleString("de-DE",{maximumFractionDigits:result.displayPrecision ?? 3})} in Becken/Gruppe 1 und ${result.test?.toLocaleString("de-DE",{maximumFractionDigits:result.displayPrecision ?? 3})} in 2. Kleine Unterschiede können etwa gleich sein.`
       : (step === 0 ? d.observe.feedback : questConclusion(d,result).feedback).replace(/^(Ja|Richtig)\.\s*/,"").split(". ")[0] + ". Probiere deine Zuordnung erneut.";
     return false;
   }

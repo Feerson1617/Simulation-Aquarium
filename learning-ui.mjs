@@ -1666,6 +1666,7 @@ export function mountLearningUI(host) {
         }
         persist();
         render();
+        if(session.quest.step !== old)root.querySelector(".coherent-views")?.scrollTo({top:0});
         root.querySelector(".learn-quest-inline h2,.learn-quest h2")?.focus();
         return;
       }

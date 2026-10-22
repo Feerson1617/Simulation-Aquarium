@@ -72,7 +72,9 @@ def complete(p,g,id,touch=False):
  r=snap(p).get('questionResult') or snap(p)['quest']['result'];correct=comparison_answer(id,r);short(p)
  choose((correct+1)%(2 if id=='9-traits' else 3));assert snap(p)['quest']['step']==3;assert snap(p)['quest']['feedback']
  if id in ['8-oxygen','9-mendel','10-carbon']:shot(p,f'{"touch" if touch else "desktop"}-{id}-compare.png')
- choose(correct);assert snap(p)['quest']['step']==4;activities(p,touch);choose(1);assert snap(p)['quest']['step']==4;choose(0);assert snap(p)['quest']['step']==5;short(p)
+ choose(correct);assert snap(p)['quest']['step']==4;activities(p,touch)
+ if id in ['8-foodweb','8-forest','10-carbon','9-darwin','10-northsea']:shot(p,f'{"touch" if touch else "desktop"}-{id}-active-process.png')
+ choose(1);assert snap(p)['quest']['step']==4;choose(0);assert snap(p)['quest']['step']==5;short(p)
  q=snap(p)['quest'];assert len(q['entries'])==5;assert {a['id'] for a in q['activities']}==EXPECTED_ACTIONS[id]
  assert not any(snap(p)['notes'].values()),'Generated answers/text must never become own notes'
  if p.locator('[data-learn="close"]:visible').count():act('close')

@@ -1,0 +1,18 @@
+{
+  "checkedAtUTC": "2026-10-22T19:55:32.024909+00:00",
+  "policy": "session proxy and system CA unchanged; no bypass",
+  "sources": [
+    {
+      "url": "https://fachportal.lernnetz.de/sh/faecher/biologie/fachanforderungen.html",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "url": "https://www.nationalpark-wattenmeer.de/wissensbeitrag/muell-im-meer/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.ospar.org/work-areas/eiha/marine-litter",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ]
+}

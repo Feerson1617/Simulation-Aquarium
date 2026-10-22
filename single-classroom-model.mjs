@@ -12,7 +12,13 @@ export const CLASSROOM_IDS=['m2-food-transformation','m3-hidden-inheritance','m4
 export const classroomSlot=id=>'aquarium-single-investigation-v1:'+id;
 const copy=x=>structuredClone(x);
 export const isGenetic=s=>['m3-hidden-inheritance','m4-dominance-frequency'].includes(s.mission);
-export function classroomContext(s){return {version:1,investigationId:s.id,attemptId:s.attemptId,revision:s.revision,runId:s.currentRun?.id||null,time:isGenetic(s)?s.generation:s.tank.day,timeKind:isGenetic(s)?'generation':'day',stateId:stateId(s.tank)};}
+function legacyClassroomContext(s){return {version:1,investigationId:s.id,attemptId:s.attemptId,revision:s.revision,runId:s.currentRun?.id||null,time:isGenetic(s)?s.generation:s.tank.day,timeKind:isGenetic(s)?'generation':'day',stateId:stateId(s.tank)};}
+export function classroomContext(s){
+ if(s.mission.startsWith('research-'))return legacyClassroomContext(s);
+ const genetic=isGenetic(s),prepared=['measure-ready','reset-measure-ready','measure-observe-ready'].includes(s.stage),run=s.currentRun||(!prepared?s.runs.at(-1):null);
+ const historicalTrial=!s.geneticRunId?s.trials.findLast(t=>stateId(t.lastTank)===stateId(s.tank)):null;
+ return {...legacyClassroomContext(s),version:2,runId:genetic?(s.geneticRunId||historicalTrial?.id||null):(run?.id||null),condition:genetic?(s.mission.startsWith('m3')?'mendel-cross':s.environment||'neutral'):(run?.condition||s.measure||'starting'),...(genetic?{randomSeed:s.trialSeed??s.initialSeed}:{} )};
+}
 export function classroomProduct(s){return copy({...s,currentContext:classroomContext(s),provenance:{prediction:'selection',answers:'selection',actions:'game-action',measurements:'simulation',ownText:s.ownText?(s.ownTextOrigin||'unknown'):'absent',explanation:'game-explanation'}});}
 function event(s,type,detail={}){s.events.push({type,origin:'game-action',context:classroomContext(s),...copy(detail)});}
 export function cohort(tank){return tank.entities.filter(e=>e.species==='molly'&&!e.dead);}
@@ -24,6 +30,7 @@ export function createClassroom(id,host,seed=cryptoSeed()){
  tank.learning={version:2,grade,mode:id.startsWith('research')?'free':'missions',mission:id.startsWith('research')?null:id};tank.day=45.25;
  const s={version:1,type:'aquarium-classroom-investigation',mission:id,revision:CLASSROOM_REVISION,id:investigationId(),attemptId:investigationId(),stage:'prediction',tank,baseline:null,runs:[],currentRun:null,events:[],answers:{},prediction:null,selection:null,parents:[],generation:0,history:[],trials:[],ownText:'',ownTextOrigin:'absent',seed:seed>>>0};
  if(isGenetic(s)){
+  s.geneticRunId=investigationId();
   tank.liters=700;tank.entities=tank.entities.filter(e=>host.types[e.species]?.category!=='fish');
   tank.genetics={version:1,enabled:false,pairs:{},pedigree:{},clutches:[],notes:'Lernversuch: Generationen nur durch ausdrückliche Handlung.',lastProcessedDay:45};
   const genotypes=id.startsWith('m3')?['AA','aa','aa','AA']:Array.from({length:12},(_,i)=>['AA','Aa','aa'][i%3]);
@@ -83,14 +90,14 @@ export function nextClassroomGeneration(s,host,environment='neutral'){
  s.parents=[];s.selection=null;
  if(cross)s.stage=s.generation===1?'f1-observation':'child';
  else {s.stage=s.generation<3?'generations':'trial-finished';s.environment=environment;
-  if(s.generation===3)s.trials.push({id:investigationId(),seed:s.trialSeed??s.initialSeed,condition:environment,founders:copy(s.baseline),history:copy(s.history.slice(-3)),lastTank:copy(s.tank),counts:counts(s.tank),eventContexts:copy(s.events.filter(e=>e.type==='generation').slice(-3))});
+  if(s.generation===3)s.trials.push({id:s.geneticRunId||investigationId(),seed:s.trialSeed??s.initialSeed,condition:environment,founders:copy(s.baseline),history:copy(s.history.slice(-3)),lastTank:copy(s.tank),counts:counts(s.tank),eventContexts:copy(s.events.filter(e=>e.type==='generation').slice(-3))});
  }
  return true;
 }
 export function resetClassroomTrial(s){
  if(s.stage!=='trial-finished'||s.trials.length>=3)return false;
  s.tank=copy(s.baseline);s.generation=0;s.parents=[];s.selection=null;
- s.seed=(s.initialSeed+s.trials.length*104729)>>>0;s.trialSeed=s.seed;
+ s.seed=(s.initialSeed+s.trials.length*104729)>>>0;s.trialSeed=s.seed;s.geneticRunId=investigationId();
  s.environment=s.trials.length===1?'neutral':'light';s.stage=s.trials.length===1?'neutral-again-ready':'selection-ready';
  event(s,'restore-for-independent-trial',{baselineId:s.baselineId,randomSeed:s.seed,independentRandomSequence:true});return true;
 }
@@ -172,7 +179,7 @@ export function validateClassroom(raw,host){
   const count=s.mission.startsWith('m5')?2:1;if(!isGenetic(s)&&(s.runs.length!==count||s.runs.some(r=>r.status!=='completed')))throw Error('Die Beobachtungen fehlen.');
   if(isGenetic(s)&&(s.mission.startsWith('m3')?s.generation!==2:s.trials.length!==3))throw Error('Die Generationen fehlen.');
  }
- if(s.currentContext&&JSON.stringify(s.currentContext)!==JSON.stringify(classroomContext(s)))throw Error('Zeitpunkt und Aquarium passen nicht.');
+ if(s.currentContext){const expected=s.currentContext.version===1?legacyClassroomContext(s):classroomContext(s);if(stateId(s.currentContext)!==stateId(expected))throw Error('Zeitpunkt und Aquarium passen nicht.');}
  if(isGenetic(s)){
   if(s.tank.genetics.enabled!==false)throw Error('Zusätzliche Fortpflanzung ist im Lernversuch ausgeschaltet.');
   for(const h of s.history){checkTank(h.tank);if(stateId(h.tank)!==h.stateId||JSON.stringify(counts(h.tank))!==JSON.stringify(h.counts))throw Error('Eine frühere Gruppe passt nicht.');}

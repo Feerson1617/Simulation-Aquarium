@@ -75,3 +75,14 @@ test('a failed ecological observation ends honestly, leaves one historical run, 
  assert.equal(s.stage,'failed');assert.equal(s.currentRun,null);assert.equal(s.runs.length,1);assert.equal(s.runs[0].samples.length,2);
  assert.equal(advanceClassroom(s,host),false);assert.deepEqual(validateClassroom(decodeSingle(encodeSingle(s)),host).runs,s.runs);
 });
+test('serial genetic runs have distinct identities even at the identical restored founder state',()=>{
+ const s=createClassroom('m4-dominance-frequency',host,80);predictClassroom(s,'yes');const first=classroomContext(s);
+ assert.ok(first.runId);assert.equal(first.condition,'neutral');assert.equal(first.randomSeed,80);
+ for(let i=0;i<3;i++)nextClassroomGeneration(s,host);assert.equal(s.trials[0].id,first.runId);
+ resetClassroomTrial(s);const second=classroomContext(s);assert.equal(second.stateId,first.stateId);assert.equal(second.time,first.time);assert.notEqual(second.runId,first.runId);assert.notEqual(second.randomSeed,first.randomSeed);
+});
+test('a completed ecological run remains identified, and earlier context-v1 files remain readable',()=>{
+ const s=createClassroom('m2-food-transformation',host,1);predictClassroom(s,'yes');classroomFeed(s,host);beginClassroomObservation(s,host);for(let i=0;i<12;i++)advanceClassroom(s,host);
+ assert.equal(classroomContext(s).runId,s.runs[0].id);const legacy=classroomProduct(s);legacy.currentContext={version:1,investigationId:s.id,attemptId:s.attemptId,revision:s.revision,runId:null,time:s.tank.day,timeKind:'day',stateId:stateId(s.tank)};
+ assert.deepEqual(validateClassroom(legacy,host).runs,s.runs);
+});

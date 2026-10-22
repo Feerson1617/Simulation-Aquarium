@@ -69,10 +69,12 @@ def finish(p,touch,id,label):
   p.screenshot(path=str(OUT/(label+'-f2.png')));fish=[e for e in s['session']['tank']['entities'] if e['species']=='molly'];child=next((e for e in fish if e['variant']=='gold'),fish[0]);p.locator(f'[data-class=select][data-class-uid="{child["uid"]}"]').click();geometry(p,label+'-actual-alleles');choice(p,'actual-alleles',touch);choice(p,'possible',touch)
  elif id.startswith('m4'):
   baseline=snap(p)['session']['baseline']
+  previous_context=None
   for trial in range(3):
+   current_context=snap(p)['context'];assert current_context['runId'];assert current_context['runId']!=previous_context;previous_context=current_context['runId']
    for g in range(3):click(p,'generation',touch);actual_genetics(p)
    geometry(p,label+'-trial-'+str(trial));old=json.dumps(snap(p)['session']['trials'],sort_keys=True)
-   if trial<2:click(p,'reset-trial',touch);assert snap(p)['session']['tank']==baseline;assert json.dumps(snap(p)['session']['trials'],sort_keys=True)==old
+   if trial<2:click(p,'reset-trial',touch);assert snap(p)['session']['tank']==baseline;assert snap(p)['context']['runId']!=previous_context;assert json.dumps(snap(p)['session']['trials'],sort_keys=True)==old
   reload_exact(p);click(p,'compare-trials',touch);help_error(p,'guarantee','actual-counts',touch,label)
   click(p,'parents',touch);expect(p.locator('.single-dialog')).to_contain_text('doppelte Gewicht');p.keyboard.press('Escape');choice(p,'weighted-parents',touch);choice(p,'not-guaranteed',touch)
  elif id.startswith('m5'):

@@ -2,7 +2,7 @@
 
 Auftrag: [Masterauftrag](REQUEST.txt), [Prüfbericht](REVIEW.html). Neuer Branch: `feature/coherent-learning-workspaces`. Ausgangspunkt ist exakt `8e41962132fe3778fe73f8e14c650f42e18d848d` auf main; PR #8 ist gemergt. Der bei Arbeitsbeginn vorgefundene Stand war sauber. Frühere Arbeit wurde nicht verworfen. Die neue Entwicklung ist schrittweise auf GitHub gesichert.
 
-**Geprüfter Anwendungsstand: `a7ee966a3116faf4a231050718dc899fc1eea3fb`.** Nachfolgende Dokumentations-/Belegcommits ändern diesen Anwendungscode nicht. Den aktuellen Branch-Head liefert `git rev-parse HEAD`.
+**Geprüfter Anwendungsstand: `d0c4b17096289c18efa63a8b93aa49205c4cb1bd`.** Nachfolgende Dokumentations-/Belegcommits ändern diesen Anwendungscode nicht. Den aktuellen Branch-Head liefert `git rev-parse HEAD`.
 
 ## Verbindliche Arbeitsgrenze
 
@@ -21,11 +21,17 @@ Vor der nächsten Entwicklungsphase muss der Auftraggeber den Temperaturvergleic
 - Verlustfreie lokale Archivkompression mit MIT-lizenziertem lz-string 1.5.0. Abwärtskompatibilität für unkomprimierte Archive. Speicherfehler lassen den vorher gespeicherten Versuch bestehen; die fünfte Reihe archiviert die älteste gesondert.
 - [Matrix aller 14 Missionen](MISSIONS.md) und dauerhafte Prüfregel für alle Klassen/Modi in der README.
 
+Der neue [Entwurfs-PR #9](https://github.com/Feerson1617/Simulation-Aquarium/pull/9) und die [funktionierende Vorschau](https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/) sind vorhanden. Die Quellhashes der Auslieferung und ein tatsächlicher WebKit-Aufruf sind geprüft. Noch kein Merge.
+
+Letzte abgegrenzte Datenkorrektur: Auch die technische Lehrkraft-/Expertenansicht löst Reihe, Wiederholung und Zeit über denselben Selektor auf. Geändert wurden ausschließlich `results()` und `runTables()`; [Quellvergleich](evidence/expert-source-audit.json). Gezielte Prüfungen einschließlich CSV/SVG bestehen in beiden Engines; neun zusätzliche WebKit-Schutzprüfungen zu Sanierung, Genetik und alten Produkten bestehen.
+
 ## Prüfung und Belege
 
 [VALIDATION.md](VALIDATION.md) dokumentiert ausgeführte Prüfungen, genaue Quellenstände, Bilder und Grenzen. Entwicklungsfehlschläge werden dort von den abschließenden Ergebnissen getrennt. Ein technischer Missionsabschluss belegt weder eine neue sachgerechte Darstellung aller Missionen noch Unterrichtswirksamkeit.
 
 Die Archivkorrektur entstand aus einem echten Fehler im Mehrmissionslauf: Nach neun Abschlüssen überschritt die unkomprimierte Speicherung das lokale Limit; die Kohlenstoffmission fiel beim Neuladen auf Aufgabe 2 zurück. Die korrigierte Version bestand anschließend den gesamten zusammenhängenden Lauf. Gemessenes Beispiel: 744.703 auf 326.040 JSON-Zeichen, 56,2 % weniger, alle Zustände exakt erhalten.
+
+Abschluss dieses Gateabschnitts: 154/154 Modultests; je 15/15 Temperatur-/Kontextpunkte, je 22/22 zusätzliche Missions-/Modusprüfpunkte, 5/4 Kompatibilitätspunkte und je zwei Nebenansichtsprüfungen in Chromium/WebKit. Dazu 13 Start-/Tutorialpunkte, gezielte technische Auswahl einschließlich Einzel-HTML in beiden Engines und neun zusätzliche WebKit-Schutzprüfungen. Details und Unterschiede der Pixeldichten/Quellenstände stehen im Prüfbericht.
 
 ## Offen nach dem Sichtgate
 

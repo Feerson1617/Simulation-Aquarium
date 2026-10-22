@@ -20,6 +20,7 @@ node --test tests/*.test.mjs
 AQUARIUM_COHERENT_RESULTS=/tmp/coherent-check python3 tests/coherent_workspace_browser.py
 AQUARIUM_COMPAT_RESULTS=/tmp/coherent-compat python3 tests/coherent_compat_browser.py
 AQUARIUM_TOOLS_RESULTS=/tmp/coherent-tools python3 tests/coherent_tools_browser.py
+python3 tests/coherent_expert_context_browser.py
 ```
 
 Standard-URL: `http://127.0.0.1:8000/aquarium-simulation/`. `AQUARIUM_URL` erlaubt andere autorisierte HTTP-Unterpfade. Die Browser nutzen isolierte Speicherprofile. Alle neuen Abschlüsse werden durch die sichtbaren Bedienelemente erreicht, nicht durch eingespritzte Questabschlüsse. Historische Fixture-Importe und die gezielte Speicherfehler-Injektion sind gesondert benannt.
@@ -35,3 +36,5 @@ python3 /workspace/aquarium-devtools/run-webkit.py tests/coherent_workspace_brow
 Analog für die beiden anderen Prüfskripte. Die tatsächlich verwendete Starterdatei ist unter [evidence/setup/webkit-portable-browser.sh](evidence/setup/webkit-portable-browser.sh) dokumentiert. Der offizielle MiniBrowser wird direkt mit seinen privaten Bibliotheken gestartet; keine Sicherheits-, Netzwerk- oder Hostprüfung wird im Spiel ausgeschaltet.
 
 Die Renderingtests verwenden Software-Rendering in der Cloud. Gemessene Lade-/Zeichenzeiten gelten für diese Umgebung und die dokumentierten Viewports. Physische iPads, Mobile Safari und Offline-Dateien auf iPadOS bleiben gesondert zu prüfen. Ein über HTTP bereitgestelltes Einzel-HTML ist kein bestandener `file:`-Offline-Test.
+
+Die technische Mehrmissionsregression erlaubt `AQUARIUM_TEST_DPR=0.5`; Standard bleibt 1. Dieser Parameter reduziert ausschließlich die Test-Pixeldichte bei unverändertem CSS-Viewport, Objektbestand und Assertions. Er ersetzt keine visuelle oder physische Geräteabnahme.

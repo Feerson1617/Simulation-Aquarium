@@ -7,8 +7,9 @@
 - `compat/`: echte alte Produkte, Speicherfehler und Archivierung; Chromium zusätzlich mit nativen Touchereignissen.
 - `quests/`: die 13 erhaltenen anderen Missionswege und weitere freie/Lehrkraft-/Hilfsfälle.
 - `regression/`: freies Spiel, Platzierung, Katalog, Speicherung und vollständiges Touch-Tutorial.
+- `expert/` und `expert-review/`: ergänzende historische Auswahl in der technischen Ansicht sowie die neun Sanierungs-/Genetik-/Altimportprüfungen; `expert-source-audit.json` grenzt die zwei geänderten Funktionen vom unveränderten Basiscode ab.
 - `standalone/`: neu erzeugtes Einzel-HTML über HTTP, ohne zusätzlich angeforderte Spielressourcen. Kein nativer Offline-Dateinachweis.
-- `preview-webkit/` und `preview.json`: tatsächlicher öffentlicher Browseraufruf sowie ausgelieferte Hauptdateien im Vergleich zu lokalen Hashes und main.
+- `preview-webkit/`, `preview-expert-webkit/` und `preview.json`: tatsächliche öffentliche Browseraufrufe sowie ausgelieferte Hauptdateien im Vergleich zu lokalen Hashes und main.
 - `development/`: getrennte Fehlversuche. Diese sind keine bestandenen abschließenden Tests.
 - `setup/`: tatsächlich verwendeter privater WebKit-Starter, Kernvergleich und öffentliche Vorschauprobe. Keine neuen Konten, Berechtigungen oder abgeschaltete Zertifikatsprüfung.
 

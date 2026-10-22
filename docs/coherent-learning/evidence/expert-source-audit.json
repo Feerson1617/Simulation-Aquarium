@@ -1,0 +1,21 @@
+{
+  "basis": "a7ee966a3116faf4a231050718dc899fc1eea3fb",
+  "head": "d0c4b17096289c18efa63a8b93aa49205c4cb1bd",
+  "file": "learning-ui.mjs",
+  "sourceSha256": "c55dda5732fd5ec2b29425984b07c60977c8bf7559558836eee67b5ebfc530e0",
+  "changedFunctions": [
+    "results",
+    "runTables"
+  ],
+  "allOtherSourceBytesUnchanged": true,
+  "functions": {
+    "results": {
+      "before": "a485f10f3d72afd35f6a56861f123ef3871400c07740375b2b11c0f653b0ce52",
+      "after": "ab8f9dae4d8a2651d981992aca21255e57996dd02fe4f20ea92a2b6e53023551"
+    },
+    "runTables": {
+      "before": "39e526ef016d258ffead021eadc7d1117244d00a7155f1794c38ed461bcb2c16",
+      "after": "09404fb688d475f2ffcbb0370971d530c03cf99c507d3828e2a1c7d8d8f26041"
+    }
+  }
+}

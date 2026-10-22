@@ -1,7 +1,7 @@
 {
   "preview": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/",
-  "build_commit": "24065fd6ec1692c53562083715cf5f4e8ebc1713",
-  "workflow": "https://github.com/Feerson1617/Simulation-Aquarium/actions/runs/39759099375",
+  "build_commit": "d0c4b17096289c18efa63a8b93aa49205c4cb1bd",
+  "workflow": "https://github.com/Feerson1617/Simulation-Aquarium/actions/runs/39763109895",
   "files": [
     {
       "path": "index.html",
@@ -34,8 +34,8 @@
     {
       "path": "learning-ui.mjs",
       "status": 200,
-      "bytes": 122464,
-      "sha256": "246dbf581836e15cd50f8aa9acc91e5d2a46f5a4e182557027bd53fcada13ab2",
+      "bytes": 123518,
+      "sha256": "c55dda5732fd5ec2b29425984b07c60977c8bf7559558836eee67b5ebfc530e0",
       "matches_local": true
     },
     {

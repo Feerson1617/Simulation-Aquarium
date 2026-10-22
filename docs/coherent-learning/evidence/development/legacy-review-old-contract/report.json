@@ -1,0 +1,23 @@
+{
+  "checks": [
+    "R1/R8: real 10-restore 50%/14d stops control at day48.25, test reaches59; independent real-core continuation, cause and CSV provenance",
+    "R1: real control is still alive at day48; the next terminal core step retains day48.25 and nitrite cause; paired final-step edge remains covered by Node",
+    "R3: baseline label updates immediately; changed baseline/input/notes cannot relabel old data or JSON provenance"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "screenshots": [
+    "r1-independent-tank-series.png",
+    "r3-plan-changed-old-result.png",
+    "r2-teacher-nitrite-status.png",
+    "failure.png"
+  ],
+  "sections": [
+    "ecology",
+    "genetics",
+    "draft"
+  ],
+  "engine": "webkit",
+  "status": "failed",
+  "failure": ""
+}

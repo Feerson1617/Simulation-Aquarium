@@ -10,7 +10,9 @@ Die Instrumentierung meldete 144 Geometrien und 32 Texturen, einen WebGL-Kontext
 
 Die öffentliche PR-Vorschau lud im WebKit-Smoke-Test bis zu beiden Modellgruppen in etwa 14,0 s. CDN, nicht isolierter Kalt-/Warmcache und nebenläufige Tests begrenzen den Vergleich. Auch dieser Wert beweist kein Ladebudget auf einem Schulnetz.
 
-Das vollständige Backup hat 151.261.415 Bytes, SHA-256 `fb6f14f415e320b354a9dd9980fe7b648000b65fe32ea22308db874047d1ee02`. Es bleibt außerhalb von Git. Die Größe ist für Schul-iPad-Offline-Verteilung problematisch; aus einem erfolgreichen HTTP-Test wird keine native Datei- oder Speicherfreigabe abgeleitet.
+Das damals gemessene Basisbackup hat 151.261.415 Bytes, SHA-256 `fb6f14f415e320b354a9dd9980fe7b648000b65fe32ea22308db874047d1ee02`. Es bleibt außerhalb von Git. Die Größe ist für Schul-iPad-Offline-Verteilung problematisch; aus einem erfolgreichen HTTP-Test wird keine native Datei- oder Speicherfreigabe abgeleitet.
+
+Die spätere Korrektur ausschließlich der technischen Ergebnisansicht verändert keine dieser Renderfunktionen. Das finale Backup hat 151.262.469 Bytes (+1.054), SHA-256 `ade2e5f95adcd207f78629c5cc9ac6c3bf991364ba8b39ddbc64e9861c6e8079`; siehe [aktueller Artefaktnachweis](evidence/standalone-artifact.json). Die genannten Leistungsmessungen bleiben Messungen der Basisdatei und werden nicht als neue Messreihe ausgegeben.
 
 ## Konkrete Budgets für die nächste Geräteprüfung
 

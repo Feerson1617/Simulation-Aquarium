@@ -266,6 +266,7 @@ export function mountLearningUI(host) {
       population:tag.grade === 9 ? (repeat ? repeatLearningPopulation(old.population) : createLearningPopulation()) : null,
       study:{tool:e.tool || tools().find(k=>LEARNING_TOOLS[k]) || "light",value:tag.mission === "8-ecosystem" ? tank.setTemp : e.value ?? null,
         days:3,repetitions:2,metric:e.metric || (tag.grade === 9 ? "dark" : "oxygen"),environment:"neutral",generations:5},quest:newQuest(tag.mission)};
+    if(tag.grade === 9)session.populationMode=e.kind === "population" ? "comparison" : "cohort";
     if(tag.mission === "8-ecosystem") session.quest.visualEvidenceVersion=1;
     if(tag.mission === "10-wadden") session.quest.visualCaseVersion=1;
     selected=null;showGenes=false;panel=null;host.open(tank);persist();render();
@@ -1245,7 +1246,7 @@ export function mountLearningUI(host) {
       tankViews.dispose();
       const v=populationWorkspaceView(session,LEARNING_MODEL_REVISION), oldScroll=root.querySelector(".coherent-views")?.scrollTop || 0;
       const drawer=panel === "more" ? student.more() : panel === "notebook" ? notebook() : panel === "display" ? display() : panel === "glossary" ? glossary() : panel === "restart-attempt" ? restartView() : "";
-      root.innerHTML=populationWorkspace({session,view:v,tag,showGenes,esc,button,helpButton,quest:(panel && !drawer ? button("close","Zur Aufgabe") : "")+student.quest(true),drawer,
+      root.innerHTML=populationWorkspace({session,view:v,tag,showGenes,esc,button,helpButton,quest:(panel && !drawer ? button("close","Zur Aufgabe")+(panel === "observe" ? `<section class="coherent-note"><h3>Fische genau ansehen ${helpButton("observe")}</h3><p>Wähle einen Fisch direkt in der Zählansicht. Seine Nummer und seine Farbe gehören zusammen.</p></section>` : "") : "")+student.quest(true),drawer,
         breeding:student.breeding(true),investigation:student.investigation(true),results:student.results(),materials:tag.mission === "9-darwin" && session.quest?.step === 4 ? fossilWorkspace({session,esc}) : ""});
       if(storageError)root.querySelector(".coherent-notebook").insertAdjacentHTML("afterbegin",`<p class="coherent-storage" role="alert">${esc(storageError)}</p>`);
       root.querySelector(".coherent-views").scrollTop=oldScroll;restorePosition();
@@ -1616,7 +1617,7 @@ export function mountLearningUI(host) {
         }
         const accepted = assignActivity(session.quest,d.activityId,Number(d.activityChoice));
         session.quest.feedbackKind = accepted ? "success" : "error";
-        if (accepted && isPrototype()) session.quest.activities.at(-1).object = structuredClone(session.prototypeSelection);
+        if (accepted && isPrototype() && session.prototypeSelection && ["living","water"].includes(d.activityId)) session.quest.activities.at(-1).object = structuredClone(session.prototypeSelection);
         if(accepted && tag.mission === "8-forest") session.quest.activities.at(-1).objects={leaves:structuredClone(session.forestSelection),kind:"qualitative-leaf-comparison"};
         const q=session.quest;
         if (q.id === "10-wadden" && q.step === 2 && !pendingActivity(q,2)) {

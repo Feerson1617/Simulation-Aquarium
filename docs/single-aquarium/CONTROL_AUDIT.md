@@ -1,3 +1,5 @@
+> Inventar am damaligen M1-Gate. Die Sichtfreigabe liegt inzwischen vor; die sechs neuen Wege und der freie Einstieg werden weiter geprüft. [Aktueller Stand](WORK_STATE.md). Die alten Zahlen werden nicht als neue Gesamtprüfung ausgegeben.
+
 # Bedieninventar und Entscheidungen am M1-Gate
 
 Die [vorgegebene Matrix](CONTROL_MATRIX_SOURCE.md) enthält 64 Funktionsgruppen. Das sind Zuständigkeiten, keine gleichzeitig sichtbaren Buttons. Ihre erwähnte Rohdatei `controls-source-inventory.json` war nicht Teil der neuen Anhänge. Die folgenden Zahlen stammen deshalb aus **eigenen tatsächlichen Browserläufen** und werden nicht aus statischen Fundstellen abgeleitet.

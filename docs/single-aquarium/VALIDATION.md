@@ -1,3 +1,5 @@
+> Historischer M1-Gate-Bericht. Der Auftraggeber hat diese neue Sichtfreigabe inzwischen erteilt und einfache Sprache ohne chemische Einheiten in Klasse 8 verlangt. Aktuelle Fortsetzung: [WORK_STATE](WORK_STATE.md), [Sprachregeln](LANGUAGE.md), [Lehrkraftübersicht](TEACHER.md). Die folgenden Versions- und Bildbelege bleiben unverändert dem damaligen Stand zugeordnet.
+
 # M1-Prototyp zur neuen Sichtabnahme
 
 **Stand: 22.10.2026, Anwendungscode `260cc516eff7242ff86482b0a086b707d64f3a86`.** [PR #9](https://github.com/Feerson1617/Simulation-Aquarium/pull/9) bleibt Entwurf auf `feature/coherent-learning-workspaces`. [Prototyp öffnen](https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/). Keine Änderung auf main, kein Merge.

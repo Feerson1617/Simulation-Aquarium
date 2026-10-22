@@ -27,6 +27,11 @@ def activities(p,touch=False):
   cards=p.locator('[data-activity-id]:visible')
   if cards.count():
    id=cards.first.get_attribute('data-activity-id');index=1 if id=='water' else 0
+   # The temperature prototype requires observing the actual object first.
+   if id=='living' and p.locator('[data-coherent-pick]').count():
+    loc=p.locator('[data-coherent-pick="control"]');loc.tap() if touch else loc.click()
+   if id=='water' and p.locator('[data-coherent-water]').count():
+    loc=p.locator('[data-coherent-water="test"]');loc.tap() if touch else loc.click()
    target=p.locator(f'[data-activity-id="{id}"][data-activity-choice="{index}"]:visible').first
    target.tap() if touch else target.click();continue
   views=p.locator('[data-activity-view]:visible')
@@ -80,7 +85,9 @@ def biological_experiment(p,id,touch=False):
  if id=='10-restore':reveal(p.locator('[data-learning-days]')).fill('14')
  if id=='8-ecosystem':
   action(p,'device-temperature',touch);reveal(p.locator('[data-equipment-value]')).fill('27');p.locator('[data-equipment-save]').click();assert p.evaluate('document.activeElement.dataset.learn')=='device-temperature'
- action(p,'compare',touch);c=snap(p)['comparison'];run=c['runs'][0];assert run['initialControl']==run['initialTest'];assert run['control'] and run['test']
+ action(p,'compare',touch)
+ if id=='8-ecosystem':p.wait_for_function('window.aquariumLearningSnapshot().quest.step===3')
+ c=snap(p)['comparison'];run=c['runs'][0];assert run['initialControl']==run['initialTest'];assert run['control'] and run['test']
  if id=='8-ecosystem':assert 25<run['finalTest']['params']['temp']<27;assert run['finalControl']['params']['temp']==25
  if id=='8-oxygen':
   actual=p.evaluate('s=>window.aquariumSimulationProbe(s,3)',run['initialControl']);assert actual['params']==run['finalControl']['params']

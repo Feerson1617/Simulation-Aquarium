@@ -1,6 +1,6 @@
 /** Two immutable tank scenes, one existing WebGL context and the existing models. */
 export function createTankViews(host) {
-  let main = null, entries = [], last = 0, frames = 0, error = null;
+  let main = null, entries = [], last = 0, frames = 0, error = null, drawTimes = [];
   const dispose = () => {
     if (main) {main.learningDraw = null; main.renderer.setScissorTest(false);}
     for (const e of entries) e.view.destroy();
@@ -48,11 +48,23 @@ export function createTankViews(host) {
         for (const e of entries) {
           const r = e.view.container.getBoundingClientRect();
           if (!r.width || !r.height || r.bottom < 0 || r.top > innerHeight) continue;
+          const clip = root.querySelector(".coherent-views").getBoundingClientRect();
+          const left=Math.max(r.left,clip.left,outer.left),right=Math.min(r.right,clip.right,outer.right);
+          const top=Math.max(r.top,clip.top,outer.top),bottom=Math.min(r.bottom,clip.bottom,outer.bottom);
+          if (right<=left || bottom<=top) continue;
           const x = r.left-outer.left, y = outer.bottom-r.bottom;
           if (Math.abs(e.view.camera.aspect-r.width/r.height) > .0001) e.view.resize();
-          renderer.setViewport(x,y,r.width,r.height); renderer.setScissor(x,y,r.width,r.height);
+          const focusDevice=e.side === "test" && document.documentElement.classList.contains("device-adjusting");
+          const focusObject=focusDevice ? e.view.tank.children.find(o=>o.name.startsWith("equipment:heater:")) :
+            selected?.side === e.side && selected.uid ? e.view.objects.get(selected.uid)?.group : null;
+          const focusKey=focusDevice ? "heater" : focusObject ? "fish-"+selected.uid : "overview";
+          if (e.focusKey !== focusKey) {e.view.resize();e.focusKey=focusKey;}
+          e.view.camera.zoom=focusObject ? 2.3 : 1;e.view.camera.updateProjectionMatrix();
+          if (focusObject) {focusObject.getWorldPosition(e.view.controls.target);e.view.controls.update();}
+          renderer.setViewport(x,y,r.width,r.height); renderer.setScissor(left-outer.left,outer.bottom-bottom,right-left,bottom-top);
           e.view.animate();
         }
+        drawTimes.push(performance.now()-now);if(drawTimes.length>120)drawTimes.shift();
         frames++;
       } catch (e) {
         error = "Die 3D-Ansicht konnte nicht gezeichnet werden. Deine Messwerte sind gespeichert.";
@@ -65,6 +77,8 @@ export function createTankViews(host) {
   }
   return {update, dispose, get: side => entries.find(e=>e.side===side)?.view,
     snapshot: () => ({frames, error, contexts: main ? 1 : 0,
+      drawMilliseconds:drawTimes.length ? {samples:drawTimes.length,mean:drawTimes.reduce((a,b)=>a+b,0)/drawTimes.length,max:Math.max(...drawTimes)} : null,
+      memory:main ? {...main.renderer.info.memory} : null,
       sides: entries.map(e=>({side:e.side,stateId:e.stateId,objects:e.view.objects.size,
         detailModels:[...e.view.objects.values()].filter(o=>o.group.userData.natural).length,
         ids:[...e.view.objects.keys()],day:e.view.state.day,seed:e.view.state.seed}))})};

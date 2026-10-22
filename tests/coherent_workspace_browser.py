@@ -77,7 +77,9 @@ with sync_playwright() as pw:
    field=reveal(p.locator('[data-equipment-value]'));assert float(field.input_value().replace(',','.'))==27
    field.fill('');p.locator('[data-equipment-save]').click();expect(p.locator('[data-control-error]:visible')).not_to_be_empty()
    assert read(p)==['25,0 °C','25,0 °C'];assert p.locator('.coherent-views').is_visible()
-   field.fill('27,0');p.locator('[data-equipment-save]').click();assert snap(p)['study']['value']==27
+   field.fill('27,0')
+   if label!='landscape':shot(p,f'{label}-2-device-focus.png')
+   p.locator('[data-equipment-save]').click();assert snap(p)['study']['value']==27
    assert p.locator('[data-view-side="control"] header').inner_text().endswith('25,0 °C')
    assert p.locator('[data-view-side="test"] header').inner_text().endswith('27,0 °C')
    assert read(p)==['25,0 °C','25,0 °C'];assert p.evaluate('document.activeElement.dataset.learn')=='device-temperature'

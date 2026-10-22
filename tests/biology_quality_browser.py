@@ -21,6 +21,7 @@ def context(b):
 with sync_playwright() as w:
  engine=os.environ.get('AQUARIUM_BROWSER','chromium');kind=getattr(w,engine);launch={}
  if engine=='chromium':launch={'executable_path':os.environ.get('AQUARIUM_CHROMIUM','/usr/bin/chromium'),'args':['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']}
+ if engine=='webkit' and os.environ.get('AQUARIUM_WEBKIT'):launch['executable_path']=os.environ['AQUARIUM_WEBKIT']
  b=kind.launch(**launch)
  try:
   c,p=context(b);p.locator('[data-learn-grade="8"]').click();action(p,'free');assert not snap(p)['habitat'];base=p.evaluate('JSON.parse(localStorage.getItem("aquarium-learning-tank-v1:8:free"))')

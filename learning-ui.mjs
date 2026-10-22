@@ -244,7 +244,7 @@ export function mountLearningUI(host) {
     const old=session, tank=repeat ? structuredClone(old.baseline) : createLearningTank(tag,host);
     const e=QUESTS[tag.mission].experiment;
     session={version:1,viewVersion:1,attemptId:investigationId(),planId:investigationId(),notes:{},measurements:[],baseline:structuredClone(tank),comparison:null,
-      population:tag.grade === 9 ? createLearningPopulation(repeat ? old.population.initialSeed : 47291) : null,
+      population:tag.grade === 9 ? (repeat ? repeatLearningPopulation(old.population) : createLearningPopulation()) : null,
       study:{tool:e.tool || tools().find(k=>LEARNING_TOOLS[k]) || "light",value:tag.mission === "8-ecosystem" ? tank.setTemp : e.value ?? null,
         days:3,repetitions:2,metric:e.metric || (tag.grade === 9 ? "dark" : "oxygen"),environment:"neutral",generations:5},quest:newQuest(tag.mission)};
     selected=null;showGenes=false;panel=null;host.open(tank);persist();render();
@@ -427,7 +427,7 @@ export function mountLearningUI(host) {
         : matches
           ? session.comparison.kind === "population"
             ? "Gruppe 1: keine Farbe bevorzugt. Gruppe 2: deine Umgebung."
-            : "Becken 1 blieb gleich. Becken 2 wurde verändert."
+            : "Becken 1: Einstellung bleibt gleich. Becken 2: gewählter Eingriff. Beide Becken entwickeln sich weiter."
           : "Du hast etwas geändert. Starte den Versuch neu.";
       state.classList.toggle("learn-outdated", !matches);
     }
@@ -1159,9 +1159,15 @@ export function mountLearningUI(host) {
     document.documentElement.classList.toggle("learning-coherent",isPrototype());
     document.documentElement.classList.toggle("learning-history-view",active && panel === "saved-view");
     if (isPrototype() && !["more","notebook","teacher","display","restart-attempt"].includes(panel)) {
+      const openDetails=[...root.querySelectorAll("details[open] > summary")].map(s=>s.textContent);
+      const scrolls=[".coherent-views",".coherent-notebook"].map(selector=>({selector,top:root.querySelector(selector)?.scrollTop || 0}));
+      const active=document.activeElement,focusAttribute=active?.getAttributeNames?.().find(a=>a.startsWith("data-") && !a.startsWith("data-view"));
       const v = temperatureView(session,host,LEARNING_MODEL_REVISION);
       const panelBody = panel === "observe" ? `<section class="coherent-note"><h3>Schau auf Fisch und Wasser ${helpButton("observe")}</h3><p>Wähle sie direkt am Becken. Die beiden Temperaturanzeigen gehören zum gleichen Zeitpunkt.</p>${button("close","Zur Aufgabe")}</section>` : "";
       root.innerHTML = temperatureWorkspace({session,view:v,quest:student.quest(true),esc,button,helpButton,types:host.types,playing:!!playback,results:v.mode === "result" ? student.results() : "",panelBody});
+      for (const summary of root.querySelectorAll("details > summary")) if (openDetails.includes(summary.textContent)) summary.parentElement.open=true;
+      for (const {selector,top} of scrolls) root.querySelector(selector).scrollTop=top;
+      if(focusAttribute) [...root.querySelectorAll(`[${focusAttribute}]`)].find(e=>e.getAttribute(focusAttribute)===active.getAttribute(focusAttribute))?.focus({preventScroll:true});
       if (helpKey) root.innerHTML += `<section class="learn-help-pop" role="dialog" aria-modal="true" aria-label="Begriffshilfe"><h2>${esc(HELP[helpKey].term)}</h2><p>${esc(HELP[helpKey][8])}</p>${button("help-close","Hilfe schließen")}</section>`;
       root.querySelector(".coherent-workspace")?.toggleAttribute("inert",!!helpKey);
       host.layout(false); host.sceneInert(true); host.interactive(false);

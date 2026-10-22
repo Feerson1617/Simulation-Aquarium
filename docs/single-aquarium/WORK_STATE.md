@@ -1,14 +1,18 @@
-# Ein Aquarium: Stand am neuen M1-Gate
+# Ein Aquarium: Fortsetzung nach M1-Freigabe
 
 Ausgangspunkt `4e59de3beb4d4af8017472301c9d28cc8ade653c` wurde sauber wiederhergestellt und als `backup/coherent-learning-4e59de3` auf GitHub gesichert. Die Referenz-ZIP liegt unverändert unter `/workspace/exports/Simulation-Aquarium-4e59de3.zip`, SHA-256 `55ca0303d867a3e6e4cd9f75472c5a90c3347e90e666c75ae4f500ab0a85259f`.
 
 Fortsetzung: `feature/coherent-learning-workspaces`, [PR #9](https://github.com/Feerson1617/Simulation-Aquarium/pull/9), weiterhin offen und als Entwurf. Kein Merge, kein Push auf main. [Aktuelle Vorschau](https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/).
 
-## Auftrag und Gate
+## Neue Freigabe und Sprachvorgabe
+
+Der Auftraggeber hat M1 im Chat ausdrücklich freigegeben („jup, ist besser als vorher“) und leichte Sprache verlangt: insbesondere keine chemischen Einheiten im Schülerweg der Klasse 8. Phase 3 ist damit freigegeben. M1 zeigt echte Veränderungen ohne Formeln/Einheiten; genaue Werte bleiben im Lehrkraftbereich und Export. Die folgenden Angaben dokumentieren den zuvor erreichten Gate-Stand; die Fortsetzung wird darunter nachgeführt.
+
+## Auftrag und früheres Gate
 
 Der [neue Masterauftrag](REQUEST.txt) ersetzt die Zwei-Becken-/14-Missions-Vorgaben. [Bedienmatrix des Auftraggebers](CONTROL_MATRIX_SOURCE.md) und [beigefügte Gegenprüfung](REVIEW.html) sind Eingaben; deren Quellen-/Kernproben sind keine eigenen Browserbelege.
 
-Phase 1 und der vollständige M1-Prototyp aus Phase 2 sind umgesetzt. **Eine neue menschliche Sichtfreigabe steht aus.** Abschnitt 15 verlangt: „Nur M1 als vollständigen vertikalen Prototyp bauen“ und „Vor Freigabe keine flächendeckende Oberflächenumstellung.“ Abschnitt 17: „Am vereinbarten Prototyp-Gate stoppen und Sichtfreigabe abwarten“. Die frühere Temperaturfreigabe gilt ausdrücklich nicht.
+Phase 1 und der vollständige M1-Prototyp aus Phase 2 sind umgesetzt. **Diese Sichtfreigabe wurde inzwischen im Chat erteilt (siehe oben).** Abschnitt 15 verlangt: „Nur M1 als vollständigen vertikalen Prototyp bauen“ und „Vor Freigabe keine flächendeckende Oberflächenumstellung.“ Abschnitt 17: „Am vereinbarten Prototyp-Gate stoppen und Sichtfreigabe abwarten“. Die frühere Temperaturfreigabe gilt ausdrücklich nicht.
 
 M2–M6 haben neue stabile Kennungen und fachliche Entwürfe, aber noch keine neuen spielbaren Wege. Die Startseite kennzeichnet sie als „In Vorbereitung“. Auch die vollständige neue freie Oberfläche und die abschließende Lehrkraft-/Curriculumüberarbeitung folgen nach dem Gate. [Alle sechs Lernhandlungen und sämtliche 14 Altzuordnungen](MISSIONS.md).
 
@@ -37,4 +41,4 @@ Zeit läuft nur nach ausdrücklichem Start. Hilfe, Menü, ausgeblendete Seite un
 
 Keine Aussage über Lernerfolg, physische iPads/Safari, natives `file:`-Starten oder fertige M2–M6. Neue Dokumente/Belege haben Vorrang vor historischen 14-Missions-Protokollen.
 
-**Nächster fachlicher Schritt:** ausschließlich nach ausdrücklicher Sichtfreigabe mit Phase 3 fortsetzen. Zuerst M2/M5 nach demselben Prinzip und früh die Genetik-Identitätsbrücke für M3/M4 prüfen. Kein automatischer Merge. Bei Verbindungsabbruch zuerst Branch, Status, PR-Head und dieses Dokument prüfen und gesicherte Arbeit fortsetzen.
+**Aktueller fachlicher Schritt:** Phase 3 nach erteilter Sichtfreigabe fortsetzen. Zuerst M2/M5 nach demselben Prinzip und früh die Genetik-Identitätsbrücke für M3/M4 prüfen. Kein automatischer Merge. Bei Verbindungsabbruch zuerst Branch, Status, PR-Head und dieses Dokument prüfen und gesicherte Arbeit fortsetzen.

@@ -69,7 +69,7 @@ const trend=r=>{const a=roundedOxygen(r.samples[0].oxygen),b=roundedOxygen(r.sam
 export function singleObservationChoices(s) {
   if(s.runs.length!==2 || s.runs.some(r=>r.status!=="completed"))return [];
   const [a,b]=s.runs.map(trend),other=x=>x==="höher"?"niedriger":"höher";
-  const line=(x,y)=>`Mit Licht: ${x}. Ohne Licht: ${y}.`;
+  const line=(x,y)=>`Mit Licht: ${x==="höher"?"mehr":x==="niedriger"?"weniger":"gleich viel"}. Ohne Licht: ${y==="höher"?"mehr":y==="niedriger"?"weniger":"gleich viel"}.`;
   return [{id:"observed",text:line(a,b)},{id:"reversed-dark",text:line(a,other(b))},{id:"reversed-light",text:line(other(a),b)}];
 }
 export function answerSingle(s,choice) {

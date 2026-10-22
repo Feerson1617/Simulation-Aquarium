@@ -1,3 +1,4 @@
+import {PROCESS_TASKS} from "./learning-process-workspace.mjs";
 import {pendingActivity,REGIONAL_CASES,OBSERVATION_METRICS,choiceOrder,questHint} from "./learning-activities.mjs";
 import {populationExplanation} from "./biology-quality.mjs";
 /** The regular learner surface. Technical evidence views remain in learning-ui. */
@@ -104,7 +105,7 @@ export function createStudentViews(api) {
         const device=d.experiment.kind === "ecology" && ["temperature","light","filter"].includes(d.experiment.tool);
         body += button(device ? "device-"+d.experiment.tool : ["traits","cross","case"].includes(d.experiment.kind) ? "material" : "investigate", device ? ({temperature:"Heizstab einstellen",light:"Beleuchtung einstellen",filter:"Filter einstellen"})[d.experiment.tool] : d.experiment.kind === "traits" ? "Erbanlagen ansehen" : d.experiment.kind === "cross" ? "Eltern wählen" : "Versuch öffnen");
       }
-      if (step === 3 && !state().prototype) {
+      if (step === 3 && !state().prototype && !state().populationWorkspace) {
         body += reading(observedResult);
         body += button(
           ["cross","traits","case"].includes(d.experiment.kind)
@@ -125,10 +126,14 @@ export function createStudentViews(api) {
     return `<aside class="learn-quest ${inline ? "learn-quest-inline" : ""}" aria-label="Questbuch"><header><strong>${esc(d.title)}</strong>${inline ? "" : button("quest-toggle", "−", 'aria-label="Questbuch einklappen" aria-expanded="true"')}</header><progress value="${s.step}" max="5" aria-label="Erledigte Aufgaben">${s.step} von 5</progress>${body}<p class="learn-quest-feedback" data-feedback-kind="${s.feedbackKind || "neutral"}" role="status" aria-live="polite">${esc(done ? "" : s.feedback)}</p></aside>`;
   }
   function activityControl(a) {
+    if(a.id === "river-route" && !state().session.regionalMode) return button("regional-northsea","Regionalen Eintragsweg ansehen");
+    if(state().processWorkspace && PROCESS_TASKS[a.id]) return `<section class="learn-activity"><p>Verbinde die passenden Gegenstände in der Prozessansicht. Tippe jeweils auf Ausgang und Ziel.</p></section>`;
+    if(a.id === "fossil-evidence") return `<section class="learn-activity"><p>Wähle die beiden datierten Funde in zeitlicher Reihenfolge.</p></section>`;
     if (a.kind === "view") return `<section class="learn-activity"><button data-activity-view="${a.action}">${esc(a.prompt)}</button></section>`;
     return `<section class="learn-activity"><p class="learn-card-from">${esc(a.from)} →</p><div class="learn-quest-answers">${choiceOrder(state().session.quest,a.id,a.targets.length).map(i=>`<button data-activity-id="${a.id}" data-activity-choice="${i}">${esc(a.targets[i])}</button>`).join("")}</div></section>`;
   }
   function experimentTask(d) {
+    if(state().populationWorkspace && state().session.comparison) return "Wähle eine Generation. Vergleiche die tatsächlich gezählten Fische in beiden Gruppen.";
     if(state().prototype && state().session.comparison && state().session.view?.mode !== "plan") return "Beobachte beide Becken. Starte den Verlauf an der gemeinsamen Versuchsuhr.";
     const e = d.experiment;
     if (e.kind === "case") return "Wähle eine Schutzmaßnahme. Prüfe die Folgen für Tiere und Menschen.";

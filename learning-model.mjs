@@ -13,7 +13,7 @@ import { createScenario } from "./scenarios.mjs";
 import { initializeIndividual } from "./genetics.mjs";
 import { validateLearningPopulation, populationCohort, repeatLearningPopulation } from "./learning-population.mjs";
 import { controlNumber, requireControlValue, validControlValue, applyEquipmentSetting } from "./control-values.mjs";
-export const LEARNING_MODEL_REVISION = "learning-biology-5-views";
+export const LEARNING_MODEL_REVISION = "learning-biology-6-coherent";
 export const POPULATION_METRICS = {
   AA: ["Genotyp AA", "Anzahl"],
   Aa: ["Genotyp Aa", "Anzahl"],

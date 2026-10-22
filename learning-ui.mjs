@@ -1,3 +1,5 @@
+import {PROCESS_SCENES,PROCESS_TASKS,processWorkspace,forestWorkspace,connectProcess} from "./learning-process-workspace.mjs";
+import {fossilWorkspace,FOSSIL_EVIDENCE} from "./learning-evolution-evidence.mjs";
 import {harbourWorkspace,HARBOUR_OBJECTS,HARBOUR_MEASURES,harbourMeasure} from "./learning-regional-workspace.mjs";
 import {pendingActivity,assignActivity,recordActivityView,mendelEvidence,populationPairEvidence,REGIONAL_CASES} from "./learning-activities.mjs";
 import {investigationId, interventionEvent, bindComparison, resolveComparisonView, selectComparisonView, stateId} from "./learning-context.mjs";
@@ -160,6 +162,7 @@ export function mountLearningUI(host) {
       temperaturePrototype:tag?.mission === "8-ecosystem",
       populationWorkspace:isPopulationWorkspace(),
       regionalWorkspace:isRegionalWorkspace(),
+      processWorkspace:!!PROCESS_SCENES[tag?.mission] && (tag.mission !== "10-northsea" || session?.regionalMode === "northsea"),
     }),
     healthText: () => fishStatusText(host.getState(), host.types),
     tools,
@@ -180,10 +183,10 @@ export function mountLearningUI(host) {
     attempts: () => archivedAttempts(),
   });
   const isPrototype = () => screen === "active" && !detailed && (Object.hasOwn(AQUARIUM_WORKSPACES,tag?.mission) || (tag?.mode === "free" && tag.grade !== 9 && session?.researchView === "comparison"));
-  const isPopulationWorkspace = () => screen === "active" && !detailed && (tag?.mission === "9-mendel" || (tag?.grade === 9 && tag.mode === "free"));
+  const isPopulationWorkspace = () => screen === "active" && !detailed && (tag?.grade === 9);
   const isRegionalWorkspace = () => screen === "active" && !detailed && tag?.mission === "10-wadden";
   function inspectedQuestResult() {
-    if (isPopulationWorkspace() && session.quest?.step === 3 && populationWorkspaceView(session,LEARNING_MODEL_REVISION).context.time !== session.population.generation) return null;
+    if (isPopulationWorkspace() && QUESTS[tag.mission]?.experiment.kind === "cross" && session.quest?.step === 3 && populationWorkspaceView(session,LEARNING_MODEL_REVISION).context.time !== session.population.generation) return null;
     if (session?.quest?.step !== 3 || !["ecology","population"].includes(QUESTS[tag.mission]?.experiment.kind)) return session?.quest?.result;
     if (isPrototype() && session.view?.mode === "plan") return null;
     const v = resolveComparisonView(session);
@@ -330,6 +333,7 @@ export function mountLearningUI(host) {
       evidence = {
         hasAA: c.AA > 0,
         hasAa: c.Aa > 0,
+        individuals:structuredClone(session.quest?.genotypeIndividuals || {}),
         result: { kind: "traits", AA: c.AA, Aa: c.Aa },
       };
     }
@@ -532,6 +536,7 @@ export function mountLearningUI(host) {
       generations: 5,
     };
     session.population ??= grade === 9 ? createLearningPopulation() : null;
+    if(grade === 9) session.populationMode ??= QUESTS[tag.mission]?.experiment.kind === "population" ? "comparison" : "cohort";
     const freshQuest = !session.quest;
     if (
       freshQuest &&
@@ -1214,6 +1219,13 @@ export function mountLearningUI(host) {
     document.documentElement.classList.toggle("learning-coherent",isPrototype() || isPopulationWorkspace() || isRegionalWorkspace());
     document.documentElement.classList.toggle("learning-domain",isPopulationWorkspace() || isRegionalWorkspace());
     document.documentElement.classList.toggle("learning-history-view",active && panel === "saved-view");
+    if(tag?.mission === "10-northsea" && session?.regionalMode === "northsea" && screen === "active" && !detailed && panel !== "teacher") {
+      tankViews.dispose();
+      const v=resolveComparisonView(session),drawer=panel === "more" ? student.more() : panel === "notebook" ? notebook() : "";
+      root.innerHTML=`<header class="coherent-header"><div><small>Regionaler Fall · Klasse 10</small><h1>Vom Land in die Nordsee</h1></div>${button("more","Mehr")}</header><main class="coherent-workspace"><section class="coherent-views">${processWorkspace({session,mission:tag.mission,context:{...v.context,domain:"regional-qualitative"},esc,button})}<section class="coherent-run">${button("regional-local","Zum gespeicherten Beckenvergleich")}<p>Qualitativer Eintragsweg. Keine Aquariumtage oder regionale Mengenprognose.</p><a href="${REGIONAL_CASES[tag.mission].url}" target="_blank" rel="noopener">OSPAR: Eutrophierung</a></section></section><aside class="coherent-notebook">${drawer || student.quest(true)}</aside></main>`;
+      document.documentElement.classList.add("learning-domain");if(host.comparisonRenderer?.())host.comparisonRenderer().learningDraw=domainDraw;
+      host.layout(false);host.sceneInert(true);host.interactive(false);return;
+    }
     if(isRegionalWorkspace() && panel !== "teacher") {
       const restorePosition=preserveWorkspacePosition();
       tankViews.dispose();
@@ -1229,7 +1241,7 @@ export function mountLearningUI(host) {
       const v=populationWorkspaceView(session,LEARNING_MODEL_REVISION), oldScroll=root.querySelector(".coherent-views")?.scrollTop || 0;
       const drawer=panel === "more" ? student.more() : panel === "notebook" ? notebook() : panel === "display" ? display() : panel === "glossary" ? glossary() : panel === "restart-attempt" ? restartView() : "";
       root.innerHTML=populationWorkspace({session,view:v,tag,showGenes,esc,button,helpButton,quest:(panel && !drawer ? button("close","Zur Aufgabe") : "")+student.quest(true),drawer,
-        breeding:student.breeding(true),investigation:student.investigation(true),results:student.results()});
+        breeding:student.breeding(true),investigation:student.investigation(true),results:student.results(),materials:tag.mission === "9-darwin" && session.quest?.step === 4 ? fossilWorkspace({session,esc}) : ""});
       if(storageError)root.querySelector(".coherent-notebook").insertAdjacentHTML("afterbegin",`<p class="coherent-storage" role="alert">${esc(storageError)}</p>`);
       root.querySelector(".coherent-views").scrollTop=oldScroll;restorePosition();
       if(helpKey) root.innerHTML+=`<section class="learn-help-pop" role="dialog" aria-modal="true" aria-label="Begriffshilfe"><h2>${esc(HELP[helpKey].term)}</h2><p>${esc(HELP[helpKey][tag.grade])}</p>${button("help-close","Hilfe schließen")}</section>`;
@@ -1246,7 +1258,7 @@ export function mountLearningUI(host) {
       const v = temperatureView(session,host,LEARNING_MODEL_REVISION);
       const drawer=panel === "more" ? student.more() : panel === "notebook" ? notebook() : panel === "display" ? display() : panel === "glossary" ? glossary() : panel === "mission-info" ? missionInfo() : panel === "restart-attempt" ? restartView() : "";
       const panelBody = drawer ? `<section class="coherent-drawer">${drawer}</section>` : panel === "observe" ? `<section class="coherent-note"><h3>Schau auf Fisch und Wasser ${helpButton("observe")}</h3><p>Wähle sie direkt am Becken. Die beiden Messkarten gehören zum gleichen Zeitpunkt.</p>${button("close","Zur Aufgabe")}</section>` : "";
-      root.innerHTML = temperatureWorkspace({session,view:v,quest:(storageError ? `<p class="coherent-storage" role="alert">${esc(storageError)}</p>` : "")+(drawer ? "" : student.quest(true)),esc,button,helpButton,types:host.types,playing:!!playback,results:v.mode === "result" ? student.results() : "",panelBody,tag,form:interventionForm("study")});
+      root.innerHTML = temperatureWorkspace({session,view:v,quest:(storageError ? `<p class="coherent-storage" role="alert">${esc(storageError)}</p>` : "")+(drawer ? "" : student.quest(true)),esc,button,helpButton,types:host.types,playing:!!playback,process:tag.mission === "8-forest" && session.quest?.step === 4 ? forestWorkspace({session,esc}) : tag.mission !== "10-northsea" ? processWorkspace({session,mission:tag.mission,context:v.context,esc,button}) : session.quest?.step === 4 ? `<section class="coherent-run"><p>Der Beckenversuch ist beendet. Untersuche jetzt den regionalen Eintragsweg.</p>${button("regional-northsea","Vom Becken zur Nordsee wechseln")}</section>` : "",results:v.mode === "result" ? student.results() : "",panelBody,tag,form:interventionForm("study")});
       for (const summary of root.querySelectorAll("details > summary")) if (openDetails.includes(summary.textContent)) summary.parentElement.open=true;
       for (const {selector,top} of scrolls) root.querySelector(selector).scrollTop=top;
       if(focusAttribute) [...root.querySelectorAll(`[${focusAttribute}]`)].find(e=>e.getAttribute(focusAttribute)===active.getAttribute(focusAttribute))?.focus({preventScroll:true});
@@ -1543,7 +1555,17 @@ export function mountLearningUI(host) {
         if(!i) return;
         session.selectedIndividual={side:d.cohortPick,uid:i.uid,cohortId:v.context.cohortIds[d.cohortPick]};
         if(v.mode === "cohort" && v.context.time === session.population.generation) session[i.sex === "♀" ? "mother" : "father"]=i.uid;
-        questEvent(session.quest,"observe");persist();render();return;
+        questEvent(session.quest,"observe");
+        if(tag.mission === "9-traits" && session.quest) {
+          if(!showGenes) {
+            (session.quest.visibleIndividuals ??= {})[i.uid]=i.phenotype;
+            recordActivityView(session.quest,"visible-traits",{uids:Object.keys(session.quest.visibleIndividuals),phenotypes:Object.values(session.quest.visibleIndividuals),beforeGenes:true,context:v.context});
+          } else {
+            (session.quest.genotypeIndividuals ??= {})[i.uid]={uid:i.uid,genotype:genotypeText(i.loci),context:v.context};
+            if(["AA","Aa"].every(g=>Object.values(session.quest.genotypeIndividuals).some(i=>i.genotype===g)))recordQuestExperiment("traits");
+          }
+        }
+        persist();render();return;
       }
       if (d.coherentPick) {pickObject(d.coherentPick,d.coherentUid);return;}
       if (d.coherentWater) {pickObject(d.coherentWater,null,true);return;}
@@ -1557,6 +1579,8 @@ export function mountLearningUI(host) {
         return;
       }
       if (d.activityId) {
+        if(tag.mission === "8-forest" && ["forest-same","forest-different"].includes(d.activityId) && session.forestSelection?.length !== 2) throw new Error("Wähle zuerst die beiden markierten Blätter im Vergleich.");
+        if(tag.mission === "10-northsea" && d.activityId === "river-measure" && session.processes?.[tag.mission]?.selected !== "land") throw new Error("Wähle das Land als Ort für die Maßnahme.");
         if(isRegionalWorkspace() && d.activityId === "harbour-interest") {
           const key=Number(d.activityChoice)===1 ? "gear" : "returns",object=HARBOUR_MEASURES[key].object;
           if(!session.quest.casePaths?.[key]) {session.quest.feedback="Wähle zuerst "+(object==="fishing"?"die Fischerei":"die Besucher")+" im Hafenfall. Folge dem Weg über den passenden Müll bis zu den Tieren.";session.quest.feedbackKind="neutral";persist();render();return;}
@@ -1691,6 +1715,8 @@ export function mountLearningUI(host) {
       }
       const a = d.learn;
       if (!a) return;
+      if (a === "regional-northsea") {session.regionalMode="northsea";panel=null;persist();render();return;}
+      if (a === "regional-local") {session.regionalMode=null;panel=null;persist();render();return;}
       if (a === "population-cohort" || a === "cohort-latest") {session.populationMode="cohort";delete session.cohortGeneration;delete session.selectedIndividual;panel=null;persist();render();return;}
       if (a === "population-groups") {session.populationMode="comparison";panel="investigate";persist();render();return;}
       if (a === "research-own") {stopPlayback();session.researchView="own";panel=null;persist();render();return;}
@@ -1903,9 +1929,10 @@ export function mountLearningUI(host) {
         return;
       }
       if (a === "genes") {
+        if(tag.mission === "9-traits" && session.quest?.step < 2) throw new Error("Untersuche die Farben und wähle zuerst deine Vermutung.");
         if (session.quest?.id === "9-traits" && pendingActivity(session.quest)?.id === "visible-traits") throw new Error("Sieh dir zuerst einen hellen und einen dunklen Fisch ohne Erbanlagen an.");
         showGenes = !showGenes;session.genesShown=showGenes;
-        if (showGenes) recordQuestExperiment("traits");
+        if (showGenes && (!isPopulationWorkspace() || tag.mission !== "9-traits")) recordQuestExperiment("traits");
         persist();
         render();
         return;

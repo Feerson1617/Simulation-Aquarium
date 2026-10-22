@@ -23,7 +23,21 @@ def reveal(field):
  expect(field).to_be_visible();return field
 
 def activities(p,touch=False):
- for _ in range(12):
+ for _ in range(20):
+  a=p.evaluate('async()=>{const {pendingActivity}=await import("./learning-activities.mjs");return window.aquariumLearningSnapshot().quest ? pendingActivity(window.aquariumLearningSnapshot().quest) : null}')
+  if a and a['id']=='river-route' and p.locator('[data-learn="regional-northsea"]:visible').count():action(p,'regional-northsea',touch);continue
+  connections={'food-fish':[('food','fish')],'rest-decomposer':[('remains','decomposer')],'consumer':[('food','fish')],'producer':[('light','plant')],'matter-energy':[('decomposer','minerals'),('minerals','plant'),('fish','heat')],'carbon-uptake':[('water','plant')],'carbon-return':[('animal','water')],'fossil-carbon':[('fossil','air')],'river-route':[('land','river'),('river','sea')]}
+  if a and a['id'] in connections and p.locator('[data-process-node]:visible').count():
+   for edge in connections[a['id']]:
+    for node in edge:
+     target=p.locator(f'[data-process-node="{node}"]');target.tap() if touch else target.click()
+   continue
+  if a and a['id']=='river-measure' and p.locator('[data-process-node=land]:visible').count():p.locator('[data-process-node=land]').click()
+  if a and a['id'] in ['forest-same','forest-different'] and p.locator('[data-forest-leaf]:visible').count():
+   for leaf in ['tree','waterweed']:p.locator(f'[data-forest-leaf="{leaf}"]').click()
+  if a and a['id']=='fossil-evidence' and p.locator('[data-fossil]:visible').count():
+   for fossil in ['tiktaalik','acanthostega']:p.locator(f'[data-fossil="{fossil}"]').click()
+   continue
   cards=p.locator('[data-activity-id]:visible')
   if cards.count():
    id=cards.first.get_attribute('data-activity-id');index=1 if id=='water' else 0
@@ -42,7 +56,7 @@ def activities(p,touch=False):
   views.first.tap() if touch else views.first.click()
   if name=='traits':
    for uid in [1,3]:
-    fish=p.locator(f'[data-learning-individual="{uid}"]');fish.tap() if touch else fish.click()
+    fish=p.locator(f'[data-learning-individual="{uid}"],[data-cohort-uid="{uid}"]');fish.tap() if touch else fish.click()
    action(p,'close',touch)
   elif name=='observe':action(p,'close',touch)
  raise AssertionError('Learner activity did not converge')
@@ -63,7 +77,10 @@ def biological_experiment(p,id,touch=False):
    for node in ['visitors','packaging','animals']:p.locator(f'[data-harbour-object="{node}"]').click()
   activities(p,touch);assert snap(p)['comparison'] is None;assert snap(p)['quest']['result']['kind']=='case';return
  if id=='9-traits':
-  action(p,'material',touch);action(p,'genes',touch);r=snap(p)['quest']['result'];assert r['AA']>0 and r['Aa']>0;return
+  action(p,'material',touch);action(p,'genes',touch)
+  if p.locator('[data-cohort-uid]').count():
+   for uid in [1,2]:p.locator(f'[data-cohort-uid="{uid}"]').click()
+  r=snap(p)['quest']['result'];assert r['AA']>0 and r['Aa']>0;return
  if id=='9-mendel':
   action(p,'material',touch);action(p,'genes',touch)
   p.locator('[data-learning-mother]').select_option('1');p.locator('[data-learning-father]').select_option('6');action(p,'cross',touch)

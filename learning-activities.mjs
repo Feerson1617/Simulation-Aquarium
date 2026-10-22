@@ -24,13 +24,13 @@ export const ACTIVITIES = {
   "8-health":[view("fish-water",0,"Schau auf Fische und Wasser.","observe"),view("survival",3,"Vergleiche auch die Zahl lebender Fische.","fishAlive")],
   "8-forest":[
     link("forest-same",4,"Wasserpest 🌿 ↔ Baum 🌳","Ordne eine Gemeinsamkeit zu.",["Beide nutzen Licht für Fotosynthese","Beide wachsen nur im Wasser"],0,"Beide sind Pflanzen und brauchen Licht."),
-    link("forest-different",4,"Wasserpest 🌿 ↔ Baum 🌳","Ordne einen Unterschied zu.",["Beim Baum liegen die Wurzeln im Boden; Wasserpest wächst unter Wasser","Nur der Baum braucht Kohlenstoff"],0,"Vergleiche, wo die Pflanzen wachsen."),
+    link("forest-different",4,"Wasserpest 🌿 ↔ Baum 🌳","Ordne einen Unterschied zu.",["Baumblätter liegen in Luft; Wasserpestblätter liegen unter Wasser","Nur der Baum braucht Kohlenstoff"],0,"Vergleiche die Umgebung der Blätter. Beide Pflanzen können im Boden wurzeln."),
   ],
   "9-traits":[view("visible-traits",0,"Sieh dir einen hellen und einen dunklen Fisch an.","traits")],
   "9-mendel":[link("mendel-probability",4,"Aa × Aa","Was sagt 3:1 über einen Wurf?",["Eine Wahrscheinlichkeit; die gezählte Anzahl kann abweichen","Jeder Wurf hat genau drei dunkle und einen hellen Fisch"],0,"Jede Keimzelle wird zufällig gezogen. Zähle deinen tatsächlichen Wurf.")],
   "9-population":[],
   "9-darwin":[
-    link("darwin-prediction",0,"Schon vorhandene Farbvarianten","Welche Vorhersage gehört dazu?",["Varianten können verschieden oft weitergegeben werden","Jeder Fisch wird durch seinen Wunsch dunkel"],0,"Hier unterscheiden sich schon die Eltern. Ein Bedarf erzeugt kein neues Allel."),
+    link("darwin-prediction",0,"Schon vorhandene Farbvarianten","Welche Vorhersage gehört dazu?",["Varianten können verschieden oft weitergegeben werden","Im Leben erworbene Veränderungen werden an Nachkommen weitergegeben"],0,"Hier unterscheiden sich schon die Eltern. Ein Bedarf erzeugt kein neues Allel."),
     link("lamarck-prediction",0,"Lamarck: im Leben erworbene Veränderungen","Was müsste nach dieser Erklärung weitergegeben werden?",["Die im Leben erworbene Veränderung der Eltern","Nur schon vorher vererbte Unterschiede"],0,"Lamarck nahm an, durch Gebrauch erworbene Veränderungen würden vererbt. Das ist eine andere Vorhersage als die Auswahl vorhandener Varianten."),
     link("fossil-evidence",4,"Zeitlich geordnete Fossilien","Was können Fossilien zusätzlich zeigen?",["Frühere Lebensformen und Veränderungen über lange Zeit","Dass ein Fisch seine Erbanlagen nach Wunsch ändert"],0,"Fossilien sind Funde aus der Natur. Ein Farbversuch ist kein Fossilbeleg."),
   ],

@@ -62,7 +62,10 @@ def complete(p,g,id,touch=False):
  act('observe')
  if id!='10-wadden':
   p.locator('[data-learn-help="observe"]').click();expect(p.locator('.learn-help-pop')).to_contain_text('Schau genau hin. Was passiert im Aquarium?');p.keyboard.press('Escape');assert p.evaluate('document.activeElement.dataset.learnHelp')=='observe'
- else:expect(p.locator('.learn-panel')).to_contain_text('Hafen')
+ else:
+  expect(p.locator('#learning-root')).to_contain_text('Hafen')
+  if p.locator('[data-harbour-object]').count():
+   for node in ['visitors','packaging','animals']:p.locator(f'[data-harbour-object="{node}"]').click()
  assert p.evaluate('document.querySelector("#scene").inert');act('close');activities(p,touch)
  choose(1);assert snap(p)['quest']['step']==0;choose(0);assert snap(p)['quest']['step']==1;choose(1);assert snap(p)['quest']['step']==2
  biological_experiment(p,id,touch);assert snap(p)['quest']['step']==3,snap(p)['quest'];activities(p,touch)
@@ -73,7 +76,15 @@ def complete(p,g,id,touch=False):
  q=snap(p)['quest'];assert len(q['entries'])==5;assert {a['id'] for a in q['activities']}==EXPECTED_ACTIONS[id]
  assert not any(snap(p)['notes'].values()),'Generated answers/text must never become own notes'
  if p.locator('[data-learn="close"]:visible').count():act('close')
- frame=p.evaluate('window.aquariumSnapshot().graphics.renderFrame');p.wait_for_function('(f)=>window.aquariumSnapshot().graphics.renderFrame>f+2 && window.aquariumSnapshot().graphics.triangles>3000',arg=frame)
+ current=snap(p)
+ if current.get('prototype') and current['prototype']['render']['sides']:
+  frame=current['prototype']['render']['frames'];p.wait_for_function('(f)=>window.aquariumLearningSnapshot().prototype.render.frames>f+2',arg=frame)
+ elif current.get('domainView'):
+  assert p.locator('[data-cohort-uid]').count()>0;expect(p.locator('#scene')).not_to_be_visible()
+ elif current.get('regionalView') or (id=='10-northsea' and p.locator('[data-process-node]').count()):
+  assert p.locator('[data-harbour-object],[data-process-node]').count()>0;expect(p.locator('#scene')).not_to_be_visible()
+ else:
+  frame=p.evaluate('window.aquariumSnapshot().graphics.renderFrame');p.wait_for_function('(f)=>window.aquariumSnapshot().graphics.renderFrame>f+2 && window.aquariumSnapshot().graphics.triangles>3000',arg=frame)
  shot(p,f'{"touch" if touch else "desktop"}-{id}-done.png');act('notebook');f=download(p,f'{"touch" if touch else "desktop"}-{id}.json');data=json.loads(f.read_text())
  assert data['quest']['step']==5 and data['gameExplanation'];assert not any(data['notes'].values());assert data['provenance']['questAnswers']=='selection' and data['provenance']['measurements']=='simulation'
  if id in ['8-oxygen','9-mendel','10-carbon']:

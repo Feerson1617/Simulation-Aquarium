@@ -1,5 +1,5 @@
 import {harbourMeasure,HARBOUR_MEASURES} from "./learning-regional-workspace.mjs";
-import {pendingActivity} from "./learning-activities.mjs";
+import {pendingActivity,ACTIVITIES} from "./learning-activities.mjs";
 /** Short learner tasks. Scientific background remains in learning-content and teacher views. */
 import {populationExplanation} from "./biology-quality.mjs";
 
@@ -513,7 +513,8 @@ export function questEvent(state, event, evidence = {}) {
   if (kind === "traits" && (!evidence.hasAA || !evidence.hasAa)) return false;
   state.result = structuredClone(evidence.result || { kind: "traits" });
   // Measurements must be inspected again after a changed experiment.
-  if (state.activities) state.activities=state.activities.filter(a=>!["survival","oxygen-too","early","late"].includes(a.id));
+  if (state.activities) state.activities=state.activities.filter(a=>!(ACTIVITIES[state.id] || []).some(d=>d.id===a.id && d.phase>=3));
+  delete state.fossilOrder;
   state.entries = state.entries.filter((e) => e.step < 2);
   state.entries.push({
     step: 2,

@@ -19,6 +19,7 @@ def setup(b,touch):
  c.add_init_script("localStorage.setItem('aquarium-graphics-v1',JSON.stringify({version:1,profile:'ipad'}))")
  p=c.new_page();p.set_default_timeout(60000);p.on('pageerror',lambda e:report['errors'].append(str(e)));p.on('requestfailed',lambda r:report['requests'].append(r.url));p.goto(URL);p.wait_for_function('!!window.aquariumLearningSnapshot');return c,p
 def datafile(p,name):
+ if not p.locator("[data-learn=export]:visible").count():action(p,"more");action(p,"notebook")
  with p.expect_download() as d:action(p,'export')
  target=OUT/name;d.value.save_as(str(target));product=json.loads(target.read_text());p.evaluate('async d=>(await import("./learning-model.mjs")).validateLearningProduct(d)',product);return product
 def ecology(p,g,m,label):

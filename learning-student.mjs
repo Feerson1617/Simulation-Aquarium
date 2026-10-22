@@ -80,7 +80,7 @@ export function createStudentViews(api) {
       observedResult = api.questionResult ? api.questionResult() : s?.result,
       d = QUESTS[tag.mission];
     if (!d) return "";
-    const done = s.step === 5, legacy = s.version === 1 || (state().temperaturePrototype && s.visualEvidenceVersion !== 1) || (state().regionalWorkspace && s.visualCaseVersion !== 1), activity = done ? null : pendingActivity(s);
+    const done = s.step === 5, legacy = state().legacyWorkspace || s.version === 1 || (state().temperaturePrototype && s.visualEvidenceVersion !== 1) || (state().regionalWorkspace && s.visualCaseVersion !== 1), activity = done ? null : pendingActivity(s);
     if (!inline && panel) return "";
     if (!inline && (s.collapsed || panel))
       return `<aside class="learn-quest-chip">${button("quest-toggle", done ? "Quest fertig ✓" : `Questbuch · ${s.step + 1} von 5`, 'aria-expanded="false"')}</aside>`;

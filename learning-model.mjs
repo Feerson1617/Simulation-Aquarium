@@ -905,6 +905,7 @@ export function validateLearningProduct(raw) {
     if (x.cohortIds && ["control","test"].some(side=>x.cohortIds[side] !== v.context.cohortIds?.[side])) throw new Error("Individuen und Generation widersprechen sich.");
     product.viewContext=v.context;
   }
+  if([0,1].includes(raw.workspaceEvidenceVersion))product.workspaceEvidenceVersion=raw.workspaceEvidenceVersion;
   if(raw.visibleDomain && ["regional-northsea","harbour","population","aquarium"].includes(raw.visibleDomain))product.visibleDomain=raw.visibleDomain;
   if(raw.processEvidence) {
     const text=JSON.stringify(raw.processEvidence);if(text.length>131072)throw new Error("Prozessbelege sind zu groß.");product.processEvidence=JSON.parse(text);

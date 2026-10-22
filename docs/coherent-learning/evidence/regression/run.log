@@ -1,0 +1,14 @@
+PASS: JavaScript syntax
+PASS: HTTP project subpath serves exact repository HTML
+PASS: Desktop start screen and WebGL
+PASS: Free game: place 120 litre aquarium
+PASS: Plant and animal catalogs, insertion and 3D model loading
+PASS: Water measurements and one simulated day
+PASS: Save export and localStorage restoration after reload
+PASS: Save file import into a fresh browser profile
+PASS: Tablet touch: tutorial start and aquarium placement
+PASS: Tablet touch: all eight tutorial stages completed
+PASS: Tablet portrait resize and touch menu
+PASS: No JavaScript errors, failed game requests or external runtime requests
+PASS: Game file unchanged by validation
+Report: /tmp/coherent-release-readiness/results/20261022T095554.177881Z/report.json

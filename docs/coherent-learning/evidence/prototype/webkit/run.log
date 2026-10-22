@@ -1,0 +1,16 @@
+PASS desktop: two actual initial tank scenes before prediction
+PASS desktop: actual fish/water choices, wrong answers, neutral prediction, accessible heater with invalid/comma input
+PASS desktop: real time course, synchronized scene/cards/chart/table, persisted result and completed temperature mission
+PASS AT03: older series / repetition 2 / early time / both side buttons / JSON+CSV match, no live mutation
+PASS AT06: new attempt has fresh evidence; previous completed product remains readable
+PASS portrait: two actual initial tank scenes before prediction
+PASS portrait: actual fish/water choices, wrong answers, neutral prediction, accessible heater with invalid/comma input
+PASS portrait: real time course, synchronized scene/cards/chart/table, persisted result and completed temperature mission
+PASS landscape: two actual initial tank scenes before prediction
+PASS landscape: actual fish/water choices, wrong answers, neutral prediction, accessible heater with invalid/comma input
+PASS landscape: real time course, synchronized scene/cards/chart/table, persisted result and completed temperature mission
+PASS AT05 actual UI/core: zero water cannot fulfil 8-health
+PASS AT05 actual UI/core: zero water cannot fulfil 10-restore
+PASS AT04 actual core: early/late cards, cursor, missing control and read-only view agree
+PASS AT06 actual F1/F2: repeat preserves the old product but requires new crosses
+REPORT /tmp/coherent-release/webkit/report.json

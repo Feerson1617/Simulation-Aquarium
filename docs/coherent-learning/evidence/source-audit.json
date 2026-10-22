@@ -1,0 +1,35 @@
+{
+  "baseline": "8e41962132fe3778fe73f8e14c650f42e18d848d",
+  "head": "a7ee966a3116faf4a231050718dc899fc1eea3fb",
+  "changedTopLevelFunctions": [],
+  "protectedCore": {
+    "hd": {
+      "unchanged": true,
+      "sha256": "46b1a7939ce754edf17b7ca6554fd8decda716a8ff24b670e861f049a3c2d84a"
+    },
+    "Qf": {
+      "unchanged": true,
+      "sha256": "d6afdc78bb1ee2aa947c8a028ba50a47e8dde1aef5205883a161a1e08d7a28bc"
+    },
+    "qs": {
+      "unchanged": true,
+      "sha256": "a2e146b7d197cf7bf3a0e68774cec34f1638a34c15b92b8740a3a375422b0c6f"
+    },
+    "tp": {
+      "unchanged": true,
+      "sha256": "81261a5a9d48ebcb169de9c4bcdecdad19e0981e8f71f3e055ccc8fb0b52c2b8"
+    },
+    "z1": {
+      "unchanged": true,
+      "sha256": "c891c26e5dc01dd87521b483ddf9c37cb06ecae9f46fed8b6d084a76f4f7ed24"
+    },
+    "ud": {
+      "unchanged": true,
+      "sha256": "ad41f6a45d798674546081a933febb4acfb2e0549b4b6a220c64bbfb4509c00e"
+    },
+    "cd": {
+      "unchanged": true,
+      "sha256": "59939894c23f214cb836945f0f4fa0ab0e9b90f76472b4a2f09a4851998c3dcd"
+    }
+  }
+}

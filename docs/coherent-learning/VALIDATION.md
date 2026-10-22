@@ -1,9 +1,64 @@
 # Prüfung des Temperaturprototyps
 
-Datum: 22.10.2026. Anwendungsstand: `a7ee966a3116faf4a231050718dc899fc1eea3fb`; spätere Änderungen an Prüfskripten und Dokumentation ändern den Anwendungscode nicht. Ausgangs-main: `8e41962132fe3778fe73f8e14c650f42e18d848d`.
+Datum: 22.10.2026. **Anwendungsstand: `a7ee966a3116faf4a231050718dc899fc1eea3fb`.** Die späteren Commits `cc20354` und `24065fd` ändern nur Prüfskripte und Dokumentation. Ausgangs-main: `8e41962132fe3778fe73f8e14c650f42e18d848d`. Quellhashes der Hauptläufe und der [Kernvergleich](evidence/source-audit.json) begrenzen die Aussagen auf diesen Code.
 
-**Zwischenstand der abschließenden Belegsammlung:** 154 Modultests bestanden. Die letzten Browserläufe werden hier mit Berichten und Bildern ergänzt. Dieser Entwurf ist keine vollständige Abnahme des Masterauftrags.
+**Der PR steht am verbindlichen Sichtgate. Er ist keine vollständige Abnahme des Masterauftrags.** [Tatsächliche Bilder und kurzer Prüfweg](PROTOTYPE.md) · [PR-Vorschau](https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/)
 
-Bereits reproduziert: gemeinsamer Untersuchungskontext, zwei tatsächliche Becken, gestaffelter Temperaturverlauf, ältere Reihe/Wiederholung 2, frühe/späte Ansichten und einseitiger Ausfall, Null-Wasserwechsel, neuer Durchgang einschließlich F1/F2, Altprodukte sowie Speicherlimits. Die vorherigen Chromium-/WebKit-Läufe an `7fec676` bestanden jeweils den Temperatur-/Kontextweg und die übrigen 13 Missionswege. Die abschließende Ergänzung prüft insbesondere Nebenansichten und noch nicht durchgeführte Pläne am oben genannten Anwendungsstand.
+## Tatsächlich ausgeführte Prüfungen
 
-Physische iPads/Safari, die Wirkung im Unterricht, native `file:`-Offline-Nutzung und das Maximalprofil sind weiterhin offen. Der verbindliche nächste Produktschritt ist die menschliche Sichtfreigabe nach Abschnitt 15 des [Masterauftrags](REQUEST.txt), nicht eine selbst erteilte Freigabe aus grünen Tests.
+| Prüfung | Ergebnis | Beleg |
+|---|---|---|
+| Bestehende und neue Node-Module | 154/154 bestanden | [Protokoll](evidence/node.log) |
+| Neuer Temperatur-/Kontextweg, Chromium | Abschließender Lauf wird ergänzt | Bericht wird ergänzt |
+| Neuer Temperatur-/Kontextweg, WebKit | 15/15 bestanden | [Bericht](evidence/prototype/webkit/report.json) |
+| Altprodukte, Quotenfehler, Archivierung, Chromium | Abschließender Lauf wird ergänzt | Bericht wird ergänzt |
+| Altprodukte, Quotenfehler, Archivierung, WebKit | 4/4 bestanden | [Bericht](evidence/compat/webkit/report.json) |
+| Nebenansichten und ungestartete Pläne | Je 2/2 in Chromium und WebKit bestanden | [Chromium](evidence/tools/chromium/report.json), [WebKit](evidence/tools/webkit/report.json) |
+| Einzel-HTML über HTTP | Vollständiger neuer Temperaturablauf und Export in beiden Engines bestanden | [Chromium](evidence/standalone/chromium/report.json), [WebKit](evidence/standalone/webkit/report.json) |
+| Übrige 13 Missionen, Freies Forschen, Lehrkraft, Hilfen, Migration | Abschließende Läufe werden ergänzt | Berichte werden ergänzt |
+| Freies Spiel, Expertenstart, Platzierung, Katalog, Wasser/Zeit, Speichern/Laden und komplettes Touch-Tutorial | 13/13 Chromium-Prüfpunkte bestanden | [Bericht](evidence/regression/report.json) |
+| Tatsächliche PR-Vorschau | WebKit: beide Modellsätze, Heizerhandlung und erhaltene Einstellung nach Reload bestanden | [Browserbericht](evidence/preview-webkit/report.json) |
+| Ausgelieferte Dateien / Hauptversion | Alle 8 geprüften Hauptdateien identisch; öffentliche Root-HTML entspricht unverändert main | [SHA-256-Nachweis](evidence/preview.json) |
+
+Keine dieser Zeilen ist eine empirische Prüfung des Lernens von Kindern. Eine Tabelle grüner Prüfungen ersetzt die Sichtfreigabe nicht.
+
+## Verhalten statt eingespritzter Abschlüsse
+
+Der Temperaturtest bedient das Spiel in frischen, isolierten Browserprofilen mit 1366 × 960 Desktop, 768 × 1024 Hochformat mit Touch und 1366 × 1024 Querformat mit Touch. Er wählt tatsächliche sichtbare Tiere und Wasser, prüft Fehlantworten und neutral gespeicherte Vermutungen, bedient Heizer/Tastatur/Dezimalkomma/ungültige Eingabe, spielt den tatsächlichen Verlauf ab, lädt neu und schließt die Mission ab. Beide Szenen haben dieselben Zustandskennungen und Zeiten wie Messkarten, Tabellenzeile und Diagrammzeiger. Es gibt nur einen WebGL-Kontext und je 19 tatsächliche Objekte einschließlich sechs lebender Fische.
+
+Zwei verschieden eingestellte Reihen mit zwei Wiederholungen werden real berechnet. Die ältere Reihe, Wiederholung 2 und Tag 45,25 werden ausgewählt; beide Seitenschalter, JSON und CSV müssen genau diese Auswahl erhalten. Das eigene gespeicherte Becken bleibt unverändert. Der Kern-Gegenversuch mit Sanierung zeigt Tag 45,25, den tatsächlichen Kontrollausfall 48,25 und die noch vorhandene Versuchsseite an Tag 59. Es entstehen keine Folgemessungen oder alten Fischbilder für fehlende Zustände.
+
+Wasserwechsel 0 % erfüllt in den tatsächlichen Gesundheits-/Sanierungswegen keinen Eingriff. Node-Gegenproben prüfen auch unveränderte Lampen, Null-Nährstoffe und eine tatsächliche Handlung mit gleichen Endwerten. Der neue Durchgang muss F1/F2-Ereignisse, Population, Quest und Untersuchungskennung neu beginnen; das vorherige Produkt bleibt archiviert lesbar.
+
+Die 13 bisherigen Missionen werden durch echte sichtbare Bedienung mit Fehlerkorrektur, erforderlichen Lernhandlungen, Export und anschließendem Reload in ihren eigenen neuen Missionsspeicherplätzen bearbeitet. Das Browserprofil bleibt innerhalb einer Engine absichtlich gemeinsam gefüllt, um das zuvor gefundene Speicherproblem aufzudecken. **Das ist kein separater frischer Browser für jede Mission.** Der neue Temperaturweg ersetzt die alte Temperaturroute im bisherigen Questskript und wird gesondert vollständig geprüft. Alte Hilfs-/Populations-/Hafenansichten werden dadurch technisch erhalten, aber nicht als neu gestaltete sachgerechte Lernansichten ausgegeben.
+
+Nur bei ausdrücklich benannten Kompatibilitätstests werden echte historische Produkte als alte Speicherstände eingesetzt. Es werden keine neuen Questabschlüsse durch Zustandsinjektion erzeugt. Der Quotenfehler wird gezielt injiziert, um nachzuweisen, dass der zuvor gespeicherte Versuch erhalten bleibt.
+
+## Abnahmeumfang des Masterauftrags
+
+| Anforderungen | Befund am Sichtgate |
+|---|---|
+| AT02–AT06 | Temperaturvergleich, historische Identität, tatsächliche Ausfallzeiten, Null-Eingriffe und neuer Durchgang technisch geprüft |
+| AT01 / AT14 | Temperatur in beiden Engines und drei Viewports; übrige Missionswege in beiden Engines geprüft. Separate neue sachgerechte Ansichten und deren vollständige Touchabnahme folgen nach dem Gate |
+| AT07 | Echte bestehende F1/F2, Archiv und Neustart erhalten; Verbindung jeder Bildfigur mit der Lernkohorte bleibt Phase 3 |
+| AT08 / AT09 | Neue Hafen-/Prozess-/Waldansichten und beide maßnahmenspezifischen Hafenabschlüsse offen |
+| AT10 / AT12 | Prototyp mit Tastatur, Touch-Tap, echtem Chromium-Touchziehen, Fokus, Fehl-/Neutralrückmeldung und konsistenter Temperaturauflösung geprüft. Übrige Sprach-/Hilfsüberarbeitung offen |
+| AT11 | 154 Modultests und unveränderte biologische Kernfunktionen; vollständiger Ammonium-/Ammoniak-Stoffvertrag ausdrücklich offen |
+| AT13 | Freies Forschen aller Jahrgänge, Lehrkraft/Altimporte, Experten-/Tutorial-/Speicherfunktionen erhalten; keine vollständige menschliche Abnahme aller früheren Funktionen behauptet |
+| AT15 | Tatsächliche öffentliche Vorschau und Hashvergleich geprüft; kein Merge und keine Änderung der main-Version |
+
+## Einzel-HTML, Leistung und Browsergrenzen
+
+Das erzeugte Einzel-HTML enthält Codec-Lizenz, Archivlogik und beide Ansichten. Größe und Hash: [Artefaktnachweis](evidence/standalone-artifact.json). Die Browser fordern dabei nur das Hauptdokument über HTTP an; der bereits geladene Ablauf und der Export funktionieren auch nach Abschalten des Netzes im Testprofil. **Das beweist weder einen nativen `file:`-Start noch einen Offline-Reload auf iPadOS.** Das etwa 151 MB große Artefakt wird nicht in Git abgelegt.
+
+Die Cloud verwendet Software-Rendering. Die gemessene Bildrate ist niedrig; Ressourcenanzahlen sind keine GPU-Bytes. [Messungen und konkrete weitere Gerätebudgets](PERFORMANCE.md) benennen diese Grenze ausdrücklich. Physische iPads/Mobile Safari, das Maximalprofil und Unterrichtswirksamkeit sind offen.
+
+Der erste öffentliche Chromium-Aufruf scheiterte mit `ERR_CERT_AUTHORITY_INVALID`, bevor Spielcode geladen wurde. Der [getrennte Fehlerbeleg](evidence/development/preview-chromium-ca/run.log) bleibt erhalten. WebKit verwendete die bereits konfigurierte System-CA und bestand den tatsächlichen HTTPS-Aufruf. `ignore_https_errors`, neue Vertrauensanker oder abgeschaltete Zertifikatsprüfung wurden nicht eingesetzt.
+
+## Entwicklungsfehlschläge getrennt von abschließenden Ergebnissen
+
+- Der echte [Speicherfehler vor der Archivkompression](evidence/development/storage-before-codec/report.json) war ein Anwendungsfehler: Die abgeschlossene Kohlenstoffmission kehrte nach Reload zu Aufgabe 2 zurück. Verlustfreie Kompression und Schutz vor Übernahme eines nicht speicherbaren Vergleichs korrigieren dies. Der Mehrmissionslauf prüft genau diesen Fall erneut.
+- Ein zusätzlicher Prüfablauf suchte den Neustartknopf bereits vor Missionsabschluss. Dieser [Testfehler](evidence/development/premature-restart-test/run.log) wurde korrigiert. Der tatsächliche Neustart nach Abschluss bleibt im vollständigen Missionslauf geprüft.
+- Frühe Zwischenläufe zu Offenhalten von Klappbereichen, Ablaufsteuerung und Testselektoren sind Entwicklungsdiagnosen. Sie werden nicht mit bestandenen abschließenden Läufen addiert.
+
+Die erwähnten ursprünglichen ZIP-Prüfpakete fehlen; deren Hashes wurden nicht selbst nachgerechnet. ETS-Original-PDF und der exakte Git-Ausgangsstand sind dokumentiert. IQSH-Geltung und regionale institutionelle Belege werden für die nächsten Phasen genauer geprüft; keine neue Quellenprüfung oder Unterrichtswirksamkeit wird vorgetäuscht.

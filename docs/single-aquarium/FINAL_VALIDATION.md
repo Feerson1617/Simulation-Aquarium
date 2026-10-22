@@ -6,7 +6,7 @@ Anwendungscode ist `6d08bec90200c538385489a461779d2a6e3754e0`; spätere Dokument
 
 ## Umfang und Nachweise
 
-Dieser Bericht wird nach den laufenden letzten Prüfungen vervollständigt. Bis dahin ist diese Datei kein pauschales Abnahmesiegel. Konkrete beendete Läufe und ihr Stand stehen in den verlinkten Rohbelegen; ein fehlgeschlagener Gesamtlauf wird nicht als bestanden gezählt.
+Die folgenden abgeschlossenen Läufe prüfen die sechs neuen Lernwege und den erhaltenen Bestand. Ihre konkreten Quellstände sind getrennt angegeben; es wird keine einheitliche Commit-Identität aller Grund- und Ergänzungsläufe behauptet. Ein fehlgeschlagener Gesamtlauf bleibt als solcher dokumentiert.
 
 | Prüfung | Tatsächlicher Umfang und Beleg |
 |---|---|
@@ -14,14 +14,16 @@ Dieser Bericht wird nach den laufenden letzten Prüfungen vervollständigt. Bis 
 | Neue M2–M6, WebKit-Grundlauf | **15 vollständige Wege**, fünf Fragen × Desktop/Hoch-/Querformat. Frischer Einstieg, echte Handlungen, plausible Fehlantwort, Hilfe/Korrektur, Reload, Wiederholung, Dateiimport/-export. [Bericht](evidence/approved/webkit-five-missions-three-profiles.json). Start `e86b4e7`, Eingangshashes im Bericht; begrenzte Änderungen während/nach diesem langen Grundlauf sind unten getrennt nachgeprüft. |
 | Aktuelle WebKit-Deltas | **M3/M4/M5 im Hochformat bestanden** auf dem eingefrorenen Anwendungsstand: einfachere F1-Frage, neue Durchgangskennungen, strengere Archivprüfung, gekürzte M4-Karte. [Bericht](evidence/approved/webkit-current-m3-m4-m5-portrait.json). |
 | Chromium-Desktop-Grundlauf | Fünf Missionen vollständig bestanden. Der anschließende Hochformatteil fand die zu große M4-Karte: 68,81 % frei. Deshalb bleibt der **Gesamtbericht fehlgeschlagen**; nur seine fünf abgeschlossenen Desktopfälle werden als solche genannt. [Ungekürzte Prüfinventare, ohne großes Fehlersnapshot](evidence/approved/chromium-partial-and-portrait-failure.json). Start `331a926`; spätere begrenzte Import-/Textänderungen sind durch Modultests und neue Browserläufe abgedeckt. |
-| Aktuelle Chromium-Hoch-/Querformate | ABSCHLUSSLÄUFE |
-| M1 in einfacher Sprache | ABSCHLUSSLÄUFE |
-| Freies Forschen / Lehrkraft / Speicher | Chromium: **acht Prüfungen bestanden**, alle drei Jahrgänge, echter Katalogzugang, Einsetzen, Pflege, Wasser/Licht/Zeit, Messung, Dateien, unveränderte Altdateien, wirkliche Auswahl/Platzierung und sofortige Sicherung, Abbrechen, lokale Lehrkraftschalter und Quotenfehler. [Bericht](evidence/approved/chromium-free-teacher-storage.json). WebKit: ABSCHLUSSLÄUFE. |
-| Erhaltener Experte / Tutorial | ABSCHLUSSLÄUFE |
-| Öffentliche Vorschau | **65/65 Anwendungsdateien** per HTTPS mit Systemvertrauen ausgeliefert und bytegleich geprüft. [Hashes](evidence/approved/preview-runtime-hashes.json). Öffentlicher Browserweg: ABSCHLUSSLÄUFE. |
-| Tatsächliches Einzel-HTML | **151.441.753 Bytes**, SHA-256 `9e54439e76ebd5e07653fbf329d2f47b8e30429a82870f9b1bca736f39cf730d`. [Baubeleg](evidence/approved/single-html-build.json). Browserprüfungen: ABSCHLUSSLÄUFE. |
+| Aktuelle Chromium-Hoch-/Querformate | **10 vollständige Wege**, alle M2–M6 in beiden Tabletformaten auf dem eingefrorenen Anwendungsstand. [Bericht](evidence/approved/chromium-new-missions-portrait-landscape.json). Zusammen mit dem Desktop-Grundlauf sind die fünf neuen Missionen in allen drei Profilen geprüft; begrenzte Text-/Importänderungen zusätzlich in den aktuellen Tabletwegen. |
+| M1 in einfacher Sprache | **Beide Engines: jeweils drei vollständige Formate plus Quotenfehler bestanden** auf unveränderten aktuellen Anwendungsdateien. [Chromium](evidence/approved/chromium-m1-three-profiles.json), [WebKit](evidence/approved/webkit-m1-three-profiles.json). Echte serielle Läufe, vollständiger Reset, plausible Fehler/Hilfe/Korrektur, Export/Import und archivierte Wiederholung. |
+| Freies Forschen / Lehrkraft / Speicher | Chromium: **acht Prüfungen bestanden**, alle drei Jahrgänge, echter Katalogzugang, Einsetzen, Pflege, Wasser/Licht/Zeit, Messung, Dateien, unveränderte Altdateien, wirkliche Auswahl/Platzierung und sofortige Sicherung, Abbrechen, lokale Lehrkraftschalter und Quotenfehler. [Bericht](evidence/approved/chromium-free-teacher-storage.json). WebKit: dieselben **acht Prüfungen bestanden**, [Bericht](evidence/approved/webkit-free-teacher-storage.json). |
+| Erhaltener Experte / Tutorial | **13 Prüfungen bestanden**: wirkliche Beckenplatzierung, Katalog/Pflege/Wasser/Zeit, Export, Reload und Import im neuen Profil, sämtliche acht Tutorialschritte mit Touch, Hochformat und Menüs. [Aktueller Bericht](evidence/approved/chromium-expert-tutorial.json). |
+| Öffentliche Vorschau | **65/65 Anwendungsdateien** per HTTPS mit Systemvertrauen ausgeliefert und bytegleich geprüft. [Hashes](evidence/approved/preview-runtime-hashes.json). Öffentliches WebKit: **M3 und M5 vollständig bestanden**, einschließlich tatsächlicher F1/F2, Maßnahmendurchgänge, Fehler/Hilfe/Korrektur und Dateien. [Bericht](evidence/approved/webkit-public-m3-m5.json). |
+| Tatsächliches Einzel-HTML | **151.441.753 Bytes**, SHA-256 `9e54439e76ebd5e07653fbf329d2f47b8e30429a82870f9b1bca736f39cf730d`. [Baubeleg](evidence/approved/single-html-build.json). **Beide Engines: vollständige M1 und M3 nach dem Laden offline bestanden**, jeweils fünf Prüfbelege pro Weg. [Chromium M1](evidence/approved/chromium-single-html-m1.json), [M3](evidence/approved/chromium-single-html-m3.json), [WebKit M1](evidence/approved/webkit-single-html-m1.json), [M3](evidence/approved/webkit-single-html-m3.json). Keine untergeordneten HTTP-Ressourcen; aktuelle Kontext-v2-Exporte in der Genetik. Die übrigen vier Offlinewege wurden nicht als eigene Vollabläufe geprüft. |
 
 Alle neuen Lernfortschritte werden durch sichtbare Browseraktionen erworben. Nur lesende Snapshots prüfen danach Zustand, UID, Farbe, Datenherkunft und vollständigen Reset. Die separate Quotenprüfung wirft gezielt einen Speicherfehler; sie schreibt keinen erfolgreichen Lernfortschritt. Altes Ergebnis und freiwillige eigene Formulierung sind von Auswahl und bereitgestelltem Text getrennt.
+
+Das [Integritätsmanifest](evidence/approved/manifest.json) verbindet Anwendungsdateien, neue Prüfskripte, Dokumentation und kuratierte Belege über SHA-256. Die jeweiligen Reportköpfe behalten ihre eigenen Quellstände; ein gemeinsames Manifest macht historische Läufe nicht nachträglich aktuell.
 
 ## Eine tatsächliche Aquariumwelt
 
@@ -40,7 +42,27 @@ Das [Quellaudit](evidence/approved/source-audit.json) vergleicht mit `4e59de3`: 
 
 ## Bedienung und Sprache
 
-INVENTARABSCHLUSS
+| Lernweg | Sichtbare Controls je gemessenem Schritt | Kleinster freier Anteil Chromium | WebKit |
+|---|---:|---:|---:|
+| M1 | 3–7 | 74.30% | 74.74% |
+| M2 | 3–5 | 74.07% | 75.48% |
+| M3 | 4–16 | 75.20% | 75.36% |
+| M4 | 5–6 | 73.60% | 72.99% |
+| M5 | 3–5 | 70.89% | 70.96% |
+| M6 | 3–5 | 77.05% | 77.19% |
+
+Gemessen: Desktop 1366 × 960, Tablet-Hochformat 768 × 1024 und Querformat 1366 × 1024 CSS-Pixel, DPR 1. Reale Touchereignisse in den Missions-Tabletprofilen; alle geprüften Buttons mindestens 44 × 44 CSS-Pixel, kein horizontaler Überlauf und keine sichtbaren generischen Zahlenfelder. Die zwölf aktuellen Genetikfische sind eine kontextuelle Auswahl derselben Szene, keine zweite Population. [Zusammenfassung der tatsächlichen Inventare](evidence/approved/control-summary.json).
+
+
+| Tatsächliches Bild | Gegenstand |
+|---|---|
+| [M1, WebKit-Hochformat](evidence/approved/webkit-current-m1-portrait-compare.png) | Beide tatsächlichen Sauerstoffbefunde in einfachen Worten |
+| [M2, Chromium-Hochformat](evidence/approved/chromium-current-m2-portrait-complete.png) | Reste und Stoffumwandlung ohne chemische Einheiten |
+| [M3, WebKit-Hochformat](evidence/approved/webkit-current-m3-f2.png) | Wirkliche F2-Fische und passende individuelle Auswahl |
+| [M4, Chromium-Hochformat](evidence/approved/chromium-current-m4-portrait-complete.png) | Gespeicherte neutrale Wiederholungen und begrenzte Aussage der Dominanz |
+| [M5, WebKit-Hochformat](evidence/approved/webkit-current-m5-compare.png) | Direkte und spätere Wirkung am selben Anfang |
+| [M6, Chromium-Querformat](evidence/approved/chromium-current-m6-landscape-complete.png) | Pflanzenbeobachtung und Erklärung der Kohlenstoffquelle |
+| [Öffentliche M5](evidence/approved/webkit-public-m5-comparison.png) / [Einzel-HTML M3](evidence/approved/webkit-single-html-m3-complete.png) | Getrennte tatsächliche Auslieferungs- und Offlinewege |
 
 Die 70-%-Metrik ist die Viewportfläche abzüglich der geometrischen Vereinigung sichtbarer permanenter Karten/Kopfzeile/Geräteanker. Sie misst Platz für das Aquarium, nicht tatsächlich gezeichnete Glas- oder Tierpixel. Bewusst geöffnete Hilfe-/Dateiansichten sind temporär und halten an. Im [historischen Ausgangsinventar](CONTROL_AUDIT.md) waren 17/19/24 sichtbare Controls vorhanden; zwei getrennte 3D-Fenster beanspruchten zusammen nur 20,51 %. Diese alte Fensterfläche ist nicht direkt dieselbe Metrik wie die neue freie HUD-Fläche.
 

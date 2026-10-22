@@ -1,4 +1,4 @@
-# Leichte Sprache in den Lernmissionen
+# Einfache Sprache in den Lernmissionen
 
 Neue Vorgabe des Auftraggebers nach der M1-Sichtfreigabe: „die Lernmissionen sprachlich leicht“; „chemische einheiten in klasse 8 muss echt nicht sein“. Diese neuere Vorgabe ersetzt die bisherige Pflicht, genaue Einheiten im normalen Klasse-8-Weg zu zeigen. Fachlich korrekte Originaldaten bleiben erhalten.
 

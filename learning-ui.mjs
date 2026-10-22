@@ -285,14 +285,16 @@ export function mountLearningUI(host) {
       ),
       key = keys.includes(manualMetric) ? manualMetric : keys[0];
     if (!key) return "";
-    const rows = session.measurements.map((r) => ({
+    const rawRows = session.measurements.map((r) => ({
       ...r,
       [key]: r.metrics && !r.metrics.includes(key) ? null : r[key],
     }));
+    const shown=key === "plantBiomass" ? relativePlantComparison({kind:"manual",runs:[{control:rawRows,test:[]}]}) : {kind:"manual",runs:[{control:rawRows,test:[]}]};
+    const rows=shown.runs[0].control;
     return `<section class="learn-measurements"><h3>Deine Messungen</h3><label>Wert<select data-learning-manual-metric="local">${options(
       keys.map((k) => [k, STUDENT_METRICS[k][0]]),
       key,
-    )}</select></label>${plot({ kind: "manual", runs: [{ control: rows, test: [] }] }, key)}<div class="learn-table-wrap"><table><thead><tr><th>Tag</th><th>${esc(STUDENT_METRICS[key][0])}</th></tr></thead><tbody>${rows.map((r) => `<tr><td>${num(r.day)}</td><td>${key === "health" && r.metricsVersion !== 2 ? "Früherer Tierwert: " : ""}${num(r[key], 3)}</td></tr>`).join("")}</tbody></table></div><small>— bedeutet: Hier fehlt ein Wert.</small></section>`;
+    )}</select></label>${key === "plantBiomass" ? "<p>Die erste für diese Größe protokollierte Pflanzenmasse ist der Anfang (= 1). Ohne Anfangsbestand ist kein Verhältnis bestimmbar.</p>" : ""}${plot(shown, key)}<div class="learn-table-wrap"><table><thead><tr><th>Tag</th><th>${esc(STUDENT_METRICS[key][0])}</th></tr></thead><tbody>${rows.map((r) => `<tr><td>${num(r.day)}</td><td>${key === "health" && r.metricsVersion !== 2 ? "Früherer Tierwert: " : ""}${num(r[key], learnerPrecision(key))}</td></tr>`).join("")}</tbody></table></div><small>— bedeutet: Hier fehlt ein Wert.</small></section>`;
   }
   function recordQuestExperiment(kind) {
     if (detailed || !session.quest) return;

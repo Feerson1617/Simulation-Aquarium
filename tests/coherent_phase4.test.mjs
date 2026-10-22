@@ -80,3 +80,9 @@ test('P4: nominal generation settings cannot replace actual generations after re
  assert.equal(neutral.generations,5);assert.ok(neutral.runs.every(r=>r.status.control.state==='stopped' && r.control.at(-1).generation===0));
  assert.equal(populationPairEvidence([neutral],directed).complete,false);
 });
+
+test('P4: a manual plant series starts at its first actually recorded value without filling earlier unknowns',async()=>{
+ const {relativePlantComparison}=await import('../learning-display.mjs');
+ const view=relativePlantComparison({kind:'manual',runs:[{control:[{day:1,plantBiomass:null},{day:2,plantBiomass:4},{day:3,plantBiomass:6}],test:[]}]});
+ assert.deepEqual(view.runs[0].control.map(s=>s.plantBiomass),[null,1,1.5]);
+});

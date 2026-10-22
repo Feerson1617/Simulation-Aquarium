@@ -1,7 +1,7 @@
 /** Presentation projection only. Original samples and archived states remain untouched. */
 export function relativePlantComparison(comparison) {
  return {...comparison,displayProjection:'plant-initial-one',runs:comparison.runs.map(run=>{
-  const beginning=run.control[0]?.plantBiomass;
+  const beginning=(comparison.kind === "manual" ? run.control.find(row=>Number.isFinite(row.plantBiomass)) : run.control[0])?.plantBiomass;
   const rows=values=>values.map(sample=>({...sample,plantBiomass:beginning>0 && Number.isFinite(sample.plantBiomass) ? sample.plantBiomass/beginning : null}));
   return {...run,control:rows(run.control),test:rows(run.test)};
  })};

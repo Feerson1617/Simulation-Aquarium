@@ -56,6 +56,12 @@ with sync_playwright() as pw:
   out=p.evaluate('s=>window.aquariumSimulationProbe(s,0)',old);assert out['chemistry']['version']==0;assert out['params']==old['params']
   out=p.evaluate('s=>window.aquariumSimulationProbe(s,0)',tank);assert out['chemistry']['version']==1;assert out['params']==tank['params']
   report['pool_probe']={'old':out['params']['nh4'],'new_contract':out['chemistry']};passed('actual core loader preserves old concentrations with unknown basis and new declared TAN basis')
+  action(p,'home');p.locator('[data-learn-grade="8"]').click();action(p,'free');action(p,'observe');action(p,'measure')
+  raw=snap(p)['measurements'][0]['plantBiomass'];p.locator('[data-learning-manual-metric=local]').select_option('plantBiomass')
+  expect(p.locator('.learn-measurements tbody tr').first.locator('td').nth(1)).to_have_text('1')
+  assert snap(p)['measurements'][0]['plantBiomass']==raw
+  action(p,'notebook');data=export(p,'manual-plants.json');assert data['measurements'][0]['plantBiomass']==raw
+  passed('own plant measurements use their recorded beginning (=1) while JSON retains unmodified original data')
   assert not report['errors'];assert not report['requests'];report['status']='passed'
  except Exception as e:
   report.update(status='failed',failure=str(e))

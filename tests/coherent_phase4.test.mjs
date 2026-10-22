@@ -20,7 +20,7 @@ test('P4: matter returns and energy exit remain distinct; old investigation arro
  for(const edge of [['decomposer','minerals'],['minerals','plant']])connectProcess(s,'8-foodweb',...edge,context('old'));
  assert.equal(connectProcess(s,'8-foodweb','fish','heat',context('new')).completed,undefined);
  for(const edge of [['decomposer','minerals'],['minerals','plant']])connectProcess(s,'8-foodweb',...edge,context('new'));
- assert.equal(pendingActivity(s.quest),undefined);
+ assert.equal(pendingActivity(s.quest),undefined);assert.equal(s.quest.activities.at(-1).connections.length,3);assert.ok(s.quest.activities.at(-1).connections.every(a=>a.context.investigationId==='new'));
  const links=s.processes['8-foodweb'].links;assert.equal(links.find(e=>e.to==='heat').kind,'energy');assert.equal(links.find(e=>e.to==='minerals').kind,'matter');
 });
 test('P4: fossil carbon is an additional external material path, not a warming calculation',()=>{

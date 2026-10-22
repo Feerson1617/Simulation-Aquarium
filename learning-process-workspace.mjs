@@ -29,7 +29,7 @@ export function connectProcess(session,mission,from,to,context) {
  if(required?.every(edge=>state.actions.some(a=>a.activity===activity.id && a.context.investigationId===context.investigationId && a.from+':'+a.to===edge))){
   session.quest.observed=true;
   if(assignActivity(session.quest,activity.id,activity.correct ?? 0)){
-   Object.assign(session.quest.activities.at(-1),{kind:'connection',origin:'game-action',connections:structuredClone(state.actions.filter(a=>a.activity===activity.id))});
+   Object.assign(session.quest.activities.at(-1),{kind:'connection',origin:'game-action',connections:structuredClone(required.map(edge=>state.actions.findLast(a=>a.activity===activity.id && a.context.investigationId===context.investigationId && a.from+":"+a.to===edge)))});
    return {accepted:true,completed:true,feedback:'Verbindung gespeichert. Prüfe die nächste Aufgabe.'};
   }
  }

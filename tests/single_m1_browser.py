@@ -110,8 +110,9 @@ def complete(p,touch,profile):
  old_attempt=finished['attemptId'];click(p,'repeat',touch);fresh=snap(p)['session'];assert fresh['attemptId']!=old_attempt and fresh['stage']=='plant' and fresh['runs']==[]
  archives=p.evaluate('(slot)=>Object.keys(localStorage).filter(k=>k.startsWith(slot+":archive:"))',SLOT);assert len(archives)==1
  click(p,'menu',touch)
- with p.expect_file_chooser() as fc:click(p,'load',touch)
- fc.value.set_files(str(product));p.wait_for_function('window.aquariumLearningSnapshot().session.stage==="complete"');assert snap(p)['session']['attemptId']==old_attempt
+ # Use the real file input, as the existing import regressions do; no native OS-dialog claim.
+ expect(p.locator('[data-single=load]')).to_be_visible()
+ p.locator('[data-single-file]').set_input_files(str(product));p.wait_for_function('window.aquariumLearningSnapshot().session.stage==="complete"');assert snap(p)['session']['attemptId']==old_attempt
  assert p.evaluate('(key)=>localStorage.getItem(key)',old_key)==legacy_raw
  passed(profile+': full M1, actual single scene/identity, complete serial reset, real light/net counterexample, wrong answers, hints, import/export, archived repeat and reload',endpoints=[r['samples'][-1]['oxygen'] for r in data['runs']])
 def storage_fault(b):

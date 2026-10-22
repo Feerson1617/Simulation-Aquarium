@@ -12,7 +12,7 @@ html[data-historical-tools] #learning-root::before {content:"Historische Lehrkra
 #learning-root .single-task h2 {font-size:21px;line-height:1.25;letter-spacing:-.4px;margin:5px 0 10px}
 #learning-root .single-task>p {font-size:15px;line-height:1.5;margin-bottom:12px}
 #learning-root .single-task>small {color:#52675f}
-#learning-root .single-task footer {display:flex;gap:8px;margin-top:10px}
+#learning-root .single-task footer {display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
 #learning-root .single-task footer button {min-height:44px}
 #learning-root .single-surface button,#learning-root .single-dialog button,#learning-root .single-storage button {pointer-events:auto;min-height:44px;min-width:44px;border:1px solid var(--single-line);background:#fffef7;color:var(--single-ink);border-radius:10px;padding:9px 12px;text-align:left;font:inherit;line-height:1.3}
 #learning-root .single-primary {background:var(--single-accent)!important;color:white!important;border-color:var(--single-accent)!important;font-weight:650;width:100%;text-align:center!important}

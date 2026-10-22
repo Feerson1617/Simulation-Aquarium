@@ -41,7 +41,7 @@ def help_error(p,wrong,right,touch,label):
  click(p,'help',touch);held=snap(p)['session']['tank'];p.wait_for_timeout(700);assert snap(p)['session']['tank']==held and not snap(p)['running']
  click(p,'more-help',touch);p.keyboard.press('Escape');assert p.evaluate('document.activeElement.dataset.class')=='help';choice(p,right,touch)
 def observe(p,touch,label):
- click(p,'play',touch);click(p,'toggle',touch);assert not snap(p)['running'];assert snap(p)['session']['stage']=='observing'
+ click(p,'play',touch);p.locator('[data-class=toggle]').press('Enter');assert not snap(p)['running'];assert snap(p)['session']['stage']=='observing'
  geometry(p,label+'-paused');click(p,'help',touch);held=snap(p)['session'];p.wait_for_timeout(700);assert snap(p)['session']==held;p.keyboard.press('Escape');reload_exact(p)
  click(p,'toggle',touch);p.wait_for_function('document.querySelector("[data-class-stage]")?.dataset.classStage!=="observing"',timeout=120000,polling=200)
  assert snap(p)['session']['stage']!='failed';identity(p);geometry(p,label+'-finished')

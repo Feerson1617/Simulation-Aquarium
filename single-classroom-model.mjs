@@ -111,7 +111,7 @@ export function beginClassroomObservation(s,host){
 export function advanceClassroom(s,host){
  if(s.stage!=='observing')return false;const r=s.currentRun,before=copy(s.tank);if(!s.tank.failed)host.advance(s.tank,.25);
  if(s.tank.day!==before.day){appendTankFrame(r.archive,before,s.tank);r.samples.push(sample(s,host));for(const [k,v]of Object.entries(s.tank.ecology?.lastFlux||{}))if(Number.isFinite(v)&&!['day','dt'].includes(k))r.fluxTotals[k]=(r.fluxTotals[k]||0)+v;}
- if(s.tank.failed){r.status='failed';s.stage='failed';s.runs.push(copy(r));}
+ if(s.tank.failed){r.status='failed';s.stage='failed';s.runs.push(copy(r));s.currentRun=null;}
  else if(s.tank.day>=r.startSnapshot.day+r.duration){r.status='completed';s.runs.push(copy(r));s.currentRun=null;s.stage=s.mission==='m2-food-transformation'?'food-observation':s.mission==='m6-plant-carbon'?'growth-observation':s.runs.length===1?'first-measure-finished':'measure-comparison';}
  return true;
 }
@@ -144,7 +144,7 @@ export function validateClassroom(raw,host){
  if(typeof s.ownText!=='string'||s.ownText.length>20000)throw Error('Ungültiger eigener Text.');
  const stages={m2:['prediction','feed-ready','food-observe-ready','observing','food-observation','filter','food-process','food-plant','food-evidence','complete','failed'],m3:['founders','f1-observation','choose-f1','child','inheritance','transfer','complete'],m4:['prediction','neutral-ready','neutral-again-ready','selection-ready','generations','trial-finished','neutral-comparison','selection-explanation','dominance-explanation','complete'],m5:['prediction','measure-ready','measure-observe-ready','observing','first-measure-finished','reset-measure-ready','measure-comparison','measure-explanation','complete','failed'],m6:['prediction','plant','growth-ready','observing','growth-observation','carbon-source','carbon-return','carbon-evidence','complete','failed']};
  if(!(stages[s.mission.slice(0,2)]||['free','failed']).includes(s.stage))throw Error('Die Aufgabe passt nicht zur Frage.');
- if(s.runs.length>2||s.currentRun&&s.stage!=='observing'||s.stage==='observing'&&!s.currentRun)throw Error('Der aktive Durchgang passt nicht.');
+ if(s.runs.length>2||s.currentRun&&s.stage!=='observing'&&!(s.stage==='failed'&&s.currentRun.status==='failed'&&s.runs.at(-1)?.id===s.currentRun.id)||s.stage==='observing'&&!s.currentRun)throw Error('Der aktive Durchgang passt nicht.');
  for(const r of [...s.runs,...(s.currentRun?[s.currentRun]:[])]){
   const duration=s.mission.startsWith('m5')?10:3,totals={};
   if(r.duration!==duration||r.baselineId!==s.baselineId||!['running','completed','failed'].includes(r.status)||r.samples.length>duration*4+1||!r.samples.length)throw Error('Messreihe fehlt.');validateTankArchive(r.archive,r.samples);

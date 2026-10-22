@@ -69,3 +69,9 @@ test('teacher preferences are bounded, local, and do not turn selected text into
  const {readSingleTeacher,writeSingleTeacher}=await import('../single-teacher-settings.mjs');const values=new Map(),storage={getItem:k=>values.get(k)||null,setItem:(k,v)=>values.set(k,v)};
  assert.deepEqual(readSingleTeacher(storage),{version:1,hints:true,ownExplanation:true});writeSingleTeacher({hints:false,ownExplanation:false},storage);assert.deepEqual(readSingleTeacher(storage),{version:1,hints:false,ownExplanation:false});
 });
+test('a failed ecological observation ends honestly, leaves one historical run, and can be reloaded',()=>{
+ const s=createClassroom('m2-food-transformation',host,1);predictClassroom(s,'unsure');classroomFeed(s,host);beginClassroomObservation(s,host);
+ advanceClassroom(s,{...host,advance(t,dt){host.advance(t,dt);t.failed=true;}});
+ assert.equal(s.stage,'failed');assert.equal(s.currentRun,null);assert.equal(s.runs.length,1);assert.equal(s.runs[0].samples.length,2);
+ assert.equal(advanceClassroom(s,host),false);assert.deepEqual(validateClassroom(decodeSingle(encodeSingle(s)),host).runs,s.runs);
+});

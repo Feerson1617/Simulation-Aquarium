@@ -15,7 +15,7 @@ export function mountClassroomUI(host,id){
  function download(data=classroomProduct(s)){const url=URL.createObjectURL(new Blob([typeof data==='string'?data:JSON.stringify(data,null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='Aquarium-Ergebnis.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
  function start(){pause();try{const raw=localStorage.getItem(slot);s=raw?validateClassroom(decodeSingle(raw),host):createClassroom(id,host);bind();save();}catch(e){storageError='Die vorhandene Sicherung bleibt erhalten. Öffnen fehlgeschlagen: '+e.message;dialog='recovery';}render();}
  function tick(){if(dialog||document.hidden){pause();render();return;}if(s.tank!==host.getState())throw Error('Das Aquarium ist nicht mehr richtig zugeordnet.');advanceClassroom(s,{...host,advance:(t,d)=>{if(t!==host.getState())throw Error('Nur das aktuelle Aquarium darf laufen.');host.advanceCurrent(d);}});if(s.stage!=='observing')pause();const ok=save();if(timer&&ok){const m=root.querySelector('.single-meter');if(m)m.outerHTML=meter();}else render();}
- function play(){if(s.stage!=='observing'&&!beginClassroomObservation(s,host))return;pause();timer=setInterval(tick,450);save();render();}
+ function play(){if(s.stage!=='observing'&&!beginClassroomObservation(s,host))return;pause();timer=setInterval(tick,650);save();render();}
  function select(uid){if(dialog||!s)return;if(selectClassroom(s,uid,host)){host.comparisonRenderer()?.select(uid);feedback='';kind='neutral';save();render();}}
 
  function meter(){

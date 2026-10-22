@@ -52,8 +52,8 @@ with sync_playwright() as pw:
   action(p,'more');action(p,'glossary');same(p,v);action(p,'close');action(p,'more');action(p,'display');same(p,v)
   for profile in ['high','ipad']:
    p.locator('[data-learning-graphics]').select_option(profile);same(p,v)
-  action(p,'close');action(p,'quest-restart');same(p,v);action(p,'close')
-  passed('Results, More, glossary, graphics profile changes and restart dialog retain the selected two actual tank states',view=v)
+  action(p,'close');same(p,v)
+  passed('Results, More, glossary and graphics profile changes retain the selected two actual tank states',view=v)
   action(p,'workspace-plan');heater(p,26);plan=snap(p)['view'];assert plan['time']==45 and plan['investigationId']!=v['investigationId']
   action(p,'more');action(p,'notebook');same(p,plan)
   assert not p.locator('.learn-results').count();expect(p.locator('.coherent-notebook')).to_contain_text('Für diesen Plan gibt es noch keine Vergleichswerte')

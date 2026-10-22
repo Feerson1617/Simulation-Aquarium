@@ -335,7 +335,7 @@ export function createStudentViews(api) {
   function more() {
     return (
       panelHeader("Mehr") +
-      `<div class="learn-actions">${(state().prototype || state().populationWorkspace || state().regionalWorkspace) ? button("notebook","Meine Ergebnisse") : ""}${state().help === false ? "" : button("glossary", "Wörterhilfe")}${(state().prototype || state().populationWorkspace || state().regionalWorkspace) ? "" : button("tweezers", "Pinzette")}${button("display", "Darstellung")}${button("teacher", "Lehrkraftmodus")}${button("home", "Zum Start")}</div>${api.attempts?.() || ""}`
+      `<div class="learn-actions">${(state().prototype || state().populationWorkspace || state().regionalWorkspace) ? button("notebook","Meine Ergebnisse") : ""}${state().help === false ? "" : button("glossary", "Wörterhilfe")}${(state().prototype || state().populationWorkspace || state().regionalWorkspace) ? "" : button("tweezers", "Pinzette")}${state().session.quest ? button("quest-restart","Noch einmal") : ""}${button("display", "Darstellung")}${button("teacher", "Lehrkraftmodus")}${button("home", "Zum Start")}</div>${api.attempts?.() || ""}`
     );
   }
   return {

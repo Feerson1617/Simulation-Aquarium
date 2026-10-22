@@ -258,19 +258,19 @@ export function mountLearningUI(host) {
       return p ? `<button data-learning-archived-product="${esc(k)}">${saved.kind === "series" ? "Versuchsreihe" : "Durchgang"} · Klasse ${p.profile.grade} · ${esc(QUESTS[p.profile.mission]?.title || "Freies Forschen")} · ${esc(new Date(p.created).toLocaleString("de-DE"))}</button>` : "";
     }).join("")}</details>` : "";
   }
-  function restartAttempt(repeat) {
+  function restartAttempt(repeat, populationSeed) {
     const previous = {product:product(),tank:structuredClone(host.getState()),session:structuredClone(session)};
-    if (!saveJSON("aquarium-learning-attempt-v1:"+session.attemptId,previous)) {render();return;}
+    if (!saveJSON("aquarium-learning-attempt-v1:"+session.attemptId,previous)) {render();return false;}
     const old=session, tank=repeat ? structuredClone(old.baseline) : createLearningTank(tag,host);
     const e=QUESTS[tag.mission].experiment;
     session={version:1,viewVersion:1,workspaceVersion:1,attemptId:investigationId(),planId:investigationId(),notes:{},measurements:[],baseline:structuredClone(tank),comparison:null,
-      population:tag.grade === 9 ? (repeat ? repeatLearningPopulation(old.population) : createLearningPopulation()) : null,
+      population:tag.grade === 9 ? (repeat ? repeatLearningPopulation(old.population,populationSeed ?? old.population.initialSeed) : createLearningPopulation(populationSeed ?? 47291)) : null,
       study:{tool:e.tool || tools().find(k=>LEARNING_TOOLS[k]) || "light",value:tag.mission === "8-ecosystem" ? tank.setTemp : e.value ?? null,
         days:3,repetitions:2,metric:e.metric || (tag.grade === 9 ? "dark" : "oxygen"),environment:"neutral",generations:5},quest:newQuest(tag.mission)};
     if(tag.grade === 9)session.populationMode=e.kind === "population" ? "comparison" : "cohort";
     if(tag.mission === "8-ecosystem") session.quest.visualEvidenceVersion=1;
     if(tag.mission === "10-wadden") session.quest.visualCaseVersion=1;
-    selected=null;showGenes=false;panel=null;host.open(tank);persist();render();
+    selected=null;showGenes=false;panel=null;host.open(tank);persist();render();return true;
   }
   function restartView() {
     return panelHeader("Noch einmal")+`<p>Dein bisheriger Durchgang bleibt unter „Frühere Durchgänge“ erhalten. Für neue Aufgaben brauchst du neue Beobachtungen.</p>${button("repeat-attempt","Mit gleichen Bedingungen wiederholen")}${button("new-attempt","Mit frischem Startbecken beginnen")}${button("close","Fortsetzen")}`;
@@ -854,7 +854,7 @@ export function mountLearningUI(host) {
         (percent ? [STUDENT_METRICS[key][0], "%"] : STUDENT_METRICS[key])) ||
       comparisonMetricDefinitions(comp)[key] || [key, ""]
     ).join(" · ");
-    return `<svg class="learn-chart" data-view-time="${context?.time ?? ""}" data-series-id="${esc(context?.seriesId || "")}" viewBox="0 0 480 270" role="img" aria-label="Verlauf ${esc(title)}: ${comp.kind === "manual" ? (technical ? "Eigenes Becken" : "Dein Becken") : technical ? "Kontrolle und Versuch" : comp.kind === "population" ? "Gruppe 1 und Gruppe 2" : "Becken 1 und Becken 2"}"><metadata>${esc(JSON.stringify({context,metric:key,projection:key === "plantBiomass" ? comp.displayProjection || null : null,unit:technical ? comparisonMetricDefinitions(comp)[key]?.[1] : STUDENT_METRICS[key]?.[1],precision:technical ? null : percent ? 1 : learnerPrecision(key)}))}</metadata><desc>${esc(technical ? runDescription(comp) : "Messwerte aus deinem Versuch.")}</desc><text x="45" y="13" font-size="12">${esc(title)}</text>${context ? `<line data-time-cursor x1="${numRaw(45+(context.time-minX)/(maxX-minX || 1)*410)}" x2="${numRaw(45+(context.time-minX)/(maxX-minX || 1)*410)}" y1="24" y2="180" stroke="#8a6822" stroke-width="2"/><text x="240" y="13" font-size="12">${comp.kind === "population" ? "Generation" : "Tag"} ${num(context.time)}</text>` : ""}<path d="M45 24 V180 H455" fill="none" stroke="currentColor"/><text x="5" y="33">${num(maxY,technical?2:percent?1:learnerPrecision(key))}</text><text x="7" y="184">${num(minY,technical?2:percent?1:learnerPrecision(key))}</text><text x="45" y="204">${num(minX)}</text><text x="420" y="204">${num(maxX)}</text>${[
+    return `<svg class="learn-chart" data-view-time="${context?.time ?? ""}" data-series-id="${esc(context?.seriesId || "")}" viewBox="0 0 480 270" role="img" aria-label="Verlauf ${esc(title)}: ${comp.kind === "manual" ? (technical ? "Eigenes Becken" : "Dein Becken") : technical ? "Kontrolle und Versuch" : comp.kind === "population" ? "Gruppe 1 und Gruppe 2" : "Becken 1 und Becken 2"}"><metadata>${esc(JSON.stringify({context,metric:key,projection:key === "plantBiomass" ? comp.displayProjection || null : null,unit:technical ? comparisonMetricDefinitions(comp)[key]?.[1] : percent ? "%" : STUDENT_METRICS[key]?.[1],precision:technical ? null : percent ? 1 : learnerPrecision(key)}))}</metadata><desc>${esc(technical ? runDescription(comp) : "Messwerte aus deinem Versuch.")}</desc><text x="45" y="13" font-size="12">${esc(title)}</text>${context ? `<line data-time-cursor x1="${numRaw(45+(context.time-minX)/(maxX-minX || 1)*410)}" x2="${numRaw(45+(context.time-minX)/(maxX-minX || 1)*410)}" y1="24" y2="180" stroke="#8a6822" stroke-width="2"/><text x="240" y="13" font-size="12">${comp.kind === "population" ? "Generation" : "Tag"} ${num(context.time)}</text>` : ""}<path d="M45 24 V180 H455" fill="none" stroke="currentColor"/><text x="5" y="33">${num(maxY,technical?2:percent?1:learnerPrecision(key))}</text><text x="7" y="184">${num(minY,technical?2:percent?1:learnerPrecision(key))}</text><text x="45" y="204">${num(minX)}</text><text x="420" y="204">${num(maxX)}</text>${[
       a,
       b,
     ]
@@ -2093,6 +2093,13 @@ export function mountLearningUI(host) {
           if (seed === oldSeed) seed = (seed + 1) >>> 0;
         }
         const repeated = repeatLearningPopulation(previous, seed);
+        if(session.quest) {restartAttempt(true,seed);return;}
+        const archive={product:product(),tank:structuredClone(host.getState()),session:structuredClone(session)};
+        if(!saveJSON("aquarium-learning-attempt-v1:"+session.attemptId,archive)){render();return;}
+        session.attemptId=investigationId();session.planId=investigationId();
+        session.comparison=null;session.comparisonHistory=[];delete session.view;delete session.cohortGeneration;delete session.selectedIndividual;
+        delete session.study.series;delete session.study.run;session.populationMode="cohort";session.workspaceVersion=1;
+        showGenes=false;session.genesShown=false;session.notes={};session.noteOrigins={};session.measurements=[];
         rememberBackup();
         session.populationRepeats = [
           ...(session.populationRepeats || []),

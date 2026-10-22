@@ -61,7 +61,12 @@ def mendel(p,label):
  p.reload();p.wait_for_function('!!window.aquariumLearningSnapshot');start(p,9,'9-mendel')
  assert snap(p)['population']==s['population'];assert p.locator('[data-cohort-uid]').count()==24
  assert 'Erbanlagen ausblenden' in p.locator('#learning-root').inner_text()
- passed(label+': actual 24-fish F1/F2, selected UID, real allele provenance, historical view, export/import and reload');action(p,'home')
+ passed(label+': actual 24-fish F1/F2, selected UID, real allele provenance, historical view, export/import and reload')
+ old_attempt=snap(p)['attemptId'];action(p,'population-new');fresh=snap(p)
+ assert fresh['attemptId']!=old_attempt and fresh['quest']['step']==0 and fresh['population']['generation']==0 and not fresh['population']['events']
+ archived=p.evaluate('key=>JSON.parse(localStorage.getItem("aquarium-learning-attempt-v1:"+key))',old_attempt)
+ assert archived['product']['population']['generation']==2 and archived['product']['quest']['step']==5
+ passed(label+': population repeat button archives actual F2 and starts a new attempt with no old quest credit');action(p,'home')
 def harbour(p,key,label):
  start(p,10,'10-wadden')
  # A second route is a new attempt with new object evidence, never old answers.

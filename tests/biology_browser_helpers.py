@@ -24,7 +24,7 @@ def reveal(field):
 
 def activities(p,touch=False):
  for _ in range(20):
-  a=p.evaluate('async()=>{const {pendingActivity}=await import("./learning-activities.mjs");return window.aquariumLearningSnapshot().quest ? pendingActivity(window.aquariumLearningSnapshot().quest) : null}')
+  a=None if (snap(p).get('quest') or {}).get('id')=='8-ecosystem' else p.evaluate('async()=>{const {pendingActivity}=await import("./learning-activities.mjs");return window.aquariumLearningSnapshot().quest ? pendingActivity(window.aquariumLearningSnapshot().quest) : null}')
   if a and a['id']=='river-route' and p.locator('[data-learn="regional-northsea"]:visible').count():action(p,'regional-northsea',touch);continue
   connections={'food-fish':[('food','fish')],'rest-decomposer':[('remains','decomposer')],'consumer':[('food','fish')],'producer':[('light','plant')],'matter-energy':[('decomposer','minerals'),('minerals','plant'),('fish','heat')],'carbon-uptake':[('water','plant')],'carbon-return':[('animal','water')],'fossil-carbon':[('fossil','air')],'river-route':[('land','river'),('river','sea')]}
   if a and a['id'] in connections and p.locator('[data-process-node]:visible').count():

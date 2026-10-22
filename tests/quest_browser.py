@@ -61,7 +61,7 @@ def complete(p,g,id,touch=False):
  else:assert snap(p)['quest']['activities']==[]
  act('observe')
  if id!='10-wadden':
-  p.locator('[data-learn-help="observe"]').click();expect(p.locator('.learn-help-pop')).to_contain_text('Schau genau hin. Was passiert im Aquarium?');p.keyboard.press('Escape');assert p.evaluate('document.activeElement.dataset.learnHelp')=='observe'
+  p.locator('[data-learn-help="observe"]').click();expect(p.locator('.learn-help-pop')).to_contain_text('Schau genau hin. Was zeigt deine Population?' if g==9 else 'Schau genau hin. Was passiert im Aquarium?');p.keyboard.press('Escape');assert p.evaluate('document.activeElement.dataset.learnHelp')=='observe'
  else:
   expect(p.locator('#learning-root')).to_contain_text('Hafen')
   if p.locator('[data-harbour-object]').count():

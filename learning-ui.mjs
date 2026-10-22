@@ -1259,7 +1259,7 @@ export function mountLearningUI(host) {
         breeding:student.breeding(true),investigation:student.investigation(true),results:student.results(),materials:tag.mission === "9-darwin" && session.quest?.step === 4 ? fossilWorkspace({session,esc}) : ""});
       if(storageError)root.querySelector(".coherent-notebook").insertAdjacentHTML("afterbegin",`<p class="coherent-storage" role="alert">${esc(storageError)}</p>`);
       root.querySelector(".coherent-views").scrollTop=oldScroll;restorePosition();
-      if(helpKey) root.innerHTML+=`<section class="learn-help-pop" role="dialog" aria-modal="true" aria-label="Begriffshilfe"><h2>${esc(HELP[helpKey].term)}</h2><p>${esc(HELP[helpKey][tag.grade])}</p>${button("help-close","Hilfe schließen")}</section>`;
+      if(helpKey) root.innerHTML+=`<section class="learn-help-pop" role="dialog" aria-modal="true" aria-label="Begriffshilfe"><h2>${esc(HELP[helpKey].term)}</h2><p>${esc(helpKey === "observe" ? "Schau genau hin. Was zeigt deine Population? Wähle einzelne Fische." : HELP[helpKey][tag.grade])}</p>${button("help-close","Hilfe schließen")}</section>`;
       root.querySelector(".coherent-workspace").toggleAttribute("inert",!!helpKey);
       root.querySelector(".coherent-header").toggleAttribute("inert",!!helpKey);
       if(!teacher.help) root.querySelectorAll("[data-learn-help]").forEach(b=>b.remove());
@@ -1277,7 +1277,7 @@ export function mountLearningUI(host) {
       for (const summary of root.querySelectorAll("details > summary")) if (openDetails.includes(summary.textContent)) summary.parentElement.open=true;
       for (const {selector,top} of scrolls) root.querySelector(selector).scrollTop=top;
       if(focusAttribute) [...root.querySelectorAll(`[${focusAttribute}]`)].find(e=>e.getAttribute(focusAttribute)===active.getAttribute(focusAttribute))?.focus({preventScroll:true});
-      if (helpKey) root.innerHTML += `<section class="learn-help-pop" role="dialog" aria-modal="true" aria-label="Begriffshilfe"><h2>${esc(HELP[helpKey].term)}</h2><p>${esc(HELP[helpKey][tag.grade])}</p>${button("help-close","Hilfe schließen")}</section>`;
+      if (helpKey) root.innerHTML += `<section class="learn-help-pop" role="dialog" aria-modal="true" aria-label="Begriffshilfe"><h2>${esc(HELP[helpKey].term)}</h2><p>${esc(helpKey === "observe" ? "Schau genau hin. Was zeigt deine Population? Wähle einzelne Fische." : HELP[helpKey][tag.grade])}</p>${button("help-close","Hilfe schließen")}</section>`;
       root.querySelector(".coherent-workspace")?.toggleAttribute("inert",!!helpKey);
       root.querySelector(".coherent-header")?.toggleAttribute("inert",!!helpKey);
       if (!teacher.help) root.querySelectorAll("[data-learn-help]").forEach(b=>b.remove());

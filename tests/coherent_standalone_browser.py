@@ -40,6 +40,27 @@ with sync_playwright() as pw:
   report['render']=after['prototype']['render'];report['observed_frames_per_second']=(after['prototype']['render']['frames']-before['prototype']['render']['frames'])/(time.monotonic()-begin)
   report['canvas']=p.evaluate('[...document.querySelectorAll("canvas")].map(c=>({width:c.width,height:c.height,cssWidth:c.clientWidth,cssHeight:c.clientHeight}))')
   assert before['viewSamples']==after['viewSamples'];report['biological_values_unchanged_during_animation']=True
+  p.screenshot(path=str(OUT/'single-html-temperature.png'))
+  report['checks']=['temperature: real paired scenes, actual endpoint and exported context']
+  action(p,'home');p.locator('[data-learn-grade="9"]').click();action(p,'missions');p.locator('[data-learn-mission="9-mendel"]').click()
+  action(p,'observe');action(p,'close');choose(p,0);choose(p,1);action(p,'genes')
+  p.locator('[data-learning-mother]').select_option('1');p.locator('[data-learning-father]').select_option('6');action(p,'cross')
+  first=snap(p)['population'];assert first['generation']==1 and all(i['loci']['A']==['A','a'] for i in first['individuals'])
+  mother=next(i['uid'] for i in first['individuals'] if i['sex']=='♀');father=next(i['uid'] for i in first['individuals'] if i['sex']=='♂')
+  p.locator('[data-learning-mother]').select_option(str(mother));p.locator('[data-learning-father]').select_option(str(father));action(p,'cross')
+  assert snap(p)['quest']['step']==3 and snap(p)['population']['generation']==2
+  r=snap(p)['quest']['result'];choose(p,0 if r['dark']==1 else 1 if r['light']==1 else 2)
+  p.locator('[data-activity-id=mendel-probability][data-activity-choice="0"]').click();choose(p,0);assert snap(p)['quest']['step']==5
+  p.screenshot(path=str(OUT/'single-html-mendel.png'));report['checks'].append('Mendel: true F1/F2, actual parents and full quest while offline')
+  for key in ['returns','gear']:
+   action(p,'home');p.locator('[data-learn-grade="10"]').click();action(p,'missions');p.locator('[data-learn-mission="10-wadden"]').click()
+   if snap(p)['quest']['step']:action(p,'quest-restart');action(p,'new-attempt')
+   for node in (['visitors','packaging','animals'] if key=='returns' else ['fishing','nets','animals']):p.locator(f'[data-harbour-object="{node}"]').click()
+   choose(p,0);choose(p,1)
+   for id,index in [('harbour-interest',0 if key=='returns' else 1),('harbour-benefit',0),('harbour-effort',0)]:p.locator(f'[data-activity-id="{id}"][data-activity-choice="{index}"]').click()
+   choose(p,0);p.locator('[data-activity-id=harbour-followup][data-activity-choice="0"]').click();choose(p,0)
+   assert snap(p)['quest']['step']==5 and snap(p)['quest']['result']['measureKey']==key
+   report['checks'].append('harbour '+key+': full chosen-specific path while offline')
   extra=[u for u in report['http_requests'] if u!=URL and not u.endswith('/favicon.ico')];assert not extra,extra
   assert not report['errors'];p.screenshot(path=str(OUT/'single-html-result.png'));report['status']='passed'
   print('PASS',ENGINE,'single HTTP HTML: two actual scenes, full mission, export, no child HTTP resources, loaded document continues offline',flush=True)

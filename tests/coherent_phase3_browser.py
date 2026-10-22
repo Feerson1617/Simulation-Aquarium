@@ -43,6 +43,7 @@ def ecology(p,g,m,label):
  passed(label+': '+m+' complete with actual paired scenes, selected time and mission-specific readings');action(p,'home')
 def mendel(p,label):
  start(p,9,'9-mendel');assert p.locator('[data-cohort-uid]').count()==24
+ action(p,'observe');p.locator('[data-learn-help=observe]').click();expect(p.locator('.learn-help-pop')).to_contain_text('Was zeigt deine Population?');p.keyboard.press('Escape');action(p,'close')
  assert not p.locator('[data-tank-viewport]').count();expect(p.locator('#scene')).not_to_be_visible()
  p.locator('[data-cohort-uid="1"]').click();expect(p.locator('[data-individual-detail]')).to_contain_text('Fisch 1')
  assert not p.locator('[data-individual-detail]').get_by_text('AA',exact=True).count()

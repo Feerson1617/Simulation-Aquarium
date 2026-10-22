@@ -106,6 +106,8 @@ export function questHint(d,state,support) {
   const activity=pendingActivity(state);
   if (support === "independent") return "Welche Beobachtung oder welcher Vergleich hilft dir bei dieser Entscheidung?";
   const level=state.hintLevels?.[state.step+":"+(activity?.id || "question")] || 0;
+  if(level===0 && d.experiment.kind === "case")return "Schau auf die Müllquelle im Hafen und verfolge den Weg zu den Tieren.";
+  if(level===0 && d.id === "8-forest" && state.step===4)return "Vergleiche die hell markierten Blätter und ihre Umgebung.";
   if(level===0) return support === "guided" ? "Öffne bei Bedarf die passende Ansicht. Schau zuerst auf die Gegenstände und die hervorgehobenen Werte." : "Schau genau hin. Welche Gegenstände oder Werte gehören zu deiner Frage?";
   if(level===1) return d.experiment.kind === "population" || d.experiment.kind === "cross" || d.experiment.kind === "traits" ? "Wähle einzelne Fische. Vergleiche Farbe, Nummer und dieselbe Generation." : d.experiment.kind === "case" ? "Verfolge eine Quelle über den Müll zu den Tieren. Prüfe die dazu passende Maßnahme." : "Vergleiche Ausgang und Ziel deiner Handlung. Wähle bei Messwerten denselben Zeitpunkt auf beiden Seiten.";
   if (activity) return support === "guided" ? activity.hint || activity.prompt : "Prüfe die Karten oder die passenden Werte. Du kannst es erneut versuchen.";

@@ -310,6 +310,16 @@ export function createStudentViews(api) {
     );
   }
   function glossary() {
+    const regional=state().tag.mission === "10-wadden" ? [
+      ["Meeresmüll","Von Menschen hergestelltes Material gelangt in Meer oder Küste. Tiere können es verschlucken oder sich darin verheddern."],
+      ["Mehrweg und Rückgabe","Gefäße werden mehrfach genutzt. Rückgabe, Reinigung und Transport müssen organisiert werden."],
+      ["Ausgedientes Fanggerät","Netze und Leinen, die nicht mehr genutzt werden. Geregelte Sammlung an Land kann eine Müllquelle verringern."],
+    ] : state().tag.mission === "10-northsea" && state().session.regionalMode ? [
+      ["Eintrag","Stoffe gelangen von außen in ein Gewässer, zum Beispiel mit abfließendem Wasser."],
+      ["Einzugsgebiet","Das Gebiet, aus dem Wasser in einen Bach oder Fluss fließt."],
+      ["Eutrophierung","Zusätzliche Nährstoffe können Algenwachstum fördern. Späterer Abbau kann Sauerstoff verbrauchen; die tatsächliche Wirkung hängt von weiteren Bedingungen ab."],
+    ] : null;
+    if(regional)return panelHeader("Wörterhilfe")+regional.map(([term,text])=>`<details><summary>${term}</summary><p>${text}</p></details>`).join("");
     const { tag } = state(),
       keys =
         tag.grade === 9

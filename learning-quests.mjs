@@ -243,11 +243,11 @@ export const QUESTS = Object.fromEntries(
         "Welche Erklärung passt zur Auswahl der Eltern?",
         [
           "Vorhandene Varianten haben verschieden viele Nachkommen",
-          "Ein Fisch wird dunkel, weil er es braucht",
+          "Im Leben durch Gebrauch erworbene Veränderungen werden vererbt",
           "Alle Fische verändern gezielt ihre Erbanlagen",
         ],
         0,
-        "Die Tiere haben nicht alle gleich viele Nachkommen. Über Generationen kann sich die Gruppe ändern. Einzelne Fische wählen keine neuen Erbanlagen aus Bedarf.",
+        "Vorhandene erbliche Varianten werden unterschiedlich oft weitergegeben. Das beschreibt Selektion. Die programmierte Auswahlregel ist kein empirischer Beweis einer Evolutionstheorie. Die datierten Fossilfunde liefern davon getrennte Belege aus der Natur.",
       ),
     ),
     q(

@@ -112,7 +112,9 @@ def biological_experiment(p,id,touch=False):
   action(p,'device-temperature',touch);reveal(p.locator('[data-equipment-value]')).fill('27');p.locator('[data-equipment-save]').click();assert p.evaluate('document.activeElement.dataset.learn')=='device-temperature'
  action(p,'compare',touch)
  if snap(p).get('prototype'):
-  action(p,'workspace-play',touch);p.wait_for_function('window.aquariumLearningSnapshot().quest.step===3')
+  if id=='10-restore':
+   clock=p.locator('[data-coherent-time]:visible').first;clock.select_option(clock.locator('option').last.get_attribute('value'))
+  else:action(p,'workspace-play',touch);p.wait_for_function('window.aquariumLearningSnapshot().quest.step===3')
  c=snap(p)['comparison'];run=c['runs'][0];assert run['initialControl']==run['initialTest'];assert run['control'] and run['test']
  if id=='8-ecosystem':assert 25<run['finalTest']['params']['temp']<27;assert run['finalControl']['params']['temp']==25
  if id=='8-oxygen':

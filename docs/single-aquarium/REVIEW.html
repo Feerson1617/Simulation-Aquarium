@@ -1,0 +1,756 @@
+<!DOCTYPE html><html lang="de"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Aquarium – Einbecken-Neukonzept und Prüfung</title><style>body{margin:0;background:#f4f5f2;color:#17302e;font:17px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}main{max-width:1120px;margin:0 auto;background:#fff;padding:44px 42px}h1{font-size:2.15rem;line-height:1.16;max-width:900px}h2{margin-top:2.4em;border-top:2px solid #dce8e3;padding-top:1em}h3{margin-top:1.9em}a{color:#175b52}code{background:#eef3ef;border-radius:3px;padding:2px 4px;overflow-wrap:anywhere}p,li{max-width:1000px}table{border-collapse:collapse;width:100%;display:block;overflow-x:auto;font-size:14px;line-height:1.4;margin:1.3em 0}th,td{text-align:left;vertical-align:top;border:1px solid #d8e0dc;padding:10px;min-width:105px}th{background:#e9f1ed}tr:nth-child(even){background:#fafbf9}img{width:100%;height:auto;border:1px solid #dce5df;margin:1em 0}strong{color:#103e35}blockquote{border-left:4px solid #3f7a66;margin-left:0;padding-left:18px}@media(max-width:700px){main{padding:24px 18px}body{font-size:16px}h1{font-size:1.75rem}}@media print{body,main{background:#fff}main{padding:0;max-width:none}h2{break-after:avoid}table{display:table;font-size:10px}th,td{min-width:0;padding:5px}img{max-height:22cm;object-fit:contain}}</style><main><h1>Ein Aquarium, weniger Bedienung, mehr biologische Erkenntnis</h1>
+<h2>Unabhängige Neubewertung und Umsetzungskonzept · 22. Oktober 2026</h2>
+<p><strong>Entscheidung:</strong> Die Heizstab-Mission entfällt. Aus den 14 bisherigen Pflichtmissionen werden sechs gezieltere Lernmissionen – jeweils zwei pro Jahrgang. Alle beziehen sich auf ein einziges großes Hauptaquarium. Historische Versuchsdaten bleiben verfügbar, aber kein zweites Aquarium läuft verborgen mit.</p>
+<p>Das ist eine begründete neue Gestaltungsempfehlung unter den geänderten Vorgaben, keine Behauptung einer bereits gemessenen Lernwirksamkeit. Die bisherigen Zwei-Becken-Ansichten erfüllen den früheren Auftrag teilweise besser; sie passen aber nicht zur inzwischen ausdrücklich gewünschten Lernumgebung. Sie werden deshalb nicht als neue Programmfehler umgedeutet.</p>
+<p><a href="Codex-Masterauftrag.txt">Codex-Masterauftrag</a> · <a href="Missionsmatrix.md">Alle 14 Missionsentscheidungen</a> · <a href="Bedienelement-Matrix.md">64 Funktionsgruppen</a> · <a href="evidence/own-model-probes.json">Eigene Modellproben</a></p>
+<h2>1. Quellenstand und Grenzen dieser Prüfung</h2>
+<p>Untersucht wurde die angehängte ZIP <code>Simulation-Aquarium-4e59de3beb4d4af8017472301c9d28cc8ade653c.zip</code>. Ihr SHA-256 lautet <code>42515630dadad9ed7a504f57a0e5e2b9d379a103543b8a7a9eb3b2ede518736b</code>. Der verbundene GitHub-Lesezugriff bestätigte PR #9 als offen und ungemergt mit demselben Head <code>4e59de3beb4d4af8017472301c9d28cc8ade653c</code>, Branch <code>feature/coherent-learning-workspaces</code>, Basis <code>8e41962132fe3778fe73f8e14c650f42e18d848d</code>.</p>
+<p><strong>Ein eigener vollständiger Browserdurchlauf ist nicht erfolgt.</strong> Der lokale HTTP-Server lieferte Status 200; der tatsächlich gestartete Chromium-/Playwright-Browser verweigerte die Navigation mit <code>net::ERR_BLOCKED_BY_ADMINISTRATOR</code>. Diese Einschränkung wurde nicht umgangen. Das Fehlerprotokoll steht in <a href="evidence/browser-probe.json">browser-probe.json</a>. Deshalb gibt es hier keine eigenen Laufzeitaussagen über vollständige Klickfolgen, neue Touch-Treffgenauigkeit oder tatsächliche Tabletleistung.</p>
+<p>Tatsächlich ausgeführt wurden:</p>
+<table>
+<thead>
+<tr>
+  <th>Prüfart</th>
+  <th>Umfang</th>
+  <th>Was daraus folgt – und was nicht</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Eigene Quellcodeprüfung</td>
+  <td>Alle 14 Questdefinitionen, zentrale Inhalte/Handlungen und relevante Schüler-, Geräte-, Prozess-, Populations- und Lehrkraftansichten</td>
+  <td>Prüfung der implementierten Aufgaben und Datenwege; keine Behauptung intuitiver Bedienbarkeit</td>
+</tr>
+<tr>
+  <td>Eigene erneute Ausführung vorhandener Modultests</td>
+  <td>173 bestanden, 0 fehlgeschlagen/übersprungen</td>
+  <td>Bestehende Erwartungen sind erfüllt; keine empirische Lernabnahme</td>
+</tr>
+<tr>
+  <td>Neue eigene Kernproben</td>
+  <td>Neun Prüfgruppen, darunter alle neun ökologischen Standardläufe, Licht, Filterreinigung, CO₂, Sanierung, F1/F2 und Populationen</td>
+  <td>Tatsächliche Modellergebnisse und fachliche Grenzen; keine neue Schüleroberfläche</td>
+</tr>
+<tr>
+  <td>Neue Szenario-Vorproben</td>
+  <td>Zwölf Kombinationen aus Futtereintrag und Maßnahme sowie ein einmaliger Futterimpuls</td>
+  <td>Machbarkeit einer gehaltvolleren Maßnahmenfrage, nicht bereits fertige Mission</td>
+</tr>
+<tr>
+  <td>Serialer Vergleich</td>
+  <td>Zwei eigene Vergleichsfälle mit nacheinander ausgeführten Läufen und vollständigem Reset</td>
+  <td>Messreihen für Licht und Sanierung identisch zur bisherigen Paarrechnung</td>
+</tr>
+<tr>
+  <td>Visuelle Sichtung</td>
+  <td>14 ausgewählte vorhandene Missionsbilder auf vier Kontaktbögen</td>
+  <td>Eigene Betrachtung bereitgestellter Bilder; weder eigene Aufnahmen noch vollständige Bedienprüfung</td>
+</tr>
+<tr>
+  <td>Frühere Berichte</td>
+  <td>Work-Prüfpaket und frühere Gegenprüfung zur Einordnung gelesen</td>
+  <td>Historische Befunde, keine neuen erfolgreichen Browserläufe</td>
+</tr>
+</tbody>
+</table>
+<p>Die eigenen Tests verwenden einen unverändert extrahierten zusammenhängenden Abschnitt des tatsächlichen <code>index.html</code>-Rechenkerns und die originalen Module dieser ZIP, keinen vereinfachten Ersatz-Host. Extraktionsoffsets und Hashes stehen in <a href="evidence/core-extraction.json">core-extraction.json</a>. Die Prüfskripte liegen außerhalb des Spiels. Die Originaldateien werden abschließend gegen den vorab gespeicherten Hashbestand geprüft.</p>
+<h2>2. Das eigentliche Problem ist nicht die Zahl der Aquarien allein</h2>
+<p>Der vorige Umbau hat mehrere Zuordnungsprobleme tatsächlich adressiert. Zwei beschriftete Szenen und eine gemeinsame Datenauswahl sind wertvoller als ein unsichtbares Vergleichsbecken. Die neue Kritik betrifft aber eine andere Ebene: <strong>Welcher Lerngewinn rechtfertigt die Untersuchung und ihren Bedienaufwand?</strong></p>
+<p>Bei der Heizstab-Mission werden 25 °C und eine höhere Zieltemperatur verglichen. Der Abschluss spricht dagegen über Bestandteile und Wechselwirkungen eines Ökosystems. Der gemessene Geräteeffekt trägt diese weitergehende Erkenntnis kaum. Ein anderes Temperaturlimit oder ein hübscherer Regler verbessert diese Passung nicht ausreichend.</p>
+<p>Wiederkehrende Schwächen in den vorhandenen Definitionen:</p>
+<ul>
+<li>Eine einfache Zuordnung „Fisch / Wasser / Licht“ tritt wiederholt als Einstieg auf, obwohl sie für fortgeschrittene Genetik- oder Stofffragen kaum neue Erkenntnis bietet.</li>
+<li>Der F1-/F2-Versuch enthält brauchbare Daten; seine Schlussauswahl „Von beiden Eltern“ liegt jedoch weit unter dem tatsächlich möglichen Erkenntnisniveau über verdeckte Allele und zufällige Verteilung.</li>
+<li>Große Pfeil-/Knotenansichten prüfen richtige vorgegebene Verbindungen. Das ist nicht dasselbe wie eine empirische Beobachtung des Stoffwegs im Aquarium.</li>
+<li>Genetische Versuchspopulation und ursprünglicher Aquariumtierbestand sind getrennte Datenbestände. Ein Einbeckenumbau muss diese Identitäten wirklich verbinden, nicht eine Tabelle über dekorative Fische legen.</li>
+<li>Mehrere regionale Missionen duplizieren den Nährstoffversuch und wechseln anschließend in eine andere Arbeitswelt. Unter der neuen Ein-Aquarium-Regel ist ihr sinnvoller Platz ergänzendes Unterrichtsmaterial.</li>
+</ul>
+<p>Diese Einschätzungen sind fachlich begründete Bewertungen, nicht beobachtete Reaktionen einer realen Lerngruppe. Die Rückmeldung des Auftraggebers zur Heizstab-Aufgabe ist die konkrete Nutzungserfahrung; weitere Lernendenvorstellungen bleiben zunächst Hypothesen.</p>
+<h2>3. Eigene Gegenproben verhindern falsche neue Aufgaben</h2>
+<h3>Licht: Ohne Licht sinkt der Sauerstoffwert nicht zwingend</h3>
+<p>Im geprüften Startbecken lag Sauerstoff bei 7,8 mg/l. Nach drei Spieltagen ergaben sich etwa <strong>8,28 mg/l mit Licht</strong> und <strong>8,16 mg/l ohne Licht</strong>. Beide liegen über dem Anfangswert.</p>
+<p>Die Frage „In welcher Bedingung entstand der höhere Gesamtwert?“ ist deshalb anders als „Ist der Wert gegenüber dem Anfang gefallen?“. Der Nettoverlauf verbindet biologische Bildung und Verbrauch mit Luftaustausch. Diese Mehrursächlichkeit ist auch fachlich wesentlich; EPA CADDIS behandelt unter anderem Produktion, Verbrauch, Einträge und physikalische Austauschbedingungen [S4]. Eine Mission darf nicht die Schulbuchantwort „Dunkelheit lässt Sauerstoff immer fallen“ erzwingen.</p>
+<h3>Filter: Eine starke Reinigung erzeugt hier keine automatische Krise</h3>
+<p>Ich habe die tatsächlichen Aktionen <code>gentleclean</code> und <code>clean</code> am vorhandenen stabilen Lernbecken ausgeführt. Eine starke Reinigung verringert die Bakterienzustände im Modell, aber Nitrit liegt nach drei Tagen bei 0 und die Fische sind zunächst gesund. Auch der Siebentageslauf liefert keine zwingende Katastrophe.</p>
+<p>Eine neue Aufgabe „Reinige den Filter, bis die Fische krank werden“ wäre deshalb weder durch diesen Lauf gedeckt noch eine sinnvolle Standardmission. Die Rolle von Mikroorganismen lässt sich besser über tatsächliche Abbauflüsse und eine gekennzeichnete vergrößerte Erkläransicht erschließen.</p>
+<h3>Kohlenstoff: Mehr Dosierung ist kein Wachstumsbeweis</h3>
+<p>Bei einer Dosierung von 6 statt 3 endet der Dreitageslauf mit etwa 7,21 statt 5,03 mg/l Kohlenstoffdioxid. Die relative Pflanzenmenge ist in beiden Fällen jedoch <strong>identisch: 4,277237…</strong>. Der höhere Kohlenstoffdioxidwert allein beweist also nicht eine erhöhte Pflanzenproduktion. Der spätere Auftrag muss dies zulassen und andere begrenzende Bedingungen berücksichtigen.</p>
+<h3>Maßnahmen: Eine gehaltvollere Frage ist technisch erreichbar</h3>
+<p>In einer neuen, nur für die Prüfung veränderten Ausgangssituation wurde drei Tage lang ein höherer fortlaufender Futtereintrag verwendet. Anschließend wurden zwölf Kombinationen aus Eintragsstärke und Maßnahme untersucht.</p>
+<p>Für eine dieser Konstellationen ergaben sich nach weiteren zehn Tagen:</p>
+<table>
+<thead>
+<tr>
+  <th>Maßnahme</th>
+  <th style="text-align:right">Relativer Restbestand am Ende</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Eintrag läuft weiter, keine Maßnahme</td>
+  <td style="text-align:right">22,53</td>
+</tr>
+<tr>
+  <td>Eintrag läuft weiter, einmalig 50 % Wasserwechsel</td>
+  <td style="text-align:right">22,51</td>
+</tr>
+<tr>
+  <td>Futtereintrag verringert</td>
+  <td style="text-align:right">1,12</td>
+</tr>
+<tr>
+  <td>Futtereintrag verringert und Wasserwechsel</td>
+  <td style="text-align:right">1,10</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Das sind relative Modellgrößen, keine Grammzahlen, Fütterungsempfehlungen oder Gewässermessungen.</strong> Der Wasserwechsel beeinflusst gelöste Stoffe, entfernt im vorhandenen Modell aber nicht automatisch alle Bodenreste. Außerdem laufen andere Prozesse wie Fortpflanzung weiter. Gerade deshalb eignet sich die Konstellation zum Unterscheiden von laufender Ursache, kurzer Entlastung und späterer Entwicklung – ohne Fischsterben als notwendiges Erfolgssignal.</p>
+<h3>Ein Aquarium genügt rechnerisch für kontrollierte Modellvergleiche</h3>
+<p>Zwei Läufe wurden von identischem vollständigem Startzustand nacheinander ausgeführt. Licht: 13 und 13 Messpunkte; Sanierung: 14 und 57 wegen unterschiedlicher Abbruchzeiten. Die Reihen stimmen exakt mit den entsprechenden ursprünglichen Paarläufen überein.</p>
+<p>Das zeigt: Die Oberfläche kann auf einen einzigen aktiven Zustand umgestellt werden, während der erste Durchgang nur noch als gespeicherte Reihe vorliegt. Es ist <strong>kein zweites unsichtbares Becken nötig</strong>. Es beweist noch nicht, dass die neue Navigation oder Darstellung fertig ist.</p>
+<h2>4. Entscheidung über alle bisherigen Missionen</h2>
+<p>A = behalten, nur geringe Änderungen; B = grundlegend verändern; C = zusammenführen; D = aus dem Simulationspflichtweg entfernen. Hier ist keine A-Einstufung sinnvoll, weil bereits die neue Einbeckenführung jede verbleibende Mission konzeptionell betrifft. Das heißt nicht, dass alle bisherigen Inhalte wertlos sind.</p>
+<table>
+<thead>
+<tr>
+  <th>Altmission</th>
+  <th>Entscheidung</th>
+  <th>Begründung</th>
+  <th>Neue Zuordnung</th>
+  <th>Abnahmekriterium</th>
+  <th>Ziel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>8-ecosystem</td>
+  <td>D – streichen</td>
+  <td>Heizen ist der gemessene Eingriff; der Abschluss erklärt Ökosystembestandteile. Die eigentliche Wechselwirkung wird dadurch kaum erschlossen.</td>
+  <td>Muss ersatzlos aus den Pflichtwegen verschwinden. Gerät bleibt.</td>
+  <td>Kein Temperatur- oder Heizerklick nötig, um eine andere Mission zu beginnen.</td>
+  <td>M0</td>
+</tr>
+<tr>
+  <td>8-oxygen</td>
+  <td>B – verändern</td>
+  <td>Nichttrivialer Kern: Bildung und Verbrauch von Sauerstoff. Der jetzige Schlussvergleich kann zu bloßem Zahlenlesen werden.</td>
+  <td>M1: zwei Durchgänge nacheinander im selben Aquarium, mit ausdrücklich gleichem Anfang.</td>
+  <td>Lernende unterscheiden Gesamtwert, Lichtbildung und weiterlaufenden Verbrauch; auch Sauerstoffanstieg im Dunkeln ist auswertbar.</td>
+  <td>M1</td>
+</tr>
+<tr>
+  <td>8-foodweb</td>
+  <td>B – verändern</td>
+  <td>Guter Stoffumwandlungskern; die Wiederholung Fisch/Wasser/Licht und das große Pfeilfeld erhöhen den Bedienanteil.</td>
+  <td>M2: Futtergabe/Reste im Aquarium verfolgen, wenige gegenstandsbezogene Prozessbeziehungen.</td>
+  <td>Eine Reständerung wird nicht mit Vernichtung von Stoffen verwechselt; reale Umwandlung und Nettoeindruck werden getrennt.</td>
+  <td>M2</td>
+</tr>
+<tr>
+  <td>8-health</td>
+  <td>C – zusammenlegen</td>
+  <td>Bedeutsame Problemorientierung; bisher ist die Maßnahme weitgehend vorgegeben und mit der späteren Sanierung redundant.</td>
+  <td>Beobachtungsanlass in M2; begründete Maßnahmenwahl in M5, nicht als zusätzliche Pflichtmission.</td>
+  <td>Wasser- und Tierbeobachtung begründen eine Handlung statt eines automatisch richtigen 50-%-Knopfs.</td>
+  <td>M2/M5</td>
+</tr>
+<tr>
+  <td>8-forest</td>
+  <td>D – als Spielmission streichen</td>
+  <td>Der Wald ist schulisch wichtig. Das sichtbare Blattpaar und „Auch Bäume brauchen Licht“ tragen aber die behauptete Waldökosystem-Rekonstruktion nicht.</td>
+  <td>Kurze optionale Transferkarte und Lehrkraftmaterial; keine Waldspielwelt.</td>
+  <td>Im Lehrkraftplan ist erkennbar, dass eine reale Walderkundung/Ökosystemeinheit nicht durch diese Karte ersetzt wird.</td>
+  <td>Transfer</td>
+</tr>
+<tr>
+  <td>9-traits</td>
+  <td>C – zusammenlegen</td>
+  <td>Guter Begriffskern, aber isoliertes Aufdecken von AA/Aa bleibt leicht reines Etikettenlesen.</td>
+  <td>Als notwendige Entdeckung in M3 integrieren.</td>
+  <td>Genotyp wird zur Erklärung einer tatsächlichen Nachkommenbeobachtung verwendet.</td>
+  <td>M3</td>
+</tr>
+<tr>
+  <td>9-mendel</td>
+  <td>B – verändern</td>
+  <td>F1/F2 und zufällige Vererbung sind ergiebig. Die Schlussfrage „Von beiden Eltern“ unterfordert gegenüber diesem Lernziel.</td>
+  <td>M3: dunkle Eltern/helle Nachkommen, echte Elternbezüge, Prognose einer weiteren Kreuzung.</td>
+  <td>Eine passende Allelweitergabe wird an konkretem Kind und Eltern belegt; keine festen Zahlenverhältnisse.</td>
+  <td>M3</td>
+</tr>
+<tr>
+  <td>9-population</td>
+  <td>B – verändern</td>
+  <td>Hoher Wert in Drift/Selektion/Dominanz. Die aktuelle Modellgewichtung ist gesetzt und kein selbst beobachteter natürlicher Anpassungsvorteil.</td>
+  <td>M4: Dominanz versus Häufigkeit, neutrale Wiederholungen und ein ausdrücklich angenommener Fortpflanzungsvorteil, seriell.</td>
+  <td>Schüler unterscheiden Farbe eines Individuums, Vererbungsregel und Häufigkeit über Generationen.</td>
+  <td>M4</td>
+</tr>
+<tr>
+  <td>9-darwin</td>
+  <td>C – zusammenlegen</td>
+  <td>Wiederholt dieselbe Populationsrechnung; die Fossilordnung ist kein Aquariumexperiment und beweist nicht die Modellregel.</td>
+  <td>Erklärung vorhandener Varianten in M4; Fossilien/Lamarck als Unterrichtsergänzung.</td>
+  <td>Keine evolutionäre Ursache allein durch vorprogrammierte Auswahlregeln empirisch „bewiesen“.</td>
+  <td>M4/Transfer</td>
+</tr>
+<tr>
+  <td>10-enrichment</td>
+  <td>C – zusammenlegen</td>
+  <td>Mehr Nährstoffe/mehr Algen ist allein zu direkt; spätere Sauerstoffprobleme werden im Standardlauf nicht beobachtet.</td>
+  <td>In M5 tatsächliche Einträge und Maßnahmen, regionale Eutrophierung als begrenzten Transfer nutzen.</td>
+  <td>Beobachteter Verlauf und mögliche Folgewirkung sind getrennt; kein erzwungenes Umkippen.</td>
+  <td>M5/Transfer</td>
+</tr>
+<tr>
+  <td>10-carbon</td>
+  <td>B – verändern</td>
+  <td>Der experimentelle Eingriff erhöht CO₂; die zentrale Erklärung über Kohlenstoffspeicher folgt aus einer separaten Aufgabe. Das ist kein direkter Beleg der Pflanzenwachstumsursache.</td>
+  <td>M6: Kohlenstoffherkunft an realer Pflanze und kleiner Erklärung, statt Dosierungsroutine.</td>
+  <td>Messbefund, Erklärung durch das Modell und fossiler Zusatz werden korrekt unterschieden.</td>
+  <td>M6</td>
+</tr>
+<tr>
+  <td>10-restore</td>
+  <td>B – verändern</td>
+  <td>Maßnahmen langfristig beurteilen ist gehaltvoll. Der bisherige akute Nitritfall und bloße früh/spät-Ansicht sichern Ursachenverständnis nicht allein.</td>
+  <td>M5: begründete zweite Maßnahme im gleichen gespeicherten Ausgangsfall eines fortlaufenden Eintrags.</td>
+  <td>Kurzfristige Verdünnung und verringerter Eintrag werden über echte Zeitdaten auseinandergehalten.</td>
+  <td>M5</td>
+</tr>
+<tr>
+  <td>10-northsea</td>
+  <td>C – zusammenlegen</td>
+  <td>Der zweite Nährstoffversuch dupliziert 10-enrichment. Eine dreigliedrige Eintragskette ersetzt keine regionale Bewertung.</td>
+  <td>Optionaler Transfer zu M5, quellenbasiert im Lehrkraft-/Unterrichtsmaterial.</td>
+  <td>Keine Aquariumwerte als Nordseemessung; Handlungsoptionen mit Aufwand/Interessen außerhalb des Simulationskerns bearbeiten.</td>
+  <td>Transfer</td>
+</tr>
+<tr>
+  <td>10-wadden</td>
+  <td>D – aus Simulationspflichtweg</td>
+  <td>Meeresschutz ist verbindlich und wichtig; ein Hafenentscheidungsraum ist aber ein anderes Medium als das verlangte eine Hauptaquarium.</td>
+  <td>Vorhandenes geeignetes Fallmaterial separat erhalten, nicht Plastik in den Fischversuch einbauen.</td>
+  <td>Lehrkraft sieht die externe Ergänzungsaufgabe und ihre curriculare Bedeutung; keine behauptete Vollabdeckung.</td>
+  <td>Transfer</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ergebnis:</strong> sechs B-Missionen als neue Kernstruktur, fünf Zusammenführungen und drei Entfernungen aus dem Pflichtweg. „D“ bei Wald und Wattenmeer bedeutet nicht, dass diese Unterrichtsgegenstände unnötig sind.</p>
+<h2>5. Neues Missionskonzept</h2>
+<table>
+<thead>
+<tr>
+  <th>Neue Mission</th>
+  <th>Zentrale Frage / Erkenntnis</th>
+  <th>Relevante Handlung im einzigen Aquarium</th>
+  <th>Nötige Anzeige / Hilfe</th>
+  <th>Sicherung und Grenze</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>M1 · Klasse 8 · Was machen Pflanzen im Dunkeln?</td>
+  <td>Lichtbildung und weiterlaufender Verbrauch sind unterschiedliche Vorgänge</td>
+  <td>Pflanze wählen, eine Lichtbedingung untersuchen, gleicher Anfang, andere Bedingung</td>
+  <td>Ein Sauerstoffwert und kleine Verlaufslinie; Lichtzustand am Gerät</td>
+  <td>Beobachtung zum Lichtvergleich plus knappe Erklärung; keine garantierte absolute Sauerstoffabnahme</td>
+</tr>
+<tr>
+  <td>M2 · Klasse 8 · Was wird aus den Futterresten?</td>
+  <td>Reste werden umgewandelt, nicht vernichtet</td>
+  <td>Reste verfolgen, Bodengrund/Filter betrachten, wenige Beziehungen zuordnen</td>
+  <td>Reste und bei Bedarf Sauerstoff; vergrößerte Erkläransicht der Zersetzer</td>
+  <td>Befund von Stoffwegerklärung unterscheiden; Netto-Restmenge ist nicht Abbaufluss</td>
+</tr>
+<tr>
+  <td>M3 · Klasse 9 · Können dunkle Eltern helle Junge bekommen?</td>
+  <td>Gleiche Farbe kann andere Allele verbergen; Vererbung ist zufällig</td>
+  <td>Wirkliche Eltern und Nachkommen in derselben Szene untersuchen, F1/F2</td>
+  <td>Aktuelle Generation, Anzahl/Farbe, Genotyp erst bei Bedarf</td>
+  <td>Eine konkrete Allelweitergabe erklären und weitere Kreuzung vorhersagen; keine festen Wurfquoten</td>
+</tr>
+<tr>
+  <td>M4 · Klasse 9 · Setzt sich die dominante Farbe immer durch?</td>
+  <td>Dominanz, Häufigkeit, Zufall und Fortpflanzungsvorteil sind nicht gleich</td>
+  <td>Eine Population über Generationen; unabhängige Wiederholung; beschriebener Modellfall eines Vorteils</td>
+  <td>Anzahl/Farbanteil; später eine kleine Verlaufslinie</td>
+  <td>Beobachtete Häufigkeit mit Elternbeiträgen erklären; angenommene Modellgewichte sind kein Naturbeleg</td>
+</tr>
+<tr>
+  <td>M5 · Klasse 10 · Reicht ein Wasserwechsel?</td>
+  <td>Wirkung auf Belastung und Wirkung auf ihre fortlaufende Ursache unterscheiden</td>
+  <td>Eine Maßnahme früh/spät beobachten, ab gleichem Anfang andere Maßnahme untersuchen</td>
+  <td>Eintragsquelle sichtbar, Reste und passende Wasserinformation</td>
+  <td>Entscheidung mit frühem/spätem Beleg; kein „Wasserwechsel hilft nie“, keine Garantie dauerhafter Sanierung</td>
+</tr>
+<tr>
+  <td>M6 · Klasse 10 · Woher kommt der Kohlenstoff der Pflanze?</td>
+  <td>Kohlenstoffquelle, Aufbau, Atmung/Abbau und fossilen Zusatz unterscheiden</td>
+  <td>Reale Pflanze beim Wachstum betrachten, ihr kleines Stoffwegeschema öffnen</td>
+  <td>Pflanzenentwicklung, bei Bedarf Kohlenstoffdioxid</td>
+  <td>Wachstum ist beobachtet, atomare Herkunft ist durch Fachmodell erklärt; keine geschlossene Bilanz aus relativer Biomasse</td>
+</tr>
+</tbody>
+</table>
+<h3>Vollständiges Bedienbeispiel Klasse 8: M1</h3>
+<p><strong>Einstieg:</strong> Ein Aquarium, eine Pflanze dezent markiert, ein kurzer Auftrag: „Geben Pflanzen auch ohne Licht Sauerstoff ab?“ Eine Vermutung ist zulässig, wird aber nicht benotet.</p>
+<p><strong>Handlung:</strong> „Beobachte den Sauerstoff bei Licht.“ Die passende Beobachtungsdauer ist vorbereitet. Die Lernenden müssen weder ein Labor öffnen noch Tage, Wiederholungen und Messgröße konfigurieren. Die erste Reihe wird automatisch gespeichert.</p>
+<p><strong>Zweiter Durchgang:</strong> „Wir beginnen noch einmal gleich. Schalte das Licht aus.“ Der vollständige Reset ist erkennbar; es gibt weiterhin nur ein Aquarium. Die Lampe bietet die aktuell benötigte Handlung direkt an.</p>
+<p><strong>Auswertung:</strong> Eine kleine Ansicht zeigt „Mit Licht“ und „Ohne Licht“. Die Aufgabe verlangt einen Befund, nicht nur einen Menüwechsel. Anschließend wird gefragt, welche Sauerstoffquelle ohne Licht wegfällt und was trotzdem weiterläuft. Ein steigender Dunkelwert wird fachlich passend ausgewertet, nicht als Programmfehler behandelt.</p>
+<p><strong>Sicherung:</strong> Eine Beobachtung und eine kurze Erklärung. Freiwillige eigene Formulierung; kein zeichnerischer Auftrag. Bedarfsgerechte Hilfe zeigt zuerst den relevanten Ort, dann die Daten, zuletzt den Zusammenhang.</p>
+<h3>Vollständiges Bedienbeispiel Klasse 9: M3</h3>
+<p><strong>Einstieg:</strong> Tatsächliche Elterntiere im Hauptaquarium. Kein zusätzlicher Bestand in einer unabhängigen Kartentafel. Die Frage bezieht sich zunächst auf sichtbare Farbe; unbekannte Allele werden nicht vorsorglich auf allen Fischen eingeblendet.</p>
+<p><strong>Handlung:</strong> Eltern auswählen, Nachkommen nach markiertem Zeitraffer betrachten. Zwei tatsächliche dunkle F1-Tiere erneut als Eltern verwenden. Generation und Nachkommenzahl werden direkt sichtbar; physikalisch passende Beckenabmessungen und natürliche Körpergrößen bleiben erhalten.</p>
+<p><strong>Auswertung:</strong> Helle Junge trotz dunkler Eltern sind der erklärungsbedürftige Befund. Ein bestimmtes Kind wird ausgewählt; genau dessen Eltern und weitergegebene Allele erscheinen in einer kleinen Karte. Die 3:1-Erwartung wird nicht als garantierte Wurfzahl behandelt.</p>
+<p><strong>Sicherung:</strong> Eine neue Kreuzung prognostizieren oder eine tatsächliche Allelkombination begründen. „Es gibt zwei Eltern“ allein ist keine ausreichende Sicherung dieses Lernziels.</p>
+<h3>Vollständiges Bedienbeispiel Klasse 10: M5</h3>
+<p><strong>Einstieg:</strong> Fortlaufend zu viel Futter und erkennbare Reste. Zwei plausible Maßnahmen stehen zur Auswahl, nicht drei absichtlich unsinnige Antworten.</p>
+<p><strong>Handlung:</strong> Beispielsweise Wasser wechseln. Zuerst kurze Entwicklung, dann spätere Entwicklung im selben Aquarium ansehen. Werte und Bild gehören immer zum selben Zeitpunkt.</p>
+<p><strong>Zweiter Durchgang:</strong> Ausgangsfall ausdrücklich wiederherstellen, diesmal den Futtereintrag angemessen verringern. Bei Bedarf darf die Lernende eine Kombination prüfen; diese wird aber nicht als Ein-Variablen-Vergleich etikettiert.</p>
+<p><strong>Auswertung:</strong> Gespeicherte frühere Ergebnisse sind nur eine kleine Tabelle/Kurve. Die Frage lautet nicht „Welcher Knopf war richtig?“, sondern welche Maßnahme die fortlaufende Quelle verändert und welche vor allem einen Teil der Folgen beeinflusst.</p>
+<p><strong>Sicherung:</strong> Entscheidung mit einem frühen und einem späteren Befund. Keine künstlich herbeigeführte Katastrophe, keine behauptete Dauerlösung aus zu kurzer Beobachtung.</p>
+<h2>6. Die Oberfläche wird vom Lernschritt aus gedacht</h2>
+<p>Während einer Pflichtmission sind dauerhaft nur das Aquarium, eine kompakte aktuelle Aufgabenkarte und ein beschriftetes Menü nötig. Während der Beobachtung kommt eine verständliche Zeit-/Pauseanzeige hinzu. Ein Hauptauftrag hat eine unmittelbar erkennbare Hauptaktion; Messwerte und Erklärungen erscheinen erst, wenn sie für diese Handlung gebraucht werden.</p>
+<p><strong>Keine dauerhafte Leiste mit „Beobachten – Ausprobieren – Material – Ergebnisse“ neben einer zweiten Aufgabensteuerung.</strong> Stattdessen direkt „Licht ändern“, „Reste ansehen“ oder „Nachkommen ansehen“. Die alternative gut treffbare Objektauswahl bleibt wichtig: Zugänglichkeit ist keine überflüssige Dublette.</p>
+<p>Die Ziele „höchstens ein bis zwei relevante Messgrößen“ und „etwa 70 % freie Aquariumsfläche“ sind konkrete Gestaltungsrichtwerte, keine empirisch bewiesenen Optimalwerte. Eine notwendige Aktion darf zur Einhaltung dieser Zahlen nicht versteckt oder unleserlich werden.</p>
+<p>Kein passives Weiterlaufen während des Lesens oder eines geöffneten Hilfetexts. Keine Zeitstrafe, automatische Benotung einer Vermutung oder zusätzliche Geschicklichkeitsprüfung durch Minispiele. Direkte Gerätebedienung dient dem Verständnis; sie ist kein Selbstzweck.</p>
+<h3>Vollständige funktionale Bestandsaufnahme</h3>
+<p>Die statische Inventur fand <strong>264 Rendering-Fundstellen</strong> in den relevanten Oberflächenmodulen. Das sind ausdrücklich nicht 264 gleichzeitig sichtbare Schaltflächen. Enthalten sind alternative Zustände, Lehrkraft-/Expertenzweige und dynamische Vorlagen. Für die Entscheidungen wurden sie in <strong>64 Funktionsgruppen</strong> zusammengeführt. Das alte eingebettete Experten-HTML wurde nicht als neuer Schülerbildschirm gezählt. Dynamische Sichtbarkeit und tatsächliche Klickkosten müssen nach Implementierung im Browser gemessen werden.</p>
+<table>
+<thead>
+<tr>
+  <th>Element</th>
+  <th>Bisheriger Kontext</th>
+  <th>Entscheidung</th>
+  <th>Begründung / neue Verwendung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Jahrgang / Mission / Modus</td>
+  <td>Startoberfläche</td>
+  <td>Kontext</td>
+  <td>Vor dem Einstieg auswählen, im Aquarium nicht als ständige Leiste. Sechs neue Missionen statt alter 14er-Liste.</td>
+</tr>
+<tr>
+  <td>Aktuelle Aufgabe / Fortschritt</td>
+  <td>Questbuch</td>
+  <td>Dauerhaft</td>
+  <td>Eine kompakte Aufgabenkarte; keine große dauerhaft leere Seitenfläche. Fortschritt nicht starr fünf Phasen.</td>
+</tr>
+<tr>
+  <td>Mehr / Start / zurück</td>
+  <td>Mehrmenü und HUD</td>
+  <td>Dauerhaft/erweitert</td>
+  <td>Ein beschriftetes Menü bleibt. Missionswechsel und Start darin, nicht zusätzlich in mehreren Leisten.</td>
+</tr>
+<tr>
+  <td>Aquarium anschauen</td>
+  <td>Questphase 0</td>
+  <td>Entfernen</td>
+  <td>Kein Pflichtklick nur zum Setzen eines observed-Flags. Die geforderte Beobachtung geschieht an einem relevanten Objekt.</td>
+</tr>
+<tr>
+  <td>Beobachten</td>
+  <td>HUD / Panel</td>
+  <td>Entfernen als Hauptmenü</td>
+  <td>Objektauswahl und kontextbezogene Messung statt generischem Panel.</td>
+</tr>
+<tr>
+  <td>Ausprobieren / Untersuchen</td>
+  <td>HUD / Panel</td>
+  <td>Entfernen als Hauptmenü</td>
+  <td>Direkt benannte Handlung am aktuellen Lernschritt statt Zwischenmenü.</td>
+</tr>
+<tr>
+  <td>Tiere &amp; Pflanzen / Artkarte</td>
+  <td>Material/Katalog</td>
+  <td>Kontext</td>
+  <td>Kurze Karte zum ausgewählten Tier/Pflanze. Vollkatalog im Freien Forschen/Expertenbereich.</td>
+</tr>
+<tr>
+  <td>Fisch zeigen</td>
+  <td>Aquariumkacheln</td>
+  <td>Kontext</td>
+  <td>Gut treffbare Alternative zur direkten Tierauswahl behalten. Aktuelle ID muss stimmen.</td>
+</tr>
+<tr>
+  <td>Wasser ansehen</td>
+  <td>Aquariumkacheln</td>
+  <td>Entfernen/ersetzen</td>
+  <td>Nicht pauschal Wasser anklicken lassen; nur benötigte Messung direkt anbieten.</td>
+</tr>
+<tr>
+  <td>Einsetzen / Kaufen</td>
+  <td>Katalog</td>
+  <td>Kontext/erweitert</td>
+  <td>Nur bei biologisch begründeter Aufgabe; sonst Freies Forschen/Experte. Kein Einkaufszwang vor jeder Mission.</td>
+</tr>
+<tr>
+  <td>Pinzette</td>
+  <td>Material/Mehr</td>
+  <td>Erweitert</td>
+  <td>Für freies Gestalten erhalten; nur kontextuell, wenn Platzierung lernrelevant ist.</td>
+</tr>
+<tr>
+  <td>Heizstab / Zieltemperatur</td>
+  <td>Geräte</td>
+  <td>Erweitert</td>
+  <td>Als Gerät erhalten, aber keine eigene Pflichtmission, kein Pflichtminispiel.</td>
+</tr>
+<tr>
+  <td>Licht einstellen</td>
+  <td>Gerät</td>
+  <td>Kontext</td>
+  <td>M1, eventuell M6: eindeutig hervorgehoben. Eine passende Auswahl, nicht Intensität+Stunden+Zeitraum gleichzeitig.</td>
+</tr>
+<tr>
+  <td>Filter öffnen / betrachten</td>
+  <td>Gerät</td>
+  <td>Kontext</td>
+  <td>M2: Ort der Prozesse. Reinigung nicht als zwingende Katastrophenaufgabe.</td>
+</tr>
+<tr>
+  <td>Filterdurchfluss</td>
+  <td>Gerät</td>
+  <td>Erweitert</td>
+  <td>Freies Forschen/Experte; kein unspezifischer Pflichtregler.</td>
+</tr>
+<tr>
+  <td>Belüfter / Abschäumer / Technik</td>
+  <td>Geräte</td>
+  <td>Erweitert</td>
+  <td>Nicht dauerhaft in Lernmissionen; vorhandene Funktionen erhalten.</td>
+</tr>
+<tr>
+  <td>Futtergabe</td>
+  <td>Pflege</td>
+  <td>Kontext</td>
+  <td>M2 eine konkrete Handlung; Ereignis nur einmal anwenden.</td>
+</tr>
+<tr>
+  <td>Futterautomatik / Tagesration</td>
+  <td>Pflege</td>
+  <td>Kontext</td>
+  <td>M5 Ursache und Maßnahme sichtbar; sinnvolle Rationsauswahl statt technischer Faktorwüste.</td>
+</tr>
+<tr>
+  <td>Wasserwechsel</td>
+  <td>Pflege</td>
+  <td>Kontext</td>
+  <td>M5 eine passende Auswahl. 0 % nicht als wirksame Änderung anerkennen.</td>
+</tr>
+<tr>
+  <td>Dünger / CO₂-Dosierung</td>
+  <td>Pflege</td>
+  <td>Erweitert</td>
+  <td>Keine Kernmission „mehr hinein, mehr messen“. Für eigenes Forschen erhalten.</td>
+</tr>
+<tr>
+  <td>Becken 1 / Becken 2 / Seite</td>
+  <td>Vergleich</td>
+  <td>Entfernen</td>
+  <td>Keine Paarsteuerung im regulären Schülerbetrieb; nicht bloß CSS-verstecken.</td>
+</tr>
+<tr>
+  <td>Beide Becken öffnen / auswählen</td>
+  <td>Vergleich</td>
+  <td>Entfernen</td>
+  <td>Ein Hauptaquarium, historische Läufe als Belege.</td>
+</tr>
+<tr>
+  <td>Gemeinsame Versuchsuhr</td>
+  <td>Vergleich</td>
+  <td>Ersetzen</td>
+  <td>Eine eindeutige Zeit pro aktivem Durchgang. Keine zwei aktiven Zeitsysteme.</td>
+</tr>
+<tr>
+  <td>Versuch starten / Vergleich berechnen</td>
+  <td>Untersuchung</td>
+  <td>Ersetzen</td>
+  <td>Eine konkrete Aktion „Entwicklung ansehen“. Tatsächliche Simulation im sichtbaren Aquarium.</td>
+</tr>
+<tr>
+  <td>Tage / Beobachtungszeitraum</td>
+  <td>Untersuchung</td>
+  <td>Entfernen aus Pflichtmission</td>
+  <td>Sinnvoll vorgegeben; nur die benötigte Beobachtungsdauer kurz nennen, kein Eingabefeld.</td>
+</tr>
+<tr>
+  <td>Wiederholungszahl</td>
+  <td>Untersuchung</td>
+  <td>Erweitert</td>
+  <td>M4 bietet eine inhaltlich begründete weitere Wiederholung, keine vorauszusetzende Zahleneingabe.</td>
+</tr>
+<tr>
+  <td>Seed / gleiche Zufallsfolge</td>
+  <td>Population/Experte</td>
+  <td>Erweitert</td>
+  <td>Technische Reproduzierbarkeit in Hintergrund/Lehrkraft. Unabhängigkeit nicht vortäuschen.</td>
+</tr>
+<tr>
+  <td>Aktuelles Becken als Ausgangslage</td>
+  <td>Untersuchung</td>
+  <td>Erweitert/ersetzen</td>
+  <td>Für Pflichtwege gespeicherten Anfang gezielt und sichtbar wiederherstellen. Freies Forschen darf eigene Starts sichern.</td>
+</tr>
+<tr>
+  <td>Neuen Versuch planen</td>
+  <td>Untersuchung</td>
+  <td>Kontext</td>
+  <td>Nach begründeter Frage: gleicher Anfang und genau eine andere Bedingung. Kein generischer Planungsdialog.</td>
+</tr>
+<tr>
+  <td>+1 Tag / +1 Woche / +2 Wochen</td>
+  <td>Globale Zeit</td>
+  <td>Entfernen aus Pflichtleiste</td>
+  <td>Nur zum Lernschritt passende Beobachtungsaktion. Generationswechsel ist keine natürliche Tagesdauer.</td>
+</tr>
+<tr>
+  <td>Abspielen / Anhalten</td>
+  <td>Verlauf</td>
+  <td>Kontext</td>
+  <td>Nur bei laufender Entwicklung/Wiedergabe; erkennbar live oder gespeichertes Ergebnis.</td>
+</tr>
+<tr>
+  <td>Zeitpunkt-Dropdown</td>
+  <td>Verlauf</td>
+  <td>Erweitert/ersetzen</td>
+  <td>Kleine eindeutige Zeitmarken „Anfang“, „kurz danach“, „später“ aus echten Zuständen.</td>
+</tr>
+<tr>
+  <td>Messzeitpunkt / Werte merken</td>
+  <td>Messung</td>
+  <td>Kontext/automatisch</td>
+  <td>Benötigte Messung automatisch speichern. Manuelle Messreihen im freien Modus behalten.</td>
+</tr>
+<tr>
+  <td>Messgrößenwahl</td>
+  <td>Messung</td>
+  <td>Erweitert</td>
+  <td>Mission zeigt nur ein bis zwei nötige Größen, nicht vollen Auswahlkatalog.</td>
+</tr>
+<tr>
+  <td>Alle Werte / Tabelle</td>
+  <td>Ergebnisse</td>
+  <td>Erweitert</td>
+  <td>Bei Bedarf, nicht in ständig sichtbarer Instrumententafel.</td>
+</tr>
+<tr>
+  <td>Diagramm</td>
+  <td>Ergebnisse</td>
+  <td>Kontext</td>
+  <td>Nur die relevante Frage; höchstens zwei gespeicherte Verläufe derselben Größe.</td>
+</tr>
+<tr>
+  <td>Reihe / Wiederholung auswählen</td>
+  <td>Ergebnisse</td>
+  <td>Erweitert</td>
+  <td>Automatisch passend zur Aufgabe; historische Auswahl optional, Identitäten erhalten.</td>
+</tr>
+<tr>
+  <td>Frühere Durchgänge</td>
+  <td>Archiv</td>
+  <td>Erweitert</td>
+  <td>Unveränderliche historische Ergebnisse; nicht als zweite aktive Welt.</td>
+</tr>
+<tr>
+  <td>Als eigenes Becken übernehmen</td>
+  <td>Archiv</td>
+  <td>Erweitert</td>
+  <td>Explizite Kopie, nicht Nebenwirkung von Ansehen; im Experten-/freien Modus.</td>
+</tr>
+<tr>
+  <td>Erbanlagen zeigen</td>
+  <td>Genetik</td>
+  <td>Kontext</td>
+  <td>Nach passender Beobachtung an denselben ausgewählten Individuen.</td>
+</tr>
+<tr>
+  <td>Mutter/Vater-Dropdown</td>
+  <td>Genetik</td>
+  <td>Ersetzen</td>
+  <td>Direkte Elternauswahl im Hauptaquarium plus gleichwertige kompakte zugängliche Liste.</td>
+</tr>
+<tr>
+  <td>Nachkommen erzeugen</td>
+  <td>Genetik</td>
+  <td>Kontext</td>
+  <td>Nur aktuelle Eltern; echte Nachkommen und Zugehörigkeit, keine zweite Population.</td>
+</tr>
+<tr>
+  <td>Gruppe 1 / Gruppe 2 vergleichen</td>
+  <td>Population</td>
+  <td>Entfernen</td>
+  <td>Eine aktuelle Kohorte, serielle Versuche und gespeicherte Zahlen.</td>
+</tr>
+<tr>
+  <td>24er-Kartenraster als Hauptwelt</td>
+  <td>Population</td>
+  <td>Entfernen/kontextuell</td>
+  <td>Hauptaquarium ist dieselbe Population; eine kleine Zählhilfe darf ergänzen.</td>
+</tr>
+<tr>
+  <td>Umgebung / Farbvorteil</td>
+  <td>Population</td>
+  <td>Kontext</td>
+  <td>Modellannahme bei M4 konkret benennen, kein unerklärtes Dropdown „Umwelt“.</td>
+</tr>
+<tr>
+  <td>Generation ansehen</td>
+  <td>Genetik</td>
+  <td>Kontext</td>
+  <td>Aktuelle Generation klar; ältere Generationen nachvollziehbar als Archiv, nicht zeitgleich konkurrierend.</td>
+</tr>
+<tr>
+  <td>Punnett-Quadrat</td>
+  <td>Genetik</td>
+  <td>Erweitert/kontextuell</td>
+  <td>Sinnvolle Vertiefung nach Beobachtung; keine zusätzliche Pflicht vor jeder Kreuzung.</td>
+</tr>
+<tr>
+  <td>Noch einmal / frischer Start / fortsetzen</td>
+  <td>Ergebnisse</td>
+  <td>Kontext</td>
+  <td>Eine verständliche Wiederholung; technische Varianten verborgen. Bei Datenverlust absichern, sonst keine Bestätigungskaskade.</td>
+</tr>
+<tr>
+  <td>Quest einklappen / Zur Aufgabe</td>
+  <td>Quest</td>
+  <td>Kontext</td>
+  <td>Eine kleine Karte, bei Bedarf schließen/wiederfinden; nicht drei parallele Auftragsansichten.</td>
+</tr>
+<tr>
+  <td>Tipp / weiterer Tipp</td>
+  <td>Hilfe</td>
+  <td>Kontext</td>
+  <td>Zuerst Objekt/Ort, dann Daten, dann Erklärung; keine automatische Lösung.</td>
+</tr>
+<tr>
+  <td>Wörterhilfe / Glossar / ?</td>
+  <td>Hilfe</td>
+  <td>Kontext/erweitert</td>
+  <td>Kurze Hilfe am tatsächlich verwendeten Begriff, vollständiges Glossar optional.</td>
+</tr>
+<tr>
+  <td>Meine Ergebnisse / Notizen</td>
+  <td>Ergebnisse</td>
+  <td>Erweitert/Abschluss</td>
+  <td>Ein Ergebnisort; kein dauerhaftes zweites Notizbuch. Eigene kurze Begründung freiwillig.</td>
+</tr>
+<tr>
+  <td>Ergebnis speichern / für Lehrkraft</td>
+  <td>Ergebnisse</td>
+  <td>Kontext</td>
+  <td>Am Abschluss eine verständliche Aktion, vollständige Daten im Hintergrund.</td>
+</tr>
+<tr>
+  <td>CSV / SVG / JSON / alle Daten</td>
+  <td>Export</td>
+  <td>Erweitert</td>
+  <td>Nur technische Ansicht/Lehrkraft; keine Dateiformatkenntnis voraussetzen.</td>
+</tr>
+<tr>
+  <td>Konfiguration importieren/exportieren</td>
+  <td>Lehrkraft</td>
+  <td>Erweitert</td>
+  <td>Nicht im normalen Lernweg; Zugänglichkeit und Altformate bewahren.</td>
+</tr>
+<tr>
+  <td>Quellen / Curriculum / Modellklärung</td>
+  <td>Hintergrund</td>
+  <td>Erweitert</td>
+  <td>Lehrkraftbereich; unverzichtbare Erkenntnisgrenzen kurz im passenden Lernschritt.</td>
+</tr>
+<tr>
+  <td>Prozessknoten / große Pfeilfläche</td>
+  <td>Nahrung/Kohlenstoff</td>
+  <td>Ersetzen</td>
+  <td>Wenige am ausgewählten Objekt verankerte Erklärungen statt paralleler Hauptwelt.</td>
+</tr>
+<tr>
+  <td>Waldblätter / Fossilkarten</td>
+  <td>Transfer</td>
+  <td>Erweitert</td>
+  <td>Unterrichtsergänzung, kein neues Aquariumspiel und kein Erfüllungszwang.</td>
+</tr>
+<tr>
+  <td>Hafenobjekte / regionale Ansicht</td>
+  <td>Transfer</td>
+  <td>Aus Pflichtweg entfernen</td>
+  <td>Gutes externes Fallmaterial erhalten; nicht in Fischaquarium umdeuten.</td>
+</tr>
+<tr>
+  <td>Rückkehr zum Beckenvergleich</td>
+  <td>Region</td>
+  <td>Entfernen</td>
+  <td>Keine regionalen Parallelwelten im normalen Schülerweg.</td>
+</tr>
+<tr>
+  <td>Grafikprofil / Darstellung</td>
+  <td>System</td>
+  <td>Erweitert</td>
+  <td>Bei Start oder Menü, nicht während jeder Aufgabe. Keine Modelländerung durch Qualitätsprofil.</td>
+</tr>
+<tr>
+  <td>Warnungen / Gesundheitsanzeige</td>
+  <td>Status</td>
+  <td>Kontext</td>
+  <td>Aktuelle relevante Gefahr kurz verständlich; keine künstliche 100-Punkte-Bewertung als wissenschaftliche Messgröße.</td>
+</tr>
+<tr>
+  <td>Tastatur-/Touch-Alternative</td>
+  <td>Zugang</td>
+  <td>Kontext</td>
+  <td>Barrierearme Alternative nicht als überflüssige Dublette streichen; keine motorische Geschicklichkeitsprüfung.</td>
+</tr>
+<tr>
+  <td>Lehrkraftfreigabe weiterer Werte</td>
+  <td>Lehrkraft</td>
+  <td>Erweitert</td>
+  <td>Eine nachvollziehbare zusätzliche Freigabe, kein standardmäßig volles Labor.</td>
+</tr>
+</tbody>
+</table>
+<h2>7. Fachliche und curriculare Grenzen des neuen Zuschnitts</h2>
+<p>Das ETS-Curriculum 2025/26 legt Klasse 8 Ökologie, Klasse 9 klassische Genetik und Evolution, Klasse 10 menschliche Eingriffe und nachhaltige Entwicklung fest. Für Klasse 8 nennt es gewöhnlich den Wald als Beispiel, Fotosynthese/Zellatmung, Nahrung/Trophiestufen, Stoffkreisläufe und Energiefluss sowie Untersuchungsarbeit [S1, S. 9–10]. Die sechs Missionen liefern gezielte Beiträge, keine vollständige Abdeckung.</p>
+<p>Für Klasse 9 bleiben zum Beispiel Fossilien, stammesgeschichtliche Verwandtschaft und der Lamarckvergleich außerhalb der neuen Kernsimulation zu ergänzen. Das Ein-Merkmals-Modell darf nicht als vollständiger Nachweis aller Mendelschen Regeln gelten [S1, S. 14–15].</p>
+<p><strong>Kohlenstoffkreislauf einschließlich anthropogener Beeinflussung sowie Meeresschutz und Meeresmüll am Beispiel Nordsee/Wattenmeer sind in Klasse 10 verbindlich.</strong> Eine Verlagerung des Hafenfalls aus dem Spiel beseitigt diese schulische Aufgabe nicht. Das vorhandene geeignete Fallmaterial wird deshalb separat erhalten; eine Lehrkraftübersicht benennt „im Spiel / vorbereitet / extern zu ergänzen“ [S1, S. 19–20]. Die fossile Transferkarte ist keine weltweite Emissionssimulation.</p>
+<p>Die offizielle IQSH-Seite beschreibt die aufwachsende Einführung der Fachanforderungen 2026 ab 2026/27 beim Fachbeginn. Da das ETS-Curriculum Biologie ab Jahrgang 7 vorsieht, ist für die derzeitigen Jahrgänge 8–10 weiterhin die auslaufende Fassung 2023 relevant; dies ist die aus beiden Quellen abgeleitete Zuordnung. Der Allgemeine Teil 2024 gilt zusätzlich [S1, S. 1; S2]. Bei anderem Schuljahr oder Fachbeginn muss die Zuordnung erneut geprüft werden.</p>
+<p>Kontroll-/Testvariablen und Wiederholungen bleiben wichtige Unterrichtsgegenstände [S3]. Sie erfordern nicht zwingend zwei gleichzeitig dargestellte Aquarien. Ein serieller Modellvergleich setzt jedoch den gesamten gespeicherten Anfang einschließlich Ressourcen, Besatz und passenden Zufallszustands wieder her. Ein bloßes Vorher–Nachher am unverändert fortlaufenden Becken ist weniger kontrolliert und darf nicht entsprechend überhöht werden.</p>
+<p>Die didaktische Rekonstruktion wird durch konkrete Aufgabenentscheidungen operationalisiert: fachliche Kernidee, plausible Alltagsvorstellung, prüfbarer Befund, Interpretationsschritt und Reichweite. Noch nicht nachgewiesen ist, dass eine konkrete Lerngruppe diese Abläufe selbstständig versteht. Das verlangt nach der technischen Fertigstellung eine beobachtete Nutzung, nicht die Wiederverwendung alter Testzahlen.</p>
+<h2>8. Was vom bisherigen Projekt ausdrücklich erhalten bleibt</h2>
+<ul>
+<li>Eindeutige Herkunft von Messwert, Zeitpunkt, Durchgang und Modellstand; keine Verwechslung historischer und neuer Ergebnisse.</li>
+<li>Endliche Ressourcen, getrennte Stickstoffverbindungen, Nitrifizierer mit passendem Substrat, Unterscheidung von Fisch- und Wirbellosenzuständen, Überleben zusätzlich zum Zustand.</li>
+<li>Reale F1/F2-Ereignisse, zufällige Verteilung, getrennte Drift/Selektion, archivierte Eltern- und Nachkommenbezüge.</li>
+<li>Altstände, Exporte, Quellen, Lehrkraftfunktionen, Expertenmodus, Tutorial, Grafikprofile, Größenmaßstab, Pinzette und gute vorhandene Artmodelle.</li>
+<li>Kostenfreier statischer Betrieb ohne neue Konten.</li>
+</ul>
+<p>Die Schüleransicht wird reduziert, nicht der fachlich sinnvolle Rechenkern. Historische Zwei-Becken-Produkte bleiben lesbare Archive. Sie rechtfertigen keine zweite aktuelle Schüler-Spielwelt.</p>
+<h2>9. Technische Risiken und priorisierte Umsetzung</h2>
+<p><strong>Priorität 1:</strong> Heizstab-Mission entfernen, neue Missions-IDs/Archivierung festlegen, eine aktive Zustandseinheit definieren. Neue Anforderungen ausdrücklich vor alte Zwei-Becken-Pflichten setzen. Kein ungeprüftes Zurücksetzen auf den alten <code>main</code>-Lernmodus, da dabei wertvolle Reparaturen verloren gingen.</p>
+<p><strong>Priorität 2:</strong> M1 als vertikalen Einbecken-Prototyp: echtes Objekt, kurze Aufgabe, minimale Bedienung, automatische Messung, sichtbarer Reset, kleine Auswertung und Speichern/Laden. Es braucht eine neue ausdrückliche Sichtabnahme; die frühere Freigabe des Temperaturprototyps gilt dafür nicht.</p>
+<p><strong>Priorität 3:</strong> M2/M5 und die genetische Identitätsbrücke. Letztere ist keine kleine Farbkorrektur: Aktuell gehören vier Aquariumfische und 24 genetische Versuchstiere zu unterschiedlichen Beständen. Der neue Lernmodus muss dieselben Individuen tatsächlich darstellen, sachgerecht aufwachsen lassen beziehungsweise Generationen nachvollziehbar archivieren und doppelte parallele Fortpflanzung verhindern.</p>
+<p><strong>Priorität 4:</strong> M6, Unterrichtsergänzungen, freie Modi, Altimporte und durchgängige Sprach-/Feedbackprüfung. Danach vollständige eigene Browserwege auf Desktop und Tabletformaten; echte iPad-Hardware getrennt.</p>
+<p>Kein zweites Hintergrundbecken als Abkürzung. Kein unsichtbarer Reset. Kein stilles Löschen der Elternpopulation. Keine erzwungene biologische Kurve. Bei fehlender tatsächlicher Browserausführung bleibt die Abnahme offen.</p>
+<h2>10. Abnahmerahmen und klare Beweisgrenzen</h2>
+<p>Der Codex-Auftrag enthält Tests A–N für alle sechs Kernmissionen, seriellen Reset, Quellen-/Zeiteinheit, Gegenbefunde, reale Elternschaft, Null-Eingriffe, Speicherfehler, Bedieninventar und Regression. Entscheidend sind neue beobachtbare Lernhandlungen, nicht bloß die Übertragung der alten 14er-Testzahl.</p>
+<p>Die neue Gesamtfreigabe bleibt an den tatsächlichen sichtbaren Prototyp gebunden. Unterrichtserfolg ist damit noch nicht empirisch belegt. Ein Automatisierungsskript kennt häufig die richtigen Antworten aus dem Code und sagt deshalb nichts darüber, ob Lernende die relevanten Hinweise ohne Hilfe finden.</p>
+<h3>Quellen und Belegdateien</h3>
+<p><strong>S1 – Schulcurriculum:</strong> Eider-Treene-Schule, Schulinternes Fachcurriculum Biologie 2025/26, Original-PDF, 36 Seiten, insbesondere 1, 9–10, 14–15, 19–20. <a href="https://ets-toenning.de/wp-content/uploads/2025/07/Schulinternes-Fachcurriculum-Biologie-SJ-2025-26.pdf">Original</a>. Die gleichen relevanten Inhalte wurden aus der bereitgestellten PDF über die Dateisuche gelesen.</p>
+<p><strong>S2 – Geltung der Landesvorgaben:</strong> IQSH-Fachportal, <a href="https://fachportal.lernnetz.de/sh/faecher/biologie/fachanforderungen.html">Fachanforderungen Biologie</a>, abgerufen im Rahmen dieser Prüfung. Allgemeiner Teil 2024; aufwachsende Einführung 2026 und auslaufende Fassung 2023.</p>
+<p><strong>S3 – Fachanforderungen 2023:</strong> Ministerium Schleswig-Holstein, Fachanforderungen Biologie Sekundarstufe (2023, barrierearm), über S2 geöffnet; Erkenntnisgewinnung, Kontroll-/Testvariablen und Arbeit mit Daten. Die hier verwendeten Aussagen stammen aus dem Text, nicht aus einer behaupteten neuen PDF-Bildanalyse.</p>
+<p><strong>S4 – Sauerstoff:</strong> U.S. EPA, <a href="https://www.epa.gov/caddis/dissolved-oxygen">CADDIS: Dissolved Oxygen</a>, Zusammenwirken von Sauerstoffquellen/-senken und physikalischen Bedingungen. Diese Quelle bestätigt allgemeine Fachzusammenhänge, nicht die Kalibrierung des Spiels.</p>
+<p><strong>S5 – Referenzimplementierung:</strong> hochgeladene ZIP, Hash/Commit oben; <a href="https://github.com/Feerson1617/Simulation-Aquarium/pull/9">PR #9</a>, aktueller Status per verbundenem GitHub-Lesezugriff. Erfolgsaussagen im PR-Text bleiben Entwicklerangaben.</p>
+<p><strong>Eigene Belege:</strong> <a href="evidence/node-tests.log">Modultests</a>, <a href="evidence/own-model-probes.json">neun Kernprüfgruppen</a>, <a href="evidence/new-scenario-feasibility.json">neue Szenario-Vorproben</a>, <a href="evidence/serial-equivalence.json">seriale Äquivalenz</a>, <a href="evidence/source-locations.json">Originalfundstellen</a>, <a href="evidence/controls-source-inventory.json">Bedieninventar</a>, <a href="evidence/visual-source-index.json">Bildquellen</a>, <a href="evidence/browser-probe.json">Browsergrenze</a>, <a href="evidence/integrity-after.json">Unverändertheitsprüfung</a>.</p>
+<h3>Ausgewählte bereitgestellte Bilder, selbst betrachtet</h3>
+<p>Die folgenden Kontaktbögen wurden aus den vorhandenen Entwickler-Bildbelegen hergestellt. Sie sind keine eigenen Browseraufnahmen. Sie dienen der Beurteilung des sichtbaren Informationsumfangs und der Passung zwischen Gegenstand, Auftrag und Darstellung.</p>
+<p><img src="evidence/provided-screens-1.jpg" alt="Vier vorhandene Missionsansichten Klasse 8" /></p>
+<p><img src="evidence/provided-screens-2.jpg" alt="Vorhandene Ansichten Wald und Genetik" /></p>
+<p><img src="evidence/provided-screens-3.jpg" alt="Vorhandene Ansichten Evolution und Klasse 10" /></p>
+<p><img src="evidence/provided-screens-4.jpg" alt="Vorhandene regionale Ansichten" /></p>
+<h2>11. Unmittelbarer Entwicklungsauftrag</h2>
+<p>Der <a href="Codex-Masterauftrag.txt">vollständige Codex-Masterauftrag</a> ist eigenständig verwendbar und übernimmt die Entscheidungen dieses Berichts. Er verlangt zunächst M1 als neuen Prototyp, bevor die übrigen neuen Lernwege breit umgesetzt werden. Das Spiel wurde durch diese Prüfung nicht verändert.</p>
+</main></html>

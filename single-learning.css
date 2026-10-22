@@ -2,6 +2,14 @@
 html.single-aquarium {--single-paper:#f5f2e6;--single-ink:#1e3e3c;--single-accent:#2d685c;--single-line:#c9d2c4}
 html.single-aquarium #learning-root {font:15px/1.45 "DM Sans",system-ui,sans-serif;color:var(--single-ink)}
 html.single-aquarium #learning-root [data-single-file][hidden] {display:none!important}
+html.single-aquarium #learning-root [data-class-file][hidden] {display:none!important}
+#learning-root .classroom-start {display:flex;align-items:center;justify-content:center;min-height:44px;padding:10px;border-radius:10px;text-decoration:none;pointer-events:auto}
+#learning-root .classroom-body {font-size:15px;line-height:1.45;margin:10px 0}
+#learning-root .classroom-fish-list {display:grid;grid-template-columns:repeat(4,minmax(44px,1fr));gap:6px;margin:8px 0}
+#learning-root .classroom-fish-list button {text-align:center;padding:8px 5px}
+#learning-root .classroom-fish-list [aria-pressed=true] {outline:3px solid #a97f27;outline-offset:0;background:#f4e9ca}
+#learning-root .classroom-legend {font-size:13px;margin:5px 0}
+#learning-root .single-surface .classroom-ground {position:absolute;max-width:100px;font-size:13px;padding:6px;background:#f5f2e6e8}
 html[data-historical-tools] #learning-root::before {content:"Historische Lehrkraftwerkzeuge · frühere Lernwege";position:absolute;top:0;left:0;right:0;z-index:60;padding:2px 12px;background:#f0dca5;color:#473d24;font-size:11px;pointer-events:none}
 .single-surface {position:absolute;inset:0;pointer-events:none}
 .single-brand {position:absolute;top:20px;left:24px;color:#edf2e8;text-shadow:0 1px 4px #142f33;display:grid;gap:3px;max-width:65%}

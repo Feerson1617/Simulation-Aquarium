@@ -3902,6 +3902,7 @@ window.aquariumPhysicalSnapshot=()=>vt?physicalSnapshot(vt,De,RealismTHREE):null
 learningUI=mountLearningUI({root:tt("#app"),types:De,getState:()=>I,isHome:()=>Bn,create:()=>cd("empty"),add:oo,normalize:payload=>ud(payload),advance:hd,waterChange:tp,
  pause:()=>{Gn=0;ot=null;et=null;en();$e()},save:()=>At(),notify:Ft,home:I1,
  open:(payload,exact=false)=>{I=exact?structuredClone(payload):ud(payload);Bn=false;Gn=0;li=null;ot=null;et=null;Pi=false;vt?.aquascaping?.setEnabled(false);vt?.select(null);vt?.setState(I);en();$e();At()},
+ care:(tank,key)=>lo(tank,key),
  advanceCurrent:days=>{Gn=0;hd(I,days);vt?.sync();$e();At()},
  addCurrent:id=>{const added=oo(I,id,true);if(added){normalizeSpatialState(I,I.spatial,De);vt?.sync();At()}return added},
  deviceOpen:(key,options)=>equipmentUI.open(key,options),

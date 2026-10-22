@@ -43,6 +43,7 @@ def geometry(p,label):
  report['inventories'].append({'step':label,**d});assert d['freeAquariumFraction']>=.7,(label,d)
  assert not d['horizontalOverflow'];assert all(c['width']>=43.5 and c['height']>=43.5 for c in d['controls'] if c['tag']=='BUTTON'),(label,d['controls'])
  assert not p.locator('input:visible,select:visible,textarea:visible').count()
+ assert not re.search(r'mg\s*/\s*[lL]|[ONC][₂₃₄]|milligramm',p.locator('#learning-root').inner_text(),re.I)
 def setup(b,profile):
  touch=profile!='desktop';view={'desktop':(1366,960),'portrait':(768,1024),'landscape':(1366,1024)}[profile]
  c=b.new_context(viewport={'width':view[0],'height':view[1]},device_scale_factor=1,is_mobile=touch,has_touch=touch,accept_downloads=True)
@@ -51,7 +52,7 @@ def setup(b,profile):
  p.goto(URL);p.wait_for_selector('[data-single=start]');return c,p,touch
 def start(p,touch):
  assert p.locator('.single-missions article').count()==6
- assert p.locator('[data-single-mission]').count()==1
+ assert p.locator('[data-single-mission]').count()==6
  assert not p.locator('[data-learn-mission]').count()
  click(p,'start',touch);p.wait_for_function('window.aquariumLearningSnapshot().renderer?.stats.detailModels>=19')
  assert snap(p)['session']['stage']=='plant';identity(p)

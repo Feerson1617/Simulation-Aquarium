@@ -37,7 +37,7 @@ test('only one active reference advances; a visible full reset preserves the ent
 });
 test('rising oxygen without light remains a valid measured finding, not a required fall',()=>{
  const s=ready();finish(s);resetSingleForDark(s);darkenSingle(s);finish(s);
- assert.match(singleObservationChoices(s)[0].text,/Mit Licht: höher. Ohne Licht: höher/);
+ assert.match(singleObservationChoices(s)[0].text,/Mit Licht: mehr. Ohne Licht: mehr/);
  assert.equal(answerSingle(s,'reversed-dark'),false);assert.equal(s.stage,'compare');
  assert.ok(answerSingle(s,'observed'));assert.equal(answerSingle(s,'net-proof'),false);
  assert.ok(answerSingle(s,'processes'));assert.equal(s.stage,'complete');assert.equal(s.ownText,'');

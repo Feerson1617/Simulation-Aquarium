@@ -144,6 +144,7 @@ export function reconcileLearningStudy(study, allowed) {
 export function normalizeLearningTag(tag) {
   if (tag == null) return null;
   if (tag.version === 2) {
+    if(tag.mode === "free" && tag.mission == null && [8,9,10].includes(tag.grade)) return {version:2,grade:tag.grade,mode:"free",mission:null};
     const mission=SINGLE_MISSIONS.find(m=>m.id===tag.mission);
     if (!mission || mission.grade!==tag.grade || tag.mode!=="missions") throw new Error("Ungültiges Einbecken-Lernprofil.");
     return {version:2,grade:mission.grade,mode:"missions",mission:mission.id};

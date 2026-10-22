@@ -1,4 +1,5 @@
 import {OBSERVATION_METRICS} from "./learning-activities.mjs";
+import {tankArchive, appendTankFrame, interventionEvent, validateTankArchive, resolveComparisonView} from "./learning-context.mjs";
 import {validateProvenance} from "./learning-provenance.mjs";
 import {fishStatus,ammoniaConcentration} from "./biology-quality.mjs";
 import { validateQuest } from "./learning-quests.mjs";
@@ -12,7 +13,7 @@ import { createScenario } from "./scenarios.mjs";
 import { initializeIndividual } from "./genetics.mjs";
 import { validateLearningPopulation } from "./learning-population.mjs";
 import { controlNumber, requireControlValue, validControlValue, applyEquipmentSetting } from "./control-values.mjs";
-export const LEARNING_MODEL_REVISION = "learning-biology-4";
+export const LEARNING_MODEL_REVISION = "learning-biology-5-views";
 export const POPULATION_METRICS = {
   AA: ["Genotyp AA", "Anzahl"],
   Aa: ["Genotyp Aa", "Anzahl"],
@@ -322,7 +323,7 @@ export function applyLearningIntervention(payload, key, value, host) {
     s.feedRate = value;
   }
   if (key === "co2") s.co2Dose = value;
-  if (key === "water") host.waterChange(s, value);
+  if (key === "water" && value > 0) host.waterChange(s, value);
   if (key === "nutrients") {
     s.params.no3 += value;
     s.params.po4 += value / 30;
@@ -358,6 +359,9 @@ export function runLearningComparison(
         seed: control.seed,
         initialControl: structuredClone(initial),
         initialTest: structuredClone(initial),
+        preparedTest: structuredClone(test),
+        intervention: interventionEvent(initial, test, tool, value),
+        tanks: {control: tankArchive(control), test: tankArchive(test)},
         control: [learningSample(control, host.types)],
         test: [learningSample(test, host.types)],
         stopped: null,
@@ -396,7 +400,9 @@ export function runLearningComparison(
       };
       for (let n = 0; n < days * 4; n++) {
         if (markFailure()) break;
+        const before = structuredClone(state);
         host.advance(state, 0.25);
+        appendTankFrame(row.tanks[side], before, state);
         row[side].push(learningSample(state, host.types));
         status.end = state.day;
         if (markFailure()) break; // includes failure in the final requested step
@@ -491,6 +497,7 @@ export function comparisonCSV(comparison) {
     profile = c.profile || comparison.profile || {},
     metrics =
       comparison.kind === "manual" ? comparison.metrics : Object.keys(defs),
+    view = comparison.viewContext,
     rows = [
       [
         "CSV-Schema",
@@ -524,6 +531,7 @@ export function comparisonCSV(comparison) {
         "Wertstatus",
       ],
     ];
+  if (view) rows[0].push("Versuch-ID","Durchgang-ID","Ansicht Zeit","Ansicht Seite","Zustandskennung");
   for (const run of comparison.runs) {
     const times =
       comparison.kind === "manual"
@@ -536,6 +544,7 @@ export function comparisonCSV(comparison) {
         status = run.status?.[side];
       for (const row of times)
         for (const key of metrics) {
+          if (view && (row.time !== view.time || (view.side !== "both" && view.side !== side))) continue;
           const sample = row[side],
             def = key === "health" && sample && sample.metricsVersion !== 2 ? ["Tierkondition (historischer Wert: Fische und Wirbellose)","Modellindex %"] : defs[key],
             value = sample?.[key],
@@ -604,6 +613,7 @@ export function comparisonCSV(comparison) {
                   ? "berechnet"
                   : "unbekannt",
           ]);
+          if (view) rows.at(-1).push(view.investigationId,view.attemptId,view.time,view.side,view.stateIds?.[side]);
         }
     }
   }
@@ -843,7 +853,7 @@ export function validateLearningProduct(raw) {
         ),
       ],
     );
-  return {
+  const product = {
     version: raw.version,
     type: raw.type,
     profile,
@@ -878,6 +888,20 @@ export function validateLearningProduct(raw) {
       }),
     ),
   };
+  if (raw.attemptId != null) {
+    if (typeof raw.attemptId !== "string" || !/^[a-zA-Z0-9-]{1,80}$/.test(raw.attemptId)) throw new Error("Ungültige Durchgangskennung.");
+    product.attemptId=raw.attemptId;
+  }
+  if (raw.viewContext) {
+    const x=raw.viewContext;
+    if (x.version !== 1 || !["both","control","test"].includes(x.side)) throw new Error("Ungültige Ansichtskennung.");
+    const v=resolveComparisonView({...product,study:{series:x.series,run:x.run},view:x});
+    if (!v || v.context.time !== x.time || v.context.seriesId !== x.seriesId ||
+        v.context.investigationId !== x.investigationId || v.context.attemptId !== x.attemptId ||
+        JSON.stringify(v.context.stateIds) !== JSON.stringify(x.stateIds)) throw new Error("Ansicht und gespeicherter Versuch widersprechen sich.");
+    product.viewContext=v.context;
+  }
+  return product;
 }
 /** Read-only data, metadata and genealogical evidence; imported engine payloads are never executed. */
 export function validateLearningComparison(raw) {
@@ -952,6 +976,16 @@ export function validateLearningComparison(raw) {
         ),
       };
     }
+    if (!population && run.tanks) {
+      clean.tanks = Object.fromEntries(["control", "test"].map(side =>
+        [side, validateTankArchive(run.tanks[side], clean[side])]));
+    }
+    if (run.intervention) {
+      const ev = run.intervention;
+      if (ev.version !== 1 || !Object.hasOwn(LEARNING_TOOLS, ev.type) || typeof ev.effective !== "boolean")
+        throw new Error("Ungültiger Eingriffsbeleg.");
+      clean.intervention = structuredClone(ev);
+    }
     clean.stopped =
       evidenceText(run.stopped) ||
       (Object.values(clean.status).some((s) => s.state !== "completed")
@@ -989,6 +1023,12 @@ export function validateLearningComparison(raw) {
     assumption: evidenceText(raw.assumption),
     repetitions: runs.length,
   };
+  for (const key of ["id", "attemptId"])
+    if (raw[key] != null) {
+      if (typeof raw[key] !== "string" || !/^[a-zA-Z0-9-]{1,80}$/.test(raw[key])) throw new Error("Ungültige Versuchskennung.");
+      clean[key] = raw[key];
+    }
+  if (raw.viewVersion === 1) clean.viewVersion = 1;
   if (population) {
     if (
       raw.environment != null &&

@@ -466,7 +466,9 @@ export function resultQuestion(q, result) {
       q.experiment.kind === "population"
         ? ["In Gruppe 1", "In Gruppe 2", "Etwa gleich groß"]
         : ["In Becken 1", "In Becken 2", "Etwa gleich"],
-    correct: !result
+    correct: result?.displayPrecision === 1 && q.experiment.metric === "temp"
+      ? Math.round(result.control*10) === Math.round(result.test*10) ? 2 : result.control > result.test ? 0 : 1
+      : !result
       ? -1
       : Math.abs(result.control-result.test) <= resultTolerance(q.experiment.metric,result)
         ? 2
@@ -519,28 +521,30 @@ export function questEvent(state, event, evidence = {}) {
   state.feedback = "Der Versuch ist fertig. Vergleiche jetzt die Ergebnisse.";
   return true;
 }
-export function answerQuest(state, index) {
+export function answerQuest(state, index, inspectedResult = state?.result) {
   if (!state || !QUESTS[state.id] || !Number.isInteger(index)) return false;
   const d = QUESTS[state.id],
-    step = state.step;
+    step = state.step,
+    result = step === 3 ? inspectedResult : state.result;
   const question =
     step === 0
       ? d.observe
       : step === 1
         ? { prompt: predictionPrompt(d), choices: predictionChoices(d) }
         : step === 3
-          ? resultQuestion(d, state.result)
+          ? resultQuestion(d, inspectedResult)
           : step === 4
-            ? questConclusion(d, state.result)
+            ? questConclusion(d, result)
             : null;
   if (!question || index < 0 || index >= question.choices.length) return false;
+  state.feedbackKind = "error";
   const activity=pendingActivity(state,step);
   if (activity) {state.feedback=activity.prompt;return false;}
   if (step === 0 && !state.observed) {
     state.feedback = "Schau zuerst ins Aquarium. Öffne „Beobachten“.";
     return false;
   }
-  if (step === 3 && !state.result) {
+  if (step === 3 && !result) {
     state.feedback = "Starte zuerst den Versuch.";
     return false;
   }
@@ -549,9 +553,9 @@ export function answerQuest(state, index) {
       ? d.experiment.kind === "cross" ? "Zähle die Farben im tatsächlich entstandenen Wurf. Ein theoretisches Verhältnis ist keine feste Anzahl."
         : d.experiment.kind === "traits" ? "Vergleiche AA und Aa: Beide können dunkel aussehen."
         : d.experiment.kind === "case" ? "Prüfe Tiernutzen und den Aufwand für die Menschen am Hafen."
-        : d.experiment.metric === "fishOutcome" && state.result.fish ? `Vergleiche zuerst das Überleben: ${state.result.fish.control.fishAlive} Fische leben in Becken 1, ${state.result.fish.test.fishAlive} in Becken 2. Bei gleicher Zahl prüfst du ihren Zustand.`
-        : `Vergleiche ${d.experiment.label}: ${state.result.control?.toLocaleString("de-DE",{maximumFractionDigits:3})} in Becken/Gruppe 1 und ${state.result.test?.toLocaleString("de-DE",{maximumFractionDigits:3})} in 2. Kleine Unterschiede können etwa gleich sein.`
-      : (step === 0 ? d.observe.feedback : questConclusion(d,state.result).feedback).replace(/^(Ja|Richtig)\.\s*/,"").split(". ")[0] + ". Probiere deine Zuordnung erneut.";
+        : d.experiment.metric === "fishOutcome" && result.fish ? `Vergleiche zuerst das Überleben: ${result.fish.control.fishAlive} Fische leben in Becken 1, ${result.fish.test.fishAlive} in Becken 2. Bei gleicher Zahl prüfst du ihren Zustand.`
+        : `Vergleiche ${d.experiment.label}: ${result.control?.toLocaleString("de-DE",{maximumFractionDigits:3})} in Becken/Gruppe 1 und ${result.test?.toLocaleString("de-DE",{maximumFractionDigits:3})} in 2. Kleine Unterschiede können etwa gleich sein.`
+      : (step === 0 ? d.observe.feedback : questConclusion(d,result).feedback).replace(/^(Ja|Richtig)\.\s*/,"").split(". ")[0] + ". Probiere deine Zuordnung erneut.";
     return false;
   }
   state.entries.push({
@@ -563,12 +567,13 @@ export function answerQuest(state, index) {
     at: new Date().toISOString(),
   });
   state.step++;
+  state.feedbackKind = step === 1 ? "neutral" : "success";
   if (step === 3 && d.experiment.kind !== "case") {
     const prediction=state.entries.find(e=>e.step===1);
     let observed=d.experiment.kind === "traits" ? 1 : question.correct;
-    if (d.experiment.kind === "population" && state.result.populationPair?.neutral?.final) {
-      const values=state.result.populationPair.neutral.final.map(r=>r.test.dark);
-      observed=Math.max(...values)-Math.min(...values) > .5/(state.result.sampleSize || 24) ? 1 : 0;
+    if (d.experiment.kind === "population" && result.populationPair?.neutral?.final) {
+      const values=result.populationPair.neutral.final.map(r=>r.test.dark);
+      observed=Math.max(...values)-Math.min(...values) > .5/(result.sampleSize || 24) ? 1 : 0;
     }
     state.predictionCheck={selection:prediction?.answer || "Nicht dokumentiert",observed:predictionChoices(d)[observed] || question.choices[question.correct],matches:prediction?.choiceIndex===observed};
   }

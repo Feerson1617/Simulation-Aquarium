@@ -75,6 +75,7 @@ export function createStudentViews(api) {
   function quest(inline = false) {
     const { session, tag, panel } = state(),
       s = session.quest,
+      observedResult = api.questionResult?.() || s?.result,
       d = QUESTS[tag.mission];
     if (!d) return "";
     const done = s.step === 5, activity = done ? null : pendingActivity(s);
@@ -92,7 +93,7 @@ export function createStudentViews(api) {
             : step === 1
               ? { prompt: predictionPrompt(d), choices: predictionChoices(d) }
               : step === 3
-                ? resultQuestion(d, s.result)
+                ? resultQuestion(d, observedResult)
                 : step === 4
                   ? questConclusion(d, s.result)
                   : null;
@@ -104,7 +105,7 @@ export function createStudentViews(api) {
         body += button(device ? "device-"+d.experiment.tool : ["traits","cross","case"].includes(d.experiment.kind) ? "material" : "investigate", device ? ({temperature:"Heizstab einstellen",light:"Beleuchtung einstellen",filter:"Filter einstellen"})[d.experiment.tool] : d.experiment.kind === "traits" ? "Erbanlagen ansehen" : d.experiment.kind === "cross" ? "Eltern wählen" : "Versuch öffnen");
       }
       if (step === 3) {
-        body += reading(s.result);
+        body += reading(observedResult);
         body += button(
           ["cross","traits","case"].includes(d.experiment.kind)
             ? "material"
@@ -118,7 +119,7 @@ export function createStudentViews(api) {
     }
     if (!done && state().help !== false) body += state().support === "guided" || s.showHint ? `<p class="learn-step-hint">${esc(questHint(d,s,state().support))}</p>` : button("quest-hint","Tipp");
     if (s.predictionCheck && s.step >= 4) body += `<details class="learn-prediction-check"><summary>Deine Vermutung prüfen</summary><p>Ausgewählt: ${esc(s.predictionCheck.selection)}</p><p>Beobachtet: ${esc(s.predictionCheck.observed)}</p><p>${s.predictionCheck.matches ? "Das passt zu deiner Vermutung." : "Die Beobachtung passt hier nicht zu deiner Vermutung. Das ist ein Anlass zum Weiterfragen."}</p></details>`;
-    return `<aside class="learn-quest ${inline ? "learn-quest-inline" : ""}" aria-label="Questbuch"><header><strong>${esc(d.title)}</strong>${inline ? "" : button("quest-toggle", "−", 'aria-label="Questbuch einklappen" aria-expanded="true"')}</header><progress value="${s.step}" max="5" aria-label="Erledigte Aufgaben">${s.step} von 5</progress>${body}<p class="learn-quest-feedback" role="status" aria-live="polite">${esc(done ? "" : s.feedback)}</p></aside>`;
+    return `<aside class="learn-quest ${inline ? "learn-quest-inline" : ""}" aria-label="Questbuch"><header><strong>${esc(d.title)}</strong>${inline ? "" : button("quest-toggle", "−", 'aria-label="Questbuch einklappen" aria-expanded="true"')}</header><progress value="${s.step}" max="5" aria-label="Erledigte Aufgaben">${s.step} von 5</progress>${body}<p class="learn-quest-feedback" data-feedback-kind="${s.feedbackKind || "neutral"}" role="status" aria-live="polite">${esc(done ? "" : s.feedback)}</p></aside>`;
   }
   function activityControl(a) {
     if (a.kind === "view") return `<section class="learn-activity"><button data-activity-view="${a.action}">${esc(a.prompt)}</button></section>`;
@@ -145,7 +146,7 @@ export function createStudentViews(api) {
     if (r.fish) return `<div class="learn-two learn-reading">${["control","test"].map((side,i)=>`<div><small>Becken ${i+1}</small><strong>${r.fish[side].fishAlive} leben</strong><span>${r.fish[side].fishDead} gestorben</span><span>${r.fish[side].health == null ? "Keine lebenden Fische" : `Zustand der lebenden Fische: ${num(r.fish[side].health,0)} Punkte`}</span></div>`).join("")}</div>`;
     const fraction = r.unit === "Anteil",
       value = (v) =>
-        fraction ? num(v * 100, 1) + " %" : num(v, 3) + " " + esc(r.unit || "");
+        fraction ? num(v * 100, 1) + " %" : num(v, r.key === "temp" || r.label === "Temperatur" ? 1 : 3) + " " + esc(r.unit || "");
     return `${r.fish ? `<p>Becken 1: ${r.fish.control.fishAlive} leben, ${r.fish.control.fishDead} gestorben. Becken 2: ${r.fish.test.fishAlive} leben, ${r.fish.test.fishDead} gestorben.</p>` : ""}<div class="learn-two learn-reading"><div><small>${r.kind === "population" ? "Gruppe" : "Becken"} 1</small><strong>${value(r.control)}</strong></div><div><small>${r.kind === "population" ? "Gruppe" : "Becken"} 2</small><strong>${value(r.test)}</strong></div></div><small>${esc(r.label)} · Wiederholung ${r.repetition || 1} · ${r.kind === "population" ? "Generation" : "Tag"} ${num(r.time)}</small>`;
   }
   function observe() {
@@ -174,38 +175,28 @@ export function createStudentViews(api) {
     );
   }
   function results() {
-    const { session, tag } = state(),
-      series = [...(session.comparisonHistory || []),session.comparison].filter(Boolean),
-      seriesIndex = Math.min(session.study.series ?? series.length-1,series.length-1),
-      all = series[seriesIndex],
-      selectedRun = Math.min(session.study.run || 0, (all?.runs.length || 1)-1),
-      c = all ? {...all, runs:[all.runs[selectedRun]]} : null;
-    if (!c) return "";
-    const keys =
-        c.kind === "population" ? ["dark", "light", "A"] : api.studentMetrics(),
-      key = keys.includes(session.study.metric)
-        ? session.study.metric
-        : keys[0];
-    const rows = api.times(c.runs[0], c.kind),
-      r = rows
-        .filter(
-          (x) =>
-            Number.isFinite(x.control?.[key]) && Number.isFinite(x.test?.[key]),
-        )
-        .at(-1);
-    const tableValue = (row) => {
-      if (!row) return "beendet";
-      const value = row[key];
-      if (!Number.isFinite(value)) return "—";
-      return c.kind === "population" && ["dark", "light", "A"].includes(key)
-        ? num(value * 100, 1) + " %"
-        : num(value, 3);
-    };
-    const stale = seriesIndex === series.length-1 && !api.matches();
-    return `<section class="learn-results" data-selected-series="${seriesIndex}"><h3>Dein Vergleich</h3>${series.length > 1 ? `<details><summary>Versuche vergleichen</summary><label>Versuchsreihe<select data-learning-series>${options(series.map((item,i)=>[i,`${i+1}: ${item.kind === "population" ? item.environment === "neutral" ? "Keine Farbe bevorzugt" : item.environment === "dark" ? "Dunkle Farbe bevorzugt" : "Helle Farbe bevorzugt" : "Beckenversuch"}`]),seriesIndex)}</select></label></details>` : ""}<p data-learning-result-state role="status" class="${stale ? "learn-outdated" : ""}">${stale ? "Du hast etwas geändert. Starte den Versuch neu." : c.kind === "population" ? "Gruppe 1: keine Farbe bevorzugt. Gruppe 2: deine Umgebung." : "Becken 1 blieb gleich. Becken 2 wurde verändert."}</p>${all.runs.length > 1 ? `<label>Verlauf<select data-learning-run>${options(all.runs.map((r,i)=>[i,`Wiederholung ${i+1}`]),selectedRun)}</select></label>` : ""}<label>Was möchtest du ansehen?<select data-learning-metric>${options(
-      keys.map((k) => [k, STUDENT_METRICS[k][0]]),
-      key,
-    )}</select></label>${c.kind === "population" ? `<p>${esc(populationExplanation(c.environment))}</p>` : ""}${session.inspection ? `<p data-inspected-time>Angesehener Zeitpunkt: Tag ${num(session.inspection.time)}. Becken 1: ${session.inspection.control?.fishAlive ?? "beendet"} lebende Fische. Becken 2: ${session.inspection.test?.fishAlive ?? "beendet"} lebende Fische.</p>` : ""}${r ? reading({ kind: c.kind, label: STUDENT_METRICS[key][0], unit: STUDENT_METRICS[key][1], time: r.time, repetition:c.runs[0].repetition || 1, control: r.control[key], test: r.test[key] }) : ""}${api.plot(c, key)}<p class="learn-caption">Eine Linie zeigt ${c.kind === "population" ? "eine Gruppe" : "ein Becken"}. Vergleiche beide Linien.</p>${c.runs[0].status?.control?.state === "failed" || c.runs[0].status?.test?.state === "failed" ? "<p>Ein Becken konnte nicht weiterlaufen. Die Linie endet dort. Vergleiche nur Zeitpunkte mit zwei Werten.</p>" : ""}<details><summary>Alle Werte</summary><div class="learn-table-wrap"><table><thead><tr><th>${c.kind === "population" ? "Generation" : "Tag"}</th><th>${c.kind === "population" ? "Gruppe" : "Becken"} 1</th><th>${c.kind === "population" ? "Gruppe" : "Becken"} 2</th></tr></thead><tbody>${rows.map((r) => `<tr><td>${num(r.time)}</td><td>${tableValue(r.control)}</td><td>${tableValue(r.test)}</td></tr>`).join("")}</tbody></table></div></details><div class="learn-actions">${button("export", "Für die Lehrkraft speichern")}${c.kind === "ecology" ? button("show-control", "Becken 1 ansehen") + button("show-test", "Becken 2 ansehen") : ""}</div></section>`;
+    const {session} = state(), v = api.comparisonView();
+    if (!v) return "";
+    const {comparison:all,run,context,rows,row:r} = v;
+    const c = {...all,runs:[run]}, series = [...(session.comparisonHistory || []),session.comparison].filter(Boolean);
+    const keys = c.kind === "population" ? ["dark","light","A"] : api.studentMetrics();
+    const key = keys.includes(session.study.metric) ? session.study.metric : keys[0];
+    const value = sample => !sample ? "keine Folgemessung" : !Number.isFinite(sample[key]) ? "—" :
+      c.kind === "population" && ["dark","light","A"].includes(key) ? num(sample[key]*100,1)+" %" : num(sample[key],key === "temp" ? 1 : 3);
+    const stale = context.series === series.length-1 && !api.matches();
+    return `<section class="learn-results" data-selected-series="${context.series}" data-series-id="${esc(context.seriesId)}" data-view-time="${context.time}" data-repetition="${context.repetition}"><h3>Dein Vergleich</h3>
+      ${series.length>1 ? `<details><summary>Versuche vergleichen</summary><label>Versuchsreihe<select data-learning-series>${options(series.map((item,i)=>[i,`${i+1}: ${item.kind === "population" ? item.environment === "neutral" ? "Keine Farbe bevorzugt" : item.environment === "dark" ? "Dunkle Farbe bevorzugt" : "Helle Farbe bevorzugt" : "Beckenversuch"}`]),context.series)}</select></label></details>` : ""}
+      <p data-learning-result-state role="status" class="${stale ? "learn-outdated" : ""}">${stale ? "Der Plan wurde geändert. Diese Werte gehören zum gespeicherten Versuch." : c.kind === "population" ? "Gruppe 1: keine Farbe bevorzugt. Gruppe 2: deine Umgebung." : "Becken 1: Einstellung bleibt gleich. Becken 2: gewählter Eingriff. Beide Becken entwickeln sich weiter."}</p>
+      ${all.runs.length>1 ? `<label>Verlauf<select data-learning-run>${options(all.runs.map((r,i)=>[i,`Wiederholung ${r.repetition || i+1}`]),context.run)}</select></label>` : ""}
+      <label>Zeitpunkt<select data-coherent-time>${rows.map(x=>`<option value="${x.time}" ${x.time===context.time ? "selected" : ""}>${c.kind === "population" ? "Generation" : "Tag"} ${num(x.time)}</option>`).join("")}</select></label>
+      <label>Was möchtest du ansehen?<select data-learning-metric>${options(keys.map(k=>[k,STUDENT_METRICS[k][0]]),key)}</select></label>
+      ${c.kind === "population" ? `<p>${esc(populationExplanation(c.environment))}</p>` : ""}
+      ${session.inspection && session.inspection.time === context.time ? `<p data-inspected-time>Angesehener Zeitpunkt: Tag ${num(context.time)}.</p>` : ""}
+      ${r.control && r.test ? reading({kind:c.kind,label:STUDENT_METRICS[key][0],unit:STUDENT_METRICS[key][1],key,time:context.time,repetition:context.repetition,control:r.control[key],test:r.test[key]}) : `<p>Kein vollständiger Paarvergleich zu diesem Zeitpunkt. Becken 1: ${value(r.control)}. Becken 2: ${value(r.test)}.</p>`}
+      ${api.plot(c,key,context)}<p class="learn-caption">Eine Linie zeigt ${c.kind === "population" ? "eine Gruppe" : "ein Becken"}. Der Zeiger markiert den gewählten Zeitpunkt.</p>
+      ${Object.values(run.status || {}).some(s=>s.state === "failed") ? "<p>Ein Becken konnte nicht weiterlaufen. Seine Linie endet dort; danach fehlen seine Werte.</p>" : ""}
+      <details><summary>Alle Werte</summary><div class="learn-table-wrap"><table><thead><tr><th>${c.kind === "population" ? "Generation" : "Tag"}</th><th>${c.kind === "population" ? "Gruppe" : "Becken"} 1</th><th>${c.kind === "population" ? "Gruppe" : "Becken"} 2</th></tr></thead><tbody>${rows.map(x=>`<tr data-table-time="${x.time}" ${x.time===context.time ? 'aria-current="true"' : ""}><td>${num(x.time)}</td><td>${value(x.control)}</td><td>${value(x.test)}</td></tr>`).join("")}</tbody></table></div></details>
+      <div class="learn-actions">${button("export","Für die Lehrkraft speichern")}${button("csv","Gewählte Werte speichern")}${button("chart","Verlauf als Bild speichern")}${c.kind === "ecology" ? button("show-control","Becken 1 ansehen")+button("show-test","Becken 2 ansehen") : ""}</div></section>`;
   }
   function investigation() {
     const { session, tag } = state();
@@ -334,7 +325,7 @@ export function createStudentViews(api) {
   function more() {
     return (
       panelHeader("Mehr") +
-      `<div class="learn-actions">${button("glossary", "Wörterhilfe")}${button("tweezers", "Pinzette")}${button("display", "Darstellung")}${button("teacher", "Lehrkraftmodus")}${button("home", "Zum Start")}</div>`
+      `<div class="learn-actions">${button("glossary", "Wörterhilfe")}${button("tweezers", "Pinzette")}${button("display", "Darstellung")}${button("teacher", "Lehrkraftmodus")}${button("home", "Zum Start")}</div>${api.attempts?.() || ""}`
     );
   }
   return {

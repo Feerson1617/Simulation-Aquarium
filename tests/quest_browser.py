@@ -10,7 +10,9 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=Path(os.environ['AQUARIUM_QUEST_RESUME']) if os.environ.get('AQUARIUM_QUEST_RESUME') else Path(os.environ.get('AQUARIUM_QUEST_RESULTS','/tmp/aquarium-quest-results'))/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S');OUT.mkdir(parents=True,exist_ok=bool(os.environ.get('AQUARIUM_QUEST_RESUME')))
 URL=os.environ.get('AQUARIUM_URL','http://127.0.0.1:8000/aquarium-simulation/').split('?')[0]
 SECTIONS=os.environ.get('AQUARIUM_QUEST_SECTIONS','desktop,touch,free,teacher,help').split(',')
-report={'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'checks':[],'errors':[],'failed_requests':[],'missions':[],'screenshots':[],'sections':SECTIONS}
+DPR=float(os.environ.get('AQUARIUM_TEST_DPR','1'))
+if not 0.5<=DPR<=2:raise ValueError('AQUARIUM_TEST_DPR must be between 0.5 and 2')
+report={'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'device_scale_factor':DPR,'checks':[],'errors':[],'failed_requests':[],'missions':[],'screenshots':[],'sections':SECTIONS}
 # Resume only remaining sections after a test-harness fix. Preserve the original
 # failed report and actual products; teacher imports still read all earlier exports.
 if os.environ.get('AQUARIUM_QUEST_RESUME'):
@@ -41,7 +43,7 @@ def short(p):
  assert not p.evaluate('document.documentElement.scrollWidth>innerWidth')
 def shot(p,name):p.screenshot(path=str(OUT/name));report['screenshots'].append(name)
 def context(b,touch=False):
- c=b.new_context(viewport={'width':768 if touch else 1360,'height':1024 if touch else 960},is_mobile=touch,has_touch=touch,accept_downloads=True)
+ c=b.new_context(viewport={'width':768 if touch else 1360,'height':1024 if touch else 960},device_scale_factor=DPR,is_mobile=touch,has_touch=touch,accept_downloads=True)
  c.add_init_script("localStorage.setItem('aquarium-graphics-v1',JSON.stringify({version:1,profile:'ipad'}))")
  p=c.new_page();p.set_default_timeout(90000);p.on('pageerror',lambda e:report['errors'].append(str(e)));p.on('requestfailed',lambda r:report['failed_requests'].append(r.url));p.goto(URL);p.wait_for_function('!!window.aquariumLearningSnapshot');return c,p
 def download(p,name):

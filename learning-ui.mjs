@@ -837,6 +837,11 @@ export function mountLearningUI(host) {
     return Number(v.toFixed(3));
   }
   function results(comp) {
+    const v=resolveComparisonView(session);
+    if (!v) return "";
+    const {context,comparison:all}=v;
+    comp={...all,runs:[v.run],viewContext:context};
+    const series=[...(session.comparisonHistory || []),session.comparison].filter(Boolean);
     const population = comp.kind === "population",
       defs = comparisonMetricDefinitions(comp),
       keys = population
@@ -845,11 +850,11 @@ export function mountLearningUI(host) {
       metric = keys.includes(session.study.metric)
         ? session.study.metric
         : keys[0],
-      matches = planMatchesComparison(comp, currentPlan(comp.kind));
-    return `<section class="learn-results"><h3>Tatsächlich berechnete Daten</h3><p data-learning-result-state role="status" class="learn-result-state ${matches ? "" : "learn-outdated"}">${matches ? "Dieses Ergebnis gehört zum aktuellen Plan." : "Plan geändert – neu berechnen. Gezeigt und exportiert wird weiterhin der ältere Lauf mit seiner unten festgehaltenen Konfiguration."}</p>${runMetadata(comp)}<label>Messgröße<select data-learning-metric>${options(
+      matches = all === session.comparison && planMatchesComparison(all, currentPlan(all.kind));
+    return `<section class="learn-results" data-series-id="${esc(context.seriesId)}" data-view-time="${context.time}" data-repetition="${context.repetition}"><h3>Tatsächlich berechnete Daten</h3><label>Versuchsreihe<select data-learning-series>${options(series.map((c,i)=>[i,`${i+1}: ${c.kind === "population" ? "Populationsvergleich" : "Beckenvergleich"}`]),context.series)}</select></label><label>Wiederholung<select data-learning-run>${options(all.runs.map((r,i)=>[i,`Wiederholung ${r.repetition || i+1}`]),context.run)}</select></label><label>${population ? "Generation" : "Tag"}<select data-coherent-time>${options(v.rows.map(r=>[r.time,num(r.time)]),context.time)}</select></label><p data-learning-result-state role="status" class="learn-result-state ${matches ? "" : "learn-outdated"}">${matches ? "Dieses Ergebnis gehört zum aktuellen Plan." : "Plan geändert oder andere Reihe gewählt. Gezeigt und exportiert wird die ausgewählte gespeicherte Reihe mit ihrer festgehaltenen Laufkonfiguration."}</p>${runMetadata(comp)}<label>Messgröße<select data-learning-metric>${options(
       keys.map((k) => [k, defs[k].join(" · ")]),
       metric,
-    )}</select></label>${plot(comp, metric)}<p class="learn-caption">Kontrolle: durchgezogen · Versuch: gestrichelt. Diagramm: Wiederholung 1. „—“ bedeutet unbekannt; „keine Folgemessung“ bedeutet: diese Seite wurde beendet. Nach Ausfall einer Seite gibt es keinen vollständigen Paarvergleich mehr.</p>${runTables(comp, metric)}<div class="learn-actions">${button("csv", "Gewählten Zeitpunkt als CSV")}${button("csv-all", "Diese Reihe vollständig als CSV")}${button("export", "Protokoll mit Daten")}${button("chart", "Diagramm als SVG")}</div>${!population ? `<div class="learn-actions">${button("show-control", "Kontrollbecken ansehen")}${button("show-test", "Versuchsbecken ansehen")}</div>` : ""}${textArea("observation", session.notes.observation)}${textArea("explanation", session.notes.explanation)}${textArea("reflection", session.notes.reflection)}</section>`;
+    )}</select></label>${plot(comp, metric, context)}<p class="learn-caption">Kontrolle: durchgezogen · Versuch: gestrichelt. Diagramm: Wiederholung ${context.repetition}. „—“ bedeutet unbekannt; „keine Folgemessung“ bedeutet: diese Seite wurde beendet. Nach Ausfall einer Seite gibt es keinen vollständigen Paarvergleich mehr.</p>${runTables(comp, metric)}<div class="learn-actions">${button("csv", "Gewählten Zeitpunkt als CSV")}${button("csv-all", "Diese Reihe vollständig als CSV")}${button("export", "Protokoll mit Daten")}${button("chart", "Diagramm als SVG")}</div>${!population ? `<div class="learn-actions">${button("show-control", "Kontrollbecken ansehen")}${button("show-test", "Versuchsbecken ansehen")}</div>` : ""}${textArea("observation", session.notes.observation)}${textArea("explanation", session.notes.explanation)}${textArea("reflection", session.notes.reflection)}</section>`;
   }
   function runDescription(comp) {
     const c = comp.configuration,
@@ -886,7 +891,7 @@ export function mountLearningUI(host) {
           )
             .map(
               (row) =>
-                `<tr><td>${num(row.time)}</td><td>${row.control ? (metric === "health" && row.control.metricsVersion !== 2 ? "Früherer Tierwert: " : "") + num(row.control[metric], 4) : "keine Folgemessung"}</td><td>${row.test ? (metric === "health" && row.test.metricsVersion !== 2 ? "Früherer Tierwert: " : "") + num(row.test[metric], 4) : "keine Folgemessung"}</td></tr>`,
+                `<tr ${comp.viewContext ? `data-table-time="${row.time}" ${row.time === comp.viewContext.time ? 'aria-current="true"' : ""}` : ""}><td>${num(row.time)}</td><td>${row.control ? (metric === "health" && row.control.metricsVersion !== 2 ? "Früherer Tierwert: " : "") + num(row.control[metric], 4) : "keine Folgemessung"}</td><td>${row.test ? (metric === "health" && row.test.metricsVersion !== 2 ? "Früherer Tierwert: " : "") + num(row.test[metric], 4) : "keine Folgemessung"}</td></tr>`,
             )
             .join(
               "",

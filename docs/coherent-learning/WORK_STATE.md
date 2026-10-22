@@ -1,46 +1,53 @@
-# Wiederaufnahme: zusammenhängende Untersuchungen
+# Wiederaufnahme und Sichtgate
 
-Auftrag: [Original](REQUEST.txt), [unabhängiger Prüfbericht](REVIEW.html). Neuer Branch `feature/coherent-learning-workspaces`; Ausgangs-main `8e41962132fe3778fe73f8e14c650f42e18d848d`. PR8 ist nachweislich gemergt. Lokaler Stand war sauber; nichts aus früheren Ausführungen verworfen. Erster gesicherter neuer Commit `d52a4e8`. Der folgende Entwicklungsschritt enthält den laufenden Prototyp; den exakten aktuellen Head liefert `git rev-parse HEAD`.
+Auftrag: [Masterauftrag](REQUEST.txt), [Prüfbericht](REVIEW.html). Neuer Branch: `feature/coherent-learning-workspaces`. Ausgangspunkt ist exakt `8e41962132fe3778fe73f8e14c650f42e18d848d` auf main; PR #8 ist gemergt. Der bei Arbeitsbeginn vorgefundene Stand war sauber. Frühere Arbeit wurde nicht verworfen. Die neue Entwicklung ist schrittweise auf GitHub gesichert.
 
-## Verbindliche Grenze
+**Geprüfter Anwendungsstand: `a7ee966a3116faf4a231050718dc899fc1eea3fb`.** Nachfolgende Dokumentations-/Belegcommits ändern diesen Anwendungscode nicht. Den aktuellen Branch-Head liefert `git rev-parse HEAD`.
 
-Masterauftrag Abschnitt15: „Vor dieser Freigabe keine flächendeckende Neugestaltung aller Missionen.“ Es ist noch keine Sichtfreigabe erteilt. Aktueller Umfang: Phase1 Datenidentität / Null-Eingriff und Phase2 Temperaturprototyp. Phasen3–5 sind beauftragt, folgen aber erst nach Sichtfreigabe. Neuer PR mit Vorschau wird für dieses Gate vorbereitet; kein Merge und kein main-Push.
+## Verbindliche Arbeitsgrenze
 
-## Bisher umgesetzt
+Abschnitt 15 des Masterauftrags verlangt: „Vor dieser Freigabe keine flächendeckende Neugestaltung aller Missionen.“ Es liegt noch keine Sichtfreigabe vor. Dieser PR legt deshalb die gemeinsame Datengrundlage und den Temperaturprototyp zur Prüfung vor. **Der Gesamtauftrag ist am Gate nicht abgeschlossen.**
 
-- `learning-context.mjs`: Versuch/Durchgang/Reihe/Wiederholung/Seite/Zeit/Revision und Zustandskennung; tatsächliche kompakte Checkpoints, unveränderliche Auswahlkopien.
-- Gespeicherte Ansichten verwenden die gewählte Reihe/Wiederholung. Betrachten übernimmt nicht das aktuelle Spielbecken; explizites Übernehmen ist gesondert.
-- Frühe Auswahl steuert Karte/Tabelle/Diagrammzeiger. Alte Zeitpunkte ohne Beckenstand erhalten keine erfundene Szene.
-- Typisierte Eingriffsbelege statt Vergleich kompletter JSONs/Journal. Die vorhandene Null-Wasserwechsel-Sonderprüfung wurde bestätigt; der pauschale alte Berichtsbefund ist in diesem main so nicht unverändert reproduzierbar. Wasser0% erzeugt nun auch keinen Kernaufruf/Protokollschein.
-- Temperaturprototyp: zwei tatsächliche Becken, vorhandene hochwertige Modelle, ein geteilter WebGL-Kontext, tatsächliche Organismen-IDs, allmähliche Messwerte, gemeinsame Versuchsuhr.
-- Neuer Durchgang sichert das frühere Produkt und setzt Population, Belege und Versuche getrennt von Fortsetzen zurück.
-- Alle14Missionen in [MISSIONS.md](MISSIONS.md) mit Gegenstand/Handlung/Quelle/Erkenntnis/Fehlerweg/offener Sicht dokumentiert.
+Vor der nächsten Entwicklungsphase muss der Auftraggeber den Temperaturvergleich in der PR-Vorschau ansehen und ausdrücklich freigeben. Technische Tests erteilen diese Freigabe nicht. Kein Merge, kein direkter main-Push, keine Änderungen an Konten oder Umgebungsberechtigungen.
 
-## Prüfung / noch laufend
+## Umgesetzt
 
-139 bestehende Node-Tests bestanden nach der ersten Integration. Zusätzlich10 neue Kontext-/Archiv-/Null-Eingriff-/Export-/Auflösungsfälle bestanden. Der vollständige neue Chromium-Durchlauf des Temperaturwegs läuft. Danach WebKit und Regressionen; Screenshots vor Freigabe tatsächlich sichten.
+- Gemeinsamer Selektor für Untersuchung, Durchgang, Modellrevision, Reihe, Wiederholung, Seite, Zeitpunkt/Generation und Zustandskennung. Er verbindet Ergebnis, gespeicherte Beckenansicht, Diagramm, Tabelle, Frage und Export.
+- Echte Zustände vor und nach dem Eingriff sowie zeitlich zugehörige Checkpoints. Alte Dateien ohne historischen Beckenstand zeigen ausdrücklich nur Messwerte. Nach Ausfall einer Seite entstehen keine erfundenen Folgezustände.
+- Ansicht und aktuelles Spielbecken getrennt; ein gespeicherter Stand wird nur durch die ausdrückliche Übernahmehandlung kopiert. Ein neuer Plan bleibt von früheren Messergebnissen getrennt, auch im Lehrkraftimport.
+- Typisierte Eingriffsbelege; Wasserwechsel 0 % erzeugt keinen Kernaufruf oder bloßen Journalnachweis. Die vorhandene Sonderprüfung auf main verhinderte bereits einzelne Null-Nachweise: Der pauschale alte Berichtsbefund wurde deshalb nicht unverändert übernommen.
+- Temperaturprototyp: zwei reale Becken vor der Vermutung, vorhandene Modelle, ein WebGL-Kontext, Heizer nur in Becken 2, wirkliche Wasserwerte und gemeinsame Versuchsuhr. Fischfokus hält den Partner sichtbar; Ergebnis- und Hilfsansichten behalten denselben Vergleich.
+- Getrennte Fortsetzung und Wiederholung. Ein neuer Durchgang archiviert das bisherige Produkt und setzt Population, F1/F2-Ereignisse und Lernbelege zurück. Alte Abschlüsse werden nicht als neue visuelle Leistung ausgegeben.
+- Verlustfreie lokale Archivkompression mit MIT-lizenziertem lz-string 1.5.0. Abwärtskompatibilität für unkomprimierte Archive. Speicherfehler lassen den vorher gespeicherten Versuch bestehen; die fünfte Reihe archiviert die älteste gesondert.
+- [Matrix aller 14 Missionen](MISSIONS.md) und dauerhafte Prüfregel für alle Klassen/Modi in der README.
 
-WebKit26.5 ist heruntergeladen und startet. Alle19 ELF-Dateien wurden mit den jeweiligen offiziellen Bundle-lib/sys-lib-Verzeichnissen und privaten Debianbibliotheken ohne fehlende Abhängigkeiten geprüft. Upstream MiniBrowser ersetzt LD_LIBRARY_PATH; ein zusätzlicher lokaler Starter erhält den privaten Präfix. Kein Systempaket/keine Berechtigung verändert.
+## Prüfung und Belege
 
-## Fehlende Referenzpakete
+[VALIDATION.md](VALIDATION.md) dokumentiert ausgeführte Prüfungen, genaue Quellenstände, Bilder und Grenzen. Entwicklungsfehlschläge werden dort von den abschließenden Ergebnissen getrennt. Ein technischer Missionsabschluss belegt weder eine neue sachgerechte Darstellung aller Missionen noch Unterrichtswirksamkeit.
 
-Die im Auftrag erwähnten `Simulation-Aquarium-main 2.zip` und `Aquarium-Pruefpaket.zip` liegen hier nicht vor. Deren SHA-Angaben stammen aus den Anhängen, kein eigener ZIP-Hashnachweis. Der aktuelle GitHub-main stimmt exakt mit dem genannten Commit überein. Reproduktionen verwenden diesen Code, die beiden neuen Anhänge und eigene Tests.
+Die Archivkorrektur entstand aus einem echten Fehler im Mehrmissionslauf: Nach neun Abschlüssen überschritt die unkomprimierte Speicherung das lokale Limit; die Kohlenstoffmission fiel beim Neuladen auf Aufgabe 2 zurück. Die korrigierte Version bestand anschließend den gesamten zusammenhängenden Lauf. Gemessenes Beispiel: 744.703 auf 326.040 JSON-Zeichen, 56,2 % weniger, alle Zustände exakt erhalten.
 
-## Letzte / nächste Befehle
+## Offen nach dem Sichtgate
 
-- `node --test tests/*.test.mjs`
-- `python3 tests/coherent_workspace_browser.py`
-- WebKit: portabler Starter mit `AQUARIUM_WEBKIT=/workspace/aquarium-devtools/webkit-portable-browser.sh`
-- Als Nächstes: Browserbefunde beheben, aktuelle Quellen hashen, repräsentative Bilder sichten, Regression durchführen und neuen PR/Vorschau bereitstellen. Dann konkrete Nutzer-Sichtfreigabe; keine selbst erteilte Freigabe.
+1. Architektur auf passende Ökologiemissionen und Freies Forschen übertragen.
+2. Ein gesondertes Muster für tatsächliche Lernindividuen/Generationen und eines für regionale Prozesse vorlegen; erst dann breiter verwenden (P1 E/F).
+3. Übrige Missionsdarstellungen, maßnahmenspezifische Hafenantworten, Sprache/Hilfen und Waldvergleich überarbeiten (insbesondere P2 H/J/L).
+4. Den vollständigen Stoffvertrag des Ammoniumpools einschließlich Einheiten, Schädigung und Altimporten prüfen (P2 K). Die Formel und biologischen Kernraten wurden hier nicht blind geändert.
+5. Curriculare und institutionelle Regionalquellen für diese Überarbeitung gegenprüfen; vollständige Schlussregression und menschliche Sichtabnahme durchführen.
 
-## Ergänzung vor der abschließenden Prüfung
+Echte iPad-Hardware/Safari, Unterricht mit Kindern und Leistung des Maximalprofils sind weiterhin offen. Linux-WebKit ist kein Hardwareabnahmesiegel.
 
-Geprüfter Zwischenstand `6effbd96fed86064c17c9bd29c37a6a523de9cda`: je15 neue Kontext-/Temperatur-/Neustartprüfpunkte in Chromium und WebKit, jeweils Desktop/Hoch-/Querformat; alle13 Start-/Experten-/Tutorialprüfungen bestanden. Die Tests sind auf diesen Stand bezogen und werden nach der folgenden Datenkorrektur nicht ungeprüft als abschließende neue Ergebnisse ausgegeben.
+## Referenzen und nächste Befehle
 
-Der zusammenhängende Mehrmissionslauf fand einen tatsächlichen Fehler: Nach neun bereits abgeschlossenen Wegen konnte die Kohlenstoffmission ihr großes Archiv wegen des lokalen Speicherlimits nicht mehr sichern. Nach Reload blieb Aufgabe2 statt des fertigen Durchgangs. Reproduktion unter `/tmp/coherent-regression-webkit/20261022T080334`, alte Vergleichs-/Quotenläufe getrennt von der nächsten Abnahme.
+Die erwähnten ZIPs `Simulation-Aquarium-main 2.zip` und `Aquarium-Pruefpaket.zip` wurden nicht bereitgestellt. Ihre Hashes sind Angaben aus den Anhängen, kein eigener ZIP-Nachweis. Das Originalcurriculum ETS 2025/26 lag als PDF vor; relevante Seiten 9–10, 14–15 und 19–20 wurden gelesen. SHA-256: `faa37c2dafb2824dda8e890c21f05a69d4f479ea64c255ca815892174889b90f`.
 
-Korrektur: verlustfrei komprimierte `tanks.version=2` mit lokalem MIT-lizenziertem lz-string1.5.0; alte `tanks.version=1` weiter unterstützt. Vergleich derselben tatsächlich erzeugten zwei Reihen:744.703→326.040 JSON-Zeichen (56,2% weniger); jeder Zustand exakt verglichen. Zusätzlicher Codec-/Unicodefall, insgesamt150 Node-Tests bestanden. Keine Biologieraten verändert. Neue Reihen werden vor der Übernahme auf Speicherbarkeit geprüft. Beim fünften Lauf wird die älteste Reihe gesondert archiviert, statt sie still zu verwerfen; frühere Questantworten bleiben am alten Lauf. Normale JSON-Dateien und bestehende Speicherplätze bleiben erhalten.
+```sh
+git status --short --branch
+git log -5 --oneline
+node --test tests/*.test.mjs
+python3 tests/coherent_workspace_browser.py
+python3 tests/coherent_compat_browser.py
+python3 tests/coherent_tools_browser.py
+```
 
-Zusätzlich: alte Temperaturabschlüsse sind als frühere Abschlüsse markiert, kein Nachweis neuer visueller Handlungen. Die exakte Sicherung vor Ansichts-Migration bleibt erhalten. Das normale Ergebnis-Questbuch verdoppelt die beiden bereits sichtbaren Temperaturkarten nicht mehr. Vollständige CSV-Reihen bleiben zusätzlich zum ausgewählten Zeitpunkt im technischen Bereich exportierbar.
-
-Nächste verbindliche Prüfungen am folgenden Commit:150 Modultests, neuer Temperatur-/Kontextlauf beider Engines, Altprodukt-/Touch-/Quoten-/Archivprüfung und alle14 Lernwege mit Reload im gemeinsam gefüllten lokalen Profil (13 bisherige Wege plus neuer Temperaturweg). Erst danach PR/Vorschau und Sichtgate. Phasen3–5 bleiben bis dahin ausdrücklich offen.
+WebKit und ausführliche Aufrufvariablen: [ENVIRONMENT.md](ENVIRONMENT.md). **Nächster Produktschritt: ausdrückliche Sichtfreigabe des Temperaturprototyps einholen; danach Phase 3 fortsetzen.** Keine automatischen Hintergrund-Fortsetzungsversprechen.

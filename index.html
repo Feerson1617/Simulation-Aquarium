@@ -3909,7 +3909,7 @@ learningUI=mountLearningUI({root:tt("#app"),types:De,getState:()=>I,isHome:()=>B
  comparisonRenderer:()=>vt,
  createComparisonView:(element,state,onSelect)=>new y1(element,structuredClone(state),onSelect,{renderer:vt.renderer,environment:vt.scene.environment}),
  interactive:enabled=>{vt?.setInteractive(enabled&&!Bn)},sceneInert:value=>{tt("#scene").inert=value},layout:open=>{document.documentElement.classList.toggle("learning-panel-open",open);vt?.resize()},
- tweezers:value=>{vt?.aquascaping?.setEnabled(value===undefined?!vt.aquascaping.enabled:value)},tweezersActive:()=>!!vt?.aquascaping?.enabled,
+ tweezers:(value,uid=null)=>{vt?.aquascaping?.setEnabled(value===undefined?!vt.aquascaping.enabled:value,uid)},tweezersActive:()=>!!vt?.aquascaping?.enabled,
  graphics:graphicsProfile,profiles:Object.values(GRAPHICS_PROFILES),setGraphics:id=>{chooseGraphicsProfile(id);reconfigureGraphics()}
 });
 window.aquariumLearningSnapshot=()=>learningUI.snapshot();

@@ -41,7 +41,7 @@ export function mountClassroomUI(host,id){
   if(dialog==='process'){title='Am Aquarium erklärt';body=processExplanation(s);}
   if(dialog==='results'){title='Deine gespeicherten Beobachtungen';body=s.trials.length||s.runs.length?resultTable(s):'<p>Hier liegen noch keine abgeschlossenen Beobachtungen.</p>';}
   if(dialog==='count'){title='Deine Fische zählen';const n=counts(s.tank);body=`<p>In Generation ${s.generation}: ${n.n} Fische, davon ${n.dark} dunkel und ${n.light} hell.</p><p>Die Zählhilfe gehört genau zur sichtbaren Gruppe.</p>`;}
-  if(dialog==='organism'){const e=s.tank.entities.find(e=>e.uid===s.selection),t=host.types[e?.species];title=t?.name||'Ausgewähltes Lebewesen';body=e&&t?`<p data-selected-individual="${e.uid}">Ausgewählt im Aquarium: ${esc(t.name)} · ${e.uid}</p><p>${t.category==='plant'?'Diese Pflanze braucht Licht und Stoffe aus dem Wasser zum Wachsen.':t.category==='decor'?'Diese Einrichtung bietet Platz und Verstecke.':'Dieses Tier braucht passende Nahrung und Wasserbedingungen.'}</p>${t.temp?`<p>Temperaturbereich im Katalog: ${t.temp[0]} bis ${t.temp[1]} Grad.</p>`:''}<p>${e.dead?'Dieses Lebewesen lebt nicht mehr.':'Dieses Lebewesen gehört zu deinem aktuellen Aquarium.'}</p>`:'';}
+  if(dialog==='organism'){const e=s.tank.entities.find(e=>e.uid===s.selection),t=host.types[e?.species];title=t?.name||'Ausgewähltes Lebewesen';body=e&&t?`<p data-selected-individual="${e.uid}">Ausgewählt im Aquarium: ${esc(t.name)} · ${e.uid}</p><p>${t.category==='plant'?'Diese Pflanze braucht Licht und Stoffe aus dem Wasser zum Wachsen.':t.category==='decor'?'Diese Einrichtung bietet Platz und Verstecke.':'Dieses Tier braucht passende Nahrung und Wasserbedingungen.'}</p>${t.temp?`<p>Temperaturbereich im Katalog: ${t.temp[0]} bis ${t.temp[1]} Grad.</p>`:''}<p>${e.dead?'Dieses Lebewesen lebt nicht mehr.':'Dieses Lebewesen gehört zu deinem aktuellen Aquarium.'}</p>${!e.dead?b('move-selected','Mit Pinzette bewegen'):''}`:'';}
   if(dialog==='parents'){title='Tatsächliche Elternbeiträge';const e=s.events.findLast(e=>e.type==='generation');body=e?`<p>Gesetzte Regel: ${e.environment==='light'?'Helle Tiere haben bei der Elternwahl das doppelte Gewicht.':'Alle Tiere haben bei der Elternwahl gleiches Gewicht.'}</p><table class="single-results"><thead><tr><th>Fisch</th><th>Gewicht</th><th>Nachkommen</th></tr></thead><tbody>${Object.entries(e.offspring).map(([uid,n])=>`<tr><td>${uid}</td><td>${number(e.weights[uid])}</td><td>${n}</td></tr>`).join('')}</tbody></table>`:'<p>Noch keine Nachkommen.</p>';}
   if(dialog==='display'){title='Darstellung';body=host.profiles.map(p=>b('profile',esc(p.label||p.name||p.id),`data-class-profile="${p.id}"`)).join('');}
   if(dialog==='teacher'){
@@ -50,7 +50,7 @@ export function mountClassroomUI(host,id){
   if(dialog==='archives'){title='Frühere lokale Ergebnisse';body=Object.keys(localStorage).filter(k=>k.startsWith('aquarium-learning-')||k.includes(':archive:')).map((k,i)=>b('archive-file',esc(k),`data-class-key="${esc(k)}"`)).join('')||'<p>Keine früheren lokalen Dateien vorhanden.</p>';}
   if(dialog==='recovery'){title='Deinen bisherigen Stand erhalten';body=b('raw-export','Vorhandene Sicherung als Datei speichern')+b('load','Andere Sicherung öffnen');}
   if(dialog==='fossil'){title='Kohlenstoff außerhalb des Aquariums';body='<p>In Kohle, Erdöl und Erdgas steckt lange gespeicherter Kohlenstoff. Beim Verbrennen kommt er zusätzlich als Kohlenstoffdioxid in die Luft. Das Aquarium berechnet daraus weder Weltklima noch globale Mengen.</p><a href="./docs/coherent-learning/CURRICULUM.md" target="_blank" rel="noopener">Quellen und weiterführendes Unterrichtsmaterial</a>';}
-  if(dialog==='catalog'){title='Tiere und Pflanzen';body=Object.values(host.types).filter(t=>['fish','plant','invert'].includes(t.category)&&t.water!=='salt').map(t=>b('add',esc(t.name),`data-class-species="${t.id}"`)).join('');}
+  if(dialog==='catalog'){title='Tiere und Pflanzen';body='<h3>Schon im Aquarium</h3>'+s.tank.entities.map(e=>b('inspect',esc(host.types[e.species].name)+' · '+e.uid,`data-class-uid="${e.uid}"`)).join('')+'<h3>Neu einsetzen</h3>'+Object.values(host.types).filter(t=>['fish','plant','invert'].includes(t.category)&&t.water!=='salt').map(t=>b('add',esc(t.name),`data-class-species="${t.id}"`)).join('');}
   if(dialog==='care'){title='Pflege';body=b('free-feed','Einmal füttern')+b('free-water','Etwas Wasser wechseln')+b('free-light','Licht an oder aus')+b('tweezers',host.tweezersActive()?'Pinzette beenden':'Mit Pinzette gestalten')+b('equipment',showEquipment?'Geräte ausblenden':'Geräte auswählen');}
   if(dialog==='measurements'){title='Am Aquarium messen';body=`<p>Sauerstoff: ${changeWord(s.tank.params.oxygen,s.baseline.params.oxygen)} als am Anfang.</p><p>Reste: ${changeWord(s.tank.detritus,s.baseline.detritus)} als am Anfang.</p>`+b('teacher','Genaue Werte für Lehrkräfte');}
   return `<div class="single-shade" ${dialog==='process'?'data-single-explanation':''}><section class="single-dialog" role="dialog" aria-modal="true" aria-label="${esc(title)}"><header><h2 tabindex="-1">${title}</h2>${b('close','Schließen')}</header>${body}</section></div>`;
@@ -76,6 +76,7 @@ export function mountClassroomUI(host,id){
    if(a==='teacher-hints'||a==='teacher-notes'){const next={...teacher};next[a==='teacher-hints'?'hints':'ownExplanation']=!next[a==='teacher-hints'?'hints':'ownExplanation'];teacher=writeSingleTeacher(next);render();return;}
    if(a==='predict'){predictClassroom(s,button.dataset.classChoice);feedback='Deine Vermutung ist gespeichert.';}
    if(a==='select'){select(Number(button.dataset.classUid));return;}
+   if(a==='inspect'){dialog=null;select(Number(button.dataset.classUid));return;}
    if(a==='plant'){const plant=s.tank.entities.find(e=>e.species==='waterweed'&&!e.dead);if(plant)select(plant.uid);return;}
    if(a==='feed')classroomFeed(s,host);
    if(a==='measure')classroomMeasure(s,button.dataset.classChoice,host);
@@ -95,7 +96,7 @@ export function mountClassroomUI(host,id){
    if(a==='free-light')s.tank.hours=s.tank.hours===0?8:0;
    if(a==='free-day'){host.advanceCurrent(1);s.tank=host.getState();if(s.tank.failed)s.stage='failed';}
    if(['free-feed','free-water','free-light'].includes(a))bind();
-   if(a==='tweezers'){const enable=!host.tweezersActive();dialog=null;render();host.tweezers(enable);save();render();return;}
+   if((a==='tweezers'||a==='move-selected')&&s.stage==='free'){const enable=a==='move-selected'||!host.tweezersActive();dialog=null;render();host.tweezers(enable,a==='move-selected'?s.selection:null);save();render();return;}
    if(a==='equipment'){showEquipment=!showEquipment;dialog=null;}
    save();render();
   }catch(error){pause();feedback=error.message;kind='error';render();}

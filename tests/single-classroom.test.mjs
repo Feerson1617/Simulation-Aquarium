@@ -52,3 +52,20 @@ test('ecological runs advance only the bound live state, save actual fluxes and 
  assert.equal(classroomMeasure(s,'water',host),false);assert.ok(classroomMeasure(s,'feed',host));assert.equal(s.tank.feedRate,1);assert.equal(JSON.stringify(s.runs[0]),old);
  assert.deepEqual(validateClassroom(decodeSingle(encodeSingle(s)),host).tank,s.tank);
 });
+test('M2 feeds once rather than running a hidden continuing input; selection after completion cannot change its evidence',()=>{
+ const s=createClassroom('m2-food-transformation',host,1);assert.equal(s.tank.autoFeed,false);assert.equal(s.tank.feedReserve,0);
+ predictClassroom(s,'no');const before=s.tank.detritus;assert.ok(classroomFeed(s,host));assert.equal(s.tank.detritus,before+.12);assert.equal(classroomFeed(s,host),false);
+ assert.equal(selectClassroom(s,s.tank.entities.find(e=>e.species==='waterweed').uid,host),false);
+});
+test('import rejects invented completed stages, unmatched fluxes and mismatched selected plant growth',()=>{
+ const s=createClassroom('m6-plant-carbon',host,1);predictClassroom(s,'unsure');selectClassroom(s,s.tank.entities.find(e=>e.species==='waterweed').uid,host);beginClassroomObservation(s,host);
+ for(let i=0;i<12;i++)advanceClassroom(s,host);
+ const badFlux=classroomProduct(s);badFlux.runs[0].fluxTotals.decomposition+=2;assert.throws(()=>validateClassroom(badFlux,host));
+ const badPlant=classroomProduct(s);badPlant.runs[0].samples[3].selectedPlantBiomass+=1;assert.throws(()=>validateClassroom(badPlant,host));
+ const badCompletion=classroomProduct(s);badCompletion.stage='complete';assert.throws(()=>validateClassroom(badCompletion,host));
+ const unknown=classroomProduct(s);unknown.stage='magic';assert.throws(()=>validateClassroom(unknown,host));
+});
+test('teacher preferences are bounded, local, and do not turn selected text into a mandatory own explanation',async()=>{
+ const {readSingleTeacher,writeSingleTeacher}=await import('../single-teacher-settings.mjs');const values=new Map(),storage={getItem:k=>values.get(k)||null,setItem:(k,v)=>values.set(k,v)};
+ assert.deepEqual(readSingleTeacher(storage),{version:1,hints:true,ownExplanation:true});writeSingleTeacher({hints:false,ownExplanation:false},storage);assert.deepEqual(readSingleTeacher(storage),{version:1,hints:false,ownExplanation:false});
+});

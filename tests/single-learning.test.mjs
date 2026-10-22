@@ -13,7 +13,7 @@ function ready(){const s=createSingleM1(host);selectSinglePlant(s,s.tank.entitie
 function finish(s,h=host){beginSingleObservation(s,types);for(let i=0;i<12;i++)advanceSingleObservation(s,h);}
 test('six new identities cover fourteen old targets; the heater is not a new mission',()=>{
  assert.equal(SINGLE_MISSIONS.length,6);assert.equal(Object.keys(LEGACY_MISSION_TARGETS).length,14);
- assert.deepEqual(SINGLE_MISSIONS.filter(m=>m.ready).map(m=>m.id),['m1-light-oxygen']);
+ assert.equal(SINGLE_MISSIONS.filter(m=>m.ready).length,6);
  assert.equal(normalizeLearningTag({version:2,grade:8,mode:'missions',mission:'m1-light-oxygen'}).version,2);
  assert.notEqual(learningSlot({version:2,grade:8,mode:'missions',mission:'m1-light-oxygen'}),learningSlot({version:1,grade:8,mode:'missions',mission:'8-oxygen'}));
  assert.throws(()=>normalizeLearningTag({version:2,grade:8,mode:'missions',mission:'8-ecosystem'}));

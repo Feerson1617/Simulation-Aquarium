@@ -1,11 +1,11 @@
 /** Stable new identities. Previous two-tank IDs remain historical, never credited here. */
 export const SINGLE_MISSIONS = [
   {id:"m1-light-oxygen",grade:8,title:"Was machen Pflanzen im Dunkeln?",ready:true},
-  {id:"m2-food-transformation",grade:8,title:"Was wird aus den Futterresten?",ready:false},
-  {id:"m3-hidden-inheritance",grade:9,title:"Können dunkle Eltern helle Junge bekommen?",ready:false},
-  {id:"m4-dominance-frequency",grade:9,title:"Setzt sich die dominante Farbe immer durch?",ready:false},
-  {id:"m5-recurring-input",grade:10,title:"Reicht ein Wasserwechsel?",ready:false},
-  {id:"m6-plant-carbon",grade:10,title:"Woher kommt der Kohlenstoff der Pflanze?",ready:false},
+  {id:"m2-food-transformation",grade:8,title:"Was wird aus den Futterresten?",ready:true},
+  {id:"m3-hidden-inheritance",grade:9,title:"Können dunkle Eltern helle Junge bekommen?",ready:true},
+  {id:"m4-dominance-frequency",grade:9,title:"Setzt sich die dominante Farbe immer durch?",ready:true},
+  {id:"m5-recurring-input",grade:10,title:"Reicht ein Wasserwechsel?",ready:true},
+  {id:"m6-plant-carbon",grade:10,title:"Woher kommt der Kohlenstoff der Pflanze?",ready:true},
 ];
 export const LEGACY_MISSION_TARGETS = {
   "8-ecosystem":"Historische Heizstab-Aufgabe; kein neuer Pflichtweg",

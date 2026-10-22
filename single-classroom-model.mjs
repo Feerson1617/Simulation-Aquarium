@@ -33,6 +33,7 @@ export function createClassroom(id,host,seed=cryptoSeed()){
  if(id==='m5-recurring-input'){
   tank.autoFeed=true;tank.feedRate=3;host.advance(tank,3);if(tank.failed)throw Error('Der vorbereitete Fall ist nicht stabil.');
  }
+ if(id==='m2-food-transformation'){tank.autoFeed=false;tank.feedReserve=0;}
  if(id.startsWith('research'))s.stage='free';
  s.tank=host.normalize(tank);s.baseline=copy(s.tank);s.baselineId=stateId(s.baseline);s.initialSeed=s.seed;return s;
 }
@@ -41,11 +42,12 @@ export function predictClassroom(s,choice){if(s.stage!=='prediction'||!['yes','n
 export function selectClassroom(s,uid,host){
  const e=s.tank.entities.find(e=>e.uid===uid&&!e.dead);if(!e)return false;
  if(isGenetic(s)){
+  if(!['founders','choose-f1','child','inheritance'].includes(s.stage))return false;
   if(e.species!=='molly')return false;s.selection=uid;
   if(['founders','choose-f1'].includes(s.stage)){
    const role=e.sex==='♀'?0:1;s.parents[role]=uid;
   }else if(s.stage==='child'){s.stage='inheritance';}
- }else {if(host.types[e.species]?.category!=='plant')return false;s.selection=uid;if(s.stage==='plant')s.stage='growth-ready';}
+ }else {if(s.stage!=='plant'||host.types[e.species]?.category!=='plant')return false;s.selection=uid;s.stage='growth-ready';}
  event(s,'select-individual',{uid});return true;
 }
 function archiveGeneration(s){s.history.push({generation:s.generation,tank:copy(s.tank),counts:counts(s.tank),stateId:stateId(s.tank)});}
@@ -103,7 +105,7 @@ function sample(s,host){return {...learningSample(s.tank,host.types),selectedPla
 export function beginClassroomObservation(s,host){
  if(!['food-observe-ready','growth-ready','measure-observe-ready'].includes(s.stage))return false;
  const duration=s.mission==='m5-recurring-input'?10:3;
- s.currentRun={id:investigationId(),condition:s.measure||s.mission,startSnapshot:copy(s.tank),baselineId:s.baselineId,intervention:s.pendingIntervention||null,duration,archive:tankArchive(s.tank),samples:[sample(s,host)],fluxTotals:{},status:'running'};
+ s.currentRun={id:investigationId(),condition:s.measure||s.mission,startSnapshot:copy(s.tank),baselineId:s.baselineId,intervention:s.pendingIntervention||null,selection:s.selection,duration,archive:tankArchive(s.tank),samples:[sample(s,host)],fluxTotals:{},status:'running'};
  s.stage='observing';event(s,'observation-start');return true;
 }
 export function advanceClassroom(s,host){
@@ -123,7 +125,7 @@ export function classroomAnswer(s,choice){
   'measure-comparison':'actual-late','measure-explanation':'source',
  };
  if(choice!==solutions[s.stage])return false;
- s.answers[s.stage]={choice,origin:'selection',context:classroomContext(s),selection:s.selection};
+ s.answers[s.stage]={choice,origin:'selection',context:classroomContext(s),selection:s.selection,runIds:s.runs.map(r=>r.id),trialIds:s.trials.map(r=>r.id)};
  const next={'food-observation':'filter','food-process':'food-plant','food-plant':'food-evidence','food-evidence':'complete',
   'growth-observation':'carbon-source','carbon-source':'carbon-return','carbon-return':'carbon-evidence','carbon-evidence':'complete',
   'f1-observation':'choose-f1','inheritance':'transfer','transfer':'complete','neutral-comparison':'selection-explanation','selection-explanation':'dominance-explanation','dominance-explanation':'complete',
@@ -140,10 +142,35 @@ export function validateClassroom(raw,host){
  checkTank(s.tank);checkTank(s.baseline);if(stateId(s.baseline)!==s.baselineId)throw Error('Der Anfang wurde verändert.');
  for(const k of ['runs','events','history','trials'])if(!Array.isArray(s[k])||s[k].length>200)throw Error('Die Sicherung ist zu groß.');
  if(typeof s.ownText!=='string'||s.ownText.length>20000)throw Error('Ungültiger eigener Text.');
+ const stages={m2:['prediction','feed-ready','food-observe-ready','observing','food-observation','filter','food-process','food-plant','food-evidence','complete','failed'],m3:['founders','f1-observation','choose-f1','child','inheritance','transfer','complete'],m4:['prediction','neutral-ready','neutral-again-ready','selection-ready','generations','trial-finished','neutral-comparison','selection-explanation','dominance-explanation','complete'],m5:['prediction','measure-ready','measure-observe-ready','observing','first-measure-finished','reset-measure-ready','measure-comparison','measure-explanation','complete','failed'],m6:['prediction','plant','growth-ready','observing','growth-observation','carbon-source','carbon-return','carbon-evidence','complete','failed']};
+ if(!(stages[s.mission.slice(0,2)]||['free','failed']).includes(s.stage))throw Error('Die Aufgabe passt nicht zur Frage.');
+ if(s.runs.length>2||s.currentRun&&s.stage!=='observing'||s.stage==='observing'&&!s.currentRun)throw Error('Der aktive Durchgang passt nicht.');
  for(const r of [...s.runs,...(s.currentRun?[s.currentRun]:[])]){
-  if(r.samples.length>41||!r.samples.length)throw Error('Messreihe fehlt.');validateTankArchive(r.archive,r.samples);
-  for(const row of r.samples){const t=archivedTank(r.archive,row.day),expected=learningSample(t,host.types);if(Object.keys(expected).some(k=>JSON.stringify(row[k])!==JSON.stringify(expected[k])))throw Error('Messwert und Aquarium passen nicht zusammen.');}
+  const duration=s.mission.startsWith('m5')?10:3,totals={};
+  if(r.duration!==duration||r.baselineId!==s.baselineId||!['running','completed','failed'].includes(r.status)||r.samples.length>duration*4+1||!r.samples.length)throw Error('Messreihe fehlt.');validateTankArchive(r.archive,r.samples);
+  for(const [i,row]of r.samples.entries()){
+   if(row.day!==r.startSnapshot.day+i*.25)throw Error('Die Messzeiten passen nicht.');
+   const t=archivedTank(r.archive,row.day),expected=learningSample(t,host.types),selected=r.selection??s.selection;
+   if(Object.keys(expected).some(k=>JSON.stringify(row[k])!==JSON.stringify(expected[k]))||row.selectedPlantBiomass!==(t.entities.find(e=>e.uid===selected)?.biomass??null))throw Error('Messwert und Aquarium passen nicht zusammen.');
+   if(i)for(const [k,v]of Object.entries(t.ecology?.lastFlux||{}))if(Number.isFinite(v)&&!['day','dt'].includes(k))totals[k]=(totals[k]||0)+v;
+  }
+  if(Object.keys({...totals,...r.fluxTotals}).some(k=>!Number.isFinite(r.fluxTotals[k])||Math.abs(r.fluxTotals[k]-(totals[k]||0))>1e-8))throw Error('Die Stoffflüsse passen nicht zur Aufzeichnung.');
+  if(r.status==='completed'&&r.samples.length!==duration*4+1)throw Error('Der Durchgang ist unvollständig.');
   if(stateId(archivedTank(r.archive,r.samples[0].day))!==stateId(r.startSnapshot))throw Error('Der Startbeleg passt nicht.');
+  if(s.mission.startsWith('m5')){
+   if(!['water','feed'].includes(r.condition)||r.intervention?.type!==r.condition||stateId(r.intervention.before)!==s.baselineId)throw Error('Die Maßnahmen haben nicht denselben Anfang.');
+   const expected=copy(s.baseline);if(r.condition==='water')host.waterChange(expected,50);else {expected.autoFeed=true;expected.feedRate=1;}
+   if(stateId({...expected,events:[]})!==stateId({...r.startSnapshot,events:[]})||stateId(r.intervention.after)!==stateId(r.startSnapshot))throw Error('Es wurde mehr als die gewählte Maßnahme verändert.');
+  }
+ }
+ if(s.currentRun&&stateId(s.tank)!==stateId(archivedTank(s.currentRun.archive,s.currentRun.samples.at(-1).day)))throw Error('Aquarium und laufender Zeitpunkt passen nicht.');
+ if(s.stage==='reset-measure-ready'&&stateId(s.tank)!==s.baselineId)throw Error('Der ganze Anfang fehlt.');
+ if(s.runs.length===2&&s.runs[0].condition===s.runs[1].condition)throw Error('Die zweite Maßnahme fehlt.');
+ if(s.stage==='complete'){
+  const required={m2:['food-observation','food-process','food-plant','food-evidence'],m3:['f1-observation','inheritance','transfer'],m4:['neutral-comparison','selection-explanation','dominance-explanation'],m5:['measure-comparison','measure-explanation'],m6:['growth-observation','carbon-source','carbon-return','carbon-evidence']}[s.mission.slice(0,2)]||[];
+  if(required.some(k=>s.answers?.[k]?.origin!=='selection'))throw Error('Die Ergebnissicherung fehlt.');
+  const count=s.mission.startsWith('m5')?2:1;if(!isGenetic(s)&&(s.runs.length!==count||s.runs.some(r=>r.status!=='completed')))throw Error('Die Beobachtungen fehlen.');
+  if(isGenetic(s)&&(s.mission.startsWith('m3')?s.generation!==2:s.trials.length!==3))throw Error('Die Generationen fehlen.');
  }
  if(s.currentContext&&JSON.stringify(s.currentContext)!==JSON.stringify(classroomContext(s)))throw Error('Zeitpunkt und Aquarium passen nicht.');
  if(isGenetic(s)){
@@ -154,8 +181,12 @@ export function validateClassroom(raw,host){
    const current=snapshots.find(t=>stateId(t)===e.context.stateId),previous=s.history.find(h=>h.stateId===e.parentStateId)?.tank;
    if(!current||!previous||cohort(current).length!==e.children.length)throw Error('Der Generationenbeleg fehlt.');
    for(const c of e.children){const r=current.genetics.pedigree[c.uid];if(!r||JSON.stringify(r.parents)!==JSON.stringify(c.parents)||[...c.inheritedAlleles].sort().join('')!==r.loci.A.join('')||c.parents.some((uid,i)=>!previous.genetics.pedigree[uid]?.loci.A.includes(c.inheritedAlleles[i])))throw Error('Eltern und Erbanlagen passen nicht.');}
+   for(const parent of cohort(previous)){
+    const expected=e.environment==='light'?(parent.variant==='gold'?1:.5):1;
+    if(e.weights[parent.uid]!==expected||e.offspring[parent.uid]!==e.children.filter(c=>c.parents.includes(parent.uid)).length)throw Error('Die Elternbeiträge passen nicht zur Regel.');
+   }
   }
-
+  for(const t of s.trials){checkTank(t.lastTank);if(stateId(t.founders)!==s.baselineId||JSON.stringify(counts(t.lastTank))!==JSON.stringify(t.counts))throw Error('Die frühere Auswertung passt nicht.');}
  }
  return s;
 }

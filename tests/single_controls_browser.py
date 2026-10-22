@@ -19,6 +19,6 @@ with sync_playwright() as pw:
   p.wait_for_function('window.aquariumLearningSnapshot().prototype.render.sides.length===2&&window.aquariumLearningSnapshot().prototype.render.sides.every(s=>s.detailModels===s.objects)')
   inventory(p,'old oxygen initial');p.screenshot(path=str(OUT/'before-initial.png'))
   p.locator('[data-learn=observe]:visible').first.click();inventory(p,'old generic observation panel');p.locator('[data-learn=close]:visible').first.click()
-  p.locator('[data-learn=investigate]:visible').first.click();inventory(p,'old generic investigation panel');p.screenshot(path=str(OUT/'before-investigation.png'))
+  p.locator('[data-learn=device-light]:visible').first.click();inventory(p,'old lamp setting for comparison side');p.screenshot(path=str(OUT/'before-device.png'))
   assert not r['errors'];r['status']='passed';print('PASS isolated old UI: three actual control inventories, original models and two historical tank views')
  finally:(OUT/'report.json').write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n');b.close()

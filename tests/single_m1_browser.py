@@ -63,8 +63,13 @@ def select_predict(p,touch,profile):
  if not direct:click(p,'plant',touch)
  s=snap(p);assert s['session']['stage']=='prediction'
  chosen=next(e for e in s['session']['tank']['entities'] if e['uid']==s['session']['selection']);assert chosen['species'] in ['waterweed','anubias','javamoss']
- p.locator('[data-single=prediction][data-choice="0"]').tap() if touch else p.locator('[data-single=prediction][data-choice="0"]').click()
+ geometry(p,profile+'-prediction')
+ if touch:p.locator('[data-single=prediction][data-choice="0"]').tap()
+ else:
+  assert p.evaluate('document.activeElement.matches(".single-task h2")')
+  p.keyboard.press('Tab');assert p.evaluate('document.activeElement.dataset.single')=='prediction';p.keyboard.press('Enter')
  expect(p.locator('.single-feedback')).to_have_attribute('data-kind','neutral');assert snap(p)['session']['prediction']['origin']=='selection'
+ geometry(p,profile+'-light-ready')
  report.setdefault('selection',[]).append({'profile':profile,'directCanvasPick':direct,'actualPlantUid':chosen['uid']})
 def complete(p,touch,profile):
  start(p,touch);geometry(p,profile+'-plant');shot(p,profile+'-start.png');select_predict(p,touch,profile)
@@ -89,7 +94,7 @@ def complete(p,touch,profile):
   p.locator('[data-equipment=light]:visible').tap()
  else:p.locator('[data-single=darken]').press('Enter')
  s=snap(p);expected=json.loads(json.dumps(baseline));expected['hours']=0;assert s['session']['tank']==expected
- assert not p.locator('[data-equipment-value]').count();click(p,'play',touch)
+ geometry(p,profile+'-dark-ready');assert not p.locator('[data-equipment-value]').count();click(p,'play',touch)
  p.wait_for_function('window.aquariumLearningSnapshot().session.stage==="compare"',timeout=120000)
  s=identity(p);assert json.dumps(s['session']['runs'][0],sort_keys=True)==old
  assert s['session']['runs'][0]['samples'][-1]['oxygen']>7.8 and s['session']['runs'][1]['samples'][-1]['oxygen']>7.8
@@ -97,10 +102,14 @@ def complete(p,touch,profile):
  geometry(p,profile+'-compare');shot(p,profile+'-compare.png')
  p.locator('[data-single-choice=reversed-dark]').tap() if touch else p.locator('[data-single-choice=reversed-dark]').click()
  assert snap(p)['session']['stage']=='compare';expect(p.locator('.single-feedback')).to_have_attribute('data-kind','error');geometry(p,profile+'-wrong-observation')
- click(p,'help',touch);click(p,'more-help',touch);p.keyboard.press('Escape')
+ click(p,'help',touch);click(p,'more-help',touch);click(p,'more-help',touch)
+ assert snap(p)['session']['hintLevels']['compare']==2;p.keyboard.press('Escape')
  p.locator('[data-single-choice=observed]').tap() if touch else p.locator('[data-single-choice=observed]').click();geometry(p,profile+'-explain')
+ click(p,'help',touch);expect(p.locator('.single-dialog')).to_contain_text('Schau noch einmal auf beide gespeicherten Verläufe.')
+ assert not snap(p)['session'].get('hintLevels',{}).get('explain');p.keyboard.press('Escape')
  p.locator('[data-single-choice=net-proof]').tap() if touch else p.locator('[data-single-choice=net-proof]').click()
  assert snap(p)['session']['stage']=='explain';expect(p.locator('.single-feedback')).to_have_attribute('data-kind','error');geometry(p,profile+'-wrong-explanation')
+ expect(p.locator('.single-feedback')).to_contain_text('Prüfe die Verläufe.')
  p.locator('[data-single-choice=processes]').tap() if touch else p.locator('[data-single-choice=processes]').click();assert snap(p)['session']['stage']=='complete';geometry(p,profile+'-complete')
  with p.expect_download() as d:click(p,'export',touch)
  product=OUT/(profile+'-result.json');d.value.save_as(str(product));data=json.loads(product.read_text());assert data['currentContext']==snap(p)['context']

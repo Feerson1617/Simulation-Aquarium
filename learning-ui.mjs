@@ -2096,11 +2096,11 @@ export function mountLearningUI(host) {
         if(session.quest) {restartAttempt(true,seed);return;}
         const archive={product:product(),tank:structuredClone(host.getState()),session:structuredClone(session)};
         if(!saveJSON("aquarium-learning-attempt-v1:"+session.attemptId,archive)){render();return;}
+        rememberBackup();
         session.attemptId=investigationId();session.planId=investigationId();
         session.comparison=null;session.comparisonHistory=[];delete session.view;delete session.cohortGeneration;delete session.selectedIndividual;
         delete session.study.series;delete session.study.run;session.populationMode="cohort";session.workspaceVersion=1;
         showGenes=false;session.genesShown=false;session.notes={};session.noteOrigins={};session.measurements=[];
-        rememberBackup();
         session.populationRepeats = [
           ...(session.populationRepeats || []),
           { seed: oldSeed, final: populationCounts(previous) },

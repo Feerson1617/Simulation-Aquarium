@@ -153,6 +153,7 @@ export function mountLearningUI(host) {
       support: teacher.support,
       help: teacher.help,
       comparisonHistory: session?.comparisonHistory || [],
+      prototype: isPrototype(),
     }),
     healthText: () => fishStatusText(host.getState(), host.types),
     tools,
@@ -174,11 +175,11 @@ export function mountLearningUI(host) {
   });
   const isPrototype = () => screen === "active" && !detailed && tag?.mission === "8-ecosystem";
   function inspectedQuestResult() {
-    if (!isPrototype() || session.quest?.step !== 3) return session?.quest?.result;
+    if (session?.quest?.step !== 3 || !["ecology","population"].includes(QUESTS[tag.mission]?.experiment.kind)) return session?.quest?.result;
     const v = resolveComparisonView(session);
-    if (!v || v.comparison !== session.comparison) return session.quest.result;
+    if (!v || v.comparison !== session.comparison) return null;
     const r = comparisonReading({...v.comparison,runs:[{...v.run,control:v.row.control?[v.row.control]:[],test:v.row.test?[v.row.test]:[]}]},QUESTS[tag.mission].experiment);
-    return r ? {...r,displayPrecision:1,viewContext:v.context} : null;
+    return r ? {...session.quest.result,...r,...(isPrototype()?{displayPrecision:1}:{}),viewContext:v.context} : null;
   }
   function stopPlayback() {clearInterval(playback); playback = null;}
   function showTime(time) {
@@ -282,7 +283,8 @@ export function mountLearningUI(host) {
       evidence = {
         changed,
         intervention: action,
-        result: comparisonReading(c, d.experiment),
+        result: {...comparisonReading({...c,runs:[resolveComparisonView(session)?.run || c.runs[0]]}, d.experiment),viewContext:resolveComparisonView(session)?.context || null},
+        context: resolveComparisonView(session)?.context || null,
         tool: c.tool,
         compatible:
           (c.tool === d.experiment.tool || (["8-health", "10-restore"].includes(d.id) && mission().tools.includes(c.tool))) &&
@@ -801,7 +803,7 @@ export function mountLearningUI(host) {
         (percent ? [STUDENT_METRICS[key][0], "%"] : STUDENT_METRICS[key])) ||
       comparisonMetricDefinitions(comp)[key] || [key, ""]
     ).join(" · ");
-    return `<svg class="learn-chart" data-view-time="${context?.time ?? ""}" data-series-id="${esc(context?.seriesId || "")}" viewBox="0 0 480 270" role="img" aria-label="Verlauf ${esc(title)}: ${comp.kind === "manual" ? (technical ? "Eigenes Becken" : "Dein Becken") : technical ? "Kontrolle und Versuch" : comp.kind === "population" ? "Gruppe 1 und Gruppe 2" : "Becken 1 und Becken 2"}"><desc>${esc(technical ? runDescription(comp) : "Messwerte aus deinem Versuch.")}</desc><text x="45" y="13" font-size="12">${esc(title)}</text>${context ? `<line data-time-cursor x1="${numRaw(45+(context.time-minX)/(maxX-minX || 1)*410)}" x2="${numRaw(45+(context.time-minX)/(maxX-minX || 1)*410)}" y1="24" y2="180" stroke="#8a6822" stroke-width="2"/><text x="240" y="13" font-size="12">Tag ${num(context.time)}</text>` : ""}<path d="M45 24 V180 H455" fill="none" stroke="currentColor"/><text x="5" y="33">${num(maxY)}</text><text x="7" y="184">${num(minY)}</text><text x="45" y="204">${num(minX)}</text><text x="420" y="204">${num(maxX)}</text>${[
+    return `<svg class="learn-chart" data-view-time="${context?.time ?? ""}" data-series-id="${esc(context?.seriesId || "")}" viewBox="0 0 480 270" role="img" aria-label="Verlauf ${esc(title)}: ${comp.kind === "manual" ? (technical ? "Eigenes Becken" : "Dein Becken") : technical ? "Kontrolle und Versuch" : comp.kind === "population" ? "Gruppe 1 und Gruppe 2" : "Becken 1 und Becken 2"}"><desc>${esc(technical ? runDescription(comp) : "Messwerte aus deinem Versuch.")}</desc><text x="45" y="13" font-size="12">${esc(title)}</text>${context ? `<line data-time-cursor x1="${numRaw(45+(context.time-minX)/(maxX-minX || 1)*410)}" x2="${numRaw(45+(context.time-minX)/(maxX-minX || 1)*410)}" y1="24" y2="180" stroke="#8a6822" stroke-width="2"/><text x="240" y="13" font-size="12">${comp.kind === "population" ? "Generation" : "Tag"} ${num(context.time)}</text>` : ""}<path d="M45 24 V180 H455" fill="none" stroke="currentColor"/><text x="5" y="33">${num(maxY)}</text><text x="7" y="184">${num(minY)}</text><text x="45" y="204">${num(minX)}</text><text x="420" y="204">${num(maxX)}</text>${[
       a,
       b,
     ]
@@ -1300,6 +1302,7 @@ export function mountLearningUI(host) {
         refreshResultNotice();
       }
   });
+  root.addEventListener("pointerdown",e=>{if(e.target.closest("[data-coherent-time]"))stopPlayback();});
   root.addEventListener("change", async (e) => {
     const t = e.target,
       d = t.dataset;
@@ -1461,8 +1464,8 @@ export function mountLearningUI(host) {
             (!session.comparison || !planMatchesComparison(session.comparison, currentPlan(session.comparison.kind)) ||
              !planMatchesComparison(session.quest.result, currentPlan(session.comparison.kind))))
           throw new Error("Der Versuch wurde geändert. Starte ihn erneut, bevor du diese Ergebnisse vergleichst.");
-        if (isPrototype() && old === 3 && resolveComparisonView(session)?.comparison !== session.comparison)
-          throw new Error("Du betrachtest eine frühere Reihe. Wähle für diese Frage deinen aktuellen Versuch.");
+        if (old === 3 && ["ecology","population"].includes(QUESTS[tag.mission].experiment.kind) && !inspectedQuestResult())
+          throw new Error("Wähle im aktuellen Versuch einen Zeitpunkt mit Werten für beide Seiten.");
         if (answerQuest(session.quest, Number(d.questAnswer), inspectedQuestResult())) {
           if (old === 3) session.quest.entries.at(-1).viewContext = resolveComparisonView(session)?.context || null;
           // Selected answers stay in the questbook; game text never becomes a learner note.
@@ -1553,6 +1556,7 @@ export function mountLearningUI(host) {
       if (!a) return;
       if (a === "workspace-play") {playWorkspace();render();return;}
       if (a === "workspace-pause") {stopPlayback();render();return;}
+      if (a === "latest-series") {delete session.study.series;delete session.view;selectComparisonView(session);persist();render();return;}
       if (a === "workspace-plan") {stopPlayback();session.view={mode:"plan"};persist();render();return;}
       if (a === "quest-hint") {session.quest.showHint=!session.quest.showHint;persist();render();return;}
       if (a.startsWith("device-")) {openDevice(a.slice(7));return;}
@@ -1812,7 +1816,7 @@ export function mountLearningUI(host) {
         else {selectComparisonView(session);recordQuestExperiment("ecology");}
         persist();
         render();
-        if (isPrototype()) playWorkspace();
+        // Begin at the genuine initial state; learners start the visible course explicitly.
         return;
       }
       if (a === "show-control" || a === "show-test") {

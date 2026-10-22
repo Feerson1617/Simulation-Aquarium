@@ -75,7 +75,7 @@ export function createStudentViews(api) {
   function quest(inline = false) {
     const { session, tag, panel } = state(),
       s = session.quest,
-      observedResult = api.questionResult?.() || s?.result,
+      observedResult = api.questionResult ? api.questionResult() : s?.result,
       d = QUESTS[tag.mission];
     if (!d) return "";
     const done = s.step === 5, activity = done ? null : pendingActivity(s);
@@ -100,7 +100,7 @@ export function createStudentViews(api) {
       body = `<small>Aufgabe ${step + 1} von 5 · ${STEP_NAMES[step]}</small><h2 tabindex="-1">${esc(activity?.prompt || q?.prompt || experimentTask(d))}</h2>`;
       if (step === 0) body += button("observe", d.experiment.kind === "case" ? "Küstenfall ansehen" : "Aquarium anschauen");
       if (step === 4 && d.id === "10-northsea") body += `<p class="learn-case">${esc(REGIONAL_CASES[d.id].text)}</p>`;
-      if (step === 2 && !panel) {
+      if (step === 2 && !panel && !(state().prototype && session.comparison && session.view?.mode !== "plan")) {
         const device=d.experiment.kind === "ecology" && ["temperature","light","filter"].includes(d.experiment.tool);
         body += button(device ? "device-"+d.experiment.tool : ["traits","cross","case"].includes(d.experiment.kind) ? "material" : "investigate", device ? ({temperature:"Heizstab einstellen",light:"Beleuchtung einstellen",filter:"Filter einstellen"})[d.experiment.tool] : d.experiment.kind === "traits" ? "Erbanlagen ansehen" : d.experiment.kind === "cross" ? "Eltern wählen" : "Versuch öffnen");
       }
@@ -117,6 +117,8 @@ export function createStudentViews(api) {
       if (q && !activity)
         body += `<div class="learn-quest-answers">${choiceOrder(s,"phase-"+s.step,q.choices.length).map(i => `<button data-quest-answer="${i}">${esc(q.choices[i])}</button>`).join("")}</div>`;
     }
+    if (!done && s.step === 3 && ["ecology","population"].includes(d.experiment.kind) && !observedResult)
+      body = `<h2 tabindex="-1">Hier fehlen Werte für deinen aktuellen Vergleich.</h2><p>Wähle einen Zeitpunkt mit beiden Seiten. Frühere Reihen bleiben zum Ansehen erhalten.</p>${button("latest-series","Aktuellen Versuch ansehen")}`;
     if (!done && state().help !== false) body += state().support === "guided" || s.showHint ? `<p class="learn-step-hint">${esc(questHint(d,s,state().support))}</p>` : button("quest-hint","Tipp");
     if (s.predictionCheck && s.step >= 4) body += `<details class="learn-prediction-check"><summary>Deine Vermutung prüfen</summary><p>Ausgewählt: ${esc(s.predictionCheck.selection)}</p><p>Beobachtet: ${esc(s.predictionCheck.observed)}</p><p>${s.predictionCheck.matches ? "Das passt zu deiner Vermutung." : "Die Beobachtung passt hier nicht zu deiner Vermutung. Das ist ein Anlass zum Weiterfragen."}</p></details>`;
     return `<aside class="learn-quest ${inline ? "learn-quest-inline" : ""}" aria-label="Questbuch"><header><strong>${esc(d.title)}</strong>${inline ? "" : button("quest-toggle", "−", 'aria-label="Questbuch einklappen" aria-expanded="true"')}</header><progress value="${s.step}" max="5" aria-label="Erledigte Aufgaben">${s.step} von 5</progress>${body}<p class="learn-quest-feedback" data-feedback-kind="${s.feedbackKind || "neutral"}" role="status" aria-live="polite">${esc(done ? "" : s.feedback)}</p></aside>`;
@@ -126,6 +128,7 @@ export function createStudentViews(api) {
     return `<section class="learn-activity"><p class="learn-card-from">${esc(a.from)} →</p><div class="learn-quest-answers">${choiceOrder(state().session.quest,a.id,a.targets.length).map(i=>`<button data-activity-id="${a.id}" data-activity-choice="${i}">${esc(a.targets[i])}</button>`).join("")}</div></section>`;
   }
   function experimentTask(d) {
+    if(state().prototype && state().session.comparison && state().session.view?.mode !== "plan") return "Beobachte beide Wassertemperaturen. Starte den Verlauf an der gemeinsamen Versuchsuhr.";
     const e = d.experiment;
     if (e.kind === "case") return "Wähle eine Schutzmaßnahme. Prüfe die Folgen für Tiere und Menschen.";
     if (e.kind === "traits")

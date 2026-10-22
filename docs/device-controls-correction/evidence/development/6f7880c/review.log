@@ -1,0 +1,18 @@
+PASS R1/R8: real 10-restore 50%/14d stops control at day 48, test reaches 59; independent real-core continuation, cause and CSV provenance
+PASS R1: real failure at final requested step retains time and cause
+PASS R3: baseline label updates immediately; changed baseline/input/notes cannot relabel old data or JSON provenance
+RESULTS /tmp/aquarium-correction-final-6f7880c/review/20261021T153620
+Traceback (most recent call last):
+  File "/workspace/Simulation-Aquarium/tests/learning_review_browser.py", line 59, in <module>
+    validated=json.loads(subprocess.check_output(['node','--input-type=module','-e',"import fs from 'node:fs';import {validateLearningProduct} from './learning-model.mjs';process.stdout.write(JSON.stringify(validateLearningProduct(JSON.parse(fs.readFileSync(process.argv[1],'utf8')))))",str(historical)],cwd=ROOT,text=True));assert validated['modelVersion']==history['modelVersion'];retained(history['comparison'],validated['comparison']);retained(history['notes'],validated['notes']);retained(history['measurements'],validated['measurements']);passed('R2 historical product: original learning-evidence-2 identity, complete saved comparison, notes and measurements preserved without relabeling')
+                                                                                                                                                                                                                                                                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/Simulation-Aquarium/tests/learning_review_browser.py", line 33, in retained
+    for key,value in expected.items():assert key in actual,key;retained(value,actual[key])
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/Simulation-Aquarium/tests/learning_review_browser.py", line 36, in retained
+    for before,after in zip(expected,actual):retained(before,after)
+                                             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/Simulation-Aquarium/tests/learning_review_browser.py", line 33, in retained
+    for key,value in expected.items():assert key in actual,key;retained(value,actual[key])
+                                             ^^^^^^^^^^^^^
+AssertionError: initialControl

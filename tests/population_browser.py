@@ -11,7 +11,7 @@ report={'errors':[]}
 with sync_playwright()as p:
  browser=p.chromium.launch(executable_path='/usr/bin/chromium',args=['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']);page=browser.new_page(viewport={'width':1250,'height':900});page.set_default_timeout(120000);page.on('pageerror',lambda e:report['errors'].append(str(e)))
  try:
-  page.goto(os.environ.get('AQUARIUM_TEST_URL','http://127.0.0.1:8000/aquarium-simulation/'));page.locator('button[data-graphics-profile="ipad"]').click();page.locator('[data-start="free"]').click();page.locator('#import-file').set_input_files({'name':'crowded-render-test.json','mimeType':'application/json','buffer':json.dumps(fixture).encode()});page.locator('[data-act="close-panel"]').click()
+  page.goto(os.environ.get('AQUARIUM_TEST_URL','http://127.0.0.1:8000/aquarium-simulation/?expert=1'));page.locator('button[data-graphics-profile="ipad"]').click();page.locator('[data-start="free"]').click();page.locator('#import-file').set_input_files({'name':'crowded-render-test.json','mimeType':'application/json','buffer':json.dumps(fixture).encode()});page.locator('[data-act="close-panel"]').click()
   page.wait_for_function('window.aquariumRenderedIndividuals().filter(e=>e.fish).length===64')
   expect(page.locator('.population-view-note')).to_contain_text('64 von 100');before=page.evaluate('localStorage.getItem("aquarium-werkstatt-v1")');state=json.loads(before);assert len([e for e in state['entities']if e['species']=='molly'])==100
   page.screenshot(path=str(OUT/'ipad-64-of-100.png'),timeout=120000)

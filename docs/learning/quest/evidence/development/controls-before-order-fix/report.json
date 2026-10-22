@@ -1,0 +1,10 @@
+{
+  "checks": [
+    "explicit teacher release: Nitrit appears only when unlocked, has correct help and remains in actual measurements",
+    "quest book question mark has its own correct context and keyboard close"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "status": "failed",
+  "failure": ""
+}

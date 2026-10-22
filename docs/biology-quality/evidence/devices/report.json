@@ -1,0 +1,27 @@
+{
+  "checks": [
+    "mouse, grade 8: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "mouse, grade 9: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "mouse, grade 10: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "mouse: warming objective, 20/24.5/25 C rejected as warming/no-op, 26/26.5/27 C gradual, stale result/conclusion, device/cancel focus and reload",
+    "mouse: genuine old window-light save, unchanged history, 0.65 feed, expert focus, aerator/skimmer off/on, reload",
+    "mouse: adopt and continue test tank; persistent heater and one-off water change use actual core exactly once",
+    "touch-portrait, grade 8: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "touch-portrait, grade 9: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "touch-portrait, grade 10: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "touch-portrait: warming objective, 20/24.5/25 C rejected as warming/no-op, 26/26.5/27 C gradual, stale result/conclusion, device/cancel focus and reload",
+    "touch-portrait: genuine old window-light save, unchanged history, 0.65 feed, expert focus, aerator/skimmer off/on, reload",
+    "touch-portrait: adopt and continue test tank; persistent heater and one-off water change use actual core exactly once",
+    "touch-landscape, grade 8: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "touch-landscape, grade 9: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "touch-landscape, grade 10: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "touch-landscape: warming objective, 20/24.5/25 C rejected as warming/no-op, 26/26.5/27 C gradual, stale result/conclusion, device/cancel focus and reload",
+    "touch-landscape: genuine old window-light save, unchanged history, 0.65 feed, expert focus, aerator/skimmer off/on, reload",
+    "touch-landscape: adopt and continue test tank; persistent heater and one-off water change use actual core exactly once"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "console_errors": [],
+  "commit": "3cc3051316cdc8b545509b902d4ba2b870911710",
+  "status": "passed"
+}

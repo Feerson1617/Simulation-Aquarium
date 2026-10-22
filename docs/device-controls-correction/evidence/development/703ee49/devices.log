@@ -1,0 +1,28 @@
+PASS mouse, grade 8: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload
+PASS mouse, grade 9: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload
+PASS mouse, grade 10: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload
+PASS mouse: Quest 1 device plan/cancel focus, 20/24.5/25/26 C, no-op, stale result/conclusion, recompute, completion, reload
+PASS mouse: genuine old window-light save, unchanged history, 0.65 feed, expert focus, aerator/skimmer off/on, reload
+PASS mouse: adopt and continue test tank; persistent heater and one-off water change use actual core exactly once
+Traceback (most recent call last):
+  File "/workspace/Simulation-Aquarium/tests/device_controls_browser.py", line 121, in <module>
+    rendered(p);p.screenshot(path=str(OUT/f'{mode}-free-{grade}.png'))
+    ^^^^^^^^^^^
+  File "/workspace/Simulation-Aquarium/tests/device_browser_helpers.py", line 10, in rendered
+    p.wait_for_function('(frame)=>{const g=window.aquariumSnapshot().graphics;return g.renderFrame>frame+2 && g.triangles>3000}',arg=frame)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 12761, in wait_for_function
+    self._sync(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_page.py", line 1151, in wait_for_function
+    return await self._main_frame.wait_for_function(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py", line 940, in wait_for_function
+    await self._channel.send("waitForFunction", self._timeout, params)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 76, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 632, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Page.wait_for_function: Timeout 45000ms exceeded.

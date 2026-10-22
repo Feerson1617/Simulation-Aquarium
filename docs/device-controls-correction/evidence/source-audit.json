@@ -1,0 +1,66 @@
+{
+  "baseline": "5440886a4a6970558cba27379b7b847455aa4756",
+  "runtime": "38702602ec5700c08a750e0255a3e7cc3a85bf80",
+  "topLevelDeclarations": 554,
+  "changed": [
+    "U1"
+  ],
+  "added": [],
+  "protectedCore": {
+    "Qf": {
+      "before": {
+        "kind": "FunctionDeclaration",
+        "sha256": "e7d1ba96b13d3b8b560397c61a6012f62f070bccb0a2a87cb6f6a8c44cb689ed"
+      },
+      "after": {
+        "kind": "FunctionDeclaration",
+        "sha256": "e7d1ba96b13d3b8b560397c61a6012f62f070bccb0a2a87cb6f6a8c44cb689ed"
+      },
+      "equal": true
+    },
+    "hd": {
+      "before": {
+        "kind": "FunctionDeclaration",
+        "sha256": "46b1a7939ce754edf17b7ca6554fd8decda716a8ff24b670e861f049a3c2d84a"
+      },
+      "after": {
+        "kind": "FunctionDeclaration",
+        "sha256": "46b1a7939ce754edf17b7ca6554fd8decda716a8ff24b670e861f049a3c2d84a"
+      },
+      "equal": true
+    },
+    "ud": {
+      "before": {
+        "kind": "FunctionDeclaration",
+        "sha256": "ad41f6a45d798674546081a933febb4acfb2e0549b4b6a220c64bbfb4509c00e"
+      },
+      "after": {
+        "kind": "FunctionDeclaration",
+        "sha256": "ad41f6a45d798674546081a933febb4acfb2e0549b4b6a220c64bbfb4509c00e"
+      },
+      "equal": true
+    },
+    "tp": {
+      "before": {
+        "kind": "FunctionDeclaration",
+        "sha256": "8e3df6f970882dce04256000ed1f2e977b6ba8729f6bbae6b600e33aadde4d69"
+      },
+      "after": {
+        "kind": "FunctionDeclaration",
+        "sha256": "8e3df6f970882dce04256000ed1f2e977b6ba8729f6bbae6b600e33aadde4d69"
+      },
+      "equal": true
+    },
+    "y1": {
+      "before": {
+        "kind": "ClassDeclaration",
+        "sha256": "2a60da6a1563ba5742c1c127a2acf6d0ebecf770bf2a24acc3e47ff58246c00e"
+      },
+      "after": {
+        "kind": "ClassDeclaration",
+        "sha256": "2a60da6a1563ba5742c1c127a2acf6d0ebecf770bf2a24acc3e47ff58246c00e"
+      },
+      "equal": true
+    }
+  }
+}

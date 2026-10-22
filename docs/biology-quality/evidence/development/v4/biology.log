@@ -1,0 +1,12 @@
+PASS A10 actual Qf: no substrate -> no nitrifier growth or invented nitrogen
+PASS A10 actual Qf: growth uses actual oxidation and conserves compound nitrogen
+PASS A10 actual Qf: high pH free ammonia harms below old NH4-only threshold
+PASS A10 actual Qf: acid ammonium does not trigger false ammonia damage
+PASS A03 actual import and student view: real fish deaths plus live snails cannot show positive fish health
+PASS A10 expert lab distinguishes measured NH4 from current free NH3 alkaline
+PASS A10 expert lab distinguishes measured NH4 from current free NH3 acid
+PASS A09 regular quest support guided
+PASS A09 regular quest support partial
+PASS A09 regular quest support independent
+PASS A09 changing support leaves actual biological starting values unchanged
+RESULTS /tmp/biology-quality-final-v4/biology/20261021T184937

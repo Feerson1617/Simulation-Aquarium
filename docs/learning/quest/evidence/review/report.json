@@ -1,0 +1,37 @@
+{
+  "checks": [
+    "R1/R8: real 10-restore 50%/14d stops control at day 48, test reaches 59; independent real-core continuation, cause and CSV provenance",
+    "R1: real failure at final requested step retains time and cause",
+    "R3: baseline label updates immediately; changed baseline/input/notes cannot relabel old data or JSON provenance",
+    "R2: actual JSON import and local teacher view retain intervention/value/duration/status/seed/model/frozen planning, nitrite values and manual records",
+    "R7/R2/R8: manual observations without any comparison survive table, SVG/CSV/JSON and teacher import, including unknown initial flux",
+    "R5: same seed reproduces browser F1/F2; new documented seed preserves founders; chosen seed changes actual gamete draws",
+    "R2/R5: real Mendel JSON retains seed, repeated trials and F1/F2 parent-child evidence in teacher view",
+    "R6/R2: browser selection run archives reconstruct frequencies and actual parent success; JSON teacher view exposes phenotype, weights, parents and children",
+    "R4: finished student carbon transfer includes human influence, background material, sources, consolidation and explicit limits",
+    "touch: new measurement/seed/transfer controls fit portrait, operate via touch and preserve help/canvas focus gating",
+    "R2/R3: actual export with unfinished invalid draft preserves the previous valid result in teacher import"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "screenshots": [
+    "r1-independent-tank-series.png",
+    "r3-plan-changed-old-result.png",
+    "r2-teacher-nitrite-status.png",
+    "r7-own-measurement-series.png",
+    "r5-independent-mendel-seed.png",
+    "r6-teacher-selection-archive.png",
+    "r4-anthropogenic-carbon-transfer.png",
+    "r5-tablet-repetition-controls.png",
+    "r4-tablet-carbon-transfer.png"
+  ],
+  "sections": [
+    "ecology",
+    "manual",
+    "genetics",
+    "carbon",
+    "touch",
+    "draft"
+  ],
+  "status": "passed"
+}

@@ -1,0 +1,14 @@
+{
+  "commit": "5ab21c49b8fe4fd78aa895aa89defda9e4450f75",
+  "checks": [
+    "Neutral population actual curve and correct drift explanation"
+  ],
+  "screenshots": [
+    "population-neutral.png",
+    "population-selected.png"
+  ],
+  "errors": [],
+  "engine": "chromium",
+  "status": "failed",
+  "failure": "Locator.inner_text: Error: Node is not an HTMLElement\nCall log:\n  - waiting for locator(\".learn-chart\")\n"
+}

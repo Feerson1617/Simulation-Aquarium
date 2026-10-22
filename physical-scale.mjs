@@ -34,7 +34,7 @@ export function hardwareFootprints(state){
  const add=(kind,value,x,z)=>{const [w,,depth]=equipmentDimensions(state,kind,value),maxX=(tank.innerLengthCm-w)*WORLD_PER_CM/2/tank.x,maxZ=(tank.innerDepthCm-depth)*WORLD_PER_CM/2/tank.z;items.push([clamp(x,-maxX,maxX),clamp(z,-maxZ,maxZ),w/2,depth/2])};
  if(state.filter?.startsWith('internal')||state.filter==='sponge')add('filter',state.filter,2.97,-1.34);
  else if(state.filter&&state.filter!=='none')items.push([(tank.innerLengthCm/2-2)*WORLD_PER_CM/tank.x,(-tank.innerDepthCm/2+1.5)*WORLD_PER_CM/tank.z,1.5,1.5]);
- if(state.heater)add('heater',null,-3.2,-1.4);if(state.skimmer)add('skimmer',null,-2.1,-1.25);if(state.air)add('air',null,2.85,1);
+ if(state.heater||state.ownedEquipment?.includes('heater'))add('heater',null,-3.2,-1.4);if(state.skimmer||state.ownedEquipment?.includes('skimmer'))add('skimmer',null,-2.1,-1.25);if(state.air||state.ownedEquipment?.includes('air'))add('air',null,2.85,1);
  return items;
 }
 export function organismDimensions(entity,type){
@@ -105,7 +105,7 @@ export function normalizeSpatialState(state,previous,catalog){
  const existing=state.spatial?.version===1?state.spatial:previous?JSON.parse(JSON.stringify(previous)):null;
  const spatial=existing||{version:1,unit:'cm',positions:'tank-normalized-v1',originalOverrides:{},relocations:[],unplaced:[]};
  state.spatial=spatial;
- const layout=[state.liters,state.filter,!!state.heater,!!state.skimmer,!!state.air,'canopy-v2'].join(':');
+ const layout=[state.liters,state.filter,...['heater','skimmer','air'].map(key=>!!(state[key]||state.ownedEquipment?.includes(key))),'canopy-v2'].join(':');
  if(existing&&spatial.layout===layout)return spatial;
  if(!existing)for(const entity of state.entities){
   const type=catalog[entity.species];if(!type)continue;

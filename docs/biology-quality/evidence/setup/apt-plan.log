@@ -1,0 +1,59 @@
+NOTE: This is only a simulation!
+      apt-get needs root privileges for real execution.
+      Keep also in mind that locking is deactivated,
+      so don't depend on the relevance to the real current situation!
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libcairo-script-interpreter2 libgraphene-1.0-0 libgtk-4-common
+  libhidapi-hidraw0 liblzo2-2
+Suggested packages:
+  gvfs
+Recommended packages:
+  fonts-ipafont-mincho fonts-tlwg-loma libgtk-4-bin libgtk-4-media-gstreamer
+The following NEW packages will be installed:
+  fonts-freefont-ttf fonts-ipafont-gothic fonts-tlwg-loma-otf fonts-unifont
+  fonts-wqy-zenhei gstreamer1.0-libav libcairo-script-interpreter2 libgles2
+  libgraphene-1.0-0 libgtk-4-1 libgtk-4-common libharfbuzz-icu0
+  libhidapi-hidraw0 libhyphen0 liblzo2-2 libmanette-0.2-0 libwoff1
+  xfonts-scalable xvfb
+0 upgraded, 19 newly installed, 0 to remove and 41 not upgraded.
+Inst fonts-ipafont-gothic (00303-23 Debian:13.7/stable [all])
+Inst fonts-freefont-ttf (20211204+svn4273-2 Debian:13.7/stable [all])
+Inst fonts-tlwg-loma-otf (1:0.7.3-1 Debian:13.7/stable [all])
+Inst fonts-unifont (1:15.1.01-1 Debian:13.7/stable [all])
+Inst fonts-wqy-zenhei (0.9.45-8 Debian:13.7/stable [all])
+Inst gstreamer1.0-libav (1.26.2-1+deb13u1 Debian:13.7/stable, Debian-Security:13/stable-security [amd64])
+Inst liblzo2-2 (2.10-3+b1 Debian:13.7/stable [amd64])
+Inst libcairo-script-interpreter2 (1.18.4-1+b1 Debian:13.7/stable [amd64])
+Inst libgles2 (1.7.0-1+b2 Debian:13.7/stable [amd64])
+Inst libgraphene-1.0-0 (1.10.8-5 Debian:13.7/stable [amd64])
+Inst libgtk-4-common (4.18.6+ds-2 Debian:13.7/stable [all])
+Inst libgtk-4-1 (4.18.6+ds-2 Debian:13.7/stable [amd64])
+Inst libharfbuzz-icu0 (10.2.0-1+deb13u1 Debian:13.7/stable [amd64])
+Inst libhidapi-hidraw0 (0.14.0-1+b2 Debian:13.7/stable [amd64])
+Inst libhyphen0 (2.8.8-7+b2 Debian:13.7/stable [amd64])
+Inst libmanette-0.2-0 (0.2.12-1 Debian:13.7/stable [amd64])
+Inst libwoff1 (1.0.2-2+b2 Debian:13.7/stable [amd64])
+Inst xfonts-scalable (1:1.0.3-1.3 Debian:13.7/stable [all])
+Inst xvfb (2:21.1.16-1.3+deb13u4 Debian-Security:13/stable-security [amd64])
+Conf fonts-ipafont-gothic (00303-23 Debian:13.7/stable [all])
+Conf fonts-freefont-ttf (20211204+svn4273-2 Debian:13.7/stable [all])
+Conf fonts-tlwg-loma-otf (1:0.7.3-1 Debian:13.7/stable [all])
+Conf fonts-unifont (1:15.1.01-1 Debian:13.7/stable [all])
+Conf fonts-wqy-zenhei (0.9.45-8 Debian:13.7/stable [all])
+Conf gstreamer1.0-libav (1.26.2-1+deb13u1 Debian:13.7/stable, Debian-Security:13/stable-security [amd64])
+Conf liblzo2-2 (2.10-3+b1 Debian:13.7/stable [amd64])
+Conf libcairo-script-interpreter2 (1.18.4-1+b1 Debian:13.7/stable [amd64])
+Conf libgles2 (1.7.0-1+b2 Debian:13.7/stable [amd64])
+Conf libgraphene-1.0-0 (1.10.8-5 Debian:13.7/stable [amd64])
+Conf libgtk-4-common (4.18.6+ds-2 Debian:13.7/stable [all])
+Conf libgtk-4-1 (4.18.6+ds-2 Debian:13.7/stable [amd64])
+Conf libharfbuzz-icu0 (10.2.0-1+deb13u1 Debian:13.7/stable [amd64])
+Conf libhidapi-hidraw0 (0.14.0-1+b2 Debian:13.7/stable [amd64])
+Conf libhyphen0 (2.8.8-7+b2 Debian:13.7/stable [amd64])
+Conf libmanette-0.2-0 (0.2.12-1 Debian:13.7/stable [amd64])
+Conf libwoff1 (1.0.2-2+b2 Debian:13.7/stable [amd64])
+Conf xfonts-scalable (1:1.0.3-1.3 Debian:13.7/stable [all])
+Conf xvfb (2:21.1.16-1.3+deb13u4 Debian-Security:13/stable-security [amd64])

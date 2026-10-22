@@ -2,9 +2,27 @@
 
 Deutschsprachiges Aquariumsimulationsspiel zum Aufbauen, Beobachten und Erforschen eines vereinfachten Ökosystems. Für Desktop-Browser und Touch-Bedienung entwickelt; statisch auf GitHub Pages unter `/Simulation-Aquarium/` nutzbar. Das Spiel und Teile seiner Inhalte wurden mit KI-Unterstützung erstellt.
 
+## Lernumgebungen für Klassen 8–10
+
+Beim Start **Klasse 8**, **9** oder **10** wählen. Danach stehen **Lernmissionen** (14) und **Freies Forschen** bereit. Jede Mission öffnet automatisch ein kleines, einklappbares **Questbuch**: Anschauen → Vermuten → Ausprobieren → Vergleichen → Erklären. Es erkennt tatsächliche Handlungen und berechnete Ergebnisse. Falsche Antworten lassen sich erneut versuchen. Keine Pflichtzeichnungen oder langen Texteingaben.
+
+**Beobachten** zeigt wenige Wasserwerte bzw. Fischfarben. **Ausprobieren** berechnet zwei gleiche Ausgangsbecken mit einer veränderten Bedingung. **Meine Ergebnisse** sammelt Questantworten und Messungen; **Für die Lehrkraft speichern** erhält auch die vollständigen wissenschaftlichen Daten. Freies Forschen hat keine Pflichtfolge; die Forschungshilfe und eigenen Notizen sind freiwillig. **Mehr** öffnet Wörterhilfe, Darstellung, Pinzette und den Weg zurück zum Start. Grafik und biologische Regeln bleiben unabhängig.
+
+Der **Lehrkraftmodus** bietet Vorbereitung, gezielte Freigaben, vollständige technische Untersuchungen, JSON/CSV/SVG, Seeds, Quellen, Modellgrenzen und lesbare Eltern-/Nachkommenarchive. Er kann auch die normale Schüleransicht starten. Der **Expertenmodus** erhält Freispiel, Tutorial, Szenarien, den vollständigen Katalog und alte Spielstände (`?expert=1`). Alles funktioniert lokal ohne zusätzliches Konto oder bezahlten Dienst. Frühere Lernnotizen und Einstellungen bleiben beim Wechsel zum Questbuch erhalten.
+
+[Aktuelle Korrektur A01–A11](docs/biology-quality/MATRIX.md), [Lernziele und notwendige Handlungen aller 14 Missionen](docs/biology-quality/MISSIONS.md). [Frühere Oberfläche und Datenübergang](docs/learning/quest/DESIGN.md), [frühere Questfolgen](docs/learning/quest/MISSIONS.md), [historische Questprüfung](docs/learning/quest/VALIDATION.md), [Abnahme des Fortsetzungsauftrags](docs/learning/quest/ACCEPTANCE.md). Die [Fachprüfung](docs/learning/AUDIT.md), der [frühere Masterbericht](docs/learning/REPORT.md) und die [Abnahme R1–R8](docs/learning/ACCEPTANCE.md) dokumentieren den erhaltenen fachlichen Unterbau. Die Zuordnung zum Originalcurriculum ist geprüft; Unterrichtserprobung und physische Safari-iPads bleiben gesonderte Aufgaben.
+
+## Geräte direkt einstellen
+
+Heizstab, Filter und Lampe sowie eingebaute Belüfter und Abschäumer lassen sich am sichtbaren 3D-Gerät oder dessen großer Schaltfläche öffnen. Das hervorgehobene Gerät hat einen gemeinsamen Drehregler mit Ziehen, Pfeiltasten, Plus/Minus und direkter Eingabe, auch mit Dezimalkomma. Im Freien Forschen gelten die Änderungen für das aktuelle Becken; beim Planen eines Vergleichs für Becken 2. Licht bietet im aktuellen Becken auch einen Helligkeitsregler. Belüfter und Abschäumer haben Ein-/Aus-Schalter. Nach Speichern oder Abbrechen bleibt die Tastaturbedienung am Gerät oder in den Lernwerkzeugen möglich. Natürliches Fensterlicht behält Stärke und Dauer im Einstellmenü ohne erfundene Lampe. Alte Futterwerte wie 0,65 bleiben erhalten. Die fachlichen Freischaltungen einer Mission gelten weiter.
+
+Einstellungen bleiben bis zur nächsten Änderung bestehen. Der getrennte **Beobachtungszeitraum** begrenzt nur die berechnete Datenreihe. Wasserwechsel, Nährstoffeintrag und Pflanzenzugabe sind einmalige Aktionen. Wassertemperatur und biologische Folgen reagieren erst mit vergehender Spielzeit. Nach einem geänderten Versuchsplan müssen ausstehende Quest-Ergebnisse erneut berechnet und ausgewertet werden.
+
+Die biologische Überarbeitung unterscheidet Zufall und Selektion, verlangt tatsächliche F1/F2- und regionale Lernhandlungen, trennt eigene Eingaben von Spieltexten und zeigt Fischüberleben neben dem Zustand lebender Fische. Die reguläre Geräteplanung bietet zunächst einen Hauptweg mit aufklappbarer Zahlenalternative. **139 Modultests, 95 Browserprüfpunkte und der vollständige HTML-Download sind bestanden.** [Korrekturmatrix](docs/biology-quality/MATRIX.md) und [Prüfbericht](docs/biology-quality/VALIDATION.md) dokumentieren Quellstände und Grenzen. [Umgebung und offene WebKit-Prüfung](docs/biology-quality/ENVIRONMENT.md) beschreiben die vorhandenen Werkzeuge und die vorbereitete Installation. Die [frühere Geräteabnahme mit120 Modultests/81 Browserprüfpunkten](docs/device-controls-correction/VALIDATION.md) ist historisch; ihre Zahlen werden nicht auf den neuen Biologiestand übertragen. Für alle Jahrgänge, den Expertenmodus und künftige Codex-Aufträge gelten die [gemeinsamen Bedienregeln](docs/device-controls.md). [Priorisierte Fehlerprüfung und Testmatrix](docs/device-controls-audit.md), [vollständige eigenständige Codex-Anweisung für PR 8](docs/device-controls-codex-instruction.md). `AGENTS.md` bleibt unverändert maßgeblich.
+
 ## Desktop- und iPad-Darstellung
 
-Beim ersten Start zuerst **Desktop-Version** oder **iPad-Version** wählen, danach Freies Spiel, Tutorial oder Szenarien starten. Desktop beginnt mit **Maximum**. Unter **Zeit & Runde → Darstellung** sind später **Hoch**, **Ultra**, **Maximum** und **iPad** wählbar. Der Wechsel baut nur die Grafik neu auf; die biologische Simulation und gespeicherte Becken bleiben gleich. Die Darstellungsauswahl steht getrennt unter `aquarium-graphics-v1` in `localStorage`.
+Im Expertenmodus zuerst **Desktop-Version** oder **iPad-Version** wählen, danach Freies Spiel, Tutorial oder Szenarien starten. In den Lernumgebungen ist die Darstellung separat erreichbar. Desktop beginnt mit **Maximum**. Unter **Zeit & Runde → Darstellung** sind später **Hoch**, **Ultra**, **Maximum** und **iPad** wählbar. Der Wechsel baut nur die Grafik neu auf; die biologische Simulation und gespeicherte Becken bleiben gleich. Die Darstellungsauswahl steht getrennt unter `aquarium-graphics-v1` in `localStorage`.
 
 Maximum verwendet die native Pixeldichte, feinere Geometrie, bis zu 4096-Pixel-Oberflächentexturen, bis zu 8192-Pixel-Schatten und die aufwendigere Wasseroptik. Es gibt keine künstliche FPS-Obergrenze. Tatsächliche Hardwaregrenzen und ein Ressourcenbudget verhindern unkontrollierte Grafikallokationen. iPad verwendet dieselben Arten und Funktionen mit geringerer Geometrie-/Texturauflösung, mobilen Dekorations-LODs und einfacheren transparenten Materialien.
 
@@ -71,6 +89,14 @@ Das Speicherformat bleibt Version 1 mit dem bisherigen `localStorage`-Schlüssel
 
 ```bash
 node --test tests/*.test.mjs
+python3 tests/biology_quality_browser.py
+python3 tests/device_controls_browser.py
+python3 tests/quest_browser.py
+python3 tests/quest_controls_browser.py
+python3 tests/learning_review_browser.py
+python3 tests/learning_additional_browser.py
+python3 tests/learning_browser.py
+python3 tests/readiness_browser.py
 python3 tests/species_assets_test.py
 python3 tests/physical_scale_browser.py
 python3 tests/physical_hardware_browser.py
@@ -79,7 +105,9 @@ python3 tests/aquascaping_browser.py
 python3 tests/standalone_browser.py
 ```
 
-Die Browserprüfungen benötigen Python-Playwright und Chromium und verwenden isolierte Browserprofile. Maßstab-, Katalog-, Aquascaping- und Standalone-Tests starten ihren eigenen vorübergehenden Server. Technik- und Genetiktests erwarten den eingerichteten lokalen Entwicklungsserver; `AQUARIUM_TEST_URL` erlaubt einen anderen Projektpfad. Der Ökosystemtest verwendet dafür `AQUARIUM_URL`. GPU-Browserläufe auf dieser CPU-Cloud nacheinander ausführen. In dieser Cloud-Umgebung sind beide vorhanden. Auf anderen Entwicklungsrechnern lässt sich ein installierter Browser über `AQUARIUM_CHROMIUM` auswählen. Optional kann Playwrights eigener Chromium verwendet werden. Es sind keine zusätzlichen Konten nötig.
+Bei Pull Requests führt `module-tests.yml` die kostenlosen Node-Modultests automatisch aus; Pages-Checks prüfen weiterhin die Veröffentlichung. CSV-Schema 2 beschreibt Messnamen, Einheiten, Typen, Seeds und Status: [Datenformat](docs/learning/CSV_SCHEMA.md).
+
+Die Browserprüfungen benötigen Python-Playwright und Chromium und verwenden isolierte Browserprofile. Maßstab-, Katalog-, Aquascaping- und Standalone-Tests starten ihren eigenen vorübergehenden Server. Technik- und Genetiktests erwarten den eingerichteten lokalen Entwicklungsserver; `AQUARIUM_TEST_URL` erlaubt einen anderen Projektpfad. Lern-, Review-, Fokus-, Bereitschafts- und Ökosystemprüfungen verwenden `AQUARIUM_URL`; bei den beiden Expertenprüfungen Bereitschaft/Ökosystem den Zusatz `?expert=1` angeben. Beispiel für den oben beschriebenen Standardserver: `AQUARIUM_URL=http://127.0.0.1:8000/Simulation-Aquarium/ python3 tests/learning_review_browser.py`. GPU-Browserläufe auf dieser CPU-Cloud nacheinander ausführen. In dieser Cloud-Umgebung sind beide vorhanden. Auf anderen Entwicklungsrechnern lässt sich ein installierter Browser über `AQUARIUM_CHROMIUM` auswählen. Optional kann Playwrights eigener Chromium verwendet werden. Es sind keine zusätzlichen Konten nötig.
 
 Getestet werden unter anderem echte Maus-/Touch-Gesten, Kamerasperre, Kollisionen, Glasgrenzen, Abbrechen, Tastaturbedienung, alle sechs neuen Modelle, alte Spielstände und der HTML-Download. Ergebnisse und Screenshots des Aquascaping-Tests liegen standardmäßig unter `/tmp/aquarium-phase1-results`; `AQUARIUM_TEST_RESULTS` ändert das Zielverzeichnis. Tablet-Emulation in Chromium ersetzt keinen Test auf einem echten Safari-iPad. Die vorhandenen Spielstart-/Tutorialprüfungen bleiben zusätzlich Teil der Regression.
 

@@ -1,0 +1,13 @@
+{
+  "head": "38702602ec5700c08a750e0255a3e7cc3a85bf80",
+  "protected": {
+    "AGENTS.md": {
+      "same_as_main": true,
+      "sha256": "d9fc27e65c9de4e172db087a94d5217190cc5cc63fba14971ba8da52b6f476a3"
+    },
+    ".github/workflows/pages-pr-previews.yml": {
+      "same_as_main": true,
+      "sha256": "b6b29a0b8022a604e11be1ea157eea56b396b01dddd1a8ca99fbb6e92f930d05"
+    }
+  }
+}

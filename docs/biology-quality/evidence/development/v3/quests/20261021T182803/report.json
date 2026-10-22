@@ -1,0 +1,1327 @@
+{
+  "commit": "50b90397fbc7bd25f78ad3f1aa295e6e034eb268",
+  "checks": [
+    "desktop: 8-ecosystem completed with required biological actions, actual evidence, retry, provenance and explanation",
+    "desktop: 8-oxygen completed with required biological actions, actual evidence, retry, provenance and explanation",
+    "desktop: 8-foodweb completed with required biological actions, actual evidence, retry, provenance and explanation",
+    "desktop: 8-health completed with required biological actions, actual evidence, retry, provenance and explanation",
+    "desktop: 8-forest completed with required biological actions, actual evidence, retry, provenance and explanation",
+    "desktop: 9-traits completed with required biological actions, actual evidence, retry, provenance and explanation"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "missions": [
+    {
+      "id": "8-ecosystem",
+      "touch": false,
+      "quest": {
+        "version": 2,
+        "activities": [
+          {
+            "id": "living",
+            "kind": "assignment",
+            "origin": "selection",
+            "from": "Fisch",
+            "to": "Lebewesen",
+            "at": "2026-10-21T18:28:37.511Z"
+          },
+          {
+            "id": "water",
+            "kind": "assignment",
+            "origin": "selection",
+            "from": "Wasser",
+            "to": "Unbelebter Bestandteil",
+            "at": "2026-10-21T18:28:40.516Z"
+          }
+        ],
+        "choiceSeed": 3692314784,
+        "id": "8-ecosystem",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was ist kein Lebewesen?",
+            "answer": "Das Wasser",
+            "choiceIndex": 0,
+            "origin": "selection",
+            "at": "2026-10-21T18:28:46.622Z"
+          },
+          {
+            "step": 1,
+            "question": "Nach gleich langer Spielzeit: Welches Becken ist wärmer?",
+            "answer": "Becken 2",
+            "choiceIndex": 1,
+            "origin": "selection",
+            "at": "2026-10-21T18:28:49.515Z"
+          },
+          {
+            "step": 2,
+            "event": "ecology",
+            "origin": "game-action",
+            "evidence": {
+              "changed": true,
+              "result": {
+                "kind": "ecology",
+                "key": "temp",
+                "repetition": 1,
+                "sampleSize": null,
+                "label": "Temperatur",
+                "unit": "°C",
+                "time": 48,
+                "control": 25,
+                "test": 25.902376727811948,
+                "fish": null,
+                "statuses": {
+                  "control": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  },
+                  "test": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  }
+                },
+                "configuration": {
+                  "kind": "ecology",
+                  "profile": {
+                    "version": 1,
+                    "grade": 8,
+                    "mode": "missions",
+                    "mission": "8-ecosystem"
+                  },
+                  "modelVersion": "learning-biology-4",
+                  "tool": "temperature",
+                  "value": 27,
+                  "days": 3,
+                  "environment": null,
+                  "generations": null,
+                  "repetitions": 2,
+                  "baseline": {
+                    "time": 45,
+                    "seed": 47291,
+                    "fingerprint": "fe101904",
+                    "size": 19
+                  },
+                  "planning": {
+                    "question": "",
+                    "hypothesis": "",
+                    "prediction": "",
+                    "plan": ""
+                  },
+                  "metrics": [
+                    "oxygen",
+                    "health",
+                    "algae",
+                    "plantBiomass",
+                    "organic",
+                    "temp",
+                    "fishAlive"
+                  ]
+                }
+              },
+              "tool": "temperature",
+              "compatible": true,
+              "value": 27
+            },
+            "at": "2026-10-21T18:29:19.661Z"
+          },
+          {
+            "step": 3,
+            "question": "Wo ist die Temperatur höher?",
+            "answer": "In Becken 2",
+            "choiceIndex": 1,
+            "origin": "selection",
+            "at": "2026-10-21T18:29:24.639Z"
+          },
+          {
+            "step": 4,
+            "question": "Was gehört zum Lebensraum?",
+            "answer": "Lebewesen und ihre Umgebung",
+            "choiceIndex": 0,
+            "origin": "selection",
+            "at": "2026-10-21T18:29:30.117Z"
+          }
+        ],
+        "result": {
+          "kind": "ecology",
+          "key": "temp",
+          "repetition": 1,
+          "sampleSize": null,
+          "label": "Temperatur",
+          "unit": "°C",
+          "time": 48,
+          "control": 25,
+          "test": 25.902376727811948,
+          "fish": null,
+          "statuses": {
+            "control": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            },
+            "test": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            }
+          },
+          "configuration": {
+            "kind": "ecology",
+            "profile": {
+              "version": 1,
+              "grade": 8,
+              "mode": "missions",
+              "mission": "8-ecosystem"
+            },
+            "modelVersion": "learning-biology-4",
+            "tool": "temperature",
+            "value": 27,
+            "days": 3,
+            "environment": null,
+            "generations": null,
+            "repetitions": 2,
+            "baseline": {
+              "time": 45,
+              "seed": 47291,
+              "fingerprint": "fe101904",
+              "size": 19
+            },
+            "planning": {
+              "question": "",
+              "hypothesis": "",
+              "prediction": "",
+              "plan": ""
+            },
+            "metrics": [
+              "oxygen",
+              "health",
+              "algae",
+              "plantBiomass",
+              "organic",
+              "temp",
+              "fishAlive"
+            ]
+          }
+        },
+        "feedback": "Tiere, Pflanzen und Wasser gehören zusammen. Die Temperatur wirkt auf die Lebewesen.",
+        "collapsed": false,
+        "predictionCheck": {
+          "selection": "Becken 2",
+          "observed": "Becken 2",
+          "matches": true
+        }
+      },
+      "product": "desktop-8-ecosystem.json"
+    },
+    {
+      "id": "8-oxygen",
+      "touch": false,
+      "quest": {
+        "version": 2,
+        "activities": [],
+        "choiceSeed": 473399525,
+        "id": "8-oxygen",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was bleibt am Anfang gleich?",
+            "answer": "Die Tiere und Pflanzen",
+            "choiceIndex": 0,
+            "origin": "selection",
+            "at": "2026-10-21T18:30:52.440Z"
+          },
+          {
+            "step": 1,
+            "question": "Nach gleich langer Spielzeit: In welchem Becken gibt es mehr Sauerstoff?",
+            "answer": "Becken 2",
+            "choiceIndex": 1,
+            "origin": "selection",
+            "at": "2026-10-21T18:30:55.456Z"
+          },
+          {
+            "step": 2,
+            "event": "ecology",
+            "origin": "game-action",
+            "evidence": {
+              "changed": true,
+              "result": {
+                "kind": "ecology",
+                "key": "oxygen",
+                "repetition": 1,
+                "sampleSize": null,
+                "label": "Sauerstoff",
+                "unit": "mg/L",
+                "time": 48,
+                "control": 8.28389496015925,
+                "test": 8.163889709536656,
+                "fish": null,
+                "statuses": {
+                  "control": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  },
+                  "test": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  }
+                },
+                "configuration": {
+                  "kind": "ecology",
+                  "profile": {
+                    "version": 1,
+                    "grade": 8,
+                    "mode": "missions",
+                    "mission": "8-oxygen"
+                  },
+                  "modelVersion": "learning-biology-4",
+                  "tool": "light",
+                  "value": 0,
+                  "days": 3,
+                  "environment": null,
+                  "generations": null,
+                  "repetitions": 2,
+                  "baseline": {
+                    "time": 45,
+                    "seed": 47291,
+                    "fingerprint": "01a6c9b4",
+                    "size": 19
+                  },
+                  "planning": {
+                    "question": "",
+                    "hypothesis": "",
+                    "prediction": "",
+                    "plan": ""
+                  },
+                  "metrics": [
+                    "oxygen",
+                    "health",
+                    "algae",
+                    "plantBiomass",
+                    "organic",
+                    "photosynthesis",
+                    "respiration",
+                    "temp"
+                  ]
+                }
+              },
+              "tool": "light",
+              "compatible": true,
+              "value": 0
+            },
+            "at": "2026-10-21T18:31:14.233Z"
+          },
+          {
+            "step": 3,
+            "question": "Wo ist mehr Sauerstoff?",
+            "answer": "In Becken 1",
+            "choiceIndex": 0,
+            "origin": "selection",
+            "at": "2026-10-21T18:31:24.403Z"
+          },
+          {
+            "step": 4,
+            "question": "Was fällt ohne Licht weg?",
+            "answer": "Die Sauerstoffbildung durch Licht",
+            "choiceIndex": 0,
+            "origin": "selection",
+            "at": "2026-10-21T18:31:29.181Z"
+          }
+        ],
+        "result": {
+          "kind": "ecology",
+          "key": "oxygen",
+          "repetition": 1,
+          "sampleSize": null,
+          "label": "Sauerstoff",
+          "unit": "mg/L",
+          "time": 48,
+          "control": 8.28389496015925,
+          "test": 8.163889709536656,
+          "fish": null,
+          "statuses": {
+            "control": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            },
+            "test": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            }
+          },
+          "configuration": {
+            "kind": "ecology",
+            "profile": {
+              "version": 1,
+              "grade": 8,
+              "mode": "missions",
+              "mission": "8-oxygen"
+            },
+            "modelVersion": "learning-biology-4",
+            "tool": "light",
+            "value": 0,
+            "days": 3,
+            "environment": null,
+            "generations": null,
+            "repetitions": 2,
+            "baseline": {
+              "time": 45,
+              "seed": 47291,
+              "fingerprint": "01a6c9b4",
+              "size": 19
+            },
+            "planning": {
+              "question": "",
+              "hypothesis": "",
+              "prediction": "",
+              "plan": ""
+            },
+            "metrics": [
+              "oxygen",
+              "health",
+              "algae",
+              "plantBiomass",
+              "organic",
+              "photosynthesis",
+              "respiration",
+              "temp"
+            ]
+          }
+        },
+        "feedback": "Pflanzen geben bei Licht Sauerstoff ab. Ohne Licht fällt diese Quelle weg. Tiere und Pflanzen verbrauchen weiter Sauerstoff. Auch die Luft wirkt auf den Wert.",
+        "collapsed": false,
+        "predictionCheck": {
+          "selection": "Becken 2",
+          "observed": "Becken 1",
+          "matches": false
+        }
+      },
+      "product": "desktop-8-oxygen.json"
+    },
+    {
+      "id": "8-foodweb",
+      "touch": false,
+      "quest": {
+        "version": 2,
+        "activities": [
+          {
+            "id": "food-fish",
+            "kind": "assignment",
+            "origin": "selection",
+            "from": "Futter",
+            "to": "Fisch",
+            "at": "2026-10-21T18:33:17.485Z"
+          },
+          {
+            "id": "rest-decomposer",
+            "kind": "assignment",
+            "origin": "selection",
+            "from": "Tote Reste",
+            "to": "Zersetzende Pilze und Bakterien",
+            "at": "2026-10-21T18:33:21.159Z"
+          },
+          {
+            "id": "consumer",
+            "kind": "assignment",
+            "origin": "selection",
+            "from": "Fisch",
+            "to": "Nimmt organische Nahrung auf",
+            "at": "2026-10-21T18:33:52.899Z"
+          },
+          {
+            "id": "producer",
+            "kind": "assignment",
+            "origin": "selection",
+            "from": "Wasserpest",
+            "to": "Erzeugt mit Licht neue organische Stoffe",
+            "at": "2026-10-21T18:33:55.410Z"
+          },
+          {
+            "id": "matter-energy",
+            "kind": "assignment",
+            "origin": "selection",
+            "from": "Stoffe und Energie",
+            "to": "Stoffe können erneut genutzt werden; Energie geht auch als Wärme hinaus",
+            "at": "2026-10-21T18:33:57.802Z"
+          }
+        ],
+        "choiceSeed": 2371809034,
+        "id": "8-foodweb",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was lebt im Aquarium?",
+            "answer": "Ein Fisch",
+            "choiceIndex": 0,
+            "origin": "selection",
+            "at": "2026-10-21T18:33:28.723Z"
+          },
+          {
+            "step": 1,
+            "question": "Nach gleich langer Spielzeit: In welchem Becken bleiben mehr Reste?",
+            "answer": "Becken 2",
+            "choiceIndex": 1,
+            "origin": "selection",
+            "at": "2026-10-21T18:33:33.472Z"
+          },
+          {
+            "step": 2,
+            "event": "ecology",
+            "origin": "game-action",
+            "evidence": {
+              "changed": true,
+              "result": {
+                "kind": "ecology",
+                "key": "organic",
+                "repetition": 1,
+                "sampleSize": null,
+                "label": "Reste",
+                "unit": "",
+                "time": 48,
+                "control": 0.38952515271109506,
+                "test": 3.9630476739372966,
+                "fish": null,
+                "statuses": {
+                  "control": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  },
+                  "test": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  }
+                },
+                "configuration": {
+                  "kind": "ecology",
+                  "profile": {
+                    "version": 1,
+                    "grade": 8,
+                    "mode": "missions",
+                    "mission": "8-foodweb"
+                  },
+                  "modelVersion": "learning-biology-4",
+                  "tool": "feed",
+                  "value": 2,
+                  "days": 3,
+                  "environment": null,
+                  "generations": null,
+                  "repetitions": 2,
+                  "baseline": {
+                    "time": 45,
+                    "seed": 47291,
+                    "fingerprint": "98b30a1e",
+                    "size": 19
+                  },
+                  "planning": {
+                    "question": "",
+                    "hypothesis": "",
+                    "prediction": "",
+                    "plan": ""
+                  },
+                  "metrics": [
+                    "oxygen",
+                    "health",
+                    "algae",
+                    "plantBiomass",
+                    "organic",
+                    "fishAlive"
+                  ]
+                }
+              },
+              "tool": "feed",
+              "compatible": true,
+              "value": 2
+            },
+            "at": "2026-10-21T18:33:45.224Z"
+          },
+          {
+            "step": 3,
+            "question": "Wo gibt es mehr Reste?",
+            "answer": "In Becken 2",
+            "choiceIndex": 1,
+            "origin": "selection",
+            "at": "2026-10-21T18:33:50.467Z"
+          },
+          {
+            "step": 4,
+            "question": "Was geschieht mit Futterresten?",
+            "answer": "Kleine Lebewesen bauen sie ab",
+            "choiceIndex": 0,
+            "origin": "selection",
+            "at": "2026-10-21T18:34:03.095Z"
+          }
+        ],
+        "result": {
+          "kind": "ecology",
+          "key": "organic",
+          "repetition": 1,
+          "sampleSize": null,
+          "label": "Reste",
+          "unit": "",
+          "time": 48,
+          "control": 0.38952515271109506,
+          "test": 3.9630476739372966,
+          "fish": null,
+          "statuses": {
+            "control": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            },
+            "test": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            }
+          },
+          "configuration": {
+            "kind": "ecology",
+            "profile": {
+              "version": 1,
+              "grade": 8,
+              "mode": "missions",
+              "mission": "8-foodweb"
+            },
+            "modelVersion": "learning-biology-4",
+            "tool": "feed",
+            "value": 2,
+            "days": 3,
+            "environment": null,
+            "generations": null,
+            "repetitions": 2,
+            "baseline": {
+              "time": 45,
+              "seed": 47291,
+              "fingerprint": "98b30a1e",
+              "size": 19
+            },
+            "planning": {
+              "question": "",
+              "hypothesis": "",
+              "prediction": "",
+              "plan": ""
+            },
+            "metrics": [
+              "oxygen",
+              "health",
+              "algae",
+              "plantBiomass",
+              "organic",
+              "fishAlive"
+            ]
+          }
+        },
+        "feedback": "Kleine Lebewesen bauen Reste ab. Dabei werden Nährstoffe frei. Pflanzen können sie aufnehmen. Stoffe werden wieder genutzt; Energie geht auch als Wärme nach außen.",
+        "collapsed": false,
+        "predictionCheck": {
+          "selection": "Becken 2",
+          "observed": "Becken 2",
+          "matches": true
+        }
+      },
+      "product": "desktop-8-foodweb.json"
+    },
+    {
+      "id": "8-health",
+      "touch": false,
+      "quest": {
+        "version": 2,
+        "activities": [
+          {
+            "id": "fish-water",
+            "kind": "view",
+            "origin": "game-action",
+            "evidence": {
+              "day": 45,
+              "temp": 25,
+              "oxygen": 7.8,
+              "no3": 12,
+              "no2": 0.9,
+              "co2": 8,
+              "algae": 0.1,
+              "organic": 1.5,
+              "plantBiomass": 3.645430842088535,
+              "metricsVersion": 2,
+              "fishAlive": 6,
+              "fishDead": 0,
+              "health": 100,
+              "fishOutcome": 100,
+              "otherAnimals": 3,
+              "individuals": 9,
+              "photosynthesis": null,
+              "respiration": null,
+              "loadLevel": 2,
+              "failed": false
+            },
+            "at": "2026-10-21T18:34:56.640Z"
+          },
+          {
+            "id": "survival",
+            "kind": "view",
+            "origin": "game-action",
+            "evidence": {
+              "configuration": {
+                "kind": "ecology",
+                "profile": {
+                  "version": 1,
+                  "grade": 8,
+                  "mode": "missions",
+                  "mission": "8-health"
+                },
+                "modelVersion": "learning-biology-4",
+                "tool": "water",
+                "value": 50,
+                "days": 3,
+                "environment": null,
+                "generations": null,
+                "repetitions": 2,
+                "baseline": {
+                  "time": 45,
+                  "seed": 47291,
+                  "fingerprint": "b2f32cdb",
+                  "size": 15
+                },
+                "planning": {
+                  "question": "",
+                  "hypothesis": "",
+                  "prediction": "",
+                  "plan": ""
+                },
+                "metrics": [
+                  "oxygen",
+                  "health",
+                  "algae",
+                  "plantBiomass",
+                  "organic",
+                  "loadLevel",
+                  "fishAlive",
+                  "no2"
+                ]
+              },
+              "time": 48,
+              "control": {
+                "day": 48,
+                "temp": 25,
+                "oxygen": 8.227033043395524,
+                "no3": 11.704581964782856,
+                "no2": 1.5277653554396837,
+                "co2": 5.053736673259019,
+                "algae": 0.09790699926820769,
+                "organic": 0.9727310433328988,
+                "plantBiomass": 4.27723706906673,
+                "metricsVersion": 2,
+                "fishAlive": 6,
+                "fishDead": 0,
+                "health": 1.9653927391946808,
+                "fishOutcome": 1.9653927391946808,
+                "otherAnimals": 3,
+                "individuals": 9,
+                "photosynthesis": 0,
+                "respiration": 0.033863624112377116,
+                "loadLevel": 2,
+                "failed": false
+              },
+              "test": {
+                "day": 48,
+                "temp": 25,
+                "oxygen": 8.230088900973406,
+                "no3": 8.21819967472601,
+                "no2": 0.6303886697326602,
+                "co2": 4.540028576504795,
+                "algae": 0.09071141030945606,
+                "organic": 0.9699467743445424,
+                "plantBiomass": 4.27723706906673,
+                "metricsVersion": 2,
+                "fishAlive": 6,
+                "fishDead": 0,
+                "health": 55.80125986589355,
+                "fishOutcome": 55.80125986589355,
+                "otherAnimals": 3,
+                "individuals": 9,
+                "photosynthesis": 0,
+                "respiration": 0.03358051856573571,
+                "loadLevel": 2,
+                "failed": false
+              }
+            },
+            "at": "2026-10-21T18:35:37.768Z"
+          }
+        ],
+        "choiceSeed": 2595347610,
+        "id": "8-health",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Worauf solltest du achten?",
+            "answer": "Auf die Fische und das Wasser",
+            "choiceIndex": 0,
+            "origin": "selection",
+            "at": "2026-10-21T18:35:15.018Z"
+          },
+          {
+            "step": 1,
+            "question": "Nach gleich langer Spielzeit: Welches Becken hilft den Fischen mehr?",
+            "answer": "Becken 2",
+            "choiceIndex": 1,
+            "origin": "selection",
+            "at": "2026-10-21T18:35:18.033Z"
+          },
+          {
+            "step": 2,
+            "event": "ecology",
+            "origin": "game-action",
+            "evidence": {
+              "changed": true,
+              "result": {
+                "kind": "ecology",
+                "key": "fishOutcome",
+                "repetition": 1,
+                "sampleSize": null,
+                "label": "Fische: Überleben und Zustand",
+                "unit": "Punkte",
+                "time": 48,
+                "control": 1.9653927391946808,
+                "test": 55.80125986589355,
+                "fish": {
+                  "control": {
+                    "fishAlive": 6,
+                    "fishDead": 0,
+                    "health": 1.9653927391946808
+                  },
+                  "test": {
+                    "fishAlive": 6,
+                    "fishDead": 0,
+                    "health": 55.80125986589355
+                  }
+                },
+                "statuses": {
+                  "control": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  },
+                  "test": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  }
+                },
+                "configuration": {
+                  "kind": "ecology",
+                  "profile": {
+                    "version": 1,
+                    "grade": 8,
+                    "mode": "missions",
+                    "mission": "8-health"
+                  },
+                  "modelVersion": "learning-biology-4",
+                  "tool": "water",
+                  "value": 50,
+                  "days": 3,
+                  "environment": null,
+                  "generations": null,
+                  "repetitions": 2,
+                  "baseline": {
+                    "time": 45,
+                    "seed": 47291,
+                    "fingerprint": "b2f32cdb",
+                    "size": 15
+                  },
+                  "planning": {
+                    "question": "",
+                    "hypothesis": "",
+                    "prediction": "",
+                    "plan": ""
+                  },
+                  "metrics": [
+                    "oxygen",
+                    "health",
+                    "algae",
+                    "plantBiomass",
+                    "organic",
+                    "loadLevel",
+                    "fishAlive",
+                    "no2"
+                  ]
+                }
+              },
+              "tool": "water",
+              "compatible": true,
+              "value": 50
+            },
+            "at": "2026-10-21T18:35:34.653Z"
+          },
+          {
+            "step": 3,
+            "question": "Wo leben mehr Fische – oder bei gleicher Zahl gesündere?",
+            "answer": "In Becken 2",
+            "choiceIndex": 1,
+            "origin": "selection",
+            "at": "2026-10-21T18:35:43.350Z"
+          },
+          {
+            "step": 4,
+            "question": "Was zeigt der Versuch?",
+            "answer": "Ob die Maßnahme hier geholfen hat",
+            "choiceIndex": 0,
+            "origin": "selection",
+            "at": "2026-10-21T18:35:48.625Z"
+          }
+        ],
+        "result": {
+          "kind": "ecology",
+          "key": "fishOutcome",
+          "repetition": 1,
+          "sampleSize": null,
+          "label": "Fische: Überleben und Zustand",
+          "unit": "Punkte",
+          "time": 48,
+          "control": 1.9653927391946808,
+          "test": 55.80125986589355,
+          "fish": {
+            "control": {
+              "fishAlive": 6,
+              "fishDead": 0,
+              "health": 1.9653927391946808
+            },
+            "test": {
+              "fishAlive": 6,
+              "fishDead": 0,
+              "health": 55.80125986589355
+            }
+          },
+          "statuses": {
+            "control": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            },
+            "test": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            }
+          },
+          "configuration": {
+            "kind": "ecology",
+            "profile": {
+              "version": 1,
+              "grade": 8,
+              "mode": "missions",
+              "mission": "8-health"
+            },
+            "modelVersion": "learning-biology-4",
+            "tool": "water",
+            "value": 50,
+            "days": 3,
+            "environment": null,
+            "generations": null,
+            "repetitions": 2,
+            "baseline": {
+              "time": 45,
+              "seed": 47291,
+              "fingerprint": "b2f32cdb",
+              "size": 15
+            },
+            "planning": {
+              "question": "",
+              "hypothesis": "",
+              "prediction": "",
+              "plan": ""
+            },
+            "metrics": [
+              "oxygen",
+              "health",
+              "algae",
+              "plantBiomass",
+              "organic",
+              "loadLevel",
+              "fishAlive",
+              "no2"
+            ]
+          }
+        },
+        "feedback": "Vergleiche die Fische und die Wasserwerte. Eine Maßnahme kann helfen. Damit ist noch nicht jede Ursache geklärt.",
+        "collapsed": false,
+        "predictionCheck": {
+          "selection": "Becken 2",
+          "observed": "Becken 2",
+          "matches": true
+        }
+      },
+      "product": "desktop-8-health.json"
+    },
+    {
+      "id": "8-forest",
+      "touch": false,
+      "quest": {
+        "version": 2,
+        "activities": [
+          {
+            "id": "forest-same",
+            "kind": "assignment",
+            "origin": "selection",
+            "from": "Wasserpest 🌿 ↔ Baum 🌳",
+            "to": "Beide nutzen Licht für Fotosynthese",
+            "at": "2026-10-21T18:37:28.396Z"
+          },
+          {
+            "id": "forest-different",
+            "kind": "assignment",
+            "origin": "selection",
+            "from": "Wasserpest 🌿 ↔ Baum 🌳",
+            "to": "Beim Baum liegen die Wurzeln im Boden; Wasserpest wächst unter Wasser",
+            "at": "2026-10-21T18:37:31.039Z"
+          }
+        ],
+        "choiceSeed": 3698015794,
+        "id": "8-forest",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was lebt im Aquarium?",
+            "answer": "Ein Fisch",
+            "choiceIndex": 0,
+            "origin": "selection",
+            "at": "2026-10-21T18:37:07.433Z"
+          },
+          {
+            "step": 1,
+            "question": "Nach gleich langer Spielzeit: In welchem Becken gibt es mehr Pflanzenmasse?",
+            "answer": "Becken 2",
+            "choiceIndex": 1,
+            "origin": "selection",
+            "at": "2026-10-21T18:37:10.749Z"
+          },
+          {
+            "step": 2,
+            "event": "ecology",
+            "origin": "game-action",
+            "evidence": {
+              "changed": true,
+              "result": {
+                "kind": "ecology",
+                "key": "plantBiomass",
+                "repetition": 1,
+                "sampleSize": null,
+                "label": "Pflanzenmenge",
+                "unit": "",
+                "time": 48,
+                "control": 4.27723706906673,
+                "test": 3.645430842088535,
+                "fish": null,
+                "statuses": {
+                  "control": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  },
+                  "test": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  }
+                },
+                "configuration": {
+                  "kind": "ecology",
+                  "profile": {
+                    "version": 1,
+                    "grade": 8,
+                    "mode": "missions",
+                    "mission": "8-forest"
+                  },
+                  "modelVersion": "learning-biology-4",
+                  "tool": "light",
+                  "value": 0,
+                  "days": 3,
+                  "environment": null,
+                  "generations": null,
+                  "repetitions": 2,
+                  "baseline": {
+                    "time": 45,
+                    "seed": 47291,
+                    "fingerprint": "2957281b",
+                    "size": 19
+                  },
+                  "planning": {
+                    "question": "",
+                    "hypothesis": "",
+                    "prediction": "",
+                    "plan": ""
+                  },
+                  "metrics": [
+                    "oxygen",
+                    "health",
+                    "algae",
+                    "plantBiomass",
+                    "organic"
+                  ]
+                }
+              },
+              "tool": "light",
+              "compatible": true,
+              "value": 0
+            },
+            "at": "2026-10-21T18:37:20.090Z"
+          },
+          {
+            "step": 3,
+            "question": "Wo gibt es mehr Pflanzen?",
+            "answer": "In Becken 1",
+            "choiceIndex": 0,
+            "origin": "selection",
+            "at": "2026-10-21T18:37:25.603Z"
+          },
+          {
+            "step": 4,
+            "question": "Was passt auch zum Wald?",
+            "answer": "Auch Bäume brauchen Licht",
+            "choiceIndex": 0,
+            "origin": "selection",
+            "at": "2026-10-21T18:37:36.147Z"
+          }
+        ],
+        "result": {
+          "kind": "ecology",
+          "key": "plantBiomass",
+          "repetition": 1,
+          "sampleSize": null,
+          "label": "Pflanzenmenge",
+          "unit": "",
+          "time": 48,
+          "control": 4.27723706906673,
+          "test": 3.645430842088535,
+          "fish": null,
+          "statuses": {
+            "control": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            },
+            "test": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            }
+          },
+          "configuration": {
+            "kind": "ecology",
+            "profile": {
+              "version": 1,
+              "grade": 8,
+              "mode": "missions",
+              "mission": "8-forest"
+            },
+            "modelVersion": "learning-biology-4",
+            "tool": "light",
+            "value": 0,
+            "days": 3,
+            "environment": null,
+            "generations": null,
+            "repetitions": 2,
+            "baseline": {
+              "time": 45,
+              "seed": 47291,
+              "fingerprint": "2957281b",
+              "size": 19
+            },
+            "planning": {
+              "question": "",
+              "hypothesis": "",
+              "prediction": "",
+              "plan": ""
+            },
+            "metrics": [
+              "oxygen",
+              "health",
+              "algae",
+              "plantBiomass",
+              "organic"
+            ]
+          }
+        },
+        "feedback": "Auch Bäume brauchen Licht. Der Wald hat aber Boden und andere Tiere. Nicht alles aus dem Aquarium passt zum Wald.",
+        "collapsed": false,
+        "predictionCheck": {
+          "selection": "Becken 2",
+          "observed": "Becken 1",
+          "matches": false
+        }
+      },
+      "product": "desktop-8-forest.json"
+    },
+    {
+      "id": "9-traits",
+      "touch": false,
+      "quest": {
+        "version": 2,
+        "activities": [
+          {
+            "id": "visible-traits",
+            "kind": "view",
+            "origin": "game-action",
+            "evidence": {
+              "uids": [
+                "1",
+                "3"
+              ],
+              "phenotypes": [
+                "black",
+                "gold"
+              ],
+              "beforeGenes": true
+            },
+            "at": "2026-10-21T18:39:45.009Z"
+          }
+        ],
+        "choiceSeed": 2491940903,
+        "id": "9-traits",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was kannst du direkt sehen?",
+            "answer": "Die Farbe",
+            "choiceIndex": 0,
+            "origin": "selection",
+            "at": "2026-10-21T18:39:53.791Z"
+          },
+          {
+            "step": 1,
+            "question": "Haben gleichfarbige Fische immer gleiche Erbanlagen?",
+            "answer": "Nein",
+            "choiceIndex": 1,
+            "origin": "selection",
+            "at": "2026-10-21T18:39:56.157Z"
+          },
+          {
+            "step": 2,
+            "event": "traits",
+            "origin": "game-action",
+            "evidence": {
+              "hasAA": true,
+              "hasAa": true,
+              "result": {
+                "kind": "traits",
+                "AA": 8,
+                "Aa": 8
+              }
+            },
+            "at": "2026-10-21T18:40:03.900Z"
+          },
+          {
+            "step": 3,
+            "question": "Haben alle dunklen Fische dieselben Erbanlagen?",
+            "answer": "Nein",
+            "choiceIndex": 0,
+            "origin": "selection",
+            "at": "2026-10-21T18:40:07.165Z"
+          },
+          {
+            "step": 4,
+            "question": "Was hast du gesehen?",
+            "answer": "AA und Aa können gleich aussehen",
+            "choiceIndex": 0,
+            "origin": "selection",
+            "at": "2026-10-21T18:40:10.465Z"
+          }
+        ],
+        "result": {
+          "kind": "traits",
+          "AA": 8,
+          "Aa": 8
+        },
+        "feedback": "Genotyp heißt: die Erbanlagen. Phänotyp heißt: das sichtbare Merkmal. Hier sehen AA und Aa beide dunkel aus. Die Buchstaben gehören zu unserem Farbversuch.",
+        "collapsed": false,
+        "visibleIndividuals": {
+          "1": "black",
+          "3": "gold"
+        },
+        "predictionCheck": {
+          "selection": "Nein",
+          "observed": "Nein",
+          "matches": true
+        }
+      },
+      "product": "desktop-9-traits.json"
+    }
+  ],
+  "screenshots": [
+    "desktop-8-ecosystem-done.png",
+    "desktop-8-oxygen-compare.png",
+    "desktop-8-oxygen-done.png",
+    "desktop-8-foodweb-done.png",
+    "desktop-8-health-done.png",
+    "desktop-8-forest-done.png",
+    "desktop-9-traits-done.png",
+    "desktop-9-mendel-compare.png",
+    "desktop-9-mendel-done.png",
+    "failure.png"
+  ],
+  "sections": [
+    "desktop",
+    "touch",
+    "free",
+    "teacher",
+    "help"
+  ],
+  "status": "failed",
+  "failure": ""
+}

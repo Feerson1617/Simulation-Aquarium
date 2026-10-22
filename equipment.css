@@ -1,0 +1,26 @@
+#equipment-controls{position:absolute;inset:0;pointer-events:none;z-index:90;color:#183d36}
+#equipment-controls[hidden],#equipment-controls button[hidden]{display:none}
+.equipment-anchors>button{position:absolute;transform:translate(-50%,-50%);pointer-events:auto;min-height:48px;border:2px solid #f9d47d;border-radius:14px;background:#203d35ed;color:#fff5d8;padding:8px 12px;font:600 14px system-ui;box-shadow:0 2px 14px #0006}
+.equipment-anchors>button:focus-visible,.device-dial:focus-visible{outline:4px solid #efb842;outline-offset:4px}
+.equipment-sheet{pointer-events:auto;position:absolute;bottom:22px;left:50%;transform:translateX(-50%);width:min(460px,calc(100% - 24px));max-height:65vh;overflow:auto;background:#fffff5;border:2px solid #d2b86c;border-radius:20px;padding:18px;box-shadow:0 8px 35px #0005;font:15px/1.45 system-ui;box-sizing:border-box}
+.equipment-sheet header{display:flex;align-items:center;justify-content:space-between;gap:10px}.equipment-sheet h2{font-size:20px;margin:0}.equipment-sheet button:not(.device-dial){min-width:48px;min-height:48px;border:1px solid #8b9e91;border-radius:10px;background:#e5eee4;color:#183d36;padding:8px 14px;font:600 15px system-ui}.equipment-sheet [data-equipment-save]{width:100%;background:#214d3a!important;color:white!important}
+.equipment-sheet p{margin:10px 0}.device-value{display:grid;grid-template-columns:100px minmax(0,1fr);gap:12px;align-items:center;margin:14px 0}.device-value label{display:grid;gap:6px}.device-value input{width:100%;min-height:48px;border:1px solid #7c9484;border-radius:8px;padding:8px;font:600 20px system-ui;box-sizing:border-box;background:white;color:#173a30}.device-value input[aria-invalid=true]{border-color:#af3d26}
+.device-dial{position:relative;display:block;width:96px!important;height:96px!important;min-width:96px!important;min-height:96px!important;border:7px solid #8f9e91!important;border-radius:50%!important;background:radial-gradient(circle at 35% 25%,#e0e1d0,#6f8374)!important;box-shadow:inset 0 0 0 2px #243e32,0 4px 8px #0003;touch-action:none;cursor:ns-resize;padding:0!important}.device-dial span{position:absolute;inset:4px;transform:rotate(var(--dial-angle));pointer-events:none}.device-dial span:before{content:"";display:block;position:absolute;left:calc(50% - 3px);top:2px;width:6px;height:22px;background:#fff3c4;border-radius:4px;box-shadow:0 0 2px #182b20}
+.device-increments{display:flex;gap:8px;margin-top:8px}.device-increments button{min-width:48px;min-height:48px!important}.device-dial-help,[data-control-error]{grid-column:1/-1}.device-dial-help{font-size:12px;color:#526254}[data-control-error]{margin:0;color:#993a26;font-weight:600}[data-control-error]:empty{display:none}.learn-tool-choices{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.learn-tool-choices button[aria-pressed=true]{background:#315d47;color:#fff}.learn-setting-note{padding:10px;background:#e8efdf;border-radius:8px}
+@media(max-width:800px){.equipment-sheet{bottom:12px;max-height:58vh}.equipment-anchors>button{font-size:12px;padding:6px}.device-value{grid-template-columns:96px minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){.device-dial *{transition:none}}
+
+.device-adjusting #learning-root{visibility:hidden}
+.equipment-toggle{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px;font-weight:600}.equipment-toggle input{width:48px;height:48px;accent-color:#315d47;flex-shrink:0}
+[data-expert-control]{margin:14px 0;padding:12px;border:1px solid #8b9e91;border-radius:12px}
+@media(min-width:801px){.device-adjusting #scene{right:min(48vw,440px)}.equipment-sheet{left:auto;right:12px;transform:none;top:12px;bottom:12px;width:min(420px,47vw);max-height:none}}
+
+/* Progressive numeric alternative; direct manipulation remains the primary action. */
+.device-compact .device-dial{width:128px;height:128px;min-width:128px}
+.device-compact output{display:block;font-size:1.55rem;font-weight:700}
+.device-numeric{grid-column:1/-1;width:100%}
+.device-numeric summary{min-height:44px;display:flex;align-items:center;cursor:pointer}
+.device-help-touch{display:none}
+@media(pointer:coarse){.device-help-touch{display:inline}.device-help-keyboard{display:none}}
+.learn-compact-form details{margin-block:12px}
+.learn-reading span{display:block;margin-top:6px}

@@ -4,7 +4,7 @@ from pathlib import Path
 from datetime import datetime,timezone
 from playwright.sync_api import sync_playwright,expect
 ROOT=Path(__file__).resolve().parents[1];OUT=Path('/tmp/aquarium-graphics-results')/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S');OUT.mkdir(parents=True)
-URL=os.environ.get('AQUARIUM_URL','http://127.0.0.1:8000/aquarium-simulation/')
+URL=os.environ.get('AQUARIUM_URL','http://127.0.0.1:8000/aquarium-simulation/?expert=1')
 PART=os.environ.get('AQUARIUM_GRAPHICS_PART','full')
 assert PART in ['full','marine-touch']
 report={'scope':PART,'checks':[],'errors':[],'console_errors':[],'failed_requests':[],'external_requests':[],'audits':[]}

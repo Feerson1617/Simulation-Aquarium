@@ -10,7 +10,7 @@ from playwright.sync_api import sync_playwright, expect
 ROOT=Path(__file__).resolve().parents[1]
 OUT=Path(os.environ.get('AQUARIUM_GENETICS_RESULTS','/tmp/aquarium-genetics-browser'))
 OUT.mkdir(parents=True,exist_ok=True)
-URL=os.environ.get('AQUARIUM_TEST_URL','http://127.0.0.1:8000/aquarium-simulation/')
+URL=os.environ.get('AQUARIUM_TEST_URL','http://127.0.0.1:8000/aquarium-simulation/?expert=1')
 report={'passed':[],'errors':[],'console_errors':[],'failed_requests':[]}
 def passed(message):report['passed'].append(message);print('PASS',message,flush=True)
 def click(page,selector):page.locator(selector).filter(visible=True).first.click()

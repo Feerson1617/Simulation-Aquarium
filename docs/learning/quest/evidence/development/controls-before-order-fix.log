@@ -1,0 +1,8 @@
+PASS explicit teacher release: Nitrit appears only when unlocked, has correct help and remains in actual measurements
+PASS quest book question mark has its own correct context and keyboard close
+RESULTS /tmp/aquarium-quest-controls/20261021T091247
+Traceback (most recent call last):
+  File "/workspace/Simulation-Aquarium/tests/quest_controls_browser.py", line 19, in <module>
+    p.locator('[data-learn="more"]').tap();p.locator('[data-learn="tweezers"]').tap();assert p.evaluate('window.aquariumAquascapingSnapshot().enabled');assert not p.evaluate('document.querySelector("#scene").inert');assert p.locator('[data-learn="tweezers"]').get_attribute('aria-pressed')=='true';p.keyboard.press('Escape');assert not p.evaluate('window.aquariumAquascapingSnapshot().enabled');remaining=p.locator('[data-learn="tweezers"]:visible');assert not remaining.count() or remaining.inner_text()=='Pinzette';p.screenshot(path=str(OUT/'touch-controls.png'));passed('regular touch menu enables actual tweezers and releases the scene; Escape leaves an accurate control label')
+                                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

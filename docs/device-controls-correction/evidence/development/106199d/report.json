@@ -1,0 +1,27 @@
+{
+  "checks": [
+    "mouse, grade 8: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "mouse, grade 9: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "mouse, grade 10: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "mouse: Quest 1 device plan/cancel focus, 20/24.5/25/26 C, no-op, stale result/conclusion, recompute, completion, reload",
+    "mouse: genuine old window-light save, unchanged history, 0.65 feed, expert focus, aerator/skimmer off/on, reload",
+    "mouse: adopt and continue test tank; persistent heater and one-off water change use actual core exactly once",
+    "touch-portrait, grade 8: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "touch-portrait, grade 9: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "touch-portrait, grade 10: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "touch-portrait: Quest 1 device plan/cancel focus, 20/24.5/25/26 C, no-op, stale result/conclusion, recompute, completion, reload",
+    "touch-portrait: genuine old window-light save, unchanged history, 0.65 feed, expert focus, aerator/skimmer off/on, reload",
+    "touch-portrait: adopt and continue test tank; persistent heater and one-off water change use actual core exactly once",
+    "touch-landscape, grade 8: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "touch-landscape, grade 9: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "touch-landscape, grade 10: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "touch-landscape: Quest 1 device plan/cancel focus, 20/24.5/25/26 C, no-op, stale result/conclusion, recompute, completion, reload",
+    "touch-landscape: genuine old window-light save, unchanged history, 0.65 feed, expert focus, aerator/skimmer off/on, reload",
+    "touch-landscape: adopt and continue test tank; persistent heater and one-off water change use actual core exactly once"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "console_errors": [],
+  "commit": "106199d665e80ce7cf842b785053a503ff1e72cc",
+  "status": "passed"
+}

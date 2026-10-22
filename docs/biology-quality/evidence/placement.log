@@ -1,0 +1,13 @@
+PASS: Legacy v1 save imports biological state intact with archived legacy display overrides; new tool available only after tank placement
+PASS: Mouse drag: real 3D grasp/lift/release, stationary camera, substrate anchoring and saved coordinates
+PASS: Moved coordinates survive page reload in the existing save format
+PASS: Escape cancels the gesture without changing committed positions
+PASS: Visible collision feedback prevents overlap with existing hardscape
+PASS: Pointer capture outside the canvas keeps the full object inside tank walls
+PASS: Five freshwater-compatible decorations each purchased, placed freely and rendered at physical size
+PASS: Sixth decoration renders in salt water; shop respects freshwater/marine distinctions
+PASS: Real touch drag moves a plant, locks the camera and saves the result
+PASS: Touch cancellation restores the original position and retains the saved game
+PASS: Portrait UI fits; selected plants can also be moved and saved with arrow keys
+PASS: No JavaScript, shader, missing module/stylesheet or external runtime request errors
+Results: /tmp/biology-quality-final-v9/placement/20261021T205052

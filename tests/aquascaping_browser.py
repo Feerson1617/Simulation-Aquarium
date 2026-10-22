@@ -95,7 +95,7 @@ def start_drag(page, species):
 
 server = ThreadingHTTPServer(('127.0.0.1', 0), partial(QuietHandler, directory=str(ROOT.parent)))
 threading.Thread(target=server.serve_forever, daemon=True).start()
-URL = f'http://127.0.0.1:{server.server_port}/{ROOT.name}/'
+URL = f'http://127.0.0.1:{server.server_port}/{ROOT.name}/?expert=1'
 try:
     with sync_playwright() as p:
         browser = p.chromium.launch(executable_path=os.environ.get('AQUARIUM_CHROMIUM') or ('/usr/bin/chromium' if Path('/usr/bin/chromium').exists() else p.chromium.executable_path), headless=True,

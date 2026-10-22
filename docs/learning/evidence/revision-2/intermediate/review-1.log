@@ -1,0 +1,105 @@
+PASS R1/R8: real 10-restore 50%/14d stops control at day 48, test reaches 59; independent series, missing-data CSV and provenance
+PASS R1: real failure at final requested step retains time and cause
+PASS R3: baseline label updates immediately; changed baseline/input/notes cannot relabel old data or JSON provenance
+RESULTS /tmp/aquarium-pr8-review/20261020T180402
+Traceback (most recent call last):
+  File "/workspace/Simulation-Aquarium/tests/learning_review_browser.py", line 49, in <module>
+    click(p,'close');click(p,'home');click(p,'teacher');p.locator('[data-learning-import="product"]').set_input_files(str(product));expect(p.locator('.learn-imported-product')).to_contain_text('Lernprodukt Klasse 10');view=p.locator('.learn-imported-product');expect(view).to_contain_text('Teilangeleitet');expect(view).to_contain_text('learning-evidence-2');expect(view).to_contain_text('Plan wurde');expect(view).to_contain_text('Einmaliger Wasserwechsel 50 %');expect(view).to_contain_text('geplante Dauer 14');expect(view).to_contain_text('Seed')
+                                                                                                                                                                                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 22016, in to_contain_text
+    self._sync(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 303, in to_contain_text
+    await self._expect_impl(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to contain text 'Teilangeleitet'
+Actual value: Lernprodukt Klasse 1010-restore · Unterstützung: Teilweise angeleitet · 2026-10-20T18:05:56.632ZModellstand: learning-evidence-2. Eider-Treene-Schule · Fachcurriculum Biologie 2025/26Die folgenden Planungsnotizen sind der aktuelle Bearbeitungsstand. Die vor der Berechnung festgehaltene Planung steht getrennt beim jeweiligen Lauf.Der Plan wurde nach dem gezeigten Lauf geändert. Die Daten gehören zur festgehaltenen älteren Laufkonfiguration.Meine erste Erklärung / VorwissenNoch kein Eintrag.Meine ForschungsfrageNoch kein Eintrag.Meine Hypothese mit BegründungIch vermute einen Unterschied durch den Eingriff.Meine Vorhersage vor dem VersuchDer Eingriff verändert den Verlauf gegenüber der Kontrolle.Mein Plan: ändern, messen, konstant haltenSpäterer neuer Plan ab Tag 46 mit Futter.Beobachtung: Was zeigen meine Daten?Noch kein Eintrag.Deutung: Wie erkläre ich die Daten?Noch kein Eintrag.Rückblick: Was denke ich jetzt anders? Welche Grenze hat das Modell?Noch kein Eintrag.Transfer / begründetes UrteilNoch kein Eintrag.Rückmeldung der LehrkraftNoch kein Eintrag.Datenbezug prüfenFestgehaltener Lauf: Berechneter Lauf: Einmaliger Wasserwechsel 50 %; geplante Dauer 14; Ausgangszeit 45; Kennung e801011a; Seeds 47291. control: failed, Ende 48; test: completed, Ende 59Klasse 10 · 10-restore · Modellstand learning-evidence-2 · 1 Wiederholung(en). Zeitschritt: 0,25 Modelltage.Planung vor genau diesem LaufMeine ForschungsfrageNicht dokumentiert.Meine Hypothese mit BegründungIch vermute einen Unterschied durch den Eingriff.Meine Vorhersage vor dem VersuchDer Eingriff verändert den Verlauf gegenüber der Kontrolle.Mein Plan: ändern, messen, konstant haltenGleicher Anfang, eine Änderung, beide Seiten messen.Gleicher bestehender biologischer Rechenkern, gleiche Anfangszustände je Paar; nur ein definierter Eingriff. Wiederholungen unterscheiden den Zufallsstart, keine Messfehler vorgetäuscht.Untersuchte MessgrößeTemperatur · °CSauerstoff · mg/LNitrat · mg/LNitrit · mg/LKohlenstoffdioxid · mg/LAlgenbestand · relativOrganische Reste · relativPflanzenbiomasse · relativTierkondition · Modellindex %Tiere · AnzahlFotosynthese im letzten Schritt · mg O₂/L je SchrittAtmung im letzten Schritt · mg O₂/L je SchrittWasserbelastung · Stufe 0–2Berechneter Lauf: Einmaliger Wasserwechsel 50 %; geplante Dauer 14; Ausgangszeit 45; Kennung e801011a; Seeds 47291. control: failed, Ende 48; test: completed, Ende 59Sauerstoff · mg/L8,4804559Tag · Modellzeit (Wiederholung 1)KontrolleVersuchAlle importierten Messreihen als CSVWiederholung 1 · Kontrolle 13, Versuch 57 Zeitpunkte · Seite beendetSeed 47291.Kontrolle: biologisch ausgefallen; Ende 48; tatsächliche Dauer 3 Modelltage. Biologischer Modellabbruch: kritischer Beckenverlauf. Keine weiteren Messungen berechnet.Versuch: bis zum geplanten Ende berechnet; Ende 59; tatsächliche Dauer 14 Modelltage. Mindestens eine Seite ist ausgefallen. Die andere Seite wird unabhängig weitergerechnet; danach kein vollständiger Paarvergleich. Nach dem Ausfall einer Seite sind nur die verbleibenden Einzelverläufe auswertbar.Sauerstoff · mg/LTagKontrolleVersuch457,87,945,257,317,677945,57,69137,92945,757,93138,0854467,9998,099146,258,04278,107746,58,16928,210546,758,24378,2703478,19978,217247,258,1718,182547,58,25548,26247,758,30238,3065488,23598,23948,25keine Folgemessung8,194948,5keine Folgemessung8,273548,75keine Folgemessung8,317149keine Folgemessung8,24449,25keine Folgemessung8,196449,5keine Folgemessung8,278149,75keine Folgemessung8,323350keine Folgemessung8,246250,25keine Folgemessung8,19650,5keine Folgemessung8,281650,75keine Folgemessung8,32951keine Folgemessung8,248951,25keine Folgemessung8,213451,5keine Folgemessung8,315551,75keine Folgemessung8,373752keine Folgemessung8,294752,25keine Folgemessung8,243852,5keine Folgemessung8,34252,75keine Folgemessung8,397453keine Folgemessung8,310453,25keine Folgemessung8,254353,5keine Folgemessung8,355953,75keine Folgemessung8,412954keine Folgemessung8,320654,25keine Folgemessung8,261154,5keine Folgemessung8,367454,75keine Folgemessung8,426955keine Folgemessung8,329755,25keine Folgemessung8,266955,5keine Folgemessung8,378455,75keine Folgemessung8,440856keine Folgemessung8,338556,25keine Folgemessung8,272456,5keine Folgemessung8,389456,75keine Folgemessung8,454857keine Folgemessung8,347257,25keine Folgemessung8,277557,5keine Folgemessung8,400457,75keine Folgemessung8,468958keine Folgemessung8,355758,25keine Folgemessung8,282558,5keine Folgemessung8,411458,75keine Folgemessung8,483359keine Folgemessung8,3644Eigene Messreihe · 2 ZeitpunkteAufeinanderfolgende Beobachtungen desselben Beckens. Kein automatischer Kontrollversuch; mehrere Eingriffe oder Zeitabstände können sich unterscheiden.Eigene MessgrößeSauerstoff · mg/LTierkondition · Modellindex %Algenbestand · relativPflanzenbiomasse · relativOrganische Reste · relativNitrit · mg/LEigene Messreihe: ; geplante Dauer nicht dokumentiert; Ausgangszeit nicht dokumentiert; Kennung Altbestand; Seeds nicht dokumentiert. control: nicht dokumentiert, Ende unbekannt; test: nicht dokumentiert, Ende unbekanntSauerstoff · mg/L804546Tag · Modellzeit (eigene Messreihe)Eigenes BeckenSauerstoff · mg/LTag · ModellzeitEigenes Becken457,8467,999„—“: unbekannt oder zum Aufnahmezeitpunkt nicht freigegeben. Reale Nullwerte stehen als 0.Eigene Messreihe als CSVEigene Messreihe als SVG
+Call log:
+  - Expect "to_contain_text" with timeout 5000ms
+  - waiting for locator(".learn-imported-product")
+    13 × locator resolved to <section class="learn-imported-product">…</section>
+       - unexpected value "Lernprodukt Klasse 1010-restore · Unterstützung: Teilweise angeleitet · 2026-10-20T18:05:56.632ZModellstand: learning-evidence-2. Eider-Treene-Schule · Fachcurriculum Biologie 2025/26Die folgenden Planungsnotizen sind der aktuelle Bearbeitungsstand. Die vor der Berechnung festgehaltene Planung steht getrennt beim jeweiligen Lauf.Der Plan wurde nach dem gezeigten Lauf geändert. Die Daten gehören zur festgehaltenen älteren Laufkonfiguration.Meine erste Erklärung / VorwissenNoch kein Eintrag.Meine ForschungsfrageNoch kein Eintrag.Meine Hypothese mit BegründungIch vermute einen Unterschied durch den Eingriff.Meine Vorhersage vor dem VersuchDer Eingriff verändert den Verlauf gegenüber der Kontrolle.Mein Plan: ändern, messen, konstant haltenSpäterer neuer Plan ab Tag 46 mit Futter.Beobachtung: Was zeigen meine Daten?Noch kein Eintrag.Deutung: Wie erkläre ich die Daten?Noch kein Eintrag.Rückblick: Was denke ich jetzt anders? Welche Grenze hat das Modell?Noch kein Eintrag.Transfer / begründetes UrteilNoch kein Eintrag.Rückmeldung der LehrkraftNoch kein Eintrag.Datenbezug prüfenFestgehaltener Lauf: Berechneter Lauf: Einmaliger Wasserwechsel 50 %; geplante Dauer 14; Ausgangszeit 45; Kennung e801011a; Seeds 47291. control: failed, Ende 48; test: completed, Ende 59Klasse 10 · 10-restore · Modellstand learning-evidence-2 · 1 Wiederholung(en). Zeitschritt: 0,25 Modelltage.Planung vor genau diesem LaufMeine ForschungsfrageNicht dokumentiert.Meine Hypothese mit BegründungIch vermute einen Unterschied durch den Eingriff.Meine Vorhersage vor dem VersuchDer Eingriff verändert den Verlauf gegenüber der Kontrolle.Mein Plan: ändern, messen, konstant haltenGleicher Anfang, eine Änderung, beide Seiten messen.Gleicher bestehender biologischer Rechenkern, gleiche Anfangszustände je Paar; nur ein definierter Eingriff. Wiederholungen unterscheiden den Zufallsstart, keine Messfehler vorgetäuscht.Untersuchte MessgrößeTemperatur · °CSauerstoff · mg/LNitrat · mg/LNitrit · mg/LKohlenstoffdioxid · mg/LAlgenbestand · relativOrganische Reste · relativPflanzenbiomasse · relativTierkondition · Modellindex %Tiere · AnzahlFotosynthese im letzten Schritt · mg O₂/L je SchrittAtmung im letzten Schritt · mg O₂/L je SchrittWasserbelastung · Stufe 0–2Berechneter Lauf: Einmaliger Wasserwechsel 50 %; geplante Dauer 14; Ausgangszeit 45; Kennung e801011a; Seeds 47291. control: failed, Ende 48; test: completed, Ende 59Sauerstoff · mg/L8,4804559Tag · Modellzeit (Wiederholung 1)KontrolleVersuchAlle importierten Messreihen als CSVWiederholung 1 · Kontrolle 13, Versuch 57 Zeitpunkte · Seite beendetSeed 47291.Kontrolle: biologisch ausgefallen; Ende 48; tatsächliche Dauer 3 Modelltage. Biologischer Modellabbruch: kritischer Beckenverlauf. Keine weiteren Messungen berechnet.Versuch: bis zum geplanten Ende berechnet; Ende 59; tatsächliche Dauer 14 Modelltage. Mindestens eine Seite ist ausgefallen. Die andere Seite wird unabhängig weitergerechnet; danach kein vollständiger Paarvergleich. Nach dem Ausfall einer Seite sind nur die verbleibenden Einzelverläufe auswertbar.Sauerstoff · mg/LTagKontrolleVersuch457,87,945,257,317,677945,57,69137,92945,757,93138,0854467,9998,099146,258,04278,107746,58,16928,210546,758,24378,2703478,19978,217247,258,1718,182547,58,25548,26247,758,30238,3065488,23598,23948,25keine Folgemessung8,194948,5keine Folgemessung8,273548,75keine Folgemessung8,317149keine Folgemessung8,24449,25keine Folgemessung8,196449,5keine Folgemessung8,278149,75keine Folgemessung8,323350keine Folgemessung8,246250,25keine Folgemessung8,19650,5keine Folgemessung8,281650,75keine Folgemessung8,32951keine Folgemessung8,248951,25keine Folgemessung8,213451,5keine Folgemessung8,315551,75keine Folgemessung8,373752keine Folgemessung8,294752,25keine Folgemessung8,243852,5keine Folgemessung8,34252,75keine Folgemessung8,397453keine Folgemessung8,310453,25keine Folgemessung8,254353,5keine Folgemessung8,355953,75keine Folgemessung8,412954keine Folgemessung8,320654,25keine Folgemessung8,261154,5keine Folgemessung8,367454,75keine Folgemessung8,426955keine Folgemessung8,329755,25keine Folgemessung8,266955,5keine Folgemessung8,378455,75keine Folgemessung8,440856keine Folgemessung8,338556,25keine Folgemessung8,272456,5keine Folgemessung8,389456,75keine Folgemessung8,454857keine Folgemessung8,347257,25keine Folgemessung8,277557,5keine Folgemessung8,400457,75keine Folgemessung8,468958keine Folgemessung8,355758,25keine Folgemessung8,282558,5keine Folgemessung8,411458,75keine Folgemessung8,483359keine Folgemessung8,3644Eigene Messreihe · 2 ZeitpunkteAufeinanderfolgende Beobachtungen desselben Beckens. Kein automatischer Kontrollversuch; mehrere Eingriffe oder Zeitabstände können sich unterscheiden.Eigene MessgrößeSauerstoff · mg/LTierkondition · Modellindex %Algenbestand · relativPflanzenbiomasse · relativOrganische Reste · relativNitrit · mg/LEigene Messreihe: ; geplante Dauer nicht dokumentiert; Ausgangszeit nicht dokumentiert; Kennung Altbestand; Seeds nicht dokumentiert. control: nicht dokumentiert, Ende unbekannt; test: nicht dokumentiert, Ende unbekanntSauerstoff · mg/L804546Tag · Modellzeit (eigene Messreihe)Eigenes BeckenSauerstoff · mg/LTag · ModellzeitEigenes Becken457,8467,999„—“: unbekannt oder zum Aufnahmezeitpunkt nicht freigegeben. Reale Nullwerte stehen als 0.Eigene Messreihe als CSVEigene Messreihe als SVG"
+
+Aria snapshot:
+- heading "Lernprodukt Klasse 10" [level=3]
+- paragraph: "10-restore · Unterstützung: Teilweise angeleitet · 2026-10-20T18:05:56.632Z"
+- paragraph: "Modellstand: learning-evidence-2. Eider-Treene-Schule · Fachcurriculum Biologie 2025/26"
+- paragraph: Die folgenden Planungsnotizen sind der aktuelle Bearbeitungsstand. Die vor der Berechnung festgehaltene Planung steht getrennt beim jeweiligen Lauf.
+- paragraph: Der Plan wurde nach dem gezeigten Lauf geändert. Die Daten gehören zur festgehaltenen älteren Laufkonfiguration.
+- heading "Meine erste Erklärung / Vorwissen" [level=4]
+- paragraph: Noch kein Eintrag.
+- heading "Meine Forschungsfrage" [level=4]
+- paragraph: Noch kein Eintrag.
+- heading "Meine Hypothese mit Begründung" [level=4]
+- paragraph: Ich vermute einen Unterschied durch den Eingriff.
+- heading "Meine Vorhersage vor dem Versuch" [level=4]
+- paragraph: Der Eingriff verändert den Verlauf gegenüber der Kontrolle.
+- 'heading "Mein Plan: ändern, messen, konstant halten" [level=4]'
+- paragraph: Späterer neuer Plan ab Tag 46 mit Futter.
+- 'heading "Beobachtung: Was zeigen meine Daten?" [level=4]'
+- paragraph: Noch kein Eintrag.
+- 'heading "Deutung: Wie erkläre ich die Daten?" [level=4]'
+- paragraph: Noch kein Eintrag.
+- 'heading "Rückblick: Was denke ich jetzt anders? Welche Grenze hat das Modell?" [level=4]'
+- paragraph: Noch kein Eintrag.
+- heading "Transfer / begründetes Urteil" [level=4]
+- paragraph: Noch kein Eintrag.
+- heading "Rückmeldung der Lehrkraft" [level=4]
+- paragraph: Noch kein Eintrag.
+- heading "Datenbezug prüfen" [level=3]
+- paragraph:
+  - strong: "Festgehaltener Lauf:"
+  - text: "Berechneter Lauf: Einmaliger Wasserwechsel 50 %; geplante Dauer 14; Ausgangszeit 45; Kennung e801011a; Seeds 47291. control: failed, Ende 48; test: completed, Ende 59"
+- paragraph: "Klasse 10 · 10-restore · Modellstand learning-evidence-2 · 1 Wiederholung(en). Zeitschritt: 0,25 Modelltage."
+- group: Planung vor genau diesem Lauf
+- paragraph: Gleicher bestehender biologischer Rechenkern, gleiche Anfangszustände je Paar; nur ein definierter Eingriff. Wiederholungen unterscheiden den Zufallsstart, keine Messfehler vorgetäuscht.
+- text: Untersuchte Messgröße
+- combobox "Untersuchte Messgröße":
+  - option "Temperatur · °C"
+  - option "Sauerstoff · mg/L" [selected]
+  - option "Nitrat · mg/L"
+  - option "Nitrit · mg/L"
+  - option "Kohlenstoffdioxid · mg/L"
+  - option "Algenbestand · relativ"
+  - option "Organische Reste · relativ"
+  - option "Pflanzenbiomasse · relativ"
+  - option "Tierkondition · Modellindex %"
+  - option "Tiere · Anzahl"
+  - option "Fotosynthese im letzten Schritt · mg O₂/L je Schritt"
+  - option "Atmung im letzten Schritt · mg O₂/L je Schritt"
+  - option "Wasserbelastung · Stufe 0–2"
+- 'img "Verlauf Sauerstoff · mg/L: Kontrolle und Versuch"': Sauerstoff · mg/L 8,48 0 45 59 Tag · Modellzeit (Wiederholung 1) Kontrolle Versuch
+- button "Alle importierten Messreihen als CSV"
+- group: Wiederholung 1 · Kontrolle 13, Versuch 57 Zeitpunkte · Seite beendet
+- heading "Eigene Messreihe · 2 Zeitpunkte" [level=3]
+- paragraph: Aufeinanderfolgende Beobachtungen desselben Beckens. Kein automatischer Kontrollversuch; mehrere Eingriffe oder Zeitabstände können sich unterscheiden.
+- text: Eigene Messgröße
+- combobox "Eigene Messgröße":
+  - option "Sauerstoff · mg/L" [selected]
+  - option "Tierkondition · Modellindex %"
+  - option "Algenbestand · relativ"
+  - option "Pflanzenbiomasse · relativ"
+  - option "Organische Reste · relativ"
+  - option "Nitrit · mg/L"
+- 'img "Verlauf Sauerstoff · mg/L: Eigene Messreihe"': Sauerstoff · mg/L 8 0 45 46 Tag · Modellzeit (eigene Messreihe) Eigenes Becken
+- table "Sauerstoff · mg/L":
+  - caption: Sauerstoff · mg/L
+  - rowgroup:
+    - row "Tag · Modellzeit Eigenes Becken":
+      - columnheader "Tag · Modellzeit"
+      - columnheader "Eigenes Becken"
+  - rowgroup:
+    - row "45 7,8":
+      - cell "45"
+      - cell "7,8"
+    - row "46 7,999":
+      - cell "46"
+      - cell "7,999"
+- paragraph: "„—“: unbekannt oder zum Aufnahmezeitpunkt nicht freigegeben. Reale Nullwerte stehen als 0."
+- button "Eigene Messreihe als CSV"
+- button "Eigene Messreihe als SVG"

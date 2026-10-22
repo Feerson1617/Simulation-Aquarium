@@ -1,0 +1,79 @@
+{
+  "version": 2,
+  "type": "aquarium-learning-product",
+  "profile": {
+    "version": 1,
+    "grade": 8,
+    "mode": "missions",
+    "mission": "8-oxygen"
+  },
+  "notes": {
+    "question": "Meine alte Frage",
+    "explanation": "Meine frühere Erklärung"
+  },
+  "created": "2026-10-21T09:08:11.067Z",
+  "support": "partial",
+  "model": {
+    "title": "Eider-Treene-Schule · Fachcurriculum Biologie 2025/26",
+    "url": "https://ets-toenning.de/wp-content/uploads/2025/07/Schulinternes-Fachcurriculum-Biologie-SJ-2025-26.pdf",
+    "pages": "S. 3–4, 9–10, 14–15, 19–20",
+    "scope": "Ausgewählte Unterrichtseinheiten, kein Ersatz für das gesamte Fachcurriculum."
+  },
+  "modelVersion": "learning-evidence-2",
+  "comparison": null,
+  "currentPlan": {
+    "kind": "ecology",
+    "profile": {
+      "version": 1,
+      "grade": 8,
+      "mode": "missions",
+      "mission": "8-oxygen"
+    },
+    "modelVersion": "learning-evidence-2",
+    "tool": "light",
+    "value": 12,
+    "days": 4,
+    "environment": null,
+    "generations": null,
+    "repetitions": 1,
+    "baseline": {
+      "time": 1,
+      "seed": 815551911,
+      "fingerprint": "874bceb8",
+      "size": 2
+    },
+    "planning": {
+      "question": "Meine alte Frage",
+      "hypothesis": "",
+      "prediction": "",
+      "plan": ""
+    },
+    "metrics": [
+      "oxygen",
+      "health",
+      "algae",
+      "plantBiomass",
+      "organic",
+      "photosynthesis",
+      "respiration"
+    ]
+  },
+  "population": null,
+  "populationRepeats": [],
+  "measurements": [],
+  "measurementMetrics": [],
+  "quest": {
+    "version": 1,
+    "id": "8-oxygen",
+    "step": 0,
+    "observed": false,
+    "entries": [],
+    "result": null,
+    "feedback": "",
+    "collapsed": false
+  },
+  "earlierNotes": {
+    "question": "Meine alte Frage",
+    "explanation": "Meine frühere Erklärung"
+  }
+}

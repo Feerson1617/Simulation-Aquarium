@@ -5,7 +5,7 @@ from datetime import datetime,timezone
 from playwright.sync_api import sync_playwright,expect
 ROOT=Path(__file__).resolve().parents[1]
 OUT=Path('/tmp/aquarium-ecosystem-results')/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S');OUT.mkdir(parents=True)
-URL=os.environ.get('AQUARIUM_URL','http://127.0.0.1:8000/aquarium-simulation/')
+URL=os.environ.get('AQUARIUM_URL','http://127.0.0.1:8000/aquarium-simulation/?expert=1')
 legacy=json.loads((ROOT/'tests/fixtures/legacy-v1.json').read_text());report={'checks':[],'errors':[],'failed_requests':[]}
 def passed(name):report['checks'].append(name);print('PASS',name,flush=True)
 def click(p,s):p.locator(s).filter(visible=True).first.click()

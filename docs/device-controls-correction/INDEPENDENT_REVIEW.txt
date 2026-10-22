@@ -1,0 +1,136 @@
+Unabhängige Prüfung: Simulation-Aquarium, PR #8
+Stand: 21.10.2026, 13:46 Uhr MESZ
+
+ERGEBNIS UND MERGE-EMPFEHLUNG
+
+Es gibt aktuell keinen neueren, zusätzlichen PR. GitHub zeigt insgesamt acht PRs, davon nur #8 offen. Work hat die angefragten Geräteänderungen als Commit 5440886 direkt auf dem bestehenden PR-Branch ergänzt. Die Repo-Dokumentation bestätigt ausdrücklich dieses Vorgehen. Es gibt deshalb keine Reihenfolge „erst #8, dann neuer PR“.
+
+Die wesentlichen Temperatur- und Geräteänderungen funktionieren. Kein bestätigter neuer P1-Blocker in den geprüften Abläufen. Vor dem Merge empfehle ich drei gezielte Nacharbeiten: den verlorenen Fensterlicht-Helligkeitsregler erhalten, den Tastaturfokus nach dem Speichern wiederherstellen und die veraltete Modellkennung in der Browserregression korrigieren. Danach die betroffenen Browsersuites am finalen Head ausführen. Die fehlende physische Safari-iPad-Prüfung bleibt eine gesonderte Grenze der Unterrichtsabnahme.
+
+Es wurde kein Code geändert, nichts gepusht, kein GitHub-Kommentar oder Review veröffentlicht und nichts gemergt. Die lokale Prüfkopie ist unverändert. Die ausdrücklich gewünschten Spieltests benutzen den lokalen Spielzustand der PR-Vorschau.
+
+PR: https://github.com/Feerson1617/Simulation-Aquarium/pull/8
+Vorschau: https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-8/
+
+BASIS, HEAD UND ÜBERSCHREIBUNGSRISIKO
+
+Zielbranch: main
+Basis: 666df90ac05de61181f380f2190539a9cef04044
+PR-Branch: feature/biology-learning-environments
+Geprüfter Head: 5440886a4a6970558cba27379b7b847455aa4756
+Vorheriger Head: b5751b01f826bbf14b26b743155a05e8756c38bd
+GitHub-Testmerge: 41b2fa0814225acccee739cfe56cb939c66bdf8d
+
+Git bestätigt: main ist vollständig Vorfahr des Heads. Der Vergleich enthält 0 nur auf main vorhandene und 36 zusätzliche PR-Commits. GitHub meldet mergeable=true. Der bereits gemergte PR #7 ist über main enthalten. Die Gerätekorrektur baut auf der vollständigen vorherigen Questfassung einschließlich R1–R8 auf.
+
+Der gesamte PR umfasst 281 Dateien, 194.827 Ergänzungen und 17 Löschungen; viele Ergänzungen sind historische Prüfbelege und neue Lernmodule. Die große HTML-Datei wurde zusätzlich in überschaubare Änderungsgruppen zerlegt und gegen main sowie den unmittelbaren Vorgänger gelesen. Kein Hinweis auf einen veralteten Komplettaustausch oder den Verlust fremder main-Commits. AGENTS.md und der bestehende Pages-Vorschauworkflow sind gegenüber main unverändert. Eine konkrete funktionale Regression innerhalb des neuen Codes ist unten als P2 beschrieben; konfliktfreies Git bedeutet nicht automatisch regressionsfreien Code.
+
+Die ausgelieferten Dateien index.html, learning-ui.mjs, learning-model.mjs, learning-quests.mjs, control-values.mjs, control-dial.mjs, equipment-ui.mjs und equipment.css wurden unabhängig abgerufen. Alle acht stimmen bytegenau mit dem geprüften Head überein. Die interaktive Prüfung betraf damit den aktuellen Gerätecode und keine alte Vorschau.
+
+PRIORISIERTE BEFUNDE
+
+1. P2 – Fensterlicht verliert seinen Helligkeitsregler (neu eingeführte Regression).
+
+Fundstelle: index.html, Funktion U1 und Hilfsfunktion Ti, Zeile 3874.
+https://github.com/Feerson1617/Simulation-Aquarium/blob/5440886a4a6970558cba27379b7b847455aa4756/index.html#L3874
+
+Im Vorgänger erzeugt U1 bei light="sun" sowohl intensity als auch hours. Jetzt wird intensity für alle Lichtarten aus diesem Menü entfernt. Eine echte Lampe bekommt dafür die Helligkeitsbedienung im Geräteeditor; Fensterlicht besitzt bewusst kein Lampen-Mesh und damit keinen solchen Ersatz. Ein vorhandener Spielstand mit Fensterlicht verliert also eine bisherige Einstellmöglichkeit.
+
+Unabhängige Reproduktion: die unveränderte U1-Funktion wurde aus beiden Git-Ständen geladen und für denselben Fensterlichtzustand mit minimalen Ausgabehelfern ausgeführt. Vorher: intensity=true, hours=true. Jetzt: intensity=false, hours=true. Dies ist ein ausgeführter Code-/Darstellungstest, kein interaktiver Altstandimport im Browser.
+
+Korrektur: natürliches Tageslicht behält geeignete Umgebungsfelder für Stärke und Dauer. Keine künstliche 3D-Lampe erfinden. Regression mit einem echten alten Fensterlicht-Spielstand, Speichern und Neuladen ergänzen.
+
+2. P2 – Nach „Einstellung speichern“ geht der Tastaturfokus verloren.
+
+Fundstelle: equipment-ui.mjs, Zeilen 37–40 und 62; zusätzlich learning-ui.mjs, openDevice.
+https://github.com/Feerson1617/Simulation-Aquarium/blob/5440886a4a6970558cba27379b7b847455aa4756/equipment-ui.mjs#L62
+
+Der erfolgreiche Speicherpfad ruft close(false) auf. Dabei wird das fokussierte Element aus dem Dokument entfernt, ohne anschließend ein sinnvolles Ziel zu fokussieren. In der Vorschau ist nach dem Übernehmen des Temperaturversuchs und nach dem Speichern der Lampe im freien Klasse-10-Becken der Webbereich statt eines Bedienelements fokussiert. Pfeiltasten und Escape am offenen Regler funktionieren; die Bedienung ist also grundsätzlich möglich, der Anschluss nach dem Speichern ist jedoch unnötig erschwert.
+
+Korrektur: Nach Abschluss der Zustandsänderung und Aufhebung von inert entweder den wiederhergestellten Werkzeugbereich oder den passenden Geräteanker fokussieren. Der Fallback muss auch funktionieren, wenn der ursprüngliche Auslöser beim Neuzeichnen entfernt wurde. Tab, Shift+Tab, Escape und Speichern in Lern- und Expertenmodus prüfen.
+
+3. P2 – Die R1–R8-Browsersuite enthält eine veraltete Erwartung.
+
+Fundstelle: tests/learning_review_browser.py, Zeile 45.
+https://github.com/Feerson1617/Simulation-Aquarium/blob/5440886a4a6970558cba27379b7b847455aa4756/tests/learning_review_browser.py#L45
+
+Der aktuelle Modellstand lautet learning-devices-3. Frisch berechnete und exportierte Produkte verwenden diese Kennung. Die Browserprüfung des frisch erzeugten R2/R3-Produkts verlangt aber weiterhin den Text learning-evidence-2. Die entsprechenden Node-Erwartungen wurden aktualisiert, diese Browsererwartung nicht. Ein vollständiger frischer Lauf dieser Suite ist somit nicht als grün belegt und trifft an dieser Stelle auf einen Widerspruch. Dies ist ein bestätigter Testcodefehler; ich habe die vollständige Python-Suite nicht ausgeführt.
+
+Korrektur: neue Produkte gegen die aktuelle, aus einer maßgeblichen Quelle gelesene Kennung prüfen. Die gesonderte Altproduktprüfung soll alte Kennungen weiterhin erhalten. Keine Prüfung löschen oder alte Daten auf die neue Kennung umetikettieren. Danach die gesamte Suite erneut ausführen.
+
+4. P3 / verbleibender Anforderungsumfang.
+
+Die direkte räumliche Bedienung umfasst Heizstab, Lampe und Filter. Belüfter und Abschäumer sind zwar als Geräte dargestellt, bleiben aber Menüschalter. CO₂ und Futter behalten passende Mengen-/Stufenfelder. Wenn „weitere Geräte“ die sichtbaren Belüfter und Abschäumer verbindlich einschließt, ist dieser Teil noch nicht vollständig umgesetzt. Dafür passen direkte Ein-/Aus-Schalter; ein Drehrad ist nicht überall fachlich sinnvoll.
+
+Ein bestehender Experten-Szenariostand zeigt außerdem bei der Futtermenge Text 0,65, während der native Rasterregler 0,75 meldet. Das ist kein durch diesen Commit neu eingeführter Fehler, zeigt aber, dass die neue Eingabelogik noch nicht jeden alten Expertenregler vereinheitlicht.
+
+BESTÄTIGTE FUNKTIONEN
+
+Temperaturmission Klasse 8: vollständig neu über die Oberfläche bis „Geschafft!“ durchgespielt. 24,5 wird angenommen. Direkte Eingabe, Drehradziehen und Pfeiltasten funktionieren. Leere Eingabe bleibt im Editor und nennt Bereich 20–30 °C, Halbgradschritte und Dezimalkomma. Der Heizstab wird tatsächlich räumlich hervorgehoben. Keine Tage-Dauer im Geräteeditor.
+
+Der Vergleich ergibt nach drei Tagen Becken 1 = 25 °C und Becken 2 = 24,774 °C. Eine Änderung auf 26 ohne Neuberechnung blockiert die Ergebnisantwort. Nach Rückkehr zu 24,5 und erneuter Berechnung ist der Abschluss möglich. Es wurden keine Questzustände direkt gesetzt.
+
+Sauerstoffmission Klasse 8: vollständig durchgespielt. Die Lampe wird hervorgehoben, 0 h/Tag sind einstellbar, der echte Vergleich zeigt 8,29 gegenüber 8,164 mg/L Sauerstoff. Ergebnisfrage und Sicherung sind abschließbar.
+
+Mendelmission Klasse 9: vollständig durchgespielt, tatsächliche Kreuzung ausgeführt. Die vorhandene Population wurde weiterverwendet, keine frische AA×aa-F1/F2-Abnahme behauptet. Der neue Wurf enthält 10 dunkle und 14 helle Nachkommen; „Dunkel und hell“ wird passend bewertet. Die fachliche Elternwahl wurde nicht durch ein Gerätecontrol ersetzt.
+
+Sanierungsmission Klasse 10: vollständig durchgespielt, 50 % einmaliger Wasserwechsel über 14 Tage. Kontrolle endet Tag 48; ihre späteren Tabellenfelder heißen „beendet“. Die Versuchsseite läuft bis Tag 59 weiter und zeigt dort 26,242 Zustandspunkte. Die Quest vergleicht korrekt am letzten gemeinsamen Zeitpunkt Tag 48 und ist abschließbar. Damit ist der zentrale frühere R1-Fall auch in der aktuellen Vorschau unabhängig bestätigt.
+
+Freies Forschen: in allen drei Jahrgängen geöffnet; überall Heizstab-, Licht- und Filterzugang vorhanden, keine Pflichtquest. Klasse 8 zeigt den gültigen neuen Futterstandard 0,75. In Klasse 9 wurde 26,5 °C gespeichert: Wasser zunächst unverändert 25 °C; nach einem Tag 25,3 °C; nach Neuladen bleiben Soll- und Istwert erhalten. In Klasse 10 wurden Lichtdauer 10 h/Tag und Helligkeit 85 % gespeichert und beim Wiederöffnen angezeigt. Im Expertenmodus wurde der Außenfilter hervorgehoben und von 75 auf 40 % geregelt.
+
+Dauerhaft/einmalig/Beobachtung: Code und Modultests unterscheiden Solltemperatur, Durchfluss, Licht, tägliches Futter und CO₂-Zufuhr von einmaligem Wasserwechsel, Nährstoffeintrag und Pflanzeneinsatz. Die Vergleichsdauer ist getrennt benannt und eingeklappt. Die einmaligen Aktionen liegen vor der Fortschrittsschleife. Die Tests prüfen, dass Weiterrechnen Einstellungen erhält und Aktionen nicht pro Zeitschritt erneut ausführt. Durchflussänderungen ersetzen den Filter nicht und lassen Bakterienwerte unverändert.
+
+Thermik: gemeinsamer Rechenkern verwendet einen exponentiellen Wärmeaustausch, ohne sofortigen Temperatursprung. Ein Heizstab erzwingt keine Kühlung unter die angenommene Raumtemperatur von 22 °C. Qualitativ plausibel, ausdrücklich kein kalibriertes thermisches Modell: feste Raumtemperatur und Zeitkonstante von fünf Modelltagen, keine Abhängigkeit von Heizleistung oder Beckenmasse. Reale Aufheizzeiten sind damit nicht nachgewiesen.
+
+ALLE 14 MISSIONEN – REICHWEITE DER PRÜFUNG
+
+Alle Definitionen und gemeinsamen Handler wurden gelesen; die Modultests prüfen die 14 gültigen Experimente und fünf kurzen Questschritte. Frisch vollständig interaktiv geprüft wurden vier Missionen:
+
+8-ecosystem: eigener vollständiger Browserlauf.
+8-oxygen: eigener vollständiger Browserlauf.
+8-foodweb: Code/Modultests und Work-Belege, kein vollständiger eigener Browserlauf.
+8-health: Code/Modultests und Work-Belege, kein vollständiger eigener Browserlauf.
+8-forest: Code/Modultests und Work-Belege, kein vollständiger eigener Browserlauf.
+9-traits: Code/Modultests und Work-Belege, kein vollständiger eigener Browserlauf.
+9-mendel: eigener vollständiger Browserlauf mit fortgesetzter Population.
+9-population: Code/Modultests und Work-Belege, kein vollständiger eigener Browserlauf.
+9-darwin: Code/Modultests und Work-Belege, kein vollständiger eigener Browserlauf.
+10-enrichment: Code/Modultests und Work-Belege, kein vollständiger eigener Browserlauf.
+10-carbon: Code/Modultests und Work-Belege, kein vollständiger eigener Browserlauf.
+10-restore: eigener vollständiger Browserlauf einschließlich 14-Tage-Abbruchfall.
+10-northsea: Code/Modultests und Work-Belege, kein vollständiger eigener Browserlauf.
+10-wadden: Code/Modultests und Work-Belege, kein vollständiger eigener Browserlauf.
+
+Die Aufgaben sind kurz und handlungsbezogen, mit Beobachten, Vermuten, Ausprobieren, Vergleichen und Erklären. Einzelne Formulierungen wie „Ändere Heizer“ oder „Ändere Frisches Wasser“ könnten sprachlich konkreter sein. Das ist kein nachgewiesener Missionsblocker.
+
+R1–R8 UND UNABHÄNGIGE TESTLÄUFE
+
+Eigener frischer Node-Lauf am Head: 117 Tests, 117 bestanden, 0 fehlgeschlagen, 0 übersprungen. Darunter Gerätewerte, alte Entwürfe, Halbgrad-/Kommaeingaben, Persistenz, Thermik, Einmaligkeit, Questabschluss, veraltete Auswertung sowie die bestehenden R1–R8-Familien.
+
+Separater GitHub-Actions-Lauf 39590410959: 117/117 bestanden. Die Logs bestätigen ausdrücklich den synthetischen Merge 41b2fa0 aus dem aktuellen Head und main. Das ist ein zweiter Ausführungsort derselben Modultests, keine zusätzliche fachliche Testsuite und kein Browser-/iPad-Test.
+https://github.com/Feerson1617/Simulation-Aquarium/actions/runs/39590410959
+
+Der Vorschauworkflow 39590406636 ist ebenfalls erfolgreich.
+https://github.com/Feerson1617/Simulation-Aquarium/actions/runs/39590406636
+
+R1: zusätzlich im echten Browser bestätigt, siehe Sanierung.
+R2: aktueller Validator/Modultests erhalten Daten und Herkunft; vollständiger frischer Lehrkraft-Dateirundlauf hier nicht wiederholt.
+R3: aktueller Planvergleich und Blockade veralteter Ergebnisantwort im Browser bestätigt; vollständiger JSON-/CSV-Rundlauf nicht wiederholt.
+R4: anthropogener Kohlenstofftransfer und Modellgrenzen im Code vorhanden; hier keine frische vollständige Unterrichts-/Quellenabnahme.
+R5/R6: Seed-, tatsächliche Eltern-/Nachkommen- und Archivregressionen bestehen im Modul; neue Kreuzung im Browser bestätigt, vollständige Wiederholungs-/Archivsuite nicht frisch ausgeführt.
+R7/R8: eigene Messreihen, Einheiten, fehlende Werte und Exportzuordnung bestehen in Modultests; vollständige aktuellen Dateidownloads/Lehrkraftimporte nicht erneut bedient.
+
+Work dokumentiert 74 Browserprüfpunkte auf mehreren früheren Commits und später zusätzliche manuelle Gerätechecks. Die älteren Prüfstände sind transparent angegeben. Sie sind keine 74 frisch bestandenen Browserprüfungen von 5440886. Work schreibt ausdrücklich, dass tests/device_controls_browser.py noch nicht ausgeführt wurde. Lokal fehlen Python-Playwright und ein entsprechend eingerichteter Testbrowser; ich habe die Python-Browsersuites nicht als bestanden gewertet und die relevante Vorschau stattdessen direkt bedient. Die statisch veraltete R2-Modellkennung ist oben gesondert benannt.
+
+Desktop, echte Mausaktionen und Tastatur wurden geprüft. Die Browseransicht hatte 1280 × 720 Pixel und das Grafikprofil „iPad · angepasst“; das ist kein echter Touch-/Safari-iPad-Test. Die CSS-Ziele sind 48 Pixel, der Drehknopf 96 Pixel groß. Physische iPads, Safari, Hoch-/Querformat, Pointer-Abbruch und Hilfstechniken sind am neuesten Head nicht vollständig abgenommen. Der aktuelle Konsolenauszug nach Neuladen und im freien Geräteablauf enthält keine Warnungen/Fehler; ein lückenloser Konsolenmitschnitt aller vorangegangenen Seitenwechsel liegt nicht vor.
+
+Der bestehende Hinweis auf zwei räumlich nicht darstellbare Objekte im Experten-Szenario war sichtbar. Die Objekte bleiben gespeichert; daraus folgt kein Nachweis eines durch die Gerätekorrektur verursachten Modellverlusts. Vollständiges Tutorial, Beckenplatzierung und vollständiger Einzeldatei-Export wurden in dieser unabhängigen Sitzung nicht erneut durchgespielt. Die Node-Prüfung der Standalone-Zusammenstellung besteht, ältere Browserbelege ersetzen aber keinen aktuellen vollständigen Exporttest.
+
+KONKRETES VORGEHEN
+
+1. Korrekturen auf dem aktuellen Branch von PR #8 ergänzen, keine alten Patches blind aufspielen.
+2. Fensterlicht, Fokus und Testkennung gezielt prüfen; danach Geräte-, Quest- und R1–R8-Browsersuites am finalen Head laufen lassen. Ergebnisse, Fehler und Grenzen mit Commit-ID dokumentieren.
+3. Vor einem späteren Merge den aktuellen main-/PR-Head und Konfliktstatus erneut lesen. Falls main inzwischen weiterentwickelt wurde, regulär integrieren und erneut prüfen, ohne main durch einen alten Snapshot zu ersetzen.
+4. Danach ausschließlich den aktualisierten PR #8 zur ausdrücklichen Mergeentscheidung vorlegen. Kein separater Folge-PR ist derzeit vorhanden oder nötig.
+
+Der mitgelieferte Codex-Korrekturprompt grenzt diese Nacharbeiten ein und erhält die bisher funktionierenden Temperatur-, Quest-, Speicher- und R1–R8-Pfade.

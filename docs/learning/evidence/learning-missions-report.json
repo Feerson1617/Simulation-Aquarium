@@ -1,0 +1,34 @@
+{
+  "checks": [
+    "grade selection precedes learning mode; legacy controls are hidden",
+    "grade 8: reduced observations, contextual help, actual measurement, camera gating",
+    "grade 8: genuine paired data and exported JSON/CSV/SVG, hypothesis required",
+    "grade 8: notes, data, populations and measurements survive reload; legacy save unchanged",
+    "grade 9: reduced observations, contextual help, actual measurement, camera gating",
+    "grade 9: genuine paired data and exported JSON/CSV/SVG, hypothesis required",
+    "real Mendel F1/F2 with predictions, Punnett probabilities and archived parent identities",
+    "grade 9: notes, data, populations and measurements survive reload; legacy save unchanged",
+    "grade 10: reduced observations, contextual help, actual measurement, camera gating",
+    "grade 10: genuine paired data and exported JSON/CSV/SVG, hypothesis required",
+    "grade 10: notes, data, populations and measurements survive reload; legacy save unchanged",
+    "grade 8: every mission opens with its own reconstruction and actual biological simulation",
+    "grade 9: every mission opens with its own reconstruction and actual biological simulation",
+    "grade 10: every mission opens with its own reconstruction and actual biological simulation"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "screenshots": [
+    "01-grade-start.png",
+    "02-grade-8-playfield.png",
+    "grade-8-comparison.png",
+    "03-grade-9-playfield.png",
+    "grade-9-comparison.png",
+    "grade-9-f2.png",
+    "04-grade-10-playfield.png",
+    "grade-10-comparison.png",
+    "grade-10-wadden-transfer.png",
+    "failure.png"
+  ],
+  "status": "failed",
+  "failure": "Locator.check: Timeout 90000ms exceeded.\nCall log:\n  - waiting for locator(\"[data-teacher-metric=\\\"no2\\\"]\")\n    - locator resolved to <input type=\"checkbox\" data-teacher-metric=\"no2\"/>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n      - waiting 100ms\n    161 × waiting for element to be visible, enabled and stable\n        - element is not visible\n      - retrying click action\n        - waiting 500ms\n"
+}

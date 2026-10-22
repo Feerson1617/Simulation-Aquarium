@@ -1,4 +1,5 @@
 """Check that the existing complete-HTML download remains playable offline."""
+from biology_browser_helpers import reveal
 import json
 import os
 import tempfile
@@ -26,7 +27,7 @@ try:
         page = browser.new_page(viewport={'width': 1180, 'height': 820})
         errors = []
         page.on('pageerror', lambda error: errors.append(str(error)))
-        page.goto(f'http://127.0.0.1:{server.server_port}/{ROOT.name}/', wait_until='load')
+        page.goto(f'http://127.0.0.1:{server.server_port}/{ROOT.name}/?expert=1', wait_until='load')
         page.locator('button[data-graphics-profile="ipad"]').click()
         page.locator('[data-start="free"]').click()
         page.locator('[data-panel="time"]').click()
@@ -59,6 +60,7 @@ try:
             threading.Thread(target=standalone_server.serve_forever, daemon=True).start()
             document_url = f'http://127.0.0.1:{standalone_server.server_port}/Aquarium.html'
             offline.goto(document_url, wait_until='load')
+        offline.locator('[data-learn="expert"]').click()
         offline.locator('button[data-graphics-profile="ipad"]').click()
         expect(offline.locator('[data-start="free"]')).to_be_visible()
         offline.locator('[data-start="free"]').click()
@@ -87,6 +89,33 @@ try:
         offline.locator('#genetics-button').click()
         expect(offline.locator('.genetics-overlay')).to_be_visible()
         assert not errors, errors
+        offline.locator('[data-gen-close]').click()
+        # The new environmental controls and shared device modules ship in the sole file.
+        offline.locator('#import-file').set_input_files(str(ROOT/'tests/fixtures/legacy-window-light-b5751b0.json'))
+        offline.locator('[data-panel="shop"]').click();offline.locator('[data-act="open-settings"]').click()
+        offline.locator('[data-expert-setting="intensity"]').fill('90');offline.locator('[data-expert-save="intensity"]').click()
+        assert offline.evaluate('JSON.parse(localStorage.getItem("aquarium-scenario-v1:foodweb")).intensity')==90
+        offline.locator('[data-device-open="filter"]').click();offline.locator('[data-equipment-value]').fill('40');offline.locator('[data-equipment-save]').click()
+        assert offline.evaluate('document.activeElement.dataset.equipment')=='filter'
+        print('PASS: sole-file window-light settings, shared dial, device focus and equipment styles',flush=True)
+        # Student curriculum and the paired core must also work inside the sole file.
+        offline.locator('.learn-expert-entry').click()
+        offline.locator('[data-learn-grade="10"]').click()
+        offline.locator('[data-learn="missions"]').click()
+        offline.locator('[data-learn-mission="10-wadden"]').click()
+        expect(offline.locator('.learn-quest')).to_be_visible()
+        assert offline.evaluate('window.aquariumLearningSnapshot().quest.id')=='10-wadden'
+        offline.locator('[data-learn="more"]').click()
+        offline.locator('[data-learn="home"]').click()
+        offline.locator('[data-learn-grade="8"]').click()
+        offline.locator('[data-learn="free"]').click()
+        offline.locator('[data-learn="investigate"]').click()
+        offline.locator('[data-learning-note="question"]').fill('Was verändert Licht?')
+        reveal(offline.locator('[data-learning-value]')).fill('0')
+        offline.locator('[data-learn="compare"]').click()
+        comparison=offline.evaluate('window.aquariumLearningSnapshot().comparison')
+        assert comparison['runs'][0]['control'][-1]['oxygen']>comparison['runs'][0]['test'][-1]['oxygen']
+        print('PASS: sole-file quest module and actual paired biological engine', flush=True)
         dependencies = [url for url in http_requests if url != document_url and not url.endswith('/favicon.ico')]
         assert not dependencies, dependencies
         print('PASS: Downloaded HTML alone starts, renders decoration and quantized variant fish, opens genetics and enables tweezers without additional HTTP resources. bytes='+str(document.stat().st_size)+'. file: tested=' + str(file_url_tested), flush=True)

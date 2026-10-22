@@ -1,0 +1,6 @@
+PASS R5: same seed reproduces browser F1/F2; new documented seed preserves founders; chosen seed changes actual gamete draws
+PASS R2/R5: real Mendel JSON retains seed, repeated trials and F1/F2 parent-child evidence in teacher view
+PASS R6/R2: browser selection run archives reconstruct frequencies and actual parent success; JSON teacher view exposes phenotype, weights, parents and children
+PASS R4: finished student carbon transfer includes human influence, background material, sources, consolidation and explicit limits
+PASS touch: new measurement/seed/transfer controls fit portrait, operate via touch and preserve help/canvas focus gating
+RESULTS /tmp/aquarium-pr8-review/20261021T034104

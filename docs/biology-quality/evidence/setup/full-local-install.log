@@ -1,0 +1,10 @@
+git version 2.52.0
+v24.19.0
+11.9.0
+Python 3.12.14
+Chromium 154.0.8037.57 built on Debian GNU/Linux 13 (trixie)
+Playwright 1.62.0
+Local setup complete. Game source files were not changed.
+Loaded all six required shared-library roots: ["libGLESv2.so.2", "libgtk-4.so.1", "libharfbuzz-icu.so.0", "libhyphen.so.0", "libmanette-0.2.so.0", "libwoff2dec.so.1.0.2"]
+All extracted ELF objects resolve: 16
+Verified retained portable libraries; no package or system changes.

@@ -1,0 +1,13 @@
+{
+  "checks": [
+    "explicit teacher release: Nitrit appears only when unlocked, has correct help and remains in actual measurements",
+    "quest book question mark has its own correct context and keyboard close",
+    "regular touch menu enables actual tweezers and releases the scene; Escape leaves an accurate control label",
+    "teacher can hide contextual help without changing the quest or simulation rules",
+    "population proportions use percentages consistently in cards, chart and table; stored scientific fractions remain unchanged",
+    "restoration quest accepts the alternative permitted plant intervention and computes its actual outcomes"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "status": "passed"
+}

@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "grade": 8,
+  "mission": "8-oxygen",
+  "support": "guided",
+  "help": false,
+  "unlockTools": [],
+  "unlockMetrics": [
+    "no2"
+  ]
+}

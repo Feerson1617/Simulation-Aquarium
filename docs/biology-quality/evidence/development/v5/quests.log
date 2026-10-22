@@ -1,0 +1,11 @@
+PASS free grade 8: no mandatory quest or writing; actual experiment, measurements, export and legacy save preserved
+PASS free grade 9: no mandatory quest or writing; actual experiment, measurements, export and legacy save preserved
+PASS free grade 10: no mandatory quest or writing; actual experiment, measurements, export and legacy save preserved
+PASS teacher: real quest exports and v1 products remain readable; carbon source material and limits available
+PASS teacher: full technical investigation remains accessible without exposing it in regular student views
+RESULTS /tmp/biology-quality-final-v4/quests/20261021T185303
+Traceback (most recent call last):
+  File "/workspace/Simulation-Aquarium/tests/quest_browser.py", line 126, in <module>
+    if g!=9:assert {'oxygen','nutrients','load','control','species'}.issubset(seen)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

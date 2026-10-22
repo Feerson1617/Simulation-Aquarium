@@ -1,0 +1,28 @@
+{
+  "state": "interrupted",
+  "source_commit": "a498124fc9d6495ee0452d404a25a906a8f91d1e",
+  "started": 1792554553.1736164,
+  "steps": [
+    {
+      "name": "unit",
+      "state": "passed",
+      "started": 1792554553.1741333,
+      "exit_code": 0,
+      "finished": 1792554564.6743498
+    },
+    {
+      "name": "review",
+      "state": "passed",
+      "started": 1792554564.6747172,
+      "exit_code": 0,
+      "finished": 1792555021.7164137
+    },
+    {
+      "name": "learning",
+      "state": "running",
+      "started": 1792555021.717133
+    }
+  ],
+  "interruption": "Visual QA found an invisible solitary known manual process sample; stop before fixing and restarting the frozen suite.",
+  "interrupted_at": 1792555624.511627
+}

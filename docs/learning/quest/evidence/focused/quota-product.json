@@ -1,0 +1,64 @@
+{
+  "version": 2,
+  "type": "aquarium-learning-product",
+  "profile": {
+    "version": 1,
+    "grade": 8,
+    "mode": "free",
+    "mission": null
+  },
+  "notes": {
+    "hypothesis": "Ungespeicherte Arbeit bleibt exportierbar."
+  },
+  "created": "2026-10-21T09:41:24.350Z",
+  "support": "partial",
+  "model": {
+    "title": "Eider-Treene-Schule · Fachcurriculum Biologie 2025/26",
+    "url": "https://ets-toenning.de/wp-content/uploads/2025/07/Schulinternes-Fachcurriculum-Biologie-SJ-2025-26.pdf",
+    "pages": "S. 3–4, 9–10, 14–15, 19–20",
+    "scope": "Ausgewählte Unterrichtseinheiten, kein Ersatz für das gesamte Fachcurriculum."
+  },
+  "modelVersion": "learning-evidence-2",
+  "comparison": null,
+  "currentPlan": {
+    "kind": "ecology",
+    "profile": {
+      "version": 1,
+      "grade": 8,
+      "mode": "free",
+      "mission": null
+    },
+    "modelVersion": "learning-evidence-2",
+    "tool": "light",
+    "value": 8,
+    "days": 3,
+    "environment": null,
+    "generations": null,
+    "repetitions": 2,
+    "baseline": {
+      "time": 45,
+      "seed": 47291,
+      "fingerprint": "c719133e",
+      "size": 19
+    },
+    "planning": {
+      "question": "",
+      "hypothesis": "Ungespeicherte Arbeit bleibt exportierbar.",
+      "prediction": "",
+      "plan": ""
+    },
+    "metrics": [
+      "oxygen",
+      "health",
+      "algae",
+      "plantBiomass",
+      "organic"
+    ]
+  },
+  "population": null,
+  "populationRepeats": [],
+  "measurements": [],
+  "measurementMetrics": [],
+  "quest": null,
+  "earlierNotes": null
+}

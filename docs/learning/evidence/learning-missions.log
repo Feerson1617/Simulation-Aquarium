@@ -1,0 +1,51 @@
+PASS grade selection precedes learning mode; legacy controls are hidden
+PASS grade 8: reduced observations, contextual help, actual measurement, camera gating
+PASS grade 8: genuine paired data and exported JSON/CSV/SVG, hypothesis required
+PASS grade 8: notes, data, populations and measurements survive reload; legacy save unchanged
+PASS grade 9: reduced observations, contextual help, actual measurement, camera gating
+PASS grade 9: genuine paired data and exported JSON/CSV/SVG, hypothesis required
+PASS real Mendel F1/F2 with predictions, Punnett probabilities and archived parent identities
+PASS grade 9: notes, data, populations and measurements survive reload; legacy save unchanged
+PASS grade 10: reduced observations, contextual help, actual measurement, camera gating
+PASS grade 10: genuine paired data and exported JSON/CSV/SVG, hypothesis required
+PASS grade 10: notes, data, populations and measurements survive reload; legacy save unchanged
+PASS grade 8: every mission opens with its own reconstruction and actual biological simulation
+PASS grade 9: every mission opens with its own reconstruction and actual biological simulation
+PASS grade 10: every mission opens with its own reconstruction and actual biological simulation
+RESULTS /tmp/aquarium-learning-results/20261020T125528
+Traceback (most recent call last):
+  File "/workspace/Simulation-Aquarium/tests/learning_browser.py", line 71, in <module>
+    click(page,'teacher');page.locator('[data-teacher="grade"]').select_option('8');page.locator('[data-teacher="mission"]').select_option('8-oxygen');page.locator('[data-teacher="support"]').select_option('guided');page.locator('[data-teacher="help"]').uncheck();page.locator('[data-teacher-metric="no2"]').check();screenshot(page,'teacher-preparation.png')
+                                                                                                                                                                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 17773, in check
+    self._sync(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_locator.py", line 148, in check
+    return await self._frame.check(self._selector, strict=True, **params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py", line 908, in check
+    await self._channel.send("check", self._timeout, locals_to_params(locals()))
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 76, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 632, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Locator.check: Timeout 90000ms exceeded.
+Call log:
+  - waiting for locator("[data-teacher-metric=\"no2\"]")
+    - locator resolved to <input type="checkbox" data-teacher-metric="no2"/>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+      - waiting 100ms
+    161 × waiting for element to be visible, enabled and stable
+        - element is not visible
+      - retrying click action
+        - waiting 500ms

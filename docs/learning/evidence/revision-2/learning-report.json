@@ -1,0 +1,42 @@
+{
+  "section": "all",
+  "checks": [
+    "grade selection precedes learning mode; legacy controls are hidden",
+    "grade 8: reduced observations, contextual help, actual measurement, camera gating",
+    "grade 8: genuine paired data and exported JSON/CSV/SVG, hypothesis required",
+    "grade 8: notes, data, populations and measurements survive reload; legacy save unchanged",
+    "grade 9: reduced observations, contextual help, actual measurement, camera gating",
+    "grade 9: genuine paired data and exported JSON/CSV/SVG, hypothesis required",
+    "real Mendel F1/F2 with predictions, Punnett probabilities and archived parent identities",
+    "grade 9: notes, data, populations and measurements survive reload; legacy save unchanged",
+    "grade 10: reduced observations, contextual help, actual measurement, camera gating",
+    "grade 10: genuine paired data and exported JSON/CSV/SVG, hypothesis required",
+    "grade 10: notes, data, populations and measurements survive reload; legacy save unchanged",
+    "grade 8: every mission opens with its own reconstruction and actual biological simulation",
+    "grade 9: every mission opens with its own reconstruction and actual biological simulation",
+    "grade 10: every mission opens with its own reconstruction and actual biological simulation",
+    "teacher prep, local config import/export, product inspection; support changes leave engine results identical",
+    "study reset creates a local backup and teacher can restore notes and real comparison",
+    "expert mode resumes old save and full catalog without replacing it with a learning tank",
+    "tablet portrait touch: all grades, help, modal scrolling, no horizontal overflow and real tweezers",
+    "no JavaScript exceptions or failed asset requests"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "screenshots": [
+    "01-grade-start.png",
+    "02-grade-8-playfield.png",
+    "grade-8-comparison.png",
+    "03-grade-9-playfield.png",
+    "grade-9-comparison.png",
+    "grade-9-f2.png",
+    "04-grade-10-playfield.png",
+    "grade-10-comparison.png",
+    "grade-10-wadden-transfer.png",
+    "teacher-preparation.png",
+    "ipad-grade-8-observe.png",
+    "ipad-grade-9-genetics.png",
+    "ipad-grade-10-transfer.png"
+  ],
+  "status": "passed"
+}

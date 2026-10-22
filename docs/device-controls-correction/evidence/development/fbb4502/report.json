@@ -1,0 +1,12 @@
+{
+  "checks": [
+    "mouse, grade 8: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "mouse, grade 9: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "mouse, grade 10: device input, modal keyboard, save/cancel focus, live persistence, aerator off/on, gradual time response, reload",
+    "mouse: Quest 1 device plan/cancel focus, 20/24.5/25/26 C, no-op, stale result/conclusion, recompute, completion, reload"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "console_errors": [],
+  "commit": "fbb45028658ac61ba5c9c7e10a93ea355735902b"
+}

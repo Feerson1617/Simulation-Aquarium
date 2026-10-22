@@ -1,0 +1,12 @@
+PASS grade selection precedes learning mode; legacy controls are hidden
+PASS grade 8: reduced observations, contextual help, actual measurement, camera gating
+PASS grade 8: genuine paired data and exported JSON/CSV/SVG, hypothesis required
+PASS grade 8: notes, data, populations and measurements survive reload; legacy save unchanged
+PASS grade 9: reduced observations, contextual help, actual measurement, camera gating
+PASS grade 9: genuine paired data and exported JSON/CSV/SVG, hypothesis required
+PASS real Mendel F1/F2 with predictions, Punnett probabilities and archived parent identities
+PASS grade 9: notes, data, populations and measurements survive reload; legacy save unchanged
+PASS grade 10: reduced observations, contextual help, actual measurement, camera gating
+PASS grade 10: genuine paired data and exported JSON/CSV/SVG, hypothesis required
+PASS grade 10: notes, data, populations and measurements survive reload; legacy save unchanged
+PASS grade 8: every mission opens with its own reconstruction and actual biological simulation

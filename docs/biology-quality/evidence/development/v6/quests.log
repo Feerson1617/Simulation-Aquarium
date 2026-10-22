@@ -1,0 +1,12 @@
+PASS grade 8: every regular question-mark help has the correct topic, short text, keyboard focus and touch-size controls
+PASS grade 9: every regular question-mark help has the correct topic, short text, keyboard focus and touch-size controls
+PASS grade 10: every regular question-mark help has the correct topic, short text, keyboard focus and touch-size controls
+RESULTS /tmp/biology-quality-final-v4/quests/20261021T185303
+Traceback (most recent call last):
+  File "/workspace/Simulation-Aquarium/tests/quest_browser.py", line 135, in <module>
+    start(p,8,'8-oxygen');assert snap(p)['study']['value']==12 and snap(p)['study']['days']==4;action(p,'notebook');p.get_by_text('Frühere Ergebnisse',exact=True).click();expect(p.locator('.learn-panel')).to_contain_text('Meine frühere Erklärung');f=download(p,'migrated-notes.json');assert json.loads(f.read_text())['earlierNotes']['explanation']=='Meine frühere Erklärung';passed('old learning session: previous settings and notes survive quest migration and file export');c.close()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/Simulation-Aquarium/tests/quest_browser.py", line 35, in start
+    state=snap(p);disturbed=id in ['8-health','10-restore'];assert not [item for item in state['habitat'] if not disturbed or item['key']!='nitrite'],state['habitat']
+                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [{'uid': 2, 'species': 'neon', 'key': 'group'}]

@@ -172,6 +172,13 @@ export function validateClassroom(raw,host){
  }
  if(s.currentRun&&stateId(s.tank)!==stateId(archivedTank(s.currentRun.archive,s.currentRun.samples.at(-1).day)))throw Error('Aquarium und laufender Zeitpunkt passen nicht.');
  if(s.stage==='reset-measure-ready'&&stateId(s.tank)!==s.baselineId)throw Error('Der ganze Anfang fehlt.');
+ if(!isGenetic(s)&&!s.mission.startsWith('research-')){
+  if(s.stage==='measure-observe-ready'){
+   if(s.pendingIntervention?.type!==s.measure||stateId(s.pendingIntervention.before)!==s.baselineId||stateId(s.pendingIntervention.after)!==stateId(s.tank))throw Error('Die vorbereitete Maßnahme passt nicht zum Aquarium.');
+  }else if(!s.currentRun&&s.runs.length&&s.stage!=='reset-measure-ready'){
+   const run=s.runs.at(-1);if(stateId(s.tank)!==stateId(archivedTank(run.archive,run.samples.at(-1).day)))throw Error('Das Aquarium zeigt nicht den aufgezeichneten Endzustand.');
+  }
+ }
  if(s.runs.length===2&&s.runs[0].condition===s.runs[1].condition)throw Error('Die zweite Maßnahme fehlt.');
  if(s.stage==='complete'){
   const required={m2:['food-observation','food-process','food-plant','food-evidence'],m3:['f1-observation','inheritance','transfer'],m4:['neutral-comparison','selection-explanation','dominance-explanation'],m5:['measure-comparison','measure-explanation'],m6:['growth-observation','carbon-source','carbon-return','carbon-evidence']}[s.mission.slice(0,2)]||[];

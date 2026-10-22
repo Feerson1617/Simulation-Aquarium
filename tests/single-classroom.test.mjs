@@ -86,3 +86,8 @@ test('a completed ecological run remains identified, and earlier context-v1 file
  assert.equal(classroomContext(s).runId,s.runs[0].id);const legacy=classroomProduct(s);legacy.currentContext={version:1,investigationId:s.id,attemptId:s.attemptId,revision:s.revision,runId:null,time:s.tank.day,timeKind:'day',stateId:stateId(s.tank)};
  assert.deepEqual(validateClassroom(legacy,host).runs,s.runs);
 });
+test('completed and prepared scenes cannot silently be replaced by unrelated valid aquarium states',()=>{
+ const s=createClassroom('m2-food-transformation',host,1);predictClassroom(s,'yes');classroomFeed(s,host);beginClassroomObservation(s,host);for(let i=0;i<12;i++)advanceClassroom(s,host);
+ const bad=classroomProduct(s);bad.tank.params.oxygen+=1;bad.currentContext=classroomContext(bad);assert.throws(()=>validateClassroom(bad,host));
+ const measure=createClassroom('m5-recurring-input',host,1);predictClassroom(measure,'yes');classroomMeasure(measure,'water',host);const wrong=classroomProduct(measure);wrong.tank.feedRate=4;wrong.currentContext=classroomContext(wrong);assert.throws(()=>validateClassroom(wrong,host));
+});

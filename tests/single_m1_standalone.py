@@ -1,4 +1,4 @@
-"""The actual single HTML after HTTP loading, then network disabled. Not native file: boot."""
+"""Actual single HTML: HTTP then offline, or native file boot via AQUARIUM_SINGLE_HTML."""
 import os,json,subprocess
 from pathlib import Path
 from playwright.sync_api import sync_playwright

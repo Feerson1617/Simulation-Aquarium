@@ -46,13 +46,14 @@ def reload_exact(p,is_m1=False):
  if is_m1:m(p,'start')
  p.wait_for_selector('[data-single-stage]' if is_m1 else '[data-class-stage]')
  assert snapshot(p)['session']==before and not snapshot(p)['running']
-def direct(p,uid,touch=True):
+def direct(p,uid,touch=True,marker=True):
  pt=p.evaluate('uid=>{const x=window.aquariumLearningSnapshot().presentation.objects.find(o=>o.uid===uid);return {x:x.bounds.x,y:x.bounds.y}}',uid)
  p.touchscreen.tap(pt['x'],pt['y']) if touch else p.mouse.click(pt['x'],pt['y'])
  R['actions'].append({'input':'direct canvas touchscreen tap' if touch else 'direct canvas mouse click','uid':uid,'point':pt,'at':datetime.now(timezone.utc).isoformat()})
  assert snapshot(p)['session']['selection']==uid,(uid,snapshot(p)['session']['selection'])
- p.wait_for_function('uid=>document.querySelector(".aquarium-selection:not([hidden])")?.dataset.selectedUid===String(uid)',arg=uid)
- assert snapshot(p)['presentation']['markerVisible']
+ if marker:
+  p.wait_for_function('uid=>document.querySelector(".aquarium-selection:not([hidden])")?.dataset.selectedUid===String(uid)',arg=uid)
+  assert snapshot(p)['presentation']['markerVisible']
 def resize(p,w,h):
  p.set_viewport_size({'width':w,'height':h})
  p.wait_for_function('''()=>{const v=window.aquariumLearningSnapshot()?.presentation,g=v?.glass;return g&&Math.abs(g.left-(innerWidth<=820?20:448))<2&&g.right<=innerWidth+1}''',polling=300)
@@ -127,7 +128,7 @@ def run(p,id):
     p.locator('[data-parent-trial]').select_option('0');p.locator('[data-parent-generation]').select_option('1');parent_table_check(p,0,1);shot(p,'m4-earlier-trial-and-generation')
    c(p,'close')
    if trial<2:c(p,'reset-trial');assert snapshot(p)['session']['tank']==baseline
-  fish=next(e for e in snapshot(p)['session']['tank']['entities'] if e['species']=='molly');direct(p,fish['uid']);expect(p.locator('[data-selected-individual]')).to_have_attribute('data-selected-individual',str(fish['uid']));shot(p,'m4-current-fish');c(p,'close')
+  fish=next(e for e in snapshot(p)['session']['tank']['entities'] if e['species']=='molly');direct(p,fish['uid'],marker=False);expect(p.locator('[data-selected-individual]')).to_have_attribute('data-selected-individual',str(fish['uid']));shot(p,'m4-current-fish');c(p,'close');p.wait_for_function('uid=>document.querySelector(".aquarium-selection:not([hidden])")?.dataset.selectedUid===String(uid)',arg=fish['uid']);assert snapshot(p)['presentation']['markerVisible']
   c(p,'compare-trials');shot(p,'m4-comparison');wrong_help(p,'guarantee','actual-counts','m4');shot(p,'m4-selection-question');wrong_help(p,'dominant-wins','weighted-parents','m4-chance');shot(p,'m4-dominance-question');wrong_help(p,'more-young','not-guaranteed','m4-dominance')
  elif id=='m5':
   baseline=snapshot(p)['session']['baseline'];choice(p,'water');shot(p,'m5-water-immediate');observe(p,'m5-water-end');first=json.dumps(snapshot(p)['session']['runs'][0],sort_keys=True);c(p,'reset-measure');assert snapshot(p)['session']['tank']==baseline;choice(p,'feed');observe(p,'m5-comparison');assert json.dumps(snapshot(p)['session']['runs'][0],sort_keys=True)==first;wrong_help(p,'swap','actual-late','m5');shot(p,'m5-explanation-question');wrong_help(p,'never','source','m5-input')

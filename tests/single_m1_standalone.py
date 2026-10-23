@@ -5,7 +5,7 @@ from playwright.sync_api import sync_playwright
 ROOT=Path(__file__).resolve().parents[1];ENGINE=os.environ.get('AQUARIUM_BROWSER','chromium')
 OUT=Path(os.environ.get('AQUARIUM_SINGLE_OFFLINE_RESULTS','/tmp/single-m1-offline'))/ENGINE;OUT.mkdir(parents=True,exist_ok=True)
 URL=os.environ.get('AQUARIUM_SINGLE_HTML','http://127.0.0.1:8000/standalone-m1/')
-r={'engine':ENGINE,'applicationHead':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'url':URL,'errors':[],'httpRequests':[],'nativeFile':'not tested','checks':[]}
+r={'engine':ENGINE,'applicationHead':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'url':URL,'errors':[],'httpRequests':[],'nativeFile':'tested by actual file URL' if URL.startswith('file:') else 'not tested','checks':[]}
 def click(p,key):p.locator('[data-single="'+key+'"]:visible').first.click()
 def snap(p):return p.evaluate('window.aquariumLearningSnapshot()')
 with sync_playwright() as pw:
@@ -24,7 +24,7 @@ with sync_playwright() as pw:
   with p.expect_download() as d:click(p,'export')
   d.value.save_as(str(OUT/'result.json'));data=json.loads((OUT/'result.json').read_text());assert data['currentContext']==snap(p)['context']
   assert len(data['runs'])==2 and data['runs'][1]['samples'][-1]['oxygen']>data['runs'][1]['samples'][0]['oxygen']
-  assert p.locator('canvas').count()==1;assert not r['errors'];assert r['httpRequests']==[URL]
+  assert p.locator('canvas').count()==1;assert not r['errors'];assert r['httpRequests']==([] if URL.startswith('file:') else [URL])
   p.screenshot(path=str(OUT/'completed.png'));r.update(status='passed',checks=['one actual main aquarium and embedded assets','full serial M1 with exact reset','rising oxygen in the dark and process interpretation','exported identity matches the visible aquarium','no child HTTP resource, already-loaded document works offline'])
-  print('PASS',ENGINE,'loaded single HTML: complete M1 and export offline; no native file-start claim')
+  print('PASS',ENGINE,'native file start' if URL.startswith('file:') else 'HTTP then offline','complete M1 and exported result')
  finally:(OUT/'report.json').write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n');b.close()

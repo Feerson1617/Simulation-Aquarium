@@ -1,6 +1,6 @@
 # Aktiver Folgeauftrag vom 23.10.2026
 
-Maßgeblich ist jetzt [corrections/WORK_STATE.md](corrections/WORK_STATE.md). **Neues Sichtabnahme-Gate nach F01–F03**; F04–F11 erst anschließend abschließen. Der folgende Bericht beschreibt den früheren Auftrag.
+Maßgeblich ist jetzt [final-corrections/WORK_STATE.md](final-corrections/WORK_STATE.md). Der finale Nutzerauftrag akzeptiert F01/F02/F03-Kern/F05/F08 und hebt die frühere Zwischenfreigabe ausdrücklich auf. Umsetzung und Endprüfung bleiben auf dem vorhandenen Branch von PR #9, ohne Merge. Der folgende Bericht beschreibt den früheren Auftrag.
 
 ---
 

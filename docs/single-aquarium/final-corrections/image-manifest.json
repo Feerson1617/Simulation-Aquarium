@@ -1,0 +1,1151 @@
+[
+  {
+    "path": "images/before-legacy/grade-8-0.png",
+    "sha256": "55a960ed57ffe4b8d3b87efb5724b41af58254ec54eafc01a377aac24aa7be57",
+    "bytes": 315480,
+    "source": "/tmp/final-legacy-before/grade-8-0.png",
+    "report": "before-legacy",
+    "at": "2026-10-23T13:03:23.040353+00:00",
+    "timeSource": "filesystem mtime",
+    "viewport": {
+      "width": 1366,
+      "height": 960
+    },
+    "url": "http://127.0.0.1:8000/final-before/?expert=1&archive-tools=1",
+    "label": "Vorher: Klasse-8-Importfehler"
+  },
+  {
+    "path": "images/before-legacy/grade-8-2.png",
+    "sha256": "55a960ed57ffe4b8d3b87efb5724b41af58254ec54eafc01a377aac24aa7be57",
+    "bytes": 315480,
+    "source": "/tmp/final-legacy-before/grade-8-2.png",
+    "report": "before-legacy",
+    "at": "2026-10-23T13:03:24.395394+00:00",
+    "timeSource": "filesystem mtime",
+    "viewport": {
+      "width": 1366,
+      "height": 960
+    },
+    "url": "http://127.0.0.1:8000/final-before/?expert=1&archive-tools=1",
+    "label": "Vorher: erneut Klasse 8, veraltete Ansicht"
+  },
+  {
+    "path": "images/legacy/grade-8-0.png",
+    "sha256": "dcf63cbbd06c45d9089ff8ff923cbbdef1bf69c59bde275be08aebb1fb35ce7f",
+    "bytes": 214972,
+    "source": "/tmp/final-legacy-visible/webkit/grade-8-0.png",
+    "report": "legacy",
+    "at": "2026-10-23T13:52:36.821360+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 1366,
+      "height": 960
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1&archive-tools=1",
+    "label": "Nachher: Klasse 8 mit eindeutiger Dateiquelle"
+  },
+  {
+    "path": "images/legacy/grade-9-1.png",
+    "sha256": "e61423fe3f23db22fa16ff508c69427feef8af3f0e10256dff4639322cd9bb09",
+    "bytes": 214711,
+    "source": "/tmp/final-legacy-visible/webkit/grade-9-1.png",
+    "report": "legacy",
+    "at": "2026-10-23T13:52:38.937271+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 1366,
+      "height": 960
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1&archive-tools=1",
+    "label": "Nachher: Klasse 9 mit eindeutiger Dateiquelle"
+  },
+  {
+    "path": "images/legacy/grade-8-unknown-0.png",
+    "sha256": "cc17257c1b25ab59304b7f4034c658aab5a43142c07e1641d17bc902f0054986",
+    "bytes": 205316,
+    "source": "/tmp/final-legacy-visible/webkit/grade-8-unknown-0.png",
+    "report": "legacy",
+    "at": "2026-10-23T13:52:37.593246+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 1366,
+      "height": 960
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1&archive-tools=1",
+    "label": "Nachher: fehlende Metrik bleibt unbekannt"
+  },
+  {
+    "path": "images/legacy/invalid-cleared.png",
+    "sha256": "d018ba92817450cd96e69449d222cf7fa428da544586d0dbe0241339553b2fc5",
+    "bytes": 186215,
+    "source": "/tmp/final-legacy-visible/webkit/invalid-cleared.png",
+    "report": "legacy",
+    "at": "2026-10-23T13:52:42.501590+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 1366,
+      "height": 960
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1&archive-tools=1",
+    "label": "Nachher: ungültige Datei, vorheriges Produkt entfernt"
+  },
+  {
+    "path": "images/before-missions/m1-help.png",
+    "sha256": "0c5eb0468ee535f478b601ef959ab4df9ee24c7f06660465238a556cc51841c4",
+    "bytes": 168628,
+    "source": "/tmp/final-baseline/chromium/m1-help.png",
+    "report": "before-missions",
+    "at": "2026-10-23T13:07:26.801748+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/final-before/",
+    "label": "Vorher M1: erster konkreter Tipp"
+  },
+  {
+    "path": "images/missions-webkit/m1-help.png",
+    "sha256": "ac0b4f9f32bea50cb6bf2da56ebf9afd8458c205c577bea33326b11dfd23cefa",
+    "bytes": 165355,
+    "source": "/tmp/final-missions-current/webkit/m1-help.png",
+    "report": "missions-webkit",
+    "at": "2026-10-23T13:58:24.453714+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/",
+    "label": "Nachher M1: erster konkreter Tipp"
+  },
+  {
+    "path": "images/before-missions/m2-help.png",
+    "sha256": "4e670368b330fbd65ac2b13ee46076c32ffeb98962d23391bbadf268b5efe02c",
+    "bytes": 167786,
+    "source": "/tmp/final-baseline/chromium/m2-help.png",
+    "report": "before-missions",
+    "at": "2026-10-23T13:09:58.655398+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/final-before/?mission=m2-food-transformation",
+    "label": "Vorher M2: erster konkreter Tipp"
+  },
+  {
+    "path": "images/missions-webkit/m2-tip-1.png",
+    "sha256": "e8076d4927f4ee2506801f5e25a6bd1980bed36447f70ea6b3fc8d6b917ca71d",
+    "bytes": 169967,
+    "source": "/tmp/final-missions-current/webkit/m2-tip-1.png",
+    "report": "missions-webkit",
+    "at": "2026-10-23T14:00:44.310429+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m2-food-transformation",
+    "label": "Nachher M2: erster konkreter Tipp"
+  },
+  {
+    "path": "images/before-missions/m3-help.png",
+    "sha256": "f5902b976ddc47b183a6b63127c16ecb2041df7004e453924dae24d6515b006c",
+    "bytes": 141396,
+    "source": "/tmp/final-baseline/chromium/m3-help.png",
+    "report": "before-missions",
+    "at": "2026-10-23T13:12:28.592141+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/final-before/?mission=m3-hidden-inheritance",
+    "label": "Vorher M3: erster konkreter Tipp"
+  },
+  {
+    "path": "images/missions-webkit/m3-tip-1.png",
+    "sha256": "c3e7151eb5207488f7fa26d35c031239fb43c56d9f8f88ac85fa23998abf16bc",
+    "bytes": 145499,
+    "source": "/tmp/final-missions-current/webkit/m3-tip-1.png",
+    "report": "missions-webkit",
+    "at": "2026-10-23T14:03:35.127286+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m3-hidden-inheritance",
+    "label": "Nachher M3: erster konkreter Tipp"
+  },
+  {
+    "path": "images/before-missions/m4-help.png",
+    "sha256": "5ff3412a4032cc9285a9a1ca3d29ad147e7c357e0f5b6edf50fa9d27e4550447",
+    "bytes": 143583,
+    "source": "/tmp/final-baseline/chromium/m4-help.png",
+    "report": "before-missions",
+    "at": "2026-10-23T13:15:57.883652+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/final-before/?mission=m4-dominance-frequency",
+    "label": "Vorher M4: erster konkreter Tipp"
+  },
+  {
+    "path": "images/missions-webkit-rest/m4-tip-1.png",
+    "sha256": "053db6a1228fbe6958b20ebfa132f31d179970f0046caa0c27d95faaad4ab09f",
+    "bytes": 140320,
+    "source": "/tmp/final-missions-rest/webkit/m4-tip-1.png",
+    "report": "missions-webkit-rest",
+    "at": "2026-10-23T14:09:06.283757+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m4-dominance-frequency",
+    "label": "Nachher M4: erster konkreter Tipp"
+  },
+  {
+    "path": "images/before-missions/m5-help.png",
+    "sha256": "2cf25bf929c3fa0f884da929c62d53b3f59602ad6100ce2f4431754cffddcbc8",
+    "bytes": 181792,
+    "source": "/tmp/final-baseline/chromium/m5-help.png",
+    "report": "before-missions",
+    "at": "2026-10-23T13:21:33.136698+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/final-before/?mission=m5-recurring-input",
+    "label": "Vorher M5: erster konkreter Tipp"
+  },
+  {
+    "path": "images/missions-webkit-rest/m5-tip-1.png",
+    "sha256": "f5f6cd0b390ec0d3fd634a535779f7404b30463c5a842bc50b7728a835841399",
+    "bytes": 190830,
+    "source": "/tmp/final-missions-rest/webkit/m5-tip-1.png",
+    "report": "missions-webkit-rest",
+    "at": "2026-10-23T14:13:54.207237+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m5-recurring-input",
+    "label": "Nachher M5: erster konkreter Tipp"
+  },
+  {
+    "path": "images/before-missions/m6-help.png",
+    "sha256": "147869cc00f5738278324f6c581baf962573cbd45bfdfc8b891d92a8d1508893",
+    "bytes": 164909,
+    "source": "/tmp/final-baseline/chromium/m6-help.png",
+    "report": "before-missions",
+    "at": "2026-10-23T13:26:16.615688+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/final-before/?mission=m6-plant-carbon",
+    "label": "Vorher M6: erster konkreter Tipp"
+  },
+  {
+    "path": "images/missions-webkit-rest/m6-tip-1.png",
+    "sha256": "fad7dd289513c320c7b9a042eece9e7e32187dab5a04f8904fe305bf7376b0e2",
+    "bytes": 165672,
+    "source": "/tmp/final-missions-rest/webkit/m6-tip-1.png",
+    "report": "missions-webkit-rest",
+    "at": "2026-10-23T14:16:01.858958+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m6-plant-carbon",
+    "label": "Nachher M6: erster konkreter Tipp"
+  },
+  {
+    "path": "images/missions-webkit/m1-source-wrong.png",
+    "sha256": "47f954640ad421011fe63b3c9a2de14627af62f08b6d02b27f5a4ea7c8c186e8",
+    "bytes": 262675,
+    "source": "/tmp/final-missions-current/webkit/m1-source-wrong.png",
+    "report": "missions-webkit",
+    "at": "2026-10-23T13:58:31.851323+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/",
+    "label": "M1: falsche Quellenfolgerung mit sichtbarer Rückmeldung"
+  },
+  {
+    "path": "images/missions-webkit/m2-pool-flow-help.png",
+    "sha256": "c586209c234b1c1d94bd2b50ac3973949c588513630a9620b33fcd725409c683",
+    "bytes": 170902,
+    "source": "/tmp/final-missions-current/webkit/m2-pool-flow-help.png",
+    "report": "missions-webkit",
+    "at": "2026-10-23T14:01:56.382209+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m2-food-transformation",
+    "label": "M2: Bestand und umgewandelte Menge bleiben getrennt"
+  },
+  {
+    "path": "images/missions-webkit-rest/m5-input-wrong.png",
+    "sha256": "7581693efe9f1469dcc9105c6b7a4bf94d4b86b81ce9556bd77a489e4fd65f6c",
+    "bytes": 297687,
+    "source": "/tmp/final-missions-rest/webkit/m5-input-wrong.png",
+    "report": "missions-webkit-rest",
+    "at": "2026-10-23T14:14:14.519517+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m5-recurring-input",
+    "label": "M5: einmaliger Wasserwechsel und weiterer Eintrag"
+  },
+  {
+    "path": "images/missions-webkit-rest/m6-evidence-wrong.png",
+    "sha256": "682ec9f25e08550a38f64b1a9407210e3d612d5678c2e9ad7974308bd7abb2e2",
+    "bytes": 271218,
+    "source": "/tmp/final-missions-rest/webkit/m6-evidence-wrong.png",
+    "report": "missions-webkit-rest",
+    "at": "2026-10-23T14:16:44.625243+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m6-plant-carbon",
+    "label": "M6: Wachstum beweist nicht die Stoffherkunft"
+  },
+  {
+    "path": "images/before-details/m3-no-parents.png",
+    "sha256": "fd0ee2e80ab0ad51e80aacff69e0f3c412144727d24f8d5849365bc95c14bbe1",
+    "bytes": 174121,
+    "source": "/tmp/final-before-details/m3-no-parents.png",
+    "report": "before-details",
+    "at": "2026-10-23T13:43:50.944189+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/final-before/?mission=m3-hidden-inheritance",
+    "label": "Vorher: unspezifische Elternmeldung"
+  },
+  {
+    "path": "images/before-details/m3-two-dark.png",
+    "sha256": "8ec0f2542a9ee7f98f315ea539f16d66da320df140703e9306a730c0f011bf77",
+    "bytes": 178990,
+    "source": "/tmp/final-before-details/m3-two-dark.png",
+    "report": "before-details",
+    "at": "2026-10-23T13:43:56.041814+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/final-before/?mission=m3-hidden-inheritance",
+    "label": "Vorher: zwei dunkle Gründer"
+  },
+  {
+    "path": "images/missions-webkit/m3-no-parents.png",
+    "sha256": "e7e2348e1edfc0dd9d547bc20a08bf1368afc04728d23ff0fbc44781ffc88070",
+    "bytes": 181969,
+    "source": "/tmp/final-missions-current/webkit/m3-no-parents.png",
+    "report": "missions-webkit",
+    "at": "2026-10-23T14:02:52.119739+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m3-hidden-inheritance",
+    "label": "Nachher: kein Elternpaar"
+  },
+  {
+    "path": "images/missions-webkit/m3-missing-mother.png",
+    "sha256": "50a524917f79f5febed6ac82335bca2e005ee223a568084b4b04e01cf2ef4250",
+    "bytes": 183751,
+    "source": "/tmp/final-missions-current/webkit/m3-missing-mother.png",
+    "report": "missions-webkit",
+    "at": "2026-10-23T14:03:05.335702+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m3-hidden-inheritance",
+    "label": "Nachher: Mutter fehlt"
+  },
+  {
+    "path": "images/missions-webkit/m3-two-females-missing-father.png",
+    "sha256": "8c2979c54688b13168aa62ce90350dfcb210323fa414e60ca25f72206d0dfe76",
+    "bytes": 183417,
+    "source": "/tmp/final-missions-current/webkit/m3-two-females-missing-father.png",
+    "report": "missions-webkit",
+    "at": "2026-10-23T14:03:17.620547+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m3-hidden-inheritance",
+    "label": "Nachher: zwei Weibchen ersetzen einander; Vater fehlt"
+  },
+  {
+    "path": "images/missions-webkit/m3-two-dark.png",
+    "sha256": "d63bb83a35fe2c041dcd9f940e85e35e2083e599f4c7b24b067a58647797917d",
+    "bytes": 190407,
+    "source": "/tmp/final-missions-current/webkit/m3-two-dark.png",
+    "report": "missions-webkit",
+    "at": "2026-10-23T14:03:22.683111+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m3-hidden-inheritance",
+    "label": "Nachher: Zweck von dunkel × hell"
+  },
+  {
+    "path": "images/missions-webkit/m3-f1-observation.png",
+    "sha256": "ed7a0facb9b6d2980859f1fe46b67a2177afdc9c9ffffdf2996408eb94025a13",
+    "bytes": 177911,
+    "source": "/tmp/final-missions-current/webkit/m3-f1-observation.png",
+    "report": "missions-webkit",
+    "at": "2026-10-23T14:03:29.038416+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m3-hidden-inheritance",
+    "label": "Nachher: tatsächliche F1 der reziproken Kreuzung"
+  },
+  {
+    "path": "images/before-details/m4-parent-table.png",
+    "sha256": "78de1f479598ce099364363c0e7f53791dd116d646083739e3082413d48e7e7c",
+    "bytes": 126304,
+    "source": "/tmp/final-before-details/m4-parent-table.png",
+    "report": "before-details",
+    "at": "2026-10-23T13:44:09.529350+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/final-before/?mission=m4-dominance-frequency",
+    "label": "Vorher "
+  },
+  {
+    "path": "images/missions-webkit-rest/m4-parents-trial-3.png",
+    "sha256": "94549ca428d4f7ba38ae08ed8219410a935a7dd2b9630006079777e52e747e13",
+    "bytes": 145516,
+    "source": "/tmp/final-missions-rest/webkit/m4-parents-trial-3.png",
+    "report": "missions-webkit-rest",
+    "at": "2026-10-23T14:08:36.164540+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m4-dominance-frequency",
+    "label": "Nachher "
+  },
+  {
+    "path": "images/missions-webkit-rest/m4-earlier-trial-and-generation.png",
+    "sha256": "500339bd1b8c8e98bbfc37d4937638898da604cebedf8247ac547eacd450a1db",
+    "bytes": 140974,
+    "source": "/tmp/final-missions-rest/webkit/m4-earlier-trial-and-generation.png",
+    "report": "missions-webkit-rest",
+    "at": "2026-10-23T14:08:44.131958+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m4-dominance-frequency",
+    "label": "Versuch 1 / frühere Generation gezielt ausgewählt"
+  },
+  {
+    "path": "images/missions-webkit-rest/m4-current-fish.png",
+    "sha256": "469023b66d0d1008ab3b67c75267c0911f3811ee79fc113b620c353d3a2015c5",
+    "bytes": 137700,
+    "source": "/tmp/final-missions-rest/webkit/m4-current-fish.png",
+    "report": "missions-webkit-rest",
+    "at": "2026-10-23T14:08:50.878023+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m4-dominance-frequency",
+    "label": "Aktuelles Individuum mit eigener Kennung und Eltern"
+  },
+  {
+    "path": "images/before-details/archive-technical-keys.png",
+    "sha256": "647cf89b88dcf62a3248e6d3157bbb66651175d66de2d256a5318dc094392247",
+    "bytes": 155810,
+    "source": "/tmp/final-before-details/archive-technical-keys.png",
+    "report": "before-details",
+    "at": "2026-10-23T13:44:17.993948+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/final-before/?mission=m4-dominance-frequency",
+    "label": "Vorher "
+  },
+  {
+    "path": "images/missions-webkit-rest/m4-archive.png",
+    "sha256": "d3cba5af28884ed02dd7124ca24f40e468d3c92e004d22989b670284ae645dc0",
+    "bytes": 165243,
+    "source": "/tmp/final-missions-rest/webkit/m4-archive.png",
+    "report": "missions-webkit-rest",
+    "at": "2026-10-23T14:10:42.686068+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m4-dominance-frequency",
+    "label": "Nachher "
+  },
+  {
+    "path": "images/archive-final/portrait-entries.png",
+    "sha256": "8528eb561f8d2e0b65aa1e1d31b983cc70e3c2dbbd7e729aa72671abf177c6f3",
+    "bytes": 184711,
+    "source": "/tmp/final-archive-visible/portrait-entries.png",
+    "report": "archive-final",
+    "at": "2026-10-23T14:21:32.422149+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/",
+    "label": "M1: eigene frühere Stände und vorhandene Metadaten"
+  },
+  {
+    "path": "images/archive-final/portrait-routes.png",
+    "sha256": "4e8c4af14598e2956747753e59ed65cd73cb06b347aa2831cdf1ad8a85125ee3",
+    "bytes": 181951,
+    "source": "/tmp/final-archive-visible/portrait-routes.png",
+    "report": "archive-final",
+    "at": "2026-10-23T14:21:30.895980+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/",
+    "label": "Getrennte Importwege als große Touch-Ziele"
+  },
+  {
+    "path": "images/archive-final/desktop-entries.png",
+    "sha256": "f42ceade9b3dbe49a7d9eb95ce633a5eaa95e9da4b11e315299ea7be10d6598c",
+    "bytes": 295205,
+    "source": "/tmp/final-archive-visible/desktop-entries.png",
+    "report": "archive-final",
+    "at": "2026-10-23T14:21:38.626610+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 1366,
+      "height": 960
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/",
+    "label": "Archive im Desktopformat"
+  },
+  {
+    "path": "images/archive-final/landscape-entries.png",
+    "sha256": "a2db85ca3f9498ad57592fecb0017009b57b15814526676ff30c406e9fa74711",
+    "bytes": 301403,
+    "source": "/tmp/final-archive-visible/landscape-entries.png",
+    "report": "archive-final",
+    "at": "2026-10-23T14:21:44.483741+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 1366,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/",
+    "label": "Archive im Querformat"
+  },
+  {
+    "path": "images/before-tweezers/desktop.png",
+    "sha256": "e49ba2fad65fe71c19a0aefdaac7881dc587a291bc561ab127f621e6a0fa04e1",
+    "bytes": 331567,
+    "source": "/tmp/final-before-ui/desktop.png",
+    "report": "before-tweezers",
+    "at": "2026-10-23T13:34:30.134588+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 1366,
+      "height": 960
+    },
+    "url": "http://127.0.0.1:8000/final-before/?research=8",
+    "label": "Vorher Desktop"
+  },
+  {
+    "path": "images/tweezers/desktop-instructions.png",
+    "sha256": "e72aeea109bbf90544fa3c06e09b9e6b782e20e589e1f760e96ba1d7431bff17",
+    "bytes": 332985,
+    "source": "/tmp/final-tweezers-current/desktop-instructions.png",
+    "report": "tweezers",
+    "at": "2026-10-23T13:35:20.225672+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 1366,
+      "height": 960
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?research=8",
+    "label": "Nachher Desktop"
+  },
+  {
+    "path": "images/before-tweezers/portrait.png",
+    "sha256": "08ff4008240dcd39fa2196a6138499e6dd2185c0e2f73d421934b5c7d9f0ad54",
+    "bytes": 241329,
+    "source": "/tmp/final-before-ui/portrait.png",
+    "report": "before-tweezers",
+    "at": "2026-10-23T13:34:31.609737+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/final-before/?research=8",
+    "label": "Vorher Tablet-Hochformat"
+  },
+  {
+    "path": "images/tweezers/portrait-instructions.png",
+    "sha256": "d20cb46d08c4d74960d9fb86541627ac188b44ec82e947330f0e275e10f54522",
+    "bytes": 216248,
+    "source": "/tmp/final-tweezers-current/portrait-instructions.png",
+    "report": "tweezers",
+    "at": "2026-10-23T13:41:56.137478+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?research=8",
+    "label": "Nachher Tablet-Hochformat"
+  },
+  {
+    "path": "images/before-tweezers/landscape.png",
+    "sha256": "799f64a8c8ac0982c299a4288f5aed5f15b56c0083e54553c91751c08e850355",
+    "bytes": 333499,
+    "source": "/tmp/final-before-ui/landscape.png",
+    "report": "before-tweezers",
+    "at": "2026-10-23T13:34:33.418335+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 1366,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/final-before/?research=8",
+    "label": "Vorher Tablet-Querformat"
+  },
+  {
+    "path": "images/tweezers-landscape/landscape-instructions.png",
+    "sha256": "e70a41b517afe76bf7f1acc93a23e423f9ff4b290268cf1671dc987086a966b4",
+    "bytes": 338053,
+    "source": "/tmp/final-tweezers-landscape/landscape-instructions.png",
+    "report": "tweezers-landscape",
+    "at": "2026-10-23T13:59:10.093265+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 1366,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?research=8",
+    "label": "Nachher Tablet-Querformat"
+  },
+  {
+    "path": "images/tweezers/portrait-mouse-collision-release.png",
+    "sha256": "f6babba735fe43c047b525499cf64af5cd70586a1daf3e3802419a9a1da65fb1",
+    "bytes": 217756,
+    "source": "/tmp/final-tweezers-current/portrait-mouse-collision-release.png",
+    "report": "tweezers",
+    "at": "2026-10-23T13:43:21.593410+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?research=8",
+    "label": "Kollision: letzte freie Position übernommen"
+  },
+  {
+    "path": "images/tweezers/portrait-touch-collision-release.png",
+    "sha256": "1221218649e6b1c6377f9d3dc0be1ec4cf5f2ad9ac8bdcd868129586dd74abfd",
+    "bytes": 219570,
+    "source": "/tmp/final-tweezers-current/portrait-touch-collision-release.png",
+    "report": "tweezers",
+    "at": "2026-10-23T13:45:34.751765+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?research=8",
+    "label": "Kollision ohne Ortswechsel: Ausgangsposition bleibt"
+  },
+  {
+    "path": "images/tweezers-landscape/landscape-touch-cancel.png",
+    "sha256": "b431b08acd92322417d1ef3fe1e2fee40cb2285426b3b4086fd5c606cf3dc67f",
+    "bytes": 339520,
+    "source": "/tmp/final-tweezers-landscape/landscape-touch-cancel.png",
+    "report": "tweezers-landscape",
+    "at": "2026-10-23T14:04:59.716431+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 1366,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?research=8",
+    "label": "Echter Touch-Abbruch stellt Ausgangsposition wieder her"
+  },
+  {
+    "path": "images/tweezers-landscape/landscape-restored.png",
+    "sha256": "ba3ad8ccaf08b834edc2e7445994633db5bd2f56fb2d22c2825c222fe29c34bb",
+    "bytes": 359802,
+    "source": "/tmp/final-tweezers-landscape/landscape-restored.png",
+    "report": "tweezers-landscape",
+    "at": "2026-10-23T14:06:42.243298+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 1366,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?research=8",
+    "label": "Nach Reload, Export und Dateiimport"
+  },
+  {
+    "path": "images/before-motion/desktop-equal.png",
+    "sha256": "f37a25511fb3328d62bbd74b7224ee8984df137727aa60363a8c8ee1c9c226cb",
+    "bytes": 197508,
+    "source": "/tmp/final-tweezers-before/desktop-equal.png",
+    "report": "before-motion",
+    "at": "2026-10-23T13:31:01.597226+00:00",
+    "timeSource": "filesystem mtime; capture not in original event trace",
+    "viewport": null,
+    "url": null,
+    "label": "Vorher "
+  },
+  {
+    "path": "images/tweezers/desktop-equal.png",
+    "sha256": "8c1d0b1b4c50a4b9444573ecf0a7149c074f5a9d600103d35daabf950c8d63e5",
+    "bytes": 196879,
+    "source": "/tmp/final-tweezers-current/desktop-equal.png",
+    "report": "tweezers",
+    "at": "2026-10-23T13:34:56.086676+00:00",
+    "timeSource": "filesystem mtime; capture not in original event trace",
+    "viewport": null,
+    "url": null,
+    "label": "Nachher "
+  },
+  {
+    "path": "images/before-scenarios/foodweb.png",
+    "sha256": "9382bdab8b31815304ebf1ad73479c77505d7a271f0c80662eda1a6fbef3f125",
+    "bytes": 348532,
+    "source": "/tmp/final-scenarios-before/foodweb.png",
+    "report": "before-scenarios",
+    "at": "2026-10-23T13:13:48.832121+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 1366,
+      "height": 960
+    },
+    "url": "http://127.0.0.1:8000/final-before/?expert=1",
+    "label": "Vorher foodweb"
+  },
+  {
+    "path": "images/operations/foodweb-start.png",
+    "sha256": "28d49fc76656bb1185fe3dfb77e7b4eaaa64f9234b587c3c00d6457496cb3d70",
+    "bytes": 366274,
+    "source": "/tmp/final-operations-final/webkit/foodweb-start.png",
+    "report": "operations",
+    "at": "2026-10-23T13:41:02.433715+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 1366,
+      "height": 960
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+    "label": "Nachher foodweb"
+  },
+  {
+    "path": "images/before-scenarios/microbes.png",
+    "sha256": "ac014b4baa8dddc55feddc85fd2bf21df7887de1360fe3181cdd794cff0409f4",
+    "bytes": 347268,
+    "source": "/tmp/final-scenarios-before/microbes.png",
+    "report": "before-scenarios",
+    "at": "2026-10-23T13:15:20.036493+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 1366,
+      "height": 960
+    },
+    "url": "http://127.0.0.1:8000/final-before/?expert=1",
+    "label": "Vorher microbes"
+  },
+  {
+    "path": "images/operations/microbes-start.png",
+    "sha256": "c1d68992bf8c87cfbd2458c649ea4f3827993818f6a7a1ece7dfd650e361e4f6",
+    "bytes": 364723,
+    "source": "/tmp/final-operations-final/webkit/microbes-start.png",
+    "report": "operations",
+    "at": "2026-10-23T13:42:05.626414+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 1366,
+      "height": 960
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+    "label": "Nachher microbes"
+  },
+  {
+    "path": "images/before-scenarios/supply.png",
+    "sha256": "c14dd9cead7db9cd2a792e94dd130506fe12cf7546fbec7de81452af5bf44e25",
+    "bytes": 345511,
+    "source": "/tmp/final-scenarios-before/supply.png",
+    "report": "before-scenarios",
+    "at": "2026-10-23T13:14:07.317500+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 1366,
+      "height": 960
+    },
+    "url": "http://127.0.0.1:8000/final-before/?expert=1",
+    "label": "Vorher supply"
+  },
+  {
+    "path": "images/operations/supply-start.png",
+    "sha256": "f0a53121e06213049eee4f9b1aa78a238293fa9566c6d56eb5d3213e042dd5fd",
+    "bytes": 362906,
+    "source": "/tmp/final-operations-final/webkit/supply-start.png",
+    "report": "operations",
+    "at": "2026-10-23T13:41:15.242466+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 1366,
+      "height": 960
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+    "label": "Nachher supply"
+  },
+  {
+    "path": "images/before-scenarios/water.png",
+    "sha256": "39ca17a0f8fe2b0bdd00d052b5f29c366bd1479358f9ab056413f72ef679ffe3",
+    "bytes": 347553,
+    "source": "/tmp/final-scenarios-before/water.png",
+    "report": "before-scenarios",
+    "at": "2026-10-23T13:14:31.401205+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 1366,
+      "height": 960
+    },
+    "url": "http://127.0.0.1:8000/final-before/?expert=1",
+    "label": "Vorher water"
+  },
+  {
+    "path": "images/operations/water-start.png",
+    "sha256": "4a68ab3f3b6d61edb429e425498a5a220bd442634ba4ce917a15ea107f7839b9",
+    "bytes": 365344,
+    "source": "/tmp/final-operations-final/webkit/water-start.png",
+    "report": "operations",
+    "at": "2026-10-23T13:41:32.417860+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 1366,
+      "height": 960
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+    "label": "Nachher water"
+  },
+  {
+    "path": "images/before-scenarios/leaves.png",
+    "sha256": "5e31c416cba98e58e4c7040cf25c8d1c645450e3fc83769f1e078d0d08c82914",
+    "bytes": 343497,
+    "source": "/tmp/final-scenarios-before/leaves.png",
+    "report": "before-scenarios",
+    "at": "2026-10-23T13:14:55.433368+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 1366,
+      "height": 960
+    },
+    "url": "http://127.0.0.1:8000/final-before/?expert=1",
+    "label": "Vorher leaves"
+  },
+  {
+    "path": "images/operations/leaves-start.png",
+    "sha256": "6a9bb58a17d79ff0dd8c2d3eda3a8b5ab528b3714fd66989a41fc83871ed0acc",
+    "bytes": 360471,
+    "source": "/tmp/final-operations-final/webkit/leaves-start.png",
+    "report": "operations",
+    "at": "2026-10-23T13:41:49.853690+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 1366,
+      "height": 960
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+    "label": "Nachher leaves"
+  },
+  {
+    "path": "images/before-missions/m3-inheritance.png",
+    "sha256": "09263a7f7e2587f8f0cec5159cc3cd441f457e0431d2db7124754f2584925ab1",
+    "bytes": 180657,
+    "source": "/tmp/final-baseline/chromium/m3-inheritance.png",
+    "report": "before-missions",
+    "at": "2026-10-23T13:12:55.108591+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/final-before/?mission=m3-hidden-inheritance",
+    "label": "Vorher "
+  },
+  {
+    "path": "images/missions-webkit/m3-inheritance.png",
+    "sha256": "2a5a2b493aaa344a1e7c22a0be07381e51a4fbde2f39e89758e7ae4e640d5da8",
+    "bytes": 182798,
+    "source": "/tmp/final-missions-current/webkit/m3-inheritance.png",
+    "report": "missions-webkit",
+    "at": "2026-10-23T14:03:49.548356+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m3-hidden-inheritance",
+    "label": "Nachher "
+  },
+  {
+    "path": "images/before-missions/m4-selection-question.png",
+    "sha256": "f2005c3f9945b1cfe2f2572aea1b0d2002b39e401e8b5a0432c561d28e701938",
+    "bytes": 191079,
+    "source": "/tmp/final-baseline/chromium/m4-selection-question.png",
+    "report": "before-missions",
+    "at": "2026-10-23T13:16:07.707620+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/final-before/?mission=m4-dominance-frequency",
+    "label": "Vorher "
+  },
+  {
+    "path": "images/missions-webkit-rest/m4-selection-question.png",
+    "sha256": "c707f7ee9e41cf21cc2e43ef941ebcbcd4d51a9d45897faee0d1f6d7c7338c43",
+    "bytes": 182291,
+    "source": "/tmp/final-missions-rest/webkit/m4-selection-question.png",
+    "report": "missions-webkit-rest",
+    "at": "2026-10-23T14:09:16.021718+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m4-dominance-frequency",
+    "label": "Nachher "
+  },
+  {
+    "path": "images/before-missions/m4-dominance-question.png",
+    "sha256": "5c7c31e1ee92478c89c46d81034f3ba0d09c0ab5413ba9365e934517921f6ff5",
+    "bytes": 182997,
+    "source": "/tmp/final-baseline/chromium/m4-dominance-question.png",
+    "report": "before-missions",
+    "at": "2026-10-23T13:16:13.779960+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/final-before/?mission=m4-dominance-frequency",
+    "label": "Vorher "
+  },
+  {
+    "path": "images/missions-webkit-rest/m4-dominance-question.png",
+    "sha256": "38c6a9fe5058f145bcd0e7342894e661ac45898f02ec2401cc63bd31cf7c2f25",
+    "bytes": 175032,
+    "source": "/tmp/final-missions-rest/webkit/m4-dominance-question.png",
+    "report": "missions-webkit-rest",
+    "at": "2026-10-23T14:09:38.554159+00:00",
+    "timeSource": "capture event",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m4-dominance-frequency",
+    "label": "Nachher "
+  },
+  {
+    "path": "exports/before-missions-m6-result.json.gz",
+    "original_sha256": "23f8723336e57ef0ba49971a2954ff6a6961f6e16554b647182e13f6b8a0a502",
+    "sha256": "7570e3630ce8fa04d0df71ba1e80d380ab88636ed901e5fca1246af65395689a",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/before-missions-m5-result.json.gz",
+    "original_sha256": "d7973e9d9e99e1b7a8e3b6c5662665400ec9b60014c50d5c2fb15151ebbd6404",
+    "sha256": "8e6d86badbc791246f7cf2cc491f778e79e2921cf45ed0896f7daad3a342874d",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/before-missions-m4-result.json.gz",
+    "original_sha256": "73284a18945268c7cd319d92cfaab16383ebb31ed045689b5feab7b943c5c114",
+    "sha256": "3ce3e4e7500d3fde15c099923cd7ca958cbac866f67146976f69ef2a699d80ac",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/before-missions-m3-result.json.gz",
+    "original_sha256": "853ec4416b60867f08bb3a3ec2d3060b2ec611f7d0d987263db634826052f38d",
+    "sha256": "837c36c7cb2cfac00df6a60bcf7bf7e1a2710b2ae0e8b7fb2c0802ed5bd5b6cd",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/before-missions-m2-result.json.gz",
+    "original_sha256": "c909e9eb5b0f448169181e38e9cedaf685a52bc6655c72b1ebbdaa06997f1794",
+    "sha256": "a6c559e1b9029a131191abe6e08b97a5fcf8b348ea4de610f3cda57f9bea0ee5",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/before-missions-m1-result.json.gz",
+    "original_sha256": "6cd6e1b574ef3121464437c2eb6c9105a475cd4a474f3e15913992e500cbdb9c",
+    "sha256": "d9bcf02951e76f92eeaf249f1219d45fae452836bb7fe534d20c039ad98eed0a",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/missions-webkit-rest-m6-result.json.gz",
+    "original_sha256": "854208a5915a3dc8c894933089ef5b98dd5ac23eab763638bd656788d944ae07",
+    "sha256": "75c8b2fe177a5dc381ff17c2d07444a3dad84a7db1764aafcbf0374bf31ae4bd",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/missions-webkit-rest-m5-result.json.gz",
+    "original_sha256": "42ca89db474bd3ae6be2ae41812e954f11823281cc84ddba10bc0aeb93fc9c21",
+    "sha256": "2564a782296358fc0fc95c10c65c62796537a5ae01f3760a3139bb8e9024b6f9",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/missions-webkit-rest-m4-result.json.gz",
+    "original_sha256": "394f2620d417c28f5589eed04319c52bb04d813634af9a1f3296e7f57754f2b1",
+    "sha256": "d24c0d72d4e491223de29ad36af9d3a3559cca306ff5629f5e218eb0850ae50c",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/missions-webkit-m3-result.json.gz",
+    "original_sha256": "f0f1b4b5e6f983dd6663b2904249d423c8c068742ccaa946a3a3751788c5e1db",
+    "sha256": "1d42dc14bbd12522d7824e6aba5809be42c5dd59302be16c7de61a11c33e49fc",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/missions-webkit-m3-empty-parents.json.gz",
+    "original_sha256": "1af2ae060c2715ae43f4b6e2a0e8baed04e350e556d8be3e4dd1ce7b53aa3681",
+    "sha256": "5f2b8cdc8e706cf81cc4629482f4833828a096a2c1fb8ada952e612936a1d309",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/missions-webkit-m2-result.json.gz",
+    "original_sha256": "9ce7845b3df4f940f18cb3e8be304a99673b6db04574f727147847cf44aad532",
+    "sha256": "bd5761117d87be2bcb44284fb2915325f457f2d7377bf6b0acf4911a152e2e92",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/missions-webkit-m1-result.json.gz",
+    "original_sha256": "3e81b82190710cbda377e664a3f03a126df157fc25b344c3026eff749269de9f",
+    "sha256": "75708fe4829205bfba59c3d22b402424b33bab56c0ad5bf6804fe120c0edd766",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/missions-chromium-m5-result.json.gz",
+    "original_sha256": "43b43720a3a9dae0be7d27ac3d76ec5775abba85a44088027194e0813c55026d",
+    "sha256": "721067bb5e9c576ff536421c89a7c83ba5fee7c658c96e3b828dfae1fe520446",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/missions-chromium-m4-result.json.gz",
+    "original_sha256": "63986c4f60548fbb30e37d7aefa9d3bf6926fe14ffbc9bc3b8e3ae994d4f998b",
+    "sha256": "63275bd87f0d934980fab14b9b6ab680830fc8a9b23107aef622c1a61604e159",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/missions-chromium-m3-result.json.gz",
+    "original_sha256": "96901af7e483e4788d3c11e0ac1ec3d7e4cc74a2156c4630f9e33870943ffd34",
+    "sha256": "2af3cf8c3626ddea3ea2c30df8c6f9971638463c1b5aac29e21fdb20a3ed0b8e",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/missions-chromium-m2-result.json.gz",
+    "original_sha256": "b2d522a8a9a9cd776363c84efb046d914565cae9341891f44d6f39c31b0654ce",
+    "sha256": "f7f5a0c47ae62603b348be925d881c822b3ccc9ee3292b7733c6981eb999c621",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/missions-chromium-m1-result.json.gz",
+    "original_sha256": "9919f5cfaa4c9d935201cc15190621b9a07cfab86abbacf43014e24af1b625dc",
+    "sha256": "a77d24aa29969fdf858ae4203968e965f9c0142f3ad83a51b1d903436ffde606",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/tweezers-landscape-own-save.json.gz",
+    "original_sha256": "22493520205dddc379b099c81177d0c52f9aeac273b266e0a7e723240751f6ab",
+    "sha256": "1d9943146896fcbb176431d187a06ea1f2eee7c91537141e9e468746758bd7f4",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/tweezers-portrait-own-save.json.gz",
+    "original_sha256": "eb28e896efa472b63a2cbf7f6d2ddd2d3a0ea445c4f3fa8242bfa2c129a05ab3",
+    "sha256": "1709c38fa8875ef5919a6d6c1155b4b1a09ed5700565b401ab11a5e38d5a492b",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/tweezers-desktop-own-save.json.gz",
+    "original_sha256": "01ba546d71504a1bdaf6d1838572dcf14bad1e796cbe3d00eb8e6362c584f46e",
+    "sha256": "40191b7fc0c07cd6a98f314e3b0e8ce0313b32f84cc056b967e8ac59adccb839",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/tweezers-landscape-landscape-own-save.json.gz",
+    "original_sha256": "73d55904a5bafdfa1e2fac205367765bcc653ae3e26cf409d4b22dc84097fb85",
+    "sha256": "67b7958224a09267ee4cf0ff2ff038adce9ba10aa40116faf72c3d3fa534a7cd",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/offline-result.json.gz",
+    "original_sha256": "e70272e9aaf5d169c7c4f37b3c6329c9db17e910906a19baa70d1a2340edd384",
+    "sha256": "acbad13de811fc0de309560d4efb560aacd35bbded5a2b334811e374295dd415",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/public-m3-m3-result.json.gz",
+    "original_sha256": "8764e67104e21332f391afc611e4c621cb76f89cca6bdd46ea65c5f3d46f6be8",
+    "sha256": "0b206a6ee71d5a077725ab1424ef84f33489d2a5ea63b93cc28fd1b2f2d25659",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
+    "path": "exports/public-m3-m3-empty-parents.json.gz",
+    "original_sha256": "3421b1b3e9ab35c2ec7ac9b57f053a22b77e57a23567385e60bfe108e7eca3c5",
+    "sha256": "4034f6e62b64242b962db73b283b9785976ec0ab237420f26dba5206d3a5de09",
+    "note": "Lossless gzip of actual downloaded file"
+  }
+]

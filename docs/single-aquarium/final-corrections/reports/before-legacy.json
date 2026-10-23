@@ -1,0 +1,40 @@
+{
+  "runtime": "ffc061279f01f0030fe35503def0d1b329e5f73b",
+  "engine": "chromium",
+  "note": "Receipt reconstructed from the preserved probe script and unmodified capture files. Times below are original file mtimes, not an event trace.",
+  "captures": [
+    {
+      "name": "grade-8-0",
+      "at": "2026-10-23T13:03:23.040353+00:00",
+      "timeSource": "filesystem mtime",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "url": "http://127.0.0.1:8000/final-before/?expert=1&archive-tools=1",
+      "sha256": "55a960ed57ffe4b8d3b87efb5724b41af58254ec54eafc01a377aac24aa7be57"
+    },
+    {
+      "name": "grade-8-2",
+      "at": "2026-10-23T13:03:24.395394+00:00",
+      "timeSource": "filesystem mtime",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "url": "http://127.0.0.1:8000/final-before/?expert=1&archive-tools=1",
+      "sha256": "55a960ed57ffe4b8d3b87efb5724b41af58254ec54eafc01a377aac24aa7be57"
+    },
+    {
+      "name": "grade-9-1",
+      "at": "2026-10-23T13:03:23.730114+00:00",
+      "timeSource": "filesystem mtime",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "url": "http://127.0.0.1:8000/final-before/?expert=1&archive-tools=1",
+      "sha256": "55a960ed57ffe4b8d3b87efb5724b41af58254ec54eafc01a377aac24aa7be57"
+    }
+  ]
+}

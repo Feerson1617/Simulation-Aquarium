@@ -1,4 +1,6 @@
-# F01–F03 umgesetzt und geprüft – neue Sichtabnahme ausstehend
+# Historischer Stand: erste F01–F03-Sichtabnahme
+
+**Abgelöst durch den [finalen Auftrag vom 23.10.2026](../final-corrections/REQUEST.md) und [aktuellen Arbeitsstand](../final-corrections/WORK_STATE.md).** Die unabhängige Abnahme akzeptiert die Basis; eine weitere Zwischenfreigabe ist nicht nötig. Die folgenden Angaben dokumentieren den damaligen Ablauf.
 
 Verbindliche Nutzerfreigabe vom 23.10.2026: nur `feature/coherent-learning-workspaces`, offener PR #9. Commits/Pushs und PR-Vorschau erlaubt. Kein neuer PR, keine Änderungen an main, kein Merge, kein PR-Statuswechsel.
 

@@ -1,3 +1,9 @@
+# Aktiver Folgeauftrag vom 23.10.2026
+
+Maßgeblich ist jetzt [corrections/WORK_STATE.md](corrections/WORK_STATE.md). **Neues Sichtabnahme-Gate nach F01–F03**; F04–F11 erst anschließend abschließen. Der folgende Bericht beschreibt den früheren Auftrag.
+
+---
+
 # Fortsetzung abgeschlossen: ein Aquarium, sechs Fragen
 
 Die neue M1-Sichtfreigabe wurde ausdrücklich erteilt („jup, ist besser als vorher“). Die zusätzliche Vorgabe einfacher Sprache und keiner chemischen Einheiten in Klasse 8 ist umgesetzt. Phase 3/4 sind abgeschlossen; nicht am früheren Prototyp-Gate erneut stoppen. Kein Merge ohne gesonderten Auftrag.

@@ -61,7 +61,8 @@ export function mountAquariumView(host,root,onSelect){
    const hits=v.raycaster.intersectObjects(candidates.map(([,o])=>o.group),true);let uid=null;
    if(hits.length){const owners=new Map(candidates.map(([id,o])=>[o.group,id]));let o=hits[0].object;while(o&&!owners.has(o))o=o.parent;uid=owners.get(o);}
    if(uid==null){let closest=Infinity;for(const [id,o]of candidates){const b=objectBounds(v,o);if(!b)continue;const dx=Math.max(b.left-e.clientX,0,e.clientX-b.right),dy=Math.max(b.top-e.clientY,0,e.clientY-b.bottom),padding=e.pointerType==='touch'?22:8,distance=Math.hypot(b.x-e.clientX,b.y-e.clientY);if(dx<=padding&&dy<=padding&&distance<closest){closest=distance;uid=id;}}}
-   if(uid!=null){lastPick={uid,input:e.pointerType,x:e.clientX,y:e.clientY,method:hits.length?'mesh':'near-object'};e.preventDefault();e.stopImmediatePropagation();onSelect(uid);}
+   // Prevent the legacy picker, but let OrbitControls receive pointerup and release its gesture.
+   if(uid!=null){lastPick={uid,input:e.pointerType,x:e.clientX,y:e.clientY,method:hits.length?'mesh':'near-object'};e.preventDefault();onSelect(uid);}
   },true);
   canvas.addEventListener('pointercancel',()=>{down=null;},true);
  }

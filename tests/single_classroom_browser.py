@@ -61,7 +61,7 @@ def finish(p,touch,id,label):
  if id.startswith('m2'):
   initial=snap(p)['session']['tank']['detritus'];click(p,'feed',touch);assert snap(p)['session']['tank']['detritus']==initial+.12
   observe(p,touch,label);assert snap(p)['session']['runs'][0]['fluxTotals']['decomposition']>0
-  help_error(p,'opposite','observed',touch,label);click(p,'filter',touch);expect(p.locator('.single-dialog')).to_contain_text('stark vergrößert');p.keyboard.press('Escape')
+  help_error(p,'opposite','observed',touch,label);click(p,'filter',touch);assert not p.locator('.single-dialog').count();click(p,'process',touch);expect(p.locator('.single-dialog')).to_contain_text('stark vergrößert');p.keyboard.press('Escape')
   geometry(p,label+'-process');choice(p,'decomposer',touch);choice(p,'nutrients',touch);choice(p,'separate',touch)
  elif id.startswith('m3'):
   actual_genetics(p);pick_parents(p,touch);geometry(p,label+'-parents');click(p,'generation',touch);s=actual_genetics(p);assert all(e['genotype']=='Aa' for e in s['session']['tank']['entities'] if e['species']=='molly')

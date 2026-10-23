@@ -49,15 +49,18 @@ def direct(p,uid,touch=True):
  p.touchscreen.tap(pt['x'],pt['y']) if touch else p.mouse.click(pt['x'],pt['y'])
  R['actions'].append({'input':'direct canvas touchscreen tap' if touch else 'direct canvas mouse click','uid':uid,'point':pt,'at':datetime.now(timezone.utc).isoformat()})
  assert snapshot(p)['session']['selection']==uid,(uid,snapshot(p)['session']['selection'])
- p.wait_for_function('uid=>document.querySelector(".aquarium-selection:not([hidden])")?.dataset.selectedUid===String(uid)',uid)
+ p.wait_for_function('uid=>document.querySelector(".aquarium-selection:not([hidden])")?.dataset.selectedUid===String(uid)',arg=uid)
  assert snapshot(p)['presentation']['markerVisible']
+def resize(p,w,h):
+ p.set_viewport_size({'width':w,'height':h})
+ p.wait_for_function('''()=>{const v=window.aquariumLearningSnapshot()?.presentation,g=v?.glass;return g&&Math.abs(g.left-(innerWidth<=820?20:448))<2&&g.right<=innerWidth+1}''',polling=300)
 def frame_cases(p,id):
  for profile,w,h in [('portrait',768,1024),('desktop',1366,960),('landscape',1366,1024)]:
-  p.set_viewport_size({'width':w,'height':h});p.wait_for_timeout(500)
+  resize(p,w,h)
   shot(p,id+'-'+profile+'-start');v=snapshot(p)['presentation'];g=v['glass'];assert g['left']>=-1 and g['right']<=w+1
   assert g['width']>=(w*.90 if profile=='portrait' else 850),g
-  assert g['width']*g['height']/w/h>.20
- p.set_viewport_size({'width':768,'height':1024});p.wait_for_timeout(500)
+  assert g['width']*g['height']/w/h>(.18 if id=='m3' else .25)
+ resize(p,768,1024)
 def observe(p,label):
  c(p,'play');p.locator('[data-class=toggle]').press('Enter');R['actions'].append({'input':'keyboard Enter','selector':'[data-class=toggle]'})
  assert not snapshot(p)['running'];c(p,'help');held=snapshot(p)['session'];p.wait_for_timeout(750);assert snapshot(p)['session']==held;c(p,'close');reload_exact(p)

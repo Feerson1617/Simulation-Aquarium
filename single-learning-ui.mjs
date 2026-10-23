@@ -1,13 +1,14 @@
+import {mountAquariumView} from './single-aquarium-view.mjs';
+import {amountFigure} from './single-observation.mjs';
 import {readSingleTeacher,writeSingleTeacher} from './single-teacher-settings.mjs';
 import {mountClassroomUI} from './single-classroom-ui.mjs';
 import {CLASSROOM_IDS} from './single-classroom-model.mjs';
 import {SINGLE_MISSIONS,LEGACY_MISSION_TARGETS} from "./single-learning-missions.mjs";
-import {SINGLE_STORAGE,createSingleM1,selectSinglePlant,predictSingle,beginSingleObservation,advanceSingleObservation,resetSingleForDark,darkenSingle,singleObservationChoices,answerSingle,currentSingleRun,singleContext,serializeSingle,encodeSingle,decodeSingle,validateSingle,roundedOxygen} from "./single-learning-model.mjs";
+import {SINGLE_STORAGE,createSingleM1,selectSinglePlant,predictSingle,beginSingleObservation,advanceSingleObservation,resetSingleForDark,darkenSingle,singleObservationChoices,answerSingle,currentSingleRun,singleContext,serializeSingle,encodeSingle,decodeSingle,validateSingle} from "./single-learning-model.mjs";
 import {stateId} from "./learning-context.mjs";
 const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
 const number=v=>Number.isFinite(v)?v.toLocaleString("de-DE",{minimumFractionDigits:2,maximumFractionDigits:2}):"—";
 const button=(id,label,extra="")=>`<button data-single="${id}" ${extra}>${label}</button>`;
-const oxygenChange=(value,start)=>roundedOxygen(value)>roundedOxygen(start)?"mehr als am Anfang":roundedOxygen(value)<roundedOxygen(start)?"weniger als am Anfang":"so viel wie am Anfang";
 const observing=s=>s && ["light-observing","dark-observing"].includes(s.stage);
 export function mountSingleAquariumUI(host) {
   const route=new URLSearchParams(location.search),mission=route.get("mission"),research=route.get("research");
@@ -16,6 +17,7 @@ export function mountSingleAquariumUI(host) {
   const root=document.createElement("div");root.id="learning-root";host.root.append(root);
   let session=null,active=false,timer=null,dialog=null,feedback="",feedbackKind="neutral",storageError="",opener=null,importedLegacy=null;
   const assetErrors=[];let teacher=readSingleTeacher();
+  const presentation=mountAquariumView(host,root,choosePlant);
   const oldKeys=()=>{try{return Object.keys(localStorage).filter(k=>k.startsWith("aquarium-learning-")||k.startsWith(SINGLE_STORAGE+":archive:"));}catch{return [];}};
   function readSaved(){try{return localStorage.getItem(SINGLE_STORAGE);}catch{storageError="Der lokale Speicher ist nicht verfügbar. Sichere deinen Stand als Datei.";return null;}}
   function save() {
@@ -72,15 +74,10 @@ export function mountSingleAquariumUI(host) {
     const runs=session.runs.filter(r=>r.samples.length),values=runs.flatMap(r=>r.samples.map(x=>x.oxygen));
     if(!values.length)return "";
     const lo=Math.min(...values)-.05,hi=Math.max(...values)+.05;
-    return `<figure class="single-chart"><svg viewBox="0 0 360 140" role="img" aria-label="Gespeicherte Sauerstoffverläufe über jeweils drei Tage"><path d="M35 15 V110 H345" fill="none" stroke="currentColor"/>${runs.map((r,i)=>`<polyline data-run-id="${r.id}" points="${r.samples.map(p=>`${35+(p.day-r.startSnapshot.day)/3*310},${110-(p.oxygen-lo)/(hi-lo)*90}`).join(" ")}" fill="none" stroke="${i?"#965f32":"#306c63"}" stroke-width="3" ${i?'stroke-dasharray="7 4"':""}/>`).join("")}<text x="0" y="18">mehr</text><text x="0" y="112">weniger</text><text x="35" y="132">Anfang</text><text x="294" y="132">3 Tage</text></svg><figcaption>Durchgezogen: mit Licht · gestrichelt: ohne Licht · Sauerstoff</figcaption></figure>`;
+    return `<figure class="single-chart"><svg viewBox="0 0 360 140" role="img" aria-label="Gespeicherte Sauerstoffverläufe über jeweils drei Tage"><path d="M35 15 V110 H345" fill="none" stroke="currentColor"/>${runs.map((r,i)=>`<polyline data-run-id="${r.id}" points="${r.samples.map(p=>`${35+(p.day-r.startSnapshot.day)/3*310},${110-(p.oxygen-lo)/(hi-lo)*90}`).join(" ")}" fill="none" stroke="${i?"#965f32":"#306c63"}" stroke-width="3" ${i?'stroke-dasharray="7 4"':""}/>`).join("")}<text x="0" y="18">mehr</text><text x="0" y="112">weniger</text><text x="35" y="132">Anfang</text><text x="294" y="132">3 Tage</text></svg><figcaption>Sauerstoff · durchgezogen: mit Licht · gestrichelt: ohne Licht. Gleiche Skala, vergrößerter Ausschnitt.</figcaption></figure>`;
   }
-  function liveCurve() {
-    const r=currentSingleRun(session);if(!r?.samples.length||!["running","completed"].includes(r.status))return "";
-    const values=r.samples.map(p=>p.oxygen),low=Math.min(...values)-.03,high=Math.max(...values)+.03;
-    const points=r.samples.map(p=>[8+(p.day-r.startSnapshot.day)/3*184,42-(p.oxygen-low)/(high-low)*34]);
-    return `<svg class="single-live-curve" data-live-curve data-time="${session.tank.day}" data-state-id="${singleContext(session).stateId}" viewBox="0 0 200 64" role="img" aria-label="Sauerstoffwerte dieses Durchgangs vom Anfang bis jetzt"><polyline points="${points.map(p=>p.join(",")).join(" ")}" fill="none" stroke="#306c63" stroke-width="2"/><circle cx="${points.at(-1)[0]}" cy="${points.at(-1)[1]}" r="3" fill="#306c63"/><text x="8" y="61">Anfang</text><text x="160" y="61">3 Tage</text></svg>`;
-  }
-  function table() {return `<table class="single-results"><caption>Sauerstoff im Wasser</caption><thead><tr><th>Licht</th><th>Am Anfang</th><th>Nach 3 Tagen</th></tr></thead><tbody>${session.runs.map(r=>`<tr data-run-id="${r.id}" data-state-id="${r.archive.frames.at(-1).stateId}" data-time="${r.samples.at(-1).day}"><th>${r.condition==="daily-light"?"Mit Licht":"Ohne Licht"}</th><td>gleich viel</td><td>${oxygenChange(r.samples.at(-1).oxygen,r.samples[0].oxygen)}</td></tr>`).join("")}</tbody></table>`;}
+  function table() {return chart();}
+
 
   function task() {
     const s=session,r=currentSingleRun(s),plant=s.tank.entities.find(e=>e.uid===s.selection),selected=plant?host.types[plant.species]?.name:"Wasserpflanze";
@@ -89,7 +86,7 @@ export function mountSingleAquariumUI(host) {
     if(s.stage==="prediction") {title="Geben Pflanzen auch ohne Licht Sauerstoff ab?";body=`Ausgewählt: ${esc(selected)}. Was vermutest du?`;action=`<div class="single-options">${["Ja","Nein","Ich bin unsicher"].map((x,i)=>button("prediction",x,`data-choice="${i}"`)).join("")}</div>`;}
     if(s.stage==="light-ready") {title="Beobachte zuerst mit täglichem Licht.";body="Die Lampe leuchtet 8 Stunden täglich. Wir beobachten 3 Tage und merken die Sauerstoffwerte automatisch.";action=button("play","Entwicklung ansehen",'class="single-primary"');}
     if(observing(s)) {title=timer?"Beobachte den Sauerstoffwert.":"Die Beobachtung ist angehalten.";body="Die Werte gehören zum sichtbaren Aquarium. Während du liest oder Hilfe öffnest, kannst du die Entwicklung anhalten.";action=button(timer?"pause":"play",timer?"Anhalten":"Weiter beobachten",'class="single-primary"');}
-    if(s.stage==="light-finished") {title="Der erste Verlauf ist gespeichert.";body=`Sauerstoff im Wasser: ${oxygenChange(r.samples.at(-1).oxygen,r.samples[0].oxygen)}. Wir starten noch einmal gleich. Dann ändern wir nur das Licht.`;action=button("reset","Mit gleichem Anfang noch einmal",'class="single-primary"');}
+    if(s.stage==="light-finished") {title="Der erste Verlauf ist gespeichert.";body=`Der erste Verlauf bleibt gespeichert. Wir starten noch einmal gleich. Dann ändern wir nur das Licht.`;action=button("reset","Mit gleichem Anfang noch einmal",'class="single-primary"');}
     if(s.stage==="reset-ready") {title="Der Anfang ist wiederhergestellt.";body=`Tiere, Pflanzen, Wasser und Uhrzeit sind wieder wie am Anfang. Jetzt schalten wir nur das Licht aus.`;action=button("darken","Lampe ausschalten",'class="single-primary"');}
     if(s.stage==="dark-ready") {title="Beobachte jetzt ohne Licht.";body="Die Lampe bleibt ausgeschaltet. Wir beobachten wieder 3 Tage ab demselben Anfang.";action=button("play","Entwicklung ohne Licht ansehen",'class="single-primary"');}
     if(s.stage==="compare") {title="Was hat sich beim Sauerstoff verändert?";action=table()+questionOptions(singleObservationChoices(s).slice(0,2),"observation");}
@@ -102,7 +99,7 @@ export function mountSingleAquariumUI(host) {
     return `<main class="single-home"><p>Ökosystem-Werkstatt · Klassen 8–10</p><h1>Biologie im Aquarium</h1><p>Eine Frage. Dein Aquarium. Deine Beobachtung.</p>${[8,9,10].map(grade=>`<section><h2>Klasse ${grade}</h2><div class="single-missions">${SINGLE_MISSIONS.filter(m=>m.grade===grade).map(m=>`<article><h3>${esc(m.title)}</h3>${m.id==="m1-light-oxygen"?button("start",session||readSaved()?"Fortsetzen":"Beginnen",`class="single-primary" data-single-mission="${m.id}"`):`<a class="single-primary classroom-start" data-single-mission="${m.id}" href="?mission=${m.id}">Untersuchen</a>`}</article>`).join("")}</div></section>`).join("")}<nav><a href="?research=8">Frei forschen · Klasse 8</a><a href="?research=9">Klasse 9</a><a href="?research=10">Klasse 10</a><a href="?expert=1">Tutorial und Expertenwerkzeuge</a>${button("teacher","Lehrkraft und frühere Ergebnisse")}</nav></main>`;
   }
   function helpSteps() {
-    const observingHelp=["Schau auf den Sauerstoffwert und die kleine Linie am Aquarium.","Die Linie sammelt echte Werte aus diesem Durchgang. Mit Anhalten kannst du in Ruhe lesen.","Vergleiche den Anfang mit dem Ende. Die Anzeige zeigt noch nicht, woher der Sauerstoff kommt."];
+    const observingHelp=["Vergleiche die beiden Balken: Anfang und Jetzt.","Die Anzeige verwendet echte Werte aus diesem Durchgang. Mit Anhalten kannst du in Ruhe lesen.","Vergleiche den Anfang mit dem Ende. Die Anzeige zeigt noch nicht, woher der Sauerstoff kommt."];
     return ({
       plant:["Suche die grünen Pflanzen im Aquarium.","Mit Wasserpest auswählen wählst du eine vorhandene Pflanze aus.","Die ausgewählte Pflanze gehört zu diesem Aquarium. Wir untersuchen, was sich mit und ohne Licht verändert."],
       prediction:["Gemeint ist die ausgewählte Wasserpflanze. Was erwartest du ohne Licht?","Du kannst auch Ich bin unsicher wählen. Deine Vermutung wird nicht benotet.","Wir prüfen die Vermutung erst mit den anschließenden Beobachtungen."],
@@ -112,7 +109,7 @@ export function mountSingleAquariumUI(host) {
       "reset-ready":["Die Lampe sitzt über dem Aquarium. Nutze sie oder Lampe ausschalten.","Tiere, Pflanzen, Wasser und Tageszeit sind wieder wie am Anfang.","Die gespeicherten Werte bleiben erhalten. Für die nächste Beobachtung ändern wir nur die Beleuchtung."],
       "dark-ready":["Prüfe: Die Lampe ist aus. Starte Entwicklung ohne Licht ansehen.","Wir beobachten wieder drei Tage. Die Werte werden automatisch gespeichert.","Der Anfang ist derselbe wie zuvor; nur die Beleuchtung wurde geändert."],
       "dark-observing":observingHelp,
-      compare:["Schau in der Tabelle auf Anfang und Nach 3 Tagen.","Vergleiche zuerst den Anfang und das Ende jeder Zeile miteinander.","Vergleiche danach beide Endwerte. Auch ohne Licht kann der Gesamtwert steigen."],
+      compare:["Vergleiche in beiden Linien den Anfang und das Ende.","Die durchgezogene Linie gehört zum Lichtversuch, die gestrichelte zum Dunkelversuch.","Vergleiche danach beide Endwerte. Auch ohne Licht kann der Gesamtwert steigen."],
       explain:["Schau noch einmal auf beide gespeicherten Verläufe.","Die Anzeige zeigt alles zusammen. Sie zeigt nicht, woher jeder Teil kommt.","Was machen Pflanzen bei Licht? Wer braucht Sauerstoff? Wie kommt Sauerstoff aus der Luft ins Wasser?"],
       complete:["Deine Beobachtung und die ausgewählte Erklärung sind gespeichert.","Mit Ergebnis speichern sicherst du sie als Datei.","Im Menü kannst du freiwillig eine eigene kurze Erklärung ergänzen."],
       failed:["Dieser Durchgang läuft nicht weiter.","Sichere den bisherigen Stand. Es werden keine fehlenden Werte ergänzt.","Ein neuer Durchgang beginnt mit einem neuen Versuch; die bisherigen Daten bleiben erhalten."]
@@ -122,7 +119,7 @@ export function mountSingleAquariumUI(host) {
     let title="",body="";
     if(dialog==="menu") {title="Menü";body=button("home","Zur Missionsauswahl")+button("export","Stand als Datei speichern")+button("load","Sicherung öffnen")+button("display","Darstellung")+button("teacher","Lehrkraft und frühere Ergebnisse")+`<a href="?expert=1">Freies Spiel & Tutorial</a>`;if(session.stage==="complete"&&teacher.ownExplanation)body+=`<label>Deine eigene kurze Erklärung (freiwillig)<textarea data-single-note maxlength="20000">${esc(session.ownText)}</textarea></label>`;}
     if(dialog==="help") {title="Tipp zu deiner Aufgabe";const n=Math.max(0,Math.min(2,Number(session.hintLevels?.[session.stage])||0));body=`<p>${helpSteps()[n]}</p>${n<2?button("more-help","Weiterer Tipp"):""}`;}
-    if(dialog==="curves") {title="Deine gespeicherten Beobachtungen";body=table()+chart()+"<p>Beide Durchgänge begannen vollständig gleich, zur selben Tageszeit. Geändert wurde nur die Beleuchtung. Die gespeicherten Daten laufen nicht weiter.</p>";}
+    if(dialog==="curves") {title="Deine gespeicherten Beobachtungen";body=chart()+"<p>Beide Durchgänge begannen vollständig gleich, zur selben Tageszeit. Geändert wurde nur die Beleuchtung. Die gespeicherten Daten laufen nicht weiter.</p>";}
     if(dialog==="process") {title="An deiner Wasserpflanze";body=`<p>${esc(host.types[session.tank.entities.find(e=>e.uid===session.selection)?.species]?.name || "Deine Pflanze")}</p><div class="single-process" data-selected-plant="${session.selection}"><p>☀ Licht → Pflanze → Sauerstoff im Wasser</p><p>Pflanzen, Tiere und kleine Lebewesen verbrauchen Sauerstoff – auch ohne Licht.</p><p>Luft ↔ Wasser: Sauerstoff kann hinzukommen oder abgegeben werden.</p></div><p>Das erklärt Vorgänge. Die Anzeige zeigt alles zusammen. Sie zeigt nicht, woher jeder Teil kommt.</p>`;}
     if(dialog==="display") {title="Darstellung";body=host.profiles.map(p=>button("profile",esc(p.label||p.name||p.id),`data-profile="${p.id}" aria-pressed="${host.graphics().id===p.id}"`)).join("");}
     if(dialog==="recovery") {title="Deinen Stand erhalten";body="<p>Die vorhandene Sicherung wird nicht überschrieben.</p>"+button("raw-export","Gespeicherte Sicherung herunterladen")+button("load","Andere Sicherung öffnen");}
@@ -132,20 +129,15 @@ export function mountSingleAquariumUI(host) {
     }
     return `<div class="single-shade" ${dialog==="process"?"data-single-explanation":""}><section class="single-dialog" role="dialog" aria-modal="true" aria-label="${title}"><header><h2 tabindex="-1">${title}</h2>${button("close","Schließen")}</header>${body}</section></div>`;
   }
-  function liveMeter(){return `<aside class="single-meter" data-persistent-hud data-state-id="${singleContext(session).stateId}" data-time="${session.tank.day}"><small>Sauerstoff im Wasser</small><strong data-single-oxygen>${oxygenChange(session.tank.params.oxygen,session.baseline.params.oxygen)}</strong><span>${session.tank.hours===0?"Lampe aus":"Licht am Tag"}</span>${["light-observing","dark-observing","light-finished"].includes(session.stage)?liveCurve():""}${currentSingleRun(session)?.status==="running"?`<span data-single-clock>${number(session.tank.day-currentSingleRun(session).startSnapshot.day)} von 3 Tagen · ${timer?"läuft":"angehalten"}</span>`:""}</aside>`;}
+  function liveMeter(){return `<aside class="single-meter" data-persistent-hud data-state-id="${singleContext(session).stateId}" data-time="${session.tank.day}">${amountFigure({title:'Sauerstoff in diesem Aquarium',rows:[{label:'Anfang',value:session.baseline.params.oxygen},{label:'Jetzt',value:session.tank.params.oxygen}],reference:session.baseline.params.oxygen})}<span>${session.tank.hours===0?"Lampe aus":"Licht am Tag"}</span>${currentSingleRun(session)?.status==="running"?`<span data-single-clock>${number(session.tank.day-currentSingleRun(session).startSnapshot.day)} von 3 Tagen · ${timer?"läuft":"angehalten"}</span>`:""}</aside>`;}
 
-  function composeCamera() {
-    const view=host.comparisonRenderer?.();if(!view)return;
-    const rect=view.renderer.domElement.getBoundingClientRect();
-    if(active&&innerWidth<=820)view.camera.setViewOffset(rect.width,rect.height,0,rect.height*.12,rect.width,rect.height);
-    else view.camera.clearViewOffset();
-  }
+  function composeCamera() {presentation.configure({enabled:active,selected:session?.selection,selectable:e=>!!e&&!e.dead&&host.types[e.species]?.category==='plant'});}
   function render() {
     const hadFocus=root.contains(document.activeElement),focusedAction=document.activeElement?.dataset.single;
     const previousStage=root.querySelector('[data-single-stage]')?.dataset.singleStage;
     document.documentElement.classList.add("learning-mode","single-aquarium");
     document.documentElement.classList.toggle("learning-home",!active);
-    const content=active?`<header class="single-brand" data-persistent-hud><small>Klasse 8 · Licht und Sauerstoff</small><span>Was machen Pflanzen im Dunkeln?</span></header><div class="single-menu" data-persistent-hud>${button("menu","Menü",'aria-haspopup="dialog"')}</div>${task()}${["light-ready","light-observing","light-finished","reset-ready","dark-ready","dark-observing"].includes(session.stage)?`${liveMeter()}`:""}`:home();
+    const content=active?`<header class="single-brand" data-persistent-hud><small>Klasse 8 · Licht und Sauerstoff</small><span>Was machen Pflanzen im Dunkeln?</span></header><div class="single-menu" data-persistent-hud>${button("menu","Menü",'aria-haspopup="dialog"')}${button("frame","Becken einpassen")}</div>${task()}${["light-ready","light-observing","light-finished","reset-ready","dark-ready","dark-observing"].includes(session.stage)?`${liveMeter()}`:""}`:home();
     root.innerHTML=`<div class="single-surface" ${dialog?"inert":""}>${content}</div>${dialog?modal():""}${storageError?`<aside class="single-storage" role="alert">${esc(storageError)} ${button("export","Stand als Datei speichern")}${button("retry-save","Erneut speichern")}</aside>`:""}${assetErrors.length?`<p class="single-asset-error" role="status">Ein Modell konnte nicht geladen werden. Deine Werte bleiben erhalten.</p>`:""}<input data-single-file type="file" accept="application/json,.json" hidden>`;
     host.sceneInert(!active||!!dialog);host.interactive(active&&!dialog);host.layout(false);composeCamera();
     if(hadFocus||(active&&!dialog&&previousStage!==session.stage)) {
@@ -169,10 +161,11 @@ export function mountSingleAquariumUI(host) {
       if(a==="plant"){const p=session.tank.entities.find(e=>e.species==="waterweed"&&!e.dead);if(p)choosePlant(p.uid);return;}
       if(a==="prediction"){if(predictSingle(session,Number(b.dataset.choice))){feedback="Deine Vermutung ist gespeichert. Prüfen wir sie an den Beobachtungen.";feedbackKind="neutral";}save();render();return;}
       if(a==="play"){play();return;}
+      if(a==="frame"){presentation.fit();return;}
       if(a==="pause"){pause();save();render();return;}
       if(a==="reset"){pause();if(resetSingleForDark(session)){bindTank();feedback="Der vollständige gleiche Anfang ist wieder da.";feedbackKind="neutral";}save();render();return;}
       if(a==="darken"){if(darkenSingle(session)){feedback="Nur das Licht wurde geändert.";feedbackKind="neutral";}save();render();return;}
-      if(a==="answer") {const correct=answerSingle(session,b.dataset.singleChoice);feedbackKind=correct?"success":"error";feedback=correct?"Dein Beleg ist gespeichert.":session.stage==="compare"?"Prüfe in der Tabelle Anfang und Ende.":"Prüfe die Verläufe. Was zeigt die Anzeige?";save();render();return;}
+      if(a==="answer") {const correct=answerSingle(session,b.dataset.singleChoice);feedbackKind=correct?"success":"error";feedback=correct?"Dein Beleg ist gespeichert.":session.stage==="compare"?"Prüfe bei beiden Linien Anfang und Ende.":"Prüfe die Verläufe. Was zeigt die Anzeige?";save();render();return;}
       if(a==="more-help"){session.hintLevels??={};session.hintLevels[session.stage]=Math.min(2,(Number(session.hintLevels[session.stage])||0)+1);save();render();return;}
       if(a==="export"){if(session)download(serializeSingle(session));return;}
       if(a==="retry-save"){save();render();return;}
@@ -212,7 +205,7 @@ export function mountSingleAquariumUI(host) {
     deviceContext:()=>({visible:active&&!dialog&&session.stage==="reset-ready",tools:["light"],focus:"light"}),
     openDevice:key=>{if(key==="light"&&active&&!dialog&&session.stage==="reset-ready"){darkenSingle(session);save();render();}},
     deviceView:()=>null,deviceState:()=>null,tweezersChanged:()=>{},refresh:()=>{},
-    snapshot:()=>({screen:active?"single-active":"single-home",profile:active?session.tank.learning:null,
+    snapshot:()=>({presentation:presentation.snapshot(),screen:active?"single-active":"single-home",profile:active?session.tank.learning:null,
       session:session?serializeSingle(session):null,context:session?singleContext(session):null,running:!!timer,dialog,storageError,assetErrors,
       renderer:active&&host.comparisonRenderer()?{mainStateId:stateId(host.comparisonRenderer().state),sameState:host.comparisonRenderer().state===host.getState(),objects:[...host.comparisonRenderer().objects.keys()],stats:host.comparisonRenderer().getStats()}:null})};
 }

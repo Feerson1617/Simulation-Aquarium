@@ -11,7 +11,7 @@ with sync_playwright() as pw:
  opts={'executable_path':'/usr/bin/chromium','args':['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']} if ENGINE=='chromium' else {'executable_path':os.environ['AQUARIUM_WEBKIT']}
  b=getattr(pw,ENGINE).launch(**opts);r['browser']=b.version;p=b.new_page(viewport={'width':1366,'height':960},has_touch=True);p.on('pageerror',lambda e:r['errors'].append(str(e)));p.on('requestfailed',lambda x:r['failed_requests'].append({'url':x.url,'failure':x.failure}))
  try:
-  p.goto(URL+'?expert=1&archive-tools=1');p.get_by_role('button',name='iPad-Version',exact=False).click();p.get_by_role('button',name='Freies Spiel',exact=False).click();p.get_by_role('button',name='Historische Lehrkraftwerkzeuge',exact=True).click();p.locator('[data-learn=teacher]').click()
+  p.goto(URL+'?expert=1&archive-tools=1');p.wait_for_selector('[data-learning-import=product]')
   for i,grade in enumerate([8,9,8,9]):
    f=ROOT/f'tests/fixtures/learning-v1-grade-{grade}.json';p.locator('[data-learning-import=product]').set_input_files(str(f));expect(p.locator('.learn-imported-product h3').first).to_have_text(f'Lernprodukt Klasse {grade}');expect(p.locator('[data-import-source]')).to_contain_text(f.name)
    p.locator('[data-import-source]').scroll_into_view_if_needed();capture(p,f'grade-{grade}-{i}')

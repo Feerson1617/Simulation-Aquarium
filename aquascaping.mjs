@@ -381,7 +381,7 @@ export class AquascapingController {
     }
     this.release = { entity: d.entity, age: 0, lifted: Math.min(1, d.age / .16) * .16 };
     this.canvas.style.cursor = 'grab';
-    this.onMessage?.(moved ? stored ? 'Abgesetzt und gespeichert. Du kannst das nächste Objekt greifen.' : 'Abgesetzt. Browserspeicherung gesperrt – sichere deinen Spielstand als Datei.' : 'Position beibehalten. Ziehe das Objekt an eine freie Stelle.');
+    this.onMessage?.(moved ? (d.blocked?'Ziel belegt. Letzte freie Position übernommen. ':'Freie Position übernommen. ')+(stored?'Gespeichert.':'Browserspeicherung gesperrt – sichere den Stand als Datei.') : d.blocked?'Ziel belegt. Die Ausgangsposition bleibt erhalten.':'Position unverändert. Ziehe an eine freie Stelle.');
   }
 
   pointerCancel(event) { if (this.enabled) this.consume(event); if (this.drag?.pointerId === event.pointerId) this.cancelDrag(); }

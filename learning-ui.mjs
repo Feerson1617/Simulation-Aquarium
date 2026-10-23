@@ -2294,6 +2294,7 @@ export function mountLearningUI(host) {
     setScreen("home");
   });
   host.root.append(entry);
+  if(historicalTools){host.pause();screen="home";panel="teacher";}
   render();
   return {
     openDevice,

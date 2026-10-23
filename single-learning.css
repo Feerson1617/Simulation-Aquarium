@@ -101,3 +101,10 @@ html[data-historical-tools] #learning-root::before {content:"Historische Lehrkra
  #learning-root .single-task[data-class-stage=choose-f1],
  #learning-root .single-task[data-class-stage=child] {max-height:42dvh}
 }
+
+/* Put the relevant raw evidence beside the requested hint, without a second tank. */
+#learning-root .single-dialog .single-meter {position:static;inset:auto;width:100%;max-width:none;box-sizing:border-box;margin:0}
+.single-archive-entry {border-top:1px solid var(--single-line);padding:12px 0}
+.single-archive-entry h3 {font-size:17px;line-height:1.3;margin:0}
+.single-dialog select {font:inherit;max-width:100%;min-height:44px;border:1px solid var(--single-line);border-radius:8px;background:#fffef7;color:var(--single-ink);padding:8px}
+.learn-import-error {padding:12px;border-left:4px solid #ad3932;background:#f9ded5;color:#8a2828}

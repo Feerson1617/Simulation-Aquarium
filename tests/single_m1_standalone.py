@@ -27,4 +27,7 @@ with sync_playwright() as pw:
   assert p.locator('canvas').count()==1;assert not r['errors'];assert r['httpRequests']==([] if URL.startswith('file:') else [URL])
   p.screenshot(path=str(OUT/'completed.png'));r.update(status='passed',checks=['one actual main aquarium and embedded assets','full serial M1 with exact reset','rising oxygen in the dark and process interpretation','exported identity matches the visible aquarium','no child HTTP resource, already-loaded document works offline'])
   print('PASS',ENGINE,'native file start' if URL.startswith('file:') else 'HTTP then offline','complete M1 and exported result')
+ except Exception as error:
+  r.update(status='blocked' if 'ERR_BLOCKED_BY_ADMINISTRATOR' in str(error) else 'failed',failure=str(error))
+  raise
  finally:(OUT/'report.json').write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n');b.close()

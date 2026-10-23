@@ -49,7 +49,7 @@ html[data-historical-tools] #learning-root::before {content:"Historische Lehrkra
 .single-shade[data-single-explanation] {background:transparent;backdrop-filter:none;place-items:start end;padding-top:100px;pointer-events:none}
 .single-shade[data-single-explanation] .single-dialog {width:min(350px,100%)}
 .single-dialog header {display:flex;justify-content:space-between;gap:12px;align-items:start}.single-dialog h2 {font-size:23px;line-height:1.25;letter-spacing:-.5px}
-.single-dialog>button {width:100%}.single-dialog a {color:#245c53;min-height:44px;padding:8px 0}.single-dialog summary {min-height:44px;cursor:pointer;padding:10px 0}
+.single-dialog>button {width:100%}.single-dialog a {display:block;color:#245c53;min-height:44px;padding:8px 0}.single-dialog summary {min-height:44px;cursor:pointer;padding:10px 0}
 .single-dialog label {display:grid;gap:8px}.single-dialog textarea {font:inherit;min-height:100px;padding:12px;border:1px solid #a1b1a1;border-radius:8px}
 .single-dialog details p {padding:10px 0;overflow-wrap:anywhere}
 .single-chart {margin:0}.single-chart svg {width:100%;height:auto;max-height:170px}.single-chart text {font-size:10px;fill:currentColor}.single-chart figcaption {font-size:12px}

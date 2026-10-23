@@ -1,3 +1,4 @@
+import {archiveDescription,archiveEntry} from './single-archive-display.mjs';
 import {manualEvidence} from './learning-product-display.mjs';
 import {relativePlantComparison,learnerCSVComparison,learnerPrecision} from "./learning-display.mjs";
 import {mountSingleAquariumUI} from "./single-learning-ui.mjs";
@@ -260,7 +261,7 @@ export function mountLearningUI(host) {
     const keys=Object.keys(localStorage).filter(k=>k.startsWith("aquarium-learning-attempt-v1:"));
     return keys.length ? `<details><summary>Frühere Durchgänge ansehen</summary>${keys.map(k=>{
       const saved=loadJSON(k,null),p=saved?.product;
-      return p ? `<button data-learning-archived-product="${esc(k)}">${saved.kind === "series" ? "Versuchsreihe" : "Durchgang"} · Klasse ${p.profile.grade} · ${esc(QUESTS[p.profile.mission]?.title || "Freies Forschen")} · ${esc(new Date(p.created).toLocaleString("de-DE"))}</button>` : "";
+      return p ? archiveEntry(archiveDescription(k,JSON.stringify(saved)),`<button data-learning-archived-product="${esc(k)}">${saved.kind === "series" ? "Frühere Versuchsreihe" : "Früheren Durchgang"} lesen</button>`) : "";
     }).join("")}</details>` : "";
   }
   function restartAttempt(repeat, populationSeed) {
@@ -1171,7 +1172,7 @@ export function mountLearningUI(host) {
               .map((key, i) => {
                 const item = loadJSON(key, {}),
                   parts = key.split(":");
-                return `<button data-learning-product="${esc(key)}">${esc(parts.at(-2))} · ${esc(parts.at(-1))} · ${Object.values(item.notes || {}).filter(Boolean).length} Texte</button>`;
+                return archiveEntry(archiveDescription(key,JSON.stringify(item)),`<button data-learning-product="${esc(key)}">Notizen und Messreihe lesen · ${Object.values(item.notes || {}).filter(Boolean).length} Texte</button>`);
               })
               .join("")
           : "<p>Noch keine lokalen Lernprodukte.</p>"

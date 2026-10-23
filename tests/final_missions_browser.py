@@ -84,6 +84,13 @@ def roundtrip(p,id):
  if is_m1:p.get_by_text('Frühere lokale Stände',exact=False).click()
  else:c(p,'archives')
  shot(p,id+'-archive');assert p.locator('.single-archive-entry').count()>0;act(p,f'[data-{prefix}=close]')
+def parent_table_check(p,trial_index,generation):
+ session=snapshot(p)['session'];trial=session['trials'][trial_index];event=next(e for e in trial['eventContexts'] if e['generation']==generation);history=next(h for h in trial['history'] if h['stateId']==event['parentStateId']);parents={str(e['uid']):e for e in history['tank']['entities']}
+ rows=p.locator('[data-parent-uid]');assert rows.count()==len(event['offspring'])
+ for row in rows.all():
+  uid=row.get_attribute('data-parent-uid');cells=row.locator('td').all_text_contents();assert parents[uid]['genotype'] in cells[1];assert ('hell' if parents[uid]['variant']=='gold' else 'dunkel') in cells[1];assert float(cells[2].replace(',','.'))==event['weights'][uid];assert int(cells[3])==event['offspring'][uid]
+ assert p.locator('.single-dialog').inner_text().find('Eltern aus Generation '+str(event['previousGeneration']))>=0
+ R['checks'].append(f'M4 trial {trial_index+1}/generation {generation}: displayed IDs, color, genotype, relative chance and actual children match the immutable archive');save()
 def run_m1(p):
  frame_cases(p,'m1');s=snapshot(p)['session'];plants=[e['uid'] for e in s['tank']['entities'] if e['species'] in ['anubias','waterweed']]
  for uid in plants[:2]:direct(p,uid)
@@ -100,19 +107,27 @@ def run(p,id):
   shot(p,'m2-before-feeding');initial=snapshot(p)['session']['tank']['detritus'];c(p,'feed');assert abs(snapshot(p)['session']['tank']['detritus']-initial-.12)<1e-10;shot(p,'m2-after-feeding');observe(p,'m2-observation');no_leak(p,id);wrong_help(p,'opposite','observed','m2')
   c(p,'filter');assert not p.locator('.single-dialog').count();shot(p,'m2-process-question');wrong_help(p,'vanish','decomposer','m2-filter');shot(p,'m2-plant-question');wrong_help(p,'food-energy','nutrients','m2-nutrients');shot(p,'m2-net-vs-flow');c(p,'process');shot(p,'m2-requested-explanation');c(p,'close');wrong_help(p,'seen','separate','m2-pool-flow')
  elif id=='m3':
-  c(p,'generation');shot(p,'m3-no-parents');c(p,'help');shot(p,'m3-founders-tip-1');c(p,'close');dark=next(e['uid'] for e in snapshot(p)['session']['tank']['entities'] if e['species']=='molly' and e['variant']=='black');direct(p,dark);shot(p,'m3-dark-selected');c(p,'generation');shot(p,'m3-missing-parent');fish=[e for e in snapshot(p)['session']['tank']['entities'] if e['species']=='molly'];
+  c(p,'generation');shot(p,'m3-no-parents');c(p,'help');shot(p,'m3-founders-tip-1');c(p,'close');c(p,'menu')
+  with p.expect_download() as d:c(p,'export')
+  fresh=OUT/'m3-empty-parents.json';d.value.save_as(str(fresh));c(p,'close');father=next(e['uid'] for e in snapshot(p)['session']['tank']['entities'] if e['species']=='molly' and e['sex']=='♂');act(p,f'[data-class=select][data-class-uid="{father}"]');c(p,'generation');expect(p.locator('.single-feedback')).to_contain_text('Mutter fehlt');shot(p,'m3-missing-mother');c(p,'menu');p.locator('[data-class-file]').set_input_files(str(fresh));p.wait_for_function('window.aquariumLearningSnapshot().dialog===null');assert snapshot(p)['session']['parents']==[]
+  dark=next(e['uid'] for e in snapshot(p)['session']['tank']['entities'] if e['species']=='molly' and e['variant']=='black');direct(p,dark);shot(p,'m3-dark-selected');c(p,'generation');shot(p,'m3-missing-parent');fish=[e for e in snapshot(p)['session']['tank']['entities'] if e['species']=='molly'];
+  for e in fish:
+   if e['sex']=='♀':act(p,f'[data-class=select][data-class-uid="{e["uid"]}"]')
+  shot(p,'m3-same-sex-replacement');c(p,'generation');expect(p.locator('.single-feedback')).to_contain_text('Vater fehlt');shot(p,'m3-two-females-missing-father');
   for e in fish:
    if e['variant']=='black':act(p,f'[data-class=select][data-class-uid="{e["uid"]}"]')
   c(p,'generation');shot(p,'m3-two-dark');
-  for e in fish:
-   if e['sex']=='♀':act(p,f'[data-class=select][data-class-uid="{e["uid"]}"]')
-  shot(p,'m3-same-sex-replacement');parents(p);c(p,'generation');shot(p,'m3-f1-observation');wrong_help(p,'lost','dark','m3');parents(p);c(p,'generation');shot(p,'m3-f2');s=snapshot(p)['session'];fish=[e for e in s['tank']['entities'] if e['species']=='molly'];child=next((e for e in fish if e['variant']=='gold'),fish[0]);act(p,f'[data-class-uid="{child["uid"]}"]');no_leak(p,id);shot(p,'m3-inheritance');wrong_help(p,'need','actual-alleles','m3-child-transfer');shot(p,'m3-transfer');wrong_help(p,'fixed','possible','m3-chance')
+  parents(p);c(p,'generation');shot(p,'m3-f1-observation');wrong_help(p,'lost','dark','m3');parents(p);c(p,'generation');shot(p,'m3-f2');s=snapshot(p)['session'];fish=[e for e in s['tank']['entities'] if e['species']=='molly'];child=next((e for e in fish if e['variant']=='gold'),fish[0]);act(p,f'[data-class-uid="{child["uid"]}"]');no_leak(p,id);shot(p,'m3-inheritance');wrong_help(p,'need','actual-alleles','m3-child-transfer');shot(p,'m3-transfer');wrong_help(p,'fixed','possible','m3-chance')
  elif id=='m4':
   baseline=snapshot(p)['session']['baseline']
   for trial in range(3):
    for g in range(3):c(p,'generation')
-   c(p,'parents');shot(p,f'm4-parents-trial-{trial+1}');assert p.locator('[data-parent-table]').count()==1;c(p,'close')
+   c(p,'parents');shot(p,f'm4-parents-trial-{trial+1}');parent_table_check(p,trial,3)
+   if trial==2:
+    p.locator('[data-parent-trial]').select_option('0');p.locator('[data-parent-generation]').select_option('1');parent_table_check(p,0,1);shot(p,'m4-earlier-trial-and-generation')
+   c(p,'close')
    if trial<2:c(p,'reset-trial');assert snapshot(p)['session']['tank']==baseline
+  fish=next(e for e in snapshot(p)['session']['tank']['entities'] if e['species']=='molly');direct(p,fish['uid']);expect(p.locator('[data-selected-individual]')).to_have_attribute('data-selected-individual',str(fish['uid']));shot(p,'m4-current-fish');c(p,'close')
   c(p,'compare-trials');shot(p,'m4-comparison');wrong_help(p,'guarantee','actual-counts','m4');shot(p,'m4-selection-question');wrong_help(p,'dominant-wins','weighted-parents','m4-chance');shot(p,'m4-dominance-question');wrong_help(p,'more-young','not-guaranteed','m4-dominance')
  elif id=='m5':
   baseline=snapshot(p)['session']['baseline'];choice(p,'water');shot(p,'m5-water-immediate');observe(p,'m5-water-end');first=json.dumps(snapshot(p)['session']['runs'][0],sort_keys=True);c(p,'reset-measure');assert snapshot(p)['session']['tank']==baseline;choice(p,'feed');observe(p,'m5-comparison');assert json.dumps(snapshot(p)['session']['runs'][0],sort_keys=True)==first;wrong_help(p,'swap','actual-late','m5');shot(p,'m5-explanation-question');wrong_help(p,'never','source','m5-input')

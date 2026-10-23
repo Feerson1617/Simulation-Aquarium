@@ -1,3 +1,4 @@
+import {manualEvidence} from './learning-product-display.mjs';
 import {relativePlantComparison,learnerCSVComparison,learnerPrecision} from "./learning-display.mjs";
 import {mountSingleAquariumUI} from "./single-learning-ui.mjs";
 import {PROCESS_SCENES,PROCESS_TASKS,processWorkspace,forestWorkspace,connectProcess} from "./learning-process-workspace.mjs";
@@ -133,6 +134,8 @@ export function mountLearningUI(host) {
   let teacher = loadJSON("aquarium-teacher-v1", normalizeTeacher()),
     storageError = "",
     imported = null,
+    importedSource = "",
+    importedError = "",
     importedMetric = "oxygen",
     manualMetric = "oxygen",
     importedManualMetric = "oxygen";
@@ -938,19 +941,12 @@ export function mountLearningUI(host) {
       .join("");
   }
   function manualData(item, readOnly = false) {
-    const rows = item.measurements || [],
-      keys = item.measurementMetrics || [];
-    if (!rows.length) return "";
-    const defs=comparisonMetricDefinitions({kind:"manual",runs:[{control:rows,test:[]}]});
-    const selected = readOnly ? importedManualMetric : manualMetric,
-      key = keys.includes(selected) ? selected : keys[0];
-    if (!key)
-      return "<p>Messpunkte vorhanden; freigegebene Messgrößen nicht dokumentiert.</p>";
-    const filtered = rows.map((s) => ({
-      ...s,
-      [key]: s.metrics && !s.metrics.includes(key) ? null : s[key],
-    }));
-    return `<section class="learn-measurements"><h3>Eigene Messreihe · ${rows.length} Zeitpunkte</h3><p>Aufeinanderfolgende Beobachtungen desselben Beckens. Kein automatischer Kontrollversuch; mehrere Eingriffe oder Zeitabstände können sich unterscheiden.</p><label>Eigene Messgröße<select data-learning-manual-metric="${readOnly ? "imported" : "local"}">${options(
+    const selected=readOnly?importedManualMetric:manualMetric;
+    const {keys,key,labels:defs,rows:filtered,unknown}=manualEvidence(item,selected);
+    const rows=item.measurements||[];
+    if(!rows.length)return "";
+    if(!key)return "<p>Messpunkte vorhanden; freigegebene Messgrößen nicht dokumentiert.</p>";
+    return `<section class="learn-measurements"><h3>Eigene Messreihe · ${rows.length} Zeitpunkte</h3><p>${unknown?"Diese historische Messgröße ist nicht eindeutig dokumentiert. Ihre Werte bleiben unbekannt. ":""}Aufeinanderfolgende Beobachtungen desselben Beckens. Kein automatischer Kontrollversuch; mehrere Eingriffe oder Zeitabstände können sich unterscheiden.</p><label>Eigene Messgröße<select data-learning-manual-metric="${readOnly ? "imported" : "local"}">${options(
       keys.map((k) => [k, defs[k].join(" · ")]),
       key,
     )}</select></label>${plot({ kind: "manual", runs: [{ control: filtered, test: [] }] }, key)}<div class="learn-table-wrap"><table><caption>${esc(defs[key].join(" · "))}</caption><thead><tr><th>Tag · Modellzeit</th><th>Eigenes Becken</th></tr></thead><tbody>${filtered.map((s) => `<tr><td>${num(s.day)}</td><td>${key === "health" && s.metricsVersion !== 2 ? "Früherer Tierwert: " : ""}${num(s[key], 4)}</td></tr>`).join("")}</tbody></table></div><p>„—“: unbekannt oder zum Aufnahmezeitpunkt nicht freigegeben. Reale Nullwerte stehen als 0.</p><div class="learn-actions">${button(readOnly ? "imported-manual-csv" : "manual-csv", "Eigene Messreihe als CSV")}${button("manual-chart", "Eigene Messreihe als SVG")}${!readOnly ? button("export", "Messreihe und Notizen als JSON") : ""}</div></section>`;
@@ -1179,9 +1175,9 @@ export function mountLearningUI(host) {
               })
               .join("")
           : "<p>Noch keine lokalen Lernprodukte.</p>"
-      }<label class="learn-file">Exportiertes Lernprodukt lesen<input type="file" data-learning-import="product" accept=".json,application/json"></label>${
+      }<label class="learn-file">Exportiertes Lernprodukt lesen<input type="file" data-learning-import="product" accept=".json,application/json"></label>${importedError?`<p class="learn-import-error" role="alert">✕ Datei „${esc(importedSource)}“ konnte nicht geöffnet werden: ${esc(importedError)} Es wird kein Datensatz angezeigt.</p>`:""}${
         imported
-          ? `<section class="learn-imported-product"><h3>Lernprodukt Klasse ${imported.profile.grade}</h3><p>${esc(imported.profile.mission || "Freies Forschen")} · Unterstützung: ${esc(SUPPORT[imported.support]?.label || "nicht dokumentiert")} · ${esc(imported.created || "Exportdatum nicht dokumentiert")}</p><p>Modellstand: ${esc(imported.modelVersion || "Altbestand – nicht dokumentiert")}. ${esc(imported.model?.title || "")}</p><p>Die folgenden Planungsnotizen sind der aktuelle Bearbeitungsstand. Die vor der Berechnung festgehaltene Planung steht getrennt beim jeweiligen Lauf.</p>${imported.currentPlan && imported.comparison && !planMatchesComparison(imported.comparison, imported.currentPlan) ? `<p class="learn-outdated">Der Plan wurde nach dem gezeigten Lauf geändert. Die Daten gehören zur festgehaltenen älteren Laufkonfiguration.</p>` : ""}${imported.currentPlan?.incomplete ? `<p class="learn-outdated">Der neue Plan enthält unvollständige oder ungültige Einstellungen. Er wurde nicht berechnet; vorhandene Messdaten bleiben lesbar.</p>` : ""}${Object.entries(
+          ? `<section class="learn-imported-product"><h3>Lernprodukt Klasse ${imported.profile.grade}</h3><p data-import-source>Quelle: ${esc(importedSource||"Lokaler gespeicherter Datensatz")}. Angezeigt wird dieser Datensatz; das aktuelle Aquarium bleibt unverändert.</p><p>${esc(imported.profile.mission || "Freies Forschen")} · Unterstützung: ${esc(SUPPORT[imported.support]?.label || "nicht dokumentiert")} · ${esc(imported.created || "Exportdatum nicht dokumentiert")}</p><p>Modellstand: ${esc(imported.modelVersion || "Altbestand – nicht dokumentiert")}. ${esc(imported.model?.title || "")}</p><p>Die folgenden Planungsnotizen sind der aktuelle Bearbeitungsstand. Die vor der Berechnung festgehaltene Planung steht getrennt beim jeweiligen Lauf.</p>${imported.currentPlan && imported.comparison && !planMatchesComparison(imported.comparison, imported.currentPlan) ? `<p class="learn-outdated">Der Plan wurde nach dem gezeigten Lauf geändert. Die Daten gehören zur festgehaltenen älteren Laufkonfiguration.</p>` : ""}${imported.currentPlan?.incomplete ? `<p class="learn-outdated">Der neue Plan enthält unvollständige oder ungültige Einstellungen. Er wurde nicht berechnet; vorhandene Messdaten bleiben lesbar.</p>` : ""}${Object.entries(
               imported.notes,
             )
               .map(
@@ -1531,13 +1527,18 @@ export function mountLearningUI(host) {
       if (d.learningImport) {
         const file = t.files[0];
         if (!file) return;
-        if (file.size > 32 * 1024 * 1024)
-          throw new Error("Die Datei ist zu groß.");
-        const raw = JSON.parse(await file.text());
-        if (d.learningImport === "config") {
-          teacher = normalizeTeacher(raw);
-          saveJSON("aquarium-teacher-v1", teacher);
-        } else imported = validateLearningProduct(raw);
+        if(d.learningImport === "product"){
+          imported=null;importedSource=file.name;importedError="";importedManualMetric="oxygen";
+          try{
+            if(file.size>32*1024*1024)throw Error("Die Datei ist zu groß.");
+            const raw=JSON.parse(await file.text());
+            if(raw.entities||raw.tank||raw.codec)throw Error("Das ist ein Aquarium-Spielstand. Nutze die Spielstand-Funktion im Menü; dieser Leser öffnet Lernprodukte.");
+            imported=validateLearningProduct(raw);
+          }catch(error){imported=null;importedError=error instanceof SyntaxError?"Die Datei enthält kein lesbares JSON.":error.message;}
+        }else{
+          if(file.size>32*1024*1024)throw Error("Die Datei ist zu groß.");
+          teacher=normalizeTeacher(JSON.parse(await file.text()));saveJSON("aquarium-teacher-v1",teacher);
+        }
         render();
       }
     } catch (error) {
@@ -1608,7 +1609,7 @@ export function mountLearningUI(host) {
       if (d.coherentWater) {pickObject(d.coherentWater,null,true);return;}
       if (d.learningArchivedProduct) {
         const prior = loadJSON(d.learningArchivedProduct,null);
-        imported = validateLearningProduct(prior.product);showPanel("teacher");return;
+        imported=null;importedSource="Gespeichertes früheres Lernprodukt";importedError="";imported = validateLearningProduct(prior.product);showPanel("teacher");return;
       }
       if (d.learningToolChoice) {
         selectTool(d.learningToolChoice); persist(); render();
@@ -1708,6 +1709,7 @@ export function mountLearningUI(host) {
         return;
       }
       if (d.learningProduct) {
+        imported=null;importedSource="Lokale Notizen und Messreihe";importedError="";
         const x = loadJSON(d.learningProduct, null);
         if (x) {
           const suffix = d.learningProduct.replace(

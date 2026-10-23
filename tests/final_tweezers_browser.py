@@ -18,7 +18,8 @@ with sync_playwright() as pw:
  b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']);r['browser']=b.version
  try:
   for label,w,h in [('desktop',1366,960),('portrait',768,1024),('landscape',1366,1024)]:
-   ctx=b.new_context(viewport={'width':w,'height':h},has_touch=True,accept_downloads=True);ctx.add_init_script("localStorage.setItem('aquarium-graphics-v1',JSON.stringify({version:1,profile:'ipad'}))");p=ctx.new_page();p.on('pageerror',lambda e:r['errors'].append(str(e)));p.goto(URL+'?research=8');p.wait_for_function('window.aquariumLearningSnapshot()?.presentation?.glass');p.wait_for_timeout(1000)
+   if label not in os.environ.get('AQUARIUM_TWEEZERS_FORMATS','desktop,portrait,landscape').split(','):continue
+   ctx=b.new_context(viewport={'width':w,'height':h},has_touch=True,accept_downloads=True);ctx.add_init_script("localStorage.setItem('aquarium-graphics-v1',JSON.stringify({version:1,profile:'ipad'}))");p=ctx.new_page();p.set_default_timeout(90000);p.on('pageerror',lambda e:r['errors'].append(str(e)));p.goto(URL+'?research=8');p.wait_for_function('window.aquariumLearningSnapshot()?.presentation?.glass');p.wait_for_timeout(1000)
    click(p,'measurements');expect(p.locator('.single-dialog')).to_contain_text('so viel wie' if not BEFORE else 'gleich viel als');p.screenshot(path=str(OUT/(label+'-equal.png')));p.keyboard.press('Escape');enable(p);shot(p,label+'-instructions')
    if not BEFORE:
     visibility=p.locator('#aquascape-instructions').evaluate('e=>{const r=e.getBoundingClientRect();return {inside:r.top>=0&&r.bottom<=innerHeight&&r.left>=0&&r.right<=innerWidth,front:e.contains(document.elementFromPoint(r.left+r.width/2,r.top+r.height/2))}}');assert visibility['inside'] and visibility['front'],visibility

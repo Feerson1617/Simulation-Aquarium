@@ -24,7 +24,8 @@ with sync_playwright() as pw:
   if 'legacy' in SECTIONS:
    c,p=boot(b);p.locator('[data-start=free]').click();fixtures=Path('/workspace/acceptance-20261023/historische-exporte');entries=json.loads((fixtures/'index.json').read_text());assert len(entries)==14
    for entry in entries:
-    f=fixtures/entry['file'];raw=f.read_bytes();assert hashlib.sha256(raw).hexdigest()==entry['sha256'];expected=json.loads(raw);p.locator('[data-panel=time]').filter(visible=True).first.click()
+    f=fixtures/entry['file'];raw=f.read_bytes();assert hashlib.sha256(raw).hexdigest()==entry['sha256'];expected=json.loads(raw)
+    if not p.locator('[data-act=import]:visible').count():p.locator('[data-panel=time]').filter(visible=True).first.click()
     with p.expect_file_chooser() as fc:p.locator('[data-act=import]').filter(visible=True).first.click()
     fc.value.set_files(str(f));p.wait_for_function('key=>JSON.parse(localStorage.getItem(key))?.learning?.mission',arg='aquarium-learning-tank-v1:'+str(entry['grade'])+':'+entry['mission'])
     s=stored(p,'aquarium-learning-tank-v1:'+str(entry['grade'])+':'+entry['mission']);assert s['params']==expected['params'];assert s['learning']==expected['learning'];assert s['day']==expected['day'];assert s['entities']==expected['entities'];assert not p.evaluate('Object.keys(localStorage).some(k=>k.startsWith("aquarium-single-"))');shot(p,'legacy-'+entry['mission']);check(entry['file']+': unchanged biology, individual records and learning tag; no new completion',sha256=entry['sha256']);p.keyboard.press('Escape')

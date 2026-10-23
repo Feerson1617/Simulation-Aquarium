@@ -37,3 +37,7 @@ Das neu hochgeladene ZIP überstieg die 32-MiB-Grenze des verfügbaren Dateitran
 Die Einzel-HTML-Datei enthält die lokalen Modelle und ist etwa 151 MB groß. Download und anschließende Offline-Nutzung nach HTTP-Laden sind geprüft. Der direkte Chromium-Dateistart ist durch die verwaltete Browserrichtlinie blockiert (`ERR_BLOCKED_BY_ADMINISTRATOR`) und bleibt offen. Auch das Speicherverhalten älterer Schul-iPads ist damit nicht nachgewiesen. Die vorhandene Darstellung bleibt eine vereinfachte 3D-Simulation; vollständiger Fotorealismus wird nicht behauptet.
 
 Es wurden keine kostenpflichtigen Werkzeuge, zusätzlichen Konten oder neuen Laufzeitdienste eingeführt. Nur der bestehende Entwicklungsbranch wurde aktualisiert. Kein neuer PR, kein Merge und keine Änderung an `main`.
+
+## Bewertung zur Endabnahme
+
+F03-R, F04, F06, F07 und F09–F13 sind im dokumentierten Umfang korrigiert und mit eigenen Browserhandlungen überprüft. Alle sechs Missionen wurden in beiden Engines abgeschlossen; die Einzelheiten und Versionsgrenzen sind im Prüfprotokoll offengelegt. Der Stand ist für die unabhängige Endabnahme vorbereitet. **Noch nicht alle vereinbarten Nachweise sind erfüllt:** Beim Standalone-Kriterium G ist der echte lokale Dateistart durch die Browserrichtlinie blockiert. Eine uneingeschränkte Gesamtabnahme wird deshalb nicht erklärt. Physische iPad-Tests und tatsächliche Lernwirksamkeit bleiben ebenfalls unbewiesen.

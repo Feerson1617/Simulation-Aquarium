@@ -1077,6 +1077,12 @@
     "note": "Lossless gzip of actual downloaded file"
   },
   {
+    "path": "exports/missions-chromium-m6-result.json.gz",
+    "original_sha256": "5af8912fb9111088f7459c2c385929f3f562eab6400d82ac19c4d4fca2845c69",
+    "sha256": "4405ee7bb3ba736af60104c90ab5c42974d6867bda021e81ba510380bab808e8",
+    "note": "Lossless gzip of actual downloaded file"
+  },
+  {
     "path": "exports/missions-chromium-m5-result.json.gz",
     "original_sha256": "43b43720a3a9dae0be7d27ac3d76ec5775abba85a44088027194e0813c55026d",
     "sha256": "721067bb5e9c576ff536421c89a7c83ba5fee7c658c96e3b828dfae1fe520446",

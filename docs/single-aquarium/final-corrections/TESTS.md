@@ -23,7 +23,7 @@ Der umfassende Laufzeitstand ist `766aa4768e7f77b14d487b5557d32053e8247b6d`. Der
 | Einzel-HTML-Download | Tatsächlichen Downloadknopf betätigt. Ergebnis stimmt byteweise mit dem gebauten Stand überein | [Download](reports/html-download.json), [Build/Hash](reports/standalone-build.json) |
 | Einzel-HTML offline, WebKit | Dokument über HTTP geladen, danach Netz getrennt; vollständige serielle M1 mit Wiederherstellung und eigener Ergebnissicherung | [Originalbericht](reports/offline.json) |
 | Lokaler Dateistart, Chromium: **blockiert** | Echte `file:`-Navigation versucht. Der verwaltete Browser verweigert bereits das Öffnen mit `ERR_BLOCKED_BY_ADMINISTRATOR`. Keine Umgehung und kein bestandener Dateistart behauptet | [Originalbericht](reports/native-file.json) |
-| Öffentliche Vorschau | 71 Root-Dateien per HTTP byteweise mit der korrigierten Laufzeit verglichen; vollständige öffentliche M3 mit Sicherung und erneuter Verwendung eigener Dateien | [Dateivergleich](reports/public-runtime.json), [M3](reports/public-m3.json); Galerieprüfung siehe PR |
+| Öffentliche Vorschau | 71 Root-Dateien per HTTP byteweise mit der korrigierten Laufzeit verglichen; vollständige öffentliche M3 mit Sicherung und erneuter Verwendung eigener Dateien | [Dateivergleich](reports/public-runtime.json), [M3](reports/public-m3.json); [öffentliche Galerieprüfung](reports/public-gallery.json) |
 
 Maßgeblich ist jeweils der Status im verlinkten Originalbericht. Prüfpunkte sind technische Nachweise, keine Bewertung des Lernerfolgs.
 
@@ -59,3 +59,5 @@ python3 tests/readiness_browser.py
 Chromium 154 und WebKit 26.5 auf Linux; Softwaregrafik, Browser-Touch und echte CDP-Touch-Ereignisse. Kein physisches iPad, keine Safari-Hardwarefreigabe, keine Erprobung mit Lernenden, keine allgemeine Leistungsfreigabe für alte Geräte. Der Standalone-Test belegt M1 nach HTTP-Laden und anschließendem Abschalten des Netzes; er wird nicht als sechs vollständige Offline-Missionen oder als bestandener nativer Dateistart ausgegeben. Das neu hochgeladene ZIP war wegen der Transfergrenze nicht lesbar. Diese Grenzen sind in [REVIEW.md](REVIEW.md) erklärt.
 
 Originalbilder bleiben unverändert. [Bildmanifest](image-manifest.json) enthält SHA-256, Aufnahmepfad, vorhandene Uhrzeit, URL und Viewport. Bei den frühen F13-Vorher-Bildern und den Gleichheitsansichten ohne ursprünglichen Ereigniseintrag wurde die Uhrzeit nachträglich aus dem unveränderten Dateizeitstempel rekonstruiert und ausdrücklich so gekennzeichnet. Eigene exportierte Ergebnisse werden verlustfrei als `.json.gz` bewahrt; ihr ursprünglicher Hash steht im Manifest. Historische Produkte werden nicht als eigene neue Leistungen ausgegeben.
+
+Abschluss: [maschinenlesbare Zuordnung](reports/completion.json). Alle sechs Lernwege sind in Chromium und WebKit vollständig bestanden; die beschriebenen Teil- und Wiederholungsläufe bleiben als Originalberichte erhalten. Der native Dateistart bleibt blockiert.

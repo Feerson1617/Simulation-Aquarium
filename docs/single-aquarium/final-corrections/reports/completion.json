@@ -1,0 +1,65 @@
+{
+  "at": "2026-10-23T14:26:49.521453+00:00",
+  "applicationCommit": "03798ff6337e5b2b91c84d3fd836bd4c2979db63",
+  "moduleTests": {
+    "passed": 198,
+    "failed": 0
+  },
+  "missions": [
+    {
+      "mission": "M1",
+      "chromium": "passed",
+      "webkit": "passed",
+      "webkit_report": "missions-webkit.json"
+    },
+    {
+      "mission": "M2",
+      "chromium": "passed",
+      "webkit": "passed",
+      "webkit_report": "missions-webkit.json"
+    },
+    {
+      "mission": "M3",
+      "chromium": "passed",
+      "webkit": "passed",
+      "webkit_report": "missions-webkit.json"
+    },
+    {
+      "mission": "M4",
+      "chromium": "passed",
+      "webkit": "passed",
+      "webkit_report": "missions-webkit-rest.json"
+    },
+    {
+      "mission": "M5",
+      "chromium": "passed",
+      "webkit": "passed",
+      "webkit_report": "missions-webkit-rest.json"
+    },
+    {
+      "mission": "M6",
+      "chromium": "passed",
+      "webkit": "passed",
+      "webkit_report": "missions-webkit-rest.json"
+    }
+  ],
+  "completed": [
+    "F03-R",
+    "F04",
+    "F06",
+    "F07",
+    "F09",
+    "F10",
+    "F11",
+    "F12",
+    "F13"
+  ],
+  "fullAcceptance": false,
+  "open": [
+    "Native Chromium file URL blocked by managed browser policy ERR_BLOCKED_BY_ADMINISTRATOR",
+    "No physical iPad or classroom evaluation",
+    "New ZIP exceeds available 32-MiB transfer limit; HTML report and previous 14 originals used",
+    "Maximum graphics profile performance not validated under software GPU"
+  ],
+  "sourceScope": "See TESTS.md: Chromium spans small UI amendments; WebKit M1–M3 and M4–M6 have identical runtime hashes. Last CSS-only archive-link change separately tested in three formats."
+}

@@ -23,6 +23,8 @@ def c(p,a):act(p,'[data-class='+a+']')
 def m(p,a):act(p,'[data-single='+a+']')
 def choice(p,a):act(p,'[data-class-choice='+a+']')
 def shot(p,name):
+ if not p.locator('.single-dialog').count() and p.locator('.single-feedback[data-kind=error]').count():
+  visible=p.locator('.single-feedback[data-kind=error]').evaluate('e=>{const a=e.getBoundingClientRect(),b=e.closest(".single-task").getBoundingClientRect();return a.top>=b.top&&a.bottom<=b.bottom&&a.bottom<=innerHeight}');assert visible,'Error feedback must be visible without scrolling'
  p.screenshot(path=str(OUT/(name+'.png')));s=snapshot(p)
  R['captures'].append({'name':name,'at':datetime.now(timezone.utc).isoformat(),'url':p.url,'viewport':p.viewport_size,'text':p.locator('#learning-root').inner_text(),'stage':s['session']['stage'],'presentation':s['presentation'],'values':p.locator('[data-amount-value]').evaluate_all('(els)=>els.map(e=>({value:Number(e.dataset.amountValue),index:Number(e.dataset.amountIndex),text:e.innerText}))')});save();print('CAPTURE',name,flush=True)
 def check(p,name):
@@ -68,7 +70,7 @@ def observe(p,label):
 def wrong_help(p,wrong,right,label):
  choice(p,wrong);expect(p.locator('.single-feedback')).to_have_attribute('data-kind','error');shot(p,label+'-wrong');c(p,'help');shot(p,label+'-tip-1');c(p,'more-help');shot(p,label+'-help');c(p,'close');choice(p,right)
 def parents(p):
- s=snapshot(p)['session'];fish=[e for e in s['tank']['entities'] if e['species']=='molly'];f=next(e for e in fish if e['sex']=='♀' and (s['stage']!='founders' or e['genotype']=='AA'));m=next(e for e in fish if e['sex']=='♂' and (s['stage']!='founders' or e['genotype']=='aa'))
+ s=snapshot(p)['session'];fish=[e for e in s['tank']['entities'] if e['species']=='molly'];f=next(e for e in fish if e['sex']=='♀' and (s['stage']!='founders' or e['genotype']==('aa' if ENGINE=='webkit' else 'AA')));m=next(e for e in fish if e['sex']=='♂' and (s['stage']!='founders' or e['genotype']==('AA' if ENGINE=='webkit' else 'aa')))
  for e in [f,m]:act(p,f'[data-class=select][data-class-uid="{e["uid"]}"]')
 def roundtrip(p,id):
  is_m1=id=='m1';prefix='single' if is_m1 else 'class'
@@ -78,6 +80,10 @@ def roundtrip(p,id):
  reload_exact(p,is_m1);attempt=snapshot(p)['session']['attemptId'];act(p,f'[data-{prefix}=repeat]');assert snapshot(p)['session']['attemptId']!=attempt
  act(p,f'[data-{prefix}=menu]');p.locator(f'[data-{prefix}-file]').set_input_files(str(path));R['actions'].append({'input':'file chooser','file':path.name});p.wait_for_selector(f'[data-{prefix}-stage=complete]');assert snapshot(p)['session']['attemptId']==attempt
  assert p.evaluate('localStorage.getItem("aquarium-learning-sentinel")')=='unchanged';R['checks'].append(id+': completion, pause, help, correction, reload, new attempt, own file roundtrip, legacy preservation');save()
+ act(p,f'[data-{prefix}=menu]');act(p,f'[data-{prefix}=teacher]')
+ if is_m1:p.get_by_text('Frühere lokale Stände',exact=False).click()
+ else:c(p,'archives')
+ shot(p,id+'-archive');assert p.locator('.single-archive-entry').count()>0;act(p,f'[data-{prefix}=close]')
 def run_m1(p):
  frame_cases(p,'m1');s=snapshot(p)['session'];plants=[e['uid'] for e in s['tank']['entities'] if e['species'] in ['anubias','waterweed']]
  for uid in plants[:2]:direct(p,uid)

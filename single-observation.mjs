@@ -16,9 +16,9 @@ export function residueObservation(s,{comparison=false}={}){
  const isFood=s.mission.startsWith('m2'),start=s.baseline.detritus;
  const rows=[{label:isFood?'Vor dem Füttern':'Gleicher Anfang',value:start}];
  if(isFood){const feeding=s.events.find(e=>e.type==='one-food-portion');if(feeding)rows.push({label:'Nach dem Füttern',value:feeding.after});if(s.currentRun||s.runs.length)rows.push({label:s.currentRun?'Jetzt':'Nach 3 Tagen',value:s.tank.detritus});}
- else if(comparison){for(const condition of ['water','feed']){const r=s.runs.find(r=>r.condition===condition);if(r)rows.push({label:condition==='water'?'Wasserwechsel · Tag 10':'Weniger Futter · Tag 10',value:r.samples.at(-1).organic});}}
+ else if(comparison){for(const condition of ['water','feed']){const r=s.runs.find(r=>r.condition===condition);if(r)rows.push({label:condition==='water'?'Wasserwechsel':'Weniger Futter',value:r.samples.at(-1).organic});}}
  else rows.push({label:s.measure==='water'?'Wasserwechsel · jetzt':s.measure==='feed'?'Weniger Futter · jetzt':'Jetzt',value:s.tank.detritus});
- return amountFigure({title:'Reste in diesem Aquarium',rows,reference:start,referenceLabel:isFood?'vor dem Füttern':'gleicher Anfang',note:'Vergleich im Modell, keine Krümelzahl.'});
+ return amountFigure({title:comparison?'Reste im Aquarium · Tag 10':'Reste in diesem Aquarium',rows,reference:start,referenceLabel:isFood?'vor dem Füttern':'gleicher Anfang',note:'Vergleich im Modell, keine Krümelzahl.'});
 }
 export function plantObservation(s,types){
  const e=s.tank.entities.find(e=>e.uid===s.selection),r=s.currentRun||s.runs.at(-1),start=(r?.startSnapshot||s.baseline).entities.find(e=>e.uid===s.selection);

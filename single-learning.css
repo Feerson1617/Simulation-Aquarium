@@ -93,3 +93,11 @@ html[data-historical-tools] #learning-root::before {content:"Historische Lehrkra
  #learning-root .single-meter{top:116px;width:calc(100% - 32px)}
  #learning-root .single-options{grid-template-columns:1fr}
 }
+
+/* Keep the comparison evidence outside the answer card; all choices stay reachable. */
+.single-meter .single-chart svg {max-height:120px}
+@media(max-width:820px){
+ #learning-root .single-task[data-class-stage=founders],
+ #learning-root .single-task[data-class-stage=choose-f1],
+ #learning-root .single-task[data-class-stage=child] {max-height:42dvh}
+}

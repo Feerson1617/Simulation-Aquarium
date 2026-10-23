@@ -13,12 +13,12 @@ with sync_playwright() as pw:
  try:
   p.goto(URL+'?expert=1&archive-tools=1');p.wait_for_selector('[data-learning-import=product]')
   for i,grade in enumerate([8,9,8,9]):
-   f=ROOT/f'tests/fixtures/learning-v1-grade-{grade}.json';p.locator('[data-learning-import=product]').set_input_files(str(f));expect(p.locator('.learn-imported-product h3').first).to_have_text(f'Lernprodukt Klasse {grade}');expect(p.locator('[data-import-source]')).to_contain_text(f.name)
+   f=ROOT/f'tests/fixtures/learning-v1-grade-{grade}.json';p.locator('[data-learning-import=product]').set_input_files(str(f));expect(p.locator('.learn-imported-product h3').first).to_have_text(f'Lernprodukt Klasse {grade}');expect(p.locator('[data-import-source]')).to_contain_text(f.name);expect(p.locator('[data-import-source]')).to_be_in_viewport()
    p.locator('[data-import-source]').scroll_into_view_if_needed();capture(p,f'grade-{grade}-{i}')
    if grade==8:
     select=p.locator('[data-learning-manual-metric=imported]');select.select_option('fishAlive');expect(p.locator('.learn-measurements')).to_contain_text('unbekannt');assert p.locator('.learn-measurements tbody tr').count()>0
     assert all(x=='—' for x in p.locator('.learn-measurements tbody tr td:last-child').all_text_contents());p.locator('.learn-measurements').scroll_into_view_if_needed();capture(p,f'grade-8-unknown-{i}')
-  bad=OUT/'invalid.json';bad.write_text('{ broken');p.locator('[data-learning-import=product]').set_input_files(str(bad));expect(p.locator('.learn-import-error')).to_contain_text('invalid.json');assert p.locator('.learn-imported-product').count()==0;p.locator('.learn-import-error').scroll_into_view_if_needed();capture(p,'invalid-cleared')
+  bad=OUT/'invalid.json';bad.write_text('{ broken');p.locator('[data-learning-import=product]').set_input_files(str(bad));expect(p.locator('.learn-import-error')).to_contain_text('invalid.json');expect(p.locator('.learn-import-error')).to_be_in_viewport();assert p.locator('.learn-imported-product').count()==0;p.locator('.learn-import-error').scroll_into_view_if_needed();capture(p,'invalid-cleared')
   p.locator('[data-learning-import=product]').set_input_files(str(ROOT/'tests/fixtures/legacy-v1.json'));expect(p.locator('.learn-import-error')).to_contain_text('Aquarium-Spielstand');assert p.locator('.learn-imported-product').count()==0;capture(p,'wrong-file-type')
   assert not r['errors'],r['errors'];r['status']='passed'
  except Exception as e:

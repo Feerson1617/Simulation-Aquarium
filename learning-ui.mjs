@@ -1541,6 +1541,7 @@ export function mountLearningUI(host) {
           teacher=normalizeTeacher(JSON.parse(await file.text()));saveJSON("aquarium-teacher-v1",teacher);
         }
         render();
+        if(d.learningImport==="product")root.querySelector(".learn-import-error,[data-import-source]")?.scrollIntoView({block:"start"});
       }
     } catch (error) {
       host.notify(error.message);

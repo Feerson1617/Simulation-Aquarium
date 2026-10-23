@@ -1,0 +1,3716 @@
+{
+  "engine": "webkit",
+  "commit": "57e24c507d3ff3a5422cf3a70613189c5134d7b2",
+  "sources": {
+    "aquascaping.css": "cbaf61e59b116ad90747d9ea8504b480319a120d0b28594bc42dfabe7cef15b9",
+    "aquascaping.mjs": "7be4508b63d046b8dde5a35fff05416012baa339f513a499541c914a65794d55",
+    "biology-quality.mjs": "89a9bd836e5be0c2a40fa6c0299293399a59213cedc53888e22606fe54384a08",
+    "bioprocesses.mjs": "db390102b09a5e888a504049f3b659bfdea000df400b22d17a234be5998ff8cd",
+    "catalog-assets.mjs": "1725e5493f14bd1ba68cd49251a4be542d24029ccec36cc6ce97c8fdbab0d791",
+    "catalog-studio.mjs": "5c0e58a4c4f74d2b4fabec453acbea7e0056393b5472ad14d5ecb5b1287dcd03",
+    "catalog.css": "85d3ee019ac0aee8cea7e5f058414df06b64809463b658a28ebcd1769a96176a",
+    "catalog.mjs": "eaa4db288f4bd1e5bfe82a2e1daf50f54d16ebdac43635d08258dd880fc37504",
+    "control-dial.mjs": "a7217998cd8bba325c0003419538bdcdcad1774cd0ef755d5281a8bf7fc3f056",
+    "control-values.mjs": "ea918839a5c4136d8b6dc4f0f7743accfff1f6e9287a4649e45a99cb892344f2",
+    "ecology.mjs": "66c11227f26241cf3fcffb00d0f8b28dc957f7a0536de650a80fc8210098429b",
+    "equipment-ui.mjs": "63d1aaf7a68213e8be16a1d8b14329119379dddd965354a3170c71c32c42d823",
+    "equipment.css": "7bbe961ddc163a7484e0f70a2e50c541a5867b61d443be6a19c33728bf66f932",
+    "fish-variants.mjs": "001365c4ae594847c4aec741340734b3c1c43c9058afde6368310adf68e3cac2",
+    "genetics-shop.mjs": "d0cf542391fa1d391e35cb7a9d033b986d08f610b2fa2b9c84a85e3b0b19bb9b",
+    "genetics-ui.mjs": "ffee9241dbda4952847aa51b395b5e45111ef6b23011ed98309967db9d9c5a72",
+    "genetics.css": "458cbc124c9f16cde4b6760c6e8fdfba2978b19f61152c899939c4b9c9de8684",
+    "genetics.mjs": "301b841789853d6ed8dac91d3090f2cc85ab858701577473a35e3ab82122a532",
+    "graphics-profiles.mjs": "5d1f586679fcee3c3316bb3b0ebf952500a8fcaac42449ccf9c67806bd0ed98a",
+    "graphics.css": "17c48328c83603daabc10887a71603e36e51a6d30ceb062a053295f69a890199",
+    "index.html": "24073d9825164ff6aecc0bb768166ddb0301b438ca3a76ac93908002177c0caa",
+    "individual-appearance.mjs": "0a8365eabceca7f2c6e982effe9af498c230aae702f9d44810c6ff0a292e4b58",
+    "learning-activities.mjs": "c430e6c1bf42923b6c48d74870b67a1fb6ad8668fe614c9316b6b552807650e2",
+    "learning-content.mjs": "41120a780c512f8e4c42f601d447da6da0c74acc4697eb027bda287ef60dc726",
+    "learning-model.mjs": "3a65e5c25f88c757b08d0b23150e5a771cf7b2662734015f2e53935b9823891f",
+    "learning-population.mjs": "e57b699f1762996e56af6941c59145ee848df07df7d7aae8e10ae70638a266e8",
+    "learning-provenance.mjs": "569ba626e23973fdf4a8b5f5b32c5d58b137fb929b4ed31bf29e57a175194999",
+    "learning-quests.mjs": "9e0c93381fa7e8088939f0ca46dd01c15d02d0ed4ed3b8ea7fdc666aa1fa9dcc",
+    "learning-student.mjs": "85f440ed1d0ee48f1580fcbe88c3f84361994c9bf516231d8e583e11e5f00ac5",
+    "learning-ui.mjs": "eac53773651ca8a098c75419549bc45079cb7276871482a5fd0c46d43ab9ad80",
+    "learning.css": "b63afc0bd8d49af5844b7e441c3357df3efaabe6e172ff55c7804fad8e2749ff",
+    "organic-shapes.mjs": "8f22e1c4b9a9195a689608a69af0fd0ced1e3173ec2b44e81349129617e3c80e",
+    "photo-volume.mjs": "0d1dbecc908e1ffc04df00d97827b91b70556ea1540bdcb114caf3efa6d9a724",
+    "physical-renderer.mjs": "46ff0ab3bc8cc82faadb798230a15cbf460f04cba9e50e5bfa092925c2360709",
+    "physical-scale.mjs": "a948d0affb65fe354f90dfebb53e0d26b63567a35645714a3b4795f5dc68b041",
+    "realism-assets.mjs": "f0d2b01a660dc9bd96f8ca5902555c129dcbe6cf53d16ec96e0bbe8b303d39dc",
+    "realism-materials.mjs": "32ae354c89791d4d86dc157a8c3ec58b76c3b6b0fd4bfd68f7c8ae363ec8fc54",
+    "realism-renderer.mjs": "1c3fc92567c2dcfc6d42e4cd70b6f77ebf9c4617380d6c9c4b0d17f76218efde",
+    "render-population.mjs": "e0d70fa5cdcd933f325a56fd6d687fbd2f8ef65e59d6b32c84200cff6d8a7304",
+    "scenarios.mjs": "67c3daab3c3d26240514cea933781e1765ddaddd04706e3dd66a2cd905f34463",
+    "species-assets.mjs": "7539167cbf8c92e0bfce1f5efd89c8dd66403a9586da94c0214d3b0b630b7c30",
+    "species-dimensions.mjs": "9aaa6d3e0425998f83652825402b95a569cadd4c914f5e517f319d4afb5fbd0b",
+    "species-provenance.mjs": "7e1324dc173cc0e41a1d23eb216ecfe4165e3eac0e02a650f5046b89bd5f3d58",
+    "study-ui.mjs": "08c1598262db0ab647a225f5b93e6d60cc4bc69113992997c3db25360214ec25",
+    "study.css": "ed534d337c339cb1a1602fcd4412ae8059720b1c4684136e401f870bfda26ee5",
+    "underwater.mjs": "df3c746f19f3f20348cb7442ec7c216b8cd863bab3e7f7e4105785e92223e941",
+    "learning-display.mjs": "43bb2ef8f090797401fa7fe82a1d04f434935b3229726ba78488fe8185fd4e62",
+    "single-classroom-ui.mjs": "4a789fa6d183da3aefdfcef3375b743024951bb70df749eacc81031a12ba9924",
+    "single-learning-ui.mjs": "1f2d60237260d4a9b3ab94783683aac33726b4d8c9a000ad633d369e68517784",
+    "single-observation.mjs": "099bafb95574aab3df8046a76f98a7dbb9e41d3d809672569e4163b0f0ce9aec",
+    "single-learning-model.mjs": "932d2f36bb15440137f0c31e9ee3cf534ac97d6a606e1f114dcffceec59e0659",
+    "single-learning-missions.mjs": "791656242d9e3b76e905f404d949456538fda810b5f0f658b6c59844d15ab7de",
+    "learning-tank-views.mjs": "3d0034aa1d56b7c731fcb1890961b1b1e3b5ec0f390fd68afdd0f5d6a685e227",
+    "learning-evolution-evidence.mjs": "4202c0796d735f577112fb4508738d37a5d1f597ca44e2512eb8d10a6d56cc08",
+    "learning-regional-workspace.mjs": "deb634808a76b96475cc698472b04d3b0188dd96da2953f4c2f09831200c97ab",
+    "single-teacher-settings.mjs": "c6a29f8a72a7257645895125d899d19cac876ae67ec5c5974427be0120e9de55",
+    "learning-workspace.mjs": "328da7cfb81c20dbc1fe5543ba15771673b242269e00d509fe080aa1884e7aa5",
+    "single-classroom-content.mjs": "c28718a459557f00284f47dd801d1ce30ad11b09168ab182e00651d8dae6e0db",
+    "ammonia-pool.mjs": "694f9bbb231240a44275b611b1c93bfbf8c4fabbc9524129db0edf9975720863",
+    "single-learning.css": "52ca3c15ef1005d4892032cb8eed775804d0cf35fdc36fdf614f02d9d38e310f",
+    "learning-context.mjs": "017507cde3a4d83a89785b4cb5c4ab67abab83c500512cab6f3165f10aead7ba",
+    "learning-process-workspace.mjs": "39f3d7e367851c17c4e0769818997e685551f764e848fa280e00c28d9a5863dd",
+    "learning-population-workspace.mjs": "950c0ebce30bc8421f18b6d5d2c17b735cbf6dab6ffc09b9133daf2bfa05cb3a",
+    "single-classroom-model.mjs": "7407666b7a0e7b4a43be20d7621edafc62724151d49decaa02ff82ededcb7c42",
+    "single-aquarium-view.mjs": "5872da153bb73594a5820925cedda74e476e4e3c0afe30d849fb5d53af6b01dd",
+    "coherent-learning.css": "9755e87a9d881e0cde8d5f86f1a279bdc48d7bf34e6973d94b0dedaddcdfa9ee"
+  },
+  "hardware": "Linux software GPU; Playwright touchscreen and mouse, not physical iPad",
+  "actions": [
+    {
+      "at": "2026-10-23T07:18:00.800467+00:00",
+      "selector": "[data-class-choice=unsure]",
+      "label": "Ich bin unsicher",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-23T07:18:04.139387+00:00",
+      "selector": "[data-class=feed]",
+      "label": "Einmal füttern",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-23T07:18:06.439491+00:00",
+      "selector": "[data-class=play]",
+      "label": "Entwicklung ansehen",
+      "input": "touchscreen tap"
+    },
+    {
+      "input": "keyboard Enter",
+      "selector": "[data-class=toggle]"
+    },
+    {
+      "at": "2026-10-23T07:18:08.330940+00:00",
+      "selector": "[data-class=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-23T07:18:10.905994+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-23T07:18:18.850454+00:00",
+      "selector": "[data-class=toggle]",
+      "label": "Anhalten oder weiter beobachten",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-23T07:18:33.901349+00:00",
+      "selector": "[data-class-choice=opposite]",
+      "label": "Es sind mehr Reste.",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-23T07:18:36.313251+00:00",
+      "selector": "[data-class=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-23T07:18:38.621412+00:00",
+      "selector": "[data-class=more-help]",
+      "label": "Weiterer Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-23T07:18:40.845354+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-23T07:18:42.799900+00:00",
+      "selector": "[data-class-choice=observed]",
+      "label": "Es sind weniger Reste.",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-23T07:18:44.748701+00:00",
+      "selector": "[data-class=filter]",
+      "label": "Weiter untersuchen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-23T07:18:47.895698+00:00",
+      "selector": "[data-class-choice=decomposer]",
+      "label": "Sie wandeln Reste in andere Stoffe um. Dabei brauchen sie Sauerstoff.",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-23T07:18:50.787756+00:00",
+      "selector": "[data-class-choice=nutrients]",
+      "label": "Beim Abbau entstehen Stoffe, die Pflanzen zum Wachsen brauchen.",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-23T07:18:53.922161+00:00",
+      "selector": "[data-class=process]",
+      "label": "Erklärung als Hilfe",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-23T07:18:57.140731+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-23T07:18:59.003618+00:00",
+      "selector": "[data-class-choice=separate]",
+      "label": "Nein. Während des Abbaus können neue Reste entstehen.",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-23T07:19:02.798017+00:00",
+      "selector": "[data-class=export]",
+      "label": "Ergebnis speichern",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-23T07:19:10.269815+00:00",
+      "selector": "[data-class=repeat]",
+      "label": "Noch einmal untersuchen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-23T07:19:11.550324+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "input": "file chooser",
+      "file": "m2-result.json"
+    }
+  ],
+  "captures": [
+    {
+      "name": "m2-before-feeding",
+      "at": "2026-10-23T07:18:01.324299+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m2-food-transformation",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "text": "Klasse 8\nWas wird aus den Futterresten?\nMenü\nBecken einpassen\nDein Auftrag\nGib den Fischen einmal Futter.\nEin Teil bleibt als Rest im Aquarium. Was wird daraus?\nEinmal füttern\nTipp\n\n• Deine Vermutung ist gespeichert.\n\nReste in diesem Aquarium\nVor dem Füttern\n100\nVergleichszahl: vor dem Füttern = 100. Relative Modellmenge, keine gezählten Krümel.",
+      "stage": "feed-ready",
+      "presentation": {
+        "glass": {
+          "left": 19.999997420569457,
+          "right": 748.0000025794307,
+          "top": 272.8871935001853,
+          "bottom": 616.9928064998147,
+          "width": 728.0000051588612,
+          "height": 344.10561299962944,
+          "x": 384.00000000000006,
+          "y": 444.94
+        },
+        "viewport": {
+          "width": 768,
+          "height": 1024
+        },
+        "camera": [
+          1.44112058697201,
+          2.6862139692196796,
+          12.009338224766763
+        ],
+        "selection": null,
+        "markerVisible": false,
+        "objects": [
+          {
+            "uid": 1,
+            "bounds": {
+              "left": 408.56780045921795,
+              "right": 493.1429177453011,
+              "top": 402.30854644074054,
+              "bottom": 553.1708004020791,
+              "width": 84.57511728608313,
+              "height": 150.86225396133852,
+              "x": 450.8553591022595,
+              "y": 477.7396734214098
+            }
+          },
+          {
+            "uid": 3,
+            "bounds": {
+              "left": 272.70597148473985,
+              "right": 385.4798420601193,
+              "top": 361.1783305270942,
+              "bottom": 560.7476292615297,
+              "width": 112.77387057537948,
+              "height": 199.5692987344355,
+              "x": 329.0929067724296,
+              "y": 460.96297989431196
+            }
+          },
+          {
+            "uid": 4,
+            "bounds": {
+              "left": 477.23331291762,
+              "right": 584.0403339244597,
+              "top": 348.34214053681023,
+              "bottom": 553.2910799838927,
+              "width": 106.80702100683965,
+              "height": 204.94893944708247,
+              "x": 530.6368234210398,
+              "y": 450.81661026035147
+            }
+          },
+          {
+            "uid": 5,
+            "bounds": {
+              "left": 226.74318386401586,
+              "right": 338.6537545225275,
+              "top": 349.97827822516024,
+              "bottom": 543.5506512280941,
+              "width": 111.91057065851163,
+              "height": 193.5723730029339,
+              "x": 282.69846919327165,
+              "y": 446.7644647266272
+            }
+          },
+          {
+            "uid": 7,
+            "bounds": {
+              "left": 563.5335380123518,
+              "right": 639.5604560830575,
+              "top": 502.62109430507786,
+              "bottom": 566.7355261921172,
+              "width": 76.02691807070573,
+              "height": 64.1144318870393,
+              "x": 601.5469970477046,
+              "y": 534.6783102485975
+            }
+          },
+          {
+            "uid": 9,
+            "bounds": {
+              "left": 34.18511092547202,
+              "right": 260.8305783546544,
+              "top": 304.84660435660203,
+              "bottom": 566.2099717592574,
+              "width": 226.64546742918236,
+              "height": 261.3633674026554,
+              "x": 147.5078446400632,
+              "y": 435.52828805792973
+            }
+          },
+          {
+            "uid": 12,
+            "bounds": {
+              "left": 472.32451806810616,
+              "right": 499.9226578865522,
+              "top": 421.5177808524587,
+              "bottom": 440.91643193430286,
+              "width": 27.598139818446043,
+              "height": 19.39865108184415,
+              "x": 486.1235879773292,
+              "y": 431.2171063933808
+            }
+          },
+          {
+            "uid": 13,
+            "bounds": {
+              "left": 289.16021136803425,
+              "right": 313.692996854055,
+              "top": 425.126366987275,
+              "bottom": 447.1351651766422,
+              "width": 24.53278548602077,
+              "height": 22.008798189367212,
+              "x": 301.42660411104464,
+              "y": 436.1307660819586
+            }
+          },
+          {
+            "uid": 14,
+            "bounds": {
+              "left": 301.4659209049947,
+              "right": 330.8408920423728,
+              "top": 447.2084881943828,
+              "bottom": 465.28017216750015,
+              "width": 29.37497113737811,
+              "height": 18.07168397311733,
+              "x": 316.15340647368373,
+              "y": 456.24433018094146
+            }
+          },
+          {
+            "uid": 15,
+            "bounds": {
+              "left": 425.2731314757002,
+              "right": 479.82640690819403,
+              "top": 448.4555741199041,
+              "bottom": 487.1885145408292,
+              "width": 54.55327543249382,
+              "height": 38.732940420925104,
+              "x": 452.5497691919471,
+              "y": 467.8220443303667
+            }
+          },
+          {
+            "uid": 16,
+            "bounds": {
+              "left": 480.4313461407794,
+              "right": 508.80713935072754,
+              "top": 384.95523731724285,
+              "bottom": 403.3526055147735,
+              "width": 28.375793209948142,
+              "height": 18.397368197530625,
+              "x": 494.61924274575347,
+              "y": 394.1539214160082
+            }
+          },
+          {
+            "uid": 17,
+            "bounds": {
+              "left": 271.3272629485368,
+              "right": 299.52069427556046,
+              "top": 380.65376301831134,
+              "bottom": 400.37098221684175,
+              "width": 28.19343132702363,
+              "height": 19.717219198530415,
+              "x": 285.42397861204864,
+              "y": 390.51237261757655
+            }
+          },
+          {
+            "uid": 18,
+            "bounds": {
+              "left": 250.8559061393333,
+              "right": 305.9368731847796,
+              "top": 537.0481845437185,
+              "bottom": 560.5447294775503,
+              "width": 55.08096704544627,
+              "height": 23.49654493383173,
+              "x": 278.39638966205644,
+              "y": 548.7964570106344
+            }
+          },
+          {
+            "uid": 19,
+            "bounds": {
+              "left": 194.27532308552628,
+              "right": 226.11167647781025,
+              "top": 502.7833597256726,
+              "bottom": 524.7192978584476,
+              "width": 31.836353392283968,
+              "height": 21.935938132774993,
+              "x": 210.19349978166827,
+              "y": 513.7513287920601
+            }
+          },
+          {
+            "uid": 20,
+            "bounds": {
+              "left": 599.3955907936511,
+              "right": 652.8576837709314,
+              "top": 519.4691000901047,
+              "bottom": 540.4817955817464,
+              "width": 53.46209297728035,
+              "height": 21.012695491641693,
+              "x": 626.1266372822913,
+              "y": 529.9754478359255
+            }
+          },
+          {
+            "uid": 21,
+            "bounds": {
+              "left": 104.95650798287738,
+              "right": 171.94150710891546,
+              "top": 541.0473382238539,
+              "bottom": 565.3036636914878,
+              "width": 66.98499912603808,
+              "height": 24.25632546763393,
+              "x": 138.44900754589642,
+              "y": 553.1755009576709
+            }
+          },
+          {
+            "uid": 22,
+            "bounds": {
+              "left": 547.3133929246732,
+              "right": 558.0259273932581,
+              "top": 519.7695463496729,
+              "bottom": 537.5702782051668,
+              "width": 10.712534468584977,
+              "height": 17.80073185549395,
+              "x": 552.6696601589656,
+              "y": 528.6699122774198
+            }
+          },
+          {
+            "uid": 23,
+            "bounds": {
+              "left": 437.6094019857065,
+              "right": 462.8455848538825,
+              "top": 546.8223674021768,
+              "bottom": 568.4725684580711,
+              "width": 25.236182868176,
+              "height": 21.650201055894286,
+              "x": 450.2274934197945,
+              "y": 557.647467930124
+            }
+          },
+          {
+            "uid": 24,
+            "bounds": {
+              "left": 234.9097334894234,
+              "right": 261.4749509911118,
+              "top": 539.1550032733685,
+              "bottom": 558.9058813391093,
+              "width": 26.565217501688437,
+              "height": 19.750878065740835,
+              "x": 248.1923422402676,
+              "y": 549.0304423062389
+            }
+          }
+        ]
+      },
+      "values": [
+        {
+          "value": 0.35,
+          "index": 100,
+          "text": "Vor dem Füttern\n100"
+        }
+      ]
+    },
+    {
+      "name": "m2-after-feeding",
+      "at": "2026-10-23T07:18:04.723209+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m2-food-transformation",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "text": "Klasse 8\nWas wird aus den Futterresten?\nMenü\nBecken einpassen\nDein Auftrag\nBeobachte die Reste.\nWir schauen drei Tage lang zu. Die Beobachtungen werden gespeichert.\nEntwicklung ansehen\nTipp\nReste in diesem Aquarium\nVor dem Füttern\n100\nNach dem Füttern\n134,3\nVergleichszahl: vor dem Füttern = 100. Relative Modellmenge, keine gezählten Krümel.",
+      "stage": "food-observe-ready",
+      "presentation": {
+        "glass": {
+          "left": 19.999997420569457,
+          "right": 748.0000025794307,
+          "top": 272.8871935001853,
+          "bottom": 616.9928064998147,
+          "width": 728.0000051588612,
+          "height": 344.10561299962944,
+          "x": 384.00000000000006,
+          "y": 444.94
+        },
+        "viewport": {
+          "width": 768,
+          "height": 1024
+        },
+        "camera": [
+          1.44112058697201,
+          2.6862139692196796,
+          12.009338224766763
+        ],
+        "selection": null,
+        "markerVisible": false,
+        "objects": [
+          {
+            "uid": 1,
+            "bounds": {
+              "left": 408.56780045921795,
+              "right": 493.1429177453011,
+              "top": 402.30854644074054,
+              "bottom": 553.1708004020791,
+              "width": 84.57511728608313,
+              "height": 150.86225396133852,
+              "x": 450.8553591022595,
+              "y": 477.7396734214098
+            }
+          },
+          {
+            "uid": 3,
+            "bounds": {
+              "left": 272.70597148473985,
+              "right": 385.4798420601193,
+              "top": 361.1783305270942,
+              "bottom": 560.7476292615297,
+              "width": 112.77387057537948,
+              "height": 199.5692987344355,
+              "x": 329.0929067724296,
+              "y": 460.96297989431196
+            }
+          },
+          {
+            "uid": 4,
+            "bounds": {
+              "left": 477.23331291762,
+              "right": 584.0403339244597,
+              "top": 348.34214053681023,
+              "bottom": 553.2910799838927,
+              "width": 106.80702100683965,
+              "height": 204.94893944708247,
+              "x": 530.6368234210398,
+              "y": 450.81661026035147
+            }
+          },
+          {
+            "uid": 5,
+            "bounds": {
+              "left": 226.74318386401586,
+              "right": 338.6537545225275,
+              "top": 349.97827822516024,
+              "bottom": 543.5506512280941,
+              "width": 111.91057065851163,
+              "height": 193.5723730029339,
+              "x": 282.69846919327165,
+              "y": 446.7644647266272
+            }
+          },
+          {
+            "uid": 7,
+            "bounds": {
+              "left": 563.5335380123518,
+              "right": 639.5604560830575,
+              "top": 502.62109430507786,
+              "bottom": 566.7355261921172,
+              "width": 76.02691807070573,
+              "height": 64.1144318870393,
+              "x": 601.5469970477046,
+              "y": 534.6783102485975
+            }
+          },
+          {
+            "uid": 9,
+            "bounds": {
+              "left": 34.18511092547202,
+              "right": 260.8305783546544,
+              "top": 304.84660435660203,
+              "bottom": 566.2099717592574,
+              "width": 226.64546742918236,
+              "height": 261.3633674026554,
+              "x": 147.5078446400632,
+              "y": 435.52828805792973
+            }
+          },
+          {
+            "uid": 12,
+            "bounds": {
+              "left": 445.448911774152,
+              "right": 474.6740847950818,
+              "top": 423.3702587090294,
+              "bottom": 442.13816652899163,
+              "width": 29.225173020929788,
+              "height": 18.76790781996226,
+              "x": 460.0614982846169,
+              "y": 432.7542126190105
+            }
+          },
+          {
+            "uid": 13,
+            "bounds": {
+              "left": 289.8955866798759,
+              "right": 308.16588902224396,
+              "top": 422.8335007250104,
+              "bottom": 445.4821208694331,
+              "width": 18.27030234236804,
+              "height": 22.648620144422694,
+              "x": 299.03073785105994,
+              "y": 434.15781079722177
+            }
+          },
+          {
+            "uid": 14,
+            "bounds": {
+              "left": 273.784591033487,
+              "right": 303.43303967523093,
+              "top": 447.148730208551,
+              "bottom": 465.4173688629995,
+              "width": 29.648448641743926,
+              "height": 18.268638654448523,
+              "x": 288.60881535435897,
+              "y": 456.28304953577526
+            }
+          },
+          {
+            "uid": 15,
+            "bounds": {
+              "left": 446.69136834094036,
+              "right": 487.4416326619349,
+              "top": 446.905460016266,
+              "bottom": 487.5164101068404,
+              "width": 40.75026432099452,
+              "height": 40.61095009057442,
+              "x": 467.06650050143764,
+              "y": 467.2109350615532
+            }
+          },
+          {
+            "uid": 16,
+            "bounds": {
+              "left": 453.63455279848904,
+              "right": 482.6384603720622,
+              "top": 387.3648847602368,
+              "bottom": 405.345158296905,
+              "width": 29.003907573573144,
+              "height": 17.98027353666822,
+              "x": 468.1365065852756,
+              "y": 396.3550215285709
+            }
+          },
+          {
+            "uid": 17,
+            "bounds": {
+              "left": 252.63257677747558,
+              "right": 275.7026879962034,
+              "top": 378.61711740472765,
+              "bottom": 399.2336485535075,
+              "width": 23.070111218727817,
+              "height": 20.61653114877987,
+              "x": 264.1676323868395,
+              "y": 388.92538297911756
+            }
+          },
+          {
+            "uid": 18,
+            "bounds": {
+              "left": 250.6245994522538,
+              "right": 305.7109153335913,
+              "top": 537.0378525145063,
+              "bottom": 560.53366677249,
+              "width": 55.0863158813375,
+              "height": 23.49581425798374,
+              "x": 278.16775739292257,
+              "y": 548.7857596434982
+            }
+          },
+          {
+            "uid": 19,
+            "bounds": {
+              "left": 194.0616439387963,
+              "right": 225.90389792942955,
+              "top": 502.7766503583429,
+              "bottom": 524.7120305681267,
+              "width": 31.842253990633253,
+              "height": 21.935380209783773,
+              "x": 209.98277093411292,
+              "y": 513.7443404632348
+            }
+          },
+          {
+            "uid": 20,
+            "bounds": {
+              "left": 599.5520087141763,
+              "right": 653.0192756134385,
+              "top": 519.4711030965541,
+              "bottom": 540.4840990019778,
+              "width": 53.4672668992622,
+              "height": 21.012995905423736,
+              "x": 626.2856421638073,
+              "y": 529.977601049266
+            }
+          },
+          {
+            "uid": 21,
+            "bounds": {
+              "left": 105.03304705636958,
+              "right": 172.01653507380266,
+              "top": 541.0486348251961,
+              "bottom": 565.3051413885984,
+              "width": 66.98348801743307,
+              "height": 24.25650656340224,
+              "x": 138.5247910650861,
+              "y": 553.1768881068972
+            }
+          },
+          {
+            "uid": 22,
+            "bounds": {
+              "left": 547.4977077460123,
+              "right": 558.208562480897,
+              "top": 519.7796153920523,
+              "bottom": 537.5806916035407,
+              "width": 10.710854734884606,
+              "height": 17.801076211488407,
+              "x": 552.8531351134546,
+              "y": 528.6801534977965
+            }
+          },
+          {
+            "uid": 23,
+            "bounds": {
+              "left": 437.47470275963383,
+              "right": 462.71211254599507,
+              "top": 546.8199570399298,
+              "bottom": 568.4699084146282,
+              "width": 25.23740978636124,
+              "height": 21.64995137469839,
+              "x": 450.09340765281445,
+              "y": 557.644932727279
+            }
+          },
+          {
+            "uid": 24,
+            "bounds": {
+              "left": 234.67392730157522,
+              "right": 261.24136760396686,
+              "top": 539.1417383168235,
+              "bottom": 558.8921203307223,
+              "width": 26.567440302391645,
+              "height": 19.75038201389873,
+              "x": 247.95764745277103,
+              "y": 549.016929323773
+            }
+          }
+        ]
+      },
+      "values": [
+        {
+          "value": 0.35,
+          "index": 100,
+          "text": "Vor dem Füttern\n100"
+        },
+        {
+          "value": 0.47,
+          "index": 134.2857142857143,
+          "text": "Nach dem Füttern\n134,3"
+        }
+      ]
+    },
+    {
+      "name": "m2-observation",
+      "at": "2026-10-23T07:18:30.918314+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m2-food-transformation",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "text": "Klasse 8\nWas wird aus den Futterresten?\nMenü\nBecken einpassen\nDein Auftrag\nWie verändern sich die Reste nach dem Füttern?\n\nVergleiche „Nach dem Füttern“ und „Nach 3 Tagen“.\n\nEs sind weniger Reste.\nEs sind mehr Reste.\nTipp\nReste in diesem Aquarium\nVor dem Füttern\n100\nNach dem Füttern\n134,3\nNach 3 Tagen\n128,6\nVergleichszahl: vor dem Füttern = 100. Relative Modellmenge, keine gezählten Krümel.",
+      "stage": "food-observation",
+      "presentation": {
+        "glass": {
+          "left": 19.999997420569457,
+          "right": 748.0000025794307,
+          "top": 272.8871935001853,
+          "bottom": 616.9928064998147,
+          "width": 728.0000051588612,
+          "height": 344.10561299962944,
+          "x": 384.00000000000006,
+          "y": 444.94
+        },
+        "viewport": {
+          "width": 768,
+          "height": 1024
+        },
+        "camera": [
+          1.44112058697201,
+          2.6862139692196796,
+          12.009338224766763
+        ],
+        "selection": null,
+        "markerVisible": false,
+        "objects": [
+          {
+            "uid": 1,
+            "bounds": {
+              "left": 408.0862964897021,
+              "right": 493.5320526173667,
+              "top": 400.89520453318295,
+              "bottom": 553.2743870340147,
+              "width": 85.4457561276646,
+              "height": 152.37918250083175,
+              "x": 450.8091745535344,
+              "y": 477.0847957835988
+            }
+          },
+          {
+            "uid": 3,
+            "bounds": {
+              "left": 268.1508962445691,
+              "right": 389.38110726000525,
+              "top": 347.4835022767894,
+              "bottom": 561.6169617536453,
+              "width": 121.23021101543617,
+              "height": 214.13345947685593,
+              "x": 328.76600175228714,
+              "y": 454.5502320152174
+            }
+          },
+          {
+            "uid": 4,
+            "bounds": {
+              "left": 473.15695525801664,
+              "right": 587.9557731038376,
+              "top": 334.2576615772601,
+              "bottom": 554.1592305840322,
+              "width": 114.79881784582096,
+              "height": 219.90156900677215,
+              "x": 530.5563641809272,
+              "y": 444.2084460806461
+            }
+          },
+          {
+            "uid": 5,
+            "bounds": {
+              "left": 222.20878610448358,
+              "right": 342.50958719156415,
+              "top": 336.6428185503074,
+              "bottom": 544.3482624027579,
+              "width": 120.30080108708057,
+              "height": 207.70544385245046,
+              "x": 282.35918664802387,
+              "y": 440.49554047653265
+            }
+          },
+          {
+            "uid": 7,
+            "bounds": {
+              "left": 562.6791075329479,
+              "right": 640.4649142954238,
+              "top": 501.45182814129817,
+              "bottom": 566.9800967645298,
+              "width": 77.78580676247589,
+              "height": 65.52826862323161,
+              "x": 601.5720109141859,
+              "y": 534.215962452914
+            }
+          },
+          {
+            "uid": 9,
+            "bounds": {
+              "left": 34.18511092547202,
+              "right": 260.8305783546544,
+              "top": 304.84660435660203,
+              "bottom": 566.2099717592574,
+              "width": 226.64546742918236,
+              "height": 261.3633674026554,
+              "x": 147.5078446400632,
+              "y": 435.52828805792973
+            }
+          },
+          {
+            "uid": 12,
+            "bounds": {
+              "left": 391.3602562900285,
+              "right": 420.7187172583656,
+              "top": 426.14231489115923,
+              "bottom": 444.3406682985825,
+              "width": 29.358460968337113,
+              "height": 18.19835340742327,
+              "x": 406.03948677419703,
+              "y": 435.24149159487087
+            }
+          },
+          {
+            "uid": 13,
+            "bounds": {
+              "left": 320.7166435792486,
+              "right": 353.5629646488941,
+              "top": 421.0373549043345,
+              "bottom": 442.47213912371274,
+              "width": 32.846321069645455,
+              "height": 21.43478421937823,
+              "x": 337.13980411407135,
+              "y": 431.7547470140236
+            }
+          },
+          {
+            "uid": 14,
+            "bounds": {
+              "left": 218.6491659683673,
+              "right": 248.37081339369269,
+              "top": 444.7463144475891,
+              "bottom": 463.74940013498195,
+              "width": 29.721647425325386,
+              "height": 19.003085687392854,
+              "x": 233.50998968103,
+              "y": 454.2478572912855
+            }
+          },
+          {
+            "uid": 15,
+            "bounds": {
+              "left": 438.9923742815,
+              "right": 487.92311675197374,
+              "top": 449.60365214988593,
+              "bottom": 488.3181554661462,
+              "width": 48.93074247047372,
+              "height": 38.71450331626028,
+              "x": 463.45774551673685,
+              "y": 468.96090380801604
+            }
+          },
+          {
+            "uid": 16,
+            "bounds": {
+              "left": 398.8693511465774,
+              "right": 427.9362125431349,
+              "top": 390.4504913696963,
+              "bottom": 408.28932762162856,
+              "width": 29.0668613965575,
+              "height": 17.838836251932264,
+              "x": 413.4027818448561,
+              "y": 399.36990949566245
+            }
+          },
+          {
+            "uid": 17,
+            "bounds": {
+              "left": 260.59122244484183,
+              "right": 288.4869357278375,
+              "top": 374.9302314034245,
+              "bottom": 395.7124849276761,
+              "width": 27.895713282995644,
+              "height": 20.782253524251587,
+              "x": 274.53907908633965,
+              "y": 385.3213581655503
+            }
+          },
+          {
+            "uid": 18,
+            "bounds": {
+              "left": 250.1574480225719,
+              "right": 305.2545662883438,
+              "top": 537.016897627893,
+              "bottom": 560.5112335311594,
+              "width": 55.09711826577191,
+              "height": 23.49433590326646,
+              "x": 277.7060071554579,
+              "y": 548.7640655795262
+            }
+          },
+          {
+            "uid": 19,
+            "bounds": {
+              "left": 193.63159510893416,
+              "right": 225.4857237375405,
+              "top": 502.7632496290207,
+              "bottom": 524.6975100605538,
+              "width": 31.854128628606333,
+              "height": 21.934260431533062,
+              "x": 209.55865942323732,
+              "y": 513.7303798447872
+            }
+          },
+          {
+            "uid": 20,
+            "bounds": {
+              "left": 599.8491166195752,
+              "right": 653.326211627503,
+              "top": 519.4748589316777,
+              "bottom": 540.4884242268204,
+              "width": 53.4770950079278,
+              "height": 21.013565295142712,
+              "x": 626.5876641235391,
+              "y": 529.9816415792491
+            }
+          },
+          {
+            "uid": 21,
+            "bounds": {
+              "left": 105.20736515445158,
+              "right": 172.18741145117198,
+              "top": 541.0516031036789,
+              "bottom": 565.3085225627932,
+              "width": 66.9800462967204,
+              "height": 24.25691945911433,
+              "x": 138.6973883028118,
+              "y": 553.180062833236
+            }
+          },
+          {
+            "uid": 22,
+            "bounds": {
+              "left": 547.8787830583326,
+              "right": 558.5861647720862,
+              "top": 519.8004151555903,
+              "bottom": 537.6022031583723,
+              "width": 10.707381713753648,
+              "height": 17.80178800278202,
+              "x": 553.2324739152094,
+              "y": 528.7013091569813
+            }
+          },
+          {
+            "uid": 23,
+            "bounds": {
+              "left": 437.1859680949335,
+              "right": 462.4260076628545,
+              "top": 546.8148312213847,
+              "bottom": 568.464247915372,
+              "width": 25.240039567920974,
+              "height": 21.64941669398729,
+              "x": 449.80598787889403,
+              "y": 557.6395395683783
+            }
+          },
+          {
+            "uid": 24,
+            "bounds": {
+              "left": 234.20517532578916,
+              "right": 260.77703408308787,
+              "top": 539.1153317739744,
+              "bottom": 558.8647273170005,
+              "width": 26.571858757298713,
+              "height": 19.74939554302614,
+              "x": 247.4911047044385,
+              "y": 548.9900295454875
+            }
+          }
+        ]
+      },
+      "values": [
+        {
+          "value": 0.35,
+          "index": 100,
+          "text": "Vor dem Füttern\n100"
+        },
+        {
+          "value": 0.47,
+          "index": 134.2857142857143,
+          "text": "Nach dem Füttern\n134,3"
+        },
+        {
+          "value": 0.45023569251147194,
+          "index": 128.638769288992,
+          "text": "Nach 3 Tagen\n128,6"
+        }
+      ]
+    },
+    {
+      "name": "m2-wrong",
+      "at": "2026-10-23T07:18:34.651973+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m2-food-transformation",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "text": "Klasse 8\nWas wird aus den Futterresten?\nMenü\nBecken einpassen\nDein Auftrag\nWie verändern sich die Reste nach dem Füttern?\n\nVergleiche „Nach dem Füttern“ und „Nach 3 Tagen“.\n\nEs sind weniger Reste.\nEs sind mehr Reste.\nTipp\n\n✕ Schau noch einmal auf deine Beobachtung. Nutze bei Bedarf den Tipp.\n\nReste in diesem Aquarium\nVor dem Füttern\n100\nNach dem Füttern\n134,3\nNach 3 Tagen\n128,6\nVergleichszahl: vor dem Füttern = 100. Relative Modellmenge, keine gezählten Krümel.",
+      "stage": "food-observation",
+      "presentation": {
+        "glass": {
+          "left": 19.999997420569457,
+          "right": 748.0000025794307,
+          "top": 272.8871935001853,
+          "bottom": 616.9928064998147,
+          "width": 728.0000051588612,
+          "height": 344.10561299962944,
+          "x": 384.00000000000006,
+          "y": 444.94
+        },
+        "viewport": {
+          "width": 768,
+          "height": 1024
+        },
+        "camera": [
+          1.44112058697201,
+          2.6862139692196796,
+          12.009338224766763
+        ],
+        "selection": null,
+        "markerVisible": false,
+        "objects": [
+          {
+            "uid": 1,
+            "bounds": {
+              "left": 408.0862964897021,
+              "right": 493.5320526173667,
+              "top": 400.89520453318295,
+              "bottom": 553.2743870340147,
+              "width": 85.4457561276646,
+              "height": 152.37918250083175,
+              "x": 450.8091745535344,
+              "y": 477.0847957835988
+            }
+          },
+          {
+            "uid": 3,
+            "bounds": {
+              "left": 268.1508962445691,
+              "right": 389.38110726000525,
+              "top": 347.4835022767894,
+              "bottom": 561.6169617536453,
+              "width": 121.23021101543617,
+              "height": 214.13345947685593,
+              "x": 328.76600175228714,
+              "y": 454.5502320152174
+            }
+          },
+          {
+            "uid": 4,
+            "bounds": {
+              "left": 473.15695525801664,
+              "right": 587.9557731038376,
+              "top": 334.2576615772601,
+              "bottom": 554.1592305840322,
+              "width": 114.79881784582096,
+              "height": 219.90156900677215,
+              "x": 530.5563641809272,
+              "y": 444.2084460806461
+            }
+          },
+          {
+            "uid": 5,
+            "bounds": {
+              "left": 222.20878610448358,
+              "right": 342.50958719156415,
+              "top": 336.6428185503074,
+              "bottom": 544.3482624027579,
+              "width": 120.30080108708057,
+              "height": 207.70544385245046,
+              "x": 282.35918664802387,
+              "y": 440.49554047653265
+            }
+          },
+          {
+            "uid": 7,
+            "bounds": {
+              "left": 562.6791075329479,
+              "right": 640.4649142954238,
+              "top": 501.45182814129817,
+              "bottom": 566.9800967645298,
+              "width": 77.78580676247589,
+              "height": 65.52826862323161,
+              "x": 601.5720109141859,
+              "y": 534.215962452914
+            }
+          },
+          {
+            "uid": 9,
+            "bounds": {
+              "left": 34.18511092547202,
+              "right": 260.8305783546544,
+              "top": 304.84660435660203,
+              "bottom": 566.2099717592574,
+              "width": 226.64546742918236,
+              "height": 261.3633674026554,
+              "x": 147.5078446400632,
+              "y": 435.52828805792973
+            }
+          },
+          {
+            "uid": 12,
+            "bounds": {
+              "left": 366.0808283265539,
+              "right": 395.35294372105596,
+              "top": 427.0732783670272,
+              "bottom": 445.1083295667963,
+              "width": 29.272115394502066,
+              "height": 18.035051199769043,
+              "x": 380.71688602380493,
+              "y": 436.0908039669117
+            }
+          },
+          {
+            "uid": 13,
+            "bounds": {
+              "left": 347.0968303163679,
+              "right": 380.73179261697885,
+              "top": 421.1068388287259,
+              "bottom": 442.2864500288427,
+              "width": 33.63496230061094,
+              "height": 21.179611200116767,
+              "x": 363.9143114666734,
+              "y": 431.69664442878434
+            }
+          },
+          {
+            "uid": 14,
+            "bounds": {
+              "left": 197.4444607804463,
+              "right": 223.50784332925997,
+              "top": 441.19335563714174,
+              "bottom": 461.1952034998871,
+              "width": 26.063382548813678,
+              "height": 20.001847862745365,
+              "x": 210.47615205485312,
+              "y": 451.1942795685144
+            }
+          },
+          {
+            "uid": 15,
+            "bounds": {
+              "left": 417.3048266938473,
+              "right": 472.32442973490805,
+              "top": 452.35044129802037,
+              "bottom": 489.55126567308804,
+              "width": 55.01960304106075,
+              "height": 37.20082437506767,
+              "x": 444.81462821437765,
+              "y": 470.9508534855542
+            }
+          },
+          {
+            "uid": 16,
+            "bounds": {
+              "left": 373.40037069532383,
+              "right": 402.41573559649726,
+              "top": 390.749874024645,
+              "bottom": 408.9206796374136,
+              "width": 29.015364901173427,
+              "height": 18.170805612768618,
+              "x": 387.90805314591057,
+              "y": 399.8352768310293
+            }
+          },
+          {
+            "uid": 17,
+            "bounds": {
+              "left": 279.69147912982817,
+              "right": 311.323147801614,
+              "top": 374.3837754555933,
+              "bottom": 394.9451760209307,
+              "width": 31.63166867178586,
+              "height": 20.561400565337408,
+              "x": 295.5073134657211,
+              "y": 384.664475738262
+            }
+          },
+          {
+            "uid": 18,
+            "bounds": {
+              "left": 249.93891232964063,
+              "right": 305.0410838976997,
+              "top": 537.0070545765034,
+              "bottom": 560.5006976798383,
+              "width": 55.10217156805908,
+              "height": 23.493643103334875,
+              "x": 277.48999811367014,
+              "y": 548.7538761281708
+            }
+          },
+          {
+            "uid": 19,
+            "bounds": {
+              "left": 193.4310901317786,
+              "right": 225.29075477299017,
+              "top": 502.75704861186705,
+              "bottom": 524.6907883760366,
+              "width": 31.859664641211566,
+              "height": 21.93373976416956,
+              "x": 209.3609224523844,
+              "y": 513.7239184939518
+            }
+          },
+          {
+            "uid": 20,
+            "bounds": {
+              "left": 599.9796679080105,
+              "right": 653.4610816652319,
+              "top": 519.4764890871713,
+              "bottom": 540.4903040666643,
+              "width": 53.48141375722139,
+              "height": 21.013814979492963,
+              "x": 626.7203747866212,
+              "y": 529.9833965769178
+            }
+          },
+          {
+            "uid": 21,
+            "bounds": {
+              "left": 105.29777195838378,
+              "right": 172.27603318171285,
+              "top": 541.053150902337,
+              "bottom": 565.3102847480335,
+              "width": 66.97826122332907,
+              "height": 24.257133845696444,
+              "x": 138.7869025700483,
+              "y": 553.1817178251853
+            }
+          },
+          {
+            "uid": 22,
+            "bounds": {
+              "left": 548.0610157515443,
+              "right": 558.766736581543,
+              "top": 519.8103528595009,
+              "bottom": 537.6124811611265,
+              "width": 10.705720829998654,
+              "height": 17.802128301625658,
+              "x": 553.4138761665437,
+              "y": 528.7114170103137
+            }
+          },
+          {
+            "uid": 23,
+            "bounds": {
+              "left": 437.04340448825826,
+              "right": 462.2847424281107,
+              "top": 546.8123208979982,
+              "bottom": 568.4614738549749,
+              "width": 25.24133793985243,
+              "height": 21.64915295697665,
+              "x": 449.6640734581845,
+              "y": 557.6368973764866
+            }
+          },
+          {
+            "uid": 24,
+            "bounds": {
+              "left": 233.98925080059712,
+              "right": 260.5631447791924,
+              "top": 539.1031514623535,
+              "bottom": 558.8520924317259,
+              "width": 26.573893978595265,
+              "height": 19.74894096937237,
+              "x": 247.27619778989475,
+              "y": 548.9776219470397
+            }
+          }
+        ]
+      },
+      "values": [
+        {
+          "value": 0.35,
+          "index": 100,
+          "text": "Vor dem Füttern\n100"
+        },
+        {
+          "value": 0.47,
+          "index": 134.2857142857143,
+          "text": "Nach dem Füttern\n134,3"
+        },
+        {
+          "value": 0.45023569251147194,
+          "index": 128.638769288992,
+          "text": "Nach 3 Tagen\n128,6"
+        }
+      ]
+    },
+    {
+      "name": "m2-help",
+      "at": "2026-10-23T07:18:39.010075+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m2-food-transformation",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "text": "Klasse 8\nWas wird aus den Futterresten?\nMenü\nBecken einpassen\nDein Auftrag\nWie verändern sich die Reste nach dem Füttern?\n\nVergleiche „Nach dem Füttern“ und „Nach 3 Tagen“.\n\nEs sind weniger Reste.\nEs sind mehr Reste.\nTipp\nReste in diesem Aquarium\nVor dem Füttern\n100\nNach dem Füttern\n134,3\nNach 3 Tagen\n128,6\nVergleichszahl: vor dem Füttern = 100. Relative Modellmenge, keine gezählten Krümel.\nTipp zu deiner Aufgabe\nSchließen\n\nVergleiche die Beobachtung am Anfang und am Ende. Hilfe hält die Entwicklung an.\n\nWeiterer Tipp",
+      "stage": "food-observation",
+      "presentation": {
+        "glass": {
+          "left": 19.999997420569457,
+          "right": 748.0000025794307,
+          "top": 272.8871935001853,
+          "bottom": 616.9928064998147,
+          "width": 728.0000051588612,
+          "height": 344.10561299962944,
+          "x": 384.00000000000006,
+          "y": 444.94
+        },
+        "viewport": {
+          "width": 768,
+          "height": 1024
+        },
+        "camera": [
+          1.44112058697201,
+          2.6862139692196796,
+          12.009338224766763
+        ],
+        "selection": null,
+        "markerVisible": false,
+        "objects": [
+          {
+            "uid": 1,
+            "bounds": {
+              "left": 408.0862964897021,
+              "right": 493.5320526173667,
+              "top": 400.89520453318295,
+              "bottom": 553.2743870340147,
+              "width": 85.4457561276646,
+              "height": 152.37918250083175,
+              "x": 450.8091745535344,
+              "y": 477.0847957835988
+            }
+          },
+          {
+            "uid": 3,
+            "bounds": {
+              "left": 268.1508962445691,
+              "right": 389.38110726000525,
+              "top": 347.4835022767894,
+              "bottom": 561.6169617536453,
+              "width": 121.23021101543617,
+              "height": 214.13345947685593,
+              "x": 328.76600175228714,
+              "y": 454.5502320152174
+            }
+          },
+          {
+            "uid": 4,
+            "bounds": {
+              "left": 473.15695525801664,
+              "right": 587.9557731038376,
+              "top": 334.2576615772601,
+              "bottom": 554.1592305840322,
+              "width": 114.79881784582096,
+              "height": 219.90156900677215,
+              "x": 530.5563641809272,
+              "y": 444.2084460806461
+            }
+          },
+          {
+            "uid": 5,
+            "bounds": {
+              "left": 222.20878610448358,
+              "right": 342.50958719156415,
+              "top": 336.6428185503074,
+              "bottom": 544.3482624027579,
+              "width": 120.30080108708057,
+              "height": 207.70544385245046,
+              "x": 282.35918664802387,
+              "y": 440.49554047653265
+            }
+          },
+          {
+            "uid": 7,
+            "bounds": {
+              "left": 562.6791075329479,
+              "right": 640.4649142954238,
+              "top": 501.45182814129817,
+              "bottom": 566.9800967645298,
+              "width": 77.78580676247589,
+              "height": 65.52826862323161,
+              "x": 601.5720109141859,
+              "y": 534.215962452914
+            }
+          },
+          {
+            "uid": 9,
+            "bounds": {
+              "left": 34.18511092547202,
+              "right": 260.8305783546544,
+              "top": 304.84660435660203,
+              "bottom": 566.2099717592574,
+              "width": 226.64546742918236,
+              "height": 261.3633674026554,
+              "x": 147.5078446400632,
+              "y": 435.52828805792973
+            }
+          },
+          {
+            "uid": 12,
+            "bounds": {
+              "left": 336.7558689644967,
+              "right": 366.0092002800923,
+              "top": 427.8600327884348,
+              "bottom": 445.8260908506036,
+              "width": 29.253331315595574,
+              "height": 17.96605806216877,
+              "x": 351.3825346222945,
+              "y": 436.8430618195192
+            }
+          },
+          {
+            "uid": 13,
+            "bounds": {
+              "left": 379.7636723913177,
+              "right": 413.5358847934525,
+              "top": 421.81998006191685,
+              "bottom": 442.77062637136765,
+              "width": 33.77221240213481,
+              "height": 20.950646309450804,
+              "x": 396.64977859238513,
+              "y": 432.29530321664225
+            }
+          },
+          {
+            "uid": 14,
+            "bounds": {
+              "left": 204.16777967278142,
+              "right": 232.63288999742278,
+              "top": 437.3706589060273,
+              "bottom": 457.2539278672555,
+              "width": 28.46511032464136,
+              "height": 19.883268961228225,
+              "x": 218.40033483510211,
+              "y": 447.3122933866414
+            }
+          },
+          {
+            "uid": 15,
+            "bounds": {
+              "left": 385.6865384750754,
+              "right": 442.08087074256787,
+              "top": 455.6773098724273,
+              "bottom": 491.6238750264691,
+              "width": 56.39433226749247,
+              "height": 35.946565154041764,
+              "x": 413.88370460882163,
+              "y": 473.6505924494482
+            }
+          },
+          {
+            "uid": 16,
+            "bounds": {
+              "left": 345.3133225298093,
+              "right": 373.4038697765865,
+              "top": 390.0663835725432,
+              "bottom": 408.7230748879264,
+              "width": 28.09054724677719,
+              "height": 18.65669131538317,
+              "x": 359.3585961531979,
+              "y": 399.3947292302348
+            }
+          },
+          {
+            "uid": 17,
+            "bounds": {
+              "left": 307.7937723196227,
+              "right": 340.7846687377187,
+              "top": 374.3972916770091,
+              "bottom": 394.77440963787524,
+              "width": 32.990896418095986,
+              "height": 20.377117960866144,
+              "x": 324.2892205286707,
+              "y": 384.58585065744217
+            }
+          },
+          {
+            "uid": 18,
+            "bounds": {
+              "left": 249.68579368346997,
+              "right": 304.793818146898,
+              "top": 536.9956219829746,
+              "bottom": 560.4884616865485,
+              "width": 55.10802446342802,
+              "height": 23.49283970357385,
+              "x": 277.239805915184,
+              "y": 548.7420418347615
+            }
+          },
+          {
+            "uid": 19,
+            "bounds": {
+              "left": 193.19938270266158,
+              "right": 225.0654445568634,
+              "top": 502.74991983511336,
+              "bottom": 524.6830590296117,
+              "width": 31.86606185420183,
+              "height": 21.93313919449838,
+              "x": 209.13241362976248,
+              "y": 513.7164894323626
+            }
+          },
+          {
+            "uid": 20,
+            "bounds": {
+              "left": 600.1242778245609,
+              "right": 653.6104755520332,
+              "top": 519.4782804204278,
+              "bottom": 540.4923716092637,
+              "width": 53.48619772747236,
+              "height": 21.01409118883589,
+              "x": 626.8673766882971,
+              "y": 529.9853260148458
+            }
+          },
+          {
+            "uid": 21,
+            "bounds": {
+              "left": 105.4094172306058,
+              "right": 172.3854739445698,
+              "top": 541.0550701919285,
+              "bottom": 565.3124690201092,
+              "width": 66.97605671396401,
+              "height": 24.257398828180726,
+              "x": 138.8974455875878,
+              "y": 553.1837696060188
+            }
+          },
+          {
+            "uid": 22,
+            "bounds": {
+              "left": 548.2751879964746,
+              "right": 558.978956791499,
+              "top": 519.8220248133065,
+              "bottom": 537.6245529857803,
+              "width": 10.703768795024303,
+              "height": 17.802528172473785,
+              "x": 553.6270723939867,
+              "y": 528.7232888995434
+            }
+          },
+          {
+            "uid": 23,
+            "bounds": {
+              "left": 436.8724197481288,
+              "right": 462.1153148211973,
+              "top": 546.8093280415144,
+              "bottom": 568.4581649128311,
+              "width": 25.242895073068496,
+              "height": 21.64883687131669,
+              "x": 449.493867284663,
+              "y": 557.6337464771727
+            }
+          },
+          {
+            "uid": 24,
+            "bounds": {
+              "left": 233.74178467140226,
+              "right": 260.3180111055883,
+              "top": 539.0891793594155,
+              "bottom": 558.8375992243159,
+              "width": 26.576226434186054,
+              "height": 19.74841986490037,
+              "x": 247.02989788849527,
+              "y": 548.9633892918657
+            }
+          }
+        ]
+      },
+      "values": [
+        {
+          "value": 0.35,
+          "index": 100,
+          "text": "Vor dem Füttern\n100"
+        },
+        {
+          "value": 0.47,
+          "index": 134.2857142857143,
+          "text": "Nach dem Füttern\n134,3"
+        },
+        {
+          "value": 0.45023569251147194,
+          "index": 128.638769288992,
+          "text": "Nach 3 Tagen\n128,6"
+        }
+      ]
+    },
+    {
+      "name": "m2-process-question",
+      "at": "2026-10-23T07:18:45.619442+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m2-food-transformation",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "text": "Klasse 8\nWas wird aus den Futterresten?\nMenü\nBecken einpassen\nDein Auftrag\nWas machen die winzigen Lebewesen?\nDer Filter macht aus den Resten nichts mehr.\nSie wandeln Reste in andere Stoffe um. Dabei brauchen sie Sauerstoff.\nTipp\nErklärung als Hilfe\nReste in diesem Aquarium\nVor dem Füttern\n100\nNach dem Füttern\n134,3\nNach 3 Tagen\n128,6\nVergleichszahl: vor dem Füttern = 100. Relative Modellmenge, keine gezählten Krümel.",
+      "stage": "food-process",
+      "presentation": {
+        "glass": {
+          "left": 19.999997420569457,
+          "right": 748.0000025794307,
+          "top": 272.8871935001853,
+          "bottom": 616.9928064998147,
+          "width": 728.0000051588612,
+          "height": 344.10561299962944,
+          "x": 384.00000000000006,
+          "y": 444.94
+        },
+        "viewport": {
+          "width": 768,
+          "height": 1024
+        },
+        "camera": [
+          1.44112058697201,
+          2.6862139692196796,
+          12.009338224766763
+        ],
+        "selection": null,
+        "markerVisible": false,
+        "objects": [
+          {
+            "uid": 1,
+            "bounds": {
+              "left": 408.0862964897021,
+              "right": 493.5320526173667,
+              "top": 400.89520453318295,
+              "bottom": 553.2743870340147,
+              "width": 85.4457561276646,
+              "height": 152.37918250083175,
+              "x": 450.8091745535344,
+              "y": 477.0847957835988
+            }
+          },
+          {
+            "uid": 3,
+            "bounds": {
+              "left": 268.1508962445691,
+              "right": 389.38110726000525,
+              "top": 347.4835022767894,
+              "bottom": 561.6169617536453,
+              "width": 121.23021101543617,
+              "height": 214.13345947685593,
+              "x": 328.76600175228714,
+              "y": 454.5502320152174
+            }
+          },
+          {
+            "uid": 4,
+            "bounds": {
+              "left": 473.15695525801664,
+              "right": 587.9557731038376,
+              "top": 334.2576615772601,
+              "bottom": 554.1592305840322,
+              "width": 114.79881784582096,
+              "height": 219.90156900677215,
+              "x": 530.5563641809272,
+              "y": 444.2084460806461
+            }
+          },
+          {
+            "uid": 5,
+            "bounds": {
+              "left": 222.20878610448358,
+              "right": 342.50958719156415,
+              "top": 336.6428185503074,
+              "bottom": 544.3482624027579,
+              "width": 120.30080108708057,
+              "height": 207.70544385245046,
+              "x": 282.35918664802387,
+              "y": 440.49554047653265
+            }
+          },
+          {
+            "uid": 7,
+            "bounds": {
+              "left": 562.6791075329479,
+              "right": 640.4649142954238,
+              "top": 501.45182814129817,
+              "bottom": 566.9800967645298,
+              "width": 77.78580676247589,
+              "height": 65.52826862323161,
+              "x": 601.5720109141859,
+              "y": 534.215962452914
+            }
+          },
+          {
+            "uid": 9,
+            "bounds": {
+              "left": 34.18511092547202,
+              "right": 260.8305783546544,
+              "top": 304.84660435660203,
+              "bottom": 566.2099717592574,
+              "width": 226.64546742918236,
+              "height": 261.3633674026554,
+              "x": 147.5078446400632,
+              "y": 435.52828805792973
+            }
+          },
+          {
+            "uid": 12,
+            "bounds": {
+              "left": 291.3986698655999,
+              "right": 320.91968392403044,
+              "top": 428.32396492934225,
+              "bottom": 446.3512401804026,
+              "width": 29.521014058430524,
+              "height": 18.02727525106036,
+              "x": 306.1591768948152,
+              "y": 437.33760255487243
+            }
+          },
+          {
+            "uid": 13,
+            "bounds": {
+              "left": 431.90508655857207,
+              "right": 465.5564202445433,
+              "top": 423.8409916391892,
+              "bottom": 444.6522324272242,
+              "width": 33.651333685971224,
+              "height": 20.81124078803498,
+              "x": 448.73075340155765,
+              "y": 434.2466120332067
+            }
+          },
+          {
+            "uid": 14,
+            "bounds": {
+              "left": 244.07260411508486,
+              "right": 275.0872460527452,
+              "top": 436.4900872126659,
+              "bottom": 455.5291955078006,
+              "width": 31.014641937660315,
+              "height": 19.039108295134668,
+              "x": 259.579925083915,
+              "y": 446.0096413602332
+            }
+          },
+          {
+            "uid": 15,
+            "bounds": {
+              "left": 329.0259331416683,
+              "right": 385.20139375481057,
+              "top": 459.63823396889705,
+              "bottom": 494.57063670475924,
+              "width": 56.17546061314226,
+              "height": 34.93240273586218,
+              "x": 357.11366344823944,
+              "y": 477.10443533682815
+            }
+          },
+          {
+            "uid": 16,
+            "bounds": {
+              "left": 316.17653876721414,
+              "right": 335.52722553604565,
+              "top": 385.61742092718134,
+              "bottom": 405.624473021955,
+              "width": 19.35068676883151,
+              "height": 20.007052094773655,
+              "x": 325.85188215162987,
+              "y": 395.62094697456814
+            }
+          },
+          {
+            "uid": 17,
+            "bounds": {
+              "left": 356.4979133130869,
+              "right": 389.62141996065657,
+              "top": 375.6067040671634,
+              "bottom": 395.68624612980784,
+              "width": 33.123506647569684,
+              "height": 20.079542062644464,
+              "x": 373.0596666368717,
+              "y": 385.6464750984856
+            }
+          },
+          {
+            "uid": 18,
+            "bounds": {
+              "left": 249.29631150726544,
+              "right": 304.4133418389239,
+              "top": 536.9779637475087,
+              "bottom": 560.469565219919,
+              "width": 55.11703033165844,
+              "height": 23.491601472410252,
+              "x": 276.85482667309464,
+              "y": 548.7237644837139
+            }
+          },
+          {
+            "uid": 19,
+            "bounds": {
+              "left": 192.8439391720873,
+              "right": 224.71981382362776,
+              "top": 502.739061913499,
+              "bottom": 524.6712821688368,
+              "width": 31.87587465154047,
+              "height": 21.932220255337825,
+              "x": 208.78187649785752,
+              "y": 513.7051720411679
+            }
+          },
+          {
+            "uid": 20,
+            "bounds": {
+              "left": 600.3331120498397,
+              "right": 653.8262186865336,
+              "top": 519.480840697665,
+              "bottom": 540.4953300941576,
+              "width": 53.49310663669394,
+              "height": 21.014489396492536,
+              "x": 627.0796653681866,
+              "y": 529.9880853959113
+            }
+          },
+          {
+            "uid": 21,
+            "bounds": {
+              "left": 105.59557729214238,
+              "right": 172.56795794544155,
+              "top": 541.0582898380854,
+              "bottom": 565.316131074909,
+              "width": 66.97238065329917,
+              "height": 24.257841236823538,
+              "x": 139.08176761879196,
+              "y": 553.1872104564973
+            }
+          },
+          {
+            "uid": 22,
+            "bounds": {
+              "left": 548.6111711658338,
+              "right": 559.3118775899158,
+              "top": 519.8403185177638,
+              "bottom": 537.6434738294063,
+              "width": 10.700706424082,
+              "height": 17.803155311642513,
+              "x": 553.9615243778748,
+              "y": 528.741896173585
+            }
+          },
+          {
+            "uid": 23,
+            "bounds": {
+              "left": 436.59717399946476,
+              "right": 461.84257551471467,
+              "top": 546.8045512609513,
+              "bottom": 568.4528798326971,
+              "width": 25.24540151524991,
+              "height": 21.64832857174588,
+              "x": 449.2198747570897,
+              "y": 557.6287155468242
+            }
+          },
+          {
+            "uid": 24,
+            "bounds": {
+              "left": 233.3664466414007,
+              "right": 259.9462106360826,
+              "top": 539.0679624532861,
+              "bottom": 558.8155916900286,
+              "width": 26.579763994681883,
+              "height": 19.747629236742455,
+              "x": 246.65632863874163,
+              "y": 548.9417770716573
+            }
+          }
+        ]
+      },
+      "values": [
+        {
+          "value": 0.35,
+          "index": 100,
+          "text": "Vor dem Füttern\n100"
+        },
+        {
+          "value": 0.47,
+          "index": 134.2857142857143,
+          "text": "Nach dem Füttern\n134,3"
+        },
+        {
+          "value": 0.45023569251147194,
+          "index": 128.638769288992,
+          "text": "Nach 3 Tagen\n128,6"
+        }
+      ]
+    },
+    {
+      "name": "m2-plant-question",
+      "at": "2026-10-23T07:18:48.485879+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m2-food-transformation",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "text": "Klasse 8\nWas wird aus den Futterresten?\nMenü\nBecken einpassen\nDein Auftrag\nWas können Pflanzen daraus nutzen?\nPflanzen fressen die Reste so wie Fische.\nBeim Abbau entstehen Stoffe, die Pflanzen zum Wachsen brauchen.\nTipp\nErklärung als Hilfe\n\n✓ Dein Beleg ist gespeichert.\n\nReste in diesem Aquarium\nVor dem Füttern\n100\nNach dem Füttern\n134,3\nNach 3 Tagen\n128,6\nVergleichszahl: vor dem Füttern = 100. Relative Modellmenge, keine gezählten Krümel.",
+      "stage": "food-plant",
+      "presentation": {
+        "glass": {
+          "left": 19.999997420569457,
+          "right": 748.0000025794307,
+          "top": 272.8871935001853,
+          "bottom": 616.9928064998147,
+          "width": 728.0000051588612,
+          "height": 344.10561299962944,
+          "x": 384.00000000000006,
+          "y": 444.94
+        },
+        "viewport": {
+          "width": 768,
+          "height": 1024
+        },
+        "camera": [
+          1.44112058697201,
+          2.6862139692196796,
+          12.009338224766763
+        ],
+        "selection": null,
+        "markerVisible": false,
+        "objects": [
+          {
+            "uid": 1,
+            "bounds": {
+              "left": 408.0862964897021,
+              "right": 493.5320526173667,
+              "top": 400.89520453318295,
+              "bottom": 553.2743870340147,
+              "width": 85.4457561276646,
+              "height": 152.37918250083175,
+              "x": 450.8091745535344,
+              "y": 477.0847957835988
+            }
+          },
+          {
+            "uid": 3,
+            "bounds": {
+              "left": 268.1508962445691,
+              "right": 389.38110726000525,
+              "top": 347.4835022767894,
+              "bottom": 561.6169617536453,
+              "width": 121.23021101543617,
+              "height": 214.13345947685593,
+              "x": 328.76600175228714,
+              "y": 454.5502320152174
+            }
+          },
+          {
+            "uid": 4,
+            "bounds": {
+              "left": 473.15695525801664,
+              "right": 587.9557731038376,
+              "top": 334.2576615772601,
+              "bottom": 554.1592305840322,
+              "width": 114.79881784582096,
+              "height": 219.90156900677215,
+              "x": 530.5563641809272,
+              "y": 444.2084460806461
+            }
+          },
+          {
+            "uid": 5,
+            "bounds": {
+              "left": 222.20878610448358,
+              "right": 342.50958719156415,
+              "top": 336.6428185503074,
+              "bottom": 544.3482624027579,
+              "width": 120.30080108708057,
+              "height": 207.70544385245046,
+              "x": 282.35918664802387,
+              "y": 440.49554047653265
+            }
+          },
+          {
+            "uid": 7,
+            "bounds": {
+              "left": 562.6791075329479,
+              "right": 640.4649142954238,
+              "top": 501.45182814129817,
+              "bottom": 566.9800967645298,
+              "width": 77.78580676247589,
+              "height": 65.52826862323161,
+              "x": 601.5720109141859,
+              "y": 534.215962452914
+            }
+          },
+          {
+            "uid": 9,
+            "bounds": {
+              "left": 34.18511092547202,
+              "right": 260.8305783546544,
+              "top": 304.84660435660203,
+              "bottom": 566.2099717592574,
+              "width": 226.64546742918236,
+              "height": 261.3633674026554,
+              "x": 147.5078446400632,
+              "y": 435.52828805792973
+            }
+          },
+          {
+            "uid": 12,
+            "bounds": {
+              "left": 267.6212785403528,
+              "right": 297.36343938788946,
+              "top": 428.1355173458042,
+              "bottom": 446.28684710724247,
+              "width": 29.74216084753664,
+              "height": 18.151329761438262,
+              "x": 282.49235896412114,
+              "y": 437.2111822265233
+            }
+          },
+          {
+            "uid": 13,
+            "bounds": {
+              "left": 459.38176130620974,
+              "right": 493.0510944668213,
+              "top": 425.2379303079954,
+              "bottom": 446.2430278173834,
+              "width": 33.669333160611586,
+              "height": 21.00509750938801,
+              "x": 476.21642788651553,
+              "y": 435.74047906268936
+            }
+          },
+          {
+            "uid": 14,
+            "bounds": {
+              "left": 267.4431753698051,
+              "right": 298.34268351834817,
+              "top": 436.7109471599085,
+              "bottom": 455.6134683657519,
+              "width": 30.899508148543077,
+              "height": 18.902521205843357,
+              "x": 282.89292944407663,
+              "y": 446.16220776283023
+            }
+          },
+          {
+            "uid": 15,
+            "bounds": {
+              "left": 299.1716624619014,
+              "right": 355.90793112995976,
+              "top": 460.26492753883156,
+              "bottom": 495.6079843253179,
+              "width": 56.73626866805836,
+              "height": 35.34305678648633,
+              "x": 327.53979679593056,
+              "y": 477.93645593207475
+            }
+          },
+          {
+            "uid": 16,
+            "bounds": {
+              "left": 318.8931946122726,
+              "right": 338.99092210204185,
+              "top": 382.56382167897056,
+              "bottom": 402.7832628211712,
+              "width": 20.097727489769227,
+              "height": 20.21944114220065,
+              "x": 328.94205835715724,
+              "y": 392.6735422500709
+            }
+          },
+          {
+            "uid": 17,
+            "bounds": {
+              "left": 383.2063282323412,
+              "right": 416.17281145489756,
+              "top": 376.59670044124834,
+              "bottom": 396.62528896079857,
+              "width": 32.96648322255635,
+              "height": 20.028588519550226,
+              "x": 399.6895698436194,
+              "y": 386.61099470102346
+            }
+          },
+          {
+            "uid": 18,
+            "bounds": {
+              "left": 249.09274659697672,
+              "right": 304.2144838061806,
+              "top": 536.9687026561509,
+              "bottom": 560.4596559946765,
+              "width": 55.1217372092039,
+              "height": 23.490953338525628,
+              "x": 276.65361520157865,
+              "y": 548.7141793254136
+            }
+          },
+          {
+            "uid": 19,
+            "bounds": {
+              "left": 192.65868786524058,
+              "right": 224.5396764741352,
+              "top": 502.7334403328364,
+              "bottom": 524.6651827802204,
+              "width": 31.880988608894626,
+              "height": 21.931742447384067,
+              "x": 208.59918216968788,
+              "y": 513.6993115565284
+            }
+          },
+          {
+            "uid": 20,
+            "bounds": {
+              "left": 600.4357077641271,
+              "right": 653.9322087175983,
+              "top": 519.4820869922927,
+              "bottom": 540.496771728902,
+              "width": 53.49650095347124,
+              "height": 21.014684736609297,
+              "x": 627.1839582408627,
+              "y": 529.9894293605973
+            }
+          },
+          {
+            "uid": 21,
+            "bounds": {
+              "left": 105.69975594030058,
+              "right": 172.67007928801254,
+              "top": 541.0601021882569,
+              "bottom": 565.3181913165555,
+              "width": 66.97032334771197,
+              "height": 24.258089128298593,
+              "x": 139.18491761415657,
+              "y": 553.1891467524063
+            }
+          },
+          {
+            "uid": 22,
+            "bounds": {
+              "left": 548.7898538226885,
+              "right": 559.4889315603333,
+              "top": 519.8500390024327,
+              "bottom": 537.6535277585349,
+              "width": 10.699077737644757,
+              "height": 17.803488756102183,
+              "x": 554.1393926915109,
+              "y": 528.7517833804839
+            }
+          },
+          {
+            "uid": 23,
+            "bounds": {
+              "left": 436.4474993247219,
+              "right": 461.6942637134795,
+              "top": 546.8019749444574,
+              "bottom": 568.4500273818591,
+              "width": 25.246764388757583,
+              "height": 21.648052437401702,
+              "x": 449.0708815191007,
+              "y": 557.6260011631582
+            }
+          },
+          {
+            "uid": 24,
+            "bounds": {
+              "left": 233.17288220262367,
+              "right": 259.75447047886297,
+              "top": 539.0570091520293,
+              "bottom": 558.8042305380042,
+              "width": 26.5815882762393,
+              "height": 19.747221385974854,
+              "x": 246.46367634074332,
+              "y": 548.9306198450167
+            }
+          }
+        ]
+      },
+      "values": [
+        {
+          "value": 0.35,
+          "index": 100,
+          "text": "Vor dem Füttern\n100"
+        },
+        {
+          "value": 0.47,
+          "index": 134.2857142857143,
+          "text": "Nach dem Füttern\n134,3"
+        },
+        {
+          "value": 0.45023569251147194,
+          "index": 128.638769288992,
+          "text": "Nach 3 Tagen\n128,6"
+        }
+      ]
+    },
+    {
+      "name": "m2-net-vs-flow",
+      "at": "2026-10-23T07:18:51.601060+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m2-food-transformation",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "text": "Klasse 8\nWas wird aus den Futterresten?\nMenü\nBecken einpassen\nDein Auftrag\nIst der gesamte Abbau der Unterschied zwischen Anfang und Ende?\nJa. Der Unterschied zeigt den gesamten Abbau.\nNein. Während des Abbaus können neue Reste entstehen.\nTipp\nErklärung als Hilfe\n\n✓ Dein Beleg ist gespeichert.\n\nWas das Modell für die drei Tage berechnet\nReste nach Füttern\n100\nInsgesamt abgebaut\n63,2\nReste nach 3 Tagen\n95,8\nVergleichszahl: nach dem Füttern = 100. Abbau über drei Tage; Reste jeweils zu einem Zeitpunkt.",
+      "stage": "food-evidence",
+      "presentation": {
+        "glass": {
+          "left": 19.999997420569457,
+          "right": 748.0000025794307,
+          "top": 272.8871935001853,
+          "bottom": 616.9928064998147,
+          "width": 728.0000051588612,
+          "height": 344.10561299962944,
+          "x": 384.00000000000006,
+          "y": 444.94
+        },
+        "viewport": {
+          "width": 768,
+          "height": 1024
+        },
+        "camera": [
+          1.44112058697201,
+          2.6862139692196796,
+          12.009338224766763
+        ],
+        "selection": null,
+        "markerVisible": false,
+        "objects": [
+          {
+            "uid": 1,
+            "bounds": {
+              "left": 408.0862964897021,
+              "right": 493.5320526173667,
+              "top": 400.89520453318295,
+              "bottom": 553.2743870340147,
+              "width": 85.4457561276646,
+              "height": 152.37918250083175,
+              "x": 450.8091745535344,
+              "y": 477.0847957835988
+            }
+          },
+          {
+            "uid": 3,
+            "bounds": {
+              "left": 268.1508962445691,
+              "right": 389.38110726000525,
+              "top": 347.4835022767894,
+              "bottom": 561.6169617536453,
+              "width": 121.23021101543617,
+              "height": 214.13345947685593,
+              "x": 328.76600175228714,
+              "y": 454.5502320152174
+            }
+          },
+          {
+            "uid": 4,
+            "bounds": {
+              "left": 473.15695525801664,
+              "right": 587.9557731038376,
+              "top": 334.2576615772601,
+              "bottom": 554.1592305840322,
+              "width": 114.79881784582096,
+              "height": 219.90156900677215,
+              "x": 530.5563641809272,
+              "y": 444.2084460806461
+            }
+          },
+          {
+            "uid": 5,
+            "bounds": {
+              "left": 222.20878610448358,
+              "right": 342.50958719156415,
+              "top": 336.6428185503074,
+              "bottom": 544.3482624027579,
+              "width": 120.30080108708057,
+              "height": 207.70544385245046,
+              "x": 282.35918664802387,
+              "y": 440.49554047653265
+            }
+          },
+          {
+            "uid": 7,
+            "bounds": {
+              "left": 562.6791075329479,
+              "right": 640.4649142954238,
+              "top": 501.45182814129817,
+              "bottom": 566.9800967645298,
+              "width": 77.78580676247589,
+              "height": 65.52826862323161,
+              "x": 601.5720109141859,
+              "y": 534.215962452914
+            }
+          },
+          {
+            "uid": 9,
+            "bounds": {
+              "left": 34.18511092547202,
+              "right": 260.8305783546544,
+              "top": 304.84660435660203,
+              "bottom": 566.2099717592574,
+              "width": 226.64546742918236,
+              "height": 261.3633674026554,
+              "x": 147.5078446400632,
+              "y": 435.52828805792973
+            }
+          },
+          {
+            "uid": 12,
+            "bounds": {
+              "left": 243.75696220154322,
+              "right": 273.72380768028466,
+              "top": 427.6248435418508,
+              "bottom": 445.95144259341134,
+              "width": 29.966845478741448,
+              "height": 18.32659905156055,
+              "x": 258.74038494091394,
+              "y": 436.78814306763104
+            }
+          },
+          {
+            "uid": 13,
+            "bounds": {
+              "left": 486.7884975638992,
+              "right": 520.1937515165926,
+              "top": 426.89327329234436,
+              "bottom": 448.1579776985642,
+              "width": 33.40525395269333,
+              "height": 21.264704406219835,
+              "x": 503.4911245402459,
+              "y": 437.5256254954543
+            }
+          },
+          {
+            "uid": 14,
+            "bounds": {
+              "left": 291.422049981107,
+              "right": 322.12759364164606,
+              "top": 437.3511562484729,
+              "bottom": 456.1411615489141,
+              "width": 30.705543660539035,
+              "height": 18.790005300441237,
+              "x": 306.77482181137657,
+              "y": 446.74615889869347
+            }
+          },
+          {
+            "uid": 15,
+            "bounds": {
+              "left": 272.51017808461216,
+              "right": 329.62035798501944,
+              "top": 459.75584145038107,
+              "bottom": 495.8185094402355,
+              "width": 57.110179900407275,
+              "height": 36.06266798985445,
+              "x": 301.0652680348158,
+              "y": 477.7871754453083
+            }
+          },
+          {
+            "uid": 16,
+            "bounds": {
+              "left": 329.5236302459146,
+              "right": 356.9975312104123,
+              "top": 381.1748245388507,
+              "bottom": 400.8321711138176,
+              "width": 27.473900964497716,
+              "height": 19.65734657496688,
+              "x": 343.26058072816346,
+              "y": 391.0034978263342
+            }
+          },
+          {
+            "uid": 17,
+            "bounds": {
+              "left": 410.05101749482833,
+              "right": 443.07721115417223,
+              "top": 377.7753310969709,
+              "bottom": 397.98290295109257,
+              "width": 33.0261936593439,
+              "height": 20.20757185412168,
+              "x": 426.5641143245003,
+              "y": 387.87911702403176
+            }
+          },
+          {
+            "uid": 18,
+            "bounds": {
+              "left": 248.88913071708572,
+              "right": 304.0155759222423,
+              "top": 536.9594174300902,
+              "bottom": 560.4497218124512,
+              "width": 55.126445205156585,
+              "height": 23.490304382361046,
+              "x": 276.452353319664,
+              "y": 548.7045696212707
+            }
+          },
+          {
+            "uid": 19,
+            "bounds": {
+              "left": 192.4737483004629,
+              "right": 224.35984204831408,
+              "top": 502.727853812411,
+              "bottom": 524.6591200281774,
+              "width": 31.88609374785119,
+              "height": 21.931266215766414,
+              "x": 208.41679517438848,
+              "y": 513.6934869202942
+            }
+          },
+          {
+            "uid": 20,
+            "bounds": {
+              "left": 600.5338425843172,
+              "right": 654.0335903424957,
+              "top": 519.4832720054776,
+              "bottom": 540.4981434097202,
+              "width": 53.4997477581785,
+              "height": 21.014871404242626,
+              "x": 627.2837164634064,
+              "y": 529.9907077075989
+            }
+          },
+          {
+            "uid": 21,
+            "bounds": {
+              "left": 105.8086722388904,
+              "right": 172.77684463554505,
+              "top": 541.062005076238,
+              "bottom": 565.3203536081884,
+              "width": 66.96817239665465,
+              "height": 24.258348531950332,
+              "x": 139.2927584372177,
+              "y": 553.1911793422132
+            }
+          },
+          {
+            "uid": 22,
+            "bounds": {
+              "left": 548.9706897265484,
+              "right": 559.6681191118223,
+              "top": 519.8598705170278,
+              "bottom": 537.6636966775059,
+              "width": 10.69742938527395,
+              "height": 17.803826160478025,
+              "x": 554.3194044191853,
+              "y": 528.7617835972669
+            }
+          },
+          {
+            "uid": 23,
+            "bounds": {
+              "left": 436.2938054909071,
+              "right": 461.5419692812652,
+              "top": 546.7993449988405,
+              "bottom": 568.4471140859627,
+              "width": 25.24816379035809,
+              "height": 21.64776908712213,
+              "x": 448.91788738608614,
+              "y": 557.6232295424015
+            }
+          },
+          {
+            "uid": 24,
+            "bounds": {
+              "left": 232.98105467861052,
+              "right": 259.5644508239373,
+              "top": 539.0461464887804,
+              "bottom": 558.7929636057743,
+              "width": 26.583396145326788,
+              "height": 19.74681711699384,
+              "x": 246.2727527512739,
+              "y": 548.9195550472773
+            }
+          }
+        ]
+      },
+      "values": [
+        {
+          "value": 0.47,
+          "index": 100,
+          "text": "Reste nach Füttern\n100"
+        },
+        {
+          "value": 0.29704943288827435,
+          "index": 63.20200699750518,
+          "text": "Insgesamt abgebaut\n63,2"
+        },
+        {
+          "value": 0.45023569251147194,
+          "index": 95.7948281939302,
+          "text": "Reste nach 3 Tagen\n95,8"
+        }
+      ]
+    },
+    {
+      "name": "m2-requested-explanation",
+      "at": "2026-10-23T07:18:54.487261+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m2-food-transformation",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "text": "Klasse 8\nWas wird aus den Futterresten?\nMenü\nBecken einpassen\nDein Auftrag\nIst der gesamte Abbau der Unterschied zwischen Anfang und Ende?\nJa. Der Unterschied zeigt den gesamten Abbau.\nNein. Während des Abbaus können neue Reste entstehen.\nTipp\nErklärung als Hilfe\n\n✓ Dein Beleg ist gespeichert.\n\nWas das Modell für die drei Tage berechnet\nReste nach Füttern\n100\nInsgesamt abgebaut\n63,2\nReste nach 3 Tagen\n95,8\nVergleichszahl: nach dem Füttern = 100. Abbau über drei Tage; Reste jeweils zu einem Zeitpunkt.\nAm Aquarium erklärt\nSchließen\nWas das Modell für die drei Tage berechnet\nReste nach Füttern\n100\nInsgesamt abgebaut\n63,2\nReste nach 3 Tagen\n95,8\nVergleichszahl: nach dem Füttern = 100. Abbau über drei Tage; Reste jeweils zu einem Zeitpunkt.\n\nGleichzeitig können neue Reste entstehen. Darum ist „abgebaut“ nicht einfach der Unterschied zwischen Anfang und Ende. Das sind Modellwerte, keine Beobachtung einzelner Krümel oder winziger Lebewesen.\n\nBoden und Filter – stark vergrößert erklärt\n\nWinzige Lebewesen bauen Reste um. So werden andere Stoffe frei. Dafür brauchen sie Sauerstoff.\n\nFutter → Fisch. Reste → winzige Lebewesen → Stoffe für Pflanzen.\n\nPflanzen brauchen Licht als Energiequelle. Beim Fressen und Abbauen wird auch Wärme frei.\n\nDie kleinen Lebewesen sind mit bloßem Auge nicht zu sehen. Dies ist eine Erklärung.",
+      "stage": "food-evidence",
+      "presentation": {
+        "glass": {
+          "left": 19.999997420569457,
+          "right": 748.0000025794307,
+          "top": 272.8871935001853,
+          "bottom": 616.9928064998147,
+          "width": 728.0000051588612,
+          "height": 344.10561299962944,
+          "x": 384.00000000000006,
+          "y": 444.94
+        },
+        "viewport": {
+          "width": 768,
+          "height": 1024
+        },
+        "camera": [
+          1.44112058697201,
+          2.6862139692196796,
+          12.009338224766763
+        ],
+        "selection": null,
+        "markerVisible": false,
+        "objects": [
+          {
+            "uid": 1,
+            "bounds": {
+              "left": 408.0862964897021,
+              "right": 493.5320526173667,
+              "top": 400.89520453318295,
+              "bottom": 553.2743870340147,
+              "width": 85.4457561276646,
+              "height": 152.37918250083175,
+              "x": 450.8091745535344,
+              "y": 477.0847957835988
+            }
+          },
+          {
+            "uid": 3,
+            "bounds": {
+              "left": 268.1508962445691,
+              "right": 389.38110726000525,
+              "top": 347.4835022767894,
+              "bottom": 561.6169617536453,
+              "width": 121.23021101543617,
+              "height": 214.13345947685593,
+              "x": 328.76600175228714,
+              "y": 454.5502320152174
+            }
+          },
+          {
+            "uid": 4,
+            "bounds": {
+              "left": 473.15695525801664,
+              "right": 587.9557731038376,
+              "top": 334.2576615772601,
+              "bottom": 554.1592305840322,
+              "width": 114.79881784582096,
+              "height": 219.90156900677215,
+              "x": 530.5563641809272,
+              "y": 444.2084460806461
+            }
+          },
+          {
+            "uid": 5,
+            "bounds": {
+              "left": 222.20878610448358,
+              "right": 342.50958719156415,
+              "top": 336.6428185503074,
+              "bottom": 544.3482624027579,
+              "width": 120.30080108708057,
+              "height": 207.70544385245046,
+              "x": 282.35918664802387,
+              "y": 440.49554047653265
+            }
+          },
+          {
+            "uid": 7,
+            "bounds": {
+              "left": 562.6791075329479,
+              "right": 640.4649142954238,
+              "top": 501.45182814129817,
+              "bottom": 566.9800967645298,
+              "width": 77.78580676247589,
+              "height": 65.52826862323161,
+              "x": 601.5720109141859,
+              "y": 534.215962452914
+            }
+          },
+          {
+            "uid": 9,
+            "bounds": {
+              "left": 34.18511092547202,
+              "right": 260.8305783546544,
+              "top": 304.84660435660203,
+              "bottom": 566.2099717592574,
+              "width": 226.64546742918236,
+              "height": 261.3633674026554,
+              "x": 147.5078446400632,
+              "y": 435.52828805792973
+            }
+          },
+          {
+            "uid": 12,
+            "bounds": {
+              "left": 221.86976399913502,
+              "right": 251.98340727569058,
+              "top": 426.79657889632773,
+              "bottom": 445.3474939620633,
+              "width": 30.113643276555564,
+              "height": 18.55091506573558,
+              "x": 236.9265856374128,
+              "y": 436.0720364291955
+            }
+          },
+          {
+            "uid": 13,
+            "bounds": {
+              "left": 511.605566307508,
+              "right": 544.3265081391309,
+              "top": 428.5850934121463,
+              "bottom": 450.10070483261836,
+              "width": 32.72094183162284,
+              "height": 21.515611420472055,
+              "x": 527.9660372233194,
+              "y": 439.34289912238233
+            }
+          },
+          {
+            "uid": 14,
+            "bounds": {
+              "left": 313.76335337227914,
+              "right": 344.34795367105005,
+              "top": 438.1770066401418,
+              "bottom": 456.95782928626505,
+              "width": 30.58460029877091,
+              "height": 18.780822646123227,
+              "x": 329.05565352166457,
+              "y": 447.5674179632034
+            }
+          },
+          {
+            "uid": 15,
+            "bounds": {
+              "left": 252.73738893820985,
+              "right": 309.32640276313964,
+              "top": 458.4028660341554,
+              "bottom": 495.3247513624316,
+              "width": 56.58901382492979,
+              "height": 36.921885328276176,
+              "x": 281.03189585067474,
+              "y": 476.8638086982935
+            }
+          },
+          {
+            "uid": 16,
+            "bounds": {
+              "left": 346.96093804159045,
+              "right": 376.96484106393297,
+              "top": 380.47244570757823,
+              "bottom": 399.9134459105125,
+              "width": 30.003903022342513,
+              "height": 19.441000202934276,
+              "x": 361.9628895527617,
+              "y": 390.19294580904534
+            }
+          },
+          {
+            "uid": 17,
+            "bounds": {
+              "left": 434.6222330572023,
+              "right": 467.3859235824854,
+              "top": 379.0553637101684,
+              "bottom": 399.4743283549864,
+              "width": 32.763690525283096,
+              "height": 20.418964644818004,
+              "x": 451.00407831984387,
+              "y": 389.26484603257745
+            }
+          },
+          {
+            "uid": 18,
+            "bounds": {
+              "left": 248.702564818343,
+              "right": 303.8333237375812,
+              "top": 536.9508906274605,
+              "bottom": 560.4405998173504,
+              "width": 55.13075891923822,
+              "height": 23.489709189889936,
+              "x": 276.2679442779621,
+              "y": 548.6957452224054
+            }
+          },
+          {
+            "uid": 19,
+            "bounds": {
+              "left": 192.30460934105366,
+              "right": 224.1953718761337,
+              "top": 502.72276700772994,
+              "bottom": 524.653598355867,
+              "width": 31.89076253508003,
+              "height": 21.93083134813702,
+              "x": 208.2499906085937,
+              "y": 513.6881826817985
+            }
+          },
+          {
+            "uid": 20,
+            "bounds": {
+              "left": 600.6198193974059,
+              "right": 654.1224117702391,
+              "top": 519.4843045109163,
+              "bottom": 540.499339312601,
+              "width": 53.50259237283319,
+              "height": 21.015034801684692,
+              "x": 627.3711155838225,
+              "y": 529.9918219117587
+            }
+          },
+          {
+            "uid": 21,
+            "bounds": {
+              "left": 105.91260654409257,
+              "right": 172.87872629445081,
+              "top": 541.0638286647596,
+              "bottom": 565.3224249627559,
+              "width": 66.96611975035825,
+              "height": 24.25859629799629,
+              "x": 139.3956664192717,
+              "y": 553.1931268137578
+            }
+          },
+          {
+            "uid": 22,
+            "bounds": {
+              "left": 549.1382351198989,
+              "right": 559.8341372631454,
+              "top": 519.8689739035228,
+              "bottom": 537.6731126177483,
+              "width": 10.695902143246485,
+              "height": 17.804138714225473,
+              "x": 554.4861861915222,
+              "y": 528.7710432606356
+            }
+          },
+          {
+            "uid": 23,
+            "bounds": {
+              "left": 436.1494846190621,
+              "right": 461.3989624057139,
+              "top": 546.796889777276,
+              "bottom": 568.4443929775897,
+              "width": 25.249477786651823,
+              "height": 21.647503200313736,
+              "x": 448.774223512388,
+              "y": 557.6206413774328
+            }
+          },
+          {
+            "uid": 24,
+            "bounds": {
+              "left": 232.80685794147203,
+              "right": 259.39189575846456,
+              "top": 539.036275696713,
+              "bottom": 558.7827256345751,
+              "width": 26.585037816992525,
+              "height": 19.746449937862053,
+              "x": 246.09937684996828,
+              "y": 548.909500665644
+            }
+          }
+        ]
+      },
+      "values": [
+        {
+          "value": 0.47,
+          "index": 100,
+          "text": "Reste nach Füttern\n100"
+        },
+        {
+          "value": 0.29704943288827435,
+          "index": 63.20200699750518,
+          "text": "Insgesamt abgebaut\n63,2"
+        },
+        {
+          "value": 0.45023569251147194,
+          "index": 95.7948281939302,
+          "text": "Reste nach 3 Tagen\n95,8"
+        },
+        {
+          "value": 0.47,
+          "index": 100,
+          "text": "Reste nach Füttern\n100"
+        },
+        {
+          "value": 0.29704943288827435,
+          "index": 63.20200699750518,
+          "text": "Insgesamt abgebaut\n63,2"
+        },
+        {
+          "value": 0.45023569251147194,
+          "index": 95.7948281939302,
+          "text": "Reste nach 3 Tagen\n95,8"
+        }
+      ]
+    },
+    {
+      "name": "m2-complete",
+      "at": "2026-10-23T07:19:00.391030+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m2-food-transformation",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "text": "Klasse 8\nWas wird aus den Futterresten?\nMenü\nBecken einpassen\nDein Auftrag\nDein Ergebnis ist gespeichert.\nNach drei Tagen gab es weniger Reste. Winzige Lebewesen wandeln Reste in andere Stoffe um. Dabei brauchen sie Sauerstoff. Pflanzen können einige der frei werdenden Stoffe nutzen. Neue Reste können gleichzeitig entstehen.\nErgebnis speichernNoch einmal untersuchen\nTipp\n\n✓ Dein Beleg ist gespeichert.\n\nReste in diesem Aquarium\nVor dem Füttern\n100\nNach dem Füttern\n134,3\nNach 3 Tagen\n128,6\nVergleichszahl: vor dem Füttern = 100. Relative Modellmenge, keine gezählten Krümel.",
+      "stage": "complete",
+      "presentation": {
+        "glass": {
+          "left": 19.999997420569457,
+          "right": 748.0000025794307,
+          "top": 272.8871935001853,
+          "bottom": 616.9928064998147,
+          "width": 728.0000051588612,
+          "height": 344.10561299962944,
+          "x": 384.00000000000006,
+          "y": 444.94
+        },
+        "viewport": {
+          "width": 768,
+          "height": 1024
+        },
+        "camera": [
+          1.44112058697201,
+          2.6862139692196796,
+          12.009338224766763
+        ],
+        "selection": null,
+        "markerVisible": false,
+        "objects": [
+          {
+            "uid": 1,
+            "bounds": {
+              "left": 408.0862964897021,
+              "right": 493.5320526173667,
+              "top": 400.89520453318295,
+              "bottom": 553.2743870340147,
+              "width": 85.4457561276646,
+              "height": 152.37918250083175,
+              "x": 450.8091745535344,
+              "y": 477.0847957835988
+            }
+          },
+          {
+            "uid": 3,
+            "bounds": {
+              "left": 268.1508962445691,
+              "right": 389.38110726000525,
+              "top": 347.4835022767894,
+              "bottom": 561.6169617536453,
+              "width": 121.23021101543617,
+              "height": 214.13345947685593,
+              "x": 328.76600175228714,
+              "y": 454.5502320152174
+            }
+          },
+          {
+            "uid": 4,
+            "bounds": {
+              "left": 473.15695525801664,
+              "right": 587.9557731038376,
+              "top": 334.2576615772601,
+              "bottom": 554.1592305840322,
+              "width": 114.79881784582096,
+              "height": 219.90156900677215,
+              "x": 530.5563641809272,
+              "y": 444.2084460806461
+            }
+          },
+          {
+            "uid": 5,
+            "bounds": {
+              "left": 222.20878610448358,
+              "right": 342.50958719156415,
+              "top": 336.6428185503074,
+              "bottom": 544.3482624027579,
+              "width": 120.30080108708057,
+              "height": 207.70544385245046,
+              "x": 282.35918664802387,
+              "y": 440.49554047653265
+            }
+          },
+          {
+            "uid": 7,
+            "bounds": {
+              "left": 562.6791075329479,
+              "right": 640.4649142954238,
+              "top": 501.45182814129817,
+              "bottom": 566.9800967645298,
+              "width": 77.78580676247589,
+              "height": 65.52826862323161,
+              "x": 601.5720109141859,
+              "y": 534.215962452914
+            }
+          },
+          {
+            "uid": 9,
+            "bounds": {
+              "left": 34.18511092547202,
+              "right": 260.8305783546544,
+              "top": 304.84660435660203,
+              "bottom": 566.2099717592574,
+              "width": 226.64546742918236,
+              "height": 261.3633674026554,
+              "x": 147.5078446400632,
+              "y": 435.52828805792973
+            }
+          },
+          {
+            "uid": 12,
+            "bounds": {
+              "left": 184.81591130912471,
+              "right": 212.6546315946452,
+              "top": 423.55436860235613,
+              "bottom": 443.0690073316898,
+              "width": 27.83872028552048,
+              "height": 19.514638729333683,
+              "x": 198.73527145188496,
+              "y": 433.311687967023
+            }
+          },
+          {
+            "uid": 13,
+            "bounds": {
+              "left": 554.3541013733643,
+              "right": 582.9099500839304,
+              "top": 431.8008659385197,
+              "bottom": 453.8862347637421,
+              "width": 28.555848710566124,
+              "height": 22.085368825222417,
+              "x": 568.6320257286474,
+              "y": 442.8435503511309
+            }
+          },
+          {
+            "uid": 14,
+            "bounds": {
+              "left": 354.8130630880827,
+              "right": 385.3630762894673,
+              "top": 440.347130256448,
+              "bottom": 459.2567832119423,
+              "width": 30.550013201384616,
+              "height": 18.909652955494323,
+              "x": 370.088069688775,
+              "y": 449.8019567341952
+            }
+          },
+          {
+            "uid": 15,
+            "bounds": {
+              "left": 235.02199190281533,
+              "right": 279.7808611819752,
+              "top": 453.587474411015,
+              "bottom": 493.28090862716084,
+              "width": 44.75886927915985,
+              "height": 39.69343421614582,
+              "x": 257.40142654239526,
+              "y": 473.4341915190879
+            }
+          },
+          {
+            "uid": 16,
+            "bounds": {
+              "left": 385.39630563625286,
+              "right": 416.5046844524339,
+              "top": 380.8704237850483,
+              "bottom": 399.9637938812306,
+              "width": 31.108378816181016,
+              "height": 19.093370096182298,
+              "x": 400.95049504434337,
+              "y": 390.4171088331394
+            }
+          },
+          {
+            "uid": 17,
+            "bounds": {
+              "left": 478.2295602724547,
+              "right": 508.9703934954206,
+              "top": 381.6781109906535,
+              "bottom": 402.454852021344,
+              "width": 30.740833222965875,
+              "height": 20.77674103069046,
+              "x": 493.59997688393764,
+              "y": 392.06648150599875
+            }
+          },
+          {
+            "uid": 18,
+            "bounds": {
+              "left": 248.36393640192517,
+              "right": 303.5025248431778,
+              "top": 536.9353675503166,
+              "bottom": 560.423995025934,
+              "width": 55.13858844125264,
+              "height": 23.488627475617363,
+              "x": 275.9332306225515,
+              "y": 548.6796812881253
+            }
+          },
+          {
+            "uid": 19,
+            "bounds": {
+              "left": 191.9983827465831,
+              "right": 223.89759768238346,
+              "top": 502.7136119180213,
+              "bottom": 524.6436575835032,
+              "width": 31.89921493580036,
+              "height": 21.93004566548194,
+              "x": 207.9479902144833,
+              "y": 513.6786347507623
+            }
+          },
+          {
+            "uid": 20,
+            "bounds": {
+              "left": 600.766212367309,
+              "right": 654.2736484013502,
+              "top": 519.4860503304568,
+              "bottom": 540.5013630406836,
+              "width": 53.507436034041234,
+              "height": 21.015312710226794,
+              "x": 627.5199303843297,
+              "y": 529.9937066855703
+            }
+          },
+          {
+            "uid": 21,
+            "bounds": {
+              "left": 106.1113983471917,
+              "right": 173.07359184134208,
+              "top": 541.0673376523845,
+              "bottom": 565.3264084647885,
+              "width": 66.96219349415038,
+              "height": 24.259070812404048,
+              "x": 139.5924950942669,
+              "y": 553.1968730585866
+            }
+          },
+          {
+            "uid": 22,
+            "bounds": {
+              "left": 549.446880272625,
+              "right": 560.1399689059866,
+              "top": 519.8857295331286,
+              "bottom": 537.6904438846054,
+              "width": 10.69308863336164,
+              "height": 17.804714351476832,
+              "x": 554.7934245893058,
+              "y": 528.788086708867
+            }
+          },
+          {
+            "uid": 23,
+            "bounds": {
+              "left": 435.878962574507,
+              "right": 461.13090321439563,
+              "top": 546.7923249755681,
+              "bottom": 568.4393302630814,
+              "width": 25.25194063988863,
+              "height": 21.647005287513252,
+              "x": 448.5049328944513,
+              "y": 557.6158276193248
+            }
+          },
+          {
+            "uid": 24,
+            "bounds": {
+              "left": 232.49452339522855,
+              "right": 259.0825046390448,
+              "top": 539.0185621066889,
+              "bottom": 558.7643535373353,
+              "width": 26.587981243816273,
+              "height": 19.745791430646364,
+              "x": 245.7885140171367,
+              "y": 548.8914578220122
+            }
+          }
+        ]
+      },
+      "values": [
+        {
+          "value": 0.35,
+          "index": 100,
+          "text": "Vor dem Füttern\n100"
+        },
+        {
+          "value": 0.47,
+          "index": 134.2857142857143,
+          "text": "Nach dem Füttern\n134,3"
+        },
+        {
+          "value": 0.45023569251147194,
+          "index": 128.638769288992,
+          "text": "Nach 3 Tagen\n128,6"
+        }
+      ]
+    },
+    {
+      "name": "m3-portrait-start",
+      "at": "2026-10-23T07:19:16.862681+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m3-hidden-inheritance",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "text": "Klasse 9 · Generation 0 · Zeitraffer\nKönnen dunkle Eltern helle Junge bekommen?\nMenü\nBecken einpassen\nDein Auftrag\nWähle ein dunkles und ein helles Elterntier.\nZuerst kreuzen wir dunkel mit hell. Danach wählen wir Eltern aus ihren Nachkommen. Tippe auf einen Fisch oder seine Schaltfläche.\n\n♀ Weibchen · ♂ Männchen\n\n♀29 dunkel\n♂30 hell\n♀31 hell\n♂32 dunkel\nNachkommen ansehen\nTipp\nZählen",
+      "stage": "founders",
+      "presentation": {
+        "glass": {
+          "left": 19.99999850132491,
+          "right": 748.0000014986751,
+          "top": 324.5319806634509,
+          "bottom": 565.3480193365491,
+          "width": 728.0000029973503,
+          "height": 240.8160386730982,
+          "x": 384,
+          "y": 444.94
+        },
+        "viewport": {
+          "width": 768,
+          "height": 1024
+        },
+        "camera": [
+          2.8135557430450744,
+          4.548018721632165,
+          23.446297858708952
+        ],
+        "selection": null,
+        "markerVisible": false,
+        "objects": [
+          {
+            "uid": 1,
+            "bounds": {
+              "left": 428.4000790195699,
+              "right": 471.698487165903,
+              "top": 446.4250636908992,
+              "bottom": 523.8062923376701,
+              "width": 43.29840814633309,
+              "height": 77.38122864677092,
+              "x": 450.04928309273646,
+              "y": 485.11567801428464
+            }
+          },
+          {
+            "uid": 3,
+            "bounds": {
+              "left": 296.74352336648093,
+              "right": 354.25814102743,
+              "top": 424.73782324460166,
+              "bottom": 526.7846156762931,
+              "width": 57.51461766094906,
+              "height": 102.04679243169147,
+              "x": 325.50083219695546,
+              "y": 475.76121946044736
+            }
+          },
+          {
+            "uid": 4,
+            "bounds": {
+              "left": 502.644106513813,
+              "right": 557.4234413919814,
+              "top": 418.2077127244148,
+              "bottom": 523.8361506809151,
+              "width": 54.77933487816841,
+              "height": 105.6284379565003,
+              "x": 530.0337739528973,
+              "y": 471.021931702665
+            }
+          },
+          {
+            "uid": 5,
+            "bounds": {
+              "left": 246.22239881120737,
+              "right": 303.9543363595825,
+              "top": 413.80865107788384,
+              "bottom": 513.7513639202837,
+              "width": 57.73193754837513,
+              "height": 99.94271284239983,
+              "x": 275.08836758539496,
+              "y": 463.78000749908375
+            }
+          },
+          {
+            "uid": 7,
+            "bounds": {
+              "left": 560.6141021693863,
+              "right": 598.7949050117063,
+              "top": 498.24520008303386,
+              "bottom": 530.1734460420274,
+              "width": 38.18080284231996,
+              "height": 31.928245958993557,
+              "x": 579.7045035905463,
+              "y": 514.2093230625306
+            }
+          },
+          {
+            "uid": 9,
+            "bounds": {
+              "left": 87.02013571423727,
+              "right": 202.5335771208824,
+              "top": 392.41104385539575,
+              "bottom": 526.9609056354354,
+              "width": 115.51344140664513,
+              "height": 134.5498617800397,
+              "x": 144.77685641755983,
+              "y": 459.6859747454156
+            }
+          },
+          {
+            "uid": 29,
+            "bounds": {
+              "left": 458.1456843441522,
+              "right": 492.18391107090986,
+              "top": 449.5305539781229,
+              "bottom": 462.6240742044307,
+              "width": 34.03822672675767,
+              "height": 13.093520226307817,
+              "x": 475.164797707531,
+              "y": 456.0773140912768
+            }
+          },
+          {
+            "uid": 30,
+            "bounds": {
+              "left": 557.8285915527413,
+              "right": 585.7378324743142,
+              "top": 428.16315735115666,
+              "bottom": 439.16468444798727,
+              "width": 27.909240921572973,
+              "height": 11.001527096830614,
+              "x": 571.7832120135278,
+              "y": 433.66392089957196
+            }
+          },
+          {
+            "uid": 31,
+            "bounds": {
+              "left": 455.31925565753323,
+              "right": 489.9345238603884,
+              "top": 385.8625411750525,
+              "bottom": 398.6457878339923,
+              "width": 34.61526820285519,
+              "height": 12.783246658939788,
+              "x": 472.62688975896083,
+              "y": 392.2541645045224
+            }
+          },
+          {
+            "uid": 32,
+            "bounds": {
+              "left": 319.9857567634044,
+              "right": 341.876478429559,
+              "top": 426.4698292493404,
+              "bottom": 439.3248273777608,
+              "width": 21.890721666154548,
+              "height": 12.854998128420391,
+              "x": 330.9311175964817,
+              "y": 432.8973283135506
+            }
+          }
+        ]
+      },
+      "values": []
+    },
+    {
+      "name": "m3-desktop-start",
+      "at": "2026-10-23T07:19:18.266632+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m3-hidden-inheritance",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "Klasse 9 · Generation 0 · Zeitraffer\nKönnen dunkle Eltern helle Junge bekommen?\nMenü\nBecken einpassen\nDein Auftrag\nWähle ein dunkles und ein helles Elterntier.\nZuerst kreuzen wir dunkel mit hell. Danach wählen wir Eltern aus ihren Nachkommen. Tippe auf einen Fisch oder seine Schaltfläche.\n\n♀ Weibchen · ♂ Männchen\n\n♀29 dunkel\n♂30 hell\n♀31 hell\n♂32 dunkel\nNachkommen ansehen\nTipp\nZählen",
+      "stage": "founders",
+      "presentation": {
+        "glass": {
+          "left": 448.00000000000114,
+          "right": 1335.9999999999984,
+          "top": 355.62954508113427,
+          "bottom": 644.3704549188657,
+          "width": 887.9999999999973,
+          "height": 288.7409098377314,
+          "x": 891.9999999999998,
+          "y": 500
+        },
+        "viewport": {
+          "width": 1366,
+          "height": 960
+        },
+        "camera": [
+          2.2084980343297076,
+          3.8925395371905203,
+          18.404150286080924
+        ],
+        "selection": null,
+        "markerVisible": false,
+        "objects": [
+          {
+            "uid": 1,
+            "bounds": {
+              "left": 941.6502182686329,
+              "right": 992.9281578328412,
+              "top": 498.56003966483405,
+              "bottom": 591.3384903861235,
+              "width": 51.27793956420828,
+              "height": 92.7784507212894,
+              "x": 967.289188050737,
+              "y": 544.9492650254788
+            }
+          },
+          {
+            "uid": 3,
+            "bounds": {
+              "left": 783.7212271092051,
+              "right": 853.1562035549346,
+              "top": 472.74981399634027,
+              "bottom": 595.0583605084131,
+              "width": 69.43497644572949,
+              "height": 122.30854651207284,
+              "x": 818.4387153320698,
+              "y": 533.9040872523767
+            }
+          },
+          {
+            "uid": 4,
+            "bounds": {
+              "left": 1030.426248933134,
+              "right": 1095.6002224362237,
+              "top": 465.01205636333543,
+              "bottom": 591.3379926563819,
+              "width": 65.17397350308966,
+              "height": 126.32593629304642,
+              "x": 1063.0132356846789,
+              "y": 528.1750245098586
+            }
+          },
+          {
+            "uid": 5,
+            "bounds": {
+              "left": 724.6887976563066,
+              "right": 794.2142520297941,
+              "top": 459.9699625256898,
+              "bottom": 578.526364778542,
+              "width": 69.52545437348749,
+              "height": 118.55640225285214,
+              "x": 759.4515248430504,
+              "y": 519.2481636521159
+            }
+          },
+          {
+            "uid": 7,
+            "bounds": {
+              "left": 1100.261969785021,
+              "right": 1147.4318130342754,
+              "top": 560.5522386236346,
+              "bottom": 599.6404962814651,
+              "width": 47.16984324925443,
+              "height": 39.08825765783047,
+              "x": 1123.8468914096482,
+              "y": 580.0963674525499
+            }
+          },
+          {
+            "uid": 9,
+            "bounds": {
+              "left": 531.4726609431673,
+              "right": 674.7554044560393,
+              "top": 434.7536558254648,
+              "bottom": 595.4152538997354,
+              "width": 143.282743512872,
+              "height": 160.66159807427056,
+              "x": 603.1140326996033,
+              "y": 515.0844548626001
+            }
+          },
+          {
+            "uid": 29,
+            "bounds": {
+              "left": 939.6227407458344,
+              "right": 979.6601062228644,
+              "top": 502.7623875438728,
+              "bottom": 518.1812589566327,
+              "width": 40.037365477029994,
+              "height": 15.418871412759927,
+              "x": 959.6414234843494,
+              "y": 510.4718232502528
+            }
+          },
+          {
+            "uid": 30,
+            "bounds": {
+              "left": 1067.5207936393242,
+              "right": 1100.611885266661,
+              "top": 478.2141749412947,
+              "bottom": 490.9990422653352,
+              "width": 33.09109162733671,
+              "height": 12.784867324040533,
+              "x": 1084.0663394529925,
+              "y": 484.60660860331495
+            }
+          },
+          {
+            "uid": 31,
+            "bounds": {
+              "left": 1013.3098502566213,
+              "right": 1055.619599528635,
+              "top": 427.0371572245926,
+              "bottom": 442.64416957530534,
+              "width": 42.30974927201373,
+              "height": 15.60701235071275,
+              "x": 1034.464724892628,
+              "y": 434.840663399949
+            }
+          },
+          {
+            "uid": 32,
+            "bounds": {
+              "left": 817.5420221294406,
+              "right": 851.7669256603331,
+              "top": 474.2852418828147,
+              "bottom": 489.2209470301636,
+              "width": 34.22490353089245,
+              "height": 14.93570514734887,
+              "x": 834.6544738948869,
+              "y": 481.7530944564892
+            }
+          }
+        ]
+      },
+      "values": []
+    },
+    {
+      "name": "failure",
+      "at": "2026-10-23T07:19:19.261020+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m3-hidden-inheritance",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "Klasse 9 · Generation 0 · Zeitraffer\nKönnen dunkle Eltern helle Junge bekommen?\nMenü\nBecken einpassen\nDein Auftrag\nWähle ein dunkles und ein helles Elterntier.\nZuerst kreuzen wir dunkel mit hell. Danach wählen wir Eltern aus ihren Nachkommen. Tippe auf einen Fisch oder seine Schaltfläche.\n\n♀ Weibchen · ♂ Männchen\n\n♀29 dunkel\n♂30 hell\n♀31 hell\n♂32 dunkel\nNachkommen ansehen\nTipp\nZählen",
+      "stage": "founders",
+      "presentation": {
+        "glass": {
+          "left": 448.0000000000018,
+          "right": 1335.9999999999977,
+          "top": 355.6295450811343,
+          "bottom": 644.3704549188652,
+          "width": 887.9999999999959,
+          "height": 288.7409098377309,
+          "x": 891.9999999999998,
+          "y": 499.9999999999998
+        },
+        "viewport": {
+          "width": 1366,
+          "height": 960
+        },
+        "camera": [
+          2.2084980343297076,
+          3.8925395371905234,
+          18.40415028608095
+        ],
+        "selection": null,
+        "markerVisible": false,
+        "objects": [
+          {
+            "uid": 1,
+            "bounds": {
+              "left": 941.6502182686328,
+              "right": 992.9281578328411,
+              "top": 498.5600396648339,
+              "bottom": 591.3384903861232,
+              "width": 51.27793956420828,
+              "height": 92.77845072128935,
+              "x": 967.2891880507369,
+              "y": 544.9492650254786
+            }
+          },
+          {
+            "uid": 3,
+            "bounds": {
+              "left": 783.7212271092052,
+              "right": 853.1562035549346,
+              "top": 472.74981399634015,
+              "bottom": 595.0583605084128,
+              "width": 69.43497644572938,
+              "height": 122.30854651207261,
+              "x": 818.4387153320699,
+              "y": 533.9040872523765
+            }
+          },
+          {
+            "uid": 4,
+            "bounds": {
+              "left": 1030.4262489331338,
+              "right": 1095.6002224362235,
+              "top": 465.0120563633353,
+              "bottom": 591.3379926563816,
+              "width": 65.17397350308966,
+              "height": 126.32593629304631,
+              "x": 1063.0132356846786,
+              "y": 528.1750245098585
+            }
+          },
+          {
+            "uid": 5,
+            "bounds": {
+              "left": 724.688797656307,
+              "right": 794.2142520297941,
+              "top": 459.9699625256897,
+              "bottom": 578.5263647785416,
+              "width": 69.52545437348715,
+              "height": 118.55640225285191,
+              "x": 759.4515248430505,
+              "y": 519.2481636521156
+            }
+          },
+          {
+            "uid": 7,
+            "bounds": {
+              "left": 1100.2619697850207,
+              "right": 1147.431813034275,
+              "top": 560.5522386236343,
+              "bottom": 599.6404962814647,
+              "width": 47.1698432492542,
+              "height": 39.08825765783047,
+              "x": 1123.846891409648,
+              "y": 580.0963674525494
+            }
+          },
+          {
+            "uid": 9,
+            "bounds": {
+              "left": 531.4726609431679,
+              "right": 674.7554044560396,
+              "top": 434.75365582546476,
+              "bottom": 595.4152538997351,
+              "width": 143.28274351287178,
+              "height": 160.6615980742704,
+              "x": 603.1140326996037,
+              "y": 515.0844548626
+            }
+          },
+          {
+            "uid": 29,
+            "bounds": {
+              "left": 917.5800477051207,
+              "right": 958.0372582870843,
+              "top": 502.8808916080981,
+              "bottom": 518.4353787796532,
+              "width": 40.457210581963636,
+              "height": 15.554487171555081,
+              "x": 937.8086529961025,
+              "y": 510.65813519387564
+            }
+          },
+          {
+            "uid": 30,
+            "bounds": {
+              "left": 1050.0364835630648,
+              "right": 1082.7983125428727,
+              "top": 478.93553084874327,
+              "bottom": 491.5637109137794,
+              "width": 32.76182897980789,
+              "height": 12.628180065036133,
+              "x": 1066.4173980529688,
+              "y": 485.2496208812613
+            }
+          },
+          {
+            "uid": 31,
+            "bounds": {
+              "left": 1035.808209950818,
+              "right": 1078.3368758700792,
+              "top": 427.96039557834246,
+              "bottom": 443.7416085105699,
+              "width": 42.52866591926113,
+              "height": 15.781212932227447,
+              "x": 1057.0725429104486,
+              "y": 435.8510020444562
+            }
+          },
+          {
+            "uid": 32,
+            "bounds": {
+              "left": 825.7837193289326,
+              "right": 861.542907231953,
+              "top": 474.145397911269,
+              "bottom": 488.71621338979656,
+              "width": 35.75918790302035,
+              "height": 14.57081547852755,
+              "x": 843.6633132804428,
+              "y": 481.43080565053276
+            }
+          }
+        ]
+      },
+      "values": []
+    }
+  ],
+  "checks": [
+    "m2-observation",
+    "m2: raw evidence separated from offered interpretation",
+    "m2: completion, pause, help, correction, reload, new attempt, own file roundtrip, legacy preservation"
+  ],
+  "errors": [],
+  "requests_failed": [],
+  "version": "26.5",
+  "status": "failed",
+  "failure": ""
+}

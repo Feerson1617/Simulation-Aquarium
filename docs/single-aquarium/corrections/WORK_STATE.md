@@ -1,27 +1,25 @@
-# Korrektur F01–F11, neues Sichtabnahme-Gate
+# F01–F03 umgesetzt und geprüft – neue Sichtabnahme ausstehend
 
-Die ausdrückliche ergänzende Freigabe des Nutzers vom 23.10.2026 erlaubt Änderungen, Commits und Pushs ausschließlich auf `feature/coherent-learning-workspaces`, offener PR #9. Kein neuer PR, keine Änderung an main, kein Merge oder PR-Statuswechsel.
+Verbindliche Nutzerfreigabe vom 23.10.2026: nur `feature/coherent-learning-workspaces`, offener PR #9. Commits/Pushs und PR-Vorschau erlaubt. Kein neuer PR, keine Änderungen an main, kein Merge, kein PR-Statuswechsel.
 
-Zuerst F01–F03: echte Resteanzeige mit Anfangsreferenz, größeres tatsächliches Aquarium mit korrekten Größenverhältnissen und klarer Auswahl, keine vorweggenommene Lösung in allen sechs Missionen. Eigene Vorher/Nachher-Browserbilder und reproduzierbare Schülerhandlungen bereitstellen. Der Nutzer verlangt ausdrücklich: „Ermögliche eine Sichtabnahme, bevor du sämtliche verbleibenden F04–F11-Änderungen abschließt.“ Dies ist eine neue Sichtabnahme, unabhängig von der früheren M1-Freigabe.
+**Jetzt zur menschlichen Sichtabnahme vorlegen. F04–F11 erst danach abschließen.** Die frühere M1-Freigabe gilt nicht für dieses neue Gate. Der Nutzer verlangte ausdrücklich: „Ermögliche eine Sichtabnahme, bevor du sämtliche verbleibenden F04–F11-Änderungen abschließt.“
 
-## Wiederhergestellt
+## Gesicherter Stand
 
-Sauberer lokaler und entfernter Branch bei `7d6f815f2d35dd8a75da1ca8f273724ed1b975c5`. PR offen, kein Draft; main unverändert `8e41962132fe3778fe73f8e14c650f42e18d848d`. Alte Abschlussberichte und Nachweise bleiben historische Belege. Kein Verlust ungesicherter Arbeit.
+Anwendungscode `4b79d08a48be6126fc7cd8c2df3b785a44c234f8`; spätere Commits ergänzen Dokumentation und Prüfnachweise. Alle Änderungen liegen auf PR #9. Ausgang `7d6f815f2d35dd8a75da1ca8f273724ed1b975c5` war sauber und vollständig wiederhergestellt. Main bei Beginn `8e41962132fe3778fe73f8e14c650f42e18d848d`; zum Abschluss erneut prüfen.
 
-## Aktuelle Arbeit
+F01: echte relative Mengenbalken in M2/M5, gleiche Referenz, gespeicherter Abbaufluss getrennt vom Restebestand. F02: größere tatsächliche Glasansicht, hellere Rückwand, echte Auswahl mit Art/ID und direkter Touch-/Mauszuordnung, Rückstellung ohne Restbewegung. F03: alle sechs Missionen auf Vorwegnahmen geprüft; Rohbelege statt Lösungssätze, M2-Erklärung bewusst abrufbar, M1-Kurven direkt am Aquarium, Antwortkarte ohne abgeschnittene Auswahl. Biologische Berechnungen, Maßstab, Arten/Assets und Speicherformate unverändert.
 
-Korrekturprompt und unabhängigen Bericht gelesen. Alle drei Hauptbefunde am Ausgangscode bestätigt. Eigene Browseraufnahmen des unveränderten Ausgangs werden erstellt. Noch keine neue Sichtfreigabe und keine behauptete Abnahme. F04–F11 sind anschließend offen; unvermeidbare Überschneidungen (M1-Rohbelege, M6-Auswahl) werden gesondert dokumentiert.
+## Maßgebliche Nachweise
 
-Kostenlose vorhandene lokale Werkzeuge, Chromium/Playwright und portables WebKit. Keine physische iPad-Hardware vorhanden. Biologische Berechnungen, sämtliche Arten und historische Speicherstände erhalten.
+[Bildübersicht](REVIEW.html), [Änderungen und Schülerhandlungen](REVIEW.md), [tatsächliche Tests und Grenzen](TESTS.md), [Belegmanifest](evidence/manifest.json). Diese Korrekturberichte sind aktueller als die früheren Abschlussberichte in `docs/single-aquarium/`.
 
-## Fortsetzungsnotiz 23.10.2026, 09:49 MESZ
+191 lokale Modultests. Sechs vollständige Chromium-Lernwege auf 0cf199c, abschließende M1/M3/M5-Layoutwege auf b2f2cd1 in WebKit. Weitere WebKit-Durchläufe dokumentiert, keine behauptete einheitliche Vollmatrix. Freie Jahrgänge, Platzierung/Dateien/Quotenfehler, erhaltenes Expertenspiel samt acht Tutorialschritten, öffentliche M3 und eingebettete M1 nach Laden offline geprüft. Kein physischer iPad-Test. Der Quellvergleich schützt 578 unveränderte Dateien.
 
-Anwendung auf dem PR-Branch bis `0cf199cee4fc4d3e73af08e26dbc62020cb7cdeb` gesichert und gepusht. F01–F03 umgesetzt; Mengenansicht `single-observation.mjs`, Kamera/Auswahl `single-aquarium-view.mjs`, gezielte Anpassungen der bisherigen zwei Lern-UIs und Inhalte/CSS. Rechenkern/Assets unverändert (578 geschützte Dateien, `/tmp/f01-source-audit.json`). Neue Sichtfreigabe noch NICHT erteilt.
+Alle Testprozesse sind beendet; frühere Warteschlangen nicht erneut starten. Lokale Originale: `/tmp/f01-gate-verified`, `/tmp/f01-layout-final`, `/tmp/f01-gate-final`, `/tmp/f01-free-regression`, `/tmp/f01-expert`, `/tmp/f01-offline`, `/tmp/f01-public`. Neue Prüfungen: `tests/correction_gate_browser.py` und `tests/correction_pointer_browser.py`. Abschließender Gestenfix auf 4b79d08 in beiden Engines bestanden (`/tmp/f01-pointer-final`). Historische Fehlläufe sind im Belegpaket als solche erhalten.
 
-Eigene Vorher-Bilder bereits im Git unter `corrections/evidence/before/` (18 Bilder, Report; Runtime 7d6f815, Dokumentationshead 5c0b2f5). Neue vollständige Chromium-Prüfung läuft unter `/tmp/f01-gate-verified/chromium`, Log `/tmp/f01-verified-chromium.log`: M1–M5 weitgehend abgeschlossen, M6 folgt. Nicht parallel doppelt starten. App während dieses Laufs unverändert lassen. Neue Tests: `tests/correction_gate_browser.py`.
+## Weiter nach Sichtabnahme
 
-Bereits bestanden: 191 Node-Tests (`/tmp/f01-node-final.log`); WebKit M2/M3/M5 auf 658eb16 (`/tmp/f01-gate-final/webkit`), danach Kameraauswahlfix 0cf199c mit WebKit M1/M3 (`/tmp/f01-gate-verified/webkit`); freie Jahrgänge mit Platzierung, Dateirückkehr/Quotenfehler (`/tmp/f01-free-regression/webkit`); M1 in eingebetteter Einzel-HTML nach HTTP-Laden offline (`/tmp/f01-offline/webkit`); 13 Expertenspiel-/Tutorialchecks (`/tmp/f01-expert/results/20261023T073929.284389Z`); öffentlicher M3-Lauf (`/tmp/f01-public/webkit`). Warteschlange `/tmp/f01-regression-queue.json` vollständig beendet. Kein physischer iPad-Test.
+F04 spezifische Hilfen; F05 weitere M1-Abnahme; F06 getrennte Elternfehler/Nullfälle und Kreuzungsfolge; F07 verständliche archivierte Elternbeiträge; F08 vollständige M6-Individuumsprüfung; F09 verständliche Archivnamen; F10 sichtbare Pinzettenhinweise und echter erfolgreicher Touch-Versatz; F11 übrige Sprachstellen. Überschneidungen durch F01–F03 sind im Bericht genannt und keine pauschale Erledigung dieser Punkte.
 
-Bei Bildprüfung erkannt: M1-Kurven in der Aufgabenkarte lassen eine Antwort unter den Kartenrand geraten. Vorbereitete letzte Layoutkorrektur `/tmp/refine-f01-layout.py` **erst nach Ende des laufenden Chromium-Laufs** anwenden: Kurve in Beobachtungsanzeige auslagern, M3-Einstieg kürzen/Elternkarte anpassen, M5-Beschriftung kürzen. Danach gezielt M1/M3/M5 erneut mit echten Handlungen nachprüfen; Code committen/pushen, Bilder und genaue Quellstände dokumentieren. Vorherige Entwicklungsfehler nicht als bestanden ausgeben (u. a. `/tmp/f01-gate-current`, `/tmp/f01-gate-final/chromium`).
-
-Entwurf `corrections/REVIEW.md` enthält Schülerhandlungen, Audit aller sechs Missionen und offene F04–F11. Fertige Bildübersicht `REVIEW.html`, aktueller Test-/Belegbericht, Commit/Preview-Abgleich und abschließende Übergabe zur Sichtabnahme stehen noch aus. Nur PR #9 aktualisieren; kein neuer PR, main/PR-Status nicht ändern, kein Merge.
+Keine Unterrichts- oder Hardwarefreigabe aus technischen Abschlüssen ableiten. Genaues aktuelles Git-Head, PR-Vorschau und noch offene Grenzen bei der Übergabe nennen.

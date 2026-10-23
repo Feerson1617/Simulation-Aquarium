@@ -1,0 +1,17 @@
+{
+  "baseline": "7d6f815f2d35dd8a75da1ca8f273724ed1b975c5",
+  "applicationCommit": "4b79d08a48be6126fc7cd8c2df3b785a44c234f8",
+  "protectedFiles": 578,
+  "changes": [],
+  "scope": "All pre-existing root modules except learner UI/content, index.html, assets, AGENTS and workflows",
+  "representativeSHA256": {
+    "index.html": "24073d9825164ff6aecc0bb768166ddb0301b438ca3a76ac93908002177c0caa",
+    "physical-scale.mjs": "a948d0affb65fe354f90dfebb53e0d26b63567a35645714a3b4795f5dc68b041",
+    "physical-renderer.mjs": "46ff0ab3bc8cc82faadb798230a15cbf460f04cba9e50e5bfa092925c2360709",
+    "single-classroom-model.mjs": "7407666b7a0e7b4a43be20d7621edafc62724151d49decaa02ff82ededcb7c42",
+    "single-learning-model.mjs": "932d2f36bb15440137f0c31e9ee3cf534ac97d6a606e1f114dcffceec59e0659",
+    "genetics.mjs": "301b841789853d6ed8dac91d3090f2cc85ab858701577473a35e3ab82122a532",
+    "bioprocesses.mjs": "db390102b09a5e888a504049f3b659bfdea000df400b22d17a234be5998ff8cd",
+    "ecology.mjs": "66c11227f26241cf3fcffb00d0f8b28dc957f7a0536de650a80fc8210098429b"
+  }
+}

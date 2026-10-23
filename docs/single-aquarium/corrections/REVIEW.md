@@ -4,7 +4,7 @@ Dies ist die angeforderte Zwischenabnahme, keine Merge-Empfehlung und kein Nachw
 
 PR: https://github.com/Feerson1617/Simulation-Aquarium/pull/9  
 Vorschau: https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/  
-Anwendungscode: `0cf199cee4fc4d3e73af08e26dbc62020cb7cdeb`. Spätere Commits ergänzen Nachweise und Dokumentation. Der gesamte aktuelle Paketstand wird bei der Übergabe als exakter Commit genannt.
+Anwendungscode: `4b79d08a48be6126fc7cd8c2df3b785a44c234f8`. Spätere Commits ergänzen Nachweise und Dokumentation. Der gesamte aktuelle Paketstand wird bei der Übergabe als exakter Commit genannt.
 
 ## Sichtbare Änderungen
 
@@ -52,3 +52,5 @@ F03 erfordert bereits die gemeinsamen M1-Linien aus F05 und eine eindeutig zugeo
 Offen bleiben insbesondere die spezifischen Fehlerhilfen F04, die vollständige Prüfung/Feinarbeit an F05, getrennte M3-Elternfehlermeldungen und Nullfälle F06, verständliche Elternbeiträge F07, vollständiger M6-Identitäts-/Auswahlweg F08, Archivnamen F09, Pinzettenhinweise und erfolgreicher Touch-Versatz F10 sowie die übrigen Sprachstellen F11. Lange Elternlisten sind scrollbar; der untere Kartenbereich kann dafür gescrollt werden müssen. Der Außenfilter liegt bei enger Beobachtung am Bildrand und kann teilweise außerhalb des Ausschnitts liegen; die Glasecken und die Lebewesen werden priorisiert.
 
 Physisches Schul-iPad/Safari, Unterrichtsverständnis mit Lernenden und natives `file:`-Öffnen wurden hier nicht nachgewiesen. Linux-WebKit mit Browser-Toucheingaben ist kein Hardwaretest. Alte 14er Dateien werden nicht als neue Lernleistung ausgegeben; ein vollständiger neuer Importlauf aller historischen Dateien gehört nicht zum F01–F03-Nachweis. Technische Abschlüsse belegen Bedienbarkeit und Datenzuordnung, nicht automatisch Lernqualität.
+
+Die letzte Gestenprüfung auf `4b79d08a48be6126fc7cd8c2df3b785a44c234f8` bestätigt zusätzlich in Chromium und WebKit: nach Loslassen einer Maus-/Touchauswahl bleibt die Kamera beim anschließenden bloßen Bewegen stabil. Der zunächst reproduzierte Fehler und seine Korrektur sind im [Testbericht](TESTS.md) getrennt belegt.

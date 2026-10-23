@@ -1,0 +1,18 @@
+{
+  "engine": "webkit",
+  "applicationHead": "0cf199cee4fc4d3e73af08e26dbc62020cb7cdeb",
+  "url": "http://127.0.0.1:8000/standalone-m1/",
+  "errors": [],
+  "httpRequests": [
+    "http://127.0.0.1:8000/standalone-m1/"
+  ],
+  "nativeFile": "not tested",
+  "checks": [
+    "one actual main aquarium and embedded assets",
+    "full serial M1 with exact reset",
+    "rising oxygen in the dark and process interpretation",
+    "exported identity matches the visible aquarium",
+    "no child HTTP resource, already-loaded document works offline"
+  ],
+  "status": "passed"
+}

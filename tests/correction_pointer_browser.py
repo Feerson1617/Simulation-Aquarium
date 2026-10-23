@@ -3,7 +3,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 import json,subprocess,os,math
 ROOT=Path(__file__).resolve().parents[1]
-OUT=Path(os.environ.get('POINTER_RESULT','/tmp/aquarium-pointer-release'));OUT.mkdir(exist_ok=True)
+OUT=Path(os.environ.get('POINTER_RESULT','/tmp/aquarium-pointer-release'));OUT.mkdir(exist_ok=True,parents=True)
 ENGINE=os.environ.get('AQUARIUM_BROWSER','chromium')
 r={'engine':ENGINE,'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'checks':[],'errors':[]}
 with sync_playwright() as pw:

@@ -950,7 +950,7 @@ export function mountLearningUI(host) {
     return `<section class="learn-measurements"><h3>Eigene Messreihe · ${rows.length} Zeitpunkte</h3><p>${unknown?"Diese historische Messgröße ist nicht eindeutig dokumentiert. Ihre Werte bleiben unbekannt. ":""}Aufeinanderfolgende Beobachtungen desselben Beckens. Kein automatischer Kontrollversuch; mehrere Eingriffe oder Zeitabstände können sich unterscheiden.</p><label>Eigene Messgröße<select data-learning-manual-metric="${readOnly ? "imported" : "local"}">${options(
       keys.map((k) => [k, defs[k].join(" · ")]),
       key,
-    )}</select></label>${plot({ kind: "manual", runs: [{ control: filtered, test: [] }] }, key)}<div class="learn-table-wrap"><table><caption>${esc(defs[key].join(" · "))}</caption><thead><tr><th>Tag · Modellzeit</th><th>Eigenes Becken</th></tr></thead><tbody>${filtered.map((s) => `<tr><td>${num(s.day)}</td><td>${key === "health" && s.metricsVersion !== 2 ? "Früherer Tierwert: " : ""}${num(s[key], 4)}</td></tr>`).join("")}</tbody></table></div><p>„—“: unbekannt oder zum Aufnahmezeitpunkt nicht freigegeben. Reale Nullwerte stehen als 0.</p><div class="learn-actions">${button(readOnly ? "imported-manual-csv" : "manual-csv", "Eigene Messreihe als CSV")}${button("manual-chart", "Eigene Messreihe als SVG")}${!readOnly ? button("export", "Messreihe und Notizen als JSON") : ""}</div></section>`;
+    )}</select></label>${filtered.some(row=>Number.isFinite(row[key]))?plot({ kind: "manual", runs: [{ control: filtered, test: [] }] }, key):"<p>Keine bekannten Werte für diese Messgröße. Es wird keine Messkurve gezeichnet.</p>"}<div class="learn-table-wrap"><table><caption>${esc(defs[key].join(" · "))}</caption><thead><tr><th>Tag · Modellzeit</th><th>Eigenes Becken</th></tr></thead><tbody>${filtered.map((s) => `<tr><td>${num(s.day)}</td><td>${key === "health" && s.metricsVersion !== 2 ? "Früherer Tierwert: " : ""}${num(s[key], 4)}</td></tr>`).join("")}</tbody></table></div><p>„—“: unbekannt oder zum Aufnahmezeitpunkt nicht freigegeben. Reale Nullwerte stehen als 0.</p><div class="learn-actions">${button(readOnly ? "imported-manual-csv" : "manual-csv", "Eigene Messreihe als CSV")}${filtered.some(row=>Number.isFinite(row[key]))?button("manual-chart", "Eigene Messreihe als SVG"):""}${!readOnly ? button("export", "Messreihe und Notizen als JSON") : ""}</div></section>`;
   }
   function archiveView(population, label) {
     const id = String(archiveRefs.size);
@@ -1533,7 +1533,7 @@ export function mountLearningUI(host) {
           try{
             if(file.size>32*1024*1024)throw Error("Die Datei ist zu groß.");
             const raw=JSON.parse(await file.text());
-            if(raw.entities||raw.tank||raw.codec)throw Error("Das ist ein Aquarium-Spielstand. Nutze die Spielstand-Funktion im Menü; dieser Leser öffnet Lernprodukte.");
+            if(raw.type!=="aquarium-learning-product"&&(raw.entities||raw.tank||raw.codec))throw Error("Das ist ein Aquarium-Spielstand. Nutze die Spielstand-Funktion im Menü; dieser Leser öffnet Lernprodukte.");
             imported=validateLearningProduct(raw);
           }catch(error){imported=null;importedError=error instanceof SyntaxError?"Die Datei enthält kein lesbares JSON.":error.message;}
         }else{

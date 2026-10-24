@@ -1,0 +1,1320 @@
+[
+  {
+    "phase": "before",
+    "engine": "chromium",
+    "version": "154.0.8037.57",
+    "case": "A",
+    "status": "passed",
+    "rounds": 12,
+    "browserPeakPssGiB": 0.8014612197875977,
+    "contentPeakPssGiB": 0.3408079147338867,
+    "contentPeakPrivateGiB": 0.294647216796875,
+    "driverPeakPssGiB": 0.12528038024902344,
+    "minimumAvailableGiB": 31.479290008544922,
+    "maximumSystemSwapGiB": 0.0,
+    "minimumDiskFreeGiB": 29.577930450439453,
+    "homeSeries": [
+      {
+        "round": 1,
+        "browserPssGiB": 0.5817079544067383,
+        "contentPssGiB": 0.20728111267089844
+      },
+      {
+        "round": 2,
+        "browserPssGiB": 0.5668869018554688,
+        "contentPssGiB": 0.17748355865478516
+      },
+      {
+        "round": 3,
+        "browserPssGiB": 0.6505670547485352,
+        "contentPssGiB": 0.2531137466430664
+      },
+      {
+        "round": 4,
+        "browserPssGiB": 0.5977401733398438,
+        "contentPssGiB": 0.19913578033447266
+      },
+      {
+        "round": 5,
+        "browserPssGiB": 0.6538734436035156,
+        "contentPssGiB": 0.2231426239013672
+      },
+      {
+        "round": 6,
+        "browserPssGiB": 0.6463947296142578,
+        "contentPssGiB": 0.23135089874267578
+      },
+      {
+        "round": 7,
+        "browserPssGiB": 0.6200037002563477,
+        "contentPssGiB": 0.1902484893798828
+      },
+      {
+        "round": 8,
+        "browserPssGiB": 0.6951913833618164,
+        "contentPssGiB": 0.2513236999511719
+      },
+      {
+        "round": 9,
+        "browserPssGiB": 0.6409273147583008,
+        "contentPssGiB": 0.1934032440185547
+      },
+      {
+        "round": 10,
+        "browserPssGiB": 0.6452760696411133,
+        "contentPssGiB": 0.19424057006835938
+      },
+      {
+        "round": 11,
+        "browserPssGiB": 0.6844263076782227,
+        "contentPssGiB": 0.2281951904296875
+      },
+      {
+        "round": 12,
+        "browserPssGiB": 0.7001953125,
+        "contentPssGiB": 0.24782848358154297
+      }
+    ],
+    "finalAction": {
+      "exportSHA256": "260cf27f4b8eef339f6bebf5cfe988dba559365e08d1d64c751c3247ea1ff36d",
+      "restoredExactly": true,
+      "helpStillResponds": true
+    },
+    "failure": null
+  },
+  {
+    "phase": "before",
+    "engine": "chromium",
+    "version": "154.0.8037.57",
+    "case": "B",
+    "status": "passed",
+    "rounds": 12,
+    "browserPeakPssGiB": 2.850497245788574,
+    "contentPeakPssGiB": 2.2861576080322266,
+    "contentPeakPrivateGiB": 2.2409286499023438,
+    "driverPeakPssGiB": 0.13194751739501953,
+    "minimumAvailableGiB": 28.50320816040039,
+    "maximumSystemSwapGiB": 0.0,
+    "minimumDiskFreeGiB": 29.574241638183594,
+    "homeSeries": [
+      {
+        "round": 1,
+        "browserPssGiB": 1.6777667999267578,
+        "contentPssGiB": 1.1344337463378906
+      },
+      {
+        "round": 2,
+        "browserPssGiB": 1.706498146057129,
+        "contentPssGiB": 1.172236442565918
+      },
+      {
+        "round": 3,
+        "browserPssGiB": 1.7413110733032227,
+        "contentPssGiB": 1.1985368728637695
+      },
+      {
+        "round": 4,
+        "browserPssGiB": 1.7560110092163086,
+        "contentPssGiB": 1.2214136123657227
+      },
+      {
+        "round": 5,
+        "browserPssGiB": 1.7644472122192383,
+        "contentPssGiB": 1.222672462463379
+      },
+      {
+        "round": 6,
+        "browserPssGiB": 1.7871437072753906,
+        "contentPssGiB": 1.229269027709961
+      },
+      {
+        "round": 7,
+        "browserPssGiB": 1.8226432800292969,
+        "contentPssGiB": 1.2337188720703125
+      },
+      {
+        "round": 8,
+        "browserPssGiB": 1.8121099472045898,
+        "contentPssGiB": 1.2383794784545898
+      },
+      {
+        "round": 9,
+        "browserPssGiB": 1.844721794128418,
+        "contentPssGiB": 1.2434778213500977
+      },
+      {
+        "round": 10,
+        "browserPssGiB": 1.8515691757202148,
+        "contentPssGiB": 1.2431097030639648
+      },
+      {
+        "round": 11,
+        "browserPssGiB": 1.8524236679077148,
+        "contentPssGiB": 1.2490854263305664
+      },
+      {
+        "round": 12,
+        "browserPssGiB": 1.8586950302124023,
+        "contentPssGiB": 1.2475461959838867
+      }
+    ],
+    "finalAction": {
+      "exportSHA256": "a1e0c30e361c58dc8ecfbc2f5050671f61c5a51339e4a505b4fc8872125c112d",
+      "restoredExactly": true,
+      "helpStillResponds": true
+    },
+    "failure": null
+  },
+  {
+    "phase": "before",
+    "engine": "chromium",
+    "version": "154.0.8037.57",
+    "case": "C",
+    "status": "passed",
+    "rounds": 12,
+    "browserPeakPssGiB": 2.823338508605957,
+    "contentPeakPssGiB": 2.281254768371582,
+    "contentPeakPrivateGiB": 2.236225128173828,
+    "driverPeakPssGiB": 0.12322807312011719,
+    "minimumAvailableGiB": 28.311458587646484,
+    "maximumSystemSwapGiB": 0.0,
+    "minimumDiskFreeGiB": 29.572933197021484,
+    "homeSeries": [
+      {
+        "round": 1,
+        "browserPssGiB": 1.6603736877441406,
+        "contentPssGiB": 1.1348352432250977
+      },
+      {
+        "round": 2,
+        "browserPssGiB": 1.6510238647460938,
+        "contentPssGiB": 1.135946273803711
+      },
+      {
+        "round": 3,
+        "browserPssGiB": 1.715810775756836,
+        "contentPssGiB": 1.18695068359375
+      },
+      {
+        "round": 4,
+        "browserPssGiB": 1.752847671508789,
+        "contentPssGiB": 1.1855144500732422
+      },
+      {
+        "round": 5,
+        "browserPssGiB": 1.7832469940185547,
+        "contentPssGiB": 1.2174930572509766
+      },
+      {
+        "round": 6,
+        "browserPssGiB": 1.7923870086669922,
+        "contentPssGiB": 1.2191219329833984
+      },
+      {
+        "round": 7,
+        "browserPssGiB": 1.749216079711914,
+        "contentPssGiB": 1.1582984924316406
+      },
+      {
+        "round": 8,
+        "browserPssGiB": 1.7912416458129883,
+        "contentPssGiB": 1.2016706466674805
+      },
+      {
+        "round": 9,
+        "browserPssGiB": 1.8371925354003906,
+        "contentPssGiB": 1.227254867553711
+      },
+      {
+        "round": 10,
+        "browserPssGiB": 1.8637628555297852,
+        "contentPssGiB": 1.2430105209350586
+      },
+      {
+        "round": 11,
+        "browserPssGiB": 1.8613367080688477,
+        "contentPssGiB": 1.2448968887329102
+      },
+      {
+        "round": 12,
+        "browserPssGiB": 1.8676233291625977,
+        "contentPssGiB": 1.2470006942749023
+      }
+    ],
+    "finalAction": {
+      "exportSHA256": "daf93e7f16652c383104cad1597c1cc05015dc5d7f264e296a194adaa9e040d2",
+      "restoredExactly": true,
+      "helpStillResponds": true
+    },
+    "failure": null
+  },
+  {
+    "phase": "before",
+    "engine": "chromium",
+    "version": "154.0.8037.57",
+    "case": "D",
+    "status": "blocked-policy",
+    "rounds": 0,
+    "browserPeakPssGiB": 0.2432117462158203,
+    "contentPeakPssGiB": 0.0706787109375,
+    "contentPeakPrivateGiB": 0.040409088134765625,
+    "driverPeakPssGiB": 0.10561847686767578,
+    "minimumAvailableGiB": 32.01807403564453,
+    "maximumSystemSwapGiB": 0.0,
+    "minimumDiskFreeGiB": 29.572917938232422,
+    "homeSeries": [],
+    "finalAction": null,
+    "failure": "Error('Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/exports/Aquarium-R01-R03.html\\nCall log:\\n  - navigating to \"file:///workspace/exports/Aquarium-R01-R03.html\", waiting until \"domcontentloaded\"\\n')"
+  },
+  {
+    "phase": "before",
+    "engine": "webkit",
+    "version": "26.5",
+    "case": "A",
+    "status": "passed",
+    "rounds": 12,
+    "browserPeakPssGiB": 1.2837305068969727,
+    "contentPeakPssGiB": 1.190938949584961,
+    "contentPeakPrivateGiB": 1.1710433959960938,
+    "driverPeakPssGiB": 0.15541553497314453,
+    "minimumAvailableGiB": 29.317142486572266,
+    "maximumSystemSwapGiB": 0.0,
+    "minimumDiskFreeGiB": 29.744544982910156,
+    "homeSeries": [
+      {
+        "round": 1,
+        "browserPssGiB": 0.9785528182983398,
+        "contentPssGiB": 0.8845968246459961
+      },
+      {
+        "round": 2,
+        "browserPssGiB": 1.1263580322265625,
+        "contentPssGiB": 1.0319204330444336
+      },
+      {
+        "round": 3,
+        "browserPssGiB": 1.0258283615112305,
+        "contentPssGiB": 0.9314069747924805
+      },
+      {
+        "round": 4,
+        "browserPssGiB": 1.0493478775024414,
+        "contentPssGiB": 0.9552516937255859
+      },
+      {
+        "round": 5,
+        "browserPssGiB": 1.0385828018188477,
+        "contentPssGiB": 0.9438724517822266
+      },
+      {
+        "round": 6,
+        "browserPssGiB": 1.0413904190063477,
+        "contentPssGiB": 0.9466724395751953
+      },
+      {
+        "round": 7,
+        "browserPssGiB": 0.9867143630981445,
+        "contentPssGiB": 0.8920040130615234
+      },
+      {
+        "round": 8,
+        "browserPssGiB": 1.1194429397583008,
+        "contentPssGiB": 1.0245227813720703
+      },
+      {
+        "round": 9,
+        "browserPssGiB": 1.039780616760254,
+        "contentPssGiB": 0.9449329376220703
+      },
+      {
+        "round": 10,
+        "browserPssGiB": 1.024369239807129,
+        "contentPssGiB": 0.9293766021728516
+      },
+      {
+        "round": 11,
+        "browserPssGiB": 1.1731195449829102,
+        "contentPssGiB": 1.078237533569336
+      },
+      {
+        "round": 12,
+        "browserPssGiB": 1.009495735168457,
+        "contentPssGiB": 0.9145603179931641
+      }
+    ],
+    "finalAction": {
+      "exportSHA256": "cde73c3d526483576fa00c701864d3afe915234f8b6e4e0b081b33907c15cb8f",
+      "restoredExactly": true,
+      "helpStillResponds": true
+    },
+    "failure": null
+  },
+  {
+    "phase": "before",
+    "engine": "webkit",
+    "version": "26.5",
+    "case": "B",
+    "status": "passed",
+    "rounds": 12,
+    "browserPeakPssGiB": 12.02010726928711,
+    "contentPeakPssGiB": 11.797789573669434,
+    "contentPeakPrivateGiB": 11.77825927734375,
+    "driverPeakPssGiB": 0.13449382781982422,
+    "minimumAvailableGiB": 19.742691040039062,
+    "maximumSystemSwapGiB": 0.0,
+    "minimumDiskFreeGiB": 29.602428436279297,
+    "homeSeries": [
+      {
+        "round": 1,
+        "browserPssGiB": 2.609050750732422,
+        "contentPssGiB": 2.3859024047851562
+      },
+      {
+        "round": 2,
+        "browserPssGiB": 3.4132823944091797,
+        "contentPssGiB": 3.1900691986083984
+      },
+      {
+        "round": 3,
+        "browserPssGiB": 4.180479049682617,
+        "contentPssGiB": 3.957202911376953
+      },
+      {
+        "round": 4,
+        "browserPssGiB": 4.832159042358398,
+        "contentPssGiB": 4.608898162841797
+      },
+      {
+        "round": 5,
+        "browserPssGiB": 6.361266136169434,
+        "contentPssGiB": 6.138095855712891
+      },
+      {
+        "round": 6,
+        "browserPssGiB": 6.479475021362305,
+        "contentPssGiB": 6.256183624267578
+      },
+      {
+        "round": 7,
+        "browserPssGiB": 6.963682174682617,
+        "contentPssGiB": 6.740386962890625
+      },
+      {
+        "round": 8,
+        "browserPssGiB": 7.992650985717773,
+        "contentPssGiB": 7.769329071044922
+      },
+      {
+        "round": 9,
+        "browserPssGiB": 8.664670944213867,
+        "contentPssGiB": 8.441341400146484
+      },
+      {
+        "round": 10,
+        "browserPssGiB": 9.308919906616211,
+        "contentPssGiB": 9.085533142089844
+      },
+      {
+        "round": 11,
+        "browserPssGiB": 9.967073440551758,
+        "contentPssGiB": 9.74367904663086
+      },
+      {
+        "round": 12,
+        "browserPssGiB": 10.613882064819336,
+        "contentPssGiB": 10.39046859741211
+      }
+    ],
+    "finalAction": {
+      "exportSHA256": "4fc342869b9307f8123d269223f617b03c9bd736dc6698031381d9651eafe76f",
+      "restoredExactly": true,
+      "helpStillResponds": true
+    },
+    "failure": null
+  },
+  {
+    "phase": "before",
+    "engine": "webkit",
+    "version": "26.5",
+    "case": "C",
+    "status": "passed",
+    "rounds": 12,
+    "browserPeakPssGiB": 11.808704376220703,
+    "contentPeakPssGiB": 11.586482048034668,
+    "contentPeakPrivateGiB": 11.566890716552734,
+    "driverPeakPssGiB": 0.13411617279052734,
+    "minimumAvailableGiB": 20.53586196899414,
+    "maximumSystemSwapGiB": 0.0,
+    "minimumDiskFreeGiB": 29.60155487060547,
+    "homeSeries": [
+      {
+        "round": 1,
+        "browserPssGiB": 2.6400279998779297,
+        "contentPssGiB": 2.4168777465820312
+      },
+      {
+        "round": 2,
+        "browserPssGiB": 3.392465591430664,
+        "contentPssGiB": 3.1692562103271484
+      },
+      {
+        "round": 3,
+        "browserPssGiB": 4.823293685913086,
+        "contentPssGiB": 4.600027084350586
+      },
+      {
+        "round": 4,
+        "browserPssGiB": 4.85645866394043,
+        "contentPssGiB": 4.633186340332031
+      },
+      {
+        "round": 5,
+        "browserPssGiB": 6.358999252319336,
+        "contentPssGiB": 6.135700225830078
+      },
+      {
+        "round": 6,
+        "browserPssGiB": 6.472799301147461,
+        "contentPssGiB": 6.249458312988281
+      },
+      {
+        "round": 7,
+        "browserPssGiB": 7.230096817016602,
+        "contentPssGiB": 7.006736755371094
+      },
+      {
+        "round": 8,
+        "browserPssGiB": 7.961591720581055,
+        "contentPssGiB": 7.7382049560546875
+      },
+      {
+        "round": 9,
+        "browserPssGiB": 8.22673225402832,
+        "contentPssGiB": 8.003334045410156
+      },
+      {
+        "round": 10,
+        "browserPssGiB": 9.270742416381836,
+        "contentPssGiB": 9.047332763671875
+      },
+      {
+        "round": 11,
+        "browserPssGiB": 9.940893173217773,
+        "contentPssGiB": 9.717498779296875
+      },
+      {
+        "round": 12,
+        "browserPssGiB": 10.581327438354492,
+        "contentPssGiB": 10.357891082763672
+      }
+    ],
+    "finalAction": {
+      "exportSHA256": "d0c0f7c2f055666f3a17e20ac9869c45552264f5551a27a0a00dec5e9d71753a",
+      "restoredExactly": true,
+      "helpStillResponds": true
+    },
+    "failure": null
+  },
+  {
+    "phase": "before",
+    "engine": "webkit",
+    "version": "26.5",
+    "case": "D",
+    "status": "passed",
+    "rounds": 12,
+    "browserPeakPssGiB": 11.604528427124023,
+    "contentPeakPssGiB": 11.38236141204834,
+    "contentPeakPrivateGiB": 11.362785339355469,
+    "driverPeakPssGiB": 0.13679981231689453,
+    "minimumAvailableGiB": 20.20492172241211,
+    "maximumSystemSwapGiB": 0.0,
+    "minimumDiskFreeGiB": 29.5797119140625,
+    "homeSeries": [
+      {
+        "round": 1,
+        "browserPssGiB": 2.3455915451049805,
+        "contentPssGiB": 2.122767448425293
+      },
+      {
+        "round": 2,
+        "browserPssGiB": 3.567538261413574,
+        "contentPssGiB": 3.344668388366699
+      },
+      {
+        "round": 3,
+        "browserPssGiB": 4.701601982116699,
+        "contentPssGiB": 4.4786882400512695
+      },
+      {
+        "round": 4,
+        "browserPssGiB": 5.731322288513184,
+        "contentPssGiB": 5.50838565826416
+      },
+      {
+        "round": 5,
+        "browserPssGiB": 6.772974967956543,
+        "contentPssGiB": 6.5500078201293945
+      },
+      {
+        "round": 6,
+        "browserPssGiB": 7.577792167663574,
+        "contentPssGiB": 7.354813575744629
+      },
+      {
+        "round": 7,
+        "browserPssGiB": 7.400938987731934,
+        "contentPssGiB": 7.177948951721191
+      },
+      {
+        "round": 8,
+        "browserPssGiB": 7.4391279220581055,
+        "contentPssGiB": 7.216095924377441
+      },
+      {
+        "round": 9,
+        "browserPssGiB": 8.355971336364746,
+        "contentPssGiB": 8.13293170928955
+      },
+      {
+        "round": 10,
+        "browserPssGiB": 9.278925895690918,
+        "contentPssGiB": 9.055890083312988
+      },
+      {
+        "round": 11,
+        "browserPssGiB": 9.544005393981934,
+        "contentPssGiB": 9.320950508117676
+      },
+      {
+        "round": 12,
+        "browserPssGiB": 10.161913871765137,
+        "contentPssGiB": 9.938828468322754
+      }
+    ],
+    "finalAction": {
+      "exportSHA256": "e461fa44bf39e0784094682adcc896f163fdf49fc150e54fc852bbdd1fbb37df",
+      "restoredExactly": true,
+      "helpStillResponds": true
+    },
+    "failure": null
+  },
+  {
+    "phase": "after",
+    "engine": "chromium",
+    "version": "154.0.8037.57",
+    "case": "A",
+    "status": "passed",
+    "rounds": 12,
+    "browserPeakPssGiB": 0.7725334167480469,
+    "contentPeakPssGiB": 0.3496208190917969,
+    "contentPeakPrivateGiB": 0.30283355712890625,
+    "driverPeakPssGiB": 0.12571430206298828,
+    "minimumAvailableGiB": 31.478256225585938,
+    "maximumSystemSwapGiB": 0.0,
+    "minimumDiskFreeGiB": 29.543323516845703,
+    "homeSeries": [
+      {
+        "round": 1,
+        "browserPssGiB": 0.5501089096069336,
+        "contentPssGiB": 0.18878936767578125
+      },
+      {
+        "round": 2,
+        "browserPssGiB": 0.6004362106323242,
+        "contentPssGiB": 0.20448970794677734
+      },
+      {
+        "round": 3,
+        "browserPssGiB": 0.6727218627929688,
+        "contentPssGiB": 0.2666587829589844
+      },
+      {
+        "round": 4,
+        "browserPssGiB": 0.5861444473266602,
+        "contentPssGiB": 0.18950843811035156
+      },
+      {
+        "round": 5,
+        "browserPssGiB": 0.6124076843261719,
+        "contentPssGiB": 0.1911325454711914
+      },
+      {
+        "round": 6,
+        "browserPssGiB": 0.6021060943603516,
+        "contentPssGiB": 0.18972301483154297
+      },
+      {
+        "round": 7,
+        "browserPssGiB": 0.6293792724609375,
+        "contentPssGiB": 0.19144439697265625
+      },
+      {
+        "round": 8,
+        "browserPssGiB": 0.6516647338867188,
+        "contentPssGiB": 0.2159261703491211
+      },
+      {
+        "round": 9,
+        "browserPssGiB": 0.6517953872680664,
+        "contentPssGiB": 0.24433326721191406
+      },
+      {
+        "round": 10,
+        "browserPssGiB": 0.6373147964477539,
+        "contentPssGiB": 0.19414710998535156
+      },
+      {
+        "round": 11,
+        "browserPssGiB": 0.6768426895141602,
+        "contentPssGiB": 0.2210826873779297
+      },
+      {
+        "round": 12,
+        "browserPssGiB": 0.6725740432739258,
+        "contentPssGiB": 0.20505523681640625
+      }
+    ],
+    "finalAction": {
+      "exportSHA256": "2c5b237587f73776b8bd022b40c38fc60f9e0f14ca46fdd1f50eeb9f79640d8e",
+      "restoredExactly": true,
+      "helpStillResponds": true
+    },
+    "failure": null
+  },
+  {
+    "phase": "after",
+    "engine": "chromium",
+    "version": "154.0.8037.57",
+    "case": "B",
+    "status": "passed",
+    "rounds": 12,
+    "browserPeakPssGiB": 1.2523889541625977,
+    "contentPeakPssGiB": 0.673370361328125,
+    "contentPeakPrivateGiB": 0.6282920837402344,
+    "driverPeakPssGiB": 0.13184356689453125,
+    "minimumAvailableGiB": 30.601829528808594,
+    "maximumSystemSwapGiB": 0.0,
+    "minimumDiskFreeGiB": 29.547943115234375,
+    "homeSeries": [
+      {
+        "round": 1,
+        "browserPssGiB": 1.0920696258544922,
+        "contentPssGiB": 0.5563497543334961
+      },
+      {
+        "round": 2,
+        "browserPssGiB": 1.1637449264526367,
+        "contentPssGiB": 0.6216049194335938
+      },
+      {
+        "round": 3,
+        "browserPssGiB": 0.8726358413696289,
+        "contentPssGiB": 0.2958078384399414
+      },
+      {
+        "round": 4,
+        "browserPssGiB": 0.8937301635742188,
+        "contentPssGiB": 0.3192415237426758
+      },
+      {
+        "round": 5,
+        "browserPssGiB": 0.9281196594238281,
+        "contentPssGiB": 0.35999107360839844
+      },
+      {
+        "round": 6,
+        "browserPssGiB": 0.9542312622070312,
+        "contentPssGiB": 0.3635215759277344
+      },
+      {
+        "round": 7,
+        "browserPssGiB": 0.9868564605712891,
+        "contentPssGiB": 0.4025850296020508
+      },
+      {
+        "round": 8,
+        "browserPssGiB": 1.014608383178711,
+        "contentPssGiB": 0.40700626373291016
+      },
+      {
+        "round": 9,
+        "browserPssGiB": 0.9446201324462891,
+        "contentPssGiB": 0.34194469451904297
+      },
+      {
+        "round": 10,
+        "browserPssGiB": 0.9484691619873047,
+        "contentPssGiB": 0.3421602249145508
+      },
+      {
+        "round": 11,
+        "browserPssGiB": 0.9988613128662109,
+        "contentPssGiB": 0.3804807662963867
+      },
+      {
+        "round": 12,
+        "browserPssGiB": 1.035696029663086,
+        "contentPssGiB": 0.4049539566040039
+      }
+    ],
+    "finalAction": {
+      "exportSHA256": "31b753c8a032e795c16fdb24ac310fecd2dc95d54b2591fdd5a760ad0b1b1e56",
+      "restoredExactly": true,
+      "helpStillResponds": true
+    },
+    "failure": null
+  },
+  {
+    "phase": "after",
+    "engine": "chromium",
+    "version": "154.0.8037.57",
+    "case": "C",
+    "status": "passed",
+    "rounds": 12,
+    "browserPeakPssGiB": 1.1549720764160156,
+    "contentPeakPssGiB": 0.9495639801025391,
+    "contentPeakPrivateGiB": 0.9188995361328125,
+    "driverPeakPssGiB": 0.1343841552734375,
+    "minimumAvailableGiB": 30.723960876464844,
+    "maximumSystemSwapGiB": 0.0,
+    "minimumDiskFreeGiB": 29.546741485595703,
+    "homeSeries": [
+      {
+        "round": 1,
+        "browserPssGiB": 0.9040508270263672,
+        "contentPssGiB": 0.35849571228027344
+      },
+      {
+        "round": 2,
+        "browserPssGiB": 0.8596096038818359,
+        "contentPssGiB": 0.3126516342163086
+      },
+      {
+        "round": 3,
+        "browserPssGiB": 0.9149436950683594,
+        "contentPssGiB": 0.3504047393798828
+      },
+      {
+        "round": 4,
+        "browserPssGiB": 0.9417028427124023,
+        "contentPssGiB": 0.3683786392211914
+      },
+      {
+        "round": 5,
+        "browserPssGiB": 0.9654359817504883,
+        "contentPssGiB": 0.3908548355102539
+      },
+      {
+        "round": 6,
+        "browserPssGiB": 0.9255266189575195,
+        "contentPssGiB": 0.32672786712646484
+      },
+      {
+        "round": 7,
+        "browserPssGiB": 0.9830255508422852,
+        "contentPssGiB": 0.37704944610595703
+      },
+      {
+        "round": 8,
+        "browserPssGiB": 0.9413242340087891,
+        "contentPssGiB": 0.33472156524658203
+      },
+      {
+        "round": 9,
+        "browserPssGiB": 0.9946603775024414,
+        "contentPssGiB": 0.37535667419433594
+      },
+      {
+        "round": 10,
+        "browserPssGiB": 0.9602746963500977,
+        "contentPssGiB": 0.340057373046875
+      },
+      {
+        "round": 11,
+        "browserPssGiB": 1.004918098449707,
+        "contentPssGiB": 0.3776836395263672
+      },
+      {
+        "round": 12,
+        "browserPssGiB": 1.0224237442016602,
+        "contentPssGiB": 0.3914146423339844
+      }
+    ],
+    "finalAction": {
+      "exportSHA256": "cfda09094b8d695d556b2229adbdca64fc0c510fcabc833c6f628dc87b8ed75b",
+      "restoredExactly": true,
+      "helpStillResponds": true
+    },
+    "failure": null
+  },
+  {
+    "phase": "after",
+    "engine": "chromium",
+    "version": "154.0.8037.57",
+    "case": "D",
+    "status": "blocked-policy",
+    "rounds": 0,
+    "browserPeakPssGiB": 0.2319488525390625,
+    "contentPeakPssGiB": 0.059746742248535156,
+    "contentPeakPrivateGiB": 0.034454345703125,
+    "driverPeakPssGiB": 0.10521125793457031,
+    "minimumAvailableGiB": 32.159786224365234,
+    "maximumSystemSwapGiB": 0.0,
+    "minimumDiskFreeGiB": 29.54672622680664,
+    "homeSeries": [],
+    "finalAction": null,
+    "failure": "Error('Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/aquarium-devtools/www/standalone-v1/index.html\\nCall log:\\n  - navigating to \"file:///workspace/aquarium-devtools/www/standalone-v1/index.html\", waiting until \"domcontentloaded\"\\n')"
+  },
+  {
+    "phase": "after",
+    "engine": "webkit",
+    "version": "26.5",
+    "case": "A",
+    "status": "passed",
+    "rounds": 24,
+    "browserPeakPssGiB": 1.427804946899414,
+    "contentPeakPssGiB": 1.3332452774047852,
+    "contentPeakPrivateGiB": 1.3133697509765625,
+    "driverPeakPssGiB": 0.1629629135131836,
+    "minimumAvailableGiB": 30.73822021484375,
+    "maximumSystemSwapGiB": 0.0,
+    "minimumDiskFreeGiB": 29.545032501220703,
+    "homeSeries": [
+      {
+        "round": 1,
+        "browserPssGiB": 0.922307014465332,
+        "contentPssGiB": 0.8282938003540039
+      },
+      {
+        "round": 2,
+        "browserPssGiB": 0.9343395233154297,
+        "contentPssGiB": 0.8401956558227539
+      },
+      {
+        "round": 3,
+        "browserPssGiB": 1.014638900756836,
+        "contentPssGiB": 0.9205102920532227
+      },
+      {
+        "round": 4,
+        "browserPssGiB": 0.9843616485595703,
+        "contentPssGiB": 0.8899431228637695
+      },
+      {
+        "round": 5,
+        "browserPssGiB": 0.9903888702392578,
+        "contentPssGiB": 0.8960351943969727
+      },
+      {
+        "round": 6,
+        "browserPssGiB": 1.1049213409423828,
+        "contentPssGiB": 1.0104455947875977
+      },
+      {
+        "round": 7,
+        "browserPssGiB": 1.0012493133544922,
+        "contentPssGiB": 0.906712532043457
+      },
+      {
+        "round": 8,
+        "browserPssGiB": 1.021413803100586,
+        "contentPssGiB": 0.9268198013305664
+      },
+      {
+        "round": 9,
+        "browserPssGiB": 1.1018390655517578,
+        "contentPssGiB": 1.0072221755981445
+      },
+      {
+        "round": 10,
+        "browserPssGiB": 0.9505290985107422,
+        "contentPssGiB": 0.8557519912719727
+      },
+      {
+        "round": 11,
+        "browserPssGiB": 0.7592830657958984,
+        "contentPssGiB": 0.6646051406860352
+      },
+      {
+        "round": 12,
+        "browserPssGiB": 0.9879703521728516,
+        "contentPssGiB": 0.8932428359985352
+      },
+      {
+        "round": 13,
+        "browserPssGiB": 0.9750652313232422,
+        "contentPssGiB": 0.8802309036254883
+      },
+      {
+        "round": 14,
+        "browserPssGiB": 1.117410659790039,
+        "contentPssGiB": 1.0224199295043945
+      },
+      {
+        "round": 15,
+        "browserPssGiB": 0.9909191131591797,
+        "contentPssGiB": 0.8958292007446289
+      },
+      {
+        "round": 16,
+        "browserPssGiB": 1.0158977508544922,
+        "contentPssGiB": 0.9207544326782227
+      },
+      {
+        "round": 17,
+        "browserPssGiB": 1.128683090209961,
+        "contentPssGiB": 1.0334978103637695
+      },
+      {
+        "round": 18,
+        "browserPssGiB": 1.2820148468017578,
+        "contentPssGiB": 1.1866540908813477
+      },
+      {
+        "round": 19,
+        "browserPssGiB": 1.0113086700439453,
+        "contentPssGiB": 0.9161195755004883
+      },
+      {
+        "round": 20,
+        "browserPssGiB": 1.038900375366211,
+        "contentPssGiB": 0.9435205459594727
+      },
+      {
+        "round": 21,
+        "browserPssGiB": 1.0385150909423828,
+        "contentPssGiB": 0.942997932434082
+      },
+      {
+        "round": 22,
+        "browserPssGiB": 1.0292797088623047,
+        "contentPssGiB": 0.9337854385375977
+      },
+      {
+        "round": 23,
+        "browserPssGiB": 1.006753921508789,
+        "contentPssGiB": 0.9112024307250977
+      },
+      {
+        "round": 24,
+        "browserPssGiB": 1.0247364044189453,
+        "contentPssGiB": 0.9291276931762695
+      }
+    ],
+    "finalAction": {
+      "exportSHA256": "930d5d5ff36c92f9ef06d70fec890ece33de8b9186464747e3d816668db71a2a",
+      "restoredExactly": true,
+      "helpStillResponds": true
+    },
+    "failure": null
+  },
+  {
+    "phase": "after",
+    "engine": "webkit",
+    "version": "26.5",
+    "case": "B",
+    "status": "passed",
+    "rounds": 12,
+    "browserPeakPssGiB": 3.1075191497802734,
+    "contentPeakPssGiB": 2.88535213470459,
+    "contentPeakPrivateGiB": 2.8657798767089844,
+    "driverPeakPssGiB": 0.16712379455566406,
+    "minimumAvailableGiB": 29.208843231201172,
+    "maximumSystemSwapGiB": 0.0,
+    "minimumDiskFreeGiB": 29.55915069580078,
+    "homeSeries": [
+      {
+        "round": 1,
+        "browserPssGiB": 1.2423906326293945,
+        "contentPssGiB": 1.0202245712280273
+      },
+      {
+        "round": 2,
+        "browserPssGiB": 1.2781648635864258,
+        "contentPssGiB": 1.055006980895996
+      },
+      {
+        "round": 3,
+        "browserPssGiB": 1.614487648010254,
+        "contentPssGiB": 1.3922529220581055
+      },
+      {
+        "round": 4,
+        "browserPssGiB": 1.7849512100219727,
+        "contentPssGiB": 1.5617666244506836
+      },
+      {
+        "round": 5,
+        "browserPssGiB": 1.9731836318969727,
+        "contentPssGiB": 1.7509183883666992
+      },
+      {
+        "round": 6,
+        "browserPssGiB": 2.166184425354004,
+        "contentPssGiB": 1.9429540634155273
+      },
+      {
+        "round": 7,
+        "browserPssGiB": 2.314793586730957,
+        "contentPssGiB": 2.091547966003418
+      },
+      {
+        "round": 8,
+        "browserPssGiB": 2.435540199279785,
+        "contentPssGiB": 2.2122602462768555
+      },
+      {
+        "round": 9,
+        "browserPssGiB": 2.520085334777832,
+        "contentPssGiB": 2.2968015670776367
+      },
+      {
+        "round": 10,
+        "browserPssGiB": 2.612484931945801,
+        "contentPssGiB": 2.3891820907592773
+      },
+      {
+        "round": 11,
+        "browserPssGiB": 2.6838274002075195,
+        "contentPssGiB": 2.4605016708374023
+      },
+      {
+        "round": 12,
+        "browserPssGiB": 2.7017831802368164,
+        "contentPssGiB": 2.478426933288574
+      }
+    ],
+    "finalAction": {
+      "exportSHA256": "92bf5900a44d9a4cc15f03ec991c7d39af665aaaa92da09d29aa32379c8f2ffa",
+      "restoredExactly": true,
+      "helpStillResponds": true
+    },
+    "failure": null
+  },
+  {
+    "phase": "after",
+    "engine": "webkit",
+    "version": "26.5",
+    "case": "C",
+    "status": "passed",
+    "rounds": 24,
+    "browserPeakPssGiB": 3.611745834350586,
+    "contentPeakPssGiB": 3.389249801635742,
+    "contentPeakPrivateGiB": 3.369678497314453,
+    "driverPeakPssGiB": 0.14585304260253906,
+    "minimumAvailableGiB": 28.71084213256836,
+    "maximumSystemSwapGiB": 0.0,
+    "minimumDiskFreeGiB": 29.552749633789062,
+    "homeSeries": [
+      {
+        "round": 1,
+        "browserPssGiB": 1.2262821197509766,
+        "contentPssGiB": 1.0041255950927734
+      },
+      {
+        "round": 2,
+        "browserPssGiB": 1.3996295928955078,
+        "contentPssGiB": 1.1774005889892578
+      },
+      {
+        "round": 3,
+        "browserPssGiB": 1.5783977508544922,
+        "contentPssGiB": 1.3551921844482422
+      },
+      {
+        "round": 4,
+        "browserPssGiB": 1.7522106170654297,
+        "contentPssGiB": 1.528951644897461
+      },
+      {
+        "round": 5,
+        "browserPssGiB": 2.1882190704345703,
+        "contentPssGiB": 1.9649410247802734
+      },
+      {
+        "round": 6,
+        "browserPssGiB": 2.1567630767822266,
+        "contentPssGiB": 1.9334774017333984
+      },
+      {
+        "round": 7,
+        "browserPssGiB": 2.5272274017333984,
+        "contentPssGiB": 2.3038997650146484
+      },
+      {
+        "round": 8,
+        "browserPssGiB": 2.594697952270508,
+        "contentPssGiB": 2.3713436126708984
+      },
+      {
+        "round": 9,
+        "browserPssGiB": 2.7164649963378906,
+        "contentPssGiB": 2.494330406188965
+      },
+      {
+        "round": 10,
+        "browserPssGiB": 2.7680912017822266,
+        "contentPssGiB": 2.5447216033935547
+      },
+      {
+        "round": 11,
+        "browserPssGiB": 2.8015499114990234,
+        "contentPssGiB": 2.578157424926758
+      },
+      {
+        "round": 12,
+        "browserPssGiB": 2.876490592956543,
+        "contentPssGiB": 2.6531009674072266
+      },
+      {
+        "round": 13,
+        "browserPssGiB": 2.914888381958008,
+        "contentPssGiB": 2.691446304321289
+      },
+      {
+        "round": 14,
+        "browserPssGiB": 2.9943485260009766,
+        "contentPssGiB": 2.7709102630615234
+      },
+      {
+        "round": 15,
+        "browserPssGiB": 3.0699939727783203,
+        "contentPssGiB": 2.846498489379883
+      },
+      {
+        "round": 16,
+        "browserPssGiB": 3.0504093170166016,
+        "contentPssGiB": 2.826936721801758
+      },
+      {
+        "round": 17,
+        "browserPssGiB": 3.1407833099365234,
+        "contentPssGiB": 2.9172801971435547
+      },
+      {
+        "round": 18,
+        "browserPssGiB": 3.151479721069336,
+        "contentPssGiB": 2.928903579711914
+      },
+      {
+        "round": 19,
+        "browserPssGiB": 3.0384654998779297,
+        "contentPssGiB": 2.814943313598633
+      },
+      {
+        "round": 20,
+        "browserPssGiB": 3.3024768829345703,
+        "contentPssGiB": 3.078927993774414
+      },
+      {
+        "round": 21,
+        "browserPssGiB": 3.307931900024414,
+        "contentPssGiB": 3.084371566772461
+      },
+      {
+        "round": 22,
+        "browserPssGiB": 3.345602035522461,
+        "contentPssGiB": 3.122037887573242
+      },
+      {
+        "round": 23,
+        "browserPssGiB": 3.1665287017822266,
+        "contentPssGiB": 2.942964553833008
+      },
+      {
+        "round": 24,
+        "browserPssGiB": 3.2187938690185547,
+        "contentPssGiB": 2.9952144622802734
+      }
+    ],
+    "finalAction": {
+      "exportSHA256": "6728e69e1639ff72805afef64d0c5d11df16ef365b14083393d25fcb23825359",
+      "restoredExactly": true,
+      "helpStillResponds": true
+    },
+    "failure": null
+  },
+  {
+    "phase": "after",
+    "engine": "webkit",
+    "version": "26.5",
+    "case": "D",
+    "status": "passed",
+    "rounds": 12,
+    "browserPeakPssGiB": 3.115711212158203,
+    "contentPeakPssGiB": 2.8935375213623047,
+    "contentPeakPrivateGiB": 2.873981475830078,
+    "driverPeakPssGiB": 0.1605215072631836,
+    "minimumAvailableGiB": 29.228641510009766,
+    "maximumSystemSwapGiB": 0.0,
+    "minimumDiskFreeGiB": 29.550628662109375,
+    "homeSeries": [
+      {
+        "round": 1,
+        "browserPssGiB": 1.2007560729980469,
+        "contentPssGiB": 0.9778594970703125
+      },
+      {
+        "round": 2,
+        "browserPssGiB": 1.4037399291992188,
+        "contentPssGiB": 1.180765151977539
+      },
+      {
+        "round": 3,
+        "browserPssGiB": 1.6174545288085938,
+        "contentPssGiB": 1.394418716430664
+      },
+      {
+        "round": 4,
+        "browserPssGiB": 1.7931976318359375,
+        "contentPssGiB": 1.5701541900634766
+      },
+      {
+        "round": 5,
+        "browserPssGiB": 2.1981468200683594,
+        "contentPssGiB": 1.9750957489013672
+      },
+      {
+        "round": 6,
+        "browserPssGiB": 2.104320526123047,
+        "contentPssGiB": 1.881216049194336
+      },
+      {
+        "round": 7,
+        "browserPssGiB": 2.4637794494628906,
+        "contentPssGiB": 2.240652084350586
+      },
+      {
+        "round": 8,
+        "browserPssGiB": 2.6200294494628906,
+        "contentPssGiB": 2.396902084350586
+      },
+      {
+        "round": 9,
+        "browserPssGiB": 2.486530303955078,
+        "contentPssGiB": 2.2633800506591797
+      },
+      {
+        "round": 10,
+        "browserPssGiB": 2.745586395263672,
+        "contentPssGiB": 2.5224056243896484
+      },
+      {
+        "round": 11,
+        "browserPssGiB": 2.7405357360839844,
+        "contentPssGiB": 2.5173587799072266
+      },
+      {
+        "round": 12,
+        "browserPssGiB": 2.8345985412597656,
+        "contentPssGiB": 2.6113758087158203
+      }
+    ],
+    "finalAction": {
+      "exportSHA256": "dae468a2564de43fbe73a505637bd5c2de7f6da598d8a00854b344f111029d22",
+      "restoredExactly": true,
+      "helpStillResponds": true
+    },
+    "failure": null
+  }
+]

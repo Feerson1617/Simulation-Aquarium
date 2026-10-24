@@ -1,0 +1,12 @@
+{
+  "baseline": "3e6394bf29d21fa8cc685855a84bcc2eb06f57a4",
+  "codeCommit": "893492bb38480905bb9c6a455af5c176f7c23f66",
+  "changedRuntimeFiles": [
+    "aquascaping.mjs",
+    "single-learning.css",
+    "standalone-navigation.mjs"
+  ],
+  "unchangedRuntimeAndAssetFiles": 593,
+  "unexpectedChanges": [],
+  "method": "git object comparison against baseline; complete asset byte equality additionally checked by Node bundle test"
+}

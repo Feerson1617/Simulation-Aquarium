@@ -1,0 +1,203 @@
+{
+  "commit": "db9e827c2168a8dbbc49a01d341d1f9953293955",
+  "engine": "chromium",
+  "case": "D",
+  "url": "file:///workspace/aquarium-devtools/www/standalone-v1/index.html",
+  "roundsPlanned": 12,
+  "viewport": {
+    "width": 768,
+    "height": 1024
+  },
+  "graphics": "ipad",
+  "hardware": "Linux software GPU; no physical iPad",
+  "started": "2026-10-24T13:43:32.627995+00:00",
+  "actions": [],
+  "rounds": [],
+  "resources": [
+    {
+      "at": "2026-10-24T13:43:32.907891+00:00",
+      "phase": "before-browser",
+      "processes": [],
+      "browserPssKiB": 0,
+      "driverPssKiB": 0,
+      "availableKiB": 33933424,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31725563904
+    },
+    {
+      "at": "2026-10-24T13:43:33.958939+00:00",
+      "phase": "failure",
+      "processes": [
+        {
+          "pid": 14398,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 110712,
+          "pssKiB": 109127,
+          "privateKiB": 108920,
+          "swapKiB": 0
+        },
+        {
+          "pid": 14410,
+          "name": "chromium",
+          "role": "browser",
+          "rssKiB": 123380,
+          "pssKiB": 84841,
+          "privateKiB": 71436,
+          "swapKiB": 0
+        },
+        {
+          "pid": 14427,
+          "name": "chromium",
+          "role": "browser",
+          "rssKiB": 50608,
+          "pssKiB": 16109,
+          "privateKiB": 636,
+          "swapKiB": 0
+        },
+        {
+          "pid": 14428,
+          "name": "chromium",
+          "role": "browser",
+          "rssKiB": 50608,
+          "pssKiB": 11222,
+          "privateKiB": 468,
+          "swapKiB": 0
+        },
+        {
+          "pid": 14449,
+          "name": "chromium",
+          "role": "gpu",
+          "rssKiB": 50668,
+          "pssKiB": 34720,
+          "privateKiB": 25220,
+          "swapKiB": 0
+        },
+        {
+          "pid": 14452,
+          "name": "chromium",
+          "role": "browser",
+          "rssKiB": 60988,
+          "pssKiB": 28576,
+          "privateKiB": 18780,
+          "swapKiB": 0
+        },
+        {
+          "pid": 14474,
+          "name": "chromium",
+          "role": "browser",
+          "rssKiB": 22316,
+          "pssKiB": 5099,
+          "privateKiB": 1656,
+          "swapKiB": 0
+        },
+        {
+          "pid": 14491,
+          "name": "chromium",
+          "role": "content",
+          "rssKiB": 56656,
+          "pssKiB": 28737,
+          "privateKiB": 19396,
+          "swapKiB": 0
+        },
+        {
+          "pid": 14500,
+          "name": "chromium",
+          "role": "content",
+          "rssKiB": 47684,
+          "pssKiB": 22078,
+          "privateKiB": 10864,
+          "swapKiB": 0
+        },
+        {
+          "pid": 14501,
+          "name": "chromium",
+          "role": "browser",
+          "rssKiB": 51204,
+          "pssKiB": null,
+          "privateKiB": null,
+          "swapKiB": 0
+        },
+        {
+          "pid": 14521,
+          "name": "chromium",
+          "role": "content",
+          "rssKiB": 26288,
+          "pssKiB": 11834,
+          "privateKiB": 5868,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 243216,
+      "driverPssKiB": 109127,
+      "availableKiB": 33721980,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31725559808
+    },
+    {
+      "at": "2026-10-24T13:43:34.912756+00:00",
+      "phase": "after-browser",
+      "processes": [
+        {
+          "pid": 14398,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 111572,
+          "pssKiB": 110322,
+          "privateKiB": 109816,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 0,
+      "driverPssKiB": 110322,
+      "availableKiB": 33750844,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31725555712
+    },
+    {
+      "at": "2026-10-24T13:43:36.261732+00:00",
+      "phase": "after-browser",
+      "processes": [
+        {
+          "pid": 14398,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 111572,
+          "pssKiB": 110322,
+          "privateKiB": 109816,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 0,
+      "driverPssKiB": 110322,
+      "availableKiB": 33763308,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31725555712
+    },
+    {
+      "at": "2026-10-24T13:43:36.273636+00:00",
+      "phase": "after-driver",
+      "processes": [],
+      "browserPssKiB": 0,
+      "driverPssKiB": 0,
+      "availableKiB": 33851528,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31725555712
+    }
+  ],
+  "errors": [
+    "Failed to read the 'localStorage' property from 'Window': Access is denied for this document."
+  ],
+  "httpRequests": [],
+  "requestSchemes": {},
+  "consoleErrors": [],
+  "failedRequests": [],
+  "offline": false,
+  "method": "one browser at a time; OS smaps_rollup sampled every 2s; no per-frame snapshots or DOM serialization",
+  "artifactSHA256": "13612b42a105290f805bebc545da12adef34d24f5288b239453955f848f1ef1b",
+  "version": "154.0.8037.57",
+  "traceback": "Traceback (most recent call last):\n  File \"/workspace/Simulation-Aquarium/tests/release_v1_stability_browser.py\", line 75, in <module>\n    phase='initial-load';page.goto(URL,wait_until='domcontentloaded',timeout=120000);ready('[data-single=start]');memory_sample('loaded');page.screenshot(path=str(OUT/'initial.png'),timeout=15000)\n                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 9875, in goto\n    self._sync(\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 115, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_page.py\", line 560, in goto\n    return await self._main_frame.goto(**locals_to_params(locals()))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py\", line 156, in goto\n    await self._channel.send(\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 76, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 632, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/aquarium-devtools/www/standalone-v1/index.html\nCall log:\n  - navigating to \"file:///workspace/aquarium-devtools/www/standalone-v1/index.html\", waiting until \"domcontentloaded\"\n\n",
+  "status": "blocked-policy",
+  "failure": "Error('Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/aquarium-devtools/www/standalone-v1/index.html\\nCall log:\\n  - navigating to \"file:///workspace/aquarium-devtools/www/standalone-v1/index.html\", waiting until \"domcontentloaded\"\\n')",
+  "finished": "2026-10-24T13:43:36.273829+00:00"
+}

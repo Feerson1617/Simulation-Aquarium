@@ -129,6 +129,21 @@ export function comparisonMetricDefinitions(comp) {
   for (const key of ["fishAlive","fishDead","fishOutcome","otherAnimals"]) delete defs[key];
   return defs;
 }
+/** Read-only evidence shared by the historical reader and CSV export. */
+export function measurementEvidence(definitions, key, sample) {
+  const fishMetric = ["fishAlive", "fishDead", "fishOutcome", "otherAnimals"].includes(key);
+  const known = !!definitions[key] && !(sample && fishMetric && sample.metricsVersion !== 2);
+  const definition = !known
+    ? [LEARNING_METRICS[key]?.[0] || key, "historisch unbekannt"]
+    : key === "health" && sample && sample.metricsVersion !== 2
+      ? ["Tierkondition (historischer Wert: Fische und Wirbellose)", "Modellindex %"]
+      : definitions[key];
+  const measured = sample && (!sample.metrics || sample.metrics.includes(key));
+  const value = known && measured && Number.isFinite(sample[key]) ? sample[key] : null;
+  const status = !sample ? "keine Folgemessung" : !known ? "historisch unbekannt"
+    : !measured ? "nicht freigegeben" : value === null ? "unbekannt" : "berechnet";
+  return {definition, value, status, known};
+}
 /** Reconcile only the editable plan; never change the saved tank or baseline. */
 export function reconcileLearningStudy(study, allowed) {
   const next = structuredClone(study), list = allowed.filter(k => Object.hasOwn(LEARNING_TOOLS,k));
@@ -556,10 +571,8 @@ export function comparisonCSV(comparison) {
         for (const key of metrics) {
           if (view && (row.time !== view.time || (view.side !== "both" && view.side !== side))) continue;
           const sample = row[side],
-            def = key === "health" && sample && sample.metricsVersion !== 2 ? ["Tierkondition (historischer Wert: Fische und Wirbellose)","Modellindex %"] : defs[key],
-            value = sample?.[key],
-            measured =
-              sample && (!sample.metrics || sample.metrics.includes(key)),
+            evidence = measurementEvidence(defs, key, sample),
+            def = evidence.definition,
             label =
               side === "control"
                 ? comparison.kind === "manual"
@@ -614,14 +627,8 @@ export function comparisonCSV(comparison) {
             def[0],
             unit,
             type,
-            measured && Number.isFinite(value) ? value : "",
-            !sample
-              ? "keine Folgemessung"
-              : !measured
-                ? "nicht freigegeben"
-                : Number.isFinite(value)
-                  ? "berechnet"
-                  : "unbekannt",
+            evidence.value ?? "",
+            evidence.status,
           ]);
           if (view) rows.at(-1).push(view.investigationId,view.attemptId,view.time,view.side,view.stateIds?.[side] ?? view.cohortIds?.[side]);
         }

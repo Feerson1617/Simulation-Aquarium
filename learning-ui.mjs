@@ -1201,14 +1201,21 @@ export function mountLearningUI(host) {
       }<details><summary>Alle Missionshintergründe und Modellgrenzen</summary>${MISSIONS.map((m) => `<h3>${esc(m.title)}</h3><p>${esc(m.goal)}</p><p>${esc(m.curriculum)}</p><p>${esc(m.limits)}</p>${m.transfer ? transfer(m.transfer, false) : ""}`).join("")}</details>${archivedAttempts()}<h3>Versuche verwalten</h3><p>Ein Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.</p>${button("teacher-reset", "Ausgewählte Mission neu beginnen")}${button("teacher-restore", "Gesicherte Mission wiederherstellen")}<details><summary>Fachliche und curriculare Grundlage</summary><p>${CURRICULUM.title}, ${CURRICULUM.pages}; Original-PDF am 20.10.2026 abgeglichen. Die Simulation deckt ausgewählte Einheiten ab, nicht alle Inhalte der Klassen.</p><p>Gesundheit, Biomasse und Belastung sind Modellgrößen. Kohlenstoff nur qualitativ; Selektion nutzt offengelegte hypothetische Gewichte.</p></details>`
     );
   }
-  function preserveWorkspacePosition() {
-    const active=document.activeElement,attributes=active?.getAttributeNames?.().filter(a=>a.startsWith("data-")) || [];
-    const values=attributes.map(a=>[a,active.getAttribute(a)]), scrolls=[...root.querySelectorAll(".coherent-views,.coherent-notebook")].map(e=>[e.classList.contains("coherent-views")?".coherent-views":".coherent-notebook",e.scrollTop]);
+  function preserveWorkspacePosition(active=document.activeElement) {
+    const attributes=active?.getAttributeNames?.().filter(a=>a.startsWith("data-")) || [];
+    const anchorTop=active?.closest?.('.learn-panel')?active.getBoundingClientRect().top:null;
+    const values=attributes.map(a=>[a,active.getAttribute(a)]), scrolls=[".coherent-views",".coherent-notebook",".learn-panel"].flatMap(selector=>{const e=root.querySelector(selector);return e?[[selector,e.scrollTop]]:[];});
     const details=[...root.querySelectorAll("details[open]>summary")].map(e=>e.textContent);
     return () => {
       for(const summary of root.querySelectorAll("details>summary")) if(details.includes(summary.textContent))summary.parentElement.open=true;
       for(const [selector,top] of scrolls)if(root.querySelector(selector))root.querySelector(selector).scrollTop=top;
-      if(values.length && !helpKey) [...root.querySelectorAll("button,input,select,textarea,summary")].find(e=>values.every(([a,v])=>e.getAttribute(a)===v) && !e.disabled)?.focus({preventScroll:true});
+      if(values.length && !helpKey) {
+        const field=[...root.querySelectorAll("button,input,select,textarea,summary")].find(e=>values.every(([a,v])=>e.getAttribute(a)===v) && !e.disabled);
+        if(field){
+          if(anchorTop!==null){const panel=field.closest('.learn-panel');if(panel)panel.scrollTop+=field.getBoundingClientRect().top-anchorTop;}
+          field.focus({preventScroll:true});
+        }
+      }
     };
   }
   function render() {
@@ -1502,14 +1509,18 @@ export function mountLearningUI(host) {
           saveJSON("aquarium-teacher-v1", teacher);
         }
       if (t.hasAttribute("data-learning-imported-metric")) {
+        const restore=preserveWorkspacePosition(t);
         importedMetric = t.value;
         render();
+        restore();
       }
       if (t.hasAttribute("data-learning-manual-metric")) {
+        const restore=preserveWorkspacePosition(t);
         if (t.dataset.learningManualMetric === "imported")
           importedManualMetric = t.value;
         else manualMetric = t.value;
         render();
+        restore();
       }
       if (t.hasAttribute("data-learning-archive-generation"))
         fillArchive(t.closest("details"), Number(t.value));

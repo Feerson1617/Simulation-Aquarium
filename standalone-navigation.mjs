@@ -59,10 +59,16 @@ export function createStandaloneShell(applicationHTML) {
         const frame=document.createElement('iframe');frame.id='aquarium-view';frame.title='Aquariumsimulation';
         const routeJSON=JSON.stringify(route).replace(/</g,'\\u003c');
         const setup='<base href="'+escape(route)+'"><script>window.__aquariumStandaloneRoute='+routeJSON+';('+wire+')();</scr'+'ipt>';
-        frame.srcdoc=application.replace(/<head([^>]*)>/i,match=>match+setup);current=frame;document.body.append(frame);return true;
+        // srcdoc would also retain/send the entire large asset bundle as an
+        // iframe attribute/history entry. Parse directly in the fresh blank
+        // document instead; it has the same origin and needs no document fetch.
+        current=frame;document.body.append(frame);
+        const doc=frame.contentDocument;doc.open();doc.write(application.replace(/<head([^>]*)>/i,match=>match+setup));doc.close();return true;
       }finally{switching=false;}
     }
-    window.aquariumStandaloneNavigate=href=>show(new URL(href,route||base));
+    // Finish the child click before discarding its document. Otherwise Chromium
+    // can ignore document.write while the calling child is being unloaded.
+    window.aquariumStandaloneNavigate=href=>{const next=new URL(href,route||base);setTimeout(()=>show(next),0);};
     window.aquariumStandaloneDownload=()=>{const blob=new Blob([wrap(application)],{type:'text/html'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='Aquarium.html';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
     window.aquariumStandaloneSnapshot=()=>({route,frames:document.querySelectorAll('#aquarium-view').length,resources:current?.contentWindow.aquariumStandaloneLifecycle?.snapshot(),retired:retired.map(r=>({...r}))});
     const historyNavigation=event=>show(new URL(event.state?.aquariumRoute||decodeRoute()),true);
@@ -70,5 +76,5 @@ export function createStandaloneShell(applicationHTML) {
     show(decodeRoute());
   }
   const source=JSON.stringify(applicationHTML).replace(/</g,'\\u003c');
-  return '<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Aquarium</title><style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#173a3d}#aquarium-view{display:block;border:0;width:100%;height:100%}</style></head><body><script id="aquarium-source" type="application/json">'+source+'</scr'+'ipt><script>const source=document.getElementById("aquarium-source");const application=JSON.parse(source.textContent);source.remove();const wrap='+createStandaloneShell.toString()+';('+boot.toString()+')(application,'+JSON.stringify(frameRuntime.toString()).replace(/</g,'\\u003c')+',wrap);</scr'+'ipt></body></html>';
+  return '<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Aquarium</title><link rel="icon" href="data:,"><style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#173a3d}#aquarium-view{display:block;border:0;width:100%;height:100%}</style></head><body><script id="aquarium-source" type="application/json">'+source+'</scr'+'ipt><script>const source=document.getElementById("aquarium-source");const application=JSON.parse(source.textContent);source.remove();const wrap='+createStandaloneShell.toString()+';('+boot.toString()+')(application,'+JSON.stringify(frameRuntime.toString()).replace(/</g,'\\u003c')+',wrap);</scr'+'ipt></body></html>';
 }

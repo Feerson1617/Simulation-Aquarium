@@ -3,7 +3,7 @@ Uses unchanged learner assertions from final_missions_browser. Its reload action
 explicitly replaced with visible internal leave/return, never an offline HTTP reload.
 No stored investigation state or completion flags are invented.
 """
-import os,json,hashlib,subprocess
+import os,json,hashlib,subprocess,re
 from pathlib import Path
 from datetime import datetime,timezone
 from playwright.sync_api import sync_playwright,expect
@@ -13,8 +13,9 @@ ENGINE=os.environ.get('AQUARIUM_BROWSER','chromium')
 OUT=Path(os.environ.get('AQUARIUM_OFFLINE_RESULTS','/tmp/aquarium-release-offline'))/ENGINE;OUT.mkdir(parents=True,exist_ok=True)
 URL=os.environ.get('AQUARIUM_OFFLINE_URL','http://127.0.0.1:8000/standalone-m1/')
 HTML=Path(os.environ.get('AQUARIUM_OFFLINE_HTML','/tmp/final-html-download/Aquarium.html'))
+TRANSPORT=os.environ.get('AQUARIUM_OFFLINE_TRANSPORT','context')
 R=mission.R;mission.OUT=OUT
-R.update(artifact={'path':str(HTML),'bytes':HTML.stat().st_size,'sha256':hashlib.sha256(HTML.read_bytes()).hexdigest()},url=URL,requests=[],console_errors=[],routes=[],downloads=[],offline=False,reloadImplementation='visible internal leave/return with fresh document, not HTTP reload')
+R.update(offlineTransport=TRANSPORT,artifact={'path':str(HTML),'bytes':HTML.stat().st_size,'sha256':hashlib.sha256(HTML.read_bytes()).hexdigest()},url=URL,requests=[],console_errors=[],routes=[],downloads=[],offline=False,reloadImplementation='visible internal leave/return with fresh document, not HTTP reload')
 origins={}
 def save():mission.save()
 def route_report(p,label):
@@ -76,7 +77,11 @@ def run():
   def failed(q):R['requests_failed'].append({**origins.get(q,{}),'failure':q.failure})
   p.on('request',request);p.on('requestfailed',failed);p.on('pageerror',lambda e:R['errors'].append(str(e)));p.on('console',lambda m:R['console_errors'].append(m.text) if m.type=='error' else None)
   try:
-   p.goto(URL,timeout=240000);v.ready('[data-single=start]');v.tap('[data-single=start]');v.ready('[data-single-stage]');v.wait_for_function('aquariumLearningSnapshot().renderer.stats.detailModels>=19');route_report(p,'M1 aquarium fully loaded online before any investigation');ctx.set_offline(True);R['offline']=True
+   p.goto(URL,timeout=240000);v.ready('[data-single=start]');v.tap('[data-single=start]');v.ready('[data-single-stage]');v.wait_for_function('aquariumLearningSnapshot().renderer.stats.detailModels>=19');route_report(p,'M1 aquarium fully loaded online before any investigation');
+   if TRANSPORT=='context':ctx.set_offline(True)
+   elif TRANSPORT=='http-block':ctx.route(re.compile(r'^https?://'),lambda route:route.abort('internetdisconnected'))
+   else:raise ValueError('Unknown isolation method')
+   R['offline']=True
    mission.run(v,'m1');v.home();route_report(p,'M1 completed offline and home')
    for id in ['m2','m3','m4','m5','m6']:
     v.open_route('?mission='+mission.MISSIONS[id],'[data-class-stage]');assert v.locator('canvas').count()==1

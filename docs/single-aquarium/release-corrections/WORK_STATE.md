@@ -1,3 +1,13 @@
+# Neuester Stand: Standalone-Host nochmals gezielt korrigiert
+
+Die große srcdoc-Übergabe ließ den Chromium-Testprozess abstürzen (kein System-OOM). Der Host schreibt jetzt direkt in ein frisches gleichursprüngliches Dokument. Linkwechsel laufen nach Ende des Kind-Klicks in einem Host-Task, weil Chromium Schreiben aus dem gerade entfernten Kind ignoriert. Kandidat: Chromium startet und erreicht M2; WebKit zeigt alle 19 Detailmodelle ohne Textur-/Konsolenfehler. Die vollständigen Standalone-Prüfungen müssen mit dieser neuen Datei erneut abgeschlossen werden. Normale Missionsmodelle und Website-Steuerung wurden dadurch nicht geändert.
+
+WebKit 26.5 blockiert bei `set_offline(True)` außerdem lokale File/Blob-Lesevorgänge. Ein minimales unabhängiges HTML mit Dateiöffner reproduziert: online lesbar, Offline-Schalter I/O-Fehler, bei gesperrten HTTP-Anfragen wieder unverändert lesbar (`/tmp/r-file-api-probe.json`). Daher zwei ausdrücklich getrennte Nachweise: strikter Kontext-Offlinelauf mit vollständiger M1/M3, Downloads und allen Routen (`tests/release_offline_context_browser.py`); zusätzlich kompletter ursprünglicher Prüfweg einschließlich Datei-Rückkehr bei vollständig blockiertem HTTP (`AQUARIUM_OFFLINE_TRANSPORT=http-block`, `tests/release_standalone_browser.py`). Der fehlgeschlagene erste Importlauf wird nicht umetikettiert. Chromium nutzt den vollständigen Weg mit gesetztem Offline-Schalter.
+
+Aktuell erledigt und unverändert gültig: beide endgültigen historischen Leserprüfungen, reguläre sechs WebKit-Missionen, 8 Tutorials/Experte Chromium, alle drei Forschungsjahrgänge WebKit, 5 Szenarien + 14 Originalaquarien, 12 echte frühere Missionsergebnisse mit gleichwertigem Re-Export. Regulierter Chromium-Sechsweg läuft in `/tmp/r-release-missions-chromium.log`, Pinzette in `/tmp/r-tweezers.log`, danach startet die vorhandene Shell automatisch den Chromium-Offlinelauf. Diese laufenden Aufgaben nicht doppelt starten.
+
+---
+
 # Restkorrekturen R01–R03, 24.10.2026
 
 Maßgeblich: [aktueller Nutzerauftrag](REQUEST.md), Ausgang `5b661044cc85f640518572b5cd8fb4974d9d213b`, offener PR #9, ausschließlich `feature/coherent-learning-workspaces`. Kein Merge. F01–F12 sind in der unabhängigen Nutzerprüfung im angegebenen Umfang bestanden. Das neue kleine Korrekturpaket wurde vollständig gelesen und seine Prüfsummen kontrolliert.

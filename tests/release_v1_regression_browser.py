@@ -68,11 +68,13 @@ with sync_playwright() as pw:
    # choice, help and local save without repeating the full teaching campaign.
    if index<2:
     path,data=export(prefix,id);home(prefix);open_mission(id);_,restored=export(prefix,id+'-restored');assert restored==data
+    imported=path if index==0 else ROOT/'docs/release-v1/evidence/before'/f'{ENGINE}-{"C" if OFFLINE else "A"}'/'after-rounds.json'
+    expected=json.loads(imported.read_text())
     tap(f'[data-{prefix}=menu]')
     with p.expect_file_chooser() as fc:tap(f'[data-{prefix}=load]')
-    fc.value.set_files(str(path));r['actions'].append({'input':'actual file chooser','file':path.name});view().locator('.single-dialog').wait_for(state='hidden')
-    _,loaded=export(prefix,id+'-imported');assert loaded==data
-    r['checks'].append(id+': scene, actual choice, hint, export, exact local restoration and actual JSON import')
+    fc.value.set_files(str(imported));r['actions'].append({'input':'actual file chooser','file':str(imported.relative_to(ROOT)) if index==1 else path.name,'sha256':hashlib.sha256(imported.read_bytes()).hexdigest(),'previousApplicationCommit':'3e6394bf29d21fa8cc685855a84bcc2eb06f57a4' if index==1 else None});view().locator('.single-dialog').wait_for(state='hidden')
+    _,loaded=export(prefix,id+'-imported');assert loaded==expected
+    r['checks'].append(id+': scene, actual choice, hint, export, exact local restoration and actual JSON import'+(' from accepted previous application 3e6394b' if index==1 else ''))
    else:
     stored=view().evaluate('id=>localStorage.getItem("aquarium-single-investigation-v1:"+id)',id);assert stored
     r['checks'].append(id+': scene, actual choice, hint and existing local save')

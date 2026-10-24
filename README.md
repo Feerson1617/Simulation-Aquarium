@@ -2,6 +2,13 @@
 
 Deutschsprachiges Aquariumsimulationsspiel zum Aufbauen, Beobachten und Erforschen eines vereinfachten Ökosystems. Für Desktop-Browser und Touch-Bedienung entwickelt; statisch auf GitHub Pages unter `/Simulation-Aquarium/` nutzbar. Das Spiel und Teile seiner Inhalte wurden mit KI-Unterstützung erstellt.
 
+**Release-Freeze 1.0:** Die letzte Korrektur betrifft den Speicherbedarf der großen
+Offline-Datei bei Ansichtswechseln und den M1-Tipp im Tablet-Hochformat.
+[Aktueller Release-Bericht und Freigabegrenzen](docs/release-v1/REPORT.md),
+[Vorher-/Nachher-Bilder](docs/release-v1/REVIEW.html),
+[gezielte Prüfungen wiederholen](docs/release-v1/REPRODUCE.md).
+Die nachfolgenden älteren Abnahmen bleiben Nachweise ihrer jeweiligen Versionen.
+
 ## Ein Aquarium, sechs Kernfragen
 
 Die unabhängige Prüfung des Stands `5b661044` akzeptiert F01–F12 im dokumentierten Umfang. Der aktuelle [Restkorrekturauftrag R01–R03](docs/single-aquarium/release-corrections/REQUEST.md) behebt historische CSV-Exporte, erhält die Bedienposition im Leser und ermöglicht interne Offline-Wechsel in der Einzeldatei. [Technische Umsetzung und Grenzen](docs/single-aquarium/release-corrections/TECHNIK.md), [Abschlussbericht und Prüfgrenzen](docs/single-aquarium/release-corrections/TESTS.md), [neue Vorher-/Nachher-Belege](docs/single-aquarium/release-corrections/REVIEW.html). Die [frühere Bildabnahme](docs/single-aquarium/final-corrections/REVIEW.html) bleibt als versionsbezogener Nachweis erhalten. Die sechs Fragen bleiben: Licht und Sauerstoff, Futterreste, Vererbung, Populationsentwicklung, Wasserwechsel und Kohlenstoff. Jede Frage verwendet **ein tatsächliches Hauptaquarium**. Frühere Durchgänge bleiben gespeicherte Daten; kontrollierte Vergleiche beginnen ausdrücklich noch einmal ab demselben vollständigen Anfang.

@@ -1,0 +1,3186 @@
+{
+  "engine": "chromium",
+  "url": "http://127.0.0.1:8000/standalone-v1/",
+  "backup": true,
+  "commit": "25056c702e5e6f514ae78ceb0a3cd0f2b77318be",
+  "checks": [
+    "m1-light-oxygen: scene, actual choice, hint, export, exact local restoration and actual JSON import",
+    "m2-food-transformation: scene, actual choice, hint, export, exact local restoration and actual JSON import from accepted previous application 3e6394b",
+    "m3-hidden-inheritance: scene, actual choice, hint and existing local save",
+    "m4-dominance-frequency: scene, actual choice, hint and existing local save",
+    "m5-recurring-input: scene, actual choice, hint and existing local save",
+    "m6-plant-carbon: scene, actual choice, hint and existing local save",
+    "free research: actual one-day advance and saved result",
+    "free game: actual choice, purchase and placement of the 120 litre tank",
+    "expert free: real start, one visible canvas, no missing assets",
+    "expert tutorial: real start, one visible canvas, no missing assets",
+    "expert scenario: real start, one visible canvas, no missing assets"
+  ],
+  "actions": [
+    {
+      "selector": "[data-single=start]",
+      "label": "Beginnen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=prediction][data-choice=\"2\"]",
+      "label": "Ich bin unsicher",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=export]",
+      "label": "Stand als Datei speichern",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=home]",
+      "label": "Zur Missionsauswahl",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=start]",
+      "label": "Fortsetzen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=export]",
+      "label": "Stand als Datei speichern",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=load]",
+      "label": "Sicherung öffnen",
+      "input": "touchscreen tap"
+    },
+    {
+      "input": "actual file chooser",
+      "file": "m1-light-oxygen.json",
+      "sha256": "66dec64fbacd49dc46d168202e08535833c92f41385d9a6ff7f5f56e7a4e6b41",
+      "previousApplicationCommit": null
+    },
+    {
+      "selector": "[data-single=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=export]",
+      "label": "Stand als Datei speichern",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=home]",
+      "label": "Zur Missionsauswahl",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "a[href=\"?mission=m2-food-transformation\"]",
+      "label": "Untersuchen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class-choice=unsure]",
+      "label": "Ich bin unsicher",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=feed]",
+      "label": "Einmal füttern",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=export]",
+      "label": "Stand als Datei speichern",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "a[href=\"?mission=m2-food-transformation\"]",
+      "label": "Untersuchen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=export]",
+      "label": "Stand als Datei speichern",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=load]",
+      "label": "Sicherung öffnen",
+      "input": "touchscreen tap"
+    },
+    {
+      "input": "actual file chooser",
+      "file": "docs/release-v1/evidence/before/chromium-C/after-rounds.json",
+      "sha256": "daf93e7f16652c383104cad1597c1cc05015dc5d7f264e296a194adaa9e040d2",
+      "previousApplicationCommit": "3e6394bf29d21fa8cc685855a84bcc2eb06f57a4"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=export]",
+      "label": "Stand als Datei speichern",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "a[href=\"?mission=m3-hidden-inheritance\"]",
+      "label": "Untersuchen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=select]",
+      "label": "♀29 dunkel",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "a[href=\"?mission=m4-dominance-frequency\"]",
+      "label": "Untersuchen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class-choice=unsure]",
+      "label": "Ich bin unsicher",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "a[href=\"?mission=m5-recurring-input\"]",
+      "label": "Untersuchen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class-choice=unsure]",
+      "label": "Ich bin unsicher",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "a[href=\"?mission=m6-plant-carbon\"]",
+      "label": "Untersuchen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class-choice=unsure]",
+      "label": "Ich bin unsicher",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=plant]",
+      "label": "Wasserpest auswählen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "a[href=\"?research=8\"]",
+      "label": "Frei forschen · Klasse 8",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=free-day]",
+      "label": "Einen Tag beobachten",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=export]",
+      "label": "Stand als Datei speichern",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "a[href=\"?expert=1\"]",
+      "label": "Tutorial und Expertenwerkzeuge",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-start=free]",
+      "label": "Freies Spiel\nEine leere Fläche. Du wählst Becken, Technik und Lebewesen selbst.\nSelbst entdecken →",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-act=choose-tank]",
+      "label": "Becken im Zooladen kaufen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-buy=tank-120]",
+      "label": "Kaufen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-act=place-tank]",
+      "label": "Kaufen & platzieren · 120 L",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-panel=time]",
+      "label": "Zeit & Runde",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-act=download-html]",
+      "label": "Komplettes HTML-Spiel herunterladen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": ".learn-expert-entry",
+      "label": "Klassen 8–10",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "a[href=\"?expert=1\"]",
+      "label": "Tutorial und Expertenwerkzeuge",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-start=tutorial]",
+      "label": "Tutorial\nSchritt für Schritt durch die ersten Anschaffungen und Beobachtungen.\nMit Anleitung starten →",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": ".learn-expert-entry",
+      "label": "Klassen 8–10",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "a[href=\"?expert=1\"]",
+      "label": "Tutorial und Expertenwerkzeuge",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-scenarios]",
+      "label": "◎\nSzenarien\nEingerichtete Becken untersuchen und eigene Hypothesen prüfen.\nUntersuchung auswählen →",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-scenario-start=foodweb]",
+      "label": "Starten",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": ".learn-expert-entry",
+      "label": "Klassen 8–10",
+      "input": "touchscreen tap"
+    }
+  ],
+  "errors": [],
+  "requestsFailed": [],
+  "networkAfterIsolation": [],
+  "lifecycle": [
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 3,
+        "registeredListeners": 93,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": []
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 3,
+        "registeredListeners": 93,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": []
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 3,
+        "registeredListeners": 93,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": []
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 3,
+        "registeredListeners": 93,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": []
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 3,
+        "registeredListeners": 93,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": []
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 3,
+        "registeredListeners": 93,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": [
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        }
+      ]
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 3,
+        "registeredListeners": 93,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": [
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        }
+      ]
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 3,
+        "registeredListeners": 93,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": [
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        }
+      ]
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 3,
+        "registeredListeners": 93,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": [
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        }
+      ]
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/?mission=m3-hidden-inheritance",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 3,
+        "registeredListeners": 93,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": [
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        }
+      ]
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 3,
+        "registeredListeners": 93,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": [
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m3-hidden-inheritance",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        }
+      ]
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/?mission=m4-dominance-frequency",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 3,
+        "registeredListeners": 93,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": [
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m3-hidden-inheritance",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        }
+      ]
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 3,
+        "registeredListeners": 93,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": [
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m3-hidden-inheritance",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m4-dominance-frequency",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        }
+      ]
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/?mission=m5-recurring-input",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 3,
+        "registeredListeners": 93,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": [
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m3-hidden-inheritance",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m4-dominance-frequency",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        }
+      ]
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 3,
+        "registeredListeners": 93,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": [
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m3-hidden-inheritance",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m4-dominance-frequency",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m5-recurring-input",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        }
+      ]
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/?mission=m6-plant-carbon",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 3,
+        "registeredListeners": 93,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": [
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m3-hidden-inheritance",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m4-dominance-frequency",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m5-recurring-input",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        }
+      ]
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 3,
+        "registeredListeners": 93,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": [
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m3-hidden-inheritance",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m4-dominance-frequency",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m5-recurring-input",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m6-plant-carbon",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        }
+      ]
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/?research=8",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 3,
+        "registeredListeners": 93,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": [
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m3-hidden-inheritance",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m4-dominance-frequency",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m5-recurring-input",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m6-plant-carbon",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        }
+      ]
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 3,
+        "registeredListeners": 93,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": [
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m3-hidden-inheritance",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m4-dominance-frequency",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m5-recurring-input",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m6-plant-carbon",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?research=8",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        }
+      ]
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/?expert=1",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 2,
+        "registeredListeners": 97,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": [
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m3-hidden-inheritance",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m4-dominance-frequency",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m5-recurring-input",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m6-plant-carbon",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?research=8",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        }
+      ]
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/?expert=1",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 2,
+        "registeredListeners": 97,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": [
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m3-hidden-inheritance",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m4-dominance-frequency",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m5-recurring-input",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m6-plant-carbon",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?research=8",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        }
+      ]
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 3,
+        "registeredListeners": 93,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": [
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m3-hidden-inheritance",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m4-dominance-frequency",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m5-recurring-input",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m6-plant-carbon",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?research=8",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?expert=1",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        }
+      ]
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/?expert=1",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 2,
+        "registeredListeners": 97,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": [
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m3-hidden-inheritance",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m4-dominance-frequency",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m5-recurring-input",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m6-plant-carbon",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?research=8",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?expert=1",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        }
+      ]
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/?expert=1",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 2,
+        "registeredListeners": 97,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": [
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m3-hidden-inheritance",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m4-dominance-frequency",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m5-recurring-input",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m6-plant-carbon",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?research=8",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?expert=1",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        }
+      ]
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 3,
+        "registeredListeners": 93,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": [
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m3-hidden-inheritance",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m4-dominance-frequency",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m5-recurring-input",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m6-plant-carbon",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?research=8",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?expert=1",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?expert=1",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        }
+      ]
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/?expert=1",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 2,
+        "registeredListeners": 97,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": [
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m3-hidden-inheritance",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m4-dominance-frequency",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m5-recurring-input",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m6-plant-carbon",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?research=8",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?expert=1",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?expert=1",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        }
+      ]
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/?expert=1",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 2,
+        "registeredListeners": 97,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": [
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m3-hidden-inheritance",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m4-dominance-frequency",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m5-recurring-input",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m6-plant-carbon",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?research=8",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?expert=1",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?expert=1",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        }
+      ]
+    },
+    {
+      "route": "http://127.0.0.1:8000/standalone-v1/",
+      "frames": 1,
+      "resources": {
+        "intervals": 3,
+        "timeouts": 0,
+        "animationCallbacks": 3,
+        "registeredListeners": 93,
+        "webglContexts": 1,
+        "disposed": false
+      },
+      "retired": [
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m2-food-transformation",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m3-hidden-inheritance",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m4-dominance-frequency",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m5-recurring-input",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?mission=m6-plant-carbon",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?research=8",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?expert=1",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?expert=1",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        },
+        {
+          "route": "http://127.0.0.1:8000/standalone-v1/?expert=1",
+          "intervals": 0,
+          "timeouts": 0,
+          "animationCallbacks": 0,
+          "registeredListeners": 0,
+          "webglContexts": 0,
+          "disposed": true
+        }
+      ]
+    }
+  ],
+  "version": "154.0.8037.57",
+  "backupDownload": {
+    "bytes": 151612920,
+    "sha256": "13612b42a105290f805bebc545da12adef34d24f5288b239453955f848f1ef1b",
+    "actualUI": true
+  },
+  "status": "passed"
+}

@@ -82,3 +82,17 @@ Nachtests nicht erneut als neu geprüft ausgegeben. Referenz:
 [vorherige Abnahme mit Versionsgrenzen](../single-aquarium/release-corrections/TESTS.md).
 Alle neuen Touch-Nachweise sind Browseremulation auf Linux und keine physische
 iPad-/Safari-Abnahme.
+
+Der M2-Dateiimport verwendet die echten Exporte der vorherigen Anwendung
+`3e6394b` unter `evidence/before/<Browser>-A/after-rounds.json` (online) bzw.
+`<Browser>-C/after-rounds.json` (Backup). Diese alten Stände wurden in Chromium
+online und in beiden Offline-Browsern übernommen. Der erste WebKit-Online-Lauf
+prüfte noch den Export und Import seines eigenen neuen Stands; dieser Unterschied
+ist im Bericht ausdrücklich erhalten.
+
+Das Speicherdiagramm lässt sich aus den eingecheckten Rohdaten mit Python und
+dem kostenlosen Paket Matplotlib neu erstellen. Dabei wird kein Browser gestartet:
+
+```bash
+python3 tools/release_v1_memory_report.py
+```

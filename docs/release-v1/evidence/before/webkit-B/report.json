@@ -1,0 +1,6122 @@
+{
+  "commit": "c7ee6b88c48f3ae6201ac40a200a05ca46f107e5",
+  "engine": "webkit",
+  "case": "B",
+  "url": "http://127.0.0.1:8000/standalone-m1/",
+  "roundsPlanned": 12,
+  "viewport": {
+    "width": 768,
+    "height": 1024
+  },
+  "graphics": "ipad",
+  "hardware": "Linux software GPU; no physical iPad",
+  "started": "2026-10-24T12:39:56.806769+00:00",
+  "actions": [
+    {
+      "at": "2026-10-24T12:40:15.160589+00:00",
+      "selector": "a[href=\"?mission=m2-food-transformation\"]",
+      "label": "Untersuchen",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:40:22.898448+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:40:26.557712+00:00",
+      "selector": "a[href=\"?mission=m6-plant-carbon\"]",
+      "label": "Untersuchen",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:40:33.706665+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:40:37.394065+00:00",
+      "selector": "a[href=\"?mission=m2-food-transformation\"]",
+      "label": "Untersuchen",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:40:44.591747+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:40:48.277028+00:00",
+      "selector": "a[href=\"?mission=m6-plant-carbon\"]",
+      "label": "Untersuchen",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:40:55.401015+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:40:59.503857+00:00",
+      "selector": "a[href=\"?mission=m2-food-transformation\"]",
+      "label": "Untersuchen",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:41:06.258774+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:41:11.517984+00:00",
+      "selector": "a[href=\"?mission=m6-plant-carbon\"]",
+      "label": "Untersuchen",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:41:18.589457+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:41:22.484825+00:00",
+      "selector": "a[href=\"?mission=m2-food-transformation\"]",
+      "label": "Untersuchen",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:41:28.589906+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:41:33.555530+00:00",
+      "selector": "a[href=\"?mission=m6-plant-carbon\"]",
+      "label": "Untersuchen",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:41:40.045070+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:41:45.271901+00:00",
+      "selector": "a[href=\"?mission=m2-food-transformation\"]",
+      "label": "Untersuchen",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:41:51.740931+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:41:55.865357+00:00",
+      "selector": "a[href=\"?mission=m6-plant-carbon\"]",
+      "label": "Untersuchen",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:42:02.469983+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:42:06.805440+00:00",
+      "selector": "a[href=\"?mission=m2-food-transformation\"]",
+      "label": "Untersuchen",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:42:13.841743+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:42:17.610047+00:00",
+      "selector": "a[href=\"?mission=m6-plant-carbon\"]",
+      "label": "Untersuchen",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:42:24.116350+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:42:27.715061+00:00",
+      "selector": "a[href=\"?mission=m2-food-transformation\"]",
+      "label": "Untersuchen",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:42:37.204815+00:00",
+      "selector": "[data-class-choice=unsure]",
+      "label": "Ich bin unsicher",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:42:39.458454+00:00",
+      "selector": "[data-class=feed]",
+      "label": "Einmal füttern",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:42:41.297715+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:42:43.889782+00:00",
+      "selector": "[data-class=export]",
+      "label": "Stand als Datei speichern",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:42:45.486177+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:42:47.062846+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:42:51.820330+00:00",
+      "selector": "a[href=\"?mission=m2-food-transformation\"]",
+      "label": "Untersuchen",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:42:59.750053+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:43:01.373040+00:00",
+      "selector": "[data-class=export]",
+      "label": "Stand als Datei speichern",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:43:03.080544+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:43:05.679454+00:00",
+      "selector": "[data-class=help]",
+      "label": "Tipp",
+      "input": "browser touchscreen"
+    },
+    {
+      "at": "2026-10-24T12:43:09.364769+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "browser touchscreen"
+    }
+  ],
+  "rounds": [
+    {
+      "i": 1,
+      "mission": "m2-food-transformation",
+      "at": "2026-10-24T12:40:26.464472+00:00",
+      "seconds": 11.374,
+      "url": "http://127.0.0.1:8000/standalone-m1/",
+      "frames": 2,
+      "canvas": 1
+    },
+    {
+      "i": 2,
+      "mission": "m6-plant-carbon",
+      "at": "2026-10-24T12:40:37.307479+00:00",
+      "seconds": 10.801,
+      "url": "http://127.0.0.1:8000/standalone-m1/",
+      "frames": 2,
+      "canvas": 1
+    },
+    {
+      "i": 3,
+      "mission": "m2-food-transformation",
+      "at": "2026-10-24T12:40:48.179796+00:00",
+      "seconds": 10.826,
+      "url": "http://127.0.0.1:8000/standalone-m1/",
+      "frames": 2,
+      "canvas": 1
+    },
+    {
+      "i": 4,
+      "mission": "m6-plant-carbon",
+      "at": "2026-10-24T12:40:59.395378+00:00",
+      "seconds": 11.161,
+      "url": "http://127.0.0.1:8000/standalone-m1/",
+      "frames": 2,
+      "canvas": 1
+    },
+    {
+      "i": 5,
+      "mission": "m2-food-transformation",
+      "at": "2026-10-24T12:41:11.361802+00:00",
+      "seconds": 11.899,
+      "url": "http://127.0.0.1:8000/standalone-m1/",
+      "frames": 2,
+      "canvas": 1
+    },
+    {
+      "i": 6,
+      "mission": "m6-plant-carbon",
+      "at": "2026-10-24T12:41:22.370001+00:00",
+      "seconds": 10.898,
+      "url": "http://127.0.0.1:8000/standalone-m1/",
+      "frames": 2,
+      "canvas": 1
+    },
+    {
+      "i": 7,
+      "mission": "m2-food-transformation",
+      "at": "2026-10-24T12:41:33.404571+00:00",
+      "seconds": 10.954,
+      "url": "http://127.0.0.1:8000/standalone-m1/",
+      "frames": 2,
+      "canvas": 1
+    },
+    {
+      "i": 8,
+      "mission": "m6-plant-carbon",
+      "at": "2026-10-24T12:41:45.120392+00:00",
+      "seconds": 11.629,
+      "url": "http://127.0.0.1:8000/standalone-m1/",
+      "frames": 2,
+      "canvas": 1
+    },
+    {
+      "i": 9,
+      "mission": "m2-food-transformation",
+      "at": "2026-10-24T12:41:55.722434+00:00",
+      "seconds": 10.493,
+      "url": "http://127.0.0.1:8000/standalone-m1/",
+      "frames": 2,
+      "canvas": 1
+    },
+    {
+      "i": 10,
+      "mission": "m6-plant-carbon",
+      "at": "2026-10-24T12:42:06.620852+00:00",
+      "seconds": 10.8,
+      "url": "http://127.0.0.1:8000/standalone-m1/",
+      "frames": 2,
+      "canvas": 1
+    },
+    {
+      "i": 11,
+      "mission": "m2-food-transformation",
+      "at": "2026-10-24T12:42:17.305761+00:00",
+      "seconds": 10.547,
+      "url": "http://127.0.0.1:8000/standalone-m1/",
+      "frames": 2,
+      "canvas": 1
+    },
+    {
+      "i": 12,
+      "mission": "m6-plant-carbon",
+      "at": "2026-10-24T12:42:27.609960+00:00",
+      "seconds": 10.064,
+      "url": "http://127.0.0.1:8000/standalone-m1/",
+      "frames": 2,
+      "canvas": 1
+    }
+  ],
+  "resources": [
+    {
+      "at": "2026-10-24T12:39:57.161695+00:00",
+      "phase": "before-browser",
+      "processes": [],
+      "browserPssKiB": 0,
+      "driverPssKiB": 0,
+      "availableKiB": 33960104,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937957888
+    },
+    {
+      "at": "2026-10-24T12:39:59.171638+00:00",
+      "phase": "initial-load",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 124448,
+          "pssKiB": 122893,
+          "privateKiB": 122588,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 81384,
+          "pssKiB": 51667,
+          "privateKiB": 31568,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 46140,
+          "pssKiB": 27597,
+          "privateKiB": 18636,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 389636,
+          "pssKiB": 359974,
+          "privateKiB": 339644,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 439238,
+      "driverPssKiB": 122893,
+      "availableKiB": 33463504,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937953792
+    },
+    {
+      "at": "2026-10-24T12:40:01.184056+00:00",
+      "phase": "initial-load",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 125764,
+          "pssKiB": 124209,
+          "privateKiB": 123904,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 81388,
+          "pssKiB": 51671,
+          "privateKiB": 31572,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 46028,
+          "pssKiB": 27485,
+          "privateKiB": 18524,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 500412,
+          "pssKiB": 470654,
+          "privateKiB": 450324,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 549810,
+      "driverPssKiB": 124209,
+      "availableKiB": 33368580,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937953792
+    },
+    {
+      "at": "2026-10-24T12:40:03.196552+00:00",
+      "phase": "initial-load",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 126604,
+          "pssKiB": 125049,
+          "privateKiB": 124744,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 81420,
+          "pssKiB": 51690,
+          "privateKiB": 31584,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 46040,
+          "pssKiB": 27497,
+          "privateKiB": 18536,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 578048,
+          "pssKiB": 548221,
+          "privateKiB": 527888,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 627408,
+      "driverPssKiB": 125049,
+      "availableKiB": 33289936,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937953792
+    },
+    {
+      "at": "2026-10-24T12:40:05.210563+00:00",
+      "phase": "initial-load",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 126736,
+          "pssKiB": 125181,
+          "privateKiB": 124876,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 81420,
+          "pssKiB": 51690,
+          "privateKiB": 31584,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 46040,
+          "pssKiB": 27497,
+          "privateKiB": 18536,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 643604,
+          "pssKiB": 613773,
+          "privateKiB": 593440,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 692960,
+      "driverPssKiB": 125181,
+      "availableKiB": 33237700,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937949696
+    },
+    {
+      "at": "2026-10-24T12:40:07.225286+00:00",
+      "phase": "initial-load",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 126736,
+          "pssKiB": 125181,
+          "privateKiB": 124876,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 81412,
+          "pssKiB": 51682,
+          "privateKiB": 31576,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 46040,
+          "pssKiB": 27497,
+          "privateKiB": 18536,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 686656,
+          "pssKiB": 656217,
+          "privateKiB": 635884,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 735396,
+      "driverPssKiB": 125181,
+      "availableKiB": 33208996,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937949696
+    },
+    {
+      "at": "2026-10-24T12:40:09.236646+00:00",
+      "phase": "initial-load",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 126736,
+          "pssKiB": 125180,
+          "privateKiB": 124876,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 81412,
+          "pssKiB": 51681,
+          "privateKiB": 31576,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 46040,
+          "pssKiB": 27497,
+          "privateKiB": 18536,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 610332,
+          "pssKiB": 580527,
+          "privateKiB": 560192,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 659705,
+      "driverPssKiB": 125180,
+      "availableKiB": 33289196,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937949696
+    },
+    {
+      "at": "2026-10-24T12:40:11.252327+00:00",
+      "phase": "initial-load",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 126736,
+          "pssKiB": 125180,
+          "privateKiB": 124876,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 81400,
+          "pssKiB": 51667,
+          "privateKiB": 31560,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 46052,
+          "pssKiB": 27497,
+          "privateKiB": 18532,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 1230448,
+          "pssKiB": 1203207,
+          "privateKiB": 1182868,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 1282371,
+      "driverPssKiB": 125180,
+      "availableKiB": 32680028,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937949696
+    },
+    {
+      "at": "2026-10-24T12:40:13.268964+00:00",
+      "phase": "initial-load",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 126764,
+          "pssKiB": 125208,
+          "privateKiB": 124904,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 81592,
+          "pssKiB": 51804,
+          "privateKiB": 31648,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192488,
+          "pssKiB": 173916,
+          "privateKiB": 164940,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 1653844,
+          "pssKiB": 1627374,
+          "privateKiB": 1606976,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 1853094,
+      "driverPssKiB": 125208,
+      "availableKiB": 31849668,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937945600
+    },
+    {
+      "at": "2026-10-24T12:40:15.006073+00:00",
+      "phase": "loaded",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129940,
+          "pssKiB": 128383,
+          "privateKiB": 128080,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 86172,
+          "pssKiB": 56798,
+          "privateKiB": 36620,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192468,
+          "pssKiB": 173884,
+          "privateKiB": 164912,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 1500212,
+          "pssKiB": 1470104,
+          "privateKiB": 1449672,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 1700786,
+      "driverPssKiB": 128383,
+      "availableKiB": 32091976,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937945600
+    },
+    {
+      "at": "2026-10-24T12:40:15.090041+00:00",
+      "phase": "round-1",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129980,
+          "pssKiB": 128423,
+          "privateKiB": 128120,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 86960,
+          "pssKiB": 57134,
+          "privateKiB": 36956,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192468,
+          "pssKiB": 173884,
+          "privateKiB": 164912,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 1519488,
+          "pssKiB": 1489380,
+          "privateKiB": 1468948,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 1720398,
+      "driverPssKiB": 128423,
+      "availableKiB": 32069468,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937880064
+    },
+    {
+      "at": "2026-10-24T12:40:15.282333+00:00",
+      "phase": "round-1",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128148,
+          "pssKiB": 126591,
+          "privateKiB": 126288,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 87016,
+          "pssKiB": 57164,
+          "privateKiB": 36964,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192484,
+          "pssKiB": 173898,
+          "privateKiB": 164928,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 1434608,
+          "pssKiB": 1415118,
+          "privateKiB": 1394668,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 1646180,
+      "driverPssKiB": 126591,
+      "availableKiB": 32133712,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937880064
+    },
+    {
+      "at": "2026-10-24T12:40:17.303213+00:00",
+      "phase": "round-1",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 135396,
+          "pssKiB": 133839,
+          "privateKiB": 133536,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 101764,
+          "pssKiB": 71910,
+          "privateKiB": 51708,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192576,
+          "pssKiB": 173988,
+          "privateKiB": 165016,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 1866124,
+          "pssKiB": 1836428,
+          "privateKiB": 1815972,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 2082326,
+      "driverPssKiB": 133839,
+      "availableKiB": 31729104,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937875968
+    },
+    {
+      "at": "2026-10-24T12:40:19.322637+00:00",
+      "phase": "round-1",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129556,
+          "pssKiB": 127999,
+          "privateKiB": 127696,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 92116,
+          "pssKiB": 62244,
+          "privateKiB": 42028,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192524,
+          "pssKiB": 173932,
+          "privateKiB": 164960,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 2022760,
+          "pssKiB": 1992600,
+          "privateKiB": 1972124,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 2228776,
+      "driverPssKiB": 127999,
+      "availableKiB": 31565836,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937875968
+    },
+    {
+      "at": "2026-10-24T12:40:21.354690+00:00",
+      "phase": "round-1",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 133104,
+          "pssKiB": 131547,
+          "privateKiB": 131244,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88456,
+          "pssKiB": 58584,
+          "privateKiB": 38368,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192528,
+          "pssKiB": 173936,
+          "privateKiB": 164964,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 1910716,
+          "pssKiB": 1881404,
+          "privateKiB": 1860928,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 2113924,
+      "driverPssKiB": 131547,
+      "availableKiB": 31354824,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937642496
+    },
+    {
+      "at": "2026-10-24T12:40:23.405013+00:00",
+      "phase": "round-1",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 133148,
+          "pssKiB": 131591,
+          "privateKiB": 131288,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88412,
+          "pssKiB": 58540,
+          "privateKiB": 38324,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192528,
+          "pssKiB": 173936,
+          "privateKiB": 164964,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 1959024,
+          "pssKiB": 1927540,
+          "privateKiB": 1907064,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 2160016,
+      "driverPssKiB": 131591,
+      "availableKiB": 31406352,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937638400
+    },
+    {
+      "at": "2026-10-24T12:40:25.428256+00:00",
+      "phase": "round-1",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 133180,
+          "pssKiB": 131623,
+          "privateKiB": 131320,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88452,
+          "pssKiB": 58580,
+          "privateKiB": 38364,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192532,
+          "pssKiB": 173940,
+          "privateKiB": 164968,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 2920444,
+          "pssKiB": 2904440,
+          "privateKiB": 2883964,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 3136960,
+      "driverPssKiB": 131623,
+      "availableKiB": 30571736,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937638400
+    },
+    {
+      "at": "2026-10-24T12:40:26.488765+00:00",
+      "phase": "round-1-home",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 135288,
+          "pssKiB": 133731,
+          "privateKiB": 133428,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 89920,
+          "pssKiB": 60048,
+          "privateKiB": 39832,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192532,
+          "pssKiB": 173940,
+          "privateKiB": 164968,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 2531952,
+          "pssKiB": 2501800,
+          "privateKiB": 2481324,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 2735788,
+      "driverPssKiB": 133731,
+      "availableKiB": 30286196,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937638400
+    },
+    {
+      "at": "2026-10-24T12:40:26.506667+00:00",
+      "phase": "round-2",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 135288,
+          "pssKiB": 133731,
+          "privateKiB": 133428,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 89920,
+          "pssKiB": 60048,
+          "privateKiB": 39832,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192532,
+          "pssKiB": 173940,
+          "privateKiB": 164968,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 2532228,
+          "pssKiB": 2502068,
+          "privateKiB": 2481592,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 2736056,
+      "driverPssKiB": 133731,
+      "availableKiB": 30286196,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937634304
+    },
+    {
+      "at": "2026-10-24T12:40:27.467583+00:00",
+      "phase": "round-2",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 135340,
+          "pssKiB": 133783,
+          "privateKiB": 133480,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88620,
+          "pssKiB": 58746,
+          "privateKiB": 38528,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192528,
+          "pssKiB": 173936,
+          "privateKiB": 164964,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 3330928,
+          "pssKiB": 3314552,
+          "privateKiB": 3294076,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 3547234,
+      "driverPssKiB": 133783,
+      "availableKiB": 29458596,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937634304
+    },
+    {
+      "at": "2026-10-24T12:40:29.500732+00:00",
+      "phase": "round-2",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 142584,
+          "pssKiB": 141027,
+          "privateKiB": 140724,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90784,
+          "pssKiB": 60910,
+          "privateKiB": 40692,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173968,
+          "privateKiB": 164996,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 2840308,
+          "pssKiB": 2810984,
+          "privateKiB": 2790508,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 3045862,
+      "driverPssKiB": 141027,
+      "availableKiB": 29448752,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937634304
+    },
+    {
+      "at": "2026-10-24T12:40:31.542527+00:00",
+      "phase": "round-2",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 134980,
+          "pssKiB": 133423,
+          "privateKiB": 133120,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88416,
+          "pssKiB": 58548,
+          "privateKiB": 38328,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192552,
+          "pssKiB": 173956,
+          "privateKiB": 164980,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 3056120,
+          "pssKiB": 3026722,
+          "privateKiB": 3006240,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 3259226,
+      "driverPssKiB": 133423,
+      "availableKiB": 29433240,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937630208
+    },
+    {
+      "at": "2026-10-24T12:40:33.570582+00:00",
+      "phase": "round-2",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 133216,
+          "pssKiB": 131659,
+          "privateKiB": 131356,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88464,
+          "pssKiB": 58588,
+          "privateKiB": 38368,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192552,
+          "pssKiB": 173956,
+          "privateKiB": 164980,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 2748808,
+          "pssKiB": 2718942,
+          "privateKiB": 2698460,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 2951486,
+      "driverPssKiB": 131659,
+      "availableKiB": 29482644,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937630208
+    },
+    {
+      "at": "2026-10-24T12:40:35.612754+00:00",
+      "phase": "round-2",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 133236,
+          "pssKiB": 131679,
+          "privateKiB": 131376,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88516,
+          "pssKiB": 58640,
+          "privateKiB": 38420,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 3394020,
+          "pssKiB": 3368694,
+          "privateKiB": 3348212,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 3601298,
+      "driverPssKiB": 131679,
+      "availableKiB": 29449828,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937630208
+    },
+    {
+      "at": "2026-10-24T12:40:37.331901+00:00",
+      "phase": "round-2-home",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 134232,
+          "pssKiB": 132675,
+          "privateKiB": 132372,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 89980,
+          "pssKiB": 60104,
+          "privateKiB": 39884,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192548,
+          "pssKiB": 173952,
+          "privateKiB": 164976,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 3375196,
+          "pssKiB": 3345030,
+          "privateKiB": 3324548,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 3579086,
+      "driverPssKiB": 132675,
+      "availableKiB": 29532640,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937581056
+    },
+    {
+      "at": "2026-10-24T12:40:37.354028+00:00",
+      "phase": "round-3",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 134232,
+          "pssKiB": 132675,
+          "privateKiB": 132372,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 89980,
+          "pssKiB": 60104,
+          "privateKiB": 39884,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192548,
+          "pssKiB": 173952,
+          "privateKiB": 164976,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 3375196,
+          "pssKiB": 3345038,
+          "privateKiB": 3324556,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 3579094,
+      "driverPssKiB": 132675,
+      "availableKiB": 29532416,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937576960
+    },
+    {
+      "at": "2026-10-24T12:40:37.639545+00:00",
+      "phase": "round-3",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 133256,
+          "pssKiB": 131699,
+          "privateKiB": 131396,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90132,
+          "pssKiB": 60256,
+          "privateKiB": 40036,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 3701096,
+          "pssKiB": 3673554,
+          "privateKiB": 3653072,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 3907774,
+      "driverPssKiB": 131699,
+      "availableKiB": 29532368,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937576960
+    },
+    {
+      "at": "2026-10-24T12:40:39.669177+00:00",
+      "phase": "round-3",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 135836,
+          "pssKiB": 134279,
+          "privateKiB": 133976,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 102384,
+          "pssKiB": 72508,
+          "privateKiB": 52288,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 3528052,
+          "pssKiB": 3497958,
+          "privateKiB": 3477476,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 3744430,
+      "driverPssKiB": 134279,
+      "availableKiB": 29563088,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937576960
+    },
+    {
+      "at": "2026-10-24T12:40:41.713360+00:00",
+      "phase": "round-3",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 132276,
+          "pssKiB": 130719,
+          "privateKiB": 130416,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88608,
+          "pssKiB": 58730,
+          "privateKiB": 38508,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192552,
+          "pssKiB": 173956,
+          "privateKiB": 164980,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 3897008,
+          "pssKiB": 3813356,
+          "privateKiB": 3792872,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 4046042,
+      "driverPssKiB": 130719,
+      "availableKiB": 29246928,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937572864
+    },
+    {
+      "at": "2026-10-24T12:40:43.771568+00:00",
+      "phase": "round-3",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 132276,
+          "pssKiB": 130719,
+          "privateKiB": 130416,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88504,
+          "pssKiB": 58626,
+          "privateKiB": 38404,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192552,
+          "pssKiB": 173956,
+          "privateKiB": 164980,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 3554248,
+          "pssKiB": 3524248,
+          "privateKiB": 3503764,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 3756830,
+      "driverPssKiB": 130719,
+      "availableKiB": 29475564,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937572864
+    },
+    {
+      "at": "2026-10-24T12:40:45.816374+00:00",
+      "phase": "round-3",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 132288,
+          "pssKiB": 130731,
+          "privateKiB": 130428,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88548,
+          "pssKiB": 58670,
+          "privateKiB": 38448,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192552,
+          "pssKiB": 173956,
+          "privateKiB": 164980,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 3527584,
+          "pssKiB": 3511856,
+          "privateKiB": 3491372,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 3744482,
+      "driverPssKiB": 130731,
+      "availableKiB": 29500516,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937572864
+    },
+    {
+      "at": "2026-10-24T12:40:47.853877+00:00",
+      "phase": "round-3",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129564,
+          "pssKiB": 128007,
+          "privateKiB": 127704,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88596,
+          "pssKiB": 58718,
+          "privateKiB": 38496,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192552,
+          "pssKiB": 173956,
+          "privateKiB": 164980,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 4765652,
+          "pssKiB": 4698372,
+          "privateKiB": 4677888,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 4931046,
+      "driverPssKiB": 128007,
+      "availableKiB": 28104700,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937568768
+    },
+    {
+      "at": "2026-10-24T12:40:48.209643+00:00",
+      "phase": "round-3-home",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 130576,
+          "pssKiB": 129019,
+          "privateKiB": 128716,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90044,
+          "pssKiB": 60166,
+          "privateKiB": 39944,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192552,
+          "pssKiB": 173956,
+          "privateKiB": 164980,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 4179532,
+          "pssKiB": 4149428,
+          "privateKiB": 4128944,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 4383550,
+      "driverPssKiB": 129019,
+      "availableKiB": 28322204,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937568768
+    },
+    {
+      "at": "2026-10-24T12:40:48.234720+00:00",
+      "phase": "round-4",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 130576,
+          "pssKiB": 129019,
+          "privateKiB": 128716,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90044,
+          "pssKiB": 60166,
+          "privateKiB": 39944,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192552,
+          "pssKiB": 173956,
+          "privateKiB": 164980,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 4179704,
+          "pssKiB": 4149536,
+          "privateKiB": 4129052,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 4383658,
+      "driverPssKiB": 129019,
+      "availableKiB": 28322204,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937568768
+    },
+    {
+      "at": "2026-10-24T12:40:49.898757+00:00",
+      "phase": "round-4",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 130592,
+          "pssKiB": 129035,
+          "privateKiB": 128732,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90024,
+          "pssKiB": 60146,
+          "privateKiB": 39924,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 4485292,
+          "pssKiB": 4455124,
+          "privateKiB": 4434640,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 4689234,
+      "driverPssKiB": 129035,
+      "availableKiB": 28035600,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937568768
+    },
+    {
+      "at": "2026-10-24T12:40:51.943681+00:00",
+      "phase": "round-4",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129928,
+          "pssKiB": 128371,
+          "privateKiB": 128068,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88436,
+          "pssKiB": 58558,
+          "privateKiB": 38336,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 4644084,
+          "pssKiB": 4614960,
+          "privateKiB": 4594476,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 4847482,
+      "driverPssKiB": 128371,
+      "availableKiB": 27971180,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937564672
+    },
+    {
+      "at": "2026-10-24T12:40:54.028352+00:00",
+      "phase": "round-4",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129928,
+          "pssKiB": 128371,
+          "privateKiB": 128068,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88432,
+          "pssKiB": 58554,
+          "privateKiB": 38332,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 4375924,
+          "pssKiB": 4345756,
+          "privateKiB": 4325272,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 4578274,
+      "driverPssKiB": 128371,
+      "availableKiB": 28093172,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937564672
+    },
+    {
+      "at": "2026-10-24T12:40:56.102894+00:00",
+      "phase": "round-4",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129936,
+          "pssKiB": 128379,
+          "privateKiB": 128076,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88488,
+          "pssKiB": 58618,
+          "privateKiB": 38396,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 4341148,
+          "pssKiB": 4312696,
+          "privateKiB": 4292212,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 4545278,
+      "driverPssKiB": 128379,
+      "availableKiB": 28172452,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937564672
+    },
+    {
+      "at": "2026-10-24T12:40:58.136696+00:00",
+      "phase": "round-4",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129936,
+          "pssKiB": 128379,
+          "privateKiB": 128076,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88560,
+          "pssKiB": 58682,
+          "privateKiB": 38460,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 5465872,
+          "pssKiB": 5470040,
+          "privateKiB": 5449556,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 5702686,
+      "driverPssKiB": 128379,
+      "availableKiB": 27193380,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937560576
+    },
+    {
+      "at": "2026-10-24T12:40:59.430768+00:00",
+      "phase": "round-4-home",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129936,
+          "pssKiB": 128379,
+          "privateKiB": 128076,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90020,
+          "pssKiB": 60142,
+          "privateKiB": 39920,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 4862672,
+          "pssKiB": 4832780,
+          "privateKiB": 4812296,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 5066886,
+      "driverPssKiB": 128379,
+      "availableKiB": 27247600,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937560576
+    },
+    {
+      "at": "2026-10-24T12:40:59.463133+00:00",
+      "phase": "round-5",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129936,
+          "pssKiB": 128379,
+          "privateKiB": 128076,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90020,
+          "pssKiB": 60142,
+          "privateKiB": 39920,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 4862952,
+          "pssKiB": 4832784,
+          "privateKiB": 4812300,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 5066890,
+      "driverPssKiB": 128379,
+      "availableKiB": 27248236,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937560576
+    },
+    {
+      "at": "2026-10-24T12:41:00.171676+00:00",
+      "phase": "round-5",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129940,
+          "pssKiB": 128383,
+          "privateKiB": 128080,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88784,
+          "pssKiB": 58906,
+          "privateKiB": 38684,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 5499752,
+          "pssKiB": 5469584,
+          "privateKiB": 5449100,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 5702454,
+      "driverPssKiB": 128383,
+      "availableKiB": 27247536,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937560576
+    },
+    {
+      "at": "2026-10-24T12:41:02.211157+00:00",
+      "phase": "round-5",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129640,
+          "pssKiB": 128083,
+          "privateKiB": 127780,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 101468,
+          "pssKiB": 71590,
+          "privateKiB": 51368,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192568,
+          "pssKiB": 173972,
+          "privateKiB": 164996,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 5423112,
+          "pssKiB": 5393284,
+          "privateKiB": 5372800,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 5638846,
+      "driverPssKiB": 128083,
+      "availableKiB": 27388512,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937556480
+    },
+    {
+      "at": "2026-10-24T12:41:04.298451+00:00",
+      "phase": "round-5",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 132404,
+          "pssKiB": 130847,
+          "privateKiB": 130544,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88676,
+          "pssKiB": 58798,
+          "privateKiB": 38576,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 5803844,
+          "pssKiB": 5773608,
+          "privateKiB": 5753124,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 6006370,
+      "driverPssKiB": 130847,
+      "availableKiB": 27058996,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937556480
+    },
+    {
+      "at": "2026-10-24T12:41:06.355457+00:00",
+      "phase": "round-5",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129644,
+          "pssKiB": 128087,
+          "privateKiB": 127784,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88624,
+          "pssKiB": 58746,
+          "privateKiB": 38524,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 5800152,
+          "pssKiB": 5775808,
+          "privateKiB": 5755324,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 6008518,
+      "driverPssKiB": 128087,
+      "availableKiB": 27094508,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937556480
+    },
+    {
+      "at": "2026-10-24T12:41:08.433972+00:00",
+      "phase": "round-5",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129644,
+          "pssKiB": 118656,
+          "privateKiB": 111064,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88592,
+          "pssKiB": 58604,
+          "privateKiB": 38492,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173862,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 5848372,
+          "pssKiB": 5818001,
+          "privateKiB": 5797652,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 6050467,
+      "driverPssKiB": 118656,
+      "availableKiB": 27180528,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937536000
+    },
+    {
+      "at": "2026-10-24T12:41:10.495949+00:00",
+      "phase": "round-5",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129648,
+          "pssKiB": 110498,
+          "privateKiB": 104688,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88616,
+          "pssKiB": 58642,
+          "privateKiB": 38516,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173875,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 7029772,
+          "pssKiB": 6803468,
+          "privateKiB": 6783104,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 7035985,
+      "driverPssKiB": 110498,
+      "availableKiB": 26117344,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937536000
+    },
+    {
+      "at": "2026-10-24T12:41:11.421904+00:00",
+      "phase": "round-5-home",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 130628,
+          "pssKiB": 114701,
+          "privateKiB": 105952,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90072,
+          "pssKiB": 60117,
+          "privateKiB": 39972,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173894,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 6466524,
+          "pssKiB": 6436260,
+          "privateKiB": 6415872,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 6670271,
+      "driverPssKiB": 114701,
+      "availableKiB": 26545372,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937536000
+    },
+    {
+      "at": "2026-10-24T12:41:11.472035+00:00",
+      "phase": "round-6",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 130628,
+          "pssKiB": 114701,
+          "privateKiB": 105952,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90060,
+          "pssKiB": 60105,
+          "privateKiB": 39960,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173894,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 6465492,
+          "pssKiB": 6435264,
+          "privateKiB": 6414876,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 6669263,
+      "driverPssKiB": 114701,
+      "availableKiB": 26545372,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937531904
+    },
+    {
+      "at": "2026-10-24T12:41:12.543857+00:00",
+      "phase": "round-6",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129652,
+          "pssKiB": 113723,
+          "privateKiB": 104976,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88724,
+          "pssKiB": 58769,
+          "privateKiB": 38624,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192556,
+          "pssKiB": 173890,
+          "privateKiB": 164984,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 7511748,
+          "pssKiB": 7537004,
+          "privateKiB": 7516616,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 7769663,
+      "driverPssKiB": 113723,
+      "availableKiB": 25520964,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937531904
+    },
+    {
+      "at": "2026-10-24T12:41:14.610367+00:00",
+      "phase": "round-6",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128940,
+          "pssKiB": 111500,
+          "privateKiB": 104124,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 101848,
+          "pssKiB": 71873,
+          "privateKiB": 51748,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173894,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 7240228,
+          "pssKiB": 7210508,
+          "privateKiB": 7190036,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 7456275,
+      "driverPssKiB": 111500,
+      "availableKiB": 25453644,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937531904
+    },
+    {
+      "at": "2026-10-24T12:41:16.692126+00:00",
+      "phase": "round-6",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 131704,
+          "pssKiB": 130147,
+          "privateKiB": 129844,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88600,
+          "pssKiB": 58722,
+          "privateKiB": 38500,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 5984656,
+          "pssKiB": 5925496,
+          "privateKiB": 5905012,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 6158182,
+      "driverPssKiB": 130147,
+      "availableKiB": 26976016,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937531904
+    },
+    {
+      "at": "2026-10-24T12:41:19.124179+00:00",
+      "phase": "round-6",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128956,
+          "pssKiB": 127399,
+          "privateKiB": 127096,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88604,
+          "pssKiB": 58722,
+          "privateKiB": 38500,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 5978368,
+          "pssKiB": 5948564,
+          "privateKiB": 5928080,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 6181250,
+      "driverPssKiB": 127399,
+      "availableKiB": 26970016,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937527808
+    },
+    {
+      "at": "2026-10-24T12:41:21.168709+00:00",
+      "phase": "round-6",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128956,
+          "pssKiB": 127399,
+          "privateKiB": 127096,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88596,
+          "pssKiB": 58718,
+          "privateKiB": 38496,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 6854192,
+          "pssKiB": 6882840,
+          "privateKiB": 6862356,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 7115522,
+      "driverPssKiB": 127399,
+      "availableKiB": 26753728,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937527808
+    },
+    {
+      "at": "2026-10-24T12:41:22.413118+00:00",
+      "phase": "round-6-home",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129944,
+          "pssKiB": 128387,
+          "privateKiB": 128084,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90052,
+          "pssKiB": 60174,
+          "privateKiB": 39952,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 6590204,
+          "pssKiB": 6560084,
+          "privateKiB": 6539600,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 6794222,
+      "driverPssKiB": 128387,
+      "availableKiB": 27112752,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937527808
+    },
+    {
+      "at": "2026-10-24T12:41:22.450066+00:00",
+      "phase": "round-7",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129944,
+          "pssKiB": 128387,
+          "privateKiB": 128084,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90040,
+          "pssKiB": 60162,
+          "privateKiB": 39940,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 6585248,
+          "pssKiB": 6555080,
+          "privateKiB": 6534596,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 6789206,
+      "driverPssKiB": 128387,
+      "availableKiB": 27116932,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937523712
+    },
+    {
+      "at": "2026-10-24T12:41:23.218011+00:00",
+      "phase": "round-7",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128972,
+          "pssKiB": 127415,
+          "privateKiB": 127112,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88712,
+          "pssKiB": 58834,
+          "privateKiB": 38612,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 7227892,
+          "pssKiB": 7245589,
+          "privateKiB": 7225124,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 7478387,
+      "driverPssKiB": 127415,
+      "availableKiB": 26482484,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937523712
+    },
+    {
+      "at": "2026-10-24T12:41:25.269521+00:00",
+      "phase": "round-7",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128660,
+          "pssKiB": 127103,
+          "privateKiB": 126800,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 101024,
+          "pssKiB": 71146,
+          "privateKiB": 50924,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192564,
+          "pssKiB": 173968,
+          "privateKiB": 164992,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 6737788,
+          "pssKiB": 6707852,
+          "privateKiB": 6687368,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 6952966,
+      "driverPssKiB": 127103,
+      "availableKiB": 26467696,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937523712
+    },
+    {
+      "at": "2026-10-24T12:41:27.364391+00:00",
+      "phase": "round-7",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 131424,
+          "pssKiB": 129867,
+          "privateKiB": 129564,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88628,
+          "pssKiB": 58750,
+          "privateKiB": 38528,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 6746544,
+          "pssKiB": 6723580,
+          "privateKiB": 6703096,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 6956294,
+      "driverPssKiB": 129867,
+      "availableKiB": 26424592,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937519616
+    },
+    {
+      "at": "2026-10-24T12:41:29.421926+00:00",
+      "phase": "round-7",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 131424,
+          "pssKiB": 129867,
+          "privateKiB": 129564,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88516,
+          "pssKiB": 58638,
+          "privateKiB": 38416,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 6777152,
+          "pssKiB": 6746984,
+          "privateKiB": 6726500,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 6979586,
+      "driverPssKiB": 129867,
+      "availableKiB": 26366276,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937519616
+    },
+    {
+      "at": "2026-10-24T12:41:31.465288+00:00",
+      "phase": "round-7",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128660,
+          "pssKiB": 127103,
+          "privateKiB": 126800,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88632,
+          "pssKiB": 58754,
+          "privateKiB": 38532,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192568,
+          "pssKiB": 173972,
+          "privateKiB": 164996,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 7140248,
+          "pssKiB": 7130808,
+          "privateKiB": 7110324,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 7363534,
+      "driverPssKiB": 127103,
+      "availableKiB": 25973592,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937519616
+    },
+    {
+      "at": "2026-10-24T12:41:33.449833+00:00",
+      "phase": "round-7-home",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129644,
+          "pssKiB": 128087,
+          "privateKiB": 127784,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90056,
+          "pssKiB": 60178,
+          "privateKiB": 39956,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 7097856,
+          "pssKiB": 7067808,
+          "privateKiB": 7047324,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 7301950,
+      "driverPssKiB": 128087,
+      "availableKiB": 25857852,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937519616
+    },
+    {
+      "at": "2026-10-24T12:41:33.491242+00:00",
+      "phase": "round-8",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129644,
+          "pssKiB": 128087,
+          "privateKiB": 127784,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90044,
+          "pssKiB": 60166,
+          "privateKiB": 39944,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 7097988,
+          "pssKiB": 7061284,
+          "privateKiB": 7040800,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 7295414,
+      "driverPssKiB": 128087,
+      "availableKiB": 25860452,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937515520
+    },
+    {
+      "at": "2026-10-24T12:41:33.501586+00:00",
+      "phase": "round-8",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129644,
+          "pssKiB": 128087,
+          "privateKiB": 127784,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90044,
+          "pssKiB": 60166,
+          "privateKiB": 39944,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 7091452,
+          "pssKiB": 7061288,
+          "privateKiB": 7040804,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 7295418,
+      "driverPssKiB": 128087,
+      "availableKiB": 25860452,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937515520
+    },
+    {
+      "at": "2026-10-24T12:41:35.552036+00:00",
+      "phase": "round-8",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129644,
+          "pssKiB": 128087,
+          "privateKiB": 127784,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88500,
+          "pssKiB": 58622,
+          "privateKiB": 38400,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 7454060,
+          "pssKiB": 7424360,
+          "privateKiB": 7403876,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 7656946,
+      "driverPssKiB": 128087,
+      "availableKiB": 25045840,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937515520
+    },
+    {
+      "at": "2026-10-24T12:41:37.607632+00:00",
+      "phase": "round-8",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 131068,
+          "pssKiB": 129511,
+          "privateKiB": 129208,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88528,
+          "pssKiB": 58650,
+          "privateKiB": 38428,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 7827800,
+          "pssKiB": 7797416,
+          "privateKiB": 7776932,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 8030030,
+      "driverPssKiB": 129511,
+      "availableKiB": 24709252,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937511424
+    },
+    {
+      "at": "2026-10-24T12:41:39.696150+00:00",
+      "phase": "round-8",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 131068,
+          "pssKiB": 129511,
+          "privateKiB": 129208,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88548,
+          "pssKiB": 58670,
+          "privateKiB": 38448,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 7552964,
+          "pssKiB": 7529396,
+          "privateKiB": 7508912,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 7762030,
+      "driverPssKiB": 129511,
+      "availableKiB": 24951808,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937511424
+    },
+    {
+      "at": "2026-10-24T12:41:41.897473+00:00",
+      "phase": "round-8",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128304,
+          "pssKiB": 126747,
+          "privateKiB": 126444,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88508,
+          "pssKiB": 58630,
+          "privateKiB": 38408,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 7613936,
+          "pssKiB": 7583784,
+          "privateKiB": 7563300,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 7816378,
+      "driverPssKiB": 126747,
+      "availableKiB": 24962024,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937511424
+    },
+    {
+      "at": "2026-10-24T12:41:44.418298+00:00",
+      "phase": "round-8",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128308,
+          "pssKiB": 126751,
+          "privateKiB": 126448,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88620,
+          "pssKiB": 58742,
+          "privateKiB": 38520,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 8788160,
+          "pssKiB": 8462408,
+          "privateKiB": 8441924,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 8695114,
+      "driverPssKiB": 126751,
+      "availableKiB": 24414228,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937507328
+    },
+    {
+      "at": "2026-10-24T12:41:45.184306+00:00",
+      "phase": "round-8-home",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129292,
+          "pssKiB": 127735,
+          "privateKiB": 127432,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90084,
+          "pssKiB": 60206,
+          "privateKiB": 39984,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 8176844,
+          "pssKiB": 8146732,
+          "privateKiB": 8126248,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 8380902,
+      "driverPssKiB": 127735,
+      "availableKiB": 24433032,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937507328
+    },
+    {
+      "at": "2026-10-24T12:41:45.229365+00:00",
+      "phase": "round-9",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129292,
+          "pssKiB": 127735,
+          "privateKiB": 127432,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90084,
+          "pssKiB": 60206,
+          "privateKiB": 39984,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 8171444,
+          "pssKiB": 8141276,
+          "privateKiB": 8120792,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 8375446,
+      "driverPssKiB": 127735,
+      "availableKiB": 24435628,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937507328
+    },
+    {
+      "at": "2026-10-24T12:41:46.495871+00:00",
+      "phase": "round-9",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128312,
+          "pssKiB": 126755,
+          "privateKiB": 126452,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88760,
+          "pssKiB": 58882,
+          "privateKiB": 38660,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 8959872,
+          "pssKiB": 8947732,
+          "privateKiB": 8927248,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 9180578,
+      "driverPssKiB": 126755,
+      "availableKiB": 23619004,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937507328
+    },
+    {
+      "at": "2026-10-24T12:41:48.558207+00:00",
+      "phase": "round-9",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 130104,
+          "pssKiB": 128547,
+          "privateKiB": 128244,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 89216,
+          "pssKiB": 59338,
+          "privateKiB": 39116,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 8315164,
+          "pssKiB": 8285652,
+          "privateKiB": 8265168,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 8518954,
+      "driverPssKiB": 128547,
+      "availableKiB": 24384384,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937503232
+    },
+    {
+      "at": "2026-10-24T12:41:50.613169+00:00",
+      "phase": "round-9",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 131084,
+          "pssKiB": 129527,
+          "privateKiB": 129224,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88588,
+          "pssKiB": 58710,
+          "privateKiB": 38488,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 8261492,
+          "pssKiB": 8236584,
+          "privateKiB": 8216100,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 8469258,
+      "driverPssKiB": 129527,
+      "availableKiB": 24461504,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937503232
+    },
+    {
+      "at": "2026-10-24T12:41:52.731515+00:00",
+      "phase": "round-9",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 131096,
+          "pssKiB": 129539,
+          "privateKiB": 129236,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88568,
+          "pssKiB": 58690,
+          "privateKiB": 38468,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 8256088,
+          "pssKiB": 8226224,
+          "privateKiB": 8205740,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 8458878,
+      "driverPssKiB": 129539,
+      "availableKiB": 24547988,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937503232
+    },
+    {
+      "at": "2026-10-24T12:41:54.868260+00:00",
+      "phase": "round-9",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128332,
+          "pssKiB": 126775,
+          "privateKiB": 126472,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88640,
+          "pssKiB": 58762,
+          "privateKiB": 38540,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 9381188,
+          "pssKiB": 9367236,
+          "privateKiB": 9346752,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 9599962,
+      "driverPssKiB": 126775,
+      "availableKiB": 23469692,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937499136
+    },
+    {
+      "at": "2026-10-24T12:41:55.775137+00:00",
+      "phase": "round-9-home",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129312,
+          "pssKiB": 127755,
+          "privateKiB": 127452,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90092,
+          "pssKiB": 60214,
+          "privateKiB": 39992,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 8881396,
+          "pssKiB": 8851388,
+          "privateKiB": 8830904,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 9085566,
+      "driverPssKiB": 127755,
+      "availableKiB": 24050828,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937499136
+    },
+    {
+      "at": "2026-10-24T12:41:55.820901+00:00",
+      "phase": "round-10",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129312,
+          "pssKiB": 127755,
+          "privateKiB": 127452,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90080,
+          "pssKiB": 60202,
+          "privateKiB": 39980,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 8875732,
+          "pssKiB": 8845564,
+          "privateKiB": 8825080,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 9079730,
+      "driverPssKiB": 127755,
+      "availableKiB": 24050596,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937499136
+    },
+    {
+      "at": "2026-10-24T12:41:56.949972+00:00",
+      "phase": "round-10",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128332,
+          "pssKiB": 126775,
+          "privateKiB": 126472,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88820,
+          "pssKiB": 58942,
+          "privateKiB": 38720,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 9669704,
+          "pssKiB": 9652320,
+          "privateKiB": 9631836,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 9885226,
+      "driverPssKiB": 126775,
+      "availableKiB": 23222188,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937499136
+    },
+    {
+      "at": "2026-10-24T12:41:59.026989+00:00",
+      "phase": "round-10",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 130116,
+          "pssKiB": 128559,
+          "privateKiB": 128256,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90976,
+          "pssKiB": 61098,
+          "privateKiB": 40876,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 8862300,
+          "pssKiB": 8834932,
+          "privateKiB": 8814448,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 9069994,
+      "driverPssKiB": 128559,
+      "availableKiB": 24025220,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937495040
+    },
+    {
+      "at": "2026-10-24T12:42:01.144735+00:00",
+      "phase": "round-10",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 131096,
+          "pssKiB": 129539,
+          "privateKiB": 129236,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88768,
+          "pssKiB": 58890,
+          "privateKiB": 38668,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 8938564,
+          "pssKiB": 8908840,
+          "privateKiB": 8888356,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 9141694,
+      "driverPssKiB": 129539,
+      "availableKiB": 24205788,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937495040
+    },
+    {
+      "at": "2026-10-24T12:42:03.226217+00:00",
+      "phase": "round-10",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 131096,
+          "pssKiB": 129539,
+          "privateKiB": 129236,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88664,
+          "pssKiB": 58786,
+          "privateKiB": 38564,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 8953384,
+          "pssKiB": 8923712,
+          "privateKiB": 8903228,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 9156462,
+      "driverPssKiB": 129539,
+      "availableKiB": 24120828,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937495040
+    },
+    {
+      "at": "2026-10-24T12:42:05.290411+00:00",
+      "phase": "round-10",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128332,
+          "pssKiB": 126775,
+          "privateKiB": 126472,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88728,
+          "pssKiB": 58850,
+          "privateKiB": 38628,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 10142888,
+          "pssKiB": 10112720,
+          "privateKiB": 10092236,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 10345534,
+      "driverPssKiB": 126775,
+      "availableKiB": 22938328,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937490944
+    },
+    {
+      "at": "2026-10-24T12:42:06.706373+00:00",
+      "phase": "round-10-home",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129316,
+          "pssKiB": 127759,
+          "privateKiB": 127456,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90164,
+          "pssKiB": 60274,
+          "privateKiB": 40052,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 9557040,
+          "pssKiB": 9526872,
+          "privateKiB": 9506388,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 9761110,
+      "driverPssKiB": 127759,
+      "availableKiB": 23547908,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937490944
+    },
+    {
+      "at": "2026-10-24T12:42:06.758555+00:00",
+      "phase": "round-11",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129316,
+          "pssKiB": 127759,
+          "privateKiB": 127456,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90152,
+          "pssKiB": 60274,
+          "privateKiB": 40052,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 9552016,
+          "pssKiB": 9521848,
+          "privateKiB": 9501364,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 9756086,
+      "driverPssKiB": 127759,
+      "availableKiB": 23560668,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937490944
+    },
+    {
+      "at": "2026-10-24T12:42:07.347406+00:00",
+      "phase": "round-11",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128340,
+          "pssKiB": 126783,
+          "privateKiB": 126480,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88820,
+          "pssKiB": 58942,
+          "privateKiB": 38720,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 9892896,
+          "pssKiB": 9873812,
+          "privateKiB": 9853328,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 10106718,
+      "driverPssKiB": 126783,
+      "availableKiB": 23203544,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937490944
+    },
+    {
+      "at": "2026-10-24T12:42:09.430673+00:00",
+      "phase": "round-11",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129320,
+          "pssKiB": 127763,
+          "privateKiB": 127460,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 103148,
+          "pssKiB": 70662,
+          "privateKiB": 50440,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192568,
+          "pssKiB": 173972,
+          "privateKiB": 164996,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 9608916,
+          "pssKiB": 9586596,
+          "privateKiB": 9566140,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 9831230,
+      "driverPssKiB": 127763,
+      "availableKiB": 23516320,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937486848
+    },
+    {
+      "at": "2026-10-24T12:42:11.492551+00:00",
+      "phase": "round-11",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 131416,
+          "pssKiB": 129859,
+          "privateKiB": 129556,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88616,
+          "pssKiB": 58738,
+          "privateKiB": 38516,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 9900692,
+          "pssKiB": 9875696,
+          "privateKiB": 9855212,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 10108398,
+      "driverPssKiB": 129859,
+      "availableKiB": 23273792,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937486848
+    },
+    {
+      "at": "2026-10-24T12:42:13.578452+00:00",
+      "phase": "round-11",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 131416,
+          "pssKiB": 129859,
+          "privateKiB": 129556,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88608,
+          "pssKiB": 58730,
+          "privateKiB": 38508,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 9647228,
+          "pssKiB": 9618120,
+          "privateKiB": 9597636,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 9850814,
+      "driverPssKiB": 129859,
+      "availableKiB": 23592320,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937482752
+    },
+    {
+      "at": "2026-10-24T12:42:15.641034+00:00",
+      "phase": "round-11",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128664,
+          "pssKiB": 127107,
+          "privateKiB": 126804,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88704,
+          "pssKiB": 58826,
+          "privateKiB": 38604,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192568,
+          "pssKiB": 173972,
+          "privateKiB": 164996,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 10198880,
+          "pssKiB": 10193076,
+          "privateKiB": 10172592,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 10425874,
+      "driverPssKiB": 127107,
+      "availableKiB": 23083872,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937482752
+    },
+    {
+      "at": "2026-10-24T12:42:17.372883+00:00",
+      "phase": "round-11-home",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 130624,
+          "pssKiB": 129067,
+          "privateKiB": 128764,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90160,
+          "pssKiB": 60282,
+          "privateKiB": 40060,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 10247000,
+          "pssKiB": 10216988,
+          "privateKiB": 10196504,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 10451234,
+      "driverPssKiB": 129067,
+      "availableKiB": 22848244,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937482752
+    },
+    {
+      "at": "2026-10-24T12:42:17.545558+00:00",
+      "phase": "round-12",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 130624,
+          "pssKiB": 129067,
+          "privateKiB": 128764,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90160,
+          "pssKiB": 60282,
+          "privateKiB": 40060,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 10247176,
+          "pssKiB": 10216132,
+          "privateKiB": 10195648,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 10450378,
+      "driverPssKiB": 129067,
+      "availableKiB": 22850224,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937482752
+    },
+    {
+      "at": "2026-10-24T12:42:17.697346+00:00",
+      "phase": "round-12",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 130628,
+          "pssKiB": 129071,
+          "privateKiB": 128768,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88880,
+          "pssKiB": 59002,
+          "privateKiB": 38780,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192568,
+          "pssKiB": 173972,
+          "privateKiB": 164996,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 10242316,
+          "pssKiB": 10211052,
+          "privateKiB": 10190568,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 10444026,
+      "driverPssKiB": 129071,
+      "availableKiB": 22855732,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937482752
+    },
+    {
+      "at": "2026-10-24T12:42:19.772263+00:00",
+      "phase": "round-12",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128980,
+          "pssKiB": 127423,
+          "privateKiB": 127120,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88676,
+          "pssKiB": 58798,
+          "privateKiB": 38576,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 10553380,
+          "pssKiB": 10523860,
+          "privateKiB": 10503376,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 10756622,
+      "driverPssKiB": 127423,
+      "availableKiB": 22616452,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937478656
+    },
+    {
+      "at": "2026-10-24T12:42:21.857856+00:00",
+      "phase": "round-12",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129336,
+          "pssKiB": 127779,
+          "privateKiB": 127476,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88720,
+          "pssKiB": 58842,
+          "privateKiB": 38620,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 10631200,
+          "pssKiB": 10596260,
+          "privateKiB": 10575776,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 10829066,
+      "driverPssKiB": 127779,
+      "availableKiB": 22835052,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937478656
+    },
+    {
+      "at": "2026-10-24T12:42:23.970083+00:00",
+      "phase": "round-12",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 130908,
+          "pssKiB": 129351,
+          "privateKiB": 129048,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88620,
+          "pssKiB": 58742,
+          "privateKiB": 38520,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 10336680,
+          "pssKiB": 10307060,
+          "privateKiB": 10286576,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 10539766,
+      "driverPssKiB": 129351,
+      "availableKiB": 23134768,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937236992
+    },
+    {
+      "at": "2026-10-24T12:42:26.038424+00:00",
+      "phase": "round-12",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 130908,
+          "pssKiB": 129351,
+          "privateKiB": 129048,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88720,
+          "pssKiB": 58842,
+          "privateKiB": 38620,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192568,
+          "pssKiB": 173972,
+          "privateKiB": 164996,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 10957512,
+          "pssKiB": 10939444,
+          "privateKiB": 10918960,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11172258,
+      "driverPssKiB": 129351,
+      "availableKiB": 22473908,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937236992
+    },
+    {
+      "at": "2026-10-24T12:42:27.675462+00:00",
+      "phase": "round-12-home",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129352,
+          "pssKiB": 127795,
+          "privateKiB": 127492,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90180,
+          "pssKiB": 60302,
+          "privateKiB": 40080,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 10925208,
+          "pssKiB": 10895196,
+          "privateKiB": 10874712,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11129462,
+      "driverPssKiB": 127795,
+      "availableKiB": 22556608,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937236992
+    },
+    {
+      "at": "2026-10-24T12:42:28.102562+00:00",
+      "phase": "after-rounds-action",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128684,
+          "pssKiB": 127127,
+          "privateKiB": 126824,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88956,
+          "pssKiB": 59078,
+          "privateKiB": 38856,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192568,
+          "pssKiB": 173972,
+          "privateKiB": 164996,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 11319124,
+          "pssKiB": 11354872,
+          "privateKiB": 11334388,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11587922,
+      "driverPssKiB": 127127,
+      "availableKiB": 22083256,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937232896
+    },
+    {
+      "at": "2026-10-24T12:42:30.238343+00:00",
+      "phase": "after-rounds-action",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129664,
+          "pssKiB": 128107,
+          "privateKiB": 127804,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88724,
+          "pssKiB": 58846,
+          "privateKiB": 38624,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173964,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 10794916,
+          "pssKiB": 10768676,
+          "privateKiB": 10748192,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11001486,
+      "driverPssKiB": 128107,
+      "availableKiB": 21986840,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937232896
+    },
+    {
+      "at": "2026-10-24T12:42:32.367493+00:00",
+      "phase": "after-rounds-action",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 133416,
+          "pssKiB": 116180,
+          "privateKiB": 109960,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88772,
+          "pssKiB": 58783,
+          "privateKiB": 38672,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173861,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 10973440,
+          "pssKiB": 10952635,
+          "privateKiB": 10932288,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11185279,
+      "driverPssKiB": 116180,
+      "availableKiB": 21800920,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937232896
+    },
+    {
+      "at": "2026-10-24T12:42:34.531830+00:00",
+      "phase": "after-rounds-action",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 133416,
+          "pssKiB": 115069,
+          "privateKiB": 108408,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88808,
+          "pssKiB": 58834,
+          "privateKiB": 38708,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173875,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 11211472,
+          "pssKiB": 11175608,
+          "privateKiB": 11155220,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11408317,
+      "driverPssKiB": 115069,
+      "availableKiB": 21403980,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937232896
+    },
+    {
+      "at": "2026-10-24T12:42:36.640084+00:00",
+      "phase": "after-rounds-action",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 133416,
+          "pssKiB": 117477,
+          "privateKiB": 108712,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88716,
+          "pssKiB": 58761,
+          "privateKiB": 38616,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192560,
+          "pssKiB": 173894,
+          "privateKiB": 164988,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 11002104,
+          "pssKiB": 10971944,
+          "privateKiB": 10951556,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11204599,
+      "driverPssKiB": 117477,
+      "availableKiB": 21408956,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937228800
+    },
+    {
+      "at": "2026-10-24T12:42:38.772866+00:00",
+      "phase": "after-rounds-action",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 130652,
+          "pssKiB": 114708,
+          "privateKiB": 105948,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88736,
+          "pssKiB": 58781,
+          "privateKiB": 38636,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192564,
+          "pssKiB": 173898,
+          "privateKiB": 164992,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 11006356,
+          "pssKiB": 10976976,
+          "privateKiB": 10956588,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11209655,
+      "driverPssKiB": 114708,
+      "availableKiB": 21331332,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937228800
+    },
+    {
+      "at": "2026-10-24T12:42:40.897662+00:00",
+      "phase": "after-rounds-action",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 130652,
+          "pssKiB": 113392,
+          "privateKiB": 105876,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88644,
+          "pssKiB": 58670,
+          "privateKiB": 38544,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192584,
+          "pssKiB": 173899,
+          "privateKiB": 165012,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 11003860,
+          "pssKiB": 10974512,
+          "privateKiB": 10954028,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11207081,
+      "driverPssKiB": 113392,
+      "availableKiB": 21309408,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937228800
+    },
+    {
+      "at": "2026-10-24T12:42:43.008620+00:00",
+      "phase": "after-rounds-action",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 130652,
+          "pssKiB": 129095,
+          "privateKiB": 128792,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88604,
+          "pssKiB": 58726,
+          "privateKiB": 38504,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192584,
+          "pssKiB": 173987,
+          "privateKiB": 165012,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 11005248,
+          "pssKiB": 10975075,
+          "privateKiB": 10954592,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11207788,
+      "driverPssKiB": 129095,
+      "availableKiB": 21376648,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937224704
+    },
+    {
+      "at": "2026-10-24T12:42:45.100018+00:00",
+      "phase": "after-rounds-action",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 130752,
+          "pssKiB": 129195,
+          "privateKiB": 128892,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88828,
+          "pssKiB": 58901,
+          "privateKiB": 38656,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192756,
+          "pssKiB": 174080,
+          "privateKiB": 165052,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 11006472,
+          "pssKiB": 10983779,
+          "privateKiB": 10963236,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11216760,
+      "driverPssKiB": 129195,
+      "availableKiB": 21467368,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937191936
+    },
+    {
+      "at": "2026-10-24T12:42:47.197562+00:00",
+      "phase": "after-rounds-action",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 130756,
+          "pssKiB": 129199,
+          "privateKiB": 128896,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88932,
+          "pssKiB": 59005,
+          "privateKiB": 38760,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192764,
+          "pssKiB": 174088,
+          "privateKiB": 165060,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 11010412,
+          "pssKiB": 10987475,
+          "privateKiB": 10966932,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11220568,
+      "driverPssKiB": 129199,
+      "availableKiB": 21509956,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937191936
+    },
+    {
+      "at": "2026-10-24T12:42:49.265501+00:00",
+      "phase": "after-rounds-action",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 130764,
+          "pssKiB": 120019,
+          "privateKiB": 110640,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88896,
+          "pssKiB": 58918,
+          "privateKiB": 38724,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192796,
+          "pssKiB": 174075,
+          "privateKiB": 165092,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 11592964,
+          "pssKiB": 11590019,
+          "privateKiB": 11569540,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11823012,
+      "driverPssKiB": 120019,
+      "availableKiB": 21057212,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937179648
+    },
+    {
+      "at": "2026-10-24T12:42:51.365543+00:00",
+      "phase": "after-rounds-action",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 130764,
+          "pssKiB": 118309,
+          "privateKiB": 107220,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88880,
+          "pssKiB": 58902,
+          "privateKiB": 38708,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192712,
+          "pssKiB": 173991,
+          "privateKiB": 165008,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 11604240,
+          "pssKiB": 11576531,
+          "privateKiB": 11556052,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11809424,
+      "driverPssKiB": 118309,
+      "availableKiB": 21490940,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937179648
+    },
+    {
+      "at": "2026-10-24T12:42:53.436320+00:00",
+      "phase": "after-rounds-action",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 130808,
+          "pssKiB": 118329,
+          "privateKiB": 107216,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 89100,
+          "pssKiB": 59122,
+          "privateKiB": 38928,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192716,
+          "pssKiB": 173995,
+          "privateKiB": 165012,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 12386060,
+          "pssKiB": 12370879,
+          "privateKiB": 12350400,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 12603996,
+      "driverPssKiB": 118329,
+      "availableKiB": 20701712,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937179648
+    },
+    {
+      "at": "2026-10-24T12:42:55.511506+00:00",
+      "phase": "after-rounds-action",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 134584,
+          "pssKiB": 122067,
+          "privateKiB": 110916,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 91184,
+          "pssKiB": 61206,
+          "privateKiB": 41012,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192724,
+          "pssKiB": 174003,
+          "privateKiB": 165020,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 11699408,
+          "pssKiB": 11669987,
+          "privateKiB": 11649508,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11905196,
+      "driverPssKiB": 122067,
+      "availableKiB": 20890860,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31937175552
+    },
+    {
+      "at": "2026-10-24T12:42:57.609289+00:00",
+      "phase": "after-rounds-action",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 131604,
+          "pssKiB": 130047,
+          "privateKiB": 129744,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88988,
+          "pssKiB": 59061,
+          "privateKiB": 38816,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192712,
+          "pssKiB": 174036,
+          "privateKiB": 165008,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 12039012,
+          "pssKiB": 12008507,
+          "privateKiB": 11987964,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 12241604,
+      "driverPssKiB": 130047,
+      "availableKiB": 20958780,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31785562112
+    },
+    {
+      "at": "2026-10-24T12:42:59.745250+00:00",
+      "phase": "after-rounds-action",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 131604,
+          "pssKiB": 130047,
+          "privateKiB": 129744,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88948,
+          "pssKiB": 59021,
+          "privateKiB": 38776,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192712,
+          "pssKiB": 174036,
+          "privateKiB": 165008,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 11720580,
+          "pssKiB": 11689971,
+          "privateKiB": 11669428,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11923028,
+      "driverPssKiB": 130047,
+      "availableKiB": 21297496,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31785562112
+    },
+    {
+      "at": "2026-10-24T12:43:01.909884+00:00",
+      "phase": "after-rounds-action",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128856,
+          "pssKiB": 127299,
+          "privateKiB": 126996,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 89012,
+          "pssKiB": 59085,
+          "privateKiB": 38840,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192756,
+          "pssKiB": 174076,
+          "privateKiB": 165048,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 11746876,
+          "pssKiB": 11715779,
+          "privateKiB": 11695236,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11948940,
+      "driverPssKiB": 127299,
+      "availableKiB": 21306308,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31785529344
+    },
+    {
+      "at": "2026-10-24T12:43:04.007883+00:00",
+      "phase": "after-rounds-action",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128856,
+          "pssKiB": 127299,
+          "privateKiB": 126996,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88944,
+          "pssKiB": 59017,
+          "privateKiB": 38772,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192712,
+          "pssKiB": 174036,
+          "privateKiB": 165008,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 11739932,
+          "pssKiB": 11710403,
+          "privateKiB": 11689860,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11943456,
+      "driverPssKiB": 127299,
+      "availableKiB": 21348572,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31785525248
+    },
+    {
+      "at": "2026-10-24T12:43:06.142045+00:00",
+      "phase": "after-rounds-action",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128856,
+          "pssKiB": 127299,
+          "privateKiB": 126996,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 90132,
+          "pssKiB": 60205,
+          "privateKiB": 39960,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192712,
+          "pssKiB": 174036,
+          "privateKiB": 165008,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 11739520,
+          "pssKiB": 11709735,
+          "privateKiB": 11689192,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11943976,
+      "driverPssKiB": 127299,
+      "availableKiB": 21378852,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31785373696
+    },
+    {
+      "at": "2026-10-24T12:43:08.239619+00:00",
+      "phase": "after-rounds-action",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128856,
+          "pssKiB": 127299,
+          "privateKiB": 126996,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88772,
+          "pssKiB": 58845,
+          "privateKiB": 38600,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192712,
+          "pssKiB": 174036,
+          "privateKiB": 165008,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 11741592,
+          "pssKiB": 11711511,
+          "privateKiB": 11690968,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11944392,
+      "driverPssKiB": 127299,
+      "availableKiB": 21415124,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31785373696
+    },
+    {
+      "at": "2026-10-24T12:43:09.580338+00:00",
+      "phase": "after-final-action",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128856,
+          "pssKiB": 127299,
+          "privateKiB": 126996,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88852,
+          "pssKiB": 58925,
+          "privateKiB": 38680,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192712,
+          "pssKiB": 174036,
+          "privateKiB": 165008,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 11739152,
+          "pssKiB": 11709660,
+          "privateKiB": 11689140,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11942621,
+      "driverPssKiB": 127299,
+      "availableKiB": 21430312,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31785369600
+    },
+    {
+      "at": "2026-10-24T12:43:10.542597+00:00",
+      "phase": "after-rounds-action",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128856,
+          "pssKiB": 127299,
+          "privateKiB": 126996,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88796,
+          "pssKiB": 58869,
+          "privateKiB": 38624,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192712,
+          "pssKiB": 174036,
+          "privateKiB": 165008,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 11743332,
+          "pssKiB": 11712999,
+          "privateKiB": 11692456,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11945904,
+      "driverPssKiB": 127299,
+      "availableKiB": 21441740,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31785369600
+    },
+    {
+      "at": "2026-10-24T12:43:12.670127+00:00",
+      "phase": "after-rounds-action",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128856,
+          "pssKiB": 127299,
+          "privateKiB": 126996,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88796,
+          "pssKiB": 58869,
+          "privateKiB": 38624,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192712,
+          "pssKiB": 174036,
+          "privateKiB": 165008,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 11742792,
+          "pssKiB": 11712519,
+          "privateKiB": 11691976,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11945424,
+      "driverPssKiB": 127299,
+      "availableKiB": 21505628,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31785369600
+    },
+    {
+      "at": "2026-10-24T12:43:12.675852+00:00",
+      "phase": "settled",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 128856,
+          "pssKiB": 127299,
+          "privateKiB": 126996,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7526,
+          "name": "MiniBrowser",
+          "role": "browser",
+          "rssKiB": 88796,
+          "pssKiB": 58869,
+          "privateKiB": 38624,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7535,
+          "name": "WPENetworkProce",
+          "role": "browser",
+          "rssKiB": 192712,
+          "pssKiB": 174036,
+          "privateKiB": 165008,
+          "swapKiB": 0
+        },
+        {
+          "pid": 7537,
+          "name": "WPEWebProcess",
+          "role": "content",
+          "rssKiB": 11742772,
+          "pssKiB": 11712519,
+          "privateKiB": 11691976,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 11945424,
+      "driverPssKiB": 127299,
+      "availableKiB": 21505628,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31785369600
+    },
+    {
+      "at": "2026-10-24T12:43:14.680340+00:00",
+      "phase": "after-browser",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129028,
+          "pssKiB": 127799,
+          "privateKiB": 127264,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 0,
+      "driverPssKiB": 127799,
+      "availableKiB": 33402748,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31785365504
+    },
+    {
+      "at": "2026-10-24T12:43:15.242019+00:00",
+      "phase": "after-browser",
+      "processes": [
+        {
+          "pid": 7514,
+          "name": "MainThread",
+          "role": "driver",
+          "rssKiB": 129028,
+          "pssKiB": 127799,
+          "privateKiB": 127264,
+          "swapKiB": 0
+        }
+      ],
+      "browserPssKiB": 0,
+      "driverPssKiB": 127799,
+      "availableKiB": 33406488,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31785365504
+    },
+    {
+      "at": "2026-10-24T12:43:15.256719+00:00",
+      "phase": "after-driver",
+      "processes": [],
+      "browserPssKiB": 0,
+      "driverPssKiB": 0,
+      "availableKiB": 33509796,
+      "swapUsedKiB": 0,
+      "diskFreeBytes": 31785365504
+    }
+  ],
+  "errors": [],
+  "httpRequests": [
+    {
+      "at": "2026-10-24T12:39:57.912936+00:00",
+      "url": "http://127.0.0.1:8000/standalone-m1/",
+      "type": "document",
+      "offline": false
+    }
+  ],
+  "requestSchemes": {
+    "http": 1
+  },
+  "consoleErrors": [],
+  "failedRequests": [],
+  "offline": false,
+  "method": "one browser at a time; OS smaps_rollup sampled every 2s; no per-frame snapshots or DOM serialization",
+  "artifactSHA256": "ea1bd887f8f301d079fb7636c72fd6ec60a83695045b56f79badd43e8f1e1666",
+  "version": "26.5",
+  "status": "passed",
+  "finalAction": {
+    "exportSHA256": "4fc342869b9307f8123d269223f617b03c9bd736dc6698031381d9651eafe76f",
+    "restoredExactly": true,
+    "helpStillResponds": true
+  },
+  "finished": "2026-10-24T12:43:15.256891+00:00"
+}

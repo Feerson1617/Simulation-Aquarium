@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-22",
+  "independent_attempts": [
+    {
+      "url": "https://fachportal.lernnetz.de/sh/faecher/biologie/fachanforderungen.html",
+      "client": "Python urllib with inherited proxy and default verified trust",
+      "result": "URLError: Tunnel connection failed: 403 Forbidden",
+      "original_page_read": false
+    }
+  ],
+  "scope": "Only the independently repeated attempt is recorded here. The supplied review reports its own earlier curriculum original-source checks; those are not new checks by this implementation."
+}

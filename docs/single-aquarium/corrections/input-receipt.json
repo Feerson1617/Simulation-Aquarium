@@ -1,0 +1,17 @@
+[
+  {
+    "file": "Abnahmebericht.html",
+    "bytes": 518194,
+    "sha256": "41309d0f80f6d0eb19b612138abb39c2876a2a3bf785840b330b9c106408a222"
+  },
+  {
+    "file": "Codex-Korrekturprompt.txt",
+    "bytes": 8408,
+    "sha256": "f743388f07edd095288b5829d78f067612487443326db030b210a997cc5c39ad"
+  },
+  {
+    "file": "Aquarium-Abnahmepaket.zip",
+    "bytes": 10490557,
+    "sha256": "a3f55166d08e8b70ab5bc100b504921b9478b41f3ad7ac9c5a15e0dc1ea6cb76"
+  }
+]

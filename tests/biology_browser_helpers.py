@@ -23,19 +23,40 @@ def reveal(field):
  expect(field).to_be_visible();return field
 
 def activities(p,touch=False):
- for _ in range(12):
+ for _ in range(20):
+  a=None if (snap(p).get('quest') or {}).get('id')=='8-ecosystem' else p.evaluate('async()=>{const {pendingActivity}=await import("./learning-activities.mjs");return window.aquariumLearningSnapshot().quest ? pendingActivity(window.aquariumLearningSnapshot().quest) : null}')
+  if a and a['id']=='river-route' and p.locator('[data-learn="regional-northsea"]:visible').count():action(p,'regional-northsea',touch);continue
+  connections={'food-fish':[('food','fish')],'rest-decomposer':[('remains','decomposer')],'consumer':[('food','fish')],'producer':[('light','plant')],'matter-energy':[('decomposer','minerals'),('minerals','plant'),('fish','heat')],'carbon-uptake':[('water','plant')],'carbon-return':[('animal','water')],'fossil-carbon':[('fossil','air')],'river-route':[('land','river'),('river','sea')]}
+  if a and a['id'] in connections and p.locator('[data-process-node]:visible').count():
+   for edge in connections[a['id']]:
+    for node in edge:
+     target=p.locator(f'[data-process-node="{node}"]');target.tap() if touch else target.click()
+   continue
+  if a and a['id']=='river-measure' and p.locator('[data-process-node=land]:visible').count():p.locator('[data-process-node=land]').click()
+  if a and a['id'] in ['forest-same','forest-different'] and p.locator('[data-forest-leaf]:visible').count():
+   for leaf in ['tree','waterweed']:p.locator(f'[data-forest-leaf="{leaf}"]').click()
+  if a and a['id']=='fossil-evidence' and p.locator('[data-fossil]:visible').count():
+   for fossil in ['tiktaalik','acanthostega']:p.locator(f'[data-fossil="{fossil}"]').click()
+   continue
   cards=p.locator('[data-activity-id]:visible')
   if cards.count():
    id=cards.first.get_attribute('data-activity-id');index=1 if id=='water' else 0
+   # The temperature prototype requires observing the actual object first.
+   if id=='living' and p.locator('[data-coherent-pick]').count():
+    loc=p.locator('[data-coherent-pick="control"]');loc.tap() if touch else loc.click()
+   if id=='water' and p.locator('[data-coherent-water]').count():
+    loc=p.locator('[data-coherent-water="test"]');loc.tap() if touch else loc.click()
    target=p.locator(f'[data-activity-id="{id}"][data-activity-choice="{index}"]:visible').first
    target.tap() if touch else target.click();continue
   views=p.locator('[data-activity-view]:visible')
-  if not views.count():return
+  if not views.count():
+   if p.locator('[data-learn="latest-series"]:visible').count():action(p,'latest-series',touch)
+   return
   name=views.first.get_attribute('data-activity-view')
   views.first.tap() if touch else views.first.click()
   if name=='traits':
    for uid in [1,3]:
-    fish=p.locator(f'[data-learning-individual="{uid}"]');fish.tap() if touch else fish.click()
+    fish=p.locator(f'[data-learning-individual="{uid}"],[data-cohort-uid="{uid}"]');fish.tap() if touch else fish.click()
    action(p,'close',touch)
   elif name=='observe':action(p,'close',touch)
  raise AssertionError('Learner activity did not converge')
@@ -47,14 +68,21 @@ def comparison_answer(id,r):
   a,b=r['fish']['control'],r['fish']['test']
   if a['fishAlive']!=b['fishAlive']:return 0 if a['fishAlive']>b['fishAlive'] else 1
   delta=(a['health'] or 0)-(b['health'] or 0);return 2 if abs(delta)<=1 else 0 if delta>0 else 1
+ if r.get('displayPrecision') is not None:
+  a,b=round(r['control'],r['displayPrecision']),round(r['test'],r['displayPrecision']);return 2 if a==b else 0 if a>b else 1
  tolerance={'8-ecosystem':.1,'8-oxygen':.05,'8-foodweb':.01,'8-forest':.01,'10-enrichment':.005,'10-carbon':.1,'10-northsea':.005}.get(id,.5/(r.get('sampleSize') or 24))
  return 2 if abs(r['control']-r['test'])<=tolerance else 0 if r['control']>r['test'] else 1
 
 def biological_experiment(p,id,touch=False):
  if id=='10-wadden':
+  if p.locator('[data-harbour-object]').count():
+   for node in ['visitors','packaging','animals']:p.locator(f'[data-harbour-object="{node}"]').click()
   activities(p,touch);assert snap(p)['comparison'] is None;assert snap(p)['quest']['result']['kind']=='case';return
  if id=='9-traits':
-  action(p,'material',touch);action(p,'genes',touch);r=snap(p)['quest']['result'];assert r['AA']>0 and r['Aa']>0;return
+  action(p,'material',touch);action(p,'genes',touch)
+  if p.locator('[data-cohort-uid]').count():
+   for uid in [1,2]:p.locator(f'[data-cohort-uid="{uid}"]').click()
+  r=snap(p)['quest']['result'];assert r['AA']>0 and r['Aa']>0;return
  if id=='9-mendel':
   action(p,'material',touch);action(p,'genes',touch)
   p.locator('[data-learning-mother]').select_option('1');p.locator('[data-learning-father]').select_option('6');action(p,'cross',touch)
@@ -64,7 +92,7 @@ def biological_experiment(p,id,touch=False):
   p.locator('[data-learning-mother]').select_option(str(mother));p.locator('[data-learning-father]').select_option(str(father));action(p,'cross',touch)
   result=snap(p);assert result['population']['generation']==2;assert result['quest']['result']['mendel']['complete'];assert result['population']['events'][-1]['parents']==[mother,father]
   assert len(result['population']['individuals'])==24;return
- action(p,'investigate',touch)
+ if not snap(p).get('prototype'):action(p,'investigate',touch)
  if id in ['9-population','9-darwin']:
   p.locator('[data-learning-environment]').select_option('neutral');p.locator('[data-learning-generations]').fill('1');reveal(p.locator('[data-learning-repetitions]')).fill('2');action(p,'population-compare',touch);assert snap(p)['quest']['step']==2
   p.locator('[data-learning-generations]').fill('5');action(p,'population-compare',touch);neutral=snap(p)['comparison'];assert snap(p)['quest']['step']==2
@@ -76,11 +104,18 @@ def biological_experiment(p,id,touch=False):
   reveal(p.locator('[data-learning-run]')).select_option('1');assert 'Gruppe' in p.locator('.learn-chart').get_attribute('aria-label')
   reveal(p.locator('[data-learning-series]')).select_option('2');return
  if id=='8-oxygen':
-  reveal(p.locator('[data-learning-value]')).fill('8');action(p,'compare',touch);assert snap(p)['quest']['step']==2;reveal(p.locator('[data-learning-value]')).fill('0')
+  reveal(p.locator('[data-learning-value]')).fill('8');action(p,'compare',touch);assert snap(p)['quest']['step']==2
+  if p.locator('[data-learn=workspace-plan]').count():action(p,'workspace-plan',touch)
+  reveal(p.locator('[data-learning-value]')).fill('0')
  if id=='10-restore':reveal(p.locator('[data-learning-days]')).fill('14')
  if id=='8-ecosystem':
   action(p,'device-temperature',touch);reveal(p.locator('[data-equipment-value]')).fill('27');p.locator('[data-equipment-save]').click();assert p.evaluate('document.activeElement.dataset.learn')=='device-temperature'
- action(p,'compare',touch);c=snap(p)['comparison'];run=c['runs'][0];assert run['initialControl']==run['initialTest'];assert run['control'] and run['test']
+ action(p,'compare',touch)
+ if snap(p).get('prototype'):
+  if id not in ['8-ecosystem','8-oxygen']:
+   clock=p.locator('[data-coherent-time]:visible').first;clock.select_option(clock.locator('option').last.get_attribute('value'))
+  else:action(p,'workspace-play',touch);p.wait_for_function('window.aquariumLearningSnapshot().quest.step===3')
+ c=snap(p)['comparison'];run=c['runs'][0];assert run['initialControl']==run['initialTest'];assert run['control'] and run['test']
  if id=='8-ecosystem':assert 25<run['finalTest']['params']['temp']<27;assert run['finalControl']['params']['temp']==25
  if id=='8-oxygen':
   actual=p.evaluate('s=>window.aquariumSimulationProbe(s,3)',run['initialControl']);assert actual['params']==run['finalControl']['params']

@@ -1,0 +1,591 @@
+{
+  "passed": [
+    "Real shop purchases retain independent pixel sources for both colours; tank width does not distort fish anatomy",
+    "AA × aa creates actual uniform F1 after seven days of the real ecology engine",
+    "Actual F1 parents mature and produce stochastic F2; analysis shows their 2×2 Punnett square",
+    "Newborn fish use inherited appearance and are visibly smaller in the actual aquarium renderer"
+  ],
+  "errors": [],
+  "console_errors": [],
+  "failed_requests": [],
+  "founder_render": [
+    {
+      "uid": 1,
+      "fish": false
+    },
+    {
+      "uid": 10,
+      "fish": false
+    },
+    {
+      "uid": 11,
+      "fish": false
+    },
+    {
+      "uid": 12,
+      "fish": false
+    },
+    {
+      "uid": 13,
+      "fish": false
+    },
+    {
+      "uid": 14,
+      "category": "fish",
+      "fish": true,
+      "appearance": {
+        "species": "molly",
+        "variant": "black",
+        "sex": "♀"
+      },
+      "basisLengths": [
+        0.6238249640557497,
+        0.62382496405575,
+        0.6238249640557496
+      ]
+    },
+    {
+      "uid": 15,
+      "category": "fish",
+      "fish": true,
+      "appearance": {
+        "species": "molly",
+        "variant": "black",
+        "sex": "♀"
+      },
+      "basisLengths": [
+        0.6237488844386869,
+        0.623748884438687,
+        0.6237488844386869
+      ]
+    },
+    {
+      "uid": 16,
+      "category": "fish",
+      "fish": true,
+      "appearance": {
+        "species": "molly",
+        "variant": "gold",
+        "sex": "♂"
+      },
+      "basisLengths": [
+        0.5225350978855116,
+        0.5225350978855117,
+        0.5225350978855116
+      ]
+    },
+    {
+      "uid": 17,
+      "category": "fish",
+      "fish": true,
+      "appearance": {
+        "species": "molly",
+        "variant": "gold",
+        "sex": "♂"
+      },
+      "basisLengths": [
+        0.52879188559276,
+        0.5287918855927602,
+        0.5287918855927602
+      ]
+    }
+  ],
+  "colour_sources": {
+    "black": [
+      {
+        "mesh": "molly",
+        "material": "",
+        "source": "b44b5fa4-9117-46c3-84e4-e9cc226c1fd6",
+        "width": 1024,
+        "height": 512,
+        "fingerprint": 1209167287,
+        "mean": [
+          26.64453125,
+          28.58203125,
+          26.3515625
+        ]
+      }
+    ],
+    "gold": [
+      {
+        "mesh": "molly",
+        "material": "",
+        "source": "cfd1ad14-8854-4b5d-af7b-2d218a353f01",
+        "width": 1024,
+        "height": 512,
+        "fingerprint": 1509549079,
+        "mean": [
+          148.25390625,
+          120.953125,
+          48.59765625
+        ]
+      }
+    ]
+  },
+  "f1": [
+    {
+      "uid": 18,
+      "species": "molly",
+      "sex": "♀",
+      "variant": "black",
+      "model": "molly-mono",
+      "loci": {
+        "A": [
+          "A",
+          "a"
+        ]
+      },
+      "parents": [
+        14,
+        16
+      ],
+      "generation": 1,
+      "filial": "F1",
+      "roots": [
+        14,
+        16
+      ],
+      "founder": false,
+      "bornDay": 52.1,
+      "status": "lebend",
+      "recordedDay": 52.1
+    },
+    {
+      "uid": 19,
+      "species": "molly",
+      "sex": "♂",
+      "variant": "black",
+      "model": "molly-mono",
+      "loci": {
+        "A": [
+          "A",
+          "a"
+        ]
+      },
+      "parents": [
+        14,
+        16
+      ],
+      "generation": 1,
+      "filial": "F1",
+      "roots": [
+        14,
+        16
+      ],
+      "founder": false,
+      "bornDay": 52.1,
+      "status": "lebend",
+      "recordedDay": 52.1
+    },
+    {
+      "uid": 20,
+      "species": "molly",
+      "sex": "♂",
+      "variant": "black",
+      "model": "molly-mono",
+      "loci": {
+        "A": [
+          "A",
+          "a"
+        ]
+      },
+      "parents": [
+        14,
+        16
+      ],
+      "generation": 1,
+      "filial": "F1",
+      "roots": [
+        14,
+        16
+      ],
+      "founder": false,
+      "bornDay": 52.1,
+      "status": "lebend",
+      "recordedDay": 52.1
+    },
+    {
+      "uid": 21,
+      "species": "molly",
+      "sex": "♂",
+      "variant": "black",
+      "model": "molly-mono",
+      "loci": {
+        "A": [
+          "A",
+          "a"
+        ]
+      },
+      "parents": [
+        14,
+        16
+      ],
+      "generation": 1,
+      "filial": "F1",
+      "roots": [
+        14,
+        16
+      ],
+      "founder": false,
+      "bornDay": 52.1,
+      "status": "lebend",
+      "recordedDay": 52.1
+    },
+    {
+      "uid": 22,
+      "species": "molly",
+      "sex": "♀",
+      "variant": "black",
+      "model": "molly-mono",
+      "loci": {
+        "A": [
+          "A",
+          "a"
+        ]
+      },
+      "parents": [
+        14,
+        16
+      ],
+      "generation": 1,
+      "filial": "F1",
+      "roots": [
+        14,
+        16
+      ],
+      "founder": false,
+      "bornDay": 52.1,
+      "status": "lebend",
+      "recordedDay": 52.1
+    }
+  ],
+  "f2": [
+    {
+      "uid": 28,
+      "species": "molly",
+      "sex": "♂",
+      "variant": "black",
+      "model": "molly-mono",
+      "loci": {
+        "A": [
+          "A",
+          "a"
+        ]
+      },
+      "parents": [
+        18,
+        19
+      ],
+      "generation": 2,
+      "filial": "F2",
+      "roots": [
+        14,
+        16
+      ],
+      "founder": false,
+      "bornDay": 65.1,
+      "status": "lebend",
+      "recordedDay": 65.1
+    },
+    {
+      "uid": 29,
+      "species": "molly",
+      "sex": "♀",
+      "variant": "gold",
+      "model": "molly-mono",
+      "loci": {
+        "A": [
+          "a",
+          "a"
+        ]
+      },
+      "parents": [
+        18,
+        19
+      ],
+      "generation": 2,
+      "filial": "F2",
+      "roots": [
+        14,
+        16
+      ],
+      "founder": false,
+      "bornDay": 65.1,
+      "status": "lebend",
+      "recordedDay": 66.1
+    },
+    {
+      "uid": 30,
+      "species": "molly",
+      "sex": "♀",
+      "variant": "gold",
+      "model": "molly-mono",
+      "loci": {
+        "A": [
+          "a",
+          "a"
+        ]
+      },
+      "parents": [
+        18,
+        19
+      ],
+      "generation": 2,
+      "filial": "F2",
+      "roots": [
+        14,
+        16
+      ],
+      "founder": false,
+      "bornDay": 65.1,
+      "status": "lebend",
+      "recordedDay": 66.1
+    },
+    {
+      "uid": 31,
+      "species": "molly",
+      "sex": "♂",
+      "variant": "gold",
+      "model": "molly-mono",
+      "loci": {
+        "A": [
+          "a",
+          "a"
+        ]
+      },
+      "parents": [
+        18,
+        19
+      ],
+      "generation": 2,
+      "filial": "F2",
+      "roots": [
+        14,
+        16
+      ],
+      "founder": false,
+      "bornDay": 65.1,
+      "status": "lebend",
+      "recordedDay": 65.1
+    }
+  ],
+  "offspring_render": [
+    {
+      "uid": 1,
+      "fish": false
+    },
+    {
+      "uid": 10,
+      "fish": false
+    },
+    {
+      "uid": 11,
+      "fish": false
+    },
+    {
+      "uid": 12,
+      "fish": false
+    },
+    {
+      "uid": 13,
+      "fish": false
+    },
+    {
+      "uid": 14,
+      "category": "fish",
+      "fish": true,
+      "appearance": {
+        "species": "molly",
+        "variant": "black",
+        "sex": "♀"
+      },
+      "basisLengths": [
+        0.6238249640557498,
+        0.6238249640557498,
+        0.6238249640557499
+      ]
+    },
+    {
+      "uid": 15,
+      "category": "fish",
+      "fish": true,
+      "appearance": {
+        "species": "molly",
+        "variant": "black",
+        "sex": "♀"
+      },
+      "basisLengths": [
+        0.6237488844386869,
+        0.6237488844386869,
+        0.6237488844386869
+      ]
+    },
+    {
+      "uid": 16,
+      "category": "fish",
+      "fish": true,
+      "appearance": {
+        "species": "molly",
+        "variant": "gold",
+        "sex": "♂"
+      },
+      "basisLengths": [
+        0.5225350978855113,
+        0.5225350978855117,
+        0.5225350978855116
+      ]
+    },
+    {
+      "uid": 17,
+      "category": "fish",
+      "fish": true,
+      "appearance": {
+        "species": "molly",
+        "variant": "gold",
+        "sex": "♂"
+      },
+      "basisLengths": [
+        0.52879188559276,
+        0.5287918855927601,
+        0.52879188559276
+      ]
+    },
+    {
+      "uid": 18,
+      "category": "fish",
+      "fish": true,
+      "appearance": {
+        "species": "molly",
+        "variant": "black",
+        "sex": "♀"
+      },
+      "basisLengths": [
+        0.6690314725144928,
+        0.6690314725144928,
+        0.6690314725144929
+      ]
+    },
+    {
+      "uid": 19,
+      "category": "fish",
+      "fish": true,
+      "appearance": {
+        "species": "molly",
+        "variant": "black",
+        "sex": "♂"
+      },
+      "basisLengths": [
+        0.5319202794463841,
+        0.5319202794463843,
+        0.5319202794463843
+      ]
+    },
+    {
+      "uid": 20,
+      "category": "fish",
+      "fish": true,
+      "appearance": {
+        "species": "molly",
+        "variant": "black",
+        "sex": "♂"
+      },
+      "basisLengths": [
+        0.5073313472116724,
+        0.5073313472116725,
+        0.5073313472116724
+      ]
+    },
+    {
+      "uid": 21,
+      "category": "fish",
+      "fish": true,
+      "appearance": {
+        "species": "molly",
+        "variant": "black",
+        "sex": "♂"
+      },
+      "basisLengths": [
+        0.5217012652825028,
+        0.5217012652825029,
+        0.521701265282503
+      ]
+    },
+    {
+      "uid": 22,
+      "category": "fish",
+      "fish": true,
+      "appearance": {
+        "species": "molly",
+        "variant": "black",
+        "sex": "♀"
+      },
+      "basisLengths": [
+        0.6375040792036493,
+        0.6375040792036494,
+        0.6375040792036494
+      ]
+    },
+    {
+      "uid": 28,
+      "category": "fish",
+      "fish": true,
+      "appearance": {
+        "species": "molly",
+        "variant": "black",
+        "sex": "♂"
+      },
+      "basisLengths": [
+        0.20528968830025476,
+        0.2052896883002548,
+        0.20528968830025476
+      ]
+    },
+    {
+      "uid": 29,
+      "category": "fish",
+      "fish": true,
+      "appearance": {
+        "species": "molly",
+        "variant": "gold",
+        "sex": "♀"
+      },
+      "basisLengths": [
+        0.2620441950336056,
+        0.2620441950336057,
+        0.26204419503360565
+      ]
+    },
+    {
+      "uid": 30,
+      "category": "fish",
+      "fish": true,
+      "appearance": {
+        "species": "molly",
+        "variant": "gold",
+        "sex": "♀"
+      },
+      "basisLengths": [
+        0.25476584826824583,
+        0.25476584826824583,
+        0.25476584826824583
+      ]
+    },
+    {
+      "uid": 31,
+      "category": "fish",
+      "fish": true,
+      "appearance": {
+        "species": "molly",
+        "variant": "gold",
+        "sex": "♂"
+      },
+      "basisLengths": [
+        0.2035565946235632,
+        0.20355659462356315,
+        0.2035565946235632
+      ]
+    }
+  ],
+  "status": "failed",
+  "failure": "Locator.click: Timeout 90000ms exceeded.\nCall log:\n  - waiting for locator(\"[data-act=\\\"close-panel\\\"]\").filter(visible=True).first\n    - locator resolved to <button class=\"iconbtn\" data-act=\"close-panel\" aria-label=\"Menü schließen\">…</button>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n"
+}

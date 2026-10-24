@@ -1,0 +1,55 @@
+{
+  "runtime": "ffc061279f01f0030fe35503def0d1b329e5f73b",
+  "captures": [
+    {
+      "name": "m3-no-parents",
+      "url": "http://127.0.0.1:8000/final-before/?mission=m3-hidden-inheritance",
+      "at": "2026-10-23T13:43:50.944189+00:00",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "text": "Klasse 9 · Generation 0 · Zeitraffer\nKönnen dunkle Eltern helle Junge bekommen?\nMenü\nBecken einpassen\nDein Auftrag\nWähle ein dunkles und ein helles Elterntier.\nZuerst dunkel mit hell kreuzen. Danach werden ihre Nachkommen die Eltern.\n\n♀ Weibchen · ♂ Männchen\n\n♀29 dunkel\n♂30 hell\n♀31 hell\n♂32 dunkel\nNachkommen ansehen\nTipp\nZählen\n\n✕ Wähle ein passendes Weibchen und Männchen aus dieser Gruppe."
+    },
+    {
+      "name": "m3-two-dark",
+      "url": "http://127.0.0.1:8000/final-before/?mission=m3-hidden-inheritance",
+      "at": "2026-10-23T13:43:56.041814+00:00",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "text": "Klasse 9 · Generation 0 · Zeitraffer\nKönnen dunkle Eltern helle Junge bekommen?\nMenü\nBecken einpassen\nDein Auftrag\nWähle ein dunkles und ein helles Elterntier.\nZuerst dunkel mit hell kreuzen. Danach werden ihre Nachkommen die Eltern.\n\n♀ Weibchen · ♂ Männchen\n\n♀29 dunkel\n♂30 hell\n♀31 hell\n♂32 dunkel\nNachkommen ansehen\nTipp\nZählen\n\n✕ Wähle ein passendes Weibchen und Männchen aus dieser Gruppe.\n\nMolly · 32"
+    },
+    {
+      "name": "m3-same-sex",
+      "url": "http://127.0.0.1:8000/final-before/?mission=m3-hidden-inheritance",
+      "at": "2026-10-23T13:43:59.528587+00:00",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "text": "Klasse 9 · Generation 0 · Zeitraffer\nKönnen dunkle Eltern helle Junge bekommen?\nMenü\nBecken einpassen\nDein Auftrag\nWähle ein dunkles und ein helles Elterntier.\nZuerst dunkel mit hell kreuzen. Danach werden ihre Nachkommen die Eltern.\n\n♀ Weibchen · ♂ Männchen\n\n♀29 dunkel\n♂30 hell\n♀31 hell\n♂32 dunkel\nNachkommen ansehen\nTipp\nZählen\nMolly · 31"
+    },
+    {
+      "name": "m4-parent-table",
+      "url": "http://127.0.0.1:8000/final-before/?mission=m4-dominance-frequency",
+      "at": "2026-10-23T13:44:09.529350+00:00",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "text": "Klasse 9 · Generation 3 · Zeitraffer\nSetzt sich die dominante Farbe immer durch?\nMenü\nBecken einpassen\nDein Auftrag\nDein Ergebnis ist gespeichert.\nBei gleichen Chancen waren 8 und 10 von jeweils zwölf Fischen dunkel. Dominant beschreibt die sichtbare Farbe. Es garantiert weder mehr Junge noch eine häufigere Farbe. Im dritten Versuch hatten helle Tiere nach der gesetzten Regel größere Chancen, Eltern zu werden.\nErgebnis speichernNoch einmal untersuchen\nTipp\nElternbeiträge\n\n• Dein Stand ist geladen. Die Entwicklung bleibt angehalten.\n\nTatsächliche Elternbeiträge\nSchließen\n\nGesetzte Regel: Helle Tiere haben bei der Elternwahl das doppelte Gewicht.\n\nFisch\tGewicht\tNachkommen\n53\t1\t2\n54\t0,5\t1\n55\t1\t0\n56\t1\t6\n57\t0,5\t1\n58\t1\t1\n59\t1\t4\n60\t0,5\t2\n61\t0,5\t0\n62\t0,5\t1\n63\t1\t5\n64\t0,5\t1"
+    },
+    {
+      "name": "archive-technical-keys",
+      "url": "http://127.0.0.1:8000/final-before/?mission=m4-dominance-frequency",
+      "at": "2026-10-23T13:44:17.993948+00:00",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "text": "Klasse 9 · Generation 0 · Zeitraffer\nSetzt sich die dominante Farbe immer durch?\nMenü\nBecken einpassen\nDein Auftrag\nWird die dominante Farbe immer häufiger?\nDominant heißt hier: Bei A und a ist der Fisch dunkel. Wird die Farbe deshalb häufiger? Was vermutest du?\nJaNeinIch bin unsicher\nTipp\nZählen\n\n• Ein neuer Versuch beginnt. Dein vorheriger Stand bleibt im Archiv.\n\nFrühere lokale Ergebnisse\nSchließen\naquarium-single-investigation-v1:m4-dominance-frequency:archive:c55ccde4-d857-4096-81cb-5a71454841e0:1792763047043\naquarium-single-investigation-v1:m4-dominance-frequency:archive:c0a6c296-2eee-4f1c-a4b5-0def26a811f1:1792763052589"
+    }
+  ]
+}

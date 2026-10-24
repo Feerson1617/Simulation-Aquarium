@@ -1,0 +1,9 @@
+PASS R1/R8: real 10-restore 50%/14d stops control at day48.25, test reaches59; independent real-core continuation, cause and CSV provenance
+PASS R1: real control is still alive at day48; the next terminal core step retains day48.25 and nitrite cause; paired final-step edge remains covered by Node
+PASS R3: baseline label updates immediately; changed baseline/input/notes cannot relabel old data or JSON provenance
+RESULTS /tmp/coherent-expert-review/20261022T101739
+Traceback (most recent call last):
+  File "/workspace/Simulation-Aquarium/tests/learning_review_browser.py", line 72, in <module>
+    assert not any(key in run for key in ['initialControl','initialTest','finalControl','finalTest'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

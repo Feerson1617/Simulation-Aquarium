@@ -1,0 +1,33 @@
+{
+  "commit": "d46e029a2630e55c557e2f64df36e292a0164ca8",
+  "engine": "webkit",
+  "checks": [],
+  "captures": [
+    {
+      "name": "foodweb-start",
+      "at": "2026-10-23T13:30:11.445269+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n13 Tiere\n·\n8 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nEin Becken – viele Beziehungen · Versuch 1 · Auftrag & HinweiseKlassen 8–10\nHeizstab ↻Licht ↻Filter ↻Belüfter ↻"
+    },
+    {
+      "name": "failure",
+      "at": "2026-10-23T13:30:15.537916+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n13 Tiere\n·\n8 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nEin Becken – viele Beziehungen · Versuch 1 · Auftrag & HinweiseKlassen 8–10\nHeizstab ↻Licht ↻Filter ↻Belüfter ↻"
+    }
+  ],
+  "errors": [],
+  "requests_failed": [],
+  "console": [],
+  "version": "26.5",
+  "status": "failed",
+  "failure": ""
+}

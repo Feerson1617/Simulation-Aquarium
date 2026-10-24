@@ -6,11 +6,12 @@ export function advanceNitrifiers(state,dt,flux){
  state.bacteria=bioClamp(state.bacteria+.3*Math.max(0,flux.ammoniaOxidation)*(1-state.bacteria)-decay*state.bacteria*dt);
  state.bacteria2=bioClamp(state.bacteria2+.2*Math.max(0,flux.nitriteOxidation)*(1-state.bacteria2)-decay*state.bacteria2*dt);
 }
-/** Compound mg/L; the organic pools and their conversion are game calibration. */
+/** TAN production is mg NH4 equivalents/L. Organic source pools and yields are game calibration. */
 export function decomposeOrganic(state,dt){const e=state.ecology=normalizeEcology(state.ecology,state),p=state.params,oxygen=bioClamp(p.oxygen/4),temperature=bioClamp(2**((p.temp-25)/10),.25,2);
  const potential=state.detritus*(1-Math.exp(-(.06+.26*e.heterotrophs)*temperature*oxygen*dt)),amount=Math.max(0,Math.min(potential,p.oxygen*state.liters/18));state.detritus=Math.max(0,state.detritus-amount);
  const mineralization=amount*20/state.liters,oxygenDemand=amount*18/state.liters;p.nh4+=mineralization;p.po4+=amount*.88/state.liters;p.oxygen=Math.max(0,p.oxygen-oxygenDemand);e.heterotrophs=bioClamp(e.heterotrophs+(.18*bioClamp(state.detritus/.5)*oxygen*(1-e.heterotrophs)-.025*e.heterotrophs)*dt);
  return {decomposition:amount,mineralization,decomposerOxygen:oxygenDemand,decomposerCO2:oxygenDemand*44/32};}
+/** TAN: mg NH4 equivalents/L; nitrite/nitrate: mg NO2/NO3 per L; oxygen: mg O2/L. Conserves N. */
 export function oxidizeNitrogen(p,{ammoniaCapacity,nitriteCapacity}){const nh4=Math.max(0,Math.min(p.nh4,ammoniaCapacity,p.oxygen/(48/18)));p.nh4=Math.max(0,p.nh4-nh4);p.no2+=nh4*46/18;p.oxygen=Math.max(0,p.oxygen-nh4*48/18);const no2=Math.max(0,Math.min(p.no2,nitriteCapacity,p.oxygen/(16/46)));p.no2=Math.max(0,p.no2-no2);p.no3+=no2*62/46;p.oxygen=Math.max(0,p.oxygen-no2*16/46);return {ammoniaOxidation:nh4,nitriteOxidation:no2,nitrificationOxygen:nh4*48/18+no2*16/46}}
 export function advanceMicrofood(state,dt,types){const e=state.ecology=normalizeEcology(state.ecology,state),p=state.params,animals=state.entities.filter(a=>!a.dead&&['fish','invert'].includes(types[a.species]?.category)),demand=key=>animals.filter(a=>feedingProfile(types[a.species]).resources.includes(key)).length/Math.max(30,state.liters),oxygen=bioClamp(p.oxygen/5),resources=bioClamp(e.heterotrophs+state.algae);
  e.microfauna=bioClamp(e.microfauna+(.045*resources*oxygen*(1-e.microfauna)-(.012+demand('microfauna')*.6)*e.microfauna)*dt);e.plankton=bioClamp(e.plankton+(.035*(state.algae+state.detritus*.2)*oxygen*(1-e.plankton)-(.025+demand('plankton')*.8)*e.plankton)*dt);e.heterotrophs=bioClamp(e.heterotrophs-demand('biofilm')*.08*e.heterotrophs*dt);

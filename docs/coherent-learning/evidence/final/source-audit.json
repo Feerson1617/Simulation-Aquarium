@@ -1,0 +1,43 @@
+{
+  "baseline": "8e41962132fe3778fe73f8e14c650f42e18d848d",
+  "approvedPrototype": "d0c4b17096289c18efa63a8b93aa49205c4cb1bd",
+  "applicationHead": "f12d5e8789cb70268469df8c6a60ecb15547cf91",
+  "changedTopLevelFunctions": [
+    "cd",
+    "ud",
+    "z1",
+    "Ec",
+    "sd"
+  ],
+  "protectedCore": {
+    "hd": {
+      "unchanged": true,
+      "sha256": "46b1a7939ce754edf17b7ca6554fd8decda716a8ff24b670e861f049a3c2d84a"
+    },
+    "Qf": {
+      "unchanged": true,
+      "sha256": "d6afdc78bb1ee2aa947c8a028ba50a47e8dde1aef5205883a161a1e08d7a28bc"
+    },
+    "qs": {
+      "unchanged": true,
+      "sha256": "a2e146b7d197cf7bf3a0e68774cec34f1638a34c15b92b8740a3a375422b0c6f"
+    },
+    "tp": {
+      "unchanged": true,
+      "sha256": "81261a5a9d48ebcb169de9c4bcdecdad19e0981e8f71f3e055ccc8fb0b52c2b8"
+    }
+  },
+  "unchangedFiles": {
+    "AGENTS.md": {
+      "unchanged": true,
+      "sha256": "d9fc27e65c9de4e172db087a94d5217190cc5cc63fba14971ba8da52b6f476a3"
+    },
+    "genetics.mjs": {
+      "unchanged": true,
+      "sha256": "301b841789853d6ed8dac91d3090f2cc85ab858701577473a35e3ab82122a532"
+    }
+  },
+  "rendererUnchangedSinceApproval": true,
+  "protectedPathDiff": [],
+  "explanation": "Factory/loader only tag declared versus undocumented TAN basis; laboratory functions name the current basis. Biological stepping, warning selection, water exchange, original genetics, catalog assets and workflow rules are retained. Shared NH3 arithmetic is quantitatively checked in coherent_phase4.test.mjs."
+}

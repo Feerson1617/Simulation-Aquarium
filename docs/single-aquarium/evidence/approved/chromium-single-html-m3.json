@@ -1,0 +1,20 @@
+{
+  "engine": "chromium",
+  "testHead": "dcaa2dc2105061e77f5340a4db19049c9f0cb7a1",
+  "artifactSHA256": "9e54439e76ebd5e07653fbf329d2f47b8e30429a82870f9b1bca736f39cf730d",
+  "url": "http://127.0.0.1:8000/standalone-m1/?mission=m3-hidden-inheritance",
+  "errors": [],
+  "requests": [
+    "http://127.0.0.1:8000/standalone-m1/?mission=m3-hidden-inheritance"
+  ],
+  "checks": [
+    "embedded new lesson and inheritance modules",
+    "actual F1 and F2 from visible parent choices",
+    "rendered UID and colour match actual F2 entities",
+    "offline completion and export with current context v2",
+    "single HTTP document without child HTTP resources"
+  ],
+  "nativeFile": "not tested",
+  "physicalIPad": false,
+  "status": "passed"
+}

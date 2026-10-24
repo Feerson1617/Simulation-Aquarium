@@ -1,0 +1,27 @@
+PASS desktop: two actual initial tank scenes before prediction
+PASS desktop: actual fish/water choices, wrong answers, neutral prediction, accessible heater with invalid/comma input
+PASS desktop: real time course, synchronized scene/cards/chart/table, persisted result and completed temperature mission
+PASS AT03: older series / repetition 2 / early time / both side buttons / JSON+CSV match, no live mutation
+PASS AT06: new attempt has fresh evidence; previous completed product remains readable
+PASS portrait: two actual initial tank scenes before prediction
+PASS portrait: actual fish/water choices, wrong answers, neutral prediction, accessible heater with invalid/comma input
+PASS portrait: real time course, synchronized scene/cards/chart/table, persisted result and completed temperature mission
+PASS landscape: two actual initial tank scenes before prediction
+PASS landscape: actual fish/water choices, wrong answers, neutral prediction, accessible heater with invalid/comma input
+REPORT /tmp/aquarium-delivery-context/chromium/report.json
+node:events:487
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: write EPIPE
+    at WriteWrap.onWriteComplete [as oncomplete] (node:internal/stream_base_commons:87:19)
+Emitted 'error' event on Socket instance at:
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  errno: -32,
+  code: 'EPIPE',
+  syscall: 'write'
+}
+
+Node.js v24.19.0

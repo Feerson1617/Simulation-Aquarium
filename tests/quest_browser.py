@@ -10,7 +10,9 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=Path(os.environ['AQUARIUM_QUEST_RESUME']) if os.environ.get('AQUARIUM_QUEST_RESUME') else Path(os.environ.get('AQUARIUM_QUEST_RESULTS','/tmp/aquarium-quest-results'))/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S');OUT.mkdir(parents=True,exist_ok=bool(os.environ.get('AQUARIUM_QUEST_RESUME')))
 URL=os.environ.get('AQUARIUM_URL','http://127.0.0.1:8000/aquarium-simulation/').split('?')[0]
 SECTIONS=os.environ.get('AQUARIUM_QUEST_SECTIONS','desktop,touch,free,teacher,help').split(',')
-report={'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'checks':[],'errors':[],'failed_requests':[],'missions':[],'screenshots':[],'sections':SECTIONS}
+DPR=float(os.environ.get('AQUARIUM_TEST_DPR','1'))
+if not 0.5<=DPR<=2:raise ValueError('AQUARIUM_TEST_DPR must be between 0.5 and 2')
+report={'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'device_scale_factor':DPR,'checks':[],'errors':[],'failed_requests':[],'missions':[],'screenshots':[],'sections':SECTIONS}
 # Resume only remaining sections after a test-harness fix. Preserve the original
 # failed report and actual products; teacher imports still read all earlier exports.
 if os.environ.get('AQUARIUM_QUEST_RESUME'):
@@ -41,7 +43,7 @@ def short(p):
  assert not p.evaluate('document.documentElement.scrollWidth>innerWidth')
 def shot(p,name):p.screenshot(path=str(OUT/name));report['screenshots'].append(name)
 def context(b,touch=False):
- c=b.new_context(viewport={'width':768 if touch else 1360,'height':1024 if touch else 960},is_mobile=touch,has_touch=touch,accept_downloads=True)
+ c=b.new_context(viewport={'width':768 if touch else 1360,'height':1024 if touch else 960},device_scale_factor=DPR,is_mobile=touch,has_touch=touch,accept_downloads=True)
  c.add_init_script("localStorage.setItem('aquarium-graphics-v1',JSON.stringify({version:1,profile:'ipad'}))")
  p=c.new_page();p.set_default_timeout(90000);p.on('pageerror',lambda e:report['errors'].append(str(e)));p.on('requestfailed',lambda r:report['failed_requests'].append(r.url));p.goto(URL);p.wait_for_function('!!window.aquariumLearningSnapshot');return c,p
 def download(p,name):
@@ -59,39 +61,59 @@ def complete(p,g,id,touch=False):
  else:assert snap(p)['quest']['activities']==[]
  act('observe')
  if id!='10-wadden':
-  p.locator('[data-learn-help="observe"]').click();expect(p.locator('.learn-help-pop')).to_contain_text('Schau genau hin. Was passiert im Aquarium?');p.keyboard.press('Escape');assert p.evaluate('document.activeElement.dataset.learnHelp')=='observe'
- else:expect(p.locator('.learn-panel')).to_contain_text('Hafen')
+  p.locator('[data-learn-help="observe"]').click();expect(p.locator('.learn-help-pop')).to_contain_text('Schau genau hin. Was zeigt deine Population?' if g==9 else 'Schau genau hin. Was passiert im Aquarium?');p.keyboard.press('Escape');assert p.evaluate('document.activeElement.dataset.learnHelp')=='observe'
+ else:
+  expect(p.locator('#learning-root')).to_contain_text('Hafen')
+  if p.locator('[data-harbour-object]').count():
+   for node in ['visitors','packaging','animals']:p.locator(f'[data-harbour-object="{node}"]').click()
  assert p.evaluate('document.querySelector("#scene").inert');act('close');activities(p,touch)
  choose(1);assert snap(p)['quest']['step']==0;choose(0);assert snap(p)['quest']['step']==1;choose(1);assert snap(p)['quest']['step']==2
  biological_experiment(p,id,touch);assert snap(p)['quest']['step']==3,snap(p)['quest'];activities(p,touch)
- r=snap(p)['quest']['result'];correct=comparison_answer(id,r);short(p)
+ r=snap(p).get('questionResult') or snap(p)['quest']['result'];correct=comparison_answer(id,r);short(p)
  choose((correct+1)%(2 if id=='9-traits' else 3));assert snap(p)['quest']['step']==3;assert snap(p)['quest']['feedback']
  if id in ['8-oxygen','9-mendel','10-carbon']:shot(p,f'{"touch" if touch else "desktop"}-{id}-compare.png')
- choose(correct);assert snap(p)['quest']['step']==4;activities(p,touch);choose(1);assert snap(p)['quest']['step']==4;choose(0);assert snap(p)['quest']['step']==5;short(p)
+ choose(correct);assert snap(p)['quest']['step']==4;activities(p,touch)
+ if id in ['8-foodweb','8-forest','10-carbon','9-darwin','10-northsea']:shot(p,f'{"touch" if touch else "desktop"}-{id}-active-process.png')
+ choose(1);assert snap(p)['quest']['step']==4;choose(0);assert snap(p)['quest']['step']==5;short(p)
  q=snap(p)['quest'];assert len(q['entries'])==5;assert {a['id'] for a in q['activities']}==EXPECTED_ACTIONS[id]
  assert not any(snap(p)['notes'].values()),'Generated answers/text must never become own notes'
  if p.locator('[data-learn="close"]:visible').count():act('close')
- frame=p.evaluate('window.aquariumSnapshot().graphics.renderFrame');p.wait_for_function('(f)=>window.aquariumSnapshot().graphics.renderFrame>f+2 && window.aquariumSnapshot().graphics.triangles>3000',arg=frame)
+ current=snap(p)
+ if current.get('prototype') and current['prototype']['render']['sides']:
+  frame=current['prototype']['render']['frames'];p.wait_for_function('(f)=>window.aquariumLearningSnapshot().prototype.render.frames>f+2',arg=frame)
+ elif current.get('domainView'):
+  assert p.locator('[data-cohort-uid]').count()>0;expect(p.locator('#scene')).not_to_be_visible()
+ elif current.get('regionalView') or (id=='10-northsea' and p.locator('[data-process-node]').count()):
+  assert p.locator('[data-harbour-object],[data-process-node]').count()>0;expect(p.locator('#scene')).not_to_be_visible()
+ else:
+  frame=p.evaluate('window.aquariumSnapshot().graphics.renderFrame');p.wait_for_function('(f)=>window.aquariumSnapshot().graphics.renderFrame>f+2 && window.aquariumSnapshot().graphics.triangles>3000',arg=frame)
  shot(p,f'{"touch" if touch else "desktop"}-{id}-done.png');act('notebook');f=download(p,f'{"touch" if touch else "desktop"}-{id}.json');data=json.loads(f.read_text())
  assert data['quest']['step']==5 and data['gameExplanation'];assert not any(data['notes'].values());assert data['provenance']['questAnswers']=='selection' and data['provenance']['measurements']=='simulation'
  if id in ['8-oxygen','9-mendel','10-carbon']:
   own=reveal(p.locator('[data-learning-note="explanation"]'));own.fill('Ich habe beide Ergebnisse verglichen. Meine eigene kurze Begründung bleibt getrennt von den Spieltexten.')
   ownfile=download(p,f'{"touch" if touch else "desktop"}-{id}-own.json');ownproduct=json.loads(ownfile.read_text());assert ownproduct['provenance']['notes']['explanation']=='own-input';assert ownproduct['notes']['explanation']==own.input_value()
  short(p);act('close');before=snap(p)
- if id in ['8-oxygen','9-mendel','10-carbon']:
-  p.reload();p.wait_for_function('!!window.aquariumLearningSnapshot');start(p,g,id);assert snap(p)['quest']==before['quest'];assert snap(p)['comparison']==before['comparison'];assert snap(p)['population']==before['population']
+ if True:  # Every mission must now survive reload in the same accumulated local profile.
+  p.reload();p.wait_for_function('!!window.aquariumLearningSnapshot');start(p,g,id)
+  after=snap(p)
+  if after['quest']!=before['quest']:
+   (OUT/f'{id}-before-reload.json').write_text(json.dumps(before,ensure_ascii=False))
+   (OUT/f'{id}-after-reload.json').write_text(json.dumps(after,ensure_ascii=False))
+  assert after['quest']==before['quest'];assert after['comparison']==before['comparison'];assert after['population']==before['population'];assert not after['storageError']
  report['missions'].append({'id':id,'touch':touch,'quest':snap(p)['quest'],'product':f.name});passed(f'{"touch" if touch else "desktop"}: {id} completed with required biological actions, actual evidence, retry, provenance and explanation')
  act('home')
 
 with sync_playwright() as pw:
  engine=os.environ.get('AQUARIUM_BROWSER','chromium');report['engine']=engine
  launch={'executable_path':os.environ.get('AQUARIUM_CHROMIUM','/usr/bin/chromium'),'args':['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']} if engine=='chromium' else {}
+ if engine=='webkit' and os.environ.get('AQUARIUM_WEBKIT'):launch['executable_path']=os.environ['AQUARIUM_WEBKIT']
  b=getattr(pw,engine).launch(**launch)
  try:
   if 'desktop' in SECTIONS:
    c,p=context(b)
    for g,ids in IDS.items():
-    for id in ids:complete(p,g,id)
+    for id in ids:
+     if id not in os.environ.get("AQUARIUM_QUEST_SKIP","").split(","):complete(p,g,id)
    c.close()
   if 'touch' in SECTIONS:
    c,p=context(b,True)

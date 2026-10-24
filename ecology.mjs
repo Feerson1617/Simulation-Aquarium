@@ -1,3 +1,4 @@
+import {ammoniaPoolLabel} from "./ammonia-pool.mjs";
 /** Ecological interpretation of the real aquarium; relative pools are not cell counts. */
 const ecoClamp=(v,min=0,max=1)=>Math.max(min,Math.min(max,v));
 const ecoFinite=(v,fallback=0)=>Number.isFinite(v)?v:fallback;
@@ -60,5 +61,5 @@ export function buildFoodWeb(state,types){
  for(const [id,name,value] of [['ammonium-oxidizers','Ammoniumoxidierer',state.bacteria],['nitrite-oxidizers','Nitritoxidierer',state.bacteria2]])if(value>0)nodes.push({id,name,roles:['Chemolithoautotrophe Mikroben'],resource:true});
  return {nodes,edges,gaps,convention:'Nahrungspfeile zeigen von der Nahrung zum Konsumenten. Gestrichelte Linien markieren Restwege oder eine zu untersuchende Abhängigkeit. Mögliche Beute ist kein Nachweis eines beobachteten Fraßvorgangs.'};
 }
-export function environmentFactors(state,types){return [['temp','Temperatur','°C'],['ph','pH',''],['oxygen','Sauerstoff','mg/L'],['co2','CO₂','mg/L'],['nh4','Ammonium','mg NH₄/L'],['no2','Nitrit','mg NO₂/L'],['no3','Nitrat','mg NO₃/L']].map(([key,label,unit])=>({key,label,unit,value:state.params[key],affected:state.entities.filter(e=>!e.dead&&types[e.species]?.[key]&&(state.params[key]<types[e.species][key][0]||state.params[key]>types[e.species][key][1])).length}))}
+export function environmentFactors(state,types){return [['temp','Temperatur','°C'],['ph','pH',''],['oxygen','Sauerstoff','mg/L'],['co2','CO₂','mg/L'],['nh4',ammoniaPoolLabel(state.chemistry).name,ammoniaPoolLabel(state.chemistry).unit],['no2','Nitrit','mg NO₂/L'],['no3','Nitrat','mg NO₃/L']].map(([key,label,unit])=>({key,label,unit,value:state.params[key],affected:state.entities.filter(e=>!e.dead&&types[e.species]?.[key]&&(state.params[key]<types[e.species][key][0]||state.params[key]>types[e.species][key][1])).length}))}
 export function recordEcologyStep(state,dt,flux){const e=state.ecology=normalizeEcology(state.ecology,state);e.lastFlux={day:state.day,dt,...Object.fromEntries(Object.entries(flux).filter(([,v])=>Number.isFinite(v)))};e.trace.push({day:state.day,oxygen:state.params.oxygen,no2:state.params.no2,co2:state.params.co2});e.trace=e.trace.slice(-40)}

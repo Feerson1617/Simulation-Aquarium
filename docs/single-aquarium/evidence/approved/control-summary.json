@@ -1,0 +1,47 @@
+{
+  "scope": "Only passed step inventories; Chromium desktop baseline plus final tablet profiles; WebKit foundation with final portrait deltas; current M1 both engines. Not a claim of uniform commit identity or learning gain.",
+  "missions": [
+    {
+      "mission": "M1",
+      "controlsMin": 3,
+      "controlsMax": 7,
+      "chromiumMinimumFree": 0.7429762470225494,
+      "webkitMinimumFree": 0.7473955104748409
+    },
+    {
+      "mission": "M2",
+      "controlsMin": 3,
+      "controlsMax": 5,
+      "chromiumMinimumFree": 0.740736223757267,
+      "webkitMinimumFree": 0.7548008685310682
+    },
+    {
+      "mission": "M3",
+      "controlsMin": 4,
+      "controlsMax": 16,
+      "chromiumMinimumFree": 0.7519935133556525,
+      "webkitMinimumFree": 0.753585696220398
+    },
+    {
+      "mission": "M4",
+      "controlsMin": 5,
+      "controlsMax": 6,
+      "chromiumMinimumFree": 0.7360102844734986,
+      "webkitMinimumFree": 0.72989867379268
+    },
+    {
+      "mission": "M5",
+      "controlsMin": 3,
+      "controlsMax": 5,
+      "chromiumMinimumFree": 0.7088502645492554,
+      "webkitMinimumFree": 0.7095557413995266
+    },
+    {
+      "mission": "M6",
+      "controlsMin": 3,
+      "controlsMax": 5,
+      "chromiumMinimumFree": 0.7705079913139343,
+      "webkitMinimumFree": 0.7719482928514481
+    }
+  ]
+}

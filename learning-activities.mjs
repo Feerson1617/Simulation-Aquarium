@@ -1,9 +1,10 @@
+import {harbourMeasure,HARBOUR_MEASURES} from "./learning-regional-workspace.mjs";
 /** Small biological actions inside the five phases. No synthetic measurements or compulsory essays. */
 const link = (id,phase,from,prompt,targets,correct,hint) => ({id,phase,from,prompt,targets,correct,hint,kind:"assignment"});
 const view = (id,phase,prompt,action) => ({id,phase,prompt,action,kind:"view"});
 export const OBSERVATION_METRICS = {
   "8-ecosystem":["temp","fishAlive"],"8-oxygen":["oxygen","temp"],"8-foodweb":["organic","fishAlive"],
-  "8-health":["fishAlive","no2"],"8-forest":["plantBiomass"],
+  "8-health":["fishAlive","oxygen"],"8-forest":["plantBiomass"],
   "10-enrichment":["algae","oxygen"],"10-carbon":["co2","plantBiomass"],"10-restore":["fishAlive","no2"],
   "10-northsea":["algae","oxygen"],
 };
@@ -23,13 +24,13 @@ export const ACTIVITIES = {
   "8-health":[view("fish-water",0,"Schau auf Fische und Wasser.","observe"),view("survival",3,"Vergleiche auch die Zahl lebender Fische.","fishAlive")],
   "8-forest":[
     link("forest-same",4,"Wasserpest 🌿 ↔ Baum 🌳","Ordne eine Gemeinsamkeit zu.",["Beide nutzen Licht für Fotosynthese","Beide wachsen nur im Wasser"],0,"Beide sind Pflanzen und brauchen Licht."),
-    link("forest-different",4,"Wasserpest 🌿 ↔ Baum 🌳","Ordne einen Unterschied zu.",["Beim Baum liegen die Wurzeln im Boden; Wasserpest wächst unter Wasser","Nur der Baum braucht Kohlenstoff"],0,"Vergleiche, wo die Pflanzen wachsen."),
+    link("forest-different",4,"Wasserpest 🌿 ↔ Baum 🌳","Ordne einen Unterschied zu.",["Baumblätter liegen in Luft; Wasserpestblätter liegen unter Wasser","Nur der Baum braucht Kohlenstoff"],0,"Vergleiche die Umgebung der Blätter. Beide Pflanzen können im Boden wurzeln."),
   ],
   "9-traits":[view("visible-traits",0,"Sieh dir einen hellen und einen dunklen Fisch an.","traits")],
   "9-mendel":[link("mendel-probability",4,"Aa × Aa","Was sagt 3:1 über einen Wurf?",["Eine Wahrscheinlichkeit; die gezählte Anzahl kann abweichen","Jeder Wurf hat genau drei dunkle und einen hellen Fisch"],0,"Jede Keimzelle wird zufällig gezogen. Zähle deinen tatsächlichen Wurf.")],
   "9-population":[],
   "9-darwin":[
-    link("darwin-prediction",0,"Schon vorhandene Farbvarianten","Welche Vorhersage gehört dazu?",["Varianten können verschieden oft weitergegeben werden","Jeder Fisch wird durch seinen Wunsch dunkel"],0,"Hier unterscheiden sich schon die Eltern. Ein Bedarf erzeugt kein neues Allel."),
+    link("darwin-prediction",0,"Schon vorhandene Farbvarianten","Welche Vorhersage gehört dazu?",["Varianten können verschieden oft weitergegeben werden","Im Leben erworbene Veränderungen werden an Nachkommen weitergegeben"],0,"Hier unterscheiden sich schon die Eltern. Ein Bedarf erzeugt kein neues Allel."),
     link("lamarck-prediction",0,"Lamarck: im Leben erworbene Veränderungen","Was müsste nach dieser Erklärung weitergegeben werden?",["Die im Leben erworbene Veränderung der Eltern","Nur schon vorher vererbte Unterschiede"],0,"Lamarck nahm an, durch Gebrauch erworbene Veränderungen würden vererbt. Das ist eine andere Vorhersage als die Auswahl vorhandener Varianten."),
     link("fossil-evidence",4,"Zeitlich geordnete Fossilien","Was können Fossilien zusätzlich zeigen?",["Frühere Lebensformen und Veränderungen über lange Zeit","Dass ein Fisch seine Erbanlagen nach Wunsch ändert"],0,"Fossilien sind Funde aus der Natur. Ein Farbversuch ist kein Fossilbeleg."),
   ],
@@ -58,14 +59,17 @@ export const REGIONAL_CASES = {
 };
 export function pendingActivity(state, phase = state.step) {
   if (!state || state.version === 1) return null;
-  return (ACTIVITIES[state.id] || []).find(d => d.phase <= phase && !(state.activities || []).some(a => a.id === d.id));
+  const activity=(ACTIVITIES[state.id] || []).find(d => d.phase <= phase && !(state.activities || []).some(a => a.id === d.id));
+  const measure=state.id === "10-wadden" && HARBOUR_MEASURES[harbourMeasure(state)];
+  const field={"harbour-benefit":"benefit","harbour-effort":"effort","harbour-followup":"followup"}[activity?.id];
+  return measure && field ? {...activity,from:measure.label,targets:[measure[field],activity.targets[1]],hint:"Prüfe den Weg deiner ausgewählten Maßnahme am Hafen."} : activity;
 }
 export function assignActivity(state,id,index) {
   const d = pendingActivity(state);
   if (!d || d.id !== id || d.kind !== "assignment" || !Number.isInteger(index) || index < 0 || index >= d.targets.length) return false;
   if (d.phase === 0 && !state.observed) {state.feedback="Schau zuerst ins Aquarium oder in den Küstenfall.";return false;}
   if (d.correct !== null && d.correct !== index) {state.feedback=d.hint;return false;}
-  (state.activities ??= []).push({id,kind:"assignment",origin:"selection",from:d.from,to:d.targets[index],at:new Date().toISOString()});
+  (state.activities ??= []).push({id,kind:"assignment",origin:"selection",from:d.from,to:d.targets[index],choiceIndex:index,at:new Date().toISOString()});
   state.feedback="Zuordnung gespeichert.";return true;
 }
 export function recordActivityView(state,id,evidence) {
@@ -85,7 +89,7 @@ export function mendelEvidence(p) {
     f2:second?{generation:second.generation,parents:second.parents,counts:p.history.find(h=>h.generation===second.generation)}:null};
 }
 export function populationPairEvidence(history,current) {
-  const all=[...(history||[]),current].filter(c=>c?.kind==="population" && c.generations>=2 && c.repetitions>=2);
+  const all=[...(history||[]),current].filter(c=>c?.kind==="population" && c.generations>=2 && c.repetitions>=2 && c.runs.every(r=>r.control.some(a=>a.generation>=2 && r.test.some(b=>b.generation===a.generation))));
   const directed=all.findLast(c=>c.environment!=="neutral"),neutral=directed && all.findLast(c=>c.environment==="neutral" && c.configuration?.baseline.fingerprint===directed.configuration?.baseline.fingerprint);
   return {complete:!!(neutral&&directed),neutral:neutral?{environment:neutral.environment,final:neutral.runs.map(r=>({control:r.control.at(-1),test:r.test.at(-1)})),seeds:neutral.runs.map(r=>r.seed),baseline:neutral.configuration.baseline}:null,
     directed:directed?{environment:directed.environment,seeds:directed.runs.map(r=>r.seed),baseline:directed.configuration.baseline}:null};
@@ -101,6 +105,11 @@ export function choiceOrder(state,key,length) {
 export function questHint(d,state,support) {
   const activity=pendingActivity(state);
   if (support === "independent") return "Welche Beobachtung oder welcher Vergleich hilft dir bei dieser Entscheidung?";
+  const level=state.hintLevels?.[state.step+":"+(activity?.id || "question")] || 0;
+  if(level===0 && d.experiment.kind === "case")return "Schau auf die Müllquelle im Hafen und verfolge den Weg zu den Tieren.";
+  if(level===0 && d.id === "8-forest" && state.step===4)return "Vergleiche die hell markierten Blätter und ihre Umgebung.";
+  if(level===0) return support === "guided" ? "Öffne bei Bedarf die passende Ansicht. Schau zuerst auf die Gegenstände und die hervorgehobenen Werte." : "Schau genau hin. Welche Gegenstände oder Werte gehören zu deiner Frage?";
+  if(level===1) return d.experiment.kind === "population" || d.experiment.kind === "cross" || d.experiment.kind === "traits" ? "Wähle einzelne Fische. Vergleiche Farbe, Nummer und dieselbe Generation." : d.experiment.kind === "case" ? "Verfolge eine Quelle über den Müll zu den Tieren. Prüfe die dazu passende Maßnahme." : "Vergleiche Ausgang und Ziel deiner Handlung. Wähle bei Messwerten denselben Zeitpunkt auf beiden Seiten.";
   if (activity) return support === "guided" ? activity.hint || activity.prompt : "Prüfe die Karten oder die passenden Werte. Du kannst es erneut versuchen.";
   const hints=["Öffne die Beobachtung. Schau auf Lebewesen und ihre Umgebung.","Wähle deine Vermutung vor dem Versuch. Es ist noch kein Ergebnis.",
     d.experiment.kind === "cross" ? "Kreuze AA mit aa. Wähle dann zwei Aa-Nachkommen als Eltern für die F2." : d.experiment.kind === "population" ? "Starte zuerst neutral mit zwei Wiederholungen. Wähle danach einen Farbvorteil und starte erneut." : d.experiment.kind === "case" ? "Wähle eine Maßnahme. Prüfe Nutzen und Aufwand." : "Öffne den Versuch. Ändere eine Bedingung und starte beide Becken.",

@@ -1,0 +1,919 @@
+{
+  "engine": "webkit",
+  "commit": "260cc516eff7242ff86482b0a086b707d64f3a86",
+  "sources": {
+    "aquascaping.css": "cbaf61e59b116ad90747d9ea8504b480319a120d0b28594bc42dfabe7cef15b9",
+    "aquascaping.mjs": "7be4508b63d046b8dde5a35fff05416012baa339f513a499541c914a65794d55",
+    "biology-quality.mjs": "89a9bd836e5be0c2a40fa6c0299293399a59213cedc53888e22606fe54384a08",
+    "bioprocesses.mjs": "db390102b09a5e888a504049f3b659bfdea000df400b22d17a234be5998ff8cd",
+    "catalog-assets.mjs": "1725e5493f14bd1ba68cd49251a4be542d24029ccec36cc6ce97c8fdbab0d791",
+    "catalog-studio.mjs": "5c0e58a4c4f74d2b4fabec453acbea7e0056393b5472ad14d5ecb5b1287dcd03",
+    "catalog.css": "85d3ee019ac0aee8cea7e5f058414df06b64809463b658a28ebcd1769a96176a",
+    "catalog.mjs": "eaa4db288f4bd1e5bfe82a2e1daf50f54d16ebdac43635d08258dd880fc37504",
+    "control-dial.mjs": "a7217998cd8bba325c0003419538bdcdcad1774cd0ef755d5281a8bf7fc3f056",
+    "control-values.mjs": "ea918839a5c4136d8b6dc4f0f7743accfff1f6e9287a4649e45a99cb892344f2",
+    "ecology.mjs": "66c11227f26241cf3fcffb00d0f8b28dc957f7a0536de650a80fc8210098429b",
+    "equipment-ui.mjs": "63d1aaf7a68213e8be16a1d8b14329119379dddd965354a3170c71c32c42d823",
+    "equipment.css": "7bbe961ddc163a7484e0f70a2e50c541a5867b61d443be6a19c33728bf66f932",
+    "fish-variants.mjs": "001365c4ae594847c4aec741340734b3c1c43c9058afde6368310adf68e3cac2",
+    "genetics-shop.mjs": "d0cf542391fa1d391e35cb7a9d033b986d08f610b2fa2b9c84a85e3b0b19bb9b",
+    "genetics-ui.mjs": "ffee9241dbda4952847aa51b395b5e45111ef6b23011ed98309967db9d9c5a72",
+    "genetics.css": "458cbc124c9f16cde4b6760c6e8fdfba2978b19f61152c899939c4b9c9de8684",
+    "genetics.mjs": "301b841789853d6ed8dac91d3090f2cc85ab858701577473a35e3ab82122a532",
+    "graphics-profiles.mjs": "5d1f586679fcee3c3316bb3b0ebf952500a8fcaac42449ccf9c67806bd0ed98a",
+    "graphics.css": "17c48328c83603daabc10887a71603e36e51a6d30ceb062a053295f69a890199",
+    "index.html": "b122049ba50bd806dbfead624df9c6ff738d8c65daf7edf6e02a4dca84f62a74",
+    "individual-appearance.mjs": "0a8365eabceca7f2c6e982effe9af498c230aae702f9d44810c6ff0a292e4b58",
+    "learning-activities.mjs": "c430e6c1bf42923b6c48d74870b67a1fb6ad8668fe614c9316b6b552807650e2",
+    "learning-content.mjs": "41120a780c512f8e4c42f601d447da6da0c74acc4697eb027bda287ef60dc726",
+    "learning-model.mjs": "444ae79488de35523257329279c3dacc582ac7fc30060a59024a231cdc126985",
+    "learning-population.mjs": "e57b699f1762996e56af6941c59145ee848df07df7d7aae8e10ae70638a266e8",
+    "learning-provenance.mjs": "569ba626e23973fdf4a8b5f5b32c5d58b137fb929b4ed31bf29e57a175194999",
+    "learning-quests.mjs": "9e0c93381fa7e8088939f0ca46dd01c15d02d0ed4ed3b8ea7fdc666aa1fa9dcc",
+    "learning-student.mjs": "85f440ed1d0ee48f1580fcbe88c3f84361994c9bf516231d8e583e11e5f00ac5",
+    "learning-ui.mjs": "eac53773651ca8a098c75419549bc45079cb7276871482a5fd0c46d43ab9ad80",
+    "learning.css": "b63afc0bd8d49af5844b7e441c3357df3efaabe6e172ff55c7804fad8e2749ff",
+    "organic-shapes.mjs": "8f22e1c4b9a9195a689608a69af0fd0ced1e3173ec2b44e81349129617e3c80e",
+    "photo-volume.mjs": "0d1dbecc908e1ffc04df00d97827b91b70556ea1540bdcb114caf3efa6d9a724",
+    "physical-renderer.mjs": "46ff0ab3bc8cc82faadb798230a15cbf460f04cba9e50e5bfa092925c2360709",
+    "physical-scale.mjs": "a948d0affb65fe354f90dfebb53e0d26b63567a35645714a3b4795f5dc68b041",
+    "realism-assets.mjs": "f0d2b01a660dc9bd96f8ca5902555c129dcbe6cf53d16ec96e0bbe8b303d39dc",
+    "realism-materials.mjs": "32ae354c89791d4d86dc157a8c3ec58b76c3b6b0fd4bfd68f7c8ae363ec8fc54",
+    "realism-renderer.mjs": "1c3fc92567c2dcfc6d42e4cd70b6f77ebf9c4617380d6c9c4b0d17f76218efde",
+    "render-population.mjs": "e0d70fa5cdcd933f325a56fd6d687fbd2f8ef65e59d6b32c84200cff6d8a7304",
+    "scenarios.mjs": "67c3daab3c3d26240514cea933781e1765ddaddd04706e3dd66a2cd905f34463",
+    "species-assets.mjs": "7539167cbf8c92e0bfce1f5efd89c8dd66403a9586da94c0214d3b0b630b7c30",
+    "species-dimensions.mjs": "9aaa6d3e0425998f83652825402b95a569cadd4c914f5e517f319d4afb5fbd0b",
+    "species-provenance.mjs": "7e1324dc173cc0e41a1d23eb216ecfe4165e3eac0e02a650f5046b89bd5f3d58",
+    "study-ui.mjs": "08c1598262db0ab647a225f5b93e6d60cc4bc69113992997c3db25360214ec25",
+    "study.css": "ed534d337c339cb1a1602fcd4412ae8059720b1c4684136e401f870bfda26ee5",
+    "underwater.mjs": "df3c746f19f3f20348cb7442ec7c216b8cd863bab3e7f7e4105785e92223e941",
+    "learning-display.mjs": "43bb2ef8f090797401fa7fe82a1d04f434935b3229726ba78488fe8185fd4e62",
+    "single-learning-ui.mjs": "f7d982c1371db40df231dd07157cd4bb3e47752c15dfe5a3d7728a7a248c5e88",
+    "single-learning-model.mjs": "c027ee78107ebe572ce413a5c3131268b7284f8889b140f3e32364b7a091087e",
+    "single-learning-missions.mjs": "c19fa5f86e60f06d7b770ac592e69aa1da9724b315edceacd7ab4d4d820285b9",
+    "learning-tank-views.mjs": "3d0034aa1d56b7c731fcb1890961b1b1e3b5ec0f390fd68afdd0f5d6a685e227",
+    "learning-evolution-evidence.mjs": "4202c0796d735f577112fb4508738d37a5d1f597ca44e2512eb8d10a6d56cc08",
+    "learning-regional-workspace.mjs": "deb634808a76b96475cc698472b04d3b0188dd96da2953f4c2f09831200c97ab",
+    "learning-workspace.mjs": "328da7cfb81c20dbc1fe5543ba15771673b242269e00d509fe080aa1884e7aa5",
+    "ammonia-pool.mjs": "694f9bbb231240a44275b611b1c93bfbf8c4fabbc9524129db0edf9975720863",
+    "single-learning.css": "f8022ee709dedec9a286540f41750ff3c3e138d30d15162fa371236d26441810",
+    "learning-context.mjs": "017507cde3a4d83a89785b4cb5c4ab67abab83c500512cab6f3165f10aead7ba",
+    "learning-process-workspace.mjs": "39f3d7e367851c17c4e0769818997e685551f764e848fa280e00c28d9a5863dd",
+    "learning-population-workspace.mjs": "950c0ebce30bc8421f18b6d5d2c17b735cbf6dab6ffc09b9133daf2bfa05cb3a",
+    "coherent-learning.css": "9755e87a9d881e0cde8d5f86f1a279bdc48d7bf34e6973d94b0dedaddcdfa9ee"
+  },
+  "checks": [
+    {
+      "name": "portrait: full M1, actual single scene/identity, complete serial reset, real light/net counterexample, wrong answers, hints, import/export, archived repeat and reload",
+      "endpoints": [
+        8.238664367529305,
+        8.163889709536656
+      ]
+    },
+    {
+      "name": "quota failure: previous saved investigation unchanged, clock stopped, direct file rescue, reload retains last successful stage"
+    }
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "inventories": [
+    {
+      "step": "portrait-plant",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.8568290422360102,
+      "rects": [
+        {
+          "left": 16,
+          "right": 275.1875,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 756,
+          "bottom": 1008
+        }
+      ],
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Wasserpest auswählen",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "horizontalOverflow": false
+    },
+    {
+      "step": "portrait-prediction",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.7743838975826899,
+      "rects": [
+        {
+          "left": 16,
+          "right": 275.1875,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 589.75,
+          "bottom": 1008
+        }
+      ],
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Ja",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Nein",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Ich bin unsicher",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "horizontalOverflow": false
+    },
+    {
+      "step": "portrait-light-ready",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.7705703737835089,
+      "rects": [
+        {
+          "left": 16,
+          "right": 275.1875,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 624.25,
+          "bottom": 1008
+        },
+        {
+          "left": 16,
+          "right": 183.578125,
+          "top": 87,
+          "bottom": 185.1875
+        }
+      ],
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Entwicklung ansehen",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "horizontalOverflow": false
+    },
+    {
+      "step": "portrait-paused",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.7917660027742386,
+      "rects": [
+        {
+          "left": 16,
+          "right": 275.1875,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 733.5,
+          "bottom": 1008
+        },
+        {
+          "left": 16,
+          "right": 242,
+          "top": 87,
+          "bottom": 274.578125
+        }
+      ],
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Weiter beobachten",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "horizontalOverflow": false
+    },
+    {
+      "step": "portrait-first-finished",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.8090710987647375,
+      "rects": [
+        {
+          "left": 16,
+          "right": 275.1875,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 756,
+          "bottom": 1008
+        },
+        {
+          "left": 16,
+          "right": 242,
+          "top": 87,
+          "bottom": 253.1875
+        }
+      ],
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Mit gleichem Anfang noch einmal",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "horizontalOverflow": false
+    },
+    {
+      "step": "portrait-restored",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.7912240984539191,
+      "rects": [
+        {
+          "left": 16,
+          "right": 275.1875,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 673,
+          "bottom": 1008
+        },
+        {
+          "left": 16,
+          "right": 183.578125,
+          "top": 87,
+          "bottom": 185.1875
+        },
+        {
+          "left": 355,
+          "right": 412.703125,
+          "top": 228.65625,
+          "bottom": 276.65625
+        }
+      ],
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Lampe ausschalten",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Licht ↻",
+          "width": 57.703125,
+          "height": 48,
+          "tag": "BUTTON"
+        }
+      ],
+      "horizontalOverflow": false
+    },
+    {
+      "step": "portrait-dark-ready",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.8123046159744263,
+      "rects": [
+        {
+          "left": 16,
+          "right": 275.1875,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 695.5,
+          "bottom": 1008
+        },
+        {
+          "left": 16,
+          "right": 132.3125,
+          "top": 87,
+          "bottom": 185.1875
+        }
+      ],
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Entwicklung ohne Licht ansehen",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "horizontalOverflow": false
+    },
+    {
+      "step": "portrait-compare",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.7773981044689814,
+      "rects": [
+        {
+          "left": 16,
+          "right": 275.1875,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 595.828125,
+          "bottom": 1008
+        }
+      ],
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Mit Licht: höher. Ohne Licht: höher.",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Mit Licht: höher. Ohne Licht: niedriger.",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Verläufe",
+          "width": 82.671875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "horizontalOverflow": false
+    },
+    {
+      "step": "portrait-wrong-observation",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.7473955104748409,
+      "rects": [
+        {
+          "left": 16,
+          "right": 275.1875,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 535.328125,
+          "bottom": 1008
+        }
+      ],
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Mit Licht: höher. Ohne Licht: höher.",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Mit Licht: höher. Ohne Licht: niedriger.",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Verläufe",
+          "width": 82.671875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "horizontalOverflow": false
+    },
+    {
+      "step": "portrait-explain",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.7604983995358149,
+      "rects": [
+        {
+          "left": 16,
+          "right": 275.1875,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 561.75,
+          "bottom": 1008
+        }
+      ],
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Ohne Licht fehlt die Bildung durch Licht. Verbrauch läuft weiter; Luft kann Sauerstoff liefern.",
+          "width": 358,
+          "height": 78.5,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Ohne Licht hören Pflanzen und Tiere auf, Sauerstoff zu verbrauchen.",
+          "width": 358,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Ein steigender Wert beweist, dass die Pflanzen im Dunkeln Sauerstoff bilden.",
+          "width": 358,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Verläufe",
+          "width": 82.671875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "An der Pflanze erklären",
+          "width": 185.125,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "horizontalOverflow": false
+    },
+    {
+      "step": "portrait-wrong-explanation",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.7604983995358149,
+      "rects": [
+        {
+          "left": 16,
+          "right": 275.1875,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 561.75,
+          "bottom": 1008
+        }
+      ],
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Ohne Licht fehlt die Bildung durch Licht. Verbrauch läuft weiter; Luft kann Sauerstoff liefern.",
+          "width": 358,
+          "height": 78.5,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Ohne Licht hören Pflanzen und Tiere auf, Sauerstoff zu verbrauchen.",
+          "width": 358,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Ein steigender Wert beweist, dass die Pflanzen im Dunkeln Sauerstoff bilden.",
+          "width": 358,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Verläufe",
+          "width": 82.671875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "An der Pflanze erklären",
+          "width": 185.125,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "horizontalOverflow": false
+    },
+    {
+      "step": "portrait-complete",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.7826904008785883,
+      "rects": [
+        {
+          "left": 16,
+          "right": 275.1875,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 606.5,
+          "bottom": 1008
+        }
+      ],
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Ergebnis speichern",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Noch einmal untersuchen",
+          "width": 200.859375,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Verläufe",
+          "width": 82.671875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "An der Pflanze erklären",
+          "width": 185.125,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "horizontalOverflow": false
+    },
+    {
+      "step": "fault-prediction",
+      "width": 1366,
+      "height": 960,
+      "freeAquariumFraction": 0.8547034238011968,
+      "rects": [
+        {
+          "left": 24,
+          "right": 315.59375,
+          "top": 20,
+          "bottom": 67.09375
+        },
+        {
+          "left": 1276.96875,
+          "right": 1342,
+          "top": 20,
+          "bottom": 64
+        },
+        {
+          "left": 24,
+          "right": 434,
+          "top": 511.75,
+          "bottom": 936
+        }
+      ],
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Ja",
+          "width": 372,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Nein",
+          "width": 372,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Ich bin unsicher",
+          "width": 372,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "horizontalOverflow": false
+    },
+    {
+      "step": "fault-light-ready",
+      "width": 1366,
+      "height": 960,
+      "freeAquariumFraction": 0.859747388922569,
+      "rects": [
+        {
+          "left": 24,
+          "right": 315.59375,
+          "top": 20,
+          "bottom": 67.09375
+        },
+        {
+          "left": 1276.96875,
+          "right": 1342,
+          "top": 20,
+          "bottom": 64
+        },
+        {
+          "left": 24,
+          "right": 434,
+          "top": 572.5,
+          "bottom": 936
+        },
+        {
+          "left": 24,
+          "right": 199.578125,
+          "top": 92,
+          "bottom": 196.1875
+        }
+      ],
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Entwicklung ansehen",
+          "width": 372,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "horizontalOverflow": false
+    }
+  ],
+  "profiles": [
+    "portrait"
+  ],
+  "hardware": "Linux browser, software graphics; not physical iPad/Safari",
+  "selection": [
+    {
+      "profile": "portrait",
+      "directCanvasPick": false,
+      "actualPlantUid": 3
+    },
+    {
+      "profile": "fault",
+      "directCanvasPick": false,
+      "actualPlantUid": 3
+    }
+  ],
+  "status": "passed"
+}

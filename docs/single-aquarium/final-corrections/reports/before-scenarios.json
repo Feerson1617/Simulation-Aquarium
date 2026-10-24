@@ -1,0 +1,395 @@
+{
+  "runtime": "ffc061279f01f0030fe35503def0d1b329e5f73b",
+  "captures": [
+    {
+      "scenario": "foodweb",
+      "at": "2026-10-23T13:13:48.832121+00:00",
+      "url": "http://127.0.0.1:8000/final-before/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "spatial": {
+        "version": 1,
+        "unit": "cm",
+        "positions": "tank-normalized-v1",
+        "originalOverrides": {},
+        "relocations": [
+          {
+            "uid": 3,
+            "from": {
+              "x": -0.6259306988213211,
+              "z": 0.25110032632946966
+            },
+            "to": {
+              "x": -0.6399999999999996,
+              "z": 0.39
+            }
+          },
+          {
+            "uid": 5,
+            "from": {
+              "x": -1.2624803386162966,
+              "z": -0.5735009789466858
+            },
+            "to": {
+              "x": -1.5999999999999994,
+              "z": -0.52
+            }
+          },
+          {
+            "uid": 7,
+            "from": {
+              "x": 2.0103169396053997,
+              "z": 0.2236112885177136
+            },
+            "to": {
+              "x": 1.9200000000000002,
+              "z": 0.52
+            }
+          },
+          {
+            "uid": 8,
+            "from": {
+              "x": 0.6720628956332803,
+              "z": -0.7453660059720277
+            },
+            "to": {
+              "x": 0.6400000000000006,
+              "z": 0.8428340650000002
+            }
+          },
+          {
+            "uid": 11,
+            "from": {
+              "x": 0.052814990282058716,
+              "z": 0.5105773502960801
+            },
+            "to": {
+              "x": -2.7165440591093932,
+              "z": 0.52
+            }
+          }
+        ],
+        "unplaced": [
+          9,
+          10
+        ],
+        "layout": "180:external300:true:false:true:canopy-v2"
+      },
+      "text": "Maßstabsprüfung: 2 gespeicherte Objekte benötigen mehr Platz und sind vorübergehend nicht dargestellt. Sie bleiben gespeichert. Details und Pinzette öffnen oder einen passenden Spielstand verwenden.\n\nDIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n13 Tiere\n·\n8 Pflanzen & Korallen\n· Wasser noch nicht getestet\nZiehen zum Drehen · Scrollen zum Zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nEin Becken – viele Beziehungen · Versuch 1 · Auftrag & Hinweise\nKlassen 8–10\nHeizstab ↻\nLicht ↻\nFilter ↻\nBelüfter ↻"
+    },
+    {
+      "scenario": "supply",
+      "at": "2026-10-23T13:14:07.317500+00:00",
+      "url": "http://127.0.0.1:8000/final-before/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "spatial": {
+        "version": 1,
+        "unit": "cm",
+        "positions": "tank-normalized-v1",
+        "originalOverrides": {},
+        "relocations": [
+          {
+            "uid": 3,
+            "from": {
+              "x": -0.6259306988213211,
+              "z": 0.25110032632946966
+            },
+            "to": {
+              "x": -0.6399999999999996,
+              "z": 0.39
+            }
+          },
+          {
+            "uid": 5,
+            "from": {
+              "x": -1.2624803386162966,
+              "z": -0.5735009789466858
+            },
+            "to": {
+              "x": -1.5999999999999994,
+              "z": -0.52
+            }
+          },
+          {
+            "uid": 7,
+            "from": {
+              "x": 2.0103169396053997,
+              "z": 0.2236112885177136
+            },
+            "to": {
+              "x": 1.9200000000000002,
+              "z": 0.52
+            }
+          },
+          {
+            "uid": 8,
+            "from": {
+              "x": 0.6720628956332803,
+              "z": -0.7453660059720277
+            },
+            "to": {
+              "x": 0.6400000000000006,
+              "z": 0.8428340650000002
+            }
+          },
+          {
+            "uid": 11,
+            "from": {
+              "x": 0.052814990282058716,
+              "z": 0.5105773502960801
+            },
+            "to": {
+              "x": -2.7165440591093932,
+              "z": 0.52
+            }
+          }
+        ],
+        "unplaced": [
+          9,
+          10
+        ],
+        "layout": "180:external300:true:false:true:canopy-v2"
+      },
+      "text": "Maßstabsprüfung: 2 gespeicherte Objekte benötigen mehr Platz und sind vorübergehend nicht dargestellt. Sie bleiben gespeichert. Details und Pinzette öffnen oder einen passenden Spielstand verwenden.\n\nDIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n2 Tiere\n·\n8 Pflanzen & Korallen\n· Wasser noch nicht getestet\nZiehen zum Drehen · Scrollen zum Zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nSpuren der Versorgung · Versuch 1 · Auftrag & Hinweise\nKlassen 8–10\nHeizstab ↻\nLicht ↻\nFilter ↻\nBelüfter ↻"
+    },
+    {
+      "scenario": "water",
+      "at": "2026-10-23T13:14:31.401205+00:00",
+      "url": "http://127.0.0.1:8000/final-before/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "spatial": {
+        "version": 1,
+        "unit": "cm",
+        "positions": "tank-normalized-v1",
+        "originalOverrides": {},
+        "relocations": [
+          {
+            "uid": 3,
+            "from": {
+              "x": -0.6259306988213211,
+              "z": 0.25110032632946966
+            },
+            "to": {
+              "x": -0.6399999999999996,
+              "z": 0.39
+            }
+          },
+          {
+            "uid": 5,
+            "from": {
+              "x": -1.2624803386162966,
+              "z": -0.5735009789466858
+            },
+            "to": {
+              "x": -1.5999999999999994,
+              "z": -0.52
+            }
+          },
+          {
+            "uid": 7,
+            "from": {
+              "x": 2.0103169396053997,
+              "z": 0.2236112885177136
+            },
+            "to": {
+              "x": 1.9200000000000002,
+              "z": 0.52
+            }
+          },
+          {
+            "uid": 8,
+            "from": {
+              "x": 0.6720628956332803,
+              "z": -0.7453660059720277
+            },
+            "to": {
+              "x": 0.6400000000000006,
+              "z": 0.8428340650000002
+            }
+          },
+          {
+            "uid": 11,
+            "from": {
+              "x": 0.052814990282058716,
+              "z": 0.5105773502960801
+            },
+            "to": {
+              "x": -2.7165440591093932,
+              "z": 0.52
+            }
+          }
+        ],
+        "unplaced": [
+          9,
+          10
+        ],
+        "layout": "180:external300:true:false:true:canopy-v2"
+      },
+      "text": "Maßstabsprüfung: 2 gespeicherte Objekte benötigen mehr Platz und sind vorübergehend nicht dargestellt. Sie bleiben gespeichert. Details und Pinzette öffnen oder einen passenden Spielstand verwenden.\n\nDIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n9 Tiere\n·\n8 Pflanzen & Korallen\n· Wasser noch nicht getestet\nZiehen zum Drehen · Scrollen zum Zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nVeränderungen im Becken · Versuch 1 · Auftrag & Hinweise\nKlassen 8–10\nHeizstab ↻\nLicht ↻\nFilter ↻\nBelüfter ↻"
+    },
+    {
+      "scenario": "leaves",
+      "at": "2026-10-23T13:14:55.433368+00:00",
+      "url": "http://127.0.0.1:8000/final-before/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "spatial": {
+        "version": 1,
+        "unit": "cm",
+        "positions": "tank-normalized-v1",
+        "originalOverrides": {},
+        "relocations": [
+          {
+            "uid": 3,
+            "from": {
+              "x": -0.6259306988213211,
+              "z": 0.25110032632946966
+            },
+            "to": {
+              "x": -0.6399999999999996,
+              "z": 0.39
+            }
+          },
+          {
+            "uid": 5,
+            "from": {
+              "x": -1.2624803386162966,
+              "z": -0.5735009789466858
+            },
+            "to": {
+              "x": -1.5999999999999994,
+              "z": -0.52
+            }
+          },
+          {
+            "uid": 7,
+            "from": {
+              "x": 2.0103169396053997,
+              "z": 0.2236112885177136
+            },
+            "to": {
+              "x": 1.9200000000000002,
+              "z": 0.52
+            }
+          },
+          {
+            "uid": 8,
+            "from": {
+              "x": 0.6720628956332803,
+              "z": -0.7453660059720277
+            },
+            "to": {
+              "x": 0.6400000000000006,
+              "z": 0.8428340650000002
+            }
+          },
+          {
+            "uid": 11,
+            "from": {
+              "x": 0.052814990282058716,
+              "z": 0.5105773502960801
+            },
+            "to": {
+              "x": -2.7165440591093932,
+              "z": 0.52
+            }
+          }
+        ],
+        "unplaced": [
+          9,
+          10
+        ],
+        "layout": "180:external300:true:false:true:canopy-v2"
+      },
+      "text": "Maßstabsprüfung: 2 gespeicherte Objekte benötigen mehr Platz und sind vorübergehend nicht dargestellt. Sie bleiben gespeichert. Details und Pinzette öffnen oder einen passenden Spielstand verwenden.\n\nDIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n7 Tiere\n·\n8 Pflanzen & Korallen\n· Wasser noch nicht getestet\nZiehen zum Drehen · Scrollen zum Zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nBlätter im Wandel · Versuch 1 · Auftrag & Hinweise\nKlassen 8–10\nHeizstab ↻\nLicht ↻\nFilter ↻\nBelüfter ↻"
+    },
+    {
+      "scenario": "microbes",
+      "at": "2026-10-23T13:15:20.036493+00:00",
+      "url": "http://127.0.0.1:8000/final-before/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "spatial": {
+        "version": 1,
+        "unit": "cm",
+        "positions": "tank-normalized-v1",
+        "originalOverrides": {},
+        "relocations": [
+          {
+            "uid": 3,
+            "from": {
+              "x": -0.6259306988213211,
+              "z": 0.25110032632946966
+            },
+            "to": {
+              "x": -0.6399999999999996,
+              "z": 0.39
+            }
+          },
+          {
+            "uid": 5,
+            "from": {
+              "x": -1.2624803386162966,
+              "z": -0.5735009789466858
+            },
+            "to": {
+              "x": -1.5999999999999994,
+              "z": -0.52
+            }
+          },
+          {
+            "uid": 7,
+            "from": {
+              "x": 2.0103169396053997,
+              "z": 0.2236112885177136
+            },
+            "to": {
+              "x": 1.9200000000000002,
+              "z": 0.52
+            }
+          },
+          {
+            "uid": 8,
+            "from": {
+              "x": 0.6720628956332803,
+              "z": -0.7453660059720277
+            },
+            "to": {
+              "x": 0.6400000000000006,
+              "z": 0.8428340650000002
+            }
+          },
+          {
+            "uid": 11,
+            "from": {
+              "x": 0.052814990282058716,
+              "z": 0.5105773502960801
+            },
+            "to": {
+              "x": -2.7165440591093932,
+              "z": 0.52
+            }
+          }
+        ],
+        "unplaced": [
+          9,
+          10
+        ],
+        "layout": "180:external300:true:false:true:canopy-v2"
+      },
+      "text": "Maßstabsprüfung: 2 gespeicherte Objekte benötigen mehr Platz und sind vorübergehend nicht dargestellt. Sie bleiben gespeichert. Details und Pinzette öffnen oder einen passenden Spielstand verwenden.\n\nDIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n9 Tiere\n·\n8 Pflanzen & Korallen\n· Wasser noch nicht getestet\nZiehen zum Drehen · Scrollen zum Zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nLeben auf Oberflächen · Versuch 1 · Auftrag & Hinweise\nKlassen 8–10\nHeizstab ↻\nLicht ↻\nFilter ↻\nBelüfter ↻"
+    }
+  ]
+}

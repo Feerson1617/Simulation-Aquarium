@@ -1,4 +1,16 @@
+import {archiveDescription,archiveEntry} from './single-archive-display.mjs';
+import {manualEvidence} from './learning-product-display.mjs';
+import {gameURL,navigateGame} from './game-route.mjs';
+import {relativePlantComparison,learnerCSVComparison,learnerPrecision} from "./learning-display.mjs";
+import {mountSingleAquariumUI} from "./single-learning-ui.mjs";
+import {PROCESS_SCENES,PROCESS_TASKS,processWorkspace,forestWorkspace,connectProcess} from "./learning-process-workspace.mjs";
+import {fossilWorkspace,FOSSIL_EVIDENCE} from "./learning-evolution-evidence.mjs";
+import {harbourWorkspace,HARBOUR_OBJECTS,HARBOUR_MEASURES,harbourMeasure} from "./learning-regional-workspace.mjs";
 import {pendingActivity,assignActivity,recordActivityView,mendelEvidence,populationPairEvidence,REGIONAL_CASES} from "./learning-activities.mjs";
+import {investigationId, interventionEvent, bindComparison, resolveComparisonView, selectComparisonView, stateId} from "./learning-context.mjs";
+import {temperatureView, temperatureWorkspace, temperatureRunLabel, AQUARIUM_WORKSPACES} from "./learning-workspace.mjs";
+import {populationWorkspace, populationWorkspaceView} from "./learning-population-workspace.mjs";
+import {createTankViews} from "./learning-tank-views.mjs";
 import {learningProvenance, crossingPrediction, ORIGIN_LABELS} from "./learning-provenance.mjs";
 import {fishStatusText,habitatProblems} from "./biology-quality.mjs";
 import { dialControl, mountDials } from "./control-dial.mjs";
@@ -100,11 +112,15 @@ const helpButton = (key) =>
 const panelHeader = (title, help) =>
   `<header><h2 tabindex="-1">${esc(title)}</h2><div>${help ? helpButton(help) : ""}${button("close", "Schließen", 'aria-label="Werkzeug schließen"')}</div></header>`;
 export function mountLearningUI(host) {
+  if(gameURL().searchParams.get("expert")!=="1")return mountSingleAquariumUI(host);
   const root = document.createElement("div");
   root.id = "learning-root";
   host.root.append(root);
+  const tankViews = createTankViews(host);
+  let playback = null;
+  const domainDraw=()=>{};
   let screen =
-      new URLSearchParams(location.search).get("expert") === "1"
+      gameURL().searchParams.get("expert") === "1"
         ? "expert"
         : "home",
     grade = null,
@@ -120,6 +136,8 @@ export function mountLearningUI(host) {
   let teacher = loadJSON("aquarium-teacher-v1", normalizeTeacher()),
     storageError = "",
     imported = null,
+    importedSource = "",
+    importedError = "",
     importedMetric = "oxygen",
     manualMetric = "oxygen",
     importedManualMetric = "oxygen";
@@ -148,6 +166,12 @@ export function mountLearningUI(host) {
       support: teacher.support,
       help: teacher.help,
       comparisonHistory: session?.comparisonHistory || [],
+      prototype: isPrototype(),
+      temperaturePrototype:tag?.mission === "8-ecosystem",
+      populationWorkspace:isPopulationWorkspace(),
+      regionalWorkspace:isRegionalWorkspace(),
+      legacyWorkspace:session?.workspaceVersion===0,
+      processWorkspace:!!PROCESS_SCENES[tag?.mission] && (tag.mission !== "10-northsea" || session?.regionalMode === "northsea"),
     }),
     healthText: () => fishStatusText(host.getState(), host.types),
     tools,
@@ -163,7 +187,47 @@ export function mountLearningUI(host) {
       ),
     studentMetrics: () => studentMetricKeys(),
     manual: () => studentManual(),
+    comparisonView: () => resolveComparisonView(session),
+    questionResult: () => inspectedQuestResult(),
+    attempts: () => archivedAttempts(),
   });
+  const isPrototype = () => screen === "active" && !detailed && (Object.hasOwn(AQUARIUM_WORKSPACES,tag?.mission) || (tag?.mode === "free" && tag.grade !== 9 && session?.researchView === "comparison"));
+  const isPopulationWorkspace = () => screen === "active" && !detailed && (tag?.grade === 9);
+  const isRegionalWorkspace = () => screen === "active" && !detailed && tag?.mission === "10-wadden";
+  function inspectedQuestResult() {
+    if (isPopulationWorkspace() && QUESTS[tag.mission]?.experiment.kind === "cross" && session.quest?.step === 3 && populationWorkspaceView(session,LEARNING_MODEL_REVISION).context.time !== session.population.generation) return null;
+    if (session?.quest?.step !== 3 || !["ecology","population"].includes(QUESTS[tag.mission]?.experiment.kind)) return session?.quest?.result;
+    if (isPrototype() && session.view?.mode === "plan") return null;
+    const v = resolveComparisonView(session);
+    if (!v || v.comparison !== session.comparison) return null;
+    if (!planMatchesComparison(v.comparison,currentPlan(v.comparison.kind))) return null;
+    const r = comparisonReading({...v.comparison,runs:[{...v.run,control:v.row.control?[v.row.control]:[],test:v.row.test?[v.row.test]:[]}]},QUESTS[tag.mission].experiment);
+    if(r && QUESTS[tag.mission]?.experiment.metric === "plantBiomass") {const start=v.run.control[0]?.plantBiomass;if(!(start>0))return null;r.control/=start;r.test/=start;r.displayPrecision=2;r.unit="Vielfaches des Anfangs";}
+    return r ? {...session.quest.result,...r,...(QUESTS[tag.mission]?.experiment.metric === "temp"?{displayPrecision:1}:{}),viewContext:v.context} : null;
+  }
+  function stopPlayback() {clearInterval(playback); playback = null;}
+  function showTime(time) {
+    delete session.selectedIndividual;
+    selectComparisonView(session,{time});
+    const v = resolveComparisonView(session);
+    if (isPrototype() && v?.comparison.id === session.pendingExperimentId && v.context.time === v.rows.at(-1).time && [2,3,4].includes(session.quest?.step)) {
+      recordQuestExperiment("ecology");delete session.pendingExperimentId;
+    }
+    persist(); render();
+  }
+  function playWorkspace() {
+    stopPlayback();
+    let v = resolveComparisonView(session);
+    if (!v) return;
+    if (v.context.time === v.rows.at(-1).time) showTime(v.rows[0].time);
+    playback = setInterval(() => {
+      v = resolveComparisonView(session);
+      const i = v.rows.findIndex(r=>r.time === v.context.time);
+      if (!isPrototype() || i >= v.rows.length-1) {stopPlayback(); return;}
+      if (i+1 === v.rows.length-1) stopPlayback();
+      showTime(v.rows[i+1].time);
+    },600);
+  }
   function studentMetricKeys() {
     if (tag.grade === 9) return ["dark", "light", "A"];
     const rawPrimary = QUESTS[tag.mission]?.experiment.metric,primary=rawPrimary === "fishOutcome" ? "fishAlive" : rawPrimary;
@@ -180,6 +244,44 @@ export function mountLearningUI(host) {
           ]),
         ];
   }
+  function pickObject(side, uid, water = false) {
+    const v = temperatureView(session,host,LEARNING_MODEL_REVISION);
+    if (!v.sides[side]?.state) return;
+    session.prototypeSelection = {side,uid:water ? null : Number(uid),water,context:v.context,stateId:v.sides[side].stateId};
+    questEvent(session.quest,"observe");
+    persist(); render();
+  }
+  function savedView() {
+    const v = resolveComparisonView(session), side = session.view?.side === "control" ? "control" : "test", data = v?.sides[side];
+    if (!v) return panelHeader("Gespeicherte Ansicht") + "<p>Kein Versuch vorhanden.</p>";
+    const s = data.sample;
+    return panelHeader(`Becken ${side === "control" ? 1 : 2} ansehen`) +
+      `<section data-saved-view data-series-id="${esc(v.context.seriesId)}" data-repetition="${v.context.repetition}" data-state-id="${data.stateId || "unknown"}"><p>Versuchsreihe ${v.context.series+1} · Wiederholung ${v.context.repetition} · Tag ${num(v.context.time)}</p><p>Gespeicherte Messwertansicht. Dein eigenes Spielbecken wird dadurch nicht verändert.</p>${s ? `<dl><dt>Lebende Fische</dt><dd>${s.fishAlive ?? "Nicht dokumentiert"}</dd><dt>Wassertemperatur</dt><dd>${num(s.temp,1)} °C</dd></dl>` : "<p>Dieses Becken ist beendet. Keine Folgemessung vorhanden.</p>"}${!data.state && s ? "<p>Ein damaliges Beckenbild ist hier nicht gespeichert.</p>" : ""}${data.state ? button("adopt-view","Als eigenes Becken übernehmen") : ""}</section>`;
+  }
+  function archivedAttempts() {
+    const keys=Object.keys(localStorage).filter(k=>k.startsWith("aquarium-learning-attempt-v1:"));
+    return keys.length ? `<details><summary>Frühere Durchgänge ansehen</summary>${keys.map(k=>{
+      const saved=loadJSON(k,null),p=saved?.product;
+      return p ? archiveEntry(archiveDescription(k,JSON.stringify(saved)),`<button data-learning-archived-product="${esc(k)}">${saved.kind === "series" ? "Frühere Versuchsreihe" : "Früheren Durchgang"} lesen</button>`) : "";
+    }).join("")}</details>` : "";
+  }
+  function restartAttempt(repeat, populationSeed) {
+    const previous = {product:product(),tank:structuredClone(host.getState()),session:structuredClone(session)};
+    if (!saveJSON("aquarium-learning-attempt-v1:"+session.attemptId,previous)) {render();return false;}
+    const old=session, tank=repeat ? structuredClone(old.baseline) : createLearningTank(tag,host);
+    const e=QUESTS[tag.mission].experiment;
+    session={version:1,viewVersion:1,workspaceVersion:1,attemptId:investigationId(),planId:investigationId(),notes:{},measurements:[],baseline:structuredClone(tank),comparison:null,
+      population:tag.grade === 9 ? (repeat ? repeatLearningPopulation(old.population,populationSeed ?? old.population.initialSeed) : createLearningPopulation(populationSeed ?? 47291)) : null,
+      study:{tool:e.tool || tools().find(k=>LEARNING_TOOLS[k]) || "light",value:tag.mission === "8-ecosystem" ? tank.setTemp : e.value ?? null,
+        days:3,repetitions:2,metric:e.metric || (tag.grade === 9 ? "dark" : "oxygen"),environment:"neutral",generations:5},quest:newQuest(tag.mission)};
+    if(tag.grade === 9)session.populationMode=e.kind === "population" ? "comparison" : "cohort";
+    if(tag.mission === "8-ecosystem") session.quest.visualEvidenceVersion=1;
+    if(tag.mission === "10-wadden") session.quest.visualCaseVersion=1;
+    selected=null;showGenes=false;panel=null;host.open(tank);persist();render();return true;
+  }
+  function restartView() {
+    return panelHeader("Noch einmal")+`<p>Dein bisheriger Durchgang bleibt unter „Frühere Durchgänge“ erhalten. Für neue Aufgaben brauchst du neue Beobachtungen.</p>${button("repeat-attempt","Mit gleichen Bedingungen wiederholen")}${button("new-attempt","Mit frischem Startbecken beginnen")}${button("close","Fortsetzen")}`;
+  }
   function studentManual() {
     if (!session.measurements.length) return "";
     const keys = recordedMetrics(session.measurements, metrics()).filter((k) =>
@@ -190,31 +292,37 @@ export function mountLearningUI(host) {
       ),
       key = keys.includes(manualMetric) ? manualMetric : keys[0];
     if (!key) return "";
-    const rows = session.measurements.map((r) => ({
+    const rawRows = session.measurements.map((r) => ({
       ...r,
       [key]: r.metrics && !r.metrics.includes(key) ? null : r[key],
     }));
+    const shown=key === "plantBiomass" ? relativePlantComparison({kind:"manual",runs:[{control:rawRows,test:[]}]}) : {kind:"manual",runs:[{control:rawRows,test:[]}]};
+    const rows=shown.runs[0].control;
     return `<section class="learn-measurements"><h3>Deine Messungen</h3><label>Wert<select data-learning-manual-metric="local">${options(
       keys.map((k) => [k, STUDENT_METRICS[k][0]]),
       key,
-    )}</select></label>${plot({ kind: "manual", runs: [{ control: rows, test: [] }] }, key)}<div class="learn-table-wrap"><table><thead><tr><th>Tag</th><th>${esc(STUDENT_METRICS[key][0])}</th></tr></thead><tbody>${rows.map((r) => `<tr><td>${num(r.day)}</td><td>${key === "health" && r.metricsVersion !== 2 ? "Früherer Tierwert: " : ""}${num(r[key], 3)}</td></tr>`).join("")}</tbody></table></div><small>— bedeutet: Hier fehlt ein Wert.</small></section>`;
+    )}</select></label>${key === "plantBiomass" ? "<p>Die erste für diese Größe protokollierte Pflanzenmasse ist der Anfang (= 1). Ohne Anfangsbestand ist kein Verhältnis bestimmbar.</p>" : ""}${plot(shown, key)}<div class="learn-table-wrap"><table><thead><tr><th>Tag</th><th>${esc(STUDENT_METRICS[key][0])}</th></tr></thead><tbody>${rows.map((r) => `<tr><td>${num(r.day)}</td><td>${key === "health" && r.metricsVersion !== 2 ? "Früherer Tierwert: " : ""}${num(r[key], learnerPrecision(key))}</td></tr>`).join("")}</tbody></table></div><small>— bedeutet: Hier fehlt ein Wert.</small></section>`;
   }
   function recordQuestExperiment(kind) {
     if (detailed || !session.quest) return;
     const d = QUESTS[tag.mission];
     if (!d) return;
     let evidence;
+    const viewed=["ecology","population"].includes(kind) ? resolveComparisonView(session) : null;
+    const reading=viewed ? comparisonReading({...viewed.comparison,runs:[viewed.run]},d.experiment) : null;
+    const readingContext=reading ? resolveComparisonView(session,{time:reading.time}).context : null;
     if (kind === "ecology") {
       const c = session.comparison;
       // The actual intervention must change the cloned baseline, not merely be selected.
-      const changed =
-        !(c.tool === "water" && c.value === 0) &&
-        JSON.stringify(
-          applyLearningIntervention(session.baseline, c.tool, c.value, host),
-        ) !== JSON.stringify(session.baseline);
+      const action = viewed.run.intervention || interventionEvent(session.baseline,
+        applyLearningIntervention(session.baseline,c.tool,c.value,host),c.tool,c.value);
+      const changed = action.effective;
       evidence = {
         changed,
-        result: comparisonReading(c, d.experiment),
+        intervention: action,
+        result: reading ? {...reading,viewContext:readingContext} : null,
+        context: readingContext,
+        observedViewContext:viewed.context,
         tool: c.tool,
         compatible:
           (c.tool === d.experiment.tool || (["8-health", "10-restore"].includes(d.id) && mission().tools.includes(c.tool))) &&
@@ -223,11 +331,13 @@ export function mountLearningUI(host) {
       };
     } else if (kind === "population")
       evidence = {
-        generations: session.comparison.generations,
+        generations: reading?.time ?? 0,
         populationPair: populationPairEvidence(session.comparisonHistory,session.comparison),
         compatible:
           true,
-        result: {...comparisonReading(session.comparison, d.experiment),populationPair:populationPairEvidence(session.comparisonHistory,session.comparison)},
+        result: reading ? {...reading,populationPair:populationPairEvidence(session.comparisonHistory,session.comparison),viewContext:readingContext} : null,
+        context:readingContext,
+        observedViewContext:viewed.context,
       };
     else if (kind === "cross")
       evidence = {
@@ -241,6 +351,7 @@ export function mountLearningUI(host) {
       evidence = {
         hasAA: c.AA > 0,
         hasAa: c.Aa > 0,
+        individuals:structuredClone(session.quest?.genotypeIndividuals || {}),
         result: { kind: "traits", AA: c.AA, Aa: c.Aa },
       };
     }
@@ -302,9 +413,12 @@ export function mountLearningUI(host) {
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
   function product() {
+    const visible=isPrototype() ? temperatureView(session,host,LEARNING_MODEL_REVISION) : null;
     return {
       version: 2,
       type: "aquarium-learning-product",
+      workspaceEvidenceVersion:session.workspaceVersion ?? 0,
+      visibleDomain:session.regionalMode === "northsea" ? "regional-northsea" : isRegionalWorkspace() ? "harbour" : isPopulationWorkspace() ? "population" : "aquarium",
       profile: tag,
       notes: structuredClone(session.notes),
       provenance: learningProvenance(session),
@@ -314,10 +428,17 @@ export function mountLearningUI(host) {
       model: CURRICULUM,
       modelVersion: LEARNING_MODEL_REVISION,
       comparison: session.comparison,
-      currentPlan: currentPlan(),
+      currentPlan: tag.mission === "10-wadden" ? null : currentPlan(),
       population: session.population,
       populationRepeats: session.populationRepeats || [],
+      processEvidence:structuredClone(session.processes || {}),
+      forestEvidence:session.forestSelection ? {leaves:[...session.forestSelection],origin:"game-action"} : null,
       comparisonHistory: session.comparisonHistory || [],
+      viewContext: visible?.mode === "plan" ? null : resolveComparisonView(session)?.context || null,
+      cohortPlanView:isPopulationWorkspace() && populationWorkspaceView(session,LEARNING_MODEL_REVISION).mode === "comparison-plan" ? populationWorkspaceView(session,LEARNING_MODEL_REVISION).context : null,
+      cohortView:isPopulationWorkspace() && session.populationMode !== "comparison" ? {context:populationWorkspaceView(session,LEARNING_MODEL_REVISION).context,selected:session.selectedIndividual || null,genesShown:showGenes} : null,
+      visiblePlan:visible?.mode === "plan" ? {version:1,context:visible.context,control:visible.sides.control.state,test:visible.sides.test.state} : null,
+      attemptId: session.attemptId || null,
       measurements: session.measurements,
       measurementMetrics: recordedMetrics(session.measurements, metrics()),
       quest: session.quest || null,
@@ -343,6 +464,10 @@ export function mountLearningUI(host) {
     );
   }
   function refreshResultNotice() {
+    if(isPrototype()) {
+      const start=root.querySelector('[data-workspace-mode="plan"] [data-learn="compare"]');
+      if(start)start.textContent=temperatureRunLabel(session.study.days);
+    }
     if (!session?.comparison) return;
     const state = root.querySelector("[data-learning-result-state]");
     if (state) {
@@ -357,7 +482,7 @@ export function mountLearningUI(host) {
         : matches
           ? session.comparison.kind === "population"
             ? "Gruppe 1: keine Farbe bevorzugt. Gruppe 2: deine Umgebung."
-            : "Becken 1 blieb gleich. Becken 2 wurde verändert."
+            : "Becken 1: Einstellung bleibt gleich. Becken 2: gewählter Eingriff. Beide Becken entwickeln sich weiter."
           : "Du hast etwas geändert. Starte den Versuch neu.";
       state.classList.toggle("learn-outdated", !matches);
     }
@@ -373,6 +498,7 @@ export function mountLearningUI(host) {
     return missionById(tag?.mission);
   }
   function setScreen(next) {
+    stopPlayback();
     persist();
     host.pause();
     host.tweezers(false);
@@ -398,6 +524,9 @@ export function mountLearningUI(host) {
       return;
     }
     const saved = loadJSON("aquarium-learning-notes-v1:" + key, null);
+    if (saved && !saved.viewVersion && !loadJSON(key+":before-views-v1",null)) {
+      if (!saveJSON(key+":before-views-v1",{tank:raw,session:saved})) return;
+    }
     session =
       saved?.version === 1 && saved.notes && Array.isArray(saved.measurements)
         ? saved
@@ -418,6 +547,10 @@ export function mountLearningUI(host) {
               generations: 5,
             },
           };
+    session.workspaceVersion ??= saved ? 0 : 1;
+    session.viewVersion = 1;
+    session.attemptId ??= investigationId();
+    session.planId ??= investigationId();
     session.study ??= {
       tool: "light",
       days: 3,
@@ -427,6 +560,7 @@ export function mountLearningUI(host) {
       generations: 5,
     };
     session.population ??= grade === 9 ? createLearningPopulation() : null;
+    if(grade === 9) session.populationMode ??= QUESTS[tag.mission]?.experiment.kind === "population" ? "comparison" : "cohort";
     const freshQuest = !session.quest;
     if (
       freshQuest &&
@@ -445,11 +579,14 @@ export function mountLearningUI(host) {
       const e = QUESTS[tag.mission].experiment;
       if (e.kind === "ecology") {
         session.study.tool = e.tool;
-        session.study.value = e.value;
+        session.study.value = tag.mission === "8-ecosystem" ? tank.setTemp : e.value;
         session.study.metric = e.metric;
       }
       if (e.kind === "population") session.study.metric = "dark";
     }
+    if(tag.mission === "10-wadden" && session.quest) session.quest.visualCaseVersion ??= !saved?.quest ? 1 : 0;
+    if (tag.mission === "8-ecosystem" && session.quest)
+      session.quest.visualEvidenceVersion ??= !saved?.quest ? 1 : 0;
     // Keep an exact archive before upgrading an unfinished older quest's requirements.
     if (session.quest?.version === 1 && session.quest.step < 5) {
       session.earlierQuest ??= structuredClone(session.quest);
@@ -461,7 +598,7 @@ export function mountLearningUI(host) {
     }
     session.study = reconciled;
     selected = null;
-    showGenes = false;
+    showGenes = !!session.genesShown;
     screen = "active";
     homeMode = null;
     host.open(tank);
@@ -471,19 +608,21 @@ export function mountLearningUI(host) {
     render();
   }
   function showPanel(next) {
+    if (isPrototype()) stopPlayback();
+    if (next === "investigate" && tag.mode === "free") {if(tag.grade !== 9) session.researchView = "comparison";else session.populationMode="comparison";}
     lastOpener = document.activeElement;
     host.pause();
     host.tweezers(false);
     panel = next;
     if (next === "observe") {
-      questEvent(session?.quest, "observe");
+      if (!isRegionalWorkspace()) questEvent(session?.quest, "observe");
       if (session?.quest) recordActivityView(session.quest,"fish-water",learningSample(host.getState(),host.types));
       persist();
     }
     helpKey = null;
     host.interactive(false);
     render();
-    root.querySelector(".learn-panel h2")?.focus();
+    root.querySelector(".coherent-notebook h2,.learn-panel h2")?.focus();
   }
   function closePanel() {
     helpKey = null;
@@ -608,6 +747,7 @@ export function mountLearningUI(host) {
     session.study.value = session.study.values[key] ?? LEARNING_TOOLS[key].value;
   }
   function openDevice(key, scope = panel === "investigate" || tag?.mode === "missions" ? "study" : "care") {
+    if (isPrototype()) {stopPlayback(); session.view = {mode:"plan"}; scope="study";}
     const toggle = EQUIPMENT_SWITCHES[key];
     if (toggle) {
       if (tag?.mode !== "free") throw new Error("Dieses Gerät gehört nicht zum Versuchsplan dieser Mission.");
@@ -652,11 +792,12 @@ export function mountLearningUI(host) {
   function readIntervention() {
     const tool = session.study.tool, def = LEARNING_TOOLS[tool], field = root.querySelector("[data-learning-value]");
     try {
-      const value = requireControlValue(field?.value, def);
+      const value = requireControlValue(field?.value ?? session.study.drafts?.[tool] ?? session.study.value, def);
       session.study.value = value;
       return {tool, value};
     } catch (error) {
-      root.querySelector("[data-learning-form] [data-control-error]").textContent = error.message;
+      const errorLabel = root.querySelector("[data-learning-form] [data-control-error]");
+      if (errorLabel) errorLabel.textContent = error.message;
       field?.setAttribute("aria-invalid", "true");
       for (let parent=field?.parentElement;parent;parent=parent.parentElement) if (parent.tagName === "DETAILS") parent.open=true;
       field?.focus(); throw error;
@@ -681,7 +822,7 @@ export function mountLearningUI(host) {
       `<p>Beide Becken starten aus derselben gesicherten Ausgangslage (Tag ${num(session.baseline.day, 1)}). Nur im Versuch wird eine Bedingung geändert.</p>${SUPPORT[teacher.support].steps ? "<ol><li>Frage, Hypothese und Plan notieren.</li><li>Eine Bedingung auswählen und Verlauf vorhersagen.</li><li>Kontrolle und Versuch messen; Daten erklären.</li></ol>" : ""}${tag.mode === "free" ? textArea("question", session.notes.question) : ""}${textArea("hypothesis", session.notes.hypothesis)}${textArea("prediction", session.notes.prediction)}${textArea("plan", session.notes.plan)}${interventionForm("study")}<div class="learn-two"><label>Beobachtungszeitraum (Tage)<input type="number" data-learning-days min="1" max="14" value="${session.study.days || 3}"></label><label>Wiederholungen<input type="number" data-learning-repetitions min="1" max="4" value="${session.study.repetitions || 2}"></label></div><div class="learn-actions">${button("compare", "Vergleich berechnen")}${button("baseline", "Aktuelles Becken als Ausgangslage")}</div><small>Wiederholungen variieren den Zufallsstart, nicht die Startbestände. Das Modell erzeugt keine künstlichen Messfehler. Gleiche Kurven sind möglich.</small>${session.comparison?.kind === "ecology" ? results(session.comparison) : ""}`
     );
   }
-  function plot(comp, key) {
+  function plot(comp, key, context = null) {
     const technical = detailed || panel === "teacher";
     const percent =
       !technical &&
@@ -722,7 +863,7 @@ export function mountLearningUI(host) {
         (percent ? [STUDENT_METRICS[key][0], "%"] : STUDENT_METRICS[key])) ||
       comparisonMetricDefinitions(comp)[key] || [key, ""]
     ).join(" · ");
-    return `<svg class="learn-chart" viewBox="0 0 480 270" role="img" aria-label="Verlauf ${esc(title)}: ${comp.kind === "manual" ? (technical ? "Eigenes Becken" : "Dein Becken") : technical ? "Kontrolle und Versuch" : comp.kind === "population" ? "Gruppe 1 und Gruppe 2" : "Becken 1 und Becken 2"}"><desc>${esc(technical ? runDescription(comp) : "Messwerte aus deinem Versuch.")}</desc><text x="45" y="13" font-size="12">${esc(title)}</text><path d="M45 24 V180 H455" fill="none" stroke="currentColor"/><text x="5" y="33">${num(maxY)}</text><text x="7" y="184">${num(minY)}</text><text x="45" y="204">${num(minX)}</text><text x="420" y="204">${num(maxX)}</text>${[
+    return `<svg class="learn-chart" data-view-time="${context?.time ?? ""}" data-series-id="${esc(context?.seriesId || "")}" viewBox="0 0 480 270" role="img" aria-label="Verlauf ${esc(title)}: ${comp.kind === "manual" ? (technical ? "Eigenes Becken" : "Dein Becken") : technical ? "Kontrolle und Versuch" : comp.kind === "population" ? "Gruppe 1 und Gruppe 2" : "Becken 1 und Becken 2"}"><metadata>${esc(JSON.stringify({context,metric:key,projection:key === "plantBiomass" ? comp.displayProjection || null : null,unit:technical ? comparisonMetricDefinitions(comp)[key]?.[1] : percent ? "%" : STUDENT_METRICS[key]?.[1],precision:technical ? null : percent ? 1 : learnerPrecision(key)}))}</metadata><desc>${esc(technical ? runDescription(comp) : "Messwerte aus deinem Versuch.")}</desc><text x="45" y="13" font-size="12">${esc(title)}</text>${context ? `<line data-time-cursor x1="${numRaw(45+(context.time-minX)/(maxX-minX || 1)*410)}" x2="${numRaw(45+(context.time-minX)/(maxX-minX || 1)*410)}" y1="24" y2="180" stroke="#8a6822" stroke-width="2"/><text x="240" y="13" font-size="12">${comp.kind === "population" ? "Generation" : "Tag"} ${num(context.time)}</text>` : ""}<path d="M45 24 V180 H455" fill="none" stroke="currentColor"/><text x="5" y="33">${num(maxY,technical?2:percent?1:learnerPrecision(key))}</text><text x="7" y="184">${num(minY,technical?2:percent?1:learnerPrecision(key))}</text><text x="45" y="204">${num(minX)}</text><text x="420" y="204">${num(maxX)}</text>${[
       a,
       b,
     ]
@@ -733,12 +874,17 @@ export function mountLearningUI(host) {
       })
       .join(
         "",
-      )}<text x="170" y="224" font-size="12">${comp.kind === "population" ? "Generation" : technical ? "Tag · Modellzeit" : "Tag"} ${technical ? (comp.kind === "manual" ? "(eigene Messreihe)" : "(Wiederholung 1)") : ""}</text><path d="M50 246 H80" stroke="#216c70" stroke-width="3"/><text x="88" y="250" font-size="12">${comp.kind === "manual" ? (technical ? "Eigenes Becken" : "Dein Becken") : technical ? "Kontrolle" : comp.kind === "population" ? "Gruppe 1" : "Becken 1"}</text>${comp.kind === "manual" ? "" : `<path d="M250 246 H280" stroke="#a35325" stroke-width="3" stroke-dasharray="7 3"/><text x="288" y="250" font-size="12">${technical ? "Versuch" : comp.kind === "population" ? "Gruppe 2" : "Becken 2"}</text>`}</svg>`;
+      )}<text x="170" y="224" font-size="12">${comp.kind === "population" ? "Generation" : technical ? "Tag · Modellzeit" : "Tag"} ${technical ? (comp.kind === "manual" ? "(eigene Messreihe)" : `(Wiederholung ${run.repetition || 1})`) : ""}</text><path d="M50 246 H80" stroke="#216c70" stroke-width="3"/><text x="88" y="250" font-size="12">${comp.kind === "manual" ? (technical ? "Eigenes Becken" : "Dein Becken") : technical ? "Kontrolle" : comp.kind === "population" ? "Gruppe 1" : "Becken 1"}</text>${comp.kind === "manual" ? "" : `<path d="M250 246 H280" stroke="#a35325" stroke-width="3" stroke-dasharray="7 3"/><text x="288" y="250" font-size="12">${technical ? "Versuch" : comp.kind === "population" ? "Gruppe 2" : "Becken 2"}</text>`}</svg>`;
   }
   function numRaw(v) {
     return Number(v.toFixed(3));
   }
   function results(comp) {
+    const v=resolveComparisonView(session);
+    if (!v) return "";
+    const {context,comparison:all}=v;
+    comp={...all,runs:[v.run],viewContext:context};
+    const series=[...(session.comparisonHistory || []),session.comparison].filter(Boolean);
     const population = comp.kind === "population",
       defs = comparisonMetricDefinitions(comp),
       keys = population
@@ -747,11 +893,11 @@ export function mountLearningUI(host) {
       metric = keys.includes(session.study.metric)
         ? session.study.metric
         : keys[0],
-      matches = planMatchesComparison(comp, currentPlan(comp.kind));
-    return `<section class="learn-results"><h3>Tatsächlich berechnete Daten</h3><p data-learning-result-state role="status" class="learn-result-state ${matches ? "" : "learn-outdated"}">${matches ? "Dieses Ergebnis gehört zum aktuellen Plan." : "Plan geändert – neu berechnen. Gezeigt und exportiert wird weiterhin der ältere Lauf mit seiner unten festgehaltenen Konfiguration."}</p>${runMetadata(comp)}<label>Messgröße<select data-learning-metric>${options(
+      matches = all === session.comparison && planMatchesComparison(all, currentPlan(all.kind));
+    return `<section class="learn-results" data-series-id="${esc(context.seriesId)}" data-view-time="${context.time}" data-repetition="${context.repetition}"><h3>Tatsächlich berechnete Daten</h3><label>Versuchsreihe<select data-learning-series>${options(series.map((c,i)=>[i,`${i+1}: ${c.kind === "population" ? "Populationsvergleich" : "Beckenvergleich"}`]),context.series)}</select></label><label>Wiederholung<select data-learning-run>${options(all.runs.map((r,i)=>[i,`Wiederholung ${r.repetition || i+1}`]),context.run)}</select></label><label>${population ? "Generation" : "Tag"}<select data-coherent-time>${options(v.rows.map(r=>[r.time,num(r.time)]),context.time)}</select></label><p data-learning-result-state role="status" class="learn-result-state ${matches ? "" : "learn-outdated"}">${matches ? "Dieses Ergebnis gehört zum aktuellen Plan." : "Plan geändert oder andere Reihe gewählt. Gezeigt und exportiert wird die ausgewählte gespeicherte Reihe mit ihrer festgehaltenen Laufkonfiguration."}</p>${runMetadata(comp)}<label>Messgröße<select data-learning-metric>${options(
       keys.map((k) => [k, defs[k].join(" · ")]),
       metric,
-    )}</select></label>${plot(comp, metric)}<p class="learn-caption">Kontrolle: durchgezogen · Versuch: gestrichelt. Diagramm: Wiederholung 1. „—“ bedeutet unbekannt; „keine Folgemessung“ bedeutet: diese Seite wurde beendet. Nach Ausfall einer Seite gibt es keinen vollständigen Paarvergleich mehr.</p>${runTables(comp, metric)}<div class="learn-actions">${button("csv", "Daten als CSV")}${button("export", "Protokoll mit Daten")}${button("chart", "Diagramm als SVG")}</div>${!population ? `<div class="learn-actions">${button("show-control", "Kontrollbecken ansehen")}${button("show-test", "Versuchsbecken ansehen")}</div>` : ""}${textArea("observation", session.notes.observation)}${textArea("explanation", session.notes.explanation)}${textArea("reflection", session.notes.reflection)}</section>`;
+    )}</select></label>${plot(comp, metric, context)}<p class="learn-caption">Kontrolle: durchgezogen · Versuch: gestrichelt. Diagramm: Wiederholung ${context.repetition}. „—“ bedeutet unbekannt; „keine Folgemessung“ bedeutet: diese Seite wurde beendet. Nach Ausfall einer Seite gibt es keinen vollständigen Paarvergleich mehr.</p>${runTables(comp, metric)}<div class="learn-actions">${button("csv", "Gewählten Zeitpunkt als CSV")}${button("csv-all", "Diese Reihe vollständig als CSV")}${button("export", "Protokoll mit Daten")}${button("chart", "Diagramm als SVG")}</div>${!population ? `<div class="learn-actions">${button("show-control", "Kontrollbecken ansehen")}${button("show-test", "Versuchsbecken ansehen")}</div>` : ""}${textArea("observation", session.notes.observation)}${textArea("explanation", session.notes.explanation)}${textArea("reflection", session.notes.reflection)}</section>`;
   }
   function runDescription(comp) {
     const c = comp.configuration,
@@ -788,7 +934,7 @@ export function mountLearningUI(host) {
           )
             .map(
               (row) =>
-                `<tr><td>${num(row.time)}</td><td>${row.control ? (metric === "health" && row.control.metricsVersion !== 2 ? "Früherer Tierwert: " : "") + num(row.control[metric], 4) : "keine Folgemessung"}</td><td>${row.test ? (metric === "health" && row.test.metricsVersion !== 2 ? "Früherer Tierwert: " : "") + num(row.test[metric], 4) : "keine Folgemessung"}</td></tr>`,
+                `<tr ${comp.viewContext ? `data-table-time="${row.time}" ${row.time === comp.viewContext.time ? 'aria-current="true"' : ""}` : ""}><td>${num(row.time)}</td><td>${row.control ? (metric === "health" && row.control.metricsVersion !== 2 ? "Früherer Tierwert: " : "") + num(row.control[metric], 4) : "keine Folgemessung"}</td><td>${row.test ? (metric === "health" && row.test.metricsVersion !== 2 ? "Früherer Tierwert: " : "") + num(row.test[metric], 4) : "keine Folgemessung"}</td></tr>`,
             )
             .join(
               "",
@@ -797,22 +943,15 @@ export function mountLearningUI(host) {
       .join("");
   }
   function manualData(item, readOnly = false) {
-    const rows = item.measurements || [],
-      keys = item.measurementMetrics || [];
-    if (!rows.length) return "";
-    const defs=comparisonMetricDefinitions({kind:"manual",runs:[{control:rows,test:[]}]});
-    const selected = readOnly ? importedManualMetric : manualMetric,
-      key = keys.includes(selected) ? selected : keys[0];
-    if (!key)
-      return "<p>Messpunkte vorhanden; freigegebene Messgrößen nicht dokumentiert.</p>";
-    const filtered = rows.map((s) => ({
-      ...s,
-      [key]: s.metrics && !s.metrics.includes(key) ? null : s[key],
-    }));
-    return `<section class="learn-measurements"><h3>Eigene Messreihe · ${rows.length} Zeitpunkte</h3><p>Aufeinanderfolgende Beobachtungen desselben Beckens. Kein automatischer Kontrollversuch; mehrere Eingriffe oder Zeitabstände können sich unterscheiden.</p><label>Eigene Messgröße<select data-learning-manual-metric="${readOnly ? "imported" : "local"}">${options(
+    const selected=readOnly?importedManualMetric:manualMetric;
+    const {keys,key,labels:defs,rows:filtered,unknown}=manualEvidence(item,selected);
+    const rows=item.measurements||[];
+    if(!rows.length)return "";
+    if(!key)return "<p>Messpunkte vorhanden; freigegebene Messgrößen nicht dokumentiert.</p>";
+    return `<section class="learn-measurements"><h3>Eigene Messreihe · ${rows.length} Zeitpunkte</h3><p>${unknown?"Diese historische Messgröße ist nicht eindeutig dokumentiert. Ihre Werte bleiben unbekannt. ":""}Aufeinanderfolgende Beobachtungen desselben Beckens. Kein automatischer Kontrollversuch; mehrere Eingriffe oder Zeitabstände können sich unterscheiden.</p><label>Eigene Messgröße<select data-learning-manual-metric="${readOnly ? "imported" : "local"}">${options(
       keys.map((k) => [k, defs[k].join(" · ")]),
       key,
-    )}</select></label>${plot({ kind: "manual", runs: [{ control: filtered, test: [] }] }, key)}<div class="learn-table-wrap"><table><caption>${esc(defs[key].join(" · "))}</caption><thead><tr><th>Tag · Modellzeit</th><th>Eigenes Becken</th></tr></thead><tbody>${filtered.map((s) => `<tr><td>${num(s.day)}</td><td>${key === "health" && s.metricsVersion !== 2 ? "Früherer Tierwert: " : ""}${num(s[key], 4)}</td></tr>`).join("")}</tbody></table></div><p>„—“: unbekannt oder zum Aufnahmezeitpunkt nicht freigegeben. Reale Nullwerte stehen als 0.</p><div class="learn-actions">${button(readOnly ? "imported-manual-csv" : "manual-csv", "Eigene Messreihe als CSV")}${button("manual-chart", "Eigene Messreihe als SVG")}${!readOnly ? button("export", "Messreihe und Notizen als JSON") : ""}</div></section>`;
+    )}</select></label>${filtered.some(row=>Number.isFinite(row[key]))?plot({ kind: "manual", runs: [{ control: filtered, test: [] }] }, key):"<p>Keine bekannten Werte für diese Messgröße. Es wird keine Messkurve gezeichnet.</p>"}<div class="learn-table-wrap"><table><caption>${esc(defs[key].join(" · "))}</caption><thead><tr><th>Tag · Modellzeit</th><th>Eigenes Becken</th></tr></thead><tbody>${filtered.map((s) => `<tr><td>${num(s.day)}</td><td>${key === "health" && s.metricsVersion !== 2 ? "Früherer Tierwert: " : ""}${num(s[key], 4)}</td></tr>`).join("")}</tbody></table></div><p>„—“: unbekannt oder zum Aufnahmezeitpunkt nicht freigegeben. Reale Nullwerte stehen als 0.</p><div class="learn-actions">${button(readOnly ? "imported-manual-csv" : "manual-csv", "Eigene Messreihe als CSV")}${filtered.some(row=>Number.isFinite(row[key]))?button("manual-chart", "Eigene Messreihe als SVG"):""}${!readOnly ? button("export", "Messreihe und Notizen als JSON") : ""}</div></section>`;
   }
   function archiveView(population, label) {
     const id = String(archiveRefs.size);
@@ -974,10 +1113,15 @@ export function mountLearningUI(host) {
     const defs = comparisonMetricDefinitions(comp),
       keys = Object.keys(defs),
       key = keys.includes(importedMetric) ? importedMetric : keys[0];
-    return `<section class="learn-teacher-comparison"><h3>Datenbezug prüfen</h3>${runMetadata(comp)}<label>Untersuchte Messgröße<select data-learning-imported-metric>${options(
+    return `<section class="learn-teacher-comparison" data-series-id="${esc(comp.viewContext?.seriesId || "")}" data-view-time="${comp.viewContext?.time ?? ""}"><h3>Datenbezug prüfen</h3>${comp.viewContext ? `<p>Angesehene Reihe ${comp.viewContext.series+1} · Wiederholung ${comp.viewContext.repetition} · ${comp.kind === "population" ? "Generation" : "Tag"} ${num(comp.viewContext.time)}. Die unveränderte vollständige Untersuchung bleibt im Lernprodukt enthalten.</p>` : ""}${runMetadata(comp)}<label>Untersuchte Messgröße<select data-learning-imported-metric>${options(
       keys.map((k) => [k, defs[k].join(" · ")]),
       key,
-    )}</select></label>${plot(comp, key)}${button("imported-csv", "Alle importierten Messreihen als CSV")}${runTables(comp, key)}</section>`;
+    )}</select></label>${plot(comp, key, comp.viewContext)}${button("imported-csv", comp.viewContext ? "Ausgewählten Zeitpunkt als CSV" : "Alle importierten Messreihen als CSV")}${comp.viewContext ? button("imported-csv-all","Diese Reihe vollständig als CSV") : ""}${runTables(comp, key)}</section>`;
+  }
+  function importedComparison() {
+    if (!imported?.viewContext) return imported?.comparison;
+    const x=imported.viewContext,v=resolveComparisonView({...imported,study:{series:x.series,run:x.run},view:x});
+    return {...v.comparison,runs:[v.run],viewContext:v.context};
   }
 
   function teacherView() {
@@ -1029,13 +1173,13 @@ export function mountLearningUI(host) {
               .map((key, i) => {
                 const item = loadJSON(key, {}),
                   parts = key.split(":");
-                return `<button data-learning-product="${esc(key)}">${esc(parts.at(-2))} · ${esc(parts.at(-1))} · ${Object.values(item.notes || {}).filter(Boolean).length} Texte</button>`;
+                return archiveEntry(archiveDescription(key,JSON.stringify(item)),`<button data-learning-product="${esc(key)}">Notizen und Messreihe lesen · ${Object.values(item.notes || {}).filter(Boolean).length} Texte</button>`);
               })
               .join("")
           : "<p>Noch keine lokalen Lernprodukte.</p>"
-      }<label class="learn-file">Exportiertes Lernprodukt lesen<input type="file" data-learning-import="product" accept=".json,application/json"></label>${
+      }<label class="learn-file">Exportiertes Lernprodukt lesen<input type="file" data-learning-import="product" accept=".json,application/json"></label>${importedError?`<p class="learn-import-error" role="alert">✕ Datei „${esc(importedSource)}“ konnte nicht geöffnet werden: ${esc(importedError)} Es wird kein Datensatz angezeigt.</p>`:""}${
         imported
-          ? `<section class="learn-imported-product"><h3>Lernprodukt Klasse ${imported.profile.grade}</h3><p>${esc(imported.profile.mission || "Freies Forschen")} · Unterstützung: ${esc(SUPPORT[imported.support]?.label || "nicht dokumentiert")} · ${esc(imported.created || "Exportdatum nicht dokumentiert")}</p><p>Modellstand: ${esc(imported.modelVersion || "Altbestand – nicht dokumentiert")}. ${esc(imported.model?.title || "")}</p><p>Die folgenden Planungsnotizen sind der aktuelle Bearbeitungsstand. Die vor der Berechnung festgehaltene Planung steht getrennt beim jeweiligen Lauf.</p>${imported.currentPlan && imported.comparison && !planMatchesComparison(imported.comparison, imported.currentPlan) ? `<p class="learn-outdated">Der Plan wurde nach dem gezeigten Lauf geändert. Die Daten gehören zur festgehaltenen älteren Laufkonfiguration.</p>` : ""}${imported.currentPlan?.incomplete ? `<p class="learn-outdated">Der neue Plan enthält unvollständige oder ungültige Einstellungen. Er wurde nicht berechnet; vorhandene Messdaten bleiben lesbar.</p>` : ""}${Object.entries(
+          ? `<section class="learn-imported-product"><h3>Lernprodukt Klasse ${imported.profile.grade}</h3><p data-import-source>Quelle: ${esc(importedSource||"Lokaler gespeicherter Datensatz")}. Angezeigt wird dieser Datensatz; das aktuelle Aquarium bleibt unverändert.</p><p>${esc(imported.profile.mission || "Freies Forschen")} · Unterstützung: ${esc(SUPPORT[imported.support]?.label || "nicht dokumentiert")} · ${esc(imported.created || "Exportdatum nicht dokumentiert")}</p><p>Modellstand: ${esc(imported.modelVersion || "Altbestand – nicht dokumentiert")}. ${esc(imported.model?.title || "")}</p><p>Die folgenden Planungsnotizen sind der aktuelle Bearbeitungsstand. Die vor der Berechnung festgehaltene Planung steht getrennt beim jeweiligen Lauf.</p>${imported.currentPlan && imported.comparison && !planMatchesComparison(imported.comparison, imported.currentPlan) ? `<p class="learn-outdated">Der Plan wurde nach dem gezeigten Lauf geändert. Die Daten gehören zur festgehaltenen älteren Laufkonfiguration.</p>` : ""}${imported.currentPlan?.incomplete ? `<p class="learn-outdated">Der neue Plan enthält unvollständige oder ungültige Einstellungen. Er wurde nicht berechnet; vorhandene Messdaten bleiben lesbar.</p>` : ""}${Object.entries(
               imported.notes,
             )
               .map(
@@ -1053,13 +1197,37 @@ export function mountLearningUI(host) {
                     )
                     .join("")}`
                 : ""
-            }${imported.gameExplanation ? `<h4>Spielerklärung</h4><p>${esc(imported.gameExplanation)}</p>` : ""}${imported.provenance?.legacy ? "<p>Altprodukt: Urheberschaft vorhandener Texte ist nicht dokumentiert. Sie gelten nicht automatisch als selbst formulierte Schülerleistung.</p>" : ""}${imported.earlierQuest ? `<details><summary>Früheres Questbuch · Anforderungen vor der Überarbeitung</summary><p>${imported.earlierQuest.step} von 5 damaligen Schritten. Originaleinträge bleiben im JSON erhalten.</p></details>` : ""}${imported.quest ? `<h3>Questbuch${imported.quest.version === 1 ? " · historischer Anforderungsstand" : ""}</h3><p>${imported.quest.step} von 5 Aufgaben</p>${imported.quest.entries.map((e) => `<p>${e.answer ? "Auswahl" : "Spielhandlung"} · ${esc(e.question || e.event)}: ${esc(e.answer || "Tatsächlich ausgeführter Eingriff")}</p>`).join("")}` : ""}${imported.comparisonHistory?.length ? `<details class="learn-comparison-history"><summary>Frühere Versuchsreihen (${imported.comparisonHistory.length})</summary>${imported.comparisonHistory.map(c=>`<p>${esc(c.kind)} · ${esc(c.environment || c.tool)} · ${c.runs.length} Wiederholungen · Ausgangslage ${esc(c.configuration?.baseline.fingerprint || "nicht dokumentiert")}</p><p>Seeds ${c.runs.map(r=>r.seed).join(", ")}. Vollständige tatsächliche Messreihen und Archive sind im JSON erhalten.</p>`).join("")}</details>` : ""}${imported.quest?.activities?.length ? `<h4>Bearbeitete Lernhandlungen</h4>${imported.quest.activities.map(a=>`<p>${a.kind === "assignment" ? "Auswahl/Zuordnung" : "Spielhandlung"} · ${esc(a.id)}: ${esc(a.from || "")} ${esc(a.to || "Messwerte angesehen")}</p>`).join("")}` : ""}${imported.comparison ? teacherData(imported.comparison) : ""}${manualData(imported, true)}${imported.population ? `<h3>Separater Zuchtversuch</h3><p>Startseed ${imported.population.initialSeed ?? "nicht dokumentiert"}; aktueller Zufallszustand ${imported.population.seed}. Dieses Archiv ersetzt nicht die Archive der Kontroll-/Selektionsläufe.</p>${archiveView(imported.population, "separater Mendelversuch")}` : ""}${imported.populationRepeats?.length ? `<h4>Dokumentierte Wiederholungen</h4>${imported.populationRepeats.map((r) => `<p>Seed ${r.seed}: AA ${r.final.AA}, Aa ${r.final.Aa}, aa ${r.final.aa}.</p>`).join("")}` : ""}</section>`
+            }${imported.gameExplanation ? `<h4>Spielerklärung</h4><p>${esc(imported.gameExplanation)}</p>` : ""}${imported.visiblePlan ? `<section class="learn-plan-evidence"><h4>Noch nicht durchgeführter Versuchsplan</h4><p>Die vorbereiteten Becken gehören zu Tag ${num(imported.visiblePlan.context.time)}. Dies ist kein berechneter Verlauf.</p><p>Becken 1: Wasser ${num(imported.visiblePlan.control.params.temp,1)} °C, Heizer ${num(imported.visiblePlan.control.setTemp,1)} °C. Becken 2: Wasser ${num(imported.visiblePlan.test.params.temp,1)} °C, Heizer ${num(imported.visiblePlan.test.setTemp,1)} °C.</p></section>` : ""}${imported.provenance?.legacy ? "<p>Altprodukt: Urheberschaft vorhandener Texte ist nicht dokumentiert. Sie gelten nicht automatisch als selbst formulierte Schülerleistung.</p>" : ""}${imported.earlierQuest ? `<details><summary>Früheres Questbuch · Anforderungen vor der Überarbeitung</summary><p>${imported.earlierQuest.step} von 5 damaligen Schritten. Originaleinträge bleiben im JSON erhalten.</p></details>` : ""}${imported.quest ? `<h3>Questbuch${(imported.workspaceEvidenceVersion === 0 || imported.quest.version === 1 || imported.quest.visualEvidenceVersion === 0) ? " · historischer Anforderungsstand" : ""}</h3><p>${imported.quest.step} von 5 Aufgaben</p>${imported.quest.entries.map((e) => `<p>${e.answer ? "Auswahl" : "Spielhandlung"} · ${esc(e.question || e.event)}: ${esc(e.answer || "Tatsächlich ausgeführter Eingriff")}</p>`).join("")}` : ""}${imported.comparisonHistory?.length ? `<details class="learn-comparison-history"><summary>Frühere Versuchsreihen (${imported.comparisonHistory.length})</summary>${imported.comparisonHistory.map(c=>`<p>${esc(c.kind)} · ${esc(c.environment || c.tool)} · ${c.runs.length} Wiederholungen · Ausgangslage ${esc(c.configuration?.baseline.fingerprint || "nicht dokumentiert")}</p><p>Seeds ${c.runs.map(r=>r.seed).join(", ")}. Vollständige tatsächliche Messreihen und Archive sind im JSON erhalten.</p>`).join("")}</details>` : ""}${imported.quest?.activities?.length ? `<h4>Bearbeitete Lernhandlungen</h4>${imported.quest.activities.map(a=>`<p>${a.kind === "assignment" ? "Auswahl/Zuordnung" : "Spielhandlung"} · ${esc(a.id)}: ${esc(a.from || "")} ${esc(a.to || "Messwerte angesehen")}</p>`).join("")}` : ""}${imported.comparison ? `${imported.visiblePlan ? "<h4>Gespeicherte frühere Messreihe</h4>" : ""}${teacherData(importedComparison())}` : ""}${manualData(imported, true)}${imported.cohortPlanView ? `<p>Vorbereiteter Populationsvergleich: beide Gruppen starten mit den tatsächlichen Gründern in Generation 0. Noch kein berechneter Lauf.</p>` : ""}${imported.cohortView ? `<p>Angesehene Lernpopulation: Generation ${imported.cohortView.context.time} · Kohortenkennung ${esc(imported.cohortView.context.cohortIds.test)}${imported.cohortView.selected ? ` · Fisch ${imported.cohortView.selected.uid}` : ""}. Diese Ansicht verändert die aktuelle Elternpopulation nicht.</p>` : ""}${imported.population ? `<h3>Separater Zuchtversuch</h3><p>Startseed ${imported.population.initialSeed ?? "nicht dokumentiert"}; aktueller Zufallszustand ${imported.population.seed}. Dieses Archiv ersetzt nicht die Archive der Kontroll-/Selektionsläufe.</p>${archiveView(imported.population, "separater Mendelversuch")}` : ""}${imported.populationRepeats?.length ? `<h4>Dokumentierte Wiederholungen</h4>${imported.populationRepeats.map((r) => `<p>Seed ${r.seed}: AA ${r.final.AA}, Aa ${r.final.Aa}, aa ${r.final.aa}.</p>`).join("")}` : ""}</section>`
           : ""
-      }<details><summary>Alle Missionshintergründe und Modellgrenzen</summary>${MISSIONS.map((m) => `<h3>${esc(m.title)}</h3><p>${esc(m.goal)}</p><p>${esc(m.curriculum)}</p><p>${esc(m.limits)}</p>${m.transfer ? transfer(m.transfer, false) : ""}`).join("")}</details><h3>Versuche verwalten</h3><p>Ein Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.</p>${button("teacher-reset", "Ausgewählte Mission neu beginnen")}${button("teacher-restore", "Gesicherte Mission wiederherstellen")}<details><summary>Fachliche und curriculare Grundlage</summary><p>${CURRICULUM.title}, ${CURRICULUM.pages}; Original-PDF am 20.10.2026 abgeglichen. Die Simulation deckt ausgewählte Einheiten ab, nicht alle Inhalte der Klassen.</p><p>Gesundheit, Biomasse und Belastung sind Modellgrößen. Kohlenstoff nur qualitativ; Selektion nutzt offengelegte hypothetische Gewichte.</p></details>`
+      }<details><summary>Alle Missionshintergründe und Modellgrenzen</summary>${MISSIONS.map((m) => `<h3>${esc(m.title)}</h3><p>${esc(m.goal)}</p><p>${esc(m.curriculum)}</p><p>${esc(m.limits)}</p>${m.transfer ? transfer(m.transfer, false) : ""}`).join("")}</details>${archivedAttempts()}<h3>Versuche verwalten</h3><p>Ein Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.</p>${button("teacher-reset", "Ausgewählte Mission neu beginnen")}${button("teacher-restore", "Gesicherte Mission wiederherstellen")}<details><summary>Fachliche und curriculare Grundlage</summary><p>${CURRICULUM.title}, ${CURRICULUM.pages}; Original-PDF am 20.10.2026 abgeglichen. Die Simulation deckt ausgewählte Einheiten ab, nicht alle Inhalte der Klassen.</p><p>Gesundheit, Biomasse und Belastung sind Modellgrößen. Kohlenstoff nur qualitativ; Selektion nutzt offengelegte hypothetische Gewichte.</p></details>`
     );
   }
+  function preserveWorkspacePosition(active=document.activeElement) {
+    const attributes=active?.getAttributeNames?.().filter(a=>a.startsWith("data-")) || [];
+    const anchorTop=active?.closest?.('.learn-panel')?active.getBoundingClientRect().top:null;
+    const values=attributes.map(a=>[a,active.getAttribute(a)]), scrolls=[".coherent-views",".coherent-notebook",".learn-panel"].flatMap(selector=>{const e=root.querySelector(selector);return e?[[selector,e.scrollTop]]:[];});
+    const details=[...root.querySelectorAll("details[open]>summary")].map(e=>e.textContent);
+    return () => {
+      for(const summary of root.querySelectorAll("details>summary")) if(details.includes(summary.textContent))summary.parentElement.open=true;
+      for(const [selector,top] of scrolls)if(root.querySelector(selector))root.querySelector(selector).scrollTop=top;
+      if(values.length && !helpKey) {
+        const field=[...root.querySelectorAll("button,input,select,textarea,summary")].find(e=>values.every(([a,v])=>e.getAttribute(a)===v) && !e.disabled);
+        if(field){
+          if(anchorTop!==null){
+            const panel=field.closest('.learn-panel');
+            if(panel){const box=field.getBoundingClientRect(),bounds=panel.getBoundingClientRect(),header=panel.querySelector('header')?.getBoundingClientRect();const top=Math.min(Math.max(anchorTop,(header?.bottom||bounds.top)+8),bounds.bottom-box.height-8);panel.scrollTop+=box.top-top;}
+          }
+          field.focus({preventScroll:true});
+        }
+      }
+    };
+  }
   function render() {
+    if(host.comparisonRenderer?.()?.learningDraw === domainDraw && !isPopulationWorkspace() && !isRegionalWorkspace()) host.comparisonRenderer().learningDraw=null;
     archiveRefs.clear();
+    document.documentElement.classList.toggle("learning-coherent",isPrototype() || isPopulationWorkspace() || isRegionalWorkspace());
+    document.documentElement.classList.toggle("learning-domain",isPopulationWorkspace() || isRegionalWorkspace());
+    document.documentElement.classList.toggle("learning-history-view",screen === "active" && panel === "saved-view");
     const learner = screen !== "expert";
     document.documentElement.classList.toggle("learning-mode", learner);
     document.documentElement.classList.toggle(
@@ -1068,12 +1236,68 @@ export function mountLearningUI(host) {
     );
     root.hidden = !learner;
     if (!learner) {
+      tankViews.dispose();
       host.interactive(!host.isHome());
       host.sceneInert(host.isHome());
       host.layout(false);
       return;
     }
     const active = screen === "active";
+    document.documentElement.classList.toggle("learning-coherent",isPrototype() || isPopulationWorkspace() || isRegionalWorkspace());
+    document.documentElement.classList.toggle("learning-domain",isPopulationWorkspace() || isRegionalWorkspace());
+    document.documentElement.classList.toggle("learning-history-view",active && panel === "saved-view");
+    if(tag?.mission === "10-northsea" && session?.regionalMode === "northsea" && screen === "active" && !detailed && panel !== "teacher") {
+      tankViews.dispose();
+      const v=resolveComparisonView(session),drawer=panel === "more" ? student.more() : panel === "notebook" ? notebook() : panel === "display" ? display() : panel === "glossary" ? glossary() : panel === "mission-info" ? missionInfo() : panel === "restart-attempt" ? restartView() : "";
+      root.innerHTML=`<header class="coherent-header"><div><small>Regionaler Fall · Klasse 10</small><h1>Vom Land in die Nordsee</h1></div>${button("more","Mehr")}</header><main class="coherent-workspace"><section class="coherent-views">${processWorkspace({session,mission:tag.mission,context:{...v.context,domain:"regional-qualitative"},esc,button})}<section class="coherent-run">${button("regional-local","Zum gespeicherten Beckenvergleich")}<p>Qualitativer Eintragsweg. Keine Aquariumtage oder regionale Mengenprognose.</p><a href="${REGIONAL_CASES[tag.mission].url}" target="_blank" rel="noopener">OSPAR: Eutrophierung</a></section></section><aside class="coherent-notebook">${drawer || student.quest(true)}</aside></main>`;
+      document.documentElement.classList.add("learning-domain");if(host.comparisonRenderer?.())host.comparisonRenderer().learningDraw=domainDraw;
+      host.layout(false);host.sceneInert(true);host.interactive(false);return;
+    }
+    if(isRegionalWorkspace() && panel !== "teacher") {
+      const restorePosition=preserveWorkspacePosition();
+      tankViews.dispose();
+      const drawer=panel === "more" ? student.more() : panel === "notebook" ? notebook() : panel === "display" ? display() : panel === "glossary" ? glossary() : panel === "restart-attempt" ? restartView() : "";
+      root.innerHTML=harbourWorkspace({session,quest:(panel && !drawer ? button("close","Zur Aufgabe") : "")+student.quest(true),drawer,esc,button,source:REGIONAL_CASES["10-wadden"]});
+      if(storageError)root.querySelector(".coherent-notebook").insertAdjacentHTML("afterbegin",`<p class="coherent-storage" role="alert">${esc(storageError)}</p>`);
+      restorePosition();if(host.comparisonRenderer?.())host.comparisonRenderer().learningDraw=domainDraw;
+      host.layout(false);host.sceneInert(true);host.interactive(false);return;
+    }
+    if (isPopulationWorkspace() && panel !== "teacher") {
+      const restorePosition=preserveWorkspacePosition();
+      tankViews.dispose();
+      const v=populationWorkspaceView(session,LEARNING_MODEL_REVISION), oldScroll=root.querySelector(".coherent-views")?.scrollTop || 0;
+      const drawer=panel === "more" ? student.more() : panel === "notebook" ? notebook() : panel === "display" ? display() : panel === "glossary" ? glossary() : panel === "restart-attempt" ? restartView() : "";
+      root.innerHTML=populationWorkspace({session,view:v,tag,showGenes,esc,button,helpButton,quest:(panel && !drawer ? button("close","Zur Aufgabe")+(panel === "observe" ? `<section class="coherent-note"><h3>Fische genau ansehen ${helpButton("observe")}</h3><p>Wähle einen Fisch direkt in der Zählansicht. Seine Nummer und seine Farbe gehören zusammen.</p></section>` : "") : "")+student.quest(true),drawer,
+        breeding:student.breeding(true),investigation:student.investigation(true),results:student.results(),materials:tag.mission === "9-darwin" && session.quest?.step === 4 ? fossilWorkspace({session,esc}) : ""});
+      if(storageError)root.querySelector(".coherent-notebook").insertAdjacentHTML("afterbegin",`<p class="coherent-storage" role="alert">${esc(storageError)}</p>`);
+      root.querySelector(".coherent-views").scrollTop=oldScroll;restorePosition();
+      if(helpKey) root.innerHTML+=`<section class="learn-help-pop" role="dialog" aria-modal="true" aria-label="Begriffshilfe"><h2>${esc(HELP[helpKey].term)}</h2><p>${esc(isPopulationWorkspace() && helpKey === "observe" ? "Schau genau hin. Was zeigt deine Population? Wähle einzelne Fische." : HELP[helpKey][tag.grade])}</p>${button("help-close","Hilfe schließen")}</section>`;
+      root.querySelector(".coherent-workspace").toggleAttribute("inert",!!helpKey);
+      root.querySelector(".coherent-header").toggleAttribute("inert",!!helpKey);
+      if(!teacher.help) root.querySelectorAll("[data-learn-help]").forEach(b=>b.remove());
+      if(host.comparisonRenderer?.())host.comparisonRenderer().learningDraw=domainDraw;
+      host.layout(false);host.sceneInert(true);host.interactive(false);return;
+    }
+    if (isPrototype() && panel !== "teacher") {
+      const openDetails=[...root.querySelectorAll("details[open] > summary")].map(s=>s.textContent);
+      const scrolls=[".coherent-views",".coherent-notebook"].map(selector=>({selector,top:root.querySelector(selector)?.scrollTop || 0}));
+      const active=document.activeElement,focusAttribute=active?.getAttributeNames?.().find(a=>a.startsWith("data-") && !a.startsWith("data-view"));
+      const v = temperatureView(session,host,LEARNING_MODEL_REVISION);
+      const drawer=panel === "more" ? student.more() : panel === "notebook" ? notebook() : panel === "display" ? display() : panel === "glossary" ? glossary() : panel === "mission-info" ? missionInfo() : panel === "restart-attempt" ? restartView() : "";
+      const panelBody = drawer ? `<section class="coherent-drawer">${drawer}</section>` : panel === "observe" ? `<section class="coherent-note"><h3>Schau auf Fisch und Wasser ${helpButton("observe")}</h3><p>Wähle sie direkt am Becken. Die beiden Messkarten gehören zum gleichen Zeitpunkt.</p>${button("close","Zur Aufgabe")}</section>` : "";
+      root.innerHTML = temperatureWorkspace({session,view:v,quest:(storageError ? `<p class="coherent-storage" role="alert">${esc(storageError)}</p>` : "")+(drawer ? "" : student.quest(true)),esc,button,helpButton,types:host.types,playing:!!playback,processFirst:!!(session.quest && [0,4].includes(session.quest.step) && ["8-foodweb","8-forest","10-carbon"].includes(tag.mission)),process:tag.mission === "10-enrichment" && v.mode === "result" ? `<section class="coherent-data"><h3>Beobachtet und möglich</h3><p>Beobachtet: Die Karten zeigen Algen und Sauerstoff am gewählten Zeitpunkt. Mehr Algen allein belegen kein Umkippen.</p><details><summary>Was könnte später folgen?</summary><p>Wenn organische Reste abgebaut werden, wird Sauerstoff verbraucht. Licht, Atmung und Luftaustausch wirken gleichzeitig. Eine spätere Sauerstoffkrise ist hier keine sichere Vorhersage.</p></details><p>Nicht gezeigt: ein dauerhaftes Verhalten unter anderen Bedingungen oder die Entwicklung eines ganzen Sees.</p></section>` : tag.mission === "8-forest" && session.quest?.step === 4 ? forestWorkspace({session,esc}) : tag.mission !== "10-northsea" ? processWorkspace({session,mission:tag.mission,context:v.context,esc,button}) : session.quest?.step === 4 ? `<section class="coherent-run"><p>Der Beckenversuch ist beendet. Untersuche jetzt den regionalen Eintragsweg.</p>${button("regional-northsea","Vom Becken zur Nordsee wechseln")}</section>` : "",results:v.mode === "result" ? student.results() : "",panelBody,tag,form:interventionForm("study")});
+      for (const summary of root.querySelectorAll("details > summary")) if (openDetails.includes(summary.textContent)) summary.parentElement.open=true;
+      for (const {selector,top} of scrolls) root.querySelector(selector).scrollTop=top;
+      if(focusAttribute) [...root.querySelectorAll(`[${focusAttribute}]`)].find(e=>e.getAttribute(focusAttribute)===active.getAttribute(focusAttribute))?.focus({preventScroll:true});
+      if (helpKey) root.innerHTML += `<section class="learn-help-pop" role="dialog" aria-modal="true" aria-label="Begriffshilfe"><h2>${esc(HELP[helpKey].term)}</h2><p>${esc(isPopulationWorkspace() && helpKey === "observe" ? "Schau genau hin. Was zeigt deine Population? Wähle einzelne Fische." : HELP[helpKey][tag.grade])}</p>${button("help-close","Hilfe schließen")}</section>`;
+      root.querySelector(".coherent-workspace")?.toggleAttribute("inert",!!helpKey);
+      root.querySelector(".coherent-header")?.toggleAttribute("inert",!!helpKey);
+      if (!teacher.help) root.querySelectorAll("[data-learn-help]").forEach(b=>b.remove());
+      host.layout(false); host.sceneInert(true); host.interactive(false);
+      tankViews.update(root,v.sides,(side,uid)=>pickObject(side,uid),session.prototypeSelection);
+      return;
+    }
+    tankViews.dispose();
     const view =
       panel === "observe"
         ? observe
@@ -1093,6 +1317,10 @@ export function mountLearningUI(host) {
                       ? teacherView
                       : panel === "more"
                         ? student.more
+                        : panel === "restart-attempt"
+                          ? restartView
+                        : panel === "saved-view"
+                          ? savedView
                         : null;
     const body = view ? view() : "";
     const panelBody =
@@ -1170,6 +1398,34 @@ export function mountLearningUI(host) {
       });
     }
   }
+  function storeComparison(next) {
+    const history=session.comparisonHistory || [];
+    if (session.comparison && history.length >= 3) {
+      const prior=history[0],notes=structuredClone(prior.planning || prior.configuration?.planning || {});
+      const key="aquarium-learning-attempt-v1:series-"+(prior.id || stateId(prior));
+      if (!loadJSON(key,null) && !saveJSON(key,{kind:"series",product:{version:2,type:"aquarium-learning-product",profile:tag,
+        created:new Date().toISOString(),notes,provenance:null,model:CURRICULUM,modelVersion:prior.configuration?.modelVersion || null,
+        comparison:prior,comparisonHistory:[],measurements:[],measurementMetrics:[],quest:null,population:null,
+        viewContext:resolveComparisonView({comparison:prior,study:{}}).context,attemptId:prior.attemptId || session.attemptId}})) return false;
+    }
+    const evidenceId=session.quest?.result?.viewContext?.investigationId || session.quest?.entries.find(e=>e.step === 3)?.viewContext?.investigationId ||
+      session.quest?.entries.find(e=>e.step === 2)?.evidence?.context?.investigationId;
+    const previous=session.comparison ? {...session.comparison,...(evidenceId && evidenceId === session.comparison.id ? {questEvidence:structuredClone(session.quest)} : {})} : null;
+    const draft={...session,study:{...session.study},comparison:next,
+      comparisonHistory:previous ? [...history,previous].slice(-3) : history};
+    delete draft.study.series;delete draft.view;delete draft.inspection;
+    if (isPrototype()) {
+      if (draft.quest) draft.pendingExperimentId=next.id;
+      if ([3,4].includes(draft.quest?.step)) {
+        draft.quest=structuredClone(draft.quest);draft.quest.step=2;draft.quest.entries=draft.quest.entries.filter(e=>e.step<2);
+        draft.quest.result=null;delete draft.quest.predictionCheck;
+        draft.quest.feedback="Der neue Versuch beginnt. Beobachte beide Becken.";draft.quest.feedbackKind="neutral";
+      }
+    }
+    // Verify storage before replacing the current in-memory investigation.
+    if (!saveJSON("aquarium-learning-notes-v1:"+learningSlot(tag),draft)) return false;
+    session=draft;return true;
+  }
   mountDials(root);
   root.addEventListener("input", (e) => {
     if (e.target.dataset.learningNote) {
@@ -1195,10 +1451,13 @@ export function mountLearningUI(host) {
         refreshResultNotice();
       }
   });
+  root.addEventListener("pointerdown",e=>{if(e.target.closest("[data-coherent-time]"))stopPlayback();});
   root.addEventListener("change", async (e) => {
     const t = e.target,
       d = t.dataset;
     try {
+      if (t.hasAttribute("data-cohort-generation")) {session.cohortGeneration=Number(t.value);delete session.selectedIndividual;persist();render();return;}
+      if (t.hasAttribute("data-coherent-time")) {stopPlayback();showTime(Number(t.value));return;}
       if (d.learningTool) {
         selectTool(t.value);
         persist();
@@ -1210,10 +1469,12 @@ export function mountLearningUI(host) {
         session.study.repetitions = Number(t.value);
       if (t.hasAttribute("data-learning-generations"))
         session.study.generations = Number(t.value);
-      if (t.hasAttribute("data-learning-environment"))
+      if (t.hasAttribute("data-learning-environment")) {
         session.study.environment = t.value;
-      if (t.hasAttribute("data-learning-series")) {session.study.series=Number(t.value); persist();render();}
-      if (t.hasAttribute("data-learning-run")) {session.study.run = Number(t.value); persist(); render();}
+        if(isPopulationWorkspace() && !session.comparison) {persist();render();return;}
+      }
+      if (t.hasAttribute("data-learning-series")) {stopPlayback();session.study.series=Number(t.value);delete session.selectedIndividual;delete session.view;selectComparisonView(session);persist();render();}
+      if (t.hasAttribute("data-learning-run")) {stopPlayback();session.study.run=Number(t.value);delete session.selectedIndividual;delete session.view;selectComparisonView(session);persist();render();}
       if (t.hasAttribute("data-learning-metric")) {
         session.study.metric = t.value;
         persist();
@@ -1224,6 +1485,7 @@ export function mountLearningUI(host) {
       if (t.hasAttribute("data-learning-father"))
         session.father = Number(t.value);
       if (t.hasAttribute("data-learning-graphics")) {
+        if (isPrototype()) tankViews.dispose();
         host.setGraphics(t.value);
         render();
       }
@@ -1251,14 +1513,18 @@ export function mountLearningUI(host) {
           saveJSON("aquarium-teacher-v1", teacher);
         }
       if (t.hasAttribute("data-learning-imported-metric")) {
+        const restore=preserveWorkspacePosition(t);
         importedMetric = t.value;
         render();
+        restore();
       }
       if (t.hasAttribute("data-learning-manual-metric")) {
+        const restore=preserveWorkspacePosition(t);
         if (t.dataset.learningManualMetric === "imported")
           importedManualMetric = t.value;
         else manualMetric = t.value;
         render();
+        restore();
       }
       if (t.hasAttribute("data-learning-archive-generation"))
         fillArchive(t.closest("details"), Number(t.value));
@@ -1277,14 +1543,20 @@ export function mountLearningUI(host) {
       if (d.learningImport) {
         const file = t.files[0];
         if (!file) return;
-        if (file.size > 32 * 1024 * 1024)
-          throw new Error("Die Datei ist zu groß.");
-        const raw = JSON.parse(await file.text());
-        if (d.learningImport === "config") {
-          teacher = normalizeTeacher(raw);
-          saveJSON("aquarium-teacher-v1", teacher);
-        } else imported = validateLearningProduct(raw);
+        if(d.learningImport === "product"){
+          imported=null;importedSource=file.name;importedError="";importedManualMetric="oxygen";
+          try{
+            if(file.size>32*1024*1024)throw Error("Die Datei ist zu groß.");
+            const raw=JSON.parse(await file.text());
+            if(raw.type!=="aquarium-learning-product"&&(raw.entities||raw.tank||raw.codec))throw Error("Das ist ein Aquarium-Spielstand. Nutze die Spielstand-Funktion im Menü; dieser Leser öffnet Lernprodukte.");
+            imported=validateLearningProduct(raw);
+          }catch(error){imported=null;importedError=error instanceof SyntaxError?"Die Datei enthält kein lesbares JSON.":error.message;}
+        }else{
+          if(file.size>32*1024*1024)throw Error("Die Datei ist zu groß.");
+          teacher=normalizeTeacher(JSON.parse(await file.text()));saveJSON("aquarium-teacher-v1",teacher);
+        }
         render();
+        if(d.learningImport==="product")root.querySelector(".learn-import-error,[data-import-source]")?.scrollIntoView({block:"center"});
       }
     } catch (error) {
       host.notify(error.message);
@@ -1304,17 +1576,86 @@ export function mountLearningUI(host) {
     if (!t) return;
     const d = t.dataset;
     try {
+      if(d.processNode) {
+        const mission=tag.mission, state=(session.processes ??= {})[mission] ??= {links:[],actions:[]};
+        if(state.selected && state.selected !== d.processNode) {
+          const context={...temperatureView(session,host,LEARNING_MODEL_REVISION).context,...(session.regionalMode ? {domain:"regional-qualitative"} : {})};
+          const result=connectProcess(session,mission,state.selected,d.processNode,context);state.feedback=result.feedback;state.selected=null;
+          if(session.quest){session.quest.feedback=result.feedback;session.quest.feedbackKind=result.accepted ? result.completed ? "success" : "neutral" : "error";}
+        }else state.selected=d.processNode;
+        persist();render();return;
+      }
+      if(d.forestLeaf) {const list=session.forestSelection ??= [];if(!list.includes(d.forestLeaf))list.push(d.forestLeaf);persist();render();return;}
+      if(d.fossil) {
+        const q=session.quest,order=q.fossilOrder ??= [];
+        if(d.fossil !== FOSSIL_EVIDENCE[order.length]?.id) {q.fossilOrder=[];q.feedback="Prüfe die Altersangaben. Ein größeres Alter liegt weiter zurück.";q.feedbackKind="error";}
+        else {order.push(d.fossil);q.feedback="Fund ausgewählt. Prüfe die zeitliche Reihenfolge.";q.feedbackKind="neutral";if(order.length===2 && assignActivity(q,"fossil-evidence",0)){Object.assign(q.activities.at(-1),{origin:"game-action",kind:"fossil-order",objects:[...order],references:FOSSIL_EVIDENCE.map(f=>f.url)});q.feedbackKind="success";}}
+        persist();render();return;
+      }
+      if(d.harbourObject && HARBOUR_OBJECTS[d.harbourObject]) {
+        session.harbourSelection=d.harbourObject;
+        (session.quest.caseObjects ??= {})[d.harbourObject]={id:d.harbourObject,origin:"game-action",attemptId:session.attemptId};
+        const q=session.quest,object=d.harbourObject;
+        if(["visitors","fishing"].includes(object)) q.caseRoute=[object];
+        else if(q.caseRoute?.length===1 && object === (q.caseRoute[0]==="visitors" ? "packaging" : "nets")) q.caseRoute.push(object);
+        else if(q.caseRoute?.length===2 && object === "animals") {
+          q.caseRoute.push(object);const key=q.caseRoute[0]==="visitors" ? "returns" : "gear";
+          (q.casePaths ??= {})[key]={objects:[...q.caseRoute],origin:"game-action",attemptId:session.attemptId};
+          questEvent(q,"observe");q.feedback="Müllweg angesehen. Prüfe jetzt eine passende Maßnahme.";q.feedbackKind="neutral";
+        }
+        persist();render();return;
+      }
+      if (d.cohortPick) {
+        const v=populationWorkspaceView(session,LEARNING_MODEL_REVISION),i=v.sides[d.cohortPick]?.cohort?.individuals.find(i=>i.uid===Number(d.cohortUid));
+        if(!i) return;
+        session.selectedIndividual={side:d.cohortPick,uid:i.uid,cohortId:v.context.cohortIds[d.cohortPick]};
+        if(v.mode === "cohort" && v.context.time === session.population.generation && (tag.mode === "free" || tag.mission === "9-mendel")) session[i.sex === "♀" ? "mother" : "father"]=i.uid;
+        questEvent(session.quest,"observe");
+        if(tag.mission === "9-traits" && session.quest) {
+          if(!showGenes) {
+            (session.quest.visibleIndividuals ??= {})[i.uid]=i.phenotype;
+            recordActivityView(session.quest,"visible-traits",{uids:Object.keys(session.quest.visibleIndividuals),phenotypes:Object.values(session.quest.visibleIndividuals),beforeGenes:true,context:v.context});
+          } else {
+            (session.quest.genotypeIndividuals ??= {})[i.uid]={uid:i.uid,genotype:genotypeText(i.loci),context:v.context};
+            if(["AA","Aa"].every(g=>Object.values(session.quest.genotypeIndividuals).some(i=>i.genotype===g)))recordQuestExperiment("traits");
+          }
+        }
+        persist();render();return;
+      }
+      if (d.coherentPick) {pickObject(d.coherentPick,d.coherentUid);return;}
+      if (d.coherentWater) {pickObject(d.coherentWater,null,true);return;}
+      if (d.learningArchivedProduct) {
+        const prior = loadJSON(d.learningArchivedProduct,null);
+        imported=null;importedSource="Gespeichertes früheres Lernprodukt";importedError="";imported = validateLearningProduct(prior.product);showPanel("teacher");return;
+      }
       if (d.learningToolChoice) {
         selectTool(d.learningToolChoice); persist(); render();
         root.querySelector(`[data-learning-tool-choice="${d.learningToolChoice}"]`)?.focus();
         return;
       }
       if (d.activityId) {
-        assignActivity(session.quest,d.activityId,Number(d.activityChoice));
+        if(tag.mission === "8-forest" && ["forest-same","forest-different"].includes(d.activityId) && session.forestSelection?.length !== 2) throw new Error("Wähle zuerst die beiden markierten Blätter im Vergleich.");
+        if(tag.mission === "10-northsea" && d.activityId === "river-measure" && session.processes?.[tag.mission]?.selected !== "land") throw new Error("Wähle das Land als Ort für die Maßnahme.");
+        if(isRegionalWorkspace() && d.activityId === "harbour-interest") {
+          const key=Number(d.activityChoice)===1 ? "gear" : "returns",object=HARBOUR_MEASURES[key].object;
+          if(!session.quest.casePaths?.[key]) {session.quest.feedback="Wähle zuerst "+(object==="fishing"?"die Fischerei":"die Besucher")+" im Hafenfall. Folge dem Weg über den passenden Müll bis zu den Tieren.";session.quest.feedbackKind="neutral";persist();render();return;}
+        }
+        if (isPrototype() && ["living","water"].includes(d.activityId)) {
+          const picked=session.prototypeSelection;
+          const v=temperatureView(session,host,LEARNING_MODEL_REVISION), entity=v.sides[picked?.side]?.state?.entities.find(e=>e.uid===picked.uid);
+          if (!picked || (d.activityId === "water" ? !picked.water : host.types[entity?.species]?.category !== "fish")) {
+            session.quest.feedback = d.activityId === "water" ? "Wähle zuerst „Wasser ansehen“ am Becken." : "Tippe zuerst auf einen Fisch oder wähle „Fisch zeigen“.";
+            session.quest.feedbackKind="neutral";persist();render();return;
+          }
+        }
+        const accepted = assignActivity(session.quest,d.activityId,Number(d.activityChoice));
+        session.quest.feedbackKind = accepted ? "success" : "error";
+        if (accepted && isPrototype() && session.prototypeSelection && ["living","water"].includes(d.activityId)) session.quest.activities.at(-1).object = structuredClone(session.prototypeSelection);
+        if(accepted && tag.mission === "8-forest") session.quest.activities.at(-1).objects={leaves:structuredClone(session.forestSelection),kind:"qualitative-leaf-comparison"};
         const q=session.quest;
         if (q.id === "10-wadden" && q.step === 2 && !pendingActivity(q,2)) {
           const choice=q.activities.find(a=>a.id==="harbour-interest");
-          questEvent(q,"case",{result:{kind:"case",measure:choice.to,source:REGIONAL_CASES[q.id].source,consequences:q.activities.filter(a=>["harbour-benefit","harbour-effort"].includes(a.id))}});
+          questEvent(q,"case",{result:{kind:"case",measure:choice.to,measureKey:harbourMeasure(q),objects:structuredClone(q.caseObjects || {}),paths:structuredClone(q.casePaths || {}),source:REGIONAL_CASES[q.id].source,consequences:q.activities.filter(a=>["harbour-benefit","harbour-effort"].includes(a.id))}});
         }
         persist();render();root.querySelector(".learn-activity h3,.learn-quest h2")?.focus();return;
       }
@@ -1324,9 +1665,10 @@ export function mountLearningUI(host) {
         if (d.activityView === "observe") {showPanel("observe");return;}
         const c=session.comparison;
         if (!c || !planMatchesComparison(c,currentPlan(c.kind))) throw new Error("Starte zuerst den passenden Versuch neu.");
-        const rows=comparisonTimes(c.runs[0],c.kind),row=d.activityView === "early" ? rows[1] : rows.at(-1);
+        const v=resolveComparisonView(session),rows=v.rows,row=d.activityView === "early" ? rows[1] : rows.at(-1);
         if (!row || !a) return;
-        const evidence={configuration:structuredClone(c.configuration),time:row.time,control:row.control || null,test:row.test || null};
+        selectComparisonView(session,{time:row.time});
+        const evidence={configuration:structuredClone(v.comparison.configuration),context:resolveComparisonView(session).context,time:row.time,control:row.control || null,test:row.test || null};
         recordActivityView(q,a.id,evidence);
         session.inspection = evidence;
         session.study.metric=["early","late"].includes(d.activityView) ? "fishAlive" : d.activityView;
@@ -1338,11 +1680,15 @@ export function mountLearningUI(host) {
             (!session.comparison || !planMatchesComparison(session.comparison, currentPlan(session.comparison.kind)) ||
              !planMatchesComparison(session.quest.result, currentPlan(session.comparison.kind))))
           throw new Error("Der Versuch wurde geändert. Starte ihn erneut, bevor du diese Ergebnisse vergleichst.");
-        if (answerQuest(session.quest, Number(d.questAnswer))) {
+        if (old === 3 && ["ecology","population"].includes(QUESTS[tag.mission].experiment.kind) && !inspectedQuestResult())
+          throw new Error("Wähle im aktuellen Versuch einen Zeitpunkt mit Werten für beide Seiten.");
+        if (answerQuest(session.quest, Number(d.questAnswer), inspectedQuestResult())) {
+          if (old === 3) session.quest.entries.at(-1).viewContext = isPopulationWorkspace() ? populationWorkspaceView(session,LEARNING_MODEL_REVISION).context : resolveComparisonView(session)?.context || null;
           // Selected answers stay in the questbook; game text never becomes a learner note.
         }
         persist();
         render();
+        if(session.quest.step !== old)root.querySelector(".coherent-views")?.scrollTo({top:0});
         root.querySelector(".learn-quest-inline h2,.learn-quest h2")?.focus();
         return;
       }
@@ -1372,6 +1718,7 @@ export function mountLearningUI(host) {
         return;
       }
       if (d.learnHelp) {
+        if (isPrototype()) stopPlayback();
         helpKey = d.learnHelp;
         host.interactive(false);
         render();
@@ -1379,6 +1726,7 @@ export function mountLearningUI(host) {
         return;
       }
       if (d.learningProduct) {
+        imported=null;importedSource="Lokale Notizen und Messreihe";importedError="";
         const x = loadJSON(d.learningProduct, null);
         if (x) {
           const suffix = d.learningProduct.replace(
@@ -1425,6 +1773,16 @@ export function mountLearningUI(host) {
       }
       const a = d.learn;
       if (!a) return;
+      if (a === "regional-northsea") {session.regionalMode="northsea";panel=null;persist();render();return;}
+      if (a === "regional-local") {session.regionalMode=null;panel=null;persist();render();return;}
+      if (a === "population-cohort" || a === "cohort-latest") {session.populationMode="cohort";delete session.cohortGeneration;delete session.selectedIndividual;panel=null;persist();render();return;}
+      if (a === "population-groups") {session.populationMode="comparison";panel="investigate";persist();render();return;}
+      if (a === "research-own") {stopPlayback();session.researchView="own";panel=null;persist();render();return;}
+      if (a === "workspace-play") {playWorkspace();render();return;}
+      if (a === "workspace-pause") {stopPlayback();render();return;}
+      if (a === "latest-series") {delete session.study.series;delete session.view;selectComparisonView(session);persist();render();return;}
+      if (a === "workspace-plan") {stopPlayback();session.view={mode:"plan"};persist();render();return;}
+      if(a === "quest-hint-next") {const key=session.quest.step+":"+(pendingActivity(session.quest)?.id || "question");session.quest.hintLevels ??= {};session.quest.hintLevels[key]=Math.min(2,(session.quest.hintLevels[key] || 0)+1);persist();render();return;}
       if (a === "quest-hint") {session.quest.showHint=!session.quest.showHint;persist();render();return;}
       if (a.startsWith("device-")) {openDevice(a.slice(7));return;}
       if (
@@ -1458,12 +1816,10 @@ export function mountLearningUI(host) {
         return;
       }
       if (a === "quest-restart") {
-        rememberBackup();
-        session.quest = newQuest(tag.mission);
-        persist();
-        render();
+        stopPlayback();showPanel("restart-attempt");
         return;
       }
+      if (a === "repeat-attempt" || a === "new-attempt") {restartAttempt(a === "repeat-attempt");return;}
       if (a === "student-launch") {
         grade = teacher.grade;
         start("missions", teacher.mission);
@@ -1597,7 +1953,7 @@ export function mountLearningUI(host) {
       if (a === "imported-csv") {
         download(
           "aquarium-lernprodukt-daten.csv",
-          comparisonCSV(imported.comparison),
+          comparisonCSV(importedComparison()),
           "text/csv;charset=utf-8",
         );
         return;
@@ -1613,6 +1969,7 @@ export function mountLearningUI(host) {
         return;
       }
       if (a === "tweezers") {
+        if (isPrototype()) throw new Error("Die Vergleichsbecken sind gespeicherte Ansichten. Im freien Becken kannst du die Pinzette benutzen.");
         // The placement controller deliberately rejects activation behind an open drawer.
         if (!detailed && panel === "more") closePanel();
         host.tweezers();
@@ -1631,9 +1988,10 @@ export function mountLearningUI(host) {
         return;
       }
       if (a === "genes") {
+        if(tag.mission === "9-traits" && session.quest?.step < 2) throw new Error("Untersuche die Farben und wähle zuerst deine Vermutung.");
         if (session.quest?.id === "9-traits" && pendingActivity(session.quest)?.id === "visible-traits") throw new Error("Sieh dir zuerst einen hellen und einen dunklen Fisch ohne Erbanlagen an.");
-        showGenes = !showGenes;
-        if (showGenes) recordQuestExperiment("traits");
+        showGenes = !showGenes;session.genesShown=showGenes;
+        if (showGenes && (!isPopulationWorkspace() || tag.mission !== "9-traits")) recordQuestExperiment("traits");
         persist();
         render();
         return;
@@ -1654,6 +2012,8 @@ export function mountLearningUI(host) {
         return;
       }
       if (a === "baseline") {
+        session.view={mode:"plan"};
+        session.planId=investigationId();
         session.baseline = structuredClone(host.getState());
         persist();
         host.notify("Aktuelle Ausgangslage für beide Becken gesichert.");
@@ -1661,13 +2021,12 @@ export function mountLearningUI(host) {
         return;
       }
       if (a === "compare") {
+        stopPlayback();
         if (!requirePlan()) return;
         const {tool, value} = readIntervention();
         if (!tools().includes(tool))
           throw new Error("Werkzeug nicht freigeschaltet.");
-        delete session.study.series; delete session.inspection;
-        if (session.comparison) session.comparisonHistory=[...(session.comparisonHistory || []),session.comparison].slice(-3);
-        session.comparison = runLearningComparison(
+        const next = runLearningComparison(
           session.baseline,
           {
             tool,
@@ -1678,34 +2037,38 @@ export function mountLearningUI(host) {
           },
           host,
         );
-        session.comparison.planning = structuredClone(session.notes);
-        recordQuestExperiment("ecology");
+        bindComparison(next,session.attemptId);next.planning=structuredClone(session.notes);
+        if (!storeComparison(next)) {render();return;}
+        if (isPrototype()) selectComparisonView(session,{time:next.runs[0].control[0].day});
+        else {selectComparisonView(session);recordQuestExperiment("ecology");}
         persist();
         render();
+        // Begin at the genuine initial state; learners start the visible course explicitly.
         return;
       }
       if (a === "show-control" || a === "show-test") {
-        const s =
-          session.comparison.runs[0][
-            a === "show-control" ? "finalControl" : "finalTest"
-          ];
-        host.open(s);
-        persist();
-        closePanel();
+        stopPlayback();selectComparisonView(session,{side:a === "show-control" ? "control" : "test"});
+        if (isPrototype()) {persist();render();} else showPanel("saved-view");
         return;
+      }
+      if (a === "adopt-view") {
+        const v=resolveComparisonView(session),s=v?.sides[session.view?.side]?.state;
+        if (!s) throw new Error("Für diesen Zeitpunkt ist kein Becken gespeichert.");
+        host.open(structuredClone(s));persist();closePanel();return;
       }
       if (a === "population-compare") {
         if (!requirePlan()) return;
-        delete session.study.series; delete session.inspection;
-        if (session.comparison) session.comparisonHistory=[...(session.comparisonHistory || []),session.comparison].slice(-3);
-        session.comparison = compareLearningPopulations(
+        delete session.selectedIndividual;
+        const next = bindComparison(compareLearningPopulations(
           session.population,
           session.study.environment,
           session.study.generations,
           session.study.repetitions,
           currentPlan("population"),
-        );
-        session.comparison.planning = structuredClone(session.notes);
+        ),session.attemptId);
+        next.planning=structuredClone(session.notes);
+        if (!storeComparison(next)) {render();return;}
+        selectComparisonView(session);
         recordQuestExperiment("population");
         persist();
         render();
@@ -1726,6 +2089,7 @@ export function mountLearningUI(host) {
           );
           const event=session.population.events.at(-1),mendel=mendelEvidence(session.population);
           Object.assign(event,crossingPrediction(session,event.generation,mendel.f1 ? mendel.f1.generation+1 : null));
+          delete session.cohortGeneration;delete session.selectedIndividual;
           session.mother = null;
           session.father = null;
           session.punnett = null;
@@ -1753,7 +2117,14 @@ export function mountLearningUI(host) {
           if (seed === oldSeed) seed = (seed + 1) >>> 0;
         }
         const repeated = repeatLearningPopulation(previous, seed);
+        if(session.quest) {restartAttempt(true,seed);return;}
+        const archive={product:product(),tank:structuredClone(host.getState()),session:structuredClone(session)};
+        if(!saveJSON("aquarium-learning-attempt-v1:"+session.attemptId,archive)){render();return;}
         rememberBackup();
+        session.attemptId=investigationId();session.planId=investigationId();
+        session.comparison=null;session.comparisonHistory=[];delete session.view;delete session.cohortGeneration;delete session.selectedIndividual;
+        delete session.study.series;delete session.study.run;session.populationMode="cohort";session.workspaceVersion=1;
+        showGenes=false;session.genesShown=false;session.notes={};session.noteOrigins={};session.measurements=[];
         session.populationRepeats = [
           ...(session.populationRepeats || []),
           { seed: oldSeed, final: populationCounts(previous) },
@@ -1803,10 +2174,16 @@ export function mountLearningUI(host) {
         );
         return;
       }
+      if (a === "csv-all" || a === "imported-csv-all") {
+        const item=a === "csv-all" ? session : {...imported,study:{series:imported.viewContext?.series,run:imported.viewContext?.run},view:imported.viewContext};
+        const c=resolveComparisonView(item)?.comparison;
+        if(c)download("aquarium-vollstaendige-reihe.csv",comparisonCSV(c),"text/csv;charset=utf-8");return;
+      }
       if (a === "csv") {
+        const v=resolveComparisonView(session);
         download(
           "aquarium-daten.csv",
-          comparisonCSV(session.comparison),
+          comparisonCSV(!detailed && panel !== "teacher" ? learnerCSVComparison({...v.comparison,runs:[v.run],viewContext:v.context}) : {...v.comparison,runs:[v.run],viewContext:v.context}),
           "text/csv;charset=utf-8",
         );
         return;
@@ -1923,17 +2300,25 @@ export function mountLearningUI(host) {
   );
   const entry = document.createElement("button");
   entry.className = "learn-expert-entry glass-button";
-  entry.textContent = "Klassen 8–10";
+  const historicalTools=gameURL().searchParams.get("archive-tools")==="1";
+  entry.textContent = historicalTools ? "Historische Lehrkraftwerkzeuge" : "Klassen 8–10";
+  if(historicalTools)document.documentElement.setAttribute("data-historical-tools","");
   entry.addEventListener("click", () => {
+    if(!historicalTools){navigateGame(gameURL().pathname);return;}
     host.home();
     tag = null;
     session = null;
     setScreen("home");
   });
   host.root.append(entry);
+  if(historicalTools){host.pause();screen="home";panel="teacher";}
   render();
   return {
+    prepareNavigation:()=>{stopPlayback();host.pause();const ok=!session||!tag||saveJSON("aquarium-learning-notes-v1:"+learningSlot(tag),session);if(!ok)render();return ok;},
+    dispose:()=>tankViews.dispose(),
     openDevice,
+    deviceView: () => isPrototype() ? tankViews.get("test") : null,
+    deviceState: () => isPrototype() ? tankViews.get("test")?.state : null,
     deviceContext: () => ({
       visible: screen === "active" && !helpKey && (!panel || panel === "investigate"),
       tools: tag ? [...tools(), ...(tag.mode === "free" ? Object.keys(EQUIPMENT_SWITCHES) : [])] : [],
@@ -1954,7 +2339,9 @@ export function mountLearningUI(host) {
       selected = uid;
       showPanel("observe");
     },
-    snapshot: () => ({
+    snapshot: () => {
+      const visible=tag ? isPrototype() ? temperatureView(session,host,LEARNING_MODEL_REVISION) : resolveComparisonView(session) : null;
+      return ({
       screen,
       grade: tag?.grade || grade,
       profile: tag,
@@ -1970,18 +2357,26 @@ export function mountLearningUI(host) {
       measurements: session?.measurements,
       comparisonHistory: session?.comparisonHistory || [],
       sample: tag ? learningSample(host.getState(),host.types) : null,
+      liveSample:tag ? learningSample(host.getState(),host.types) : null,
       habitat: tag ? habitatProblems(host.getState(),host.types) : null,
       storageError,
       study: session?.study,
       quest: session?.quest,
+      questionResult:tag ? inspectedQuestResult() : null,
       detailed,
+      attemptId: session?.attemptId,
+      view: visible?.context || null,
+      viewSamples:visible ? Object.fromEntries(Object.entries(visible.sides).map(([side,data])=>[side,data.sample])) : null,
+      regionalView:isRegionalWorkspace() ? {selection:session.harbourSelection,measureKey:harbourMeasure(session.quest)} : null,
+      domainView:isPopulationWorkspace() ? populationWorkspaceView(session,LEARNING_MODEL_REVISION) : null,
+      prototype: isPrototype() ? {mode:session.view?.mode || (session.comparison ? "result" : "plan"),render:tankViews.snapshot(),selection:session.prototypeSelection} : null,
       resultMatchesPlan: session?.comparison
         ? planMatchesComparison(
             session.comparison,
             currentPlan(session.comparison.kind),
           )
         : null,
-    }),
+    });},
     refresh: () => {
       if (screen === "active" && !panel) render();
     },

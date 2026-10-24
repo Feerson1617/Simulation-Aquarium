@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { AQUASCAPING_DECOR, createStandaloneDocument, findFreePosition, footprint, isMovable, placementCandidate, substrateHeight } from '../aquascaping.mjs';
 
 const types = Object.fromEntries([
@@ -100,10 +101,12 @@ test('substrate anchoring follows the rendered sand slope and bare glass', () =>
 });
 
 test('standalone HTML bundles the module and CSS with valid JavaScript under a project path', async () => {
-  const requests = [];
+  const requests = [],assetHashes=new Map(),inlineHashes=[],hash=bytes=>createHash('sha256').update(bytes).digest('hex');
   const html = await createStandaloneDocument('https://example.test/Simulation-Aquarium/', async url => {
     requests.push(url.pathname);
     const content = await readFile(new URL('../' + url.pathname.replace('/Simulation-Aquarium/', ''), import.meta.url));
+    if(/\/assets\/(catalog|realism|species)\/.*\.(webp|glb)$/.test(url.pathname))assetHashes.set(url.pathname,hash(content));
+    if(url.pathname.endsWith('/index.html'))for(const m of content.toString().matchAll(/(["'])(data:(?:image\/(?:png|jpeg|webp)|model\/gltf-binary);base64,[A-Za-z0-9+/=]+)\1/g))inlineHashes.push(hash(Buffer.from(m[2].slice(m[2].indexOf(',')+1),'base64')));
     return { ok: true, text: async () => content.toString(), arrayBuffer: async () => content };
   });
   assert.ok(requests.includes('/Simulation-Aquarium/ecology.mjs'));
@@ -113,7 +116,25 @@ test('standalone HTML bundles the module and CSS with valid JavaScript under a p
   assert.ok(!html.split('</head>')[0].includes('<link rel="stylesheet" href="./aquascaping.css">'));
   assert.ok(!/import \{[^;]*\} from "\.\/aquascaping\.mjs";/.test(html));
   assert.ok(html.includes('class AquascapingController'));
-  const script = html.match(/<script type="module">([\s\S]*?)<\/script>/)[1];
+  // The standalone now hosts a complete embedded document. Keep checking that document,
+  // and additionally syntax-check its host; no existing bundle assertion is removed.
+  const application = JSON.parse(html.match(/<script id="aquarium-source" type="application\/json">([\s\S]*?)<\/script>/)[1]);
+  const assets=JSON.parse(html.match(/<script id="aquarium-assets" type="application\/json">([\s\S]*?)<\/script>/)[1]);
+  assert.equal(assets.length,assetHashes.size+inlineHashes.length,'every packaged asset and original inline image/model remains present');
+  assert.deepEqual(assets.map(url=>hash(Buffer.from(url.slice(url.indexOf(',')+1),'base64'))).sort(),[...assetHashes.values(),...inlineHashes].sort(),'all model and image bytes remain exactly unchanged');
+  const references=[...application.matchAll(/parent\.aquariumStandaloneAsset\((\d+)\)/g)].map(m=>Number(m[1]));
+  assert.equal(new Set(references).size,assets.length,'every shared asset is referenced by the child application');
+  assert.ok(references.every(i=>i>=0&&i<assets.length));
+  assert.ok(application.length<3_000_000,'route documents no longer contain the large image/model bundle');
+  assert.ok(application.includes('then(function(u){const bytes=new Uint8Array(u),parts=[];'));
+  assert.ok(!application.includes('then(function(u){c=!0;const d=new Blob([u],{type:a.mimeType});return l=o.createObjectURL(d),l}'));
+  assert.ok(!application.includes('src="./assets/catalog/'));
+  assert.ok(!application.split('</head>')[0].includes('<link rel="stylesheet" href="./aquascaping.css">'));
+  assert.ok(!/import \{[^;]*\} from "\.\/aquascaping\.mjs";/.test(application));
+  const hostScript=html.match(/<script>([\s\S]*?)<\/script>/)[1];
+  const hostChecked=spawnSync(process.execPath,['--check'],{input:hostScript,encoding:'utf8'});
+  assert.equal(hostChecked.status,0,hostChecked.stderr);
+  const script = application.match(/<script type="module">([\s\S]*?)<\/script>/)[1];
   const checked = spawnSync(process.execPath, ['--input-type=module', '--check'], { input: script, encoding: 'utf8' });
   assert.equal(checked.status, 0, checked.stderr);
 });

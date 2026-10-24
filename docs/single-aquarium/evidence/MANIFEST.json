@@ -1,0 +1,297 @@
+{
+  "baselineCommit": "4e59de3beb4d4af8017472301c9d28cc8ade653c",
+  "applicationCommit": "260cc516eff7242ff86482b0a086b707d64f3a86",
+  "scope": "M1 prototype gate only; no human sight approval; M2-M6 pending",
+  "runs": {
+    "main-c6-chromium.json": {
+      "sourceCommit": "c6a43835af8bbce265ee54f14a8b57666f5ed65e",
+      "scope": "three full M1 profiles plus quota fault",
+      "test": "tests/single_m1_browser.py at c6a4383"
+    },
+    "delta-260-chromium.json": {
+      "sourceCommit": "260cc516eff7242ff86482b0a086b707d64f3a86",
+      "scope": "desktop full M1 plus quota, task-specific hints and keyboard/touch",
+      "test": "tests/single_m1_browser.py"
+    },
+    "standalone-260-chromium.json": {
+      "sourceCommit": "260cc516eff7242ff86482b0a086b707d64f3a86",
+      "scope": "5 checks: generated HTML loaded over HTTP then offline full M1; not native file boot",
+      "test": "tests/single_m1_standalone.py"
+    },
+    "main-c6-webkit.json": {
+      "sourceCommit": "c6a43835af8bbce265ee54f14a8b57666f5ed65e",
+      "scope": "three full M1 profiles plus quota fault",
+      "test": "tests/single_m1_browser.py at c6a4383"
+    },
+    "delta-260-webkit.json": {
+      "sourceCommit": "260cc516eff7242ff86482b0a086b707d64f3a86",
+      "scope": "portrait full M1 plus quota, task-specific hints and keyboard/touch",
+      "test": "tests/single_m1_browser.py"
+    },
+    "standalone-260-webkit.json": {
+      "sourceCommit": "260cc516eff7242ff86482b0a086b707d64f3a86",
+      "scope": "5 checks: generated HTML loaded over HTTP then offline full M1; not native file boot",
+      "test": "tests/single_m1_standalone.py"
+    },
+    "public-260-webkit.json": {
+      "sourceCommit": "260cc516eff7242ff86482b0a086b707d64f3a86",
+      "scope": "public PR9 desktop full M1 plus quota",
+      "test": "tests/single_m1_browser.py"
+    },
+    "expert-ff96365.json": {
+      "sourceCommit": "ff9636558b1e2691de168d2f1f2791fac31ae634",
+      "scope": "13 free game/catalog/tutorial/save regression checks; later M1-only deltas do not change expert implementation",
+      "test": "tests/readiness_browser.py"
+    },
+    "baseline-4e-controls.json": {
+      "sourceCommit": "4e59de3beb4d4af8017472301c9d28cc8ade653c",
+      "scope": "3 actual control inventories of isolated historical UI",
+      "test": "tests/single_controls_browser.py at final documentation commit"
+    }
+  },
+  "applicationFiles": {
+    "ammonia-pool.mjs": "694f9bbb231240a44275b611b1c93bfbf8c4fabbc9524129db0edf9975720863",
+    "aquascaping.css": "cbaf61e59b116ad90747d9ea8504b480319a120d0b28594bc42dfabe7cef15b9",
+    "aquascaping.mjs": "7be4508b63d046b8dde5a35fff05416012baa339f513a499541c914a65794d55",
+    "biology-quality.mjs": "89a9bd836e5be0c2a40fa6c0299293399a59213cedc53888e22606fe54384a08",
+    "bioprocesses.mjs": "db390102b09a5e888a504049f3b659bfdea000df400b22d17a234be5998ff8cd",
+    "catalog-assets.mjs": "1725e5493f14bd1ba68cd49251a4be542d24029ccec36cc6ce97c8fdbab0d791",
+    "catalog-studio.mjs": "5c0e58a4c4f74d2b4fabec453acbea7e0056393b5472ad14d5ecb5b1287dcd03",
+    "catalog.css": "85d3ee019ac0aee8cea7e5f058414df06b64809463b658a28ebcd1769a96176a",
+    "catalog.mjs": "eaa4db288f4bd1e5bfe82a2e1daf50f54d16ebdac43635d08258dd880fc37504",
+    "coherent-learning.css": "9755e87a9d881e0cde8d5f86f1a279bdc48d7bf34e6973d94b0dedaddcdfa9ee",
+    "control-dial.mjs": "a7217998cd8bba325c0003419538bdcdcad1774cd0ef755d5281a8bf7fc3f056",
+    "control-values.mjs": "ea918839a5c4136d8b6dc4f0f7743accfff1f6e9287a4649e45a99cb892344f2",
+    "ecology.mjs": "66c11227f26241cf3fcffb00d0f8b28dc957f7a0536de650a80fc8210098429b",
+    "equipment-ui.mjs": "63d1aaf7a68213e8be16a1d8b14329119379dddd965354a3170c71c32c42d823",
+    "equipment.css": "7bbe961ddc163a7484e0f70a2e50c541a5867b61d443be6a19c33728bf66f932",
+    "fish-variants.mjs": "001365c4ae594847c4aec741340734b3c1c43c9058afde6368310adf68e3cac2",
+    "genetics-shop.mjs": "d0cf542391fa1d391e35cb7a9d033b986d08f610b2fa2b9c84a85e3b0b19bb9b",
+    "genetics-ui.mjs": "ffee9241dbda4952847aa51b395b5e45111ef6b23011ed98309967db9d9c5a72",
+    "genetics.css": "458cbc124c9f16cde4b6760c6e8fdfba2978b19f61152c899939c4b9c9de8684",
+    "genetics.mjs": "301b841789853d6ed8dac91d3090f2cc85ab858701577473a35e3ab82122a532",
+    "graphics-profiles.mjs": "5d1f586679fcee3c3316bb3b0ebf952500a8fcaac42449ccf9c67806bd0ed98a",
+    "graphics.css": "17c48328c83603daabc10887a71603e36e51a6d30ceb062a053295f69a890199",
+    "index.html": "b122049ba50bd806dbfead624df9c6ff738d8c65daf7edf6e02a4dca84f62a74",
+    "individual-appearance.mjs": "0a8365eabceca7f2c6e982effe9af498c230aae702f9d44810c6ff0a292e4b58",
+    "learning-activities.mjs": "c430e6c1bf42923b6c48d74870b67a1fb6ad8668fe614c9316b6b552807650e2",
+    "learning-content.mjs": "41120a780c512f8e4c42f601d447da6da0c74acc4697eb027bda287ef60dc726",
+    "learning-context.mjs": "017507cde3a4d83a89785b4cb5c4ab67abab83c500512cab6f3165f10aead7ba",
+    "learning-display.mjs": "43bb2ef8f090797401fa7fe82a1d04f434935b3229726ba78488fe8185fd4e62",
+    "learning-evolution-evidence.mjs": "4202c0796d735f577112fb4508738d37a5d1f597ca44e2512eb8d10a6d56cc08",
+    "learning-model.mjs": "444ae79488de35523257329279c3dacc582ac7fc30060a59024a231cdc126985",
+    "learning-population-workspace.mjs": "950c0ebce30bc8421f18b6d5d2c17b735cbf6dab6ffc09b9133daf2bfa05cb3a",
+    "learning-population.mjs": "e57b699f1762996e56af6941c59145ee848df07df7d7aae8e10ae70638a266e8",
+    "learning-process-workspace.mjs": "39f3d7e367851c17c4e0769818997e685551f764e848fa280e00c28d9a5863dd",
+    "learning-provenance.mjs": "569ba626e23973fdf4a8b5f5b32c5d58b137fb929b4ed31bf29e57a175194999",
+    "learning-quests.mjs": "9e0c93381fa7e8088939f0ca46dd01c15d02d0ed4ed3b8ea7fdc666aa1fa9dcc",
+    "learning-regional-workspace.mjs": "deb634808a76b96475cc698472b04d3b0188dd96da2953f4c2f09831200c97ab",
+    "learning-student.mjs": "85f440ed1d0ee48f1580fcbe88c3f84361994c9bf516231d8e583e11e5f00ac5",
+    "learning-tank-views.mjs": "3d0034aa1d56b7c731fcb1890961b1b1e3b5ec0f390fd68afdd0f5d6a685e227",
+    "learning-ui.mjs": "eac53773651ca8a098c75419549bc45079cb7276871482a5fd0c46d43ab9ad80",
+    "learning-workspace.mjs": "328da7cfb81c20dbc1fe5543ba15771673b242269e00d509fe080aa1884e7aa5",
+    "learning.css": "b63afc0bd8d49af5844b7e441c3357df3efaabe6e172ff55c7804fad8e2749ff",
+    "organic-shapes.mjs": "8f22e1c4b9a9195a689608a69af0fd0ced1e3173ec2b44e81349129617e3c80e",
+    "photo-volume.mjs": "0d1dbecc908e1ffc04df00d97827b91b70556ea1540bdcb114caf3efa6d9a724",
+    "physical-renderer.mjs": "46ff0ab3bc8cc82faadb798230a15cbf460f04cba9e50e5bfa092925c2360709",
+    "physical-scale.mjs": "a948d0affb65fe354f90dfebb53e0d26b63567a35645714a3b4795f5dc68b041",
+    "realism-assets.mjs": "f0d2b01a660dc9bd96f8ca5902555c129dcbe6cf53d16ec96e0bbe8b303d39dc",
+    "realism-materials.mjs": "32ae354c89791d4d86dc157a8c3ec58b76c3b6b0fd4bfd68f7c8ae363ec8fc54",
+    "realism-renderer.mjs": "1c3fc92567c2dcfc6d42e4cd70b6f77ebf9c4617380d6c9c4b0d17f76218efde",
+    "render-population.mjs": "e0d70fa5cdcd933f325a56fd6d687fbd2f8ef65e59d6b32c84200cff6d8a7304",
+    "scenarios.mjs": "67c3daab3c3d26240514cea933781e1765ddaddd04706e3dd66a2cd905f34463",
+    "single-learning-missions.mjs": "c19fa5f86e60f06d7b770ac592e69aa1da9724b315edceacd7ab4d4d820285b9",
+    "single-learning-model.mjs": "c027ee78107ebe572ce413a5c3131268b7284f8889b140f3e32364b7a091087e",
+    "single-learning-ui.mjs": "f7d982c1371db40df231dd07157cd4bb3e47752c15dfe5a3d7728a7a248c5e88",
+    "single-learning.css": "f8022ee709dedec9a286540f41750ff3c3e138d30d15162fa371236d26441810",
+    "species-assets.mjs": "7539167cbf8c92e0bfce1f5efd89c8dd66403a9586da94c0214d3b0b630b7c30",
+    "species-dimensions.mjs": "9aaa6d3e0425998f83652825402b95a569cadd4c914f5e517f319d4afb5fbd0b",
+    "species-provenance.mjs": "7e1324dc173cc0e41a1d23eb216ecfe4165e3eac0e02a650f5046b89bd5f3d58",
+    "study-ui.mjs": "08c1598262db0ab647a225f5b93e6d60cc4bc69113992997c3db25360214ec25",
+    "study.css": "ed534d337c339cb1a1602fcd4412ae8059720b1c4684136e401f870bfda26ee5",
+    "underwater.mjs": "df3c746f19f3f20348cb7442ec7c216b8cd863bab3e7f7e4105785e92223e941",
+    "vendor/lz-string.mjs": "75e261fa791eeb621a7a2f46ec6318706a3755647b2f957ea9a6da3245744a1e"
+  },
+  "currentTests": {
+    "tests/single-learning.test.mjs": "ebf82a7158616a5af955a404dccb50cecfeeb0ef6630bea4071bbf2d94d3999f",
+    "tests/single_controls_browser.py": "fdd23a59d5b163b9a8ed6ea5fc0e9ae04bdb0830db098badf774c2b0d70cedec",
+    "tests/single_m1_browser.py": "9d528978b748f425e662103022c234fd75c24851e7886abcd9bff78dd8475d23",
+    "tests/single_m1_standalone.py": "c541879a518a90649b39a4fac2ef8a6e4b9517673633395593577e4fa5276389"
+  },
+  "evidenceFiles": {
+    "baseline-4e-controls.json": {
+      "bytes": 10573,
+      "sha256": "c4c68a116942382e0cd2e51a3e06eb96279c7dc292264c691f68c0885ffa5db0"
+    },
+    "baseline-4e-controls.log": {
+      "bytes": 102,
+      "sha256": "bfdeb9398218839fd1d2a525e037ee0d59c27174d92f0426f87b36d98125c69b"
+    },
+    "baseline-4e-device.png": {
+      "bytes": 108930,
+      "sha256": "94246f28e264da45adfddfab9106987b51edde33221f5da823c3e8c69037d393"
+    },
+    "baseline-4e-initial.png": {
+      "bytes": 88041,
+      "sha256": "5f34095e97407543ddf190cdc4765632c3933dbdb633cd1f81498bee6bf1410a"
+    },
+    "delta-260-chromium.json": {
+      "bytes": 24405,
+      "sha256": "af7fd6ff917e5c4ef0f242aec06fb047c58eec4b23010f08e59ef364fef84690"
+    },
+    "delta-260-chromium.log": {
+      "bytes": 353,
+      "sha256": "aaed1bab80c8a26089ba13886c1db90bf97ad1ea36d8a1f828ec9e4b87a2af5e"
+    },
+    "delta-260-webkit.json": {
+      "bytes": 24338,
+      "sha256": "8628cd721d8a60b78392e1177c94a7de80cc72400a9c07e643549c1b396cf3ce"
+    },
+    "delta-260-webkit.log": {
+      "bytes": 352,
+      "sha256": "7992bad122a857192a66e785a23e2357ddf99af4f5a5fbd190cbd0828c7a7793"
+    },
+    "desktop-compare-260.png": {
+      "bytes": 308231,
+      "sha256": "834c84581d30a8eacbf244530c61e0613f3893df91a6fc6ecaacc345100c48ec"
+    },
+    "desktop-plant-explanation-260.png": {
+      "bytes": 346006,
+      "sha256": "a4008e1965d9ebce5e0e64d47ab59c2a0180cd676f0aa8ad332624e1cf748fd6"
+    },
+    "desktop-restored-260.png": {
+      "bytes": 317939,
+      "sha256": "9f5e43af1f54fb9b81e08eb3f288efb4cbc1dcdee7881d70db8550e55acb789c"
+    },
+    "desktop-result-260.json": {
+      "bytes": 404498,
+      "sha256": "78e73894e174a0b305b5a9866b1d3cdfab736a5221989d0bd9a598f94b8904b9"
+    },
+    "desktop-start-260.png": {
+      "bytes": 290840,
+      "sha256": "725f2c47edbc683d014f3aa5392f5f0e89039593c6c5b98434db340c220d1334"
+    },
+    "development-console-collision.json": {
+      "bytes": 542,
+      "sha256": "034bac63f993d1ed0121a4582c993028f97fb84ccce9adf1dbd5237a01171a5e"
+    },
+    "development-portrait-failure.json": {
+      "bytes": 27035,
+      "sha256": "1b3a509aaa15b295119655d571a380ab818f21aeb3186f92f1560a268450fb99"
+    },
+    "expert-ff96365.json": {
+      "bytes": 5301,
+      "sha256": "12c66155dca39105f19dddb300888ae27fe3abad6333347c4e3d722a4c32159f"
+    },
+    "expert-ff96365.log": {
+      "bytes": 732,
+      "sha256": "0286dfabe60004b09116ad975d06d7db3917a4647de2d3cda4cabf8d95c887eb"
+    },
+    "landscape-compare-c6.png": {
+      "bytes": 312254,
+      "sha256": "9fe93516391577f093f052703726d365785138f3e18f2d7c00de8f65cde4d7d1"
+    },
+    "landscape-start-c6.png": {
+      "bytes": 306186,
+      "sha256": "e9ceffe8329129a66c1e32821f6462a8789851186071ea7f9a895040e2efd4de"
+    },
+    "main-c6-chromium.json": {
+      "bytes": 42651,
+      "sha256": "90a47ce09d7fb089b8f4455ea476a369048d15c7e205be8812f74dc42ceb80d7"
+    },
+    "main-c6-chromium.log": {
+      "bytes": 697,
+      "sha256": "9aff17ea292a57ea1d7d4c7f147cc94f104d89bb9d832a02143172abfd7a5296"
+    },
+    "main-c6-webkit.json": {
+      "bytes": 43354,
+      "sha256": "6db4fef148759156c3d8f242eec58bbf30b3aff77d73ec10d8a280c3f234f23a"
+    },
+    "main-c6-webkit.log": {
+      "bytes": 695,
+      "sha256": "8494c082221f02d0853af36364f9e84fc56e659d4e794059cdbdc87b0add2d02"
+    },
+    "node-260.log": {
+      "bytes": 18895,
+      "sha256": "3192c7b8a64155f4ca92502fabafd063f13003d1eaf249323a5fd9af2a23b315"
+    },
+    "portrait-compare-260.png": {
+      "bytes": 161944,
+      "sha256": "b4026201e51ccefc654d039e6e5bcaa71d04d22655d4f0950de893725a2e97d2"
+    },
+    "portrait-plant-explanation-260.png": {
+      "bytes": 179873,
+      "sha256": "666ea113e27ee4515c1380ef463774a6332598a7120c6ffe83d174ceedbfb7fa"
+    },
+    "portrait-restored-260.png": {
+      "bytes": 167713,
+      "sha256": "7481f03ad6def2000b0dc8dba0a43c3197490ac45ccac7ecd6bca70cc2d8f95b"
+    },
+    "portrait-result-260.json": {
+      "bytes": 404498,
+      "sha256": "b631a02d9a7008269fa1a537691db98e68586b5949182b3b0dd2e7c039d763c2"
+    },
+    "portrait-start-260.png": {
+      "bytes": 152709,
+      "sha256": "689341866cf07448f35565188eb397a220f8d18fe57bd8356ed354cf607a71a0"
+    },
+    "preview-sources-260.json": {
+      "bytes": 18450,
+      "sha256": "c9f47af16928b1d180104e4210b0ce80bc54efe15aac44f6eea1f696bc07a4ec"
+    },
+    "public-260-webkit.json": {
+      "bytes": 24356,
+      "sha256": "b2e111691b96c51a12c059ac09eaef180e82530563055fa998f76c7212aadf10"
+    },
+    "public-260-webkit.log": {
+      "bytes": 351,
+      "sha256": "bab39652b3c0072e8a700ab3907c5753029f67699b3d2f3c22e62c1b336bf9cf"
+    },
+    "source-audit-260.json": {
+      "bytes": 1634,
+      "sha256": "72ec15c1ae9ebbe375392a2d97c6296663fac41ee4b246a3781e1fd60240ac12"
+    },
+    "standalone-260-chromium-result.json": {
+      "bytes": 404458,
+      "sha256": "761668e59e7bb7bd94ab4f90555481d19e7c9757ca3ad547bb83276dd50a724d"
+    },
+    "standalone-260-chromium.json": {
+      "bytes": 569,
+      "sha256": "c8533bad9124f5abae2cc70e86a4cdeccfcb1627e6261773eebcfedc70a84380"
+    },
+    "standalone-260-chromium.log": {
+      "bytes": 93,
+      "sha256": "5c4cf2ec4b702258d8c1eb38abe92cf00ff1cd61c8b2722f9c500c8a37724496"
+    },
+    "standalone-260-webkit-completed.png": {
+      "bytes": 315835,
+      "sha256": "12ec3ee8aef7f3dc9b83a99b6c69c517c64018a1fcb3827b1aa36d17b30f2f92"
+    },
+    "standalone-260-webkit-result.json": {
+      "bytes": 404458,
+      "sha256": "b166dd911df272d44bdd758c8b2cfaee36321f71aad6a72fe368a6678a6ca5f4"
+    },
+    "standalone-260-webkit.json": {
+      "bytes": 567,
+      "sha256": "4253f8a57a6cfb1a69e875484e50084bd8c785907ba98702080158e57daa7162"
+    },
+    "standalone-260-webkit.log": {
+      "bytes": 91,
+      "sha256": "0439f2a12a584c1c94db873501b4c8925622711100bcd46acaaebdc62ba3b61f"
+    },
+    "standalone-artifact-260.json": {
+      "bytes": 241,
+      "sha256": "015e074c18b136d3f9a7338f67f024ebbd8dcdfbd2a4c9a002a031c741996868"
+    },
+    "storage-rescue-260.json": {
+      "bytes": 68865,
+      "sha256": "7d1adc40f4524700040b6b92a35f88b2276e432f36853d817437faca5c323f32"
+    }
+  },
+  "limits": [
+    "Linux software graphics, not physical iPad/Safari",
+    "native file boot not tested",
+    "no learning-gain proof",
+    "current three-profile base at c6 plus bounded hint/focus delta checked at 260; no false claim of all six missions completed"
+  ]
+}

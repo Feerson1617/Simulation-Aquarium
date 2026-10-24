@@ -1,0 +1,91 @@
+{
+  "base": "5b661044cc85f640518572b5cd8fb4974d9d213b",
+  "applicationHead": "1ecd8d0909f8789a3394eb4a413156fd223aa843",
+  "protected": [
+    {
+      "file": "ecology.mjs",
+      "sha256": "66c11227f26241cf3fcffb00d0f8b28dc957f7a0536de650a80fc8210098429b",
+      "byteIdentical": true
+    },
+    {
+      "file": "single-classroom-model.mjs",
+      "sha256": "7407666b7a0e7b4a43be20d7621edafc62724151d49decaa02ff82ededcb7c42",
+      "byteIdentical": true
+    },
+    {
+      "file": "single-learning-model.mjs",
+      "sha256": "932d2f36bb15440137f0c31e9ee3cf534ac97d6a606e1f114dcffceec59e0659",
+      "byteIdentical": true
+    },
+    {
+      "file": "single-classroom-content.mjs",
+      "sha256": "edab6d6bad07e1f59d88f7892ff0045c2a5880f9215feff5d329b98381a1b29d",
+      "byteIdentical": true
+    },
+    {
+      "file": "single-lesson-support.mjs",
+      "sha256": "ad8836cc73552695e3314b21ba019ea6be72df100faec5f2b731715317dfdba3",
+      "byteIdentical": true
+    },
+    {
+      "file": "physical-scale.mjs",
+      "sha256": "a948d0affb65fe354f90dfebb53e0d26b63567a35645714a3b4795f5dc68b041",
+      "byteIdentical": true
+    },
+    {
+      "file": "genetics.mjs",
+      "sha256": "301b841789853d6ed8dac91d3090f2cc85ab858701577473a35e3ab82122a532",
+      "byteIdentical": true
+    },
+    {
+      "file": "species-assets.mjs",
+      "sha256": "7539167cbf8c92e0bfce1f5efd89c8dd66403a9586da94c0214d3b0b630b7c30",
+      "byteIdentical": true
+    },
+    {
+      "file": "single-parent-history.mjs",
+      "sha256": "e483a06264b68bebdd82f02be4ecb3661f283536b5e9356c8022060ae3b767e3",
+      "byteIdentical": true
+    },
+    {
+      "file": "single-observation.mjs",
+      "sha256": "b70ec88aa5df11a68325613ae2d164b0ac6613dabc6993218343d77ebdb9bb34",
+      "byteIdentical": true
+    }
+  ],
+  "indexHTML": "Byte-identical to accepted source after removing only the two new navigation hooks and their comment/blank line",
+  "verifiedAt": "2026-10-24T08:58:43.913180+00:00",
+  "changedApplicationFiles": [
+    "aquascaping.mjs",
+    "game-route.mjs",
+    "index.html",
+    "learning-model.mjs",
+    "learning-product-display.mjs",
+    "learning-ui.mjs",
+    "single-classroom-ui.mjs",
+    "single-learning-ui.mjs",
+    "standalone-navigation.mjs"
+  ],
+  "protectedTrees": [
+    {
+      "path": "assets",
+      "unchanged": true
+    },
+    {
+      "path": "tests/fixtures",
+      "unchanged": true
+    },
+    {
+      "path": "species-assets.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "genetics.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "physical-scale.mjs",
+      "unchanged": true
+    }
+  ]
+}

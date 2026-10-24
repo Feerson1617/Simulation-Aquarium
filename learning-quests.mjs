@@ -1,4 +1,5 @@
-import {pendingActivity} from "./learning-activities.mjs";
+import {harbourMeasure,HARBOUR_MEASURES} from "./learning-regional-workspace.mjs";
+import {pendingActivity,ACTIVITIES} from "./learning-activities.mjs";
 /** Short learner tasks. Scientific background remains in learning-content and teacher views. */
 import {populationExplanation} from "./biology-quality.mjs";
 
@@ -182,7 +183,7 @@ export const QUESTS = Object.fromEntries(
       "Eine Kreuzung vorhersagen",
       "Jedes Elternteil gibt eine Genvariante weiter.",
       { kind: "cross" },
-      living,
+      {...living,prompt:"Was erkennst du in der Population?"},
       "Welche Farbe erwartest du bei den Nachkommen?",
       pick(
         "Woher kommen die Erbanlagen eines Nachkommen?",
@@ -242,11 +243,11 @@ export const QUESTS = Object.fromEntries(
         "Welche Erklärung passt zur Auswahl der Eltern?",
         [
           "Vorhandene Varianten haben verschieden viele Nachkommen",
-          "Ein Fisch wird dunkel, weil er es braucht",
+          "Im Leben durch Gebrauch erworbene Veränderungen werden vererbt",
           "Alle Fische verändern gezielt ihre Erbanlagen",
         ],
         0,
-        "Die Tiere haben nicht alle gleich viele Nachkommen. Über Generationen kann sich die Gruppe ändern. Einzelne Fische wählen keine neuen Erbanlagen aus Bedarf.",
+        "Vorhandene erbliche Varianten werden unterschiedlich oft weitergegeben. Das beschreibt Selektion. Die programmierte Auswahlregel ist kein empirischer Beweis einer Evolutionstheorie. Die datierten Fossilfunde liefern davon getrennte Belege aus der Natur.",
       ),
     ),
     q(
@@ -341,7 +342,7 @@ export const QUESTS = Object.fromEntries(
       "Müllschutz braucht passende Maßnahmen.",
       {kind:"case"},
       pick(
-        "Was hilft gegen neuen Meeresmüll?",
+        "Verfolge einen Müllweg: Quelle, Müll, Tier. Was hilft gegen neuen Müll?",
         ["Müll an Land und im Hafen vermeiden","Die Aquariumlampe heller machen","Plastik als Dünger benutzen"],
         0,
         "Vermeidung beginnt vor dem Eintrag ins Meer.",
@@ -368,6 +369,10 @@ export const STEP_NAMES = [
   "Erklären",
 ];
 export function questConclusion(d, result) {
+  if(d.experiment.kind === "case" && HARBOUR_MEASURES[harbourMeasure(result)]) {
+    const m=HARBOUR_MEASURES[harbourMeasure(result)];
+    return pick("Welche Begründung passt zu deiner Maßnahme?",[m.conclusion,"Ein Wasserwechsel im Aquarium entfernt Meeresmüll","Diese Maßnahme löst alle Meeresprobleme"],0,m.conclusion+". "+m.effort+". "+m.objection+".");
+  }
   if (d.experiment.kind !== "population") return d.conclusion;
   const environment = result?.configuration?.environment ?? result?.environment;
   if (environment === "neutral") return pick(
@@ -429,7 +434,7 @@ export function resultTolerance(metric,result={}) {
   return ({temp:.1,oxygen:.05,co2:.1,algae:.005,organic:.01,plantBiomass:.01,fishOutcome:1,health:1,loadLevel:0,fishAlive:0})[metric] ?? .001;
 }
 export function resultQuestion(q, result) {
-  if (q.experiment.kind === "case") return {prompt:"Welche Folge gehört zu deiner Schutzmaßnahme?",choices:["Weniger Müll, aber auch Aufwand für Rückgabe oder Sammlung","Alle Meeresprobleme sind damit gelöst","Das Aquarium misst nun Plastikschäden"],correct:0};
+  if (q.experiment.kind === "case") return {prompt:"Welche Folge gehört zu deiner Schutzmaßnahme?",choices:[HARBOUR_MEASURES[harbourMeasure(result)]?.effort || "Weniger Müll, aber auch Aufwand für Rückgabe oder Sammlung","Alle Meeresprobleme sind damit gelöst","Das Aquarium misst nun Plastikschäden"],correct:0};
   if (q.experiment.kind === "traits")
     return {
       prompt: "Haben alle dunklen Fische dieselben Erbanlagen?",
@@ -466,7 +471,9 @@ export function resultQuestion(q, result) {
       q.experiment.kind === "population"
         ? ["In Gruppe 1", "In Gruppe 2", "Etwa gleich groß"]
         : ["In Becken 1", "In Becken 2", "Etwa gleich"],
-    correct: !result
+    correct: Number.isInteger(result?.displayPrecision)
+      ? Math.round(result.control*10**result.displayPrecision) === Math.round(result.test*10**result.displayPrecision) ? 2 : result.control > result.test ? 0 : 1
+      : !result
       ? -1
       : Math.abs(result.control-result.test) <= resultTolerance(q.experiment.metric,result)
         ? 2
@@ -506,7 +513,8 @@ export function questEvent(state, event, evidence = {}) {
   if (kind === "traits" && (!evidence.hasAA || !evidence.hasAa)) return false;
   state.result = structuredClone(evidence.result || { kind: "traits" });
   // Measurements must be inspected again after a changed experiment.
-  if (state.activities) state.activities=state.activities.filter(a=>!["survival","oxygen-too","early","late"].includes(a.id));
+  if (state.activities) state.activities=state.activities.filter(a=>!(ACTIVITIES[state.id] || []).some(d=>d.id===a.id && d.phase>=3));
+  delete state.fossilOrder;
   state.entries = state.entries.filter((e) => e.step < 2);
   state.entries.push({
     step: 2,
@@ -519,28 +527,30 @@ export function questEvent(state, event, evidence = {}) {
   state.feedback = "Der Versuch ist fertig. Vergleiche jetzt die Ergebnisse.";
   return true;
 }
-export function answerQuest(state, index) {
+export function answerQuest(state, index, inspectedResult = state?.result) {
   if (!state || !QUESTS[state.id] || !Number.isInteger(index)) return false;
   const d = QUESTS[state.id],
-    step = state.step;
+    step = state.step,
+    result = step === 3 ? inspectedResult : state.result;
   const question =
     step === 0
       ? d.observe
       : step === 1
         ? { prompt: predictionPrompt(d), choices: predictionChoices(d) }
         : step === 3
-          ? resultQuestion(d, state.result)
+          ? resultQuestion(d, inspectedResult)
           : step === 4
-            ? questConclusion(d, state.result)
+            ? questConclusion(d, result)
             : null;
   if (!question || index < 0 || index >= question.choices.length) return false;
+  state.feedbackKind = "error";
   const activity=pendingActivity(state,step);
   if (activity) {state.feedback=activity.prompt;return false;}
   if (step === 0 && !state.observed) {
-    state.feedback = "Schau zuerst ins Aquarium. Öffne „Beobachten“.";
+    state.feedback = d.experiment.kind === "case" ? "Wähle zuerst ein Objekt im Hafenfall." : "Schau zuerst ins Aquarium. Öffne „Beobachten“.";
     return false;
   }
-  if (step === 3 && !state.result) {
+  if (step === 3 && !result) {
     state.feedback = "Starte zuerst den Versuch.";
     return false;
   }
@@ -549,9 +559,9 @@ export function answerQuest(state, index) {
       ? d.experiment.kind === "cross" ? "Zähle die Farben im tatsächlich entstandenen Wurf. Ein theoretisches Verhältnis ist keine feste Anzahl."
         : d.experiment.kind === "traits" ? "Vergleiche AA und Aa: Beide können dunkel aussehen."
         : d.experiment.kind === "case" ? "Prüfe Tiernutzen und den Aufwand für die Menschen am Hafen."
-        : d.experiment.metric === "fishOutcome" && state.result.fish ? `Vergleiche zuerst das Überleben: ${state.result.fish.control.fishAlive} Fische leben in Becken 1, ${state.result.fish.test.fishAlive} in Becken 2. Bei gleicher Zahl prüfst du ihren Zustand.`
-        : `Vergleiche ${d.experiment.label}: ${state.result.control?.toLocaleString("de-DE",{maximumFractionDigits:3})} in Becken/Gruppe 1 und ${state.result.test?.toLocaleString("de-DE",{maximumFractionDigits:3})} in 2. Kleine Unterschiede können etwa gleich sein.`
-      : (step === 0 ? d.observe.feedback : questConclusion(d,state.result).feedback).replace(/^(Ja|Richtig)\.\s*/,"").split(". ")[0] + ". Probiere deine Zuordnung erneut.";
+        : d.experiment.metric === "fishOutcome" && result.fish ? `Vergleiche zuerst das Überleben: ${result.fish.control.fishAlive} Fische leben in Becken 1, ${result.fish.test.fishAlive} in Becken 2. Bei gleicher Zahl prüfst du ihren Zustand.`
+        : `Vergleiche ${d.experiment.label}: ${result.control?.toLocaleString("de-DE",{maximumFractionDigits:result.displayPrecision ?? 3})} in Becken/Gruppe 1 und ${result.test?.toLocaleString("de-DE",{maximumFractionDigits:result.displayPrecision ?? 3})} in 2. Kleine Unterschiede können etwa gleich sein.`
+      : (step === 0 ? d.observe.feedback : questConclusion(d,result).feedback).replace(/^(Ja|Richtig)\.\s*/,"").split(". ")[0] + ". Probiere deine Zuordnung erneut.";
     return false;
   }
   state.entries.push({
@@ -563,12 +573,13 @@ export function answerQuest(state, index) {
     at: new Date().toISOString(),
   });
   state.step++;
+  state.feedbackKind = step === 1 ? "neutral" : "success";
   if (step === 3 && d.experiment.kind !== "case") {
     const prediction=state.entries.find(e=>e.step===1);
     let observed=d.experiment.kind === "traits" ? 1 : question.correct;
-    if (d.experiment.kind === "population" && state.result.populationPair?.neutral?.final) {
-      const values=state.result.populationPair.neutral.final.map(r=>r.test.dark);
-      observed=Math.max(...values)-Math.min(...values) > .5/(state.result.sampleSize || 24) ? 1 : 0;
+    if (d.experiment.kind === "population" && result.populationPair?.neutral?.final) {
+      const values=result.populationPair.neutral.final.map(r=>r.test.dark);
+      observed=Math.max(...values)-Math.min(...values) > .5/(result.sampleSize || 24) ? 1 : 0;
     }
     state.predictionCheck={selection:prediction?.answer || "Nicht dokumentiert",observed:predictionChoices(d)[observed] || question.choices[question.correct],matches:prediction?.choiceIndex===observed};
   }

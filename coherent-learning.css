@@ -1,0 +1,132 @@
+/* Temperature prototype: the actual comparison is the work surface. */
+.learning-coherent #scene {right:0!important;inset:0;height:100dvh}
+.learning-coherent #learning-root {font-size:15px}
+.coherent-header {position:absolute;inset:18px 24px auto;display:flex;align-items:center;justify-content:space-between;color:#eef4e6}
+#learning-root .coherent-header h1 {font-size:clamp(21px,2.4vw,30px);margin:1px 0}
+#learning-root .coherent-header small {color:#cfdfce}
+.coherent-workspace {position:absolute;inset:94px 24px 20px;display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:22px}
+.coherent-views {min-width:0;overflow:auto;overscroll-behavior:contain;pointer-events:auto;padding-bottom:8px}
+.coherent-clock {display:flex;align-items:center;gap:12px;flex-wrap:wrap;color:#f0f3e6;min-height:46px;margin-bottom:8px}
+.coherent-clock>span {margin-left:auto;font-size:14px;font-variant-numeric:tabular-nums}
+.coherent-clock .learn-help {min-width:44px!important;min-height:44px!important}
+.coherent-tanks {display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.coherent-tank {min-width:0;border:1px solid #d0dbc84d;border-radius:15px;overflow:hidden;background:transparent}
+.coherent-tank[aria-current=true] {outline:3px solid #d8ba75;outline-offset:-3px}
+.coherent-tank>header {display:flex;gap:12px;align-items:center;padding:10px 14px;background:#e8eee2;color:#234b48}
+.coherent-tank.test>header {background:#eee5d4;color:#6c452d}
+.coherent-side {display:grid;place-items:center;width:36px;height:36px;flex-shrink:0;border-radius:50%;background:#285c58;color:white;font-weight:700}
+.test .coherent-side {background:#885435}
+#learning-root .coherent-tank h2 {font-size:18px;margin:0}
+#learning-root .coherent-tank header p {font-size:13px;margin:0}
+.coherent-tank-window {height:clamp(210px,29dvh,350px);position:relative;touch-action:pan-y;pointer-events:auto}
+.coherent-instrument {padding:10px 14px;display:flex;align-items:center;gap:6px 12px;flex-wrap:wrap;background:#f1f3e8}
+.coherent-instrument>strong {font-size:30px;line-height:1.2;font-variant-numeric:tabular-nums;white-space:nowrap;margin-left:auto}
+.coherent-instrument>strong>span {font-size:18px}
+.coherent-instrument>small:last-child {width:100%}
+.coherent-tank footer {padding:9px 12px;background:#edf0e4;min-height:52px;font-size:13px}
+.coherent-tank footer>button {width:100%}
+.coherent-object-tools {display:flex;gap:7px;margin-top:8px}
+#learning-root .coherent-object-tools button {flex:1;font-size:12px;padding:6px;min-width:44px}
+#learning-root .coherent-primary {background:#2c6457;color:#fff;border-color:#588b74}
+#learning-root .coherent-inspector {color:#e1ecda;font-size:13px;margin:10px 0;min-height:24px}
+.coherent-run,.coherent-timeline,.coherent-data {border-radius:12px;background:#edf1e6;padding:10px 14px}
+#learning-root .coherent-run p {margin:0 0 9px;font-size:14px}
+.coherent-run>button {width:100%}
+.coherent-run details {font-size:14px}
+.coherent-notebook {overflow:auto;overscroll-behavior:contain;pointer-events:auto;border-radius:14px;background:#f3f1e6}
+.coherent-storage {padding:12px;margin:12px!important;color:#813d23;background:#fff0dd;border-left:4px solid #a14a2b}
+.coherent-notebook .learn-quest-inline {margin:0;border:0;background:transparent;padding:18px}
+.coherent-notebook .learn-quest>header>strong {display:none}
+.coherent-note {padding:0 18px 16px}
+.coherent-drawer {padding:14px}
+.coherent-drawer>header {display:flex;align-items:center;justify-content:space-between;gap:8px}
+#learning-root .coherent-drawer>header h2 {font-size:20px;margin:4px 0}
+.coherent-object-tools button:disabled {opacity:.5;cursor:wait}
+.coherent-timeline {display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+#learning-root .coherent-timeline label {margin:0;flex:1;min-width:130px;font-size:13px}
+.coherent-timeline select {margin:2px 0 0!important}
+.coherent-data {margin-top:12px!important}
+.coherent-unavailable {color:#eef4e7;background:#1b3f3bdd;padding:18px}
+.learning-coherent.device-adjusting #learning-root {visibility:visible}
+.learning-coherent .equipment-anchors {display:none}
+.learning-coherent.device-adjusting #scene {right:0!important}
+.learning-coherent .equipment-sheet {top:94px;right:24px;bottom:20px;width:310px;left:auto;transform:none;max-height:none}
+.learning-history-view #scene {visibility:hidden}
+.learn-quest-feedback[data-feedback-kind=error] {color:#82391e;background:#fff0e4;border-left:3px solid #a74c2a;padding:9px}
+.learn-quest-feedback[data-feedback-kind=neutral] {color:#3b5656}
+.learn-quest-feedback[data-feedback-kind=success] {color:#285f48}
+.learn-table-wrap tr[aria-current=true] {background:#e9dba9;font-weight:bold}
+@media (max-width:1000px) {
+  .coherent-workspace {inset:84px 14px 12px;gap:14px;grid-template-columns:minmax(0,1fr) 280px}
+  .coherent-tanks {gap:9px}
+  .coherent-tank>header {padding:8px;gap:7px}
+  .coherent-side {width:28px;height:28px}
+  .coherent-instrument {padding:8px}
+  .coherent-instrument>strong {font-size:25px}
+  .coherent-header {inset:14px 16px auto}
+  .learning-coherent .equipment-sheet {width:280px;right:14px;top:84px;bottom:12px}
+}
+@media (orientation:portrait),(max-width:700px) {
+  .coherent-workspace {grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) minmax(220px,30dvh)}
+  .coherent-tank-window {height:clamp(150px,18dvh,210px)}
+  .coherent-clock {gap:6px;font-size:13px;min-height:44px;margin:0 0 5px}
+  .coherent-clock>span {font-size:12px}
+  .coherent-notebook .learn-quest-inline {padding:12px 16px}
+  #learning-root .coherent-notebook .learn-quest h2 {font-size:18px}
+  .coherent-notebook .learn-quest-answers {grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+  .learning-coherent .equipment-sheet {top:auto;bottom:12px;right:14px;left:14px;width:auto;max-height:32dvh}
+}
+@media (max-width:480px) {
+  .coherent-tank header p {font-size:11px!important}
+  .coherent-tank-window {height:150px}
+  .coherent-side {display:none}
+  .coherent-clock>.learn-help {display:none}
+  .coherent-instrument {gap:4px}
+  .coherent-instrument>strong {width:100%;margin-left:0}
+}
+/* Population and regional work surfaces deliberately have no aquarium backdrop. */
+.learning-domain #scene {visibility:hidden}
+.learning-domain #learning-root {background:linear-gradient(130deg,#173e43,#355a50);position:absolute;inset:0}
+.cohort-card,.cohort-detail,.cohort-breeding,.cohort-generation {display:block;border-radius:14px;background:#f3f1e6;padding:14px;margin:12px 0}
+#learning-root .cohort-boundary {font-size:13px;color:#e5ecdd;max-width:65ch}
+.cohort-controls {display:flex;gap:8px;flex-wrap:wrap}
+.cohort-fish-grid {display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px}
+#learning-root .cohort-fish-grid button {display:flex;flex-direction:column;align-items:center;justify-content:center;padding:5px 3px;min-width:44px;min-height:85px;font-size:12px;background:#e6e7dc}
+.cohort-fish-grid svg {width:100%;max-width:90px;height:38px}
+.cohort-fish-grid button[aria-pressed=true] {outline:3px solid #96691b;background:#fff3cd!important}
+.cohort-card header {border-bottom:1px solid #b7c6b6;margin-bottom:12px}
+#learning-root .cohort-card h2 {margin:0;font-size:20px}
+#learning-root .cohort-card p {margin:4px 0 10px}
+.cohort-pair {display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cohort-pair .cohort-fish-grid {grid-template-columns:repeat(4,minmax(0,1fr))}
+.cohort-inheritance {padding:10px;border-left:4px solid #956e2e;background:#f5e8b9}
+.cohort-breeding>header {display:none}
+@media (max-width:900px) {
+ .cohort-fish-grid {grid-template-columns:repeat(4,minmax(0,1fr))}
+ .cohort-pair .cohort-fish-grid {grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+.harbour-scene {position:relative;aspect-ratio:1.8;border:1px solid #e8d9b5;border-radius:14px;overflow:hidden}
+.harbour-scene>svg {position:absolute;width:100%;height:100%}
+#learning-root .harbour-object {position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-5%);display:flex;flex-direction:column;align-items:center;gap:2px;background:#f8f0db;min-width:80px;font-size:13px;padding:6px 9px;box-shadow:0 3px 12px #294e4d35}
+.harbour-object>span {font-size:28px;line-height:1}
+#learning-root .harbour-object.selected {outline:3px solid #7d5b29;background:#ffe7ae}
+@media (max-width:800px) {#learning-root .harbour-object {min-width:70px;font-size:11px;padding:4px}.harbour-scene {min-height:290px}}
+
+.harbour-object>svg {width:70px;height:44px;color:#315054}
+.process-workspace {background:#f3f1e6;border-radius:14px;padding:14px;margin:12px 0;color:#254a47}
+#learning-root .process-workspace h2 {font-size:21px;margin:0 0 6px}
+.process-scene {position:relative;min-height:360px;border:1px solid #c5ceb9;border-radius:12px;background:#e1e9d9;margin:12px 0}
+.process-scene>svg {position:absolute;inset:0;width:100%;height:100%}
+#learning-root .process-node {position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);min-width:64px;max-width:130px;font-size:13px;text-align:center;padding:8px}
+#learning-root .process-node.energy {background:#f6e5af;border-style:dashed}
+#learning-root .process-node.external {background:#ddd8cf}
+#learning-root .process-node[aria-pressed=true] {outline:3px solid #96691b}
+.forest-pair {display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#learning-root .forest-pair button {display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px}
+.forest-pair svg {width:100%;max-height:180px}
+.forest-pair [aria-pressed=true] {outline:3px solid #96691b}
+@media (max-width:800px) {.process-scene {min-height:400px}#learning-root .process-node {font-size:11px;padding:6px;max-width:100px;min-width:44px}}
+.cohort-workspace .coherent-clock {position:sticky;top:0;z-index:3;background:#21464a;padding:3px 0}
+.cohort-selection {position:sticky;top:52px;z-index:2;background:#fff0c9;border:1px solid #b39956;border-radius:10px;padding:9px 12px;margin:8px 0;font-size:13px;display:flex;flex-direction:column;gap:3px;color:#3a4c42}
+.cohort-fish-grid button {scroll-margin-top:180px}
+.coherent-instrument details {width:100%;font-size:13px}

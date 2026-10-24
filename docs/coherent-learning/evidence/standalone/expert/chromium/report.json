@@ -1,0 +1,32 @@
+{
+  "engine": "chromium",
+  "commit": "fa03d5981b0c954e5b487be2ded6b5de8a414218",
+  "url": "http://127.0.0.1:8000/standalone-expert-delta/",
+  "fixture": "/workspace/Simulation-Aquarium/docs/coherent-learning/evidence/prototype/webkit/selected.json",
+  "fixture_sha256": "f96d4be0a07df53a7016095f148d0f8fe525672c90339f2435c437de4780d228",
+  "source_ui_sha256": "c55dda5732fd5ec2b29425984b07c60977c8bf7559558836eee67b5ebfc530e0",
+  "expected": {
+    "version": 1,
+    "investigationId": "92405f56-bf58-475d-8615-3da58bb25cac",
+    "attemptId": "42921751-e00c-4e14-b568-6bc01d9a0900",
+    "revision": "learning-biology-5-views",
+    "seriesId": "92405f56-bf58-475d-8615-3da58bb25cac",
+    "series": 0,
+    "run": 1,
+    "repetition": 2,
+    "time": 45.25,
+    "axis": "day",
+    "side": "test",
+    "stateIds": {
+      "control": "35c37056",
+      "test": "aec57175"
+    }
+  },
+  "errors": [],
+  "http_requests": [
+    "http://127.0.0.1:8000/standalone-expert-delta/"
+  ],
+  "actual_time_before_assertion": "45.25",
+  "actual_series_before_assertion": "92405f56-bf58-475d-8615-3da58bb25cac",
+  "status": "passed"
+}

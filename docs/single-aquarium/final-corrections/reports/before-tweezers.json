@@ -1,0 +1,35 @@
+{
+  "runtime": "ffc061279f01f0030fe35503def0d1b329e5f73b",
+  "captures": [
+    {
+      "name": "desktop",
+      "url": "http://127.0.0.1:8000/final-before/?research=8",
+      "at": "2026-10-23T13:34:30.134588+00:00",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "instructions": "Tier, Pflanze, Koralle oder Deko greifen und ziehen · Esc: beenden"
+    },
+    {
+      "name": "portrait",
+      "url": "http://127.0.0.1:8000/final-before/?research=8",
+      "at": "2026-10-23T13:34:31.609737+00:00",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "instructions": "Tier, Pflanze, Koralle oder Deko greifen und ziehen · Esc: beenden"
+    },
+    {
+      "name": "landscape",
+      "url": "http://127.0.0.1:8000/final-before/?research=8",
+      "at": "2026-10-23T13:34:33.418335+00:00",
+      "viewport": {
+        "width": 1366,
+        "height": 1024
+      },
+      "instructions": "Tier, Pflanze, Koralle oder Deko greifen und ziehen · Esc: beenden"
+    }
+  ]
+}

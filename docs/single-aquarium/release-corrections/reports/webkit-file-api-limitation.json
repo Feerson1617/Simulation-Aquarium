@@ -1,0 +1,23 @@
+{
+  "fixtureSHA256": "057c7d73f0a43a368b490a37fcbab49d6e0e9550376383b66b99a291325f4895",
+  "checks": [
+    {
+      "mode": "online",
+      "ok": true,
+      "matchesOriginal": true
+    },
+    {
+      "mode": "context-offline",
+      "ok": false,
+      "error": "NotReadableError: The I/O read operation failed."
+    },
+    {
+      "mode": "http-blocked",
+      "ok": true,
+      "matchesOriginal": true
+    }
+  ],
+  "scope": "Independent minimal page without aquarium code",
+  "browser": "26.5",
+  "status": "WebKit offline flag file-read limitation independently reproduced"
+}

@@ -1,0 +1,10 @@
+PASS R1/R8: real 10-restore 50%/14d stops control at day48.25, test reaches59; independent real-core continuation, cause and CSV provenance
+PASS R1: real control is still alive at day48; the next terminal core step retains day48.25 and nitrite cause; paired final-step edge remains covered by Node
+PASS R3: baseline label updates immediately; changed baseline/input/notes cannot relabel old data or JSON provenance
+PASS R2 historical product: original model/file, measurements/configuration/notes and known final states preserved exactly; missing early states stay absent and import leaves the live tank unchanged
+PASS R2: actual JSON import and local teacher view retain intervention/value/duration/status/seed/model/frozen planning, nitrite values and manual records
+PASS R5: same seed reproduces browser F1/F2; new documented seed preserves founders; chosen seed changes actual gamete draws
+PASS R2/R5: real Mendel JSON retains seed, repeated trials and F1/F2 parent-child evidence in teacher view
+PASS R6/R2: browser selection run archives reconstruct frequencies and actual parent success; JSON teacher view exposes phenotype, weights, parents and children
+PASS R2/R3: actual export with unfinished invalid draft preserves the previous valid result in teacher import
+RESULTS /tmp/coherent-expert-review-final/20261022T101956

@@ -1,4 +1,5 @@
 import { TANK_DIMENSIONS, physicalPlacement, findPhysicalPosition, physicalSubstrateHeight } from './physical-scale.mjs';
+import { createStandaloneShell } from './standalone-navigation.mjs';
 /** Aquascaping: legacy save coordinates, physical dimensions and no external services. */
 export const AQUASCAPING_DECOR = [
   { id: 'spiderwood', name: 'Verzweigte Fingerwurzel', shape: 'spiderwood', color: '#846046', water: 'fresh', minL: 60,
@@ -82,25 +83,45 @@ export function substrateHeight(state, x, z) {
 export async function createStandaloneDocument(baseURL, fetchResource = fetch) {
   const read = async path => { const response=await fetchResource(new URL(path,baseURL));if(!response.ok)throw new Error('Die Spieldatei konnte nicht vollständig geladen werden.');return response; };
   let html=await (await read('./index.html')).text();
+  // GLTF's embedded image buffers are already local. WebKit's offline mode can
+  // reject reading even an in-memory Blob, so the single file uses data URLs
+  // and the loader's existing HTML image path. No image bytes are changed.
+  // Keep this narrow adapter checked against the bundled loader.
+  const imageBuffer='c=!0;const d=new Blob([u],{type:a.mimeType});return l=o.createObjectURL(d),l';
+  const bitmapLoader='this.textureLoader=new B0(this.options.manager)';
+  if(html.includes('loadImageSource(')){
+    if(html.split(imageBuffer).length!==2||html.split(bitmapLoader).length!==2)throw new Error('Die lokale Textur-Einbettung passt nicht zum enthaltenen 3D-Lader.');
+    html=html.replace(imageBuffer,'const bytes=new Uint8Array(u),parts=[];for(let offset=0;offset<bytes.length;offset+=16384)parts.push(String.fromCharCode(...bytes.subarray(offset,offset+16384)));return l="data:"+a.mimeType+";base64,"+btoa(parts.join(""));').replace(bitmapLoader,'this.textureLoader=new Qd(this.options.manager)');
+  }
   const script=html.match(/<script type="module">([\s\S]*?)<\/script>/);
   if(!script)throw new Error('Spielmodul fehlt.');
   const modules=new Map(),ordered=[],imports=/^import \{([^}]+)\} from ["'](\.\/[^"']+\.mjs)["'];?\s*$/gm;
   const visit=async path=>{if(modules.has(path))return modules.get(path);let source=await (await read(path)).text();const id='__aquariumModule'+modules.size;modules.set(path,id);for(const match of [...source.matchAll(imports)])await visit(match[2]);ordered.push({path,id,source});return id;};
   for(const match of [...script[1].matchAll(imports)])await visit(match[2]);
   const rewrite=source=>source.replace(imports,(_all,names,path)=>'const {'+names.replace(/\bas\b/g,':')+'}='+modules.get(path)+';');
-  const chunks=[];
+  const chunks=[],sharedAssets=[],assetIDs=new Map();
   for(const module of ordered){let source=module.source;const exports=[...source.matchAll(/^export (?:async )?(?:function|class|const|let) (\w+)/gm)].map(m=>m[1]);
     const assetPattern=/["'](\.\/assets\/(?:catalog|realism|species)\/[^"']+\.(?:webp|glb))["']/g;
-    const assets=[...new Set([...source.matchAll(assetPattern)].map(m=>m[1]))],embedded=new Map();
-    for(let i=0;i<assets.length;i+=4)await Promise.all(assets.slice(i,i+4).map(async path=>{const bytes=new Uint8Array(await (await read(path)).arrayBuffer()),parts=[];for(let j=0;j<bytes.length;j+=16384)parts.push(String.fromCharCode(...bytes.subarray(j,j+16384)));embedded.set(path,(path.endsWith('.glb')?'data:model/gltf-binary;base64,':'data:image/webp;base64,')+btoa(parts.join('')));}));
-    source=source.replace(assetPattern,(_all,path)=>JSON.stringify(embedded.get(path)));
+    const assets=[...new Set([...source.matchAll(assetPattern)].map(m=>m[1]))].filter(path=>!assetIDs.has(path));
+    for(const path of assets){assetIDs.set(path,sharedAssets.length);sharedAssets.push(null);}
+    for(let i=0;i<assets.length;i+=4)await Promise.all(assets.slice(i,i+4).map(async path=>{const bytes=new Uint8Array(await (await read(path)).arrayBuffer()),parts=[];for(let j=0;j<bytes.length;j+=16384)parts.push(String.fromCharCode(...bytes.subarray(j,j+16384)));sharedAssets[assetIDs.get(path)]=(path.endsWith('.glb')?'data:model/gltf-binary;base64,':'data:image/webp;base64,')+btoa(parts.join(''));}));
+    // Keep the immutable image/model strings in the host once. Child documents
+    // reference the same bytes instead of reparsing them on every route change.
+    // Data URLs preserve WebKit's strict offline texture-loading compatibility.
+    source=source.replace(assetPattern,(_all,path)=>'parent.aquariumStandaloneAsset('+assetIDs.get(path)+')');
     source=rewrite(source).replace(/^export (?=(?:async )?(?:function|class|const|let)\b)/gm,'');chunks.push('const '+module.id+'=(()=>{'+source+'\nreturn {'+exports.join(',')+'};})();');
   }
-  const bundled=(chunks.join('\n')+'\n'+rewrite(script[1])).replace(/<\/script/gi,'<\\/script');
+  // The original entry point also contains legacy photo/model data literals.
+  // Only complete, quoted base64 literals in this JS module are extracted;
+  // HTML attributes, CSS, normal strings and the online entry point stay intact.
+  const main=rewrite(script[1]).replace(/(["'])(data:(?:image\/(?:png|jpeg|webp)|model\/gltf-binary);base64,[A-Za-z0-9+/=]+)\1/g,(_all,_quote,url)=>{
+    const index=sharedAssets.length;sharedAssets.push(url);return 'parent.aquariumStandaloneAsset('+index+')';
+  });
+  const bundled=(chunks.join('\n')+'\n'+main).replace(/<\/script/gi,'<\\/script');
   html=html.replace(script[0],()=>'<script type="module">'+bundled+'</script>');
   const links=[...html.matchAll(/<link rel="stylesheet" href="(\.\/[^" ]+\.css)">/g)];
   for(const [tag,path] of links){const css=await (await read(path)).text();html=html.replace(tag,()=>'<style>'+css+'</style>');}
-  return html;
+  return createStandaloneShell(html,sharedAssets);
 }
 
 function surfaceTexture(T, kind, seed) {
@@ -381,7 +402,7 @@ export class AquascapingController {
     }
     this.release = { entity: d.entity, age: 0, lifted: Math.min(1, d.age / .16) * .16 };
     this.canvas.style.cursor = 'grab';
-    this.onMessage?.(moved ? stored ? 'Abgesetzt und gespeichert. Du kannst das nächste Objekt greifen.' : 'Abgesetzt. Browserspeicherung gesperrt – sichere deinen Spielstand als Datei.' : 'Position beibehalten. Ziehe das Objekt an eine freie Stelle.');
+    this.onMessage?.(moved ? (d.blocked?'Ziel belegt. Letzte freie Position übernommen. ':'Freie Position übernommen. ')+(stored?'Gespeichert.':'Browserspeicherung gesperrt – sichere den Stand als Datei.') : d.blocked?'Ziel belegt. Die Ausgangsposition bleibt erhalten.':'Position unverändert. Ziehe an eine freie Stelle.');
   }
 
   pointerCancel(event) { if (this.enabled) this.consume(event); if (this.drag?.pointerId === event.pointerId) this.cancelDrag(); }

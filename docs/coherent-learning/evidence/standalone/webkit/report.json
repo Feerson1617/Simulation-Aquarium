@@ -1,0 +1,96 @@
+{
+  "engine": "webkit",
+  "commit": "24065fd6ec1692c53562083715cf5f4e8ebc1713",
+  "url": "http://127.0.0.1:8000/standalone-coherent/",
+  "native_file_test": "not executed; HTTP does not prove native file: behaviour",
+  "errors": [],
+  "http_requests": [
+    "http://127.0.0.1:8000/standalone-coherent/"
+  ],
+  "ready_seconds": 17.18,
+  "render": {
+    "frames": 128,
+    "error": null,
+    "contexts": 1,
+    "drawMilliseconds": {
+      "samples": 120,
+      "mean": 467.1666666666667,
+      "max": 2219
+    },
+    "memory": {
+      "geometries": 144,
+      "textures": 32
+    },
+    "sides": [
+      {
+        "side": "control",
+        "stateId": "ea61abe2",
+        "objects": 19,
+        "detailModels": 19,
+        "ids": [
+          1,
+          3,
+          4,
+          5,
+          7,
+          9,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "day": 48,
+        "seed": 1539492288
+      },
+      {
+        "side": "test",
+        "stateId": "03ab1fb3",
+        "objects": 19,
+        "detailModels": 19,
+        "ids": [
+          1,
+          3,
+          4,
+          5,
+          7,
+          9,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "day": 48,
+        "seed": 1539492288
+      }
+    ]
+  },
+  "observed_frames_per_second": 1.561242683562184,
+  "canvas": [
+    {
+      "width": 1366,
+      "height": 1024,
+      "cssWidth": 1366,
+      "cssHeight": 1024
+    }
+  ],
+  "biological_values_unchanged_during_animation": true,
+  "status": "passed"
+}

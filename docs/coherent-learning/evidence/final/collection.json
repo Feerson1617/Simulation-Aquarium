@@ -1,0 +1,470 @@
+{
+  "purpose": "Curated final evidence; originals remain in temporary test directories. No game assets or large standalone HTML copied.",
+  "copies": [
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T142737/report.json",
+      "file": "missions/webkit/report.json",
+      "sha256": "624202c6c26977a8b835a1cfafd8e1ab4e263073538284d3aa8b709c9de8ba9f"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions-webkit.log",
+      "file": "missions/webkit/run.log",
+      "sha256": "e786394eb32b0d5308262714d02892ee18060bceeb4211f68773046b47235216"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T142737/desktop-8-ecosystem-done.png",
+      "file": "missions/webkit/desktop-8-ecosystem-done.png",
+      "sha256": "6b3933d2a169d8f479bec2e4c5f15ba4d6c86aadbe50406faa1265fe27319e7c"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T142737/desktop-8-oxygen-compare.png",
+      "file": "missions/webkit/desktop-8-oxygen-compare.png",
+      "sha256": "3548380ce1fd83b0b7b73f73a5ad4bab87cea00895e21ed3c0908d2cb512cfd7"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T142737/desktop-8-foodweb-active-process.png",
+      "file": "missions/webkit/desktop-8-foodweb-active-process.png",
+      "sha256": "effc6f84a41bf58e2ece84ffc31e6682bcbb56cb39f5f757d5d559fb4134f8b7"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T142737/desktop-8-health-done.png",
+      "file": "missions/webkit/desktop-8-health-done.png",
+      "sha256": "23f294c9ebf765bd8391010e232f4aab500c853329c1e51df06119284315996d"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T142737/desktop-8-forest-active-process.png",
+      "file": "missions/webkit/desktop-8-forest-active-process.png",
+      "sha256": "ebb229fe7f7d4782c34573b973b834fc153a002351eba18db399c2ee1d34eeac"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T142737/desktop-9-traits-done.png",
+      "file": "missions/webkit/desktop-9-traits-done.png",
+      "sha256": "4c2e730d00eb84aaa5a63860d6716b49488a75194eb13b326346a3db5cb490c6"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T142737/desktop-9-mendel-compare.png",
+      "file": "missions/webkit/desktop-9-mendel-compare.png",
+      "sha256": "b04bac1da770f777bc8876aed4a980e109c899821cfa59ed8166eedccf79202d"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T142737/desktop-9-population-done.png",
+      "file": "missions/webkit/desktop-9-population-done.png",
+      "sha256": "582953235eb08e3d24580048700fd672bc1eaded9de25f909373df0fb15b8d28"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T142737/desktop-9-darwin-active-process.png",
+      "file": "missions/webkit/desktop-9-darwin-active-process.png",
+      "sha256": "7b1c313e0470bf89c96a056d1571a62d2610dda3532278a4475faa59c0ba03d9"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T142737/desktop-10-enrichment-done.png",
+      "file": "missions/webkit/desktop-10-enrichment-done.png",
+      "sha256": "d180d14c063ac7a0d7d4b3f9dacef3dc0807fa7812665a9d4ef6edfcf30d1a7a"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T142737/desktop-10-carbon-active-process.png",
+      "file": "missions/webkit/desktop-10-carbon-active-process.png",
+      "sha256": "1b33433ca020282e31901b3cbf066ed815efc9ff84203eea86280da5c05b79d5"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T142737/desktop-10-restore-done.png",
+      "file": "missions/webkit/desktop-10-restore-done.png",
+      "sha256": "d94b4445265c0039fc5080f43648187a3afdb4bf20e92a6ddfd330a8540bf3b8"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T142737/desktop-10-northsea-active-process.png",
+      "file": "missions/webkit/desktop-10-northsea-active-process.png",
+      "sha256": "7049d39bb4d0dbe5fde5d5b50d9b31f5cc442d4c948fa238b5b6d90dcc466097"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T142737/desktop-10-wadden-done.png",
+      "file": "missions/webkit/desktop-10-wadden-done.png",
+      "sha256": "0877a2e6629bdf347c64070b0c340994c115a4e0381cb087d1dfdd623f7c388e"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T143040/report.json",
+      "file": "missions/chromium/report.json",
+      "sha256": "82a9fa857e39d1ef1b957a038d6065c6d48d74332600f8fa87ebf4cbf251cec9"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions-chromium.log",
+      "file": "missions/chromium/run.log",
+      "sha256": "bd6cd5af5ca2690e809191fbe3e18cbcea036502639c17939ddfb9f63f69a478"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T143040/desktop-8-ecosystem-done.png",
+      "file": "missions/chromium/desktop-8-ecosystem-done.png",
+      "sha256": "b86310ee76d8af0c0666f4bea3c31be4561adda42c336df6d1e27fba5a684416"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T143040/desktop-8-oxygen-compare.png",
+      "file": "missions/chromium/desktop-8-oxygen-compare.png",
+      "sha256": "321a1991fbfcc8bef02050dec52cee66c3562b67abbbbea633e90d81d214e7dc"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T143040/desktop-8-foodweb-active-process.png",
+      "file": "missions/chromium/desktop-8-foodweb-active-process.png",
+      "sha256": "17cc99c6401b81e67cb889e87b39be342e49e79ffd3e3dee25042977b5cd5ccb"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T143040/desktop-8-health-done.png",
+      "file": "missions/chromium/desktop-8-health-done.png",
+      "sha256": "a5b54d9b0ada12d8be3471fde2bdd5b24133ee6adfade1b04aa5d148e821e6da"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T143040/desktop-8-forest-active-process.png",
+      "file": "missions/chromium/desktop-8-forest-active-process.png",
+      "sha256": "2a6540ab93c2d78760e4625c473601d56e2c0a0ca603427876a239d3341c9fd9"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T143040/desktop-9-traits-done.png",
+      "file": "missions/chromium/desktop-9-traits-done.png",
+      "sha256": "bce3d642ff533e6cc944460045df57de84095f33ffea45755c4161e8b791c169"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T143040/desktop-9-mendel-compare.png",
+      "file": "missions/chromium/desktop-9-mendel-compare.png",
+      "sha256": "7ae97a6f0386f3c8c0068421dcbd70d21e7a640cdb1da02f32191118b15e4cdc"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T143040/desktop-9-population-done.png",
+      "file": "missions/chromium/desktop-9-population-done.png",
+      "sha256": "2668072bac42d18c1b51bcb815caff614ed00d8d09cd2ddf16bf773f3a4a7c86"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T143040/desktop-9-darwin-active-process.png",
+      "file": "missions/chromium/desktop-9-darwin-active-process.png",
+      "sha256": "53d6d360170f0bcb70984cd3be5712b372376449264c5fec970c892d8c3b1c04"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T143040/desktop-10-enrichment-done.png",
+      "file": "missions/chromium/desktop-10-enrichment-done.png",
+      "sha256": "578565f2d2deee9741166d00abdc4d67875e7defe3597dadcc952eda13f404da"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T143040/desktop-10-carbon-active-process.png",
+      "file": "missions/chromium/desktop-10-carbon-active-process.png",
+      "sha256": "2e453b13ae6da954696c3f365f3277022a245099abe4b653217a3bc139d80ab6"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T143040/desktop-10-restore-done.png",
+      "file": "missions/chromium/desktop-10-restore-done.png",
+      "sha256": "f1cf6daabffaec98906be62c1fbcbef6d3fd547cb82b2038b680ecc1d5ef6bee"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T143040/desktop-10-northsea-active-process.png",
+      "file": "missions/chromium/desktop-10-northsea-active-process.png",
+      "sha256": "fd00198b43b583740d5e7b7acd6d749e4fa82de988dd201344233b3da5500ae6"
+    },
+    {
+      "source": "/tmp/aquarium-delivery2-missions/20261022T143040/desktop-10-wadden-done.png",
+      "file": "missions/chromium/desktop-10-wadden-done.png",
+      "sha256": "59cfb7f69acc6a99ba90cbd7ddafdb72bf5a63b593903c8d1c78b0edd4f14bda"
+    },
+    {
+      "source": "/tmp/aquarium-final-domains2/webkit/report.json",
+      "file": "domains/webkit/report.json",
+      "sha256": "336c9238d5d4ae257663da3e3b3ae7b9bb09c5f23bc043cbdbea6c05b90e4fa3"
+    },
+    {
+      "source": "/tmp/aquarium-final-domains2/webkit/portrait-mendel.png",
+      "file": "domains/webkit/portrait-mendel.png",
+      "sha256": "a73aa3c2b267b18d6698a99eb50ef72efae4eadf07e6825f138f2afbf9af5c60"
+    },
+    {
+      "source": "/tmp/aquarium-final-domains2/webkit/portrait-harbour-gear.png",
+      "file": "domains/webkit/portrait-harbour-gear.png",
+      "sha256": "8a37c22453a7b84825206470218982aad24bcacdbaaeb44858ee58351f33ba73"
+    },
+    {
+      "source": "/tmp/aquarium-final-domains2/webkit/portrait-free9-groups.png",
+      "file": "domains/webkit/portrait-free9-groups.png",
+      "sha256": "efb22c038861acc960de1db797374dab870dd818efc00c2f33b50e029ad82577"
+    },
+    {
+      "source": "/tmp/aquarium-final-domains2/webkit/desktop-free9-plan.json",
+      "file": "domains/webkit/desktop-free9-plan.json",
+      "sha256": "64e3f5c9ea2ac0691f4f58eaf109dade859531aa5c9a74f5e3410db81cf22cda"
+    },
+    {
+      "source": "/tmp/aquarium-final-domains2/webkit/desktop-free9.csv",
+      "file": "domains/webkit/desktop-free9.csv",
+      "sha256": "2895225e59efe40dec1ac0178e6d584afdbb70910f76c85c6e17b70e41c60aec"
+    },
+    {
+      "source": "/tmp/aquarium-final-domains2/webkit/desktop-free9.svg",
+      "file": "domains/webkit/desktop-free9.svg",
+      "sha256": "4afc8d0bce45b98760c0f508a5150ffd4b851269b05753c1ab0f65c80e2e4b78"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-boundaries/webkit/report.json",
+      "file": "boundaries/webkit/report.json",
+      "sha256": "b93934cfe1f1b5119eb0875d9142361bbdcdba1cda8864cf65f4c8ae39ccbb00"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-boundaries/webkit/restore-missing-control.png",
+      "file": "boundaries/webkit/restore-missing-control.png",
+      "sha256": "3972774c11f69b9985be31417e228b2ebd1e9b4369153adc7ec9c79170f0bb2c"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-boundaries-webkit.log",
+      "file": "boundaries/webkit/run.log",
+      "sha256": "4f0b36bab64b5e2f985ca06848b934031f34abe4c72884cdfea3343075d17670"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-boundaries/webkit/restore-context.json",
+      "file": "boundaries/webkit/restore-context.json",
+      "sha256": "dab54d631dd617a190b765a1048a6b030e50cb6c438c6f816d16bfc72c4837c7"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-boundaries/webkit/manual-plants.json",
+      "file": "boundaries/webkit/manual-plants.json",
+      "sha256": "bfd82a6c89888a8141dadc6f808e7e2761c60bd322d9235f6ffc5037c7791c8d"
+    },
+    {
+      "source": "/tmp/aquarium-final-compat/webkit/report.json",
+      "file": "compat/webkit/report.json",
+      "sha256": "bb4f803a2668ec3fdf17f4005a9a903cd2f1cf9693ad6625a67c1f7543d6a9e1"
+    },
+    {
+      "source": "/tmp/aquarium-final-compat-webkit.log",
+      "file": "compat/webkit/run.log",
+      "sha256": "80bb37822dc82010cad67e760dbee6d420e7195ea9ca1d8bf312a3ff49a7f3a5"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-standalone/webkit/report.json",
+      "file": "standalone/webkit/report.json",
+      "sha256": "abf2d3b2099107b1afed4fa8fc5690e05b5b898db76785fd798e14abb6226ce7"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-standalone/webkit/single-html-temperature.png",
+      "file": "standalone/webkit/single-html-temperature.png",
+      "sha256": "316934aca1f17a59733f89156933ac1ecc69daeecd14d602bd3e5f0ce0697bb1"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-standalone-webkit.log",
+      "file": "standalone/webkit/run.log",
+      "sha256": "7a0098c6de1ec7590fde1f089154d707f55db24699b859515d10111cd5a6b980"
+    },
+    {
+      "source": "/tmp/aquarium-final-domains2/chromium/report.json",
+      "file": "domains/chromium/report.json",
+      "sha256": "331965e341c3aebaf19e22abe826821b17b85b5a733cc912fa6703a29731dba1"
+    },
+    {
+      "source": "/tmp/aquarium-final-domains2/chromium/portrait-mendel.png",
+      "file": "domains/chromium/portrait-mendel.png",
+      "sha256": "b4170bf249e1ff3541f11548fd7c6cbbdbbd58f234e08a068b774adde5aa6400"
+    },
+    {
+      "source": "/tmp/aquarium-final-domains2/chromium/portrait-harbour-gear.png",
+      "file": "domains/chromium/portrait-harbour-gear.png",
+      "sha256": "bed5f4b31d3979bc9d930a9f27d9957a218fb0cc0a1ce53308a0459f101319d1"
+    },
+    {
+      "source": "/tmp/aquarium-final-domains2/chromium/portrait-free9-groups.png",
+      "file": "domains/chromium/portrait-free9-groups.png",
+      "sha256": "38bfb386aa2c3a3091bf8ff4a29ab827879d6bf1c41b5b6c954847011cdd37d4"
+    },
+    {
+      "source": "/tmp/aquarium-final-domains2/chromium/desktop-free9-plan.json",
+      "file": "domains/chromium/desktop-free9-plan.json",
+      "sha256": "01d1cfaf8d4c180b23aa74d7913ee9c3833fb85336b082e7c039756695a66b17"
+    },
+    {
+      "source": "/tmp/aquarium-final-domains2/chromium/desktop-free9.csv",
+      "file": "domains/chromium/desktop-free9.csv",
+      "sha256": "61b0be301f0835a57ab7a0c20f00d5ac4463da27fd0b27f842f4eb9b6b89f4b9"
+    },
+    {
+      "source": "/tmp/aquarium-final-domains2/chromium/desktop-free9.svg",
+      "file": "domains/chromium/desktop-free9.svg",
+      "sha256": "70badb5ec086ec7ebdc6f537cf7d7a1f71512e4e8c1046fd9534bb99d1735f13"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-boundaries/chromium/report.json",
+      "file": "boundaries/chromium/report.json",
+      "sha256": "4037ae828573b11f870a2e93977453c603eb7955c94b600e048ada37faf4d140"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-boundaries/chromium/restore-missing-control.png",
+      "file": "boundaries/chromium/restore-missing-control.png",
+      "sha256": "436e6ec820ada68c7449db44a60d9e600fd59ff4e18719aeedfc4540a77dfc47"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-boundaries-chromium.log",
+      "file": "boundaries/chromium/run.log",
+      "sha256": "9bb61eb05756b8bbfd8556e173459a463f8498f34c6c49af751201d73f934da6"
+    },
+    {
+      "source": "/tmp/aquarium-final-compat/chromium/report.json",
+      "file": "compat/chromium/report.json",
+      "sha256": "adefcce0433587b5e82babff79815c63f16914f3a62049a2991faa118e99cc18"
+    },
+    {
+      "source": "/tmp/aquarium-final-compat-chromium.log",
+      "file": "compat/chromium/run.log",
+      "sha256": "f252635439fd9d06dd063efd67a952338116f74e8e7dc631bd7a2fcebde0f0ea"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-standalone/chromium/report.json",
+      "file": "standalone/chromium/report.json",
+      "sha256": "410c29b2eb12bfeec5c359eb8ac5230a5dd064fb3c35e75734f2a4eef3b5b44a"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-standalone/chromium/single-html-temperature.png",
+      "file": "standalone/chromium/single-html-temperature.png",
+      "sha256": "31f8844407b27a81a4c0603478d9853851dea0b4d7ff38c6a8b0df8518984495"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-standalone-chromium.log",
+      "file": "standalone/chromium/run.log",
+      "sha256": "d2aec696eb2abadace13b380afd14583069123f02c1ebc0ffd57e4dd97a1a71b"
+    },
+    {
+      "source": "/tmp/aquarium-final-compat/chromium/legacy-measurements-only.png",
+      "file": "compat/chromium/legacy-measurements-only.png",
+      "sha256": "1080f2e5b5b24e1faeafd85ca46193ec5add5ba98f0afcba578da2510f923b15"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-touch/20261022T145602/report.json",
+      "file": "touch/report.json",
+      "sha256": "139dae67bccfa1b06a014ffaea83893f37e1e58460723526e3ce6d1bd31ca3a8"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-touch-webkit.log",
+      "file": "touch/run.log",
+      "sha256": "9f7377dd9cc4ccda3504887311e0d729d6603d070193041a1a2527b336c2c524"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-touch/20261022T145602/touch-8-oxygen-compare.png",
+      "file": "touch/touch-8-oxygen-compare.png",
+      "sha256": "00b0d6eee4cff84fa16d1bec5a359d8cbf8e3bf59b7a42069545cb52d17efdee"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-touch/20261022T145602/touch-9-mendel-compare.png",
+      "file": "touch/touch-9-mendel-compare.png",
+      "sha256": "d439c08642bfb175beb10ce3be4f659b95eadb755f9de4526cf031accd642b09"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-touch/20261022T145602/touch-10-carbon-compare.png",
+      "file": "touch/touch-10-carbon-compare.png",
+      "sha256": "1e59aae8e4d3a50c0976f4b9b13c6212381fc558a9f76d2bbe7ffb411692a69c"
+    },
+    {
+      "source": "/tmp/aquarium-final-readiness/results/20261022T135816.987945Z/report.json",
+      "file": "expert/report.json",
+      "sha256": "49253c615b49443ea6e72b02f5b7532283c4a0d648699330eb08e39054f67019"
+    },
+    {
+      "source": "/tmp/aquarium-final-readiness.log",
+      "file": "expert/run.log",
+      "sha256": "151e1ca54385cda055ca094dba3dc1fcb1a56506e21818e235c12e8283da81d2"
+    },
+    {
+      "source": "/tmp/aquarium-final-standalone.json",
+      "file": "standalone/artifact.json",
+      "sha256": "2feef068b434a6c9892fca686d5f7bca568d41539b714bd7e542be6d5ef8bba3"
+    },
+    {
+      "source": "/tmp/aquarium-public-hashes.json",
+      "file": "preview/public-hashes.json",
+      "sha256": "a5f8caca813d7104600bf3d1862e3cfc1d810648035da9969f3d03c51c8b55fc"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-preview/webkit/report.json",
+      "file": "preview/webkit/report.json",
+      "sha256": "1c421854ec45eabeac6edf04866e9d3c2a2b0bea4da4c6e8627448110dcc76f7"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-preview-webkit.log",
+      "file": "preview/webkit/run.log",
+      "sha256": "8d21fac5f27a81a4d9d14ce7160bb8a02856e15cf8d85e3bb30d5587a13a0e50"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-preview/webkit/unexecuted-plan-with-history.json",
+      "file": "preview/webkit/unexecuted-plan-with-history.json",
+      "sha256": "8dbf3d43cdf996d4e54fbbdd10655eaf65cd0dc86db3ba76676ba5c5df55a986"
+    },
+    {
+      "source": "/tmp/phase4-node-final.log",
+      "file": "node.log",
+      "sha256": "26b38b02a0b484514d1111f70fe33acce6fded00d88f3d297319ad0779292a5a"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-context4/webkit/report.json",
+      "file": "context/webkit/report.json",
+      "sha256": "2181e0f5e381801af2079b63c4985a40a6989b00c8e6d80d9592391d079f926a"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-context4/webkit/report-before-resume.json",
+      "file": "context/webkit/report-before-resume.json",
+      "sha256": "8742137169cff674a076223c132040c56f1732e32701d41ba7620014dfe86596"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-context4/webkit/selected.csv",
+      "file": "context/webkit/selected.csv",
+      "sha256": "c485e7beff20481a039b13b103e7c363abe7b6270a1b74b8a5912d3a87d2484d"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-context4-webkit.log",
+      "file": "context/webkit/run.log",
+      "sha256": "5adb5c6cff55c86294f2f738d7fcdf8f3d849255d48a4f49d2a76a05faba5a75"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-context2-webkit.log",
+      "file": "context/webkit/run-before-resume.log",
+      "sha256": "68e4d123618ca6f8cf83a9bdb3e4154c6b63de7b6a8014d1865826ed881e7f1a"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-context4/webkit/selected.json",
+      "file": "context/webkit/selected.json",
+      "sha256": "a63c45a94faff598eb017d799571b97593b7e5f5eced0bba20e7cab9d55a9742"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-context4/webkit/desktop-1-start.png",
+      "file": "context/webkit/desktop-1-start.png",
+      "sha256": "a6aff5b28075ce42dc56a7f6121870104b280b3634545cc0510e7ed27b29ff15"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-context4/webkit/desktop-2-heater.png",
+      "file": "context/webkit/desktop-2-heater.png",
+      "sha256": "e3cb7f795b8361b14e12e565e297f5205f0d8f31369caaae1a5d69c50f319362"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-context4/webkit/portrait-1-start.png",
+      "file": "context/webkit/portrait-1-start.png",
+      "sha256": "5f458dfb8f2516f4d25821180ff1dcc29b1fd42eea8121485be03c07cff8e9ca"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-context4/webkit/portrait-3-course.png",
+      "file": "context/webkit/portrait-3-course.png",
+      "sha256": "99f8a98de9e54eae743c0f7204ff037c6bb6a082d005ca4c7a8c1e5968e1d858"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-context4/chromium/report.json",
+      "file": "context/chromium/report.json",
+      "sha256": "62fa6dee9c57bfeb595bfede58592dda40877d305e13da72e7cc9081b1b16849"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-context4/chromium/report-before-resume.json",
+      "file": "context/chromium/report-before-resume.json",
+      "sha256": "451e9e52dae931465c84d063c30e0ecf52d3ea788ae0947b384fd5c216264512"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-context4/chromium/selected.csv",
+      "file": "context/chromium/selected.csv",
+      "sha256": "228fe20fc6586149aaff8778cd67a8eba6a228151874c97bd76cef6c911d3d06"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-context4-chromium.log",
+      "file": "context/chromium/run.log",
+      "sha256": "87ad88f06e8b75b2f9146d67b1743c60e0b0e8b6b45769a83536cd2ee7e2ba67"
+    },
+    {
+      "source": "/tmp/aquarium-delivery-context2-chromium.log",
+      "file": "context/chromium/run-before-resume.log",
+      "sha256": "7d78084450b6c035fa8e9b5f4d4cac06a35073a42a120b6e766bdaf4efe1f716"
+    }
+  ]
+}

@@ -1,0 +1,340 @@
+{
+  "engine": "chromium",
+  "commit": "b806579b894de5d6a8ad23057eed7b6bfc46a0fe",
+  "sources": {
+    "aquascaping.css": "92680024f89ffc4994f7748865e0be31df18147ecc3494da9ec3715dfa82f8d4",
+    "aquascaping.mjs": "70564b0d18b9c8da7d2e5c5e8d1276d8265b9506233e8cba4c160bd318fd5bab",
+    "biology-quality.mjs": "89a9bd836e5be0c2a40fa6c0299293399a59213cedc53888e22606fe54384a08",
+    "bioprocesses.mjs": "db390102b09a5e888a504049f3b659bfdea000df400b22d17a234be5998ff8cd",
+    "catalog-assets.mjs": "1725e5493f14bd1ba68cd49251a4be542d24029ccec36cc6ce97c8fdbab0d791",
+    "catalog-studio.mjs": "5c0e58a4c4f74d2b4fabec453acbea7e0056393b5472ad14d5ecb5b1287dcd03",
+    "catalog.css": "85d3ee019ac0aee8cea7e5f058414df06b64809463b658a28ebcd1769a96176a",
+    "catalog.mjs": "eaa4db288f4bd1e5bfe82a2e1daf50f54d16ebdac43635d08258dd880fc37504",
+    "control-dial.mjs": "a7217998cd8bba325c0003419538bdcdcad1774cd0ef755d5281a8bf7fc3f056",
+    "control-values.mjs": "ea918839a5c4136d8b6dc4f0f7743accfff1f6e9287a4649e45a99cb892344f2",
+    "ecology.mjs": "66c11227f26241cf3fcffb00d0f8b28dc957f7a0536de650a80fc8210098429b",
+    "equipment-ui.mjs": "63d1aaf7a68213e8be16a1d8b14329119379dddd965354a3170c71c32c42d823",
+    "equipment.css": "7bbe961ddc163a7484e0f70a2e50c541a5867b61d443be6a19c33728bf66f932",
+    "fish-variants.mjs": "001365c4ae594847c4aec741340734b3c1c43c9058afde6368310adf68e3cac2",
+    "genetics-shop.mjs": "d0cf542391fa1d391e35cb7a9d033b986d08f610b2fa2b9c84a85e3b0b19bb9b",
+    "genetics-ui.mjs": "ffee9241dbda4952847aa51b395b5e45111ef6b23011ed98309967db9d9c5a72",
+    "genetics.css": "458cbc124c9f16cde4b6760c6e8fdfba2978b19f61152c899939c4b9c9de8684",
+    "genetics.mjs": "301b841789853d6ed8dac91d3090f2cc85ab858701577473a35e3ab82122a532",
+    "graphics-profiles.mjs": "5d1f586679fcee3c3316bb3b0ebf952500a8fcaac42449ccf9c67806bd0ed98a",
+    "graphics.css": "17c48328c83603daabc10887a71603e36e51a6d30ceb062a053295f69a890199",
+    "index.html": "c351259f6078fa364ee89d6c2924b099c70a36fc444576eca8bdf3f314c840ff",
+    "individual-appearance.mjs": "0a8365eabceca7f2c6e982effe9af498c230aae702f9d44810c6ff0a292e4b58",
+    "learning-activities.mjs": "c430e6c1bf42923b6c48d74870b67a1fb6ad8668fe614c9316b6b552807650e2",
+    "learning-content.mjs": "41120a780c512f8e4c42f601d447da6da0c74acc4697eb027bda287ef60dc726",
+    "learning-model.mjs": "dc07bd53496053e279d0563907554440f3b3e8d0642f83da35f8915def542956",
+    "learning-population.mjs": "e57b699f1762996e56af6941c59145ee848df07df7d7aae8e10ae70638a266e8",
+    "learning-provenance.mjs": "569ba626e23973fdf4a8b5f5b32c5d58b137fb929b4ed31bf29e57a175194999",
+    "learning-quests.mjs": "9e0c93381fa7e8088939f0ca46dd01c15d02d0ed4ed3b8ea7fdc666aa1fa9dcc",
+    "learning-student.mjs": "85f440ed1d0ee48f1580fcbe88c3f84361994c9bf516231d8e583e11e5f00ac5",
+    "learning-ui.mjs": "df2e8e261eed59109392a3a65f2949272268e0b8cc4e9c5e3ef382bfd94924b8",
+    "learning.css": "b63afc0bd8d49af5844b7e441c3357df3efaabe6e172ff55c7804fad8e2749ff",
+    "organic-shapes.mjs": "8f22e1c4b9a9195a689608a69af0fd0ced1e3173ec2b44e81349129617e3c80e",
+    "photo-volume.mjs": "0d1dbecc908e1ffc04df00d97827b91b70556ea1540bdcb114caf3efa6d9a724",
+    "physical-renderer.mjs": "46ff0ab3bc8cc82faadb798230a15cbf460f04cba9e50e5bfa092925c2360709",
+    "physical-scale.mjs": "a948d0affb65fe354f90dfebb53e0d26b63567a35645714a3b4795f5dc68b041",
+    "realism-assets.mjs": "f0d2b01a660dc9bd96f8ca5902555c129dcbe6cf53d16ec96e0bbe8b303d39dc",
+    "realism-materials.mjs": "32ae354c89791d4d86dc157a8c3ec58b76c3b6b0fd4bfd68f7c8ae363ec8fc54",
+    "realism-renderer.mjs": "1c3fc92567c2dcfc6d42e4cd70b6f77ebf9c4617380d6c9c4b0d17f76218efde",
+    "render-population.mjs": "e0d70fa5cdcd933f325a56fd6d687fbd2f8ef65e59d6b32c84200cff6d8a7304",
+    "scenarios.mjs": "62e0d9bff4be5b8008f10191d2090d6c0e7a5c02a3968ffc4786ef5aa74a8d02",
+    "species-assets.mjs": "7539167cbf8c92e0bfce1f5efd89c8dd66403a9586da94c0214d3b0b630b7c30",
+    "species-dimensions.mjs": "9aaa6d3e0425998f83652825402b95a569cadd4c914f5e517f319d4afb5fbd0b",
+    "species-provenance.mjs": "7e1324dc173cc0e41a1d23eb216ecfe4165e3eac0e02a650f5046b89bd5f3d58",
+    "study-ui.mjs": "08c1598262db0ab647a225f5b93e6d60cc4bc69113992997c3db25360214ec25",
+    "study.css": "ed534d337c339cb1a1602fcd4412ae8059720b1c4684136e401f870bfda26ee5",
+    "underwater.mjs": "df3c746f19f3f20348cb7442ec7c216b8cd863bab3e7f7e4105785e92223e941",
+    "learning-display.mjs": "43bb2ef8f090797401fa7fe82a1d04f434935b3229726ba78488fe8185fd4e62",
+    "single-classroom-ui.mjs": "ecb9802bda2d09e0812042a4600610ebb8109fb068464f28edd217ff744c88df",
+    "single-learning-ui.mjs": "9867075506cfaba4ff89f431885c55916f372b54d53b83fabe1adae81acbc929",
+    "single-observation.mjs": "b70ec88aa5df11a68325613ae2d164b0ac6613dabc6993218343d77ebdb9bb34",
+    "single-learning-model.mjs": "932d2f36bb15440137f0c31e9ee3cf534ac97d6a606e1f114dcffceec59e0659",
+    "single-learning-missions.mjs": "791656242d9e3b76e905f404d949456538fda810b5f0f658b6c59844d15ab7de",
+    "learning-tank-views.mjs": "3d0034aa1d56b7c731fcb1890961b1b1e3b5ec0f390fd68afdd0f5d6a685e227",
+    "single-archive-display.mjs": "3ce28abaa911b9137671bdb6b2660a9865ced49e25219ae2699c233a1000cb08",
+    "learning-evolution-evidence.mjs": "4202c0796d735f577112fb4508738d37a5d1f597ca44e2512eb8d10a6d56cc08",
+    "single-lesson-support.mjs": "ad8836cc73552695e3314b21ba019ea6be72df100faec5f2b731715317dfdba3",
+    "learning-regional-workspace.mjs": "deb634808a76b96475cc698472b04d3b0188dd96da2953f4c2f09831200c97ab",
+    "single-teacher-settings.mjs": "c6a29f8a72a7257645895125d899d19cac876ae67ec5c5974427be0120e9de55",
+    "learning-workspace.mjs": "328da7cfb81c20dbc1fe5543ba15771673b242269e00d509fe080aa1884e7aa5",
+    "single-classroom-content.mjs": "edab6d6bad07e1f59d88f7892ff0045c2a5880f9215feff5d329b98381a1b29d",
+    "ammonia-pool.mjs": "694f9bbb231240a44275b611b1c93bfbf8c4fabbc9524129db0edf9975720863",
+    "single-learning.css": "5f63e1ca3add875e6a90f87bdc94e4d9177dc12383449a0dec141a9fd8017d73",
+    "learning-context.mjs": "017507cde3a4d83a89785b4cb5c4ab67abab83c500512cab6f3165f10aead7ba",
+    "learning-process-workspace.mjs": "39f3d7e367851c17c4e0769818997e685551f764e848fa280e00c28d9a5863dd",
+    "learning-population-workspace.mjs": "950c0ebce30bc8421f18b6d5d2c17b735cbf6dab6ffc09b9133daf2bfa05cb3a",
+    "learning-product-display.mjs": "803b0f5ded89212165ba002373f07ba190b53c55edef11b0759f68760ec3c0f8",
+    "scenario-layout.mjs": "428426ba0429543619bf9bc32b887ac5ffe47b90d4e8d5e6f8598ab58b584f23",
+    "single-classroom-model.mjs": "7407666b7a0e7b4a43be20d7621edafc62724151d49decaa02ff82ededcb7c42",
+    "game-route.mjs": "c143aebecf66612edaca3f687c332e57b772e6aa3f36be39460f04c99f9c593f",
+    "single-aquarium-view.mjs": "32e5382372445b8917427e4d5f7651636bc549bbb6e4d98daf0b7f2e867cc2fd",
+    "coherent-learning.css": "9755e87a9d881e0cde8d5f86f1a279bdc48d7bf34e6973d94b0dedaddcdfa9ee",
+    "standalone-navigation.mjs": "a23038020b1bd01c5ec34bedc418ca03fad86a25159c32587ef5299a13b43f35",
+    "single-parent-history.mjs": "e483a06264b68bebdd82f02be4ecb3661f283536b5e9356c8022060ae3b767e3"
+  },
+  "hardware": "Linux software GPU; Playwright touchscreen and mouse, not physical iPad",
+  "actions": [
+    {
+      "input": "touchscreen tap",
+      "selector": "[data-class-choice=unsure]",
+      "label": "Ich bin unsicher",
+      "at": "2026-10-24T08:09:10.842257+00:00"
+    },
+    {
+      "input": "touchscreen tap",
+      "selector": "[data-class=feed]",
+      "label": "Einmal füttern",
+      "at": "2026-10-24T08:09:34.194351+00:00"
+    },
+    {
+      "input": "touchscreen tap",
+      "selector": "[data-class=play]",
+      "label": "Entwicklung ansehen",
+      "at": "2026-10-24T08:10:00.245127+00:00"
+    },
+    {
+      "input": "touchscreen tap",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "at": "2026-10-24T08:12:10.320132+00:00"
+    },
+    {
+      "input": "touchscreen tap",
+      "selector": "[data-class=export]",
+      "label": "Stand als Datei speichern",
+      "at": "2026-10-24T08:12:37.609295+00:00"
+    },
+    {
+      "input": "touchscreen tap",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "at": "2026-10-24T08:13:08.779086+00:00"
+    },
+    {
+      "input": "touchscreen tap",
+      "selector": "[data-class=toggle]",
+      "label": "Anhalten oder weiter beobachten",
+      "at": "2026-10-24T08:13:41.838072+00:00"
+    }
+  ],
+  "captures": [],
+  "checks": [
+    {
+      "name": "live view saved, old storage did not change, return paused, actual export identical, single resumed clock",
+      "beforeDay": 47.25,
+      "savedDay": 47.25,
+      "savedSHA256": "c6c59ce57b11db13c0af7f5b922d39f53d730626bf3f810bf11a57863d9a7c14",
+      "downloadSHA256": "16fd3b832f6fa92491edc2ba64c34e2c7cb587cac86699dd8cc15d62f640eb3d"
+    }
+  ],
+  "errors": [],
+  "requests_failed": [],
+  "offlineTransport": "context",
+  "artifact": {
+    "path": "/tmp/final-html-download/Aquarium.html",
+    "bytes": 151602143,
+    "sha256": "576980d23a6c9407fc8e7fd60a8d3231d71dfd1b03d7c0f3443c8091c1af618f"
+  },
+  "url": "http://127.0.0.1:8000/standalone-m1/",
+  "requests": [
+    {
+      "url": "http://127.0.0.1:8000/standalone-m1/",
+      "offline": false
+    }
+  ],
+  "console_errors": [],
+  "routes": [
+    {
+      "label": "?mission=m2-food-transformation",
+      "at": "2026-10-24T08:08:39.086777+00:00",
+      "url": "http://127.0.0.1:8000/standalone-m1/?mission=m2-food-transformation",
+      "viewport": {
+        "width": 1366,
+        "height": 1024
+      },
+      "lifecycle": {
+        "route": "http://127.0.0.1:8000/standalone-m1/?mission=m2-food-transformation",
+        "frames": 1,
+        "resources": {
+          "intervals": 3,
+          "timeouts": 0,
+          "animationCallbacks": 3,
+          "registeredListeners": 93,
+          "webglContexts": 1,
+          "disposed": false
+        },
+        "retired": [
+          {
+            "route": "http://127.0.0.1:8000/standalone-m1/",
+            "intervals": 0,
+            "timeouts": 0,
+            "animationCallbacks": 0,
+            "registeredListeners": 0,
+            "webglContexts": 0,
+            "disposed": true
+          }
+        ]
+      }
+    },
+    {
+      "label": "Back while M2 clock was running",
+      "at": "2026-10-24T08:10:34.648855+00:00",
+      "url": "http://127.0.0.1:8000/standalone-m1/",
+      "viewport": {
+        "width": 1366,
+        "height": 1024
+      },
+      "lifecycle": {
+        "route": "http://127.0.0.1:8000/standalone-m1/",
+        "frames": 1,
+        "resources": {
+          "intervals": 3,
+          "timeouts": 0,
+          "animationCallbacks": 3,
+          "registeredListeners": 93,
+          "webglContexts": 1,
+          "disposed": false
+        },
+        "retired": [
+          {
+            "route": "http://127.0.0.1:8000/standalone-m1/",
+            "intervals": 0,
+            "timeouts": 0,
+            "animationCallbacks": 0,
+            "registeredListeners": 0,
+            "webglContexts": 0,
+            "disposed": true
+          },
+          {
+            "route": "http://127.0.0.1:8000/standalone-m1/?mission=m2-food-transformation",
+            "intervals": 0,
+            "timeouts": 0,
+            "animationCallbacks": 0,
+            "registeredListeners": 0,
+            "webglContexts": 0,
+            "disposed": true
+          }
+        ]
+      }
+    },
+    {
+      "label": "Forward restores exact saved observation, paused",
+      "at": "2026-10-24T08:11:46.105297+00:00",
+      "url": "http://127.0.0.1:8000/standalone-m1/?mission=m2-food-transformation",
+      "viewport": {
+        "width": 1366,
+        "height": 1024
+      },
+      "lifecycle": {
+        "route": "http://127.0.0.1:8000/standalone-m1/?mission=m2-food-transformation",
+        "frames": 1,
+        "resources": {
+          "intervals": 3,
+          "timeouts": 0,
+          "animationCallbacks": 3,
+          "registeredListeners": 93,
+          "webglContexts": 1,
+          "disposed": false
+        },
+        "retired": [
+          {
+            "route": "http://127.0.0.1:8000/standalone-m1/",
+            "intervals": 0,
+            "timeouts": 0,
+            "animationCallbacks": 0,
+            "registeredListeners": 0,
+            "webglContexts": 0,
+            "disposed": true
+          },
+          {
+            "route": "http://127.0.0.1:8000/standalone-m1/?mission=m2-food-transformation",
+            "intervals": 0,
+            "timeouts": 0,
+            "animationCallbacks": 0,
+            "registeredListeners": 0,
+            "webglContexts": 0,
+            "disposed": true
+          },
+          {
+            "route": "http://127.0.0.1:8000/standalone-m1/",
+            "intervals": 0,
+            "timeouts": 0,
+            "animationCallbacks": 0,
+            "registeredListeners": 0,
+            "webglContexts": 0,
+            "disposed": true
+          }
+        ]
+      }
+    },
+    {
+      "label": "one resumed timer, then disposed again",
+      "at": "2026-10-24T08:14:02.737413+00:00",
+      "url": "http://127.0.0.1:8000/standalone-m1/",
+      "viewport": {
+        "width": 1366,
+        "height": 1024
+      },
+      "lifecycle": {
+        "route": "http://127.0.0.1:8000/standalone-m1/",
+        "frames": 1,
+        "resources": {
+          "intervals": 3,
+          "timeouts": 0,
+          "animationCallbacks": 3,
+          "registeredListeners": 93,
+          "webglContexts": 1,
+          "disposed": false
+        },
+        "retired": [
+          {
+            "route": "http://127.0.0.1:8000/standalone-m1/",
+            "intervals": 0,
+            "timeouts": 0,
+            "animationCallbacks": 0,
+            "registeredListeners": 0,
+            "webglContexts": 0,
+            "disposed": true
+          },
+          {
+            "route": "http://127.0.0.1:8000/standalone-m1/?mission=m2-food-transformation",
+            "intervals": 0,
+            "timeouts": 0,
+            "animationCallbacks": 0,
+            "registeredListeners": 0,
+            "webglContexts": 0,
+            "disposed": true
+          },
+          {
+            "route": "http://127.0.0.1:8000/standalone-m1/",
+            "intervals": 0,
+            "timeouts": 0,
+            "animationCallbacks": 0,
+            "registeredListeners": 0,
+            "webglContexts": 0,
+            "disposed": true
+          },
+          {
+            "route": "http://127.0.0.1:8000/standalone-m1/?mission=m2-food-transformation",
+            "intervals": 0,
+            "timeouts": 0,
+            "animationCallbacks": 0,
+            "registeredListeners": 0,
+            "webglContexts": 0,
+            "disposed": true
+          }
+        ]
+      }
+    }
+  ],
+  "downloads": [],
+  "offline": true,
+  "reloadImplementation": "visible internal leave/return with fresh document, not HTTP reload",
+  "version": "154.0.8037.57",
+  "scenario": "live simulation interrupted by actual browser Back, restored paused by Forward",
+  "status": "passed"
+}

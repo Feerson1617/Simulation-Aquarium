@@ -1,0 +1,58 @@
+{
+  "commit": "b806579b894de5d6a8ad23057eed7b6bfc46a0fe",
+  "engine": "webkit",
+  "artifactSHA256": "576980d23a6c9407fc8e7fd60a8d3231d71dfd1b03d7c0f3443c8091c1af618f",
+  "url": "file:///tmp/final-html-download/Aquarium.html",
+  "at": "2026-10-24T08:04:34.020261+00:00",
+  "errors": [],
+  "failed_requests": [],
+  "http_requests": [],
+  "checks": [
+    "Actual local file opened M1 and rendered its scene",
+    "Actual local internal switch to M6; no network",
+    "Save, actual JSON download and browser Back restore the same local mission"
+  ],
+  "version": "26.5",
+  "lifecycle": {
+    "route": "file:///tmp/final-html-download/Aquarium.html?mission=m6-plant-carbon",
+    "frames": 1,
+    "resources": {
+      "intervals": 3,
+      "timeouts": 0,
+      "animationCallbacks": 3,
+      "registeredListeners": 93,
+      "webglContexts": 1,
+      "disposed": false
+    },
+    "retired": [
+      {
+        "route": "file:///tmp/final-html-download/Aquarium.html",
+        "intervals": 0,
+        "timeouts": 0,
+        "animationCallbacks": 0,
+        "registeredListeners": 0,
+        "webglContexts": 0,
+        "disposed": true
+      },
+      {
+        "route": "file:///tmp/final-html-download/Aquarium.html?mission=m6-plant-carbon",
+        "intervals": 0,
+        "timeouts": 0,
+        "animationCallbacks": 0,
+        "registeredListeners": 0,
+        "webglContexts": 0,
+        "disposed": true
+      },
+      {
+        "route": "file:///tmp/final-html-download/Aquarium.html",
+        "intervals": 0,
+        "timeouts": 0,
+        "animationCallbacks": 0,
+        "registeredListeners": 0,
+        "webglContexts": 0,
+        "disposed": true
+      }
+    ]
+  },
+  "status": "passed"
+}

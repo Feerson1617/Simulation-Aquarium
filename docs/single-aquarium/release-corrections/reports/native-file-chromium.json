@@ -1,0 +1,14 @@
+{
+  "commit": "b806579b894de5d6a8ad23057eed7b6bfc46a0fe",
+  "engine": "chromium",
+  "artifactSHA256": "576980d23a6c9407fc8e7fd60a8d3231d71dfd1b03d7c0f3443c8091c1af618f",
+  "url": "file:///tmp/final-html-download/Aquarium.html",
+  "at": "2026-10-24T07:56:06.847697+00:00",
+  "errors": [],
+  "failed_requests": [],
+  "http_requests": [],
+  "checks": [],
+  "version": "154.0.8037.57",
+  "failure": "Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///tmp/final-html-download/Aquarium.html\nCall log:\n  - navigating to \"file:///tmp/final-html-download/Aquarium.html\", waiting until \"load\"\n",
+  "status": "blocked by managed browser policy"
+}

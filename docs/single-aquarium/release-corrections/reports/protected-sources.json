@@ -1,27 +1,6 @@
 {
   "base": "5b661044cc85f640518572b5cd8fb4974d9d213b",
-  "applicationHead": "e8b9850724c0d354cfb0b5367c48ca796ba70d95",
-  "changed": [
-    "aquascaping.mjs",
-    "docs/single-aquarium/WORK_STATE.md",
-    "docs/single-aquarium/release-corrections/REQUEST.md",
-    "docs/single-aquarium/release-corrections/WORK_STATE.md",
-    "game-route.mjs",
-    "index.html",
-    "learning-model.mjs",
-    "learning-product-display.mjs",
-    "learning-ui.mjs",
-    "single-classroom-ui.mjs",
-    "single-learning-ui.mjs",
-    "standalone-navigation.mjs",
-    "tests/aquascaping.test.mjs",
-    "tests/final_missions_browser.py",
-    "tests/historical-exports.test.mjs",
-    "tests/release_native_file_browser.py",
-    "tests/release_reader_browser.py",
-    "tests/release_standalone_browser.py",
-    "tests/standalone-navigation.test.mjs"
-  ],
+  "applicationHead": "b806579b894de5d6a8ad23057eed7b6bfc46a0fe",
   "protected": [
     {
       "file": "ecology.mjs",
@@ -74,5 +53,39 @@
       "byteIdentical": true
     }
   ],
-  "indexHTML": "Byte-identical to accepted source after removing only the two new navigation hooks and their comment/blank line"
+  "indexHTML": "Byte-identical to accepted source after removing only the two new navigation hooks and their comment/blank line",
+  "verifiedAt": "2026-10-24T08:29:57.531644+00:00",
+  "changedApplicationFiles": [
+    "aquascaping.mjs",
+    "game-route.mjs",
+    "index.html",
+    "learning-model.mjs",
+    "learning-product-display.mjs",
+    "learning-ui.mjs",
+    "single-classroom-ui.mjs",
+    "single-learning-ui.mjs",
+    "standalone-navigation.mjs"
+  ],
+  "protectedTrees": [
+    {
+      "path": "assets",
+      "unchanged": true
+    },
+    {
+      "path": "tests/fixtures",
+      "unchanged": true
+    },
+    {
+      "path": "species-assets.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "genetics.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "physical-scale.mjs",
+      "unchanged": true
+    }
+  ]
 }

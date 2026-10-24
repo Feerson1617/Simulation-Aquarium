@@ -8,8 +8,8 @@
   {
     "path": "reports/protected-sources.json",
     "source": "/tmp/r-source-audit.json",
-    "sha256": "3189199ac01c4d59792c5176696cea38335d55f0e28b4a0482737ac0f64d2d02",
-    "bytes": 2620
+    "sha256": "a923914dc78296c8cbb1fc80d3d3216e49ae85136fd2d6a5bd2a846f40195b23",
+    "bytes": 2611
   },
   {
     "path": "reports/module-tests.txt",
@@ -598,5 +598,473 @@
     "payloadSHA256": "9919f5cfaa4c9d935201cc15190621b9a07cfab86abbacf43014e24af1b625dc",
     "bytes": 26831,
     "encoding": "gzip, original payload unchanged"
+  },
+  {
+    "path": "reports/public-sources.json",
+    "source": "/tmp/r-public-sources.json",
+    "sha256": "eb86fdb6f96d4a72ad6e7e576c4579f87a3f6b559878a288048e4919769b8c76",
+    "bytes": 19416
+  },
+  {
+    "path": "reports/native-file-chromium.json",
+    "source": "/tmp/r-native-docwrite/chromium/report.json",
+    "sha256": "a25d09a8051ecef0509e5f080e8ac1f3e9ec378716092d11f39168686e413848",
+    "bytes": 647
+  },
+  {
+    "path": "reports/lifecycle-chromium.json",
+    "source": "/tmp/r-lifecycle-docwrite/chromium/report.json",
+    "sha256": "804c9f69ec27c62200e61b0649a76112b412078af241af31bf9305a37cbe5c72",
+    "bytes": 14929
+  },
+  {
+    "path": "images/lifecycle-chromium-restored-paused.png",
+    "source": "/tmp/r-lifecycle-docwrite/chromium/restored-paused.png",
+    "sha256": "5f67719b6a7e3dead7605cac84da43f9bd1ba2f79e470d6699acca65b140c7bf",
+    "bytes": 387260
+  },
+  {
+    "path": "downloads/lifecycle-chromium-interrupted-observation.json.gz",
+    "source": "/tmp/r-lifecycle-docwrite/chromium/interrupted-observation.json",
+    "sha256": "07f59a623e421774d7654034e4e78d7ba152d4c3ecbe71bd9ab00b837a72e0f2",
+    "bytes": 12724,
+    "uncompressedSHA256": "16fd3b832f6fa92491edc2ba64c34e2c7cb587cac86699dd8cc15d62f640eb3d",
+    "uncompressedBytes": 158992
+  },
+  {
+    "path": "reports/native-file-webkit.json",
+    "source": "/tmp/r-native-docwrite/webkit/report.json",
+    "sha256": "eb6939a197e390c92629e6a67f54a1045045edf21d82d087d9e088e8b592b8b1",
+    "bytes": 1693
+  },
+  {
+    "path": "images/native-file-webkit-file-m6.png",
+    "source": "/tmp/r-native-docwrite/webkit/file-m6.png",
+    "sha256": "d816293aa594e824f9c2b4a7d96e57619256967abab4771a2aa260f50b9a79af",
+    "bytes": 324296
+  },
+  {
+    "path": "images/native-file-webkit-file-m1.png",
+    "source": "/tmp/r-native-docwrite/webkit/file-m1.png",
+    "sha256": "a376394745214f1850b603332554a3011fda57ebef84b78314061b360b1a79df",
+    "bytes": 324217
+  },
+  {
+    "path": "downloads/native-file-webkit-file-m6.json.gz",
+    "source": "/tmp/r-native-docwrite/webkit/file-m6.json",
+    "sha256": "737589ae03c9519ff8d6ad8b981d966c0673aca0d7c53cf4eddce3eecd688f0b",
+    "bytes": 3196,
+    "uncompressedSHA256": "8fb17d43b0ec6c21dabc31f15d58d46ad9835f4be856a2b3da9c0dae033c64b1",
+    "uncompressedBytes": 31536
+  },
+  {
+    "path": "reports/lifecycle-webkit.json",
+    "source": "/tmp/r-lifecycle-docwrite/webkit/report.json",
+    "sha256": "eb816f4ffd9d4355719173121e7e00cee35d49588e32314751bf4836f826938c",
+    "bytes": 14917
+  },
+  {
+    "path": "images/lifecycle-webkit-restored-paused.png",
+    "source": "/tmp/r-lifecycle-docwrite/webkit/restored-paused.png",
+    "sha256": "855ed8b240388a44cc2ab382dd2492a10b142be029344d73f522ecab76c4f468",
+    "bytes": 333801
+  },
+  {
+    "path": "downloads/lifecycle-webkit-interrupted-observation.json.gz",
+    "source": "/tmp/r-lifecycle-docwrite/webkit/interrupted-observation.json",
+    "sha256": "129983dc53579e65f3574d9cab2d13c14d1807971b5bb7207ad8f77ab09908e2",
+    "bytes": 8354,
+    "uncompressedSHA256": "12ae6386dbbc6b30a228dcbd4f7e5d83c6388888bf2445d059893081fb230b5a",
+    "uncompressedBytes": 89494
+  },
+  {
+    "path": "downloads/webkit-online-m1-result.json.gz",
+    "source": "/tmp/r-release-missions/webkit/m1-result.json",
+    "sha256": "4ed7281adef9c03882861a3051cedcd1a86d64312de8c977069c42cb612f096d",
+    "bytes": 26825,
+    "uncompressedSHA256": "34c101edc74c1a3280cc9e0e167437be2438d354f2cb7dd18d6a9c8a549c67bf",
+    "uncompressedBytes": 405352
+  },
+  {
+    "path": "downloads/webkit-online-m2-result.json.gz",
+    "source": "/tmp/r-release-missions/webkit/m2-result.json",
+    "sha256": "86d7d99d36d8d56adf0f2ec9adec3628e8348a59e7171f4d5aa3c1b37559d339",
+    "bytes": 16404,
+    "uncompressedSHA256": "f60ad837f35e3ce82c7b1aec108e8741c7143565f0260402e44331c028dceac1",
+    "uncompressedBytes": 228578
+  },
+  {
+    "path": "downloads/webkit-online-m3-result.json.gz",
+    "source": "/tmp/r-release-missions/webkit/m3-result.json",
+    "sha256": "3ab472f0cf1e250a474580a58b43c492c4ba918a2899c53f0fc3d806dc58fa70",
+    "bytes": 7055,
+    "uncompressedSHA256": "41b394fb3067e8d01245677fab4245d586e36ca295d87d926a8a81c9b1c4bdfc",
+    "uncompressedBytes": 98334
+  },
+  {
+    "path": "downloads/webkit-online-m4-result.json.gz",
+    "source": "/tmp/r-release-missions/webkit/m4-result.json",
+    "sha256": "2ff0d90f2269050aed657bc6050b4cb98b2c2defbe5dc414c6c6f551a7811c1c",
+    "bytes": 65989,
+    "uncompressedSHA256": "23b02ebcf6715ced7095f55d04c9e639ee8f842b0756c3f7b05729786bd5380e",
+    "uncompressedBytes": 1020536
+  },
+  {
+    "path": "downloads/webkit-online-m5-result.json.gz",
+    "source": "/tmp/r-release-missions/webkit/m5-result.json",
+    "sha256": "6b21ccd9079b8bc86ad7c8f099cfee25f36b8456c6afbc3f04160aadfd0025fc",
+    "bytes": 136496,
+    "uncompressedSHA256": "6940f2c2a60437540866b45bf5bb8913733a6b03c0d8835763be1560c148a777",
+    "uncompressedBytes": 2344353
+  },
+  {
+    "path": "downloads/webkit-online-m6-result.json.gz",
+    "source": "/tmp/r-release-missions/webkit/m6-result.json",
+    "sha256": "c45f31f30194df1600b59f40b26ce966de00a320008e699dee4aa255d34797fc",
+    "bytes": 16269,
+    "uncompressedSHA256": "197e4f1af073556d09ec2359a9179313e6539274ee0dcb88449c5995acbf554b",
+    "uncompressedBytes": 226752
+  },
+  {
+    "path": "images/webkit-online-m1-direct-selection.png",
+    "source": "/tmp/r-release-missions/webkit/m1-direct-selection.png",
+    "sha256": "3fa2120159e25e725aa4fa8cc01e686854dbb62f1a6d2cfbc046a263a590a792",
+    "bytes": 240484
+  },
+  {
+    "path": "images/webkit-online-m2-after-feeding.png",
+    "source": "/tmp/r-release-missions/webkit/m2-after-feeding.png",
+    "sha256": "eb870add55e591e992a8d18ddd60ae28c8c2bfd9e947cb476a77af8641e33996",
+    "bytes": 242076
+  },
+  {
+    "path": "images/webkit-online-m2-observation.png",
+    "source": "/tmp/r-release-missions/webkit/m2-observation.png",
+    "sha256": "7bb06c8d5442d2a4645f003cba00522104c4e6f97e92fed0766e3e1fd8f0cc95",
+    "bytes": 251260
+  },
+  {
+    "path": "images/webkit-online-m2-filter-wrong.png",
+    "source": "/tmp/r-release-missions/webkit/m2-filter-wrong.png",
+    "sha256": "4c680f13d6fe8a65caacd47b559a5781ffaf1d5df8f89941a66613c76184f3df",
+    "bytes": 263663
+  },
+  {
+    "path": "images/webkit-online-m2-filter-help.png",
+    "source": "/tmp/r-release-missions/webkit/m2-filter-help.png",
+    "sha256": "d2cb68f8737c46b00f51d1428ae47f55764ec431367ec291914f9cbc0dc91fe0",
+    "bytes": 160120
+  },
+  {
+    "path": "images/webkit-online-m3-dark-selected.png",
+    "source": "/tmp/r-release-missions/webkit/m3-dark-selected.png",
+    "sha256": "bfbb74a93696ebb1c1ec9d260fdf78610045f19694a6ef340c48bff629c60c7d",
+    "bytes": 181241
+  },
+  {
+    "path": "images/webkit-online-m3-child-transfer-wrong.png",
+    "source": "/tmp/r-release-missions/webkit/m3-child-transfer-wrong.png",
+    "sha256": "988fc1edf4181fbe92404c9e9264b9d36e3e82d6924eb5b5dba3c94745085151",
+    "bytes": 189637
+  },
+  {
+    "path": "images/webkit-online-m4-earlier-trial-and-generation.png",
+    "source": "/tmp/r-release-missions/webkit/m4-earlier-trial-and-generation.png",
+    "sha256": "d55bb33dacd6b22074a303b7f8c4ea9aab76fbfb9aac397692771f8133af0503",
+    "bytes": 141617
+  },
+  {
+    "path": "images/webkit-online-m5-comparison.png",
+    "source": "/tmp/r-release-missions/webkit/m5-comparison.png",
+    "sha256": "159146922a974f9bb03fb29aa54d568892dfcd83ab6e8d8f4d83d80d5a490530",
+    "bytes": 281378
+  },
+  {
+    "path": "images/webkit-online-m6-carbon-source-wrong.png",
+    "source": "/tmp/r-release-missions/webkit/m6-carbon-source-wrong.png",
+    "sha256": "944abdb1c2a7b9bcdeeb48cb07d0aad8b98ed31a730f17fafda480b53b2e8d9e",
+    "bytes": 273162
+  },
+  {
+    "path": "reports/tweezers-chromium.json",
+    "source": "/tmp/r-release-tweezers/report.json",
+    "sha256": "60f088de9d21b2491e4313427067cbf43123c798037d956efc0bcaa7d087c861",
+    "bytes": 278234
+  },
+  {
+    "path": "images/tweezers-landscape-touch-collision-release.png",
+    "source": "/tmp/r-release-tweezers/landscape-touch-collision-release.png",
+    "sha256": "54f11db319cee47ccf4d0f6642a566f447c541da46a2ee84afd197e5d0706c53",
+    "bytes": 341617
+  },
+  {
+    "path": "images/tweezers-landscape-touch-collision-preview.png",
+    "source": "/tmp/r-release-tweezers/landscape-touch-collision-preview.png",
+    "sha256": "3eabf4b777be7d16f666b0942bf7d632716a9c7a518f2c49f1055c65ee350a77",
+    "bytes": 343835
+  },
+  {
+    "path": "images/tweezers-landscape-mouse-collision-release.png",
+    "source": "/tmp/r-release-tweezers/landscape-mouse-collision-release.png",
+    "sha256": "d5ffbeb9fe2be5e1a63a7e8957a9814c2e2f3b048e56d19aca85fb5c297a4c6f",
+    "bytes": 339699
+  },
+  {
+    "path": "images/tweezers-landscape-mouse-collision-preview.png",
+    "source": "/tmp/r-release-tweezers/landscape-mouse-collision-preview.png",
+    "sha256": "ff2d3be33dac208782f38d5c63058a89ab86e3b3e21e03ab316e8dd81ce87b64",
+    "bytes": 341574
+  },
+  {
+    "path": "images/tweezers-portrait-touch-collision-release.png",
+    "source": "/tmp/r-release-tweezers/portrait-touch-collision-release.png",
+    "sha256": "afc2c327948229690f5971c31b7fc6a43a32def6dd4c62eb2668fb153ab41cd7",
+    "bytes": 219748
+  },
+  {
+    "path": "images/tweezers-portrait-touch-collision-preview.png",
+    "source": "/tmp/r-release-tweezers/portrait-touch-collision-preview.png",
+    "sha256": "471f111fb8d353318c3f81a67e8e446f1295c05aba0a562c717d5f99099d05ed",
+    "bytes": 220127
+  },
+  {
+    "path": "images/tweezers-portrait-mouse-collision-release.png",
+    "source": "/tmp/r-release-tweezers/portrait-mouse-collision-release.png",
+    "sha256": "95c15f18a6be35bc2cbd7f867d837054f7ff32d86073c2c34d1a3e365959c730",
+    "bytes": 217372
+  },
+  {
+    "path": "images/tweezers-portrait-mouse-collision-preview.png",
+    "source": "/tmp/r-release-tweezers/portrait-mouse-collision-preview.png",
+    "sha256": "877bc543f7424cef387e67489d8330a64b2b6bd92641dba0b5fc4861103c4e20",
+    "bytes": 218237
+  },
+  {
+    "path": "images/tweezers-desktop-touch-collision-release.png",
+    "source": "/tmp/r-release-tweezers/desktop-touch-collision-release.png",
+    "sha256": "54d97f9c37bc2fec5d83c6a67085778cc3fb916577ac10b3bf934357ea1e45c3",
+    "bytes": 336909
+  },
+  {
+    "path": "images/tweezers-desktop-touch-collision-preview.png",
+    "source": "/tmp/r-release-tweezers/desktop-touch-collision-preview.png",
+    "sha256": "449fc83067a45003b446e3cc328c77a4fb1d7aa31ecd6bb01cd523bafd7b4919",
+    "bytes": 338470
+  },
+  {
+    "path": "images/tweezers-desktop-mouse-collision-release.png",
+    "source": "/tmp/r-release-tweezers/desktop-mouse-collision-release.png",
+    "sha256": "cc6b63036c0536518c52eb1e4e06af3552b82abb5f4a3198ec362fa406ef495f",
+    "bytes": 334485
+  },
+  {
+    "path": "images/tweezers-desktop-mouse-collision-preview.png",
+    "source": "/tmp/r-release-tweezers/desktop-mouse-collision-preview.png",
+    "sha256": "4f10dcca3990f948c0698d2ea316507d6d85ebee738f16c931b573881be23afd",
+    "bytes": 335997
+  },
+  {
+    "path": "reports/missions-chromium.json",
+    "source": "/tmp/r-release-missions/chromium/report.json",
+    "sha256": "8d968b462b3734afdc3f77e4ddde760b555dee9c1682d402f52efce8d77da34c",
+    "bytes": 1096153
+  },
+  {
+    "path": "images/chromium-online-m1-complete.png",
+    "source": "/tmp/r-release-missions/chromium/m1-complete.png",
+    "sha256": "5a02662d724533cc31a4ff47c5be26706a367d6c0b296fb5ad21de009ff8e197",
+    "bytes": 257222
+  },
+  {
+    "path": "downloads/chromium-online-m1-result.json.gz",
+    "source": "/tmp/r-release-missions/chromium/m1-result.json",
+    "sha256": "5bbb2f146cafd9102c92232e931900decfde8873e19ac3635bd69b12c8e9dbf4",
+    "bytes": 26822,
+    "uncompressedSHA256": "87e576779300a666a6a20c012c6b73b1e0f52a067d95899340f0a8cbb8260fea",
+    "uncompressedBytes": 405352
+  },
+  {
+    "path": "images/chromium-online-m2-complete.png",
+    "source": "/tmp/r-release-missions/chromium/m2-complete.png",
+    "sha256": "1d12683345c366327eeaa61efe6bd870aabd537d541bf208740e2c6d3d124909",
+    "bytes": 267875
+  },
+  {
+    "path": "downloads/chromium-online-m2-result.json.gz",
+    "source": "/tmp/r-release-missions/chromium/m2-result.json",
+    "sha256": "dce74590e8442f9b00b148f867801b9a2383e733da9d9a14675b362661fc3196",
+    "bytes": 16399,
+    "uncompressedSHA256": "b29971c613397f675506f9a21c115cfd07af672409dfb147dc4467e40f35d595",
+    "uncompressedBytes": 228576
+  },
+  {
+    "path": "images/chromium-online-m3-complete.png",
+    "source": "/tmp/r-release-missions/chromium/m3-complete.png",
+    "sha256": "8710b54dbb78c5b472d200eb3798ed1c5bc8d7c41433c56abffc492631c39ce8",
+    "bytes": 185620
+  },
+  {
+    "path": "downloads/chromium-online-m3-result.json.gz",
+    "source": "/tmp/r-release-missions/chromium/m3-result.json",
+    "sha256": "697eb0bce1b2f5a74039bb2724856393f8fca2ffb79429e02794f7c5aaaa7062",
+    "bytes": 7047,
+    "uncompressedSHA256": "acf61918052f645c5cc1c1979449e18b43ddf0edae8f8566179dd4adfe0ac1e8",
+    "uncompressedBytes": 98310
+  },
+  {
+    "path": "images/chromium-online-m4-complete.png",
+    "source": "/tmp/r-release-missions/chromium/m4-complete.png",
+    "sha256": "209467448df9d77fa0f452007193c685207ddf655c49155debd89d705f96ab38",
+    "bytes": 191499
+  },
+  {
+    "path": "downloads/chromium-online-m4-result.json.gz",
+    "source": "/tmp/r-release-missions/chromium/m4-result.json",
+    "sha256": "11099a0849776362c30d036db257a4d17065d7bb60fb7714f60c5210356a925d",
+    "bytes": 66107,
+    "uncompressedSHA256": "f7ceac285f353f878abb0c4468a5253d033f51144786546ba79e286b3725e78b",
+    "uncompressedBytes": 1019883
+  },
+  {
+    "path": "images/chromium-online-m5-complete.png",
+    "source": "/tmp/r-release-missions/chromium/m5-complete.png",
+    "sha256": "70f5f2983f68979b3636445b43331cf3f1a82e48f23823450d34acbdf10788b0",
+    "bytes": 291303
+  },
+  {
+    "path": "downloads/chromium-online-m5-result.json.gz",
+    "source": "/tmp/r-release-missions/chromium/m5-result.json",
+    "sha256": "e5b0eb3b251c072fcb6c838127622d6fc5b8a21f212a8079b19fdf272775bff1",
+    "bytes": 136501,
+    "uncompressedSHA256": "0ad042be32b7100e5ad2561047cf8a0c461f52561cca0101a5b15a5c9f933aed",
+    "uncompressedBytes": 2344377
+  },
+  {
+    "path": "images/chromium-online-m6-complete.png",
+    "source": "/tmp/r-release-missions/chromium/m6-complete.png",
+    "sha256": "3360539d23110208fddcb14fc8da2751cfa253a44804c5f26630e4944dc74273",
+    "bytes": 270994
+  },
+  {
+    "path": "downloads/chromium-online-m6-result.json.gz",
+    "source": "/tmp/r-release-missions/chromium/m6-result.json",
+    "sha256": "1b204c6009f08d5f09c749f3fefa86ce50ee9720cdba5346001940547638b162",
+    "bytes": 16262,
+    "uncompressedSHA256": "d1b2e2222a2ff450b5547b9b8171e368a509cf08a0f308362eb6feb50a887b44",
+    "uncompressedBytes": 226752
+  },
+  {
+    "path": "images/chromium-online-m1-direct-selection.png",
+    "source": "/tmp/r-release-missions/chromium/m1-direct-selection.png",
+    "sha256": "9c910c6ae7aa37b5c4de998c0b148772d039ce4c4ddd32349701841b8a1d6fae",
+    "bytes": 236069
+  },
+  {
+    "path": "images/chromium-online-m2-after-feeding.png",
+    "source": "/tmp/r-release-missions/chromium/m2-after-feeding.png",
+    "sha256": "97ec1b04c14984eb9a6c1be421dd260105f4a340cafd76a13630a8bce120afcd",
+    "bytes": 244979
+  },
+  {
+    "path": "images/chromium-online-m2-observation.png",
+    "source": "/tmp/r-release-missions/chromium/m2-observation.png",
+    "sha256": "92b03e3e44b34cc1e22d116fd61b1bba27906fff2a44f9407db8142dfe09aaff",
+    "bytes": 254875
+  },
+  {
+    "path": "images/chromium-online-m2-filter-wrong.png",
+    "source": "/tmp/r-release-missions/chromium/m2-filter-wrong.png",
+    "sha256": "9d7858008b45c4e185a76f256f24d0f878c8d97993a117fb1f61175f340464e3",
+    "bytes": 264237
+  },
+  {
+    "path": "images/chromium-online-m2-filter-help.png",
+    "source": "/tmp/r-release-missions/chromium/m2-filter-help.png",
+    "sha256": "6bb1adc16d52ad7bac76099de496fc5ea19902762d793ebeda459d4133035386",
+    "bytes": 171491
+  },
+  {
+    "path": "images/chromium-online-m3-dark-selected.png",
+    "source": "/tmp/r-release-missions/chromium/m3-dark-selected.png",
+    "sha256": "77881aaa6df2565dbd40af69e9c4d60bf91de94ec480e33b278a86b31a1e7c83",
+    "bytes": 185970
+  },
+  {
+    "path": "images/chromium-online-m3-child-transfer-wrong.png",
+    "source": "/tmp/r-release-missions/chromium/m3-child-transfer-wrong.png",
+    "sha256": "24838567cf6fc6f869703ec23d45a43f14647d7f723104e04081a1f784bd8280",
+    "bytes": 195062
+  },
+  {
+    "path": "images/chromium-online-m4-earlier-trial-and-generation.png",
+    "source": "/tmp/r-release-missions/chromium/m4-earlier-trial-and-generation.png",
+    "sha256": "195f8086dad81a23a6fe1a26e81b40c6fb036d5c397f481fe98624500b6bb448",
+    "bytes": 140564
+  },
+  {
+    "path": "images/chromium-online-m5-comparison.png",
+    "source": "/tmp/r-release-missions/chromium/m5-comparison.png",
+    "sha256": "32381e1be9f624811eb6d81cfd81995e447ac14eb8861b2fc0d5360162235906",
+    "bytes": 279495
+  },
+  {
+    "path": "images/chromium-online-m6-carbon-source-wrong.png",
+    "source": "/tmp/r-release-missions/chromium/m6-carbon-source-wrong.png",
+    "sha256": "c7cffb8864006e1e384d883bec57e33de10d87033c46f03cb2a0fc87716479f2",
+    "bytes": 271113
+  },
+  {
+    "path": "images/tweezers-landscape-restored.png",
+    "source": "/tmp/r-release-tweezers/landscape-restored.png",
+    "sha256": "62cda9ef032a3f66afea4f35316a24d6d0e185597b32f46f6e170166f7c6ed1f",
+    "bytes": 359787
+  },
+  {
+    "path": "images/tweezers-landscape-touch-free-saved.png",
+    "source": "/tmp/r-release-tweezers/landscape-touch-free-saved.png",
+    "sha256": "bec916de5a4f804dc3f71e1551c1944542da114447947655574804578aa78afe",
+    "bytes": 340900
+  },
+  {
+    "path": "images/tweezers-landscape-mouse-free-saved.png",
+    "source": "/tmp/r-release-tweezers/landscape-mouse-free-saved.png",
+    "sha256": "e542f636362791804126a98a33c50479a1d5651842bc23e34d30b4fdd58ec341",
+    "bytes": 337090
+  },
+  {
+    "path": "images/tweezers-portrait-restored.png",
+    "source": "/tmp/r-release-tweezers/portrait-restored.png",
+    "sha256": "091cf2b73441ea4e00ec14d6142fcb392f50264d3937ae00265a09273d925b86",
+    "bytes": 235609
+  },
+  {
+    "path": "images/tweezers-portrait-touch-free-saved.png",
+    "source": "/tmp/r-release-tweezers/portrait-touch-free-saved.png",
+    "sha256": "f049d06b2184ac84893a14300585c4c692aa969811b9807305d3716a2fb7c092",
+    "bytes": 217724
+  },
+  {
+    "path": "images/tweezers-portrait-mouse-free-saved.png",
+    "source": "/tmp/r-release-tweezers/portrait-mouse-free-saved.png",
+    "sha256": "fba3d6bcab772837ce00082b88cc5fd8ba8d92233881bb36bfcc00a02d4d9a28",
+    "bytes": 213502
+  },
+  {
+    "path": "images/tweezers-desktop-restored.png",
+    "source": "/tmp/r-release-tweezers/desktop-restored.png",
+    "sha256": "88090c47235c8e59dcebbc396911e34c0c1b10aaff36a4bd301316e8fa02f110",
+    "bytes": 354725
+  },
+  {
+    "path": "images/tweezers-desktop-touch-free-saved.png",
+    "source": "/tmp/r-release-tweezers/desktop-touch-free-saved.png",
+    "sha256": "7c59e5075ada34fc0dcf2074d86cfb625f046f96d9169368de5b7adec8ac1af4",
+    "bytes": 335784
+  },
+  {
+    "path": "images/tweezers-desktop-mouse-free-saved.png",
+    "source": "/tmp/r-release-tweezers/desktop-mouse-free-saved.png",
+    "sha256": "b1d694a25fa3243814b94d786bffe82ac032a52f7ec656b74679a83f51afe25b",
+    "bytes": 331397
   }
 ]

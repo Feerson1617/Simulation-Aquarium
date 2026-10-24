@@ -1,3 +1,19 @@
+# Eng begrenzte Downloadkorrektur: Kandidat im echten Chromium-Download bestanden
+
+Der Browserlog identifiziert `V8 process OOM (Zone)` beim erneuten Serialisieren der großen Standalone-Datei, auch in einer frischen Expertenansicht. Kein System-OOM. Der Host bewahrt nun direkt beim Start die bereits geladene HTML-Datei als Blob auf und gibt diesen beim erneuten Download wieder aus. Die große entfernte JSON-Quelltext-Node wird geleert. Biologie, App-Ansichten und deren Navigation bleiben unverändert. Der echte Chromium-Klick lädt nun erfolgreich eine byteidentische Datei herunter (`/tmp/r-cached-download-diagnostic.log`, BYTE IDENTICAL). Alle 201 Modultests erneut bestanden (`/tmp/r-cached-download-unit.log`).
+
+Neue Kandidatendatei: 151.594.853 Bytes, SHA ea1bd887f8f301d079fb7636c72fd6ec60a83695045b56f79badd43e8f1e1666. Die bisherigen b806579-Offlineberichte sind versionsbezogen und werden nicht zur Endprüfung dieses Kandidaten erklärt. Nächste Schritte: Commit/Push sichern, echte neue Downloadfunktion auf Normalwebsite, anschließend gesamte Offline-Endprüfung mit neuer Datei wiederholen. Reguläre Missionen/Reader/Modelle unverändert gültig und nicht neu beginnen.
+
+---
+
+# Neuer Pflichtbefund: Chromium stürzt beim erneuten Standalone-HTML-Download ab
+
+Anwendung b806579 noch NICHT endgültig freigeben. Voller Chromium-Offlinelauf bestand M1/M3 mit Dateirückkehr, alle sechs Ansichten und Forschen 8/9/10, stürzte aber im Expertenmodus beim erneuten 151-MB-HTML-Download ab (`/tmp/r-release-offline/chromium/report.json`, status failed). Fokussierter frischer Chromium-Lauf reproduziert denselben Tababsturz (`/tmp/r-offline-tail-chromium/chromium/report.json`). Keine System-OOM-Ereignisse; gezieltes Browser-Stderr-Diagnoseskript `/tmp/r-download-crash-diagnostic.py`, Log daneben. Das ist ein echter neuer Anwendungs-/Browserbefund, kein weiterer Selektorfehler. Noch keine neue Anwendungskorrektur nach b806579.
+
+Nicht erneut prüfen: beide regulären Sechs-Missionsläufe, Reader, Modelle und alle angrenzenden Website-Funktionen; sie sind unverändert gültig. Weitere Änderungen möglichst ausschließlich am Standalone-Downloadpfad. Nach einer Änderung neue echte HTML-Datei und genaue Hash-Nachweise, Standalone-Endtests wiederholen; b806579-Offlinereports nicht als Prüfung eines neueren Artefakts ausgeben. Vorbereitete Finalisierungsskripte unter /tmp enthalten noch b806579 und Hash 576… und müssen nach einer Korrektur aktualisiert werden. TESTS.md ist weiterhin ausdrücklich Zwischenstand.
+
+---
+
 # WebKit-Offlinenachweise vollständig bestanden
 
 Beide finalen WebKit-Prüfverfahren sind erfolgreich abgeschlossen: strikter Browser-Offlineschalter (`/tmp/r-strict-offline/webkit/report.json`) und vollständiger ursprünglicher Prüfweg mit blockiertem HTTP/HTTPS (`/tmp/r-network-blocked-offline/webkit/report.json`). Letzterer umfasst Datei-Rückkehr, historische CSV, erneuten HTML-Download, wiederholte Ressourcenbestände und Speichernotfall. Die echte Einzeldatei hat weiterhin denselben finalen Hash. Zwei offline heruntergeladene historische CSV zusätzlich unabhängig gegen die unveränderten Originaldateien geprüft.

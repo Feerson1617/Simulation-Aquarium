@@ -1216,5 +1216,17 @@
     "source": "/tmp/r-network-blocked-offline/webkit/offline-v1-grade-8.csv",
     "sha256": "ea161b56578b78016d2189edaa4d56cc56d2a6775e4f95b197ccfa1d527575f3",
     "bytes": 2113
+  },
+  {
+    "path": "reports/test-source-epochs.json",
+    "source": "/tmp/r-test-source-epochs.json",
+    "sha256": "077e33257c493af750974599a94d2a1c711bc51e7b1f182697021a4fad33495b",
+    "bytes": 973
+  },
+  {
+    "path": "reports/development-b806579-offline-chromium.json",
+    "source": "/tmp/r-release-offline/chromium/report.json",
+    "sha256": "e7b4704162258766b862e695e24edee9dfc70ee0545ad92cedef77b599f8af6c",
+    "bytes": 466343
   }
 ]

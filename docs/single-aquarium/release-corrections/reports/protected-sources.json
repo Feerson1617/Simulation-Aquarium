@@ -1,6 +1,6 @@
 {
   "base": "5b661044cc85f640518572b5cd8fb4974d9d213b",
-  "applicationHead": "b806579b894de5d6a8ad23057eed7b6bfc46a0fe",
+  "applicationHead": "1ecd8d0909f8789a3394eb4a413156fd223aa843",
   "protected": [
     {
       "file": "ecology.mjs",
@@ -54,7 +54,7 @@
     }
   ],
   "indexHTML": "Byte-identical to accepted source after removing only the two new navigation hooks and their comment/blank line",
-  "verifiedAt": "2026-10-24T08:29:57.531644+00:00",
+  "verifiedAt": "2026-10-24T08:58:43.913180+00:00",
   "changedApplicationFiles": [
     "aquascaping.mjs",
     "game-route.mjs",

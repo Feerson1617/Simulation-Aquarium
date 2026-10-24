@@ -6,7 +6,8 @@
       "aquascaping.mjs",
       "standalone-navigation.mjs"
     ],
-    "normalMissionReaderModelsUIUnchanged": true
+    "normalMissionReaderModelsUIUnchanged": true,
+    "validatedAgainstApplication": "1ecd8d0909f8789a3394eb4a413156fd223aa843"
   },
   {
     "run": "normal-webkit",
@@ -15,7 +16,8 @@
       "aquascaping.mjs",
       "standalone-navigation.mjs"
     ],
-    "normalMissionReaderModelsUIUnchanged": true
+    "normalMissionReaderModelsUIUnchanged": true,
+    "validatedAgainstApplication": "1ecd8d0909f8789a3394eb4a413156fd223aa843"
   },
   {
     "run": "reader-chromium",
@@ -23,7 +25,8 @@
     "changedRootFilesSinceStart": [
       "standalone-navigation.mjs"
     ],
-    "normalMissionReaderModelsUIUnchanged": true
+    "normalMissionReaderModelsUIUnchanged": true,
+    "validatedAgainstApplication": "1ecd8d0909f8789a3394eb4a413156fd223aa843"
   },
   {
     "run": "reader-webkit",
@@ -31,6 +34,7 @@
     "changedRootFilesSinceStart": [
       "standalone-navigation.mjs"
     ],
-    "normalMissionReaderModelsUIUnchanged": true
+    "normalMissionReaderModelsUIUnchanged": true,
+    "validatedAgainstApplication": "1ecd8d0909f8789a3394eb4a413156fd223aa843"
   }
 ]

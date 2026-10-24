@@ -1,3 +1,11 @@
+# Abgeschlossen: R01–R03, Anwendung 1ecd8d0
+
+Alle abschließenden Anwendungsprüfungen sind ausgewertet. Maßgeblich sind [TESTS.md](TESTS.md), die unveränderten Originalberichte unter reports und [REVIEW.html](REVIEW.html). Sechs reguläre Missionen vollständig in Chromium/WebKit, 201 Modultests, drei Offline-Prüfverfahren, native WebKit-Datei, Lebenszyklus, historische Dateien und angrenzende Spielwege bestanden. Die dort benannten Testumgebungs-/Hardwaregrenzen gelten weiterhin. Kein weiterer Spielcode nach 1ecd8d0. Nur bestehender Branch/PR #9, kein Merge.
+
+Die folgenden Notizen sind die chronologische Entwicklungshistorie; ihre damals laufenden oder fehlgeschlagenen Zwischenläufe sind keine offenen Abschlussaufträge. Fehlgeschlagene Kandidaten wurden nicht nachträglich zu erfolgreichen Läufen umetikettiert. Der finale Standalone-Hash ist ea1bd887f8f301d079fb7636c72fd6ec60a83695045b56f79badd43e8f1e1666, 151.594.853 Bytes, außerhalb Git.
+
+---
+
 # Aktuell: Endprüfung der tatsächlich neuen Datei auf 1ecd8d0 läuft
 
 Anwendung gesichert und gepusht: `1ecd8d0909f8789a3394eb4a413156fd223aa843`. Kein weiterer Anwendungscode danach. Neue Datei wirklich über die normale Spieloberfläche heruntergeladen: `/tmp/final-html-download/Aquarium.html`, 151.594.853 Bytes, SHA `ea1bd887f8f301d079fb7636c72fd6ec60a83695045b56f79badd43e8f1e1666`; bytegleich zum neu bereitgestellten Testartefakt. 201 Modultests bestanden, log `/tmp/r-cached-download-unit.log`. Direkter frischer Chromium-Download ist jetzt ebenfalls bytegleich erfolgreich, ohne Browser-Speichergrenze zu verändern.

@@ -1,3 +1,9 @@
+# Abschluss der Restkorrekturen R01–R03
+
+Aktuelle Anwendung: `1ecd8d0909f8789a3394eb4a413156fd223aa843`, ausschließlich Branch `feature/coherent-learning-workspaces`, PR #9 offen. Die abschließenden eigenen Prüfungen und ihre Grenzen stehen in [release-corrections/TESTS.md](release-corrections/TESTS.md), die Originalbilder in [release-corrections/REVIEW.html](release-corrections/REVIEW.html). Kein Merge. Die folgenden Einträge dokumentieren frühere Arbeitsstände; abgeschlossene Prüfungen nicht ohne neue Änderung wiederholen.
+
+---
+
 # Aktiver Restkorrekturauftrag vom 24.10.2026
 
 Maßgeblich ist [release-corrections/WORK_STATE.md](release-corrections/WORK_STATE.md). Nur R01–R03 korrigieren; F01–F12 schützen. Bestehender PR #9, kein Merge.

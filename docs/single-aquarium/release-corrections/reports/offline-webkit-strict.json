@@ -1,6 +1,6 @@
 {
   "engine": "webkit",
-  "commit": "aa5ea706994c2234c2acfaf96f68dcba0ff770f4",
+  "commit": "c6bb5f5bbf89fd9e9b8ad88b1b2d16fb49a2b39f",
   "sources": {
     "aquascaping.css": "92680024f89ffc4994f7748865e0be31df18147ecc3494da9ec3715dfa82f8d4",
     "aquascaping.mjs": "70564b0d18b9c8da7d2e5c5e8d1276d8265b9506233e8cba4c160bd318fd5bab",
@@ -73,13 +73,13 @@
     "game-route.mjs": "c143aebecf66612edaca3f687c332e57b772e6aa3f36be39460f04c99f9c593f",
     "single-aquarium-view.mjs": "32e5382372445b8917427e4d5f7651636bc549bbb6e4d98daf0b7f2e867cc2fd",
     "coherent-learning.css": "9755e87a9d881e0cde8d5f86f1a279bdc48d7bf34e6973d94b0dedaddcdfa9ee",
-    "standalone-navigation.mjs": "a23038020b1bd01c5ec34bedc418ca03fad86a25159c32587ef5299a13b43f35",
+    "standalone-navigation.mjs": "561fca5a98fa636a37fa5c8a8bf026e5ed8aab1f43edcd515fc2a26643363831",
     "single-parent-history.mjs": "e483a06264b68bebdd82f02be4ecb3661f283536b5e9356c8022060ae3b767e3"
   },
   "hardware": "Linux software GPU; Playwright touchscreen and mouse, not physical iPad",
   "actions": [
     {
-      "at": "2026-10-24T08:25:42.696545+00:00",
+      "at": "2026-10-24T09:04:31.895620+00:00",
       "selector": "[data-single=start]",
       "label": "Beginnen",
       "input": "touchscreen tap"
@@ -89,96 +89,96 @@
       "uid": 3,
       "point": {
         "x": 822.7861361447403,
-        "y": 514.7286151618631
+        "y": 514.7286151618632
       },
-      "at": "2026-10-24T08:25:48.129155+00:00"
+      "at": "2026-10-24T09:04:35.220639+00:00"
     },
     {
-      "at": "2026-10-24T08:25:52.294715+00:00",
+      "at": "2026-10-24T09:04:38.751193+00:00",
       "selector": "[data-single=prediction][data-choice=\"2\"]",
       "label": "Ich bin unsicher",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:25:55.787578+00:00",
+      "at": "2026-10-24T09:04:41.237643+00:00",
       "selector": "[data-single=play]",
       "label": "Entwicklung ansehen",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:25:58.207644+00:00",
+      "at": "2026-10-24T09:04:44.138780+00:00",
       "selector": "[data-single=help]",
       "label": "Tipp",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:26:02.251255+00:00",
+      "at": "2026-10-24T09:04:46.509293+00:00",
       "selector": "[data-single=close]",
       "label": "Schließen",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:26:05.687449+00:00",
+      "at": "2026-10-24T09:04:49.287115+00:00",
       "selector": "[data-single=play]",
       "label": "Weiter beobachten",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:26:20.024074+00:00",
+      "at": "2026-10-24T09:05:03.343225+00:00",
       "selector": "[data-single=reset]",
       "label": "Mit gleichem Anfang noch einmal",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:26:22.554232+00:00",
+      "at": "2026-10-24T09:05:06.502411+00:00",
       "selector": "[data-single=darken]",
       "label": "Lampe ausschalten",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:26:25.484735+00:00",
+      "at": "2026-10-24T09:05:08.628687+00:00",
       "selector": "[data-single=play]",
       "label": "Entwicklung ohne Licht ansehen",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:26:38.805920+00:00",
+      "at": "2026-10-24T09:05:20.445274+00:00",
       "selector": "[data-single-choice=reversed-dark]",
       "label": "Mit Licht: mehr. Ohne Licht: weniger.",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:26:41.941473+00:00",
+      "at": "2026-10-24T09:05:23.509422+00:00",
       "selector": "[data-single=help]",
       "label": "Tipp",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:26:45.685471+00:00",
+      "at": "2026-10-24T09:05:25.677318+00:00",
       "selector": "[data-single=close]",
       "label": "Schließen",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:26:49.228516+00:00",
+      "at": "2026-10-24T09:05:28.050009+00:00",
       "selector": "[data-single-choice=observed]",
       "label": "Mit Licht: mehr. Ohne Licht: mehr.",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:26:51.910653+00:00",
+      "at": "2026-10-24T09:05:30.489444+00:00",
       "selector": "[data-single-choice=net-proof]",
       "label": "Mehr Sauerstoff heißt: Die Pflanzen geben auch im Dunkeln Sauerstoff ab.",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:26:54.643666+00:00",
+      "at": "2026-10-24T09:05:33.220503+00:00",
       "selector": "[data-single-choice=processes]",
       "label": "Ohne Licht entfällt die Sauerstoffbildung. Atmung und Luftaustausch wirken weiter.",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:26:59.421930+00:00",
+      "at": "2026-10-24T09:05:36.421378+00:00",
       "selector": "[data-single=export]",
       "label": "Ergebnis speichern",
       "input": "touchscreen tap"
@@ -187,34 +187,34 @@
       "input": "touchscreen tap",
       "selector": "[data-single=menu]",
       "label": "Menü",
-      "at": "2026-10-24T08:27:03.345338+00:00"
+      "at": "2026-10-24T09:05:39.349113+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "[data-single=home]",
       "label": "Zur Missionsauswahl",
-      "at": "2026-10-24T08:27:06.038717+00:00"
+      "at": "2026-10-24T09:05:41.836115+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "a[href=\"?mission=m2-food-transformation\"]",
       "label": "Untersuchen",
-      "at": "2026-10-24T08:27:06.505919+00:00"
+      "at": "2026-10-24T09:05:42.356361+00:00"
     },
     {
-      "at": "2026-10-24T08:27:19.796318+00:00",
+      "at": "2026-10-24T09:05:52.182258+00:00",
       "selector": "[data-class-choice=unsure]",
       "label": "Ich bin unsicher",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:27:22.702536+00:00",
+      "at": "2026-10-24T09:05:55.153350+00:00",
       "selector": "[data-class=help]",
       "label": "Tipp",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:27:25.689384+00:00",
+      "at": "2026-10-24T09:05:57.585379+00:00",
       "selector": "[data-class=close]",
       "label": "Schließen",
       "input": "touchscreen tap"
@@ -223,124 +223,124 @@
       "input": "touchscreen tap",
       "selector": "[data-class=menu]",
       "label": "Menü",
-      "at": "2026-10-24T08:27:29.941598+00:00"
+      "at": "2026-10-24T09:06:00.456174+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "a[href=\"?mission=m3-hidden-inheritance\"]",
       "label": "Untersuchen",
-      "at": "2026-10-24T08:27:37.451093+00:00"
+      "at": "2026-10-24T09:06:05.598653+00:00"
     },
     {
-      "at": "2026-10-24T08:27:47.730669+00:00",
+      "at": "2026-10-24T09:06:13.830807+00:00",
       "selector": "[data-class=generation]",
       "label": "Nachkommen ansehen",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:27:49.809105+00:00",
+      "at": "2026-10-24T09:06:15.476457+00:00",
       "selector": "[data-class=help]",
       "label": "Tipp",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:27:51.419496+00:00",
+      "at": "2026-10-24T09:06:17.026744+00:00",
       "selector": "[data-class=close]",
       "label": "Schließen",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:27:53.096216+00:00",
+      "at": "2026-10-24T09:06:18.625567+00:00",
       "selector": "[data-class=select][data-class-uid=\"31\"]",
       "label": "♀31 hell",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:27:54.415168+00:00",
+      "at": "2026-10-24T09:06:20.424014+00:00",
       "selector": "[data-class=select][data-class-uid=\"32\"]",
       "label": "♂32 dunkel",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:27:56.706531+00:00",
+      "at": "2026-10-24T09:06:22.645583+00:00",
       "selector": "[data-class=generation]",
       "label": "Nachkommen ansehen",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:27:58.503220+00:00",
+      "at": "2026-10-24T09:06:24.478151+00:00",
       "selector": "[data-class-choice=lost]",
       "label": "Beim Dunkelwerden ist das geerbte a zu A geworden.",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:28:00.794692+00:00",
+      "at": "2026-10-24T09:06:26.506139+00:00",
       "selector": "[data-class-choice=dark]",
       "label": "Die dunklen Kinder können auch a tragen.",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:28:03.207980+00:00",
+      "at": "2026-10-24T09:06:28.510434+00:00",
       "selector": "[data-class=select][data-class-uid=\"33\"]",
       "label": "♀33 dunkel",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:28:04.887289+00:00",
+      "at": "2026-10-24T09:06:30.150262+00:00",
       "selector": "[data-class=select][data-class-uid=\"34\"]",
       "label": "♂34 dunkel",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:28:07.565376+00:00",
+      "at": "2026-10-24T09:06:32.785356+00:00",
       "selector": "[data-class=generation]",
       "label": "Nachkommen ansehen",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:28:09.429275+00:00",
-      "selector": "[data-class-uid=\"48\"]",
-      "label": "♂48 hell",
+      "at": "2026-10-24T09:06:34.794199+00:00",
+      "selector": "[data-class-uid=\"49\"]",
+      "label": "♀49 hell",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:28:11.281249+00:00",
+      "at": "2026-10-24T09:06:36.296760+00:00",
       "selector": "[data-class-choice=need]",
       "label": "Dunkle und helle Junge, weil es beide Farben bei seinen Geschwistern gibt.",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:28:13.217702+00:00",
+      "at": "2026-10-24T09:06:37.910464+00:00",
       "selector": "[data-class=help]",
       "label": "Tipp",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:28:15.095905+00:00",
+      "at": "2026-10-24T09:06:39.599687+00:00",
       "selector": "[data-class=close]",
       "label": "Schließen",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:28:16.797088+00:00",
+      "at": "2026-10-24T09:06:41.782449+00:00",
       "selector": "[data-class-choice=actual-alleles]",
       "label": "Helle Junge, denn beide Eltern geben a weiter.",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:28:18.378206+00:00",
+      "at": "2026-10-24T09:06:43.312940+00:00",
       "selector": "[data-class-choice=fixed]",
       "label": "Die neue Gruppe wird die bisherigen Farbanzahlen wiederholen.",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:28:19.876385+00:00",
+      "at": "2026-10-24T09:06:45.008620+00:00",
       "selector": "[data-class-choice=possible]",
       "label": "Helle Junge sind möglich. Wie viele es werden, hängt auch vom Zufall ab.",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:28:22.608302+00:00",
+      "at": "2026-10-24T09:06:47.203232+00:00",
       "selector": "[data-class=export]",
       "label": "Ergebnis speichern",
       "input": "touchscreen tap"
@@ -349,28 +349,28 @@
       "input": "touchscreen tap",
       "selector": "[data-class=menu]",
       "label": "Menü",
-      "at": "2026-10-24T08:28:24.224794+00:00"
+      "at": "2026-10-24T09:06:49.212732+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "a[href=\"?mission=m4-dominance-frequency\"]",
       "label": "Untersuchen",
-      "at": "2026-10-24T08:28:28.937612+00:00"
+      "at": "2026-10-24T09:06:53.930615+00:00"
     },
     {
-      "at": "2026-10-24T08:28:36.910799+00:00",
+      "at": "2026-10-24T09:07:01.400124+00:00",
       "selector": "[data-class-choice=unsure]",
       "label": "Ich bin unsicher",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:28:39.025956+00:00",
+      "at": "2026-10-24T09:07:03.137322+00:00",
       "selector": "[data-class=help]",
       "label": "Tipp",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:28:40.927437+00:00",
+      "at": "2026-10-24T09:07:04.809169+00:00",
       "selector": "[data-class=close]",
       "label": "Schließen",
       "input": "touchscreen tap"
@@ -379,28 +379,28 @@
       "input": "touchscreen tap",
       "selector": "[data-class=menu]",
       "label": "Menü",
-      "at": "2026-10-24T08:28:42.904927+00:00"
+      "at": "2026-10-24T09:07:06.824818+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "a[href=\"?mission=m5-recurring-input\"]",
       "label": "Untersuchen",
-      "at": "2026-10-24T08:28:49.400008+00:00"
+      "at": "2026-10-24T09:07:11.983284+00:00"
     },
     {
-      "at": "2026-10-24T08:29:04.005423+00:00",
+      "at": "2026-10-24T09:07:21.416523+00:00",
       "selector": "[data-class-choice=unsure]",
       "label": "Ich bin unsicher",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:29:08.343063+00:00",
+      "at": "2026-10-24T09:07:23.824864+00:00",
       "selector": "[data-class=help]",
       "label": "Tipp",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:29:12.592646+00:00",
+      "at": "2026-10-24T09:07:25.877560+00:00",
       "selector": "[data-class=close]",
       "label": "Schließen",
       "input": "touchscreen tap"
@@ -409,28 +409,28 @@
       "input": "touchscreen tap",
       "selector": "[data-class=menu]",
       "label": "Menü",
-      "at": "2026-10-24T08:29:17.120169+00:00"
+      "at": "2026-10-24T09:07:29.021924+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "a[href=\"?mission=m6-plant-carbon\"]",
       "label": "Untersuchen",
-      "at": "2026-10-24T08:29:25.513555+00:00"
+      "at": "2026-10-24T09:07:34.119465+00:00"
     },
     {
-      "at": "2026-10-24T08:29:44.612493+00:00",
+      "at": "2026-10-24T09:07:44.036427+00:00",
       "selector": "[data-class-choice=unsure]",
       "label": "Ich bin unsicher",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:29:48.494217+00:00",
+      "at": "2026-10-24T09:07:46.254774+00:00",
       "selector": "[data-class=help]",
       "label": "Tipp",
       "input": "touchscreen tap"
     },
     {
-      "at": "2026-10-24T08:29:51.319831+00:00",
+      "at": "2026-10-24T09:07:48.533158+00:00",
       "selector": "[data-class=close]",
       "label": "Schließen",
       "input": "touchscreen tap"
@@ -439,16 +439,16 @@
       "input": "touchscreen tap",
       "selector": "[data-class=menu]",
       "label": "Menü",
-      "at": "2026-10-24T08:29:55.398209+00:00"
+      "at": "2026-10-24T09:07:51.458402+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "a[href=\"?research=8\"]",
       "label": "Frei forschen · Klasse 8",
-      "at": "2026-10-24T08:30:03.479821+00:00"
+      "at": "2026-10-24T09:07:56.810959+00:00"
     },
     {
-      "at": "2026-10-24T08:30:20.076355+00:00",
+      "at": "2026-10-24T09:08:06.295681+00:00",
       "selector": "[data-class=free-day]",
       "label": "Einen Tag beobachten",
       "input": "touchscreen tap"
@@ -457,16 +457,16 @@
       "input": "touchscreen tap",
       "selector": "[data-class=menu]",
       "label": "Menü",
-      "at": "2026-10-24T08:30:23.883065+00:00"
+      "at": "2026-10-24T09:08:09.148119+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "a[href=\"?research=9\"]",
       "label": "Klasse 9",
-      "at": "2026-10-24T08:30:33.944243+00:00"
+      "at": "2026-10-24T09:08:14.501297+00:00"
     },
     {
-      "at": "2026-10-24T08:30:48.983261+00:00",
+      "at": "2026-10-24T09:08:23.177091+00:00",
       "selector": "[data-class=free-day]",
       "label": "Einen Tag beobachten",
       "input": "touchscreen tap"
@@ -475,16 +475,16 @@
       "input": "touchscreen tap",
       "selector": "[data-class=menu]",
       "label": "Menü",
-      "at": "2026-10-24T08:30:53.215639+00:00"
+      "at": "2026-10-24T09:08:25.499301+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "a[href=\"?research=10\"]",
       "label": "Klasse 10",
-      "at": "2026-10-24T08:31:03.799196+00:00"
+      "at": "2026-10-24T09:08:31.009644+00:00"
     },
     {
-      "at": "2026-10-24T08:31:19.222713+00:00",
+      "at": "2026-10-24T09:08:40.905671+00:00",
       "selector": "[data-class=free-day]",
       "label": "Einen Tag beobachten",
       "input": "touchscreen tap"
@@ -493,91 +493,91 @@
       "input": "touchscreen tap",
       "selector": "[data-class=menu]",
       "label": "Menü",
-      "at": "2026-10-24T08:31:25.297461+00:00"
+      "at": "2026-10-24T09:08:43.931105+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "a[href=\"?expert=1\"]",
       "label": "Tutorial und Expertenwerkzeuge",
-      "at": "2026-10-24T08:31:38.433562+00:00"
+      "at": "2026-10-24T09:08:49.327924+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "[data-start=free]",
       "label": "Freies Spiel\nEine leere Fläche. Du wählst Becken, Technik und Lebewesen selbst.\nSelbst entdecken →",
-      "at": "2026-10-24T08:31:44.721920+00:00"
+      "at": "2026-10-24T09:08:52.213585+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": ".learn-expert-entry",
       "label": "Klassen 8–10",
-      "at": "2026-10-24T08:31:46.357505+00:00"
+      "at": "2026-10-24T09:08:53.122006+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "a[href=\"?expert=1\"]",
       "label": "Tutorial und Expertenwerkzeuge",
-      "at": "2026-10-24T08:31:50.243524+00:00"
+      "at": "2026-10-24T09:08:55.517187+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "[data-start=tutorial]",
       "label": "Tutorial\nSchritt für Schritt durch die ersten Anschaffungen und Beobachtungen.\nMit Anleitung starten →",
-      "at": "2026-10-24T08:31:54.187206+00:00"
+      "at": "2026-10-24T09:08:58.111904+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": ".learn-expert-entry",
       "label": "Klassen 8–10",
-      "at": "2026-10-24T08:31:55.254360+00:00"
+      "at": "2026-10-24T09:08:59.108127+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "[data-single=teacher]",
       "label": "Lehrkraft und frühere Ergebnisse",
-      "at": "2026-10-24T08:32:00.352754+00:00"
+      "at": "2026-10-24T09:09:01.899725+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "a[href=\"?expert=1&archive-tools=1\"]",
       "label": "Historische Lehrkraftwerkzeuge öffnen",
-      "at": "2026-10-24T08:32:00.785852+00:00"
+      "at": "2026-10-24T09:09:02.196614+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "a[href=\"?research=9\"]",
       "label": "Klasse 9",
-      "at": "2026-10-24T08:32:15.142505+00:00"
+      "at": "2026-10-24T09:09:13.139199+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "[data-class=menu]",
       "label": "Menü",
-      "at": "2026-10-24T08:32:26.159173+00:00"
+      "at": "2026-10-24T09:09:21.710771+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "a[href=\"?research=9\"]",
       "label": "Klasse 9",
-      "at": "2026-10-24T08:32:33.336497+00:00"
+      "at": "2026-10-24T09:09:26.643108+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "[data-class=menu]",
       "label": "Menü",
-      "at": "2026-10-24T08:32:43.841357+00:00"
+      "at": "2026-10-24T09:09:34.140910+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "a[href=\"?research=9\"]",
       "label": "Klasse 9",
-      "at": "2026-10-24T08:32:50.079619+00:00"
+      "at": "2026-10-24T09:09:39.079444+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "[data-class=menu]",
       "label": "Menü",
-      "at": "2026-10-24T08:33:01.038681+00:00"
+      "at": "2026-10-24T09:09:46.811434+00:00"
     }
   ],
   "captures": [],
@@ -588,8 +588,8 @@
   "section": "all",
   "artifact": {
     "path": "/tmp/final-html-download/Aquarium.html",
-    "bytes": 151602143,
-    "sha256": "576980d23a6c9407fc8e7fd60a8d3231d71dfd1b03d7c0f3443c8091c1af618f"
+    "bytes": 151594853,
+    "sha256": "ea1bd887f8f301d079fb7636c72fd6ec60a83695045b56f79badd43e8f1e1666"
   },
   "url": "http://127.0.0.1:8000/standalone-m1/",
   "requests": [
@@ -603,7 +603,7 @@
   "routes": [
     {
       "label": "m1 completed strictly offline and downloaded",
-      "at": "2026-10-24T08:26:59.485777+00:00",
+      "at": "2026-10-24T09:05:36.620934+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/",
       "viewport": {
         "width": 1366,
@@ -625,7 +625,7 @@
     },
     {
       "label": "?mission=m2-food-transformation",
-      "at": "2026-10-24T08:27:15.948372+00:00",
+      "at": "2026-10-24T09:05:48.898018+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/?mission=m2-food-transformation",
       "viewport": {
         "width": 1366,
@@ -657,7 +657,7 @@
     },
     {
       "label": "m2 returned home offline",
-      "at": "2026-10-24T08:27:37.354305+00:00",
+      "at": "2026-10-24T09:06:05.547326+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/",
       "viewport": {
         "width": 1366,
@@ -698,7 +698,7 @@
     },
     {
       "label": "?mission=m3-hidden-inheritance",
-      "at": "2026-10-24T08:27:46.043390+00:00",
+      "at": "2026-10-24T09:06:12.087897+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/?mission=m3-hidden-inheritance",
       "viewport": {
         "width": 1366,
@@ -748,7 +748,7 @@
     },
     {
       "label": "m3 completed strictly offline and downloaded",
-      "at": "2026-10-24T08:28:22.637770+00:00",
+      "at": "2026-10-24T09:06:47.226206+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/?mission=m3-hidden-inheritance",
       "viewport": {
         "width": 1366,
@@ -798,7 +798,7 @@
     },
     {
       "label": "m3 returned home offline",
-      "at": "2026-10-24T08:28:28.893728+00:00",
+      "at": "2026-10-24T09:06:53.863101+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/",
       "viewport": {
         "width": 1366,
@@ -857,7 +857,7 @@
     },
     {
       "label": "?mission=m4-dominance-frequency",
-      "at": "2026-10-24T08:28:35.106444+00:00",
+      "at": "2026-10-24T09:06:59.353030+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/?mission=m4-dominance-frequency",
       "viewport": {
         "width": 1366,
@@ -925,7 +925,7 @@
     },
     {
       "label": "m4 returned home offline",
-      "at": "2026-10-24T08:28:49.286327+00:00",
+      "at": "2026-10-24T09:07:11.912575+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/",
       "viewport": {
         "width": 1366,
@@ -1002,7 +1002,7 @@
     },
     {
       "label": "?mission=m5-recurring-input",
-      "at": "2026-10-24T08:28:59.552555+00:00",
+      "at": "2026-10-24T09:07:18.237237+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/?mission=m5-recurring-input",
       "viewport": {
         "width": 1366,
@@ -1088,7 +1088,7 @@
     },
     {
       "label": "m5 returned home offline",
-      "at": "2026-10-24T08:29:25.437954+00:00",
+      "at": "2026-10-24T09:07:34.023812+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/",
       "viewport": {
         "width": 1366,
@@ -1183,7 +1183,7 @@
     },
     {
       "label": "?mission=m6-plant-carbon",
-      "at": "2026-10-24T08:29:38.990110+00:00",
+      "at": "2026-10-24T09:07:41.057496+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/?mission=m6-plant-carbon",
       "viewport": {
         "width": 1366,
@@ -1287,7 +1287,7 @@
     },
     {
       "label": "m6 returned home offline",
-      "at": "2026-10-24T08:30:03.313748+00:00",
+      "at": "2026-10-24T09:07:56.711966+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/",
       "viewport": {
         "width": 1366,
@@ -1400,7 +1400,7 @@
     },
     {
       "label": "?research=8",
-      "at": "2026-10-24T08:30:15.006511+00:00",
+      "at": "2026-10-24T09:08:03.236218+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/?research=8",
       "viewport": {
         "width": 1366,
@@ -1522,7 +1522,7 @@
     },
     {
       "label": "research 8 and home",
-      "at": "2026-10-24T08:30:33.815715+00:00",
+      "at": "2026-10-24T09:08:14.394900+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/",
       "viewport": {
         "width": 1366,
@@ -1653,7 +1653,7 @@
     },
     {
       "label": "?research=9",
-      "at": "2026-10-24T08:30:45.122872+00:00",
+      "at": "2026-10-24T09:08:20.446178+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/?research=9",
       "viewport": {
         "width": 1366,
@@ -1793,7 +1793,7 @@
     },
     {
       "label": "research 9 and home",
-      "at": "2026-10-24T08:31:03.641637+00:00",
+      "at": "2026-10-24T09:08:30.922675+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/",
       "viewport": {
         "width": 1366,
@@ -1942,7 +1942,7 @@
     },
     {
       "label": "?research=10",
-      "at": "2026-10-24T08:31:13.393360+00:00",
+      "at": "2026-10-24T09:08:38.326727+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/?research=10",
       "viewport": {
         "width": 1366,
@@ -2100,7 +2100,7 @@
     },
     {
       "label": "research 10 and home",
-      "at": "2026-10-24T08:31:38.249261+00:00",
+      "at": "2026-10-24T09:08:49.266334+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/",
       "viewport": {
         "width": 1366,
@@ -2267,7 +2267,7 @@
     },
     {
       "label": "?expert=1",
-      "at": "2026-10-24T08:31:44.529438+00:00",
+      "at": "2026-10-24T09:08:51.979369+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/?expert=1",
       "viewport": {
         "width": 1366,
@@ -2443,7 +2443,7 @@
     },
     {
       "label": "free started strictly offline",
-      "at": "2026-10-24T08:31:45.232853+00:00",
+      "at": "2026-10-24T09:08:52.576945+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/?expert=1",
       "viewport": {
         "width": 1366,
@@ -2619,7 +2619,7 @@
     },
     {
       "label": "?expert=1",
-      "at": "2026-10-24T08:31:53.960312+00:00",
+      "at": "2026-10-24T09:08:58.017600+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/?expert=1",
       "viewport": {
         "width": 1366,
@@ -2813,7 +2813,7 @@
     },
     {
       "label": "tutorial started strictly offline",
-      "at": "2026-10-24T08:31:54.515139+00:00",
+      "at": "2026-10-24T09:08:58.487879+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/?expert=1",
       "viewport": {
         "width": 1366,
@@ -3007,7 +3007,7 @@
     },
     {
       "label": "?expert=1&archive-tools=1",
-      "at": "2026-10-24T08:32:04.929110+00:00",
+      "at": "2026-10-24T09:09:05.254626+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/?expert=1&archive-tools=1",
       "viewport": {
         "width": 1366,
@@ -3219,7 +3219,7 @@
     },
     {
       "label": "historical tools and browser Back",
-      "at": "2026-10-24T08:32:08.593611+00:00",
+      "at": "2026-10-24T09:09:08.084242+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/",
       "viewport": {
         "width": 1366,
@@ -3440,7 +3440,7 @@
     },
     {
       "label": "browser Forward",
-      "at": "2026-10-24T08:32:11.933872+00:00",
+      "at": "2026-10-24T09:09:10.291493+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/?expert=1&archive-tools=1",
       "viewport": {
         "width": 1366,
@@ -3670,7 +3670,7 @@
     },
     {
       "label": "?research=9",
-      "at": "2026-10-24T08:32:23.594583+00:00",
+      "at": "2026-10-24T09:09:19.295958+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/?research=9",
       "viewport": {
         "width": 1366,
@@ -3918,7 +3918,7 @@
     },
     {
       "label": "repeated route 1",
-      "at": "2026-10-24T08:32:33.227059+00:00",
+      "at": "2026-10-24T09:09:26.588207+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/",
       "viewport": {
         "width": 1366,
@@ -4175,7 +4175,7 @@
     },
     {
       "label": "?research=9",
-      "at": "2026-10-24T08:32:40.641427+00:00",
+      "at": "2026-10-24T09:09:32.194673+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/?research=9",
       "viewport": {
         "width": 1366,
@@ -4441,7 +4441,7 @@
     },
     {
       "label": "repeated route 2",
-      "at": "2026-10-24T08:32:49.997008+00:00",
+      "at": "2026-10-24T09:09:39.019662+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/",
       "viewport": {
         "width": 1366,
@@ -4716,7 +4716,7 @@
     },
     {
       "label": "?research=9",
-      "at": "2026-10-24T08:32:58.256488+00:00",
+      "at": "2026-10-24T09:09:44.854350+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/?research=9",
       "viewport": {
         "width": 1366,
@@ -5000,7 +5000,7 @@
     },
     {
       "label": "repeated route 3",
-      "at": "2026-10-24T08:33:06.234606+00:00",
+      "at": "2026-10-24T09:09:51.500299+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/",
       "viewport": {
         "width": 1366,
@@ -5295,12 +5295,12 @@
   "downloads": [
     {
       "file": "m1-result.json",
-      "sha256": "3513b4156f9bb0c6d24dbb36a0d47987a772675d389443ca33b17034bc76c2ce",
+      "sha256": "d252d5e61abb095f1ed3d791f6cd45309adc856e386aca4362f551861adc9f63",
       "matchesSession": true
     },
     {
       "file": "m3-result.json",
-      "sha256": "5176b68da259d83c47e3f8c5378a05d93b3a77cf83253021a6e9b736e3bfd7d4",
+      "sha256": "9caca2743fc8ddbcd29dbf237312a4b6de1b4ed806aca1b688ed2f638297609e",
       "matchesSession": true
     }
   ],

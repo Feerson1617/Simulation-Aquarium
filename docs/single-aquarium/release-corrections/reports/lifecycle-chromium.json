@@ -1,6 +1,6 @@
 {
   "engine": "chromium",
-  "commit": "b806579b894de5d6a8ad23057eed7b6bfc46a0fe",
+  "commit": "c6bb5f5bbf89fd9e9b8ad88b1b2d16fb49a2b39f",
   "sources": {
     "aquascaping.css": "92680024f89ffc4994f7748865e0be31df18147ecc3494da9ec3715dfa82f8d4",
     "aquascaping.mjs": "70564b0d18b9c8da7d2e5c5e8d1276d8265b9506233e8cba4c160bd318fd5bab",
@@ -73,71 +73,78 @@
     "game-route.mjs": "c143aebecf66612edaca3f687c332e57b772e6aa3f36be39460f04c99f9c593f",
     "single-aquarium-view.mjs": "32e5382372445b8917427e4d5f7651636bc549bbb6e4d98daf0b7f2e867cc2fd",
     "coherent-learning.css": "9755e87a9d881e0cde8d5f86f1a279bdc48d7bf34e6973d94b0dedaddcdfa9ee",
-    "standalone-navigation.mjs": "a23038020b1bd01c5ec34bedc418ca03fad86a25159c32587ef5299a13b43f35",
+    "standalone-navigation.mjs": "561fca5a98fa636a37fa5c8a8bf026e5ed8aab1f43edcd515fc2a26643363831",
     "single-parent-history.mjs": "e483a06264b68bebdd82f02be4ecb3661f283536b5e9356c8022060ae3b767e3"
   },
   "hardware": "Linux software GPU; Playwright touchscreen and mouse, not physical iPad",
   "actions": [
     {
       "input": "touchscreen tap",
+      "selector": "a[href=\"?mission=m2-food-transformation\"]",
+      "label": "Untersuchen",
+      "at": "2026-10-24T09:18:22.484530+00:00"
+    },
+    {
+      "input": "touchscreen tap",
       "selector": "[data-class-choice=unsure]",
       "label": "Ich bin unsicher",
-      "at": "2026-10-24T08:09:10.842257+00:00"
+      "at": "2026-10-24T09:18:37.238022+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "[data-class=feed]",
       "label": "Einmal füttern",
-      "at": "2026-10-24T08:09:34.194351+00:00"
+      "at": "2026-10-24T09:18:41.906445+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "[data-class=play]",
       "label": "Entwicklung ansehen",
-      "at": "2026-10-24T08:10:00.245127+00:00"
+      "at": "2026-10-24T09:18:46.554696+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "[data-class=menu]",
       "label": "Menü",
-      "at": "2026-10-24T08:12:10.320132+00:00"
+      "at": "2026-10-24T09:19:13.708773+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "[data-class=export]",
       "label": "Stand als Datei speichern",
-      "at": "2026-10-24T08:12:37.609295+00:00"
+      "at": "2026-10-24T09:19:18.559470+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "[data-class=close]",
       "label": "Schließen",
-      "at": "2026-10-24T08:13:08.779086+00:00"
+      "at": "2026-10-24T09:19:23.926133+00:00"
     },
     {
       "input": "touchscreen tap",
       "selector": "[data-class=toggle]",
       "label": "Anhalten oder weiter beobachten",
-      "at": "2026-10-24T08:13:41.838072+00:00"
+      "at": "2026-10-24T09:19:28.985346+00:00"
     }
   ],
   "captures": [],
   "checks": [
     {
       "name": "live view saved, old storage did not change, return paused, actual export identical, single resumed clock",
-      "beforeDay": 47.25,
-      "savedDay": 47.25,
-      "savedSHA256": "c6c59ce57b11db13c0af7f5b922d39f53d730626bf3f810bf11a57863d9a7c14",
-      "downloadSHA256": "16fd3b832f6fa92491edc2ba64c34e2c7cb587cac86699dd8cc15d62f640eb3d"
+      "beforeDay": 45.5,
+      "savedDay": 45.5,
+      "savedSHA256": "37b98e0ed0c3ad24e84c1b8c61a269842185f8b3b9b41fb062e97ac67b09c4b8",
+      "downloadSHA256": "de52d94c338d71741dee7bc96931929bbc1897f415af3124eb1c11502e8eb035"
     }
   ],
   "errors": [],
   "requests_failed": [],
   "offlineTransport": "context",
+  "section": "all",
   "artifact": {
     "path": "/tmp/final-html-download/Aquarium.html",
-    "bytes": 151602143,
-    "sha256": "576980d23a6c9407fc8e7fd60a8d3231d71dfd1b03d7c0f3443c8091c1af618f"
+    "bytes": 151594853,
+    "sha256": "ea1bd887f8f301d079fb7636c72fd6ec60a83695045b56f79badd43e8f1e1666"
   },
   "url": "http://127.0.0.1:8000/standalone-m1/",
   "requests": [
@@ -150,7 +157,7 @@
   "routes": [
     {
       "label": "?mission=m2-food-transformation",
-      "at": "2026-10-24T08:08:39.086777+00:00",
+      "at": "2026-10-24T09:18:32.927655+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/?mission=m2-food-transformation",
       "viewport": {
         "width": 1366,
@@ -182,7 +189,7 @@
     },
     {
       "label": "Back while M2 clock was running",
-      "at": "2026-10-24T08:10:34.648855+00:00",
+      "at": "2026-10-24T09:18:53.071431+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/",
       "viewport": {
         "width": 1366,
@@ -223,7 +230,7 @@
     },
     {
       "label": "Forward restores exact saved observation, paused",
-      "at": "2026-10-24T08:11:46.105297+00:00",
+      "at": "2026-10-24T09:19:09.113903+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/?mission=m2-food-transformation",
       "viewport": {
         "width": 1366,
@@ -273,7 +280,7 @@
     },
     {
       "label": "one resumed timer, then disposed again",
-      "at": "2026-10-24T08:14:02.737413+00:00",
+      "at": "2026-10-24T09:19:34.217222+00:00",
       "url": "http://127.0.0.1:8000/standalone-m1/",
       "viewport": {
         "width": 1366,

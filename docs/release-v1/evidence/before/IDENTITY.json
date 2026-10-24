@@ -1,0 +1,5 @@
+{
+  "applicationCommit": "3e6394bf29d21fa8cc685855a84bcc2eb06f57a4",
+  "standaloneSHA256": "ea1bd887f8f301d079fb7636c72fd6ec60a83695045b56f79badd43e8f1e1666",
+  "note": "report.commit records the probe checkout; the frozen HTML digest/public-source hashes identify the actual baseline application. No runtime edits enter these baseline documents."
+}

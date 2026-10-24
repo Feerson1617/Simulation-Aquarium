@@ -1,0 +1,23 @@
+{
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "python": "3.12.14",
+  "node": "v24.19.0",
+  "physicalIPad": false,
+  "gpu": "software rendering: Chromium Angle SwiftShader; portable WebKit WPE",
+  "viewport": [
+    768,
+    1024
+  ],
+  "deviceScaleFactor": 1,
+  "touch": "Playwright emulation",
+  "graphicsProfile": "ipad",
+  "parallelBrowsers": false,
+  "rawTimeZone": "UTC",
+  "reportTimeZone": "Europe/Berlin",
+  "/sys/fs/cgroup/memory.max": "34359738368",
+  "/sys/fs/cgroup/memory.swap.max": "max",
+  "kernelMemory": {
+    "MemTotal": "34906016 kB",
+    "SwapTotal": "0 kB"
+  }
+}

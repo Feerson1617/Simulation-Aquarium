@@ -135,20 +135,21 @@ def run(p,id):
  else:
   c(p,'plant');uid=snapshot(p)['session']['selection'];shot(p,'m6-selected');observe(p,'m6-observation');assert snapshot(p)['session']['selection']==uid;no_leak(p,id);wrong_help(p,'opposite','observed','m6');shot(p,'m6-carbon-source-question');c(p,'process');shot(p,'m6-requested-explanation');c(p,'close');wrong_help(p,'ground','water-carbon','m6-carbon-source');shot(p,'m6-carbon-return-question');wrong_help(p,'gone','respiration','m6-carbon-return');shot(p,'m6-evidence-question');wrong_help(p,'proof','explanation','m6-evidence')
  roundtrip(p,id)
-with sync_playwright() as pw:
- launch={'executable_path':'/usr/bin/chromium','args':['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']} if ENGINE=='chromium' else {'executable_path':os.environ['AQUARIUM_WEBKIT']}
- b=getattr(pw,ENGINE).launch(**launch);R['version']=b.version
- try:
-  for id in IDS:
-   ctx=b.new_context(viewport={'width':768,'height':1024},has_touch=True,is_mobile=True,device_scale_factor=1,accept_downloads=True)
-   ctx.add_init_script("localStorage.setItem('aquarium-graphics-v1',JSON.stringify({version:1,profile:'ipad'}));localStorage.setItem('aquarium-learning-sentinel','unchanged');")
-   p=ctx.new_page();p.set_default_timeout(90000);p.on('pageerror',lambda e:R['errors'].append(str(e)));p.on('requestfailed',lambda q:R['requests_failed'].append(q.url));p.goto(URL+('' if id=='m1' else '?mission='+MISSIONS[id]))
-   if id=='m1':m(p,'start')
-   p.wait_for_function('window.aquariumLearningSnapshot()?.presentation?.glass');p.wait_for_timeout(700);run(p,id);ctx.close();print('PASS',id,flush=True)
-  assert not R['errors'],R['errors'];assert not R['requests_failed'],R['requests_failed'];R['status']='passed'
- except Exception as e:
-  R.update(status='failed',failure=str(e))
-  try:shot(p,'failure')
-  except Exception:pass
-  raise
- finally:save();b.close()
+if __name__ == '__main__':
+ with sync_playwright() as pw:
+  launch={'executable_path':'/usr/bin/chromium','args':['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']} if ENGINE=='chromium' else {'executable_path':os.environ['AQUARIUM_WEBKIT']}
+  b=getattr(pw,ENGINE).launch(**launch);R['version']=b.version
+  try:
+   for id in IDS:
+    ctx=b.new_context(viewport={'width':768,'height':1024},has_touch=True,is_mobile=True,device_scale_factor=1,accept_downloads=True)
+    ctx.add_init_script("localStorage.setItem('aquarium-graphics-v1',JSON.stringify({version:1,profile:'ipad'}));localStorage.setItem('aquarium-learning-sentinel','unchanged');")
+    p=ctx.new_page();p.set_default_timeout(90000);p.on('pageerror',lambda e:R['errors'].append(str(e)));p.on('requestfailed',lambda q:R['requests_failed'].append(q.url));p.goto(URL+('' if id=='m1' else '?mission='+MISSIONS[id]))
+    if id=='m1':m(p,'start')
+    p.wait_for_function('window.aquariumLearningSnapshot()?.presentation?.glass');p.wait_for_timeout(700);run(p,id);ctx.close();print('PASS',id,flush=True)
+   assert not R['errors'],R['errors'];assert not R['requests_failed'],R['requests_failed'];R['status']='passed'
+  except Exception as e:
+   R.update(status='failed',failure=str(e))
+   try:shot(p,'failure')
+   except Exception:pass
+   raise
+  finally:save();b.close()

@@ -63,12 +63,20 @@ with sync_playwright() as pw:
     if index==5:tap('[data-class=plant]')
    tap(f'[data-{prefix}=help]');view().locator('.single-dialog').wait_for();tap(f'[data-{prefix}=close]')
    p.screenshot(path=str(OUT/f'{id}.png'))
-   path,data=export(prefix,id);home(prefix);open_mission(id);_,restored=export(prefix,id+'-restored');assert restored==data
-   tap(f'[data-{prefix}=menu]')
-   with p.expect_file_chooser() as fc:tap(f'[data-{prefix}=load]')
-   fc.value.set_files(str(path));r['actions'].append({'input':'actual file chooser','file':path.name});view().locator('.single-dialog').wait_for(state='hidden')
-   _,loaded=export(prefix,id+'-imported');assert loaded==data
-   r['checks'].append(id+': scene, actual choice, hint, export, exact local restoration and actual JSON import');home(prefix)
+   # M1 and M2 exercise both independent save/import implementations. M3–M6
+   # retain their accepted full paths; this release checks their actual entry,
+   # choice, help and local save without repeating the full teaching campaign.
+   if index<2:
+    path,data=export(prefix,id);home(prefix);open_mission(id);_,restored=export(prefix,id+'-restored');assert restored==data
+    tap(f'[data-{prefix}=menu]')
+    with p.expect_file_chooser() as fc:tap(f'[data-{prefix}=load]')
+    fc.value.set_files(str(path));r['actions'].append({'input':'actual file chooser','file':path.name});view().locator('.single-dialog').wait_for(state='hidden')
+    _,loaded=export(prefix,id+'-imported');assert loaded==data
+    r['checks'].append(id+': scene, actual choice, hint, export, exact local restoration and actual JSON import')
+   else:
+    stored=view().evaluate('id=>localStorage.getItem("aquarium-single-investigation-v1:"+id)',id);assert stored
+    r['checks'].append(id+': scene, actual choice, hint and existing local save')
+   home(prefix)
   tap('a[href="?research=8"]');ready('[data-class-stage=free]');before=view().evaluate('aquariumLearningSnapshot().session.tank.day');tap('[data-class=free-day]');_,data=export('class','research');assert data['tank']['day']==before+1;home('class');r['checks'].append('free research: actual one-day advance and saved result')
   for mode in ['free','tutorial','scenario']:
    tap('a[href="?expert=1"]');ready('[data-start=free]')

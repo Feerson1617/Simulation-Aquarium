@@ -84,12 +84,14 @@ export async function createStandaloneDocument(baseURL, fetchResource = fetch) {
   const read = async path => { const response=await fetchResource(new URL(path,baseURL));if(!response.ok)throw new Error('Die Spieldatei konnte nicht vollständig geladen werden.');return response; };
   let html=await (await read('./index.html')).text();
   // GLTF's embedded image buffers are already local. WebKit's offline mode can
-  // reject a subsequent blob: image request, so the single file decodes them as
-  // data URLs. Keep this narrow adapter checked against the bundled loader.
+  // reject reading even an in-memory Blob, so the single file uses data URLs
+  // and the loader's existing HTML image path. No image bytes are changed.
+  // Keep this narrow adapter checked against the bundled loader.
   const imageBuffer='c=!0;const d=new Blob([u],{type:a.mimeType});return l=o.createObjectURL(d),l';
+  const bitmapLoader='this.textureLoader=new B0(this.options.manager)';
   if(html.includes('loadImageSource(')){
-    if(html.split(imageBuffer).length!==2)throw new Error('Die lokale Textur-Einbettung passt nicht zum enthaltenen 3D-Lader.');
-    html=html.replace(imageBuffer,'const d=new Blob([u],{type:a.mimeType});return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(l=reader.result);reader.onerror=()=>reject(reader.error);reader.readAsDataURL(d);})');
+    if(html.split(imageBuffer).length!==2||html.split(bitmapLoader).length!==2)throw new Error('Die lokale Textur-Einbettung passt nicht zum enthaltenen 3D-Lader.');
+    html=html.replace(imageBuffer,'const bytes=new Uint8Array(u),parts=[];for(let offset=0;offset<bytes.length;offset+=16384)parts.push(String.fromCharCode(...bytes.subarray(offset,offset+16384)));return l="data:"+a.mimeType+";base64,"+btoa(parts.join(""));').replace(bitmapLoader,'this.textureLoader=new Qd(this.options.manager)');
   }
   const script=html.match(/<script type="module">([\s\S]*?)<\/script>/);
   if(!script)throw new Error('Spielmodul fehlt.');

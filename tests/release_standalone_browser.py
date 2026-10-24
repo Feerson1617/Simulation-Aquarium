@@ -31,12 +31,18 @@ class GameView:
   if name in ['mouse','touchscreen','keyboard','url','viewport_size','screenshot','set_viewport_size','expect_download','expect_file_chooser','wait_for_timeout']:return getattr(self.page,name)
   return getattr(self.frame,name)
  def ready(self,selector=None):
-  self.page.locator('#aquarium-view').wait_for();self.frame.wait_for_function('typeof window.aquariumLearningSnapshot==="function"',timeout=180000)
+  self.page.frame_locator('#aquarium-view').locator(selector or 'body').wait_for(timeout=180000);self.frame.wait_for_function('typeof window.aquariumLearningSnapshot==="function"',timeout=180000)
   if selector:self.frame.locator(selector).wait_for(timeout=180000)
   self.frame.wait_for_load_state('networkidle',timeout=180000)
   self.frame.wait_for_function('window.aquariumStandaloneLifecycle.snapshot().webglContexts===1',timeout=180000)
   s=self.frame.evaluate('aquariumLearningSnapshot()')
   assert not s.get('assetErrors'),s.get('assetErrors')
+  assert not R['console_errors'],R['console_errors']
+ def set_viewport_size(self,size):
+  self.page.set_viewport_size(size)
+  self.frame.wait_for_function('size=>innerWidth===size.width&&innerHeight===size.height',arg=size)
+  frame=self.frame.evaluate('aquariumLearningSnapshot().renderer?.stats.renderFrame||0')
+  self.frame.wait_for_function('n=>(aquariumLearningSnapshot().renderer?.stats.renderFrame||0)>=n+3',arg=frame)
  def tap(self,sel):
   x=self.locator(sel).filter(visible=True).first;label=x.inner_text();x.tap();R['actions'].append({'input':'touchscreen tap','selector':sel,'label':label,'at':datetime.now(timezone.utc).isoformat()})
  def home(self):
@@ -70,8 +76,8 @@ def run():
   def failed(q):R['requests_failed'].append({**origins.get(q,{}),'failure':q.failure})
   p.on('request',request);p.on('requestfailed',failed);p.on('pageerror',lambda e:R['errors'].append(str(e)));p.on('console',lambda m:R['console_errors'].append(m.text) if m.type=='error' else None)
   try:
-   p.goto(URL,timeout=240000);v.ready('[data-single=start]');route_report(p,'fully loaded online');ctx.set_offline(True);R['offline']=True
-   v.tap('[data-single=start]');v.ready('[data-single-stage]');mission.run(v,'m1');v.home();route_report(p,'M1 completed offline and home')
+   p.goto(URL,timeout=240000);v.ready('[data-single=start]');v.tap('[data-single=start]');v.ready('[data-single-stage]');v.wait_for_function('aquariumLearningSnapshot().renderer.stats.detailModels>=19');route_report(p,'M1 aquarium fully loaded online before any investigation');ctx.set_offline(True);R['offline']=True
+   mission.run(v,'m1');v.home();route_report(p,'M1 completed offline and home')
    for id in ['m2','m3','m4','m5','m6']:
     v.open_route('?mission='+mission.MISSIONS[id],'[data-class-stage]');assert v.locator('canvas').count()==1
     if id=='m3':mission.run(v,id)

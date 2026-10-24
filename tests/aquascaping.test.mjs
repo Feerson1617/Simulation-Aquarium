@@ -116,8 +116,8 @@ test('standalone HTML bundles the module and CSS with valid JavaScript under a p
   // The standalone now hosts a complete embedded document. Keep checking that document,
   // and additionally syntax-check its host; no existing bundle assertion is removed.
   const application = JSON.parse(html.match(/<script id="aquarium-source" type="application\/json">([\s\S]*?)<\/script>/)[1]);
-  assert.ok(application.includes('reader.readAsDataURL(d)'));
-  assert.ok(!application.includes('return l=o.createObjectURL(d),l'));
+  assert.ok(application.includes('then(function(u){const bytes=new Uint8Array(u),parts=[];'));
+  assert.ok(!application.includes('then(function(u){c=!0;const d=new Blob([u],{type:a.mimeType});return l=o.createObjectURL(d),l}'));
   assert.ok(!application.includes('src="./assets/catalog/'));
   assert.ok(!application.split('</head>')[0].includes('<link rel="stylesheet" href="./aquascaping.css">'));
   assert.ok(!/import \{[^;]*\} from "\.\/aquascaping\.mjs";/.test(application));

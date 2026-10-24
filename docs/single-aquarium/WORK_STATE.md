@@ -1,3 +1,9 @@
+# Aktiver Restkorrekturauftrag vom 24.10.2026
+
+Maßgeblich ist [release-corrections/WORK_STATE.md](release-corrections/WORK_STATE.md). Nur R01–R03 korrigieren; F01–F12 schützen. Bestehender PR #9, kein Merge.
+
+---
+
 # Aktiver Folgeauftrag vom 23.10.2026
 
 Maßgeblich ist jetzt [final-corrections/WORK_STATE.md](final-corrections/WORK_STATE.md). Der finale Nutzerauftrag akzeptiert F01/F02/F03-Kern/F05/F08 und hebt die frühere Zwischenfreigabe ausdrücklich auf. Umsetzung und Endprüfung bleiben auf dem vorhandenen Branch von PR #9, ohne Merge. Der folgende Bericht beschreibt den früheren Auftrag.

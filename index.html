@@ -3913,6 +3913,16 @@ learningUI=mountLearningUI({root:tt("#app"),types:De,getState:()=>I,isHome:()=>B
  graphics:graphicsProfile,profiles:Object.values(GRAPHICS_PROFILES),setGraphics:id=>{chooseGraphicsProfile(id);reconfigureGraphics()}
 });
 window.aquariumLearningSnapshot=()=>learningUI.snapshot();
+// Standalone navigation saves before replacing its isolated document. Online links are unchanged.
+window.aquariumPrepareNavigation=()=>{
+ vt?.aquascaping?.setEnabled(false);
+ if(learningUI.prepareNavigation?.()===false)return false;
+ Gn=0;clearInterval(Ki);At();
+ if(!Bn&&!Sc){Ft("Der Stand konnte nicht gespeichert werden. Sichere ihn als Datei, bevor du die Ansicht wechselst.");return false;}
+ return true;
+};
+window.aquariumDisposeResources=()=>{learningUI.dispose?.();vt?.destroy();vt=null;};
+
 equipmentUI=mountEquipmentUI({root:tt("#app"),view:()=>learningUI.deviceView?.()||vt,state:()=>learningUI.deviceState?.()||I,notify:Ft,
  context:()=>learningUI.active()?learningUI.deviceContext():{visible:!Bn&&!et&&!ot&&!learningUI.blocksScene(),tools:["temperature","light","filter","air","skimmer"]},
  lock:value=>{document.documentElement.classList.toggle("device-adjusting",value);tt("#learning-root").inert=value;if(value){Gn=0;vt?.aquascaping?.setEnabled(false)}vt?.setInteractive(!value&&!Bn&&!et&&!ot&&!learningUI.blocksScene());requestAnimationFrame(()=>{vt?.resize();if(vt)fitPhysicalCamera(vt)})},

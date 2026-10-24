@@ -1,4 +1,5 @@
 import {archiveDescription,archiveEntry,archiveGuidance} from './single-archive-display.mjs';
+import {gameURL} from './game-route.mjs';
 import {mountAquariumView} from './single-aquarium-view.mjs';
 import {amountFigure} from './single-observation.mjs';
 import {readSingleTeacher,writeSingleTeacher} from './single-teacher-settings.mjs';
@@ -12,7 +13,7 @@ const number=v=>Number.isFinite(v)?v.toLocaleString("de-DE",{minimumFractionDigi
 const button=(id,label,extra="")=>`<button data-single="${id}" ${extra}>${label}</button>`;
 const observing=s=>s && ["light-observing","dark-observing"].includes(s.stage);
 export function mountSingleAquariumUI(host) {
-  const route=new URLSearchParams(location.search),mission=route.get("mission"),research=route.get("research");
+  const route=gameURL().searchParams,mission=route.get("mission"),research=route.get("research");
   if(CLASSROOM_IDS.includes(mission))return mountClassroomUI(host,mission);
   if(["8","9","10"].includes(research))return mountClassroomUI(host,"research-"+research);
   const root=document.createElement("div");root.id="learning-root";host.root.append(root);
@@ -203,6 +204,7 @@ export function mountSingleAquariumUI(host) {
   document.querySelector('#scene')?.addEventListener('assetfailed',e=>{assetErrors.push(e.detail);render();});
   host.pause();render();
   return {active:()=>active,blocksScene:()=>!active||!!dialog,select:choosePlant,
+    prepareNavigation:()=>{pause();const ok=save();if(!ok)render();return ok;},
     deviceContext:()=>({visible:active&&!dialog&&session.stage==="reset-ready",tools:["light"],focus:"light"}),
     openDevice:key=>{if(key==="light"&&active&&!dialog&&session.stage==="reset-ready"){darkenSingle(session);save();render();}},
     deviceView:()=>null,deviceState:()=>null,tweezersChanged:()=>{},refresh:()=>{},

@@ -113,7 +113,16 @@ test('standalone HTML bundles the module and CSS with valid JavaScript under a p
   assert.ok(!html.split('</head>')[0].includes('<link rel="stylesheet" href="./aquascaping.css">'));
   assert.ok(!/import \{[^;]*\} from "\.\/aquascaping\.mjs";/.test(html));
   assert.ok(html.includes('class AquascapingController'));
-  const script = html.match(/<script type="module">([\s\S]*?)<\/script>/)[1];
+  // The standalone now hosts a complete embedded document. Keep checking that document,
+  // and additionally syntax-check its host; no existing bundle assertion is removed.
+  const application = JSON.parse(html.match(/<script id="aquarium-source" type="application\/json">([\s\S]*?)<\/script>/)[1]);
+  assert.ok(!application.includes('src="./assets/catalog/'));
+  assert.ok(!application.split('</head>')[0].includes('<link rel="stylesheet" href="./aquascaping.css">'));
+  assert.ok(!/import \{[^;]*\} from "\.\/aquascaping\.mjs";/.test(application));
+  const hostScript=html.match(/<script>([\s\S]*?)<\/script>/)[1];
+  const hostChecked=spawnSync(process.execPath,['--check'],{input:hostScript,encoding:'utf8'});
+  assert.equal(hostChecked.status,0,hostChecked.stderr);
+  const script = application.match(/<script type="module">([\s\S]*?)<\/script>/)[1];
   const checked = spawnSync(process.execPath, ['--input-type=module', '--check'], { input: script, encoding: 'utf8' });
   assert.equal(checked.status, 0, checked.stderr);
 });

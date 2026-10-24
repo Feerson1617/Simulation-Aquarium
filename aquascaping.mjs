@@ -1,4 +1,5 @@
 import { TANK_DIMENSIONS, physicalPlacement, findPhysicalPosition, physicalSubstrateHeight } from './physical-scale.mjs';
+import { createStandaloneShell } from './standalone-navigation.mjs';
 /** Aquascaping: legacy save coordinates, physical dimensions and no external services. */
 export const AQUASCAPING_DECOR = [
   { id: 'spiderwood', name: 'Verzweigte Fingerwurzel', shape: 'spiderwood', color: '#846046', water: 'fresh', minL: 60,
@@ -100,7 +101,7 @@ export async function createStandaloneDocument(baseURL, fetchResource = fetch) {
   html=html.replace(script[0],()=>'<script type="module">'+bundled+'</script>');
   const links=[...html.matchAll(/<link rel="stylesheet" href="(\.\/[^" ]+\.css)">/g)];
   for(const [tag,path] of links){const css=await (await read(path)).text();html=html.replace(tag,()=>'<style>'+css+'</style>');}
-  return html;
+  return createStandaloneShell(html);
 }
 
 function surfaceTexture(T, kind, seed) {

@@ -1,5 +1,6 @@
 import {archiveDescription,archiveEntry} from './single-archive-display.mjs';
 import {manualEvidence} from './learning-product-display.mjs';
+import {gameURL,navigateGame} from './game-route.mjs';
 import {relativePlantComparison,learnerCSVComparison,learnerPrecision} from "./learning-display.mjs";
 import {mountSingleAquariumUI} from "./single-learning-ui.mjs";
 import {PROCESS_SCENES,PROCESS_TASKS,processWorkspace,forestWorkspace,connectProcess} from "./learning-process-workspace.mjs";
@@ -111,7 +112,7 @@ const helpButton = (key) =>
 const panelHeader = (title, help) =>
   `<header><h2 tabindex="-1">${esc(title)}</h2><div>${help ? helpButton(help) : ""}${button("close", "Schließen", 'aria-label="Werkzeug schließen"')}</div></header>`;
 export function mountLearningUI(host) {
-  if(new URLSearchParams(location.search).get("expert")!=="1")return mountSingleAquariumUI(host);
+  if(gameURL().searchParams.get("expert")!=="1")return mountSingleAquariumUI(host);
   const root = document.createElement("div");
   root.id = "learning-root";
   host.root.append(root);
@@ -119,7 +120,7 @@ export function mountLearningUI(host) {
   let playback = null;
   const domainDraw=()=>{};
   let screen =
-      new URLSearchParams(location.search).get("expert") === "1"
+      gameURL().searchParams.get("expert") === "1"
         ? "expert"
         : "home",
     grade = null,
@@ -1212,7 +1213,10 @@ export function mountLearningUI(host) {
       if(values.length && !helpKey) {
         const field=[...root.querySelectorAll("button,input,select,textarea,summary")].find(e=>values.every(([a,v])=>e.getAttribute(a)===v) && !e.disabled);
         if(field){
-          if(anchorTop!==null){const panel=field.closest('.learn-panel');if(panel)panel.scrollTop+=field.getBoundingClientRect().top-anchorTop;}
+          if(anchorTop!==null){
+            const panel=field.closest('.learn-panel');
+            if(panel){const box=field.getBoundingClientRect(),bounds=panel.getBoundingClientRect(),header=panel.querySelector('header')?.getBoundingClientRect();const top=Math.min(Math.max(anchorTop,(header?.bottom||bounds.top)+8),bounds.bottom-box.height-8);panel.scrollTop+=box.top-top;}
+          }
           field.focus({preventScroll:true});
         }
       }
@@ -2296,11 +2300,11 @@ export function mountLearningUI(host) {
   );
   const entry = document.createElement("button");
   entry.className = "learn-expert-entry glass-button";
-  const historicalTools=new URLSearchParams(location.search).get("archive-tools")==="1";
+  const historicalTools=gameURL().searchParams.get("archive-tools")==="1";
   entry.textContent = historicalTools ? "Historische Lehrkraftwerkzeuge" : "Klassen 8–10";
   if(historicalTools)document.documentElement.setAttribute("data-historical-tools","");
   entry.addEventListener("click", () => {
-    if(!historicalTools){location.href=location.pathname;return;}
+    if(!historicalTools){navigateGame(gameURL().pathname);return;}
     host.home();
     tag = null;
     session = null;
@@ -2310,6 +2314,8 @@ export function mountLearningUI(host) {
   if(historicalTools){host.pause();screen="home";panel="teacher";}
   render();
   return {
+    prepareNavigation:()=>{stopPlayback();host.pause();const ok=!session||!tag||saveJSON("aquarium-learning-notes-v1:"+learningSlot(tag),session);if(!ok)render();return ok;},
+    dispose:()=>tankViews.dispose(),
     openDevice,
     deviceView: () => isPrototype() ? tankViews.get("test") : null,
     deviceState: () => isPrototype() ? tankViews.get("test")?.state : null,

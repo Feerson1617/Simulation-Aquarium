@@ -1,3 +1,11 @@
+# WebKit-Offlinenachweise vollständig bestanden
+
+Beide finalen WebKit-Prüfverfahren sind erfolgreich abgeschlossen: strikter Browser-Offlineschalter (`/tmp/r-strict-offline/webkit/report.json`) und vollständiger ursprünglicher Prüfweg mit blockiertem HTTP/HTTPS (`/tmp/r-network-blocked-offline/webkit/report.json`). Letzterer umfasst Datei-Rückkehr, historische CSV, erneuten HTML-Download, wiederholte Ressourcenbestände und Speichernotfall. Die echte Einzeldatei hat weiterhin denselben finalen Hash. Zwei offline heruntergeladene historische CSV zusätzlich unabhängig gegen die unveränderten Originaldateien geprüft.
+
+Einziger noch laufender Anwendungstest: vollständiger Chromium-Offlinelauf (`/tmp/r-release-offline-chromium.log`, `/tmp/r-release-offline/chromium/report.json`). Reguläre sechs Missionen beider Engines sind fertig. Nach erfolgreichem Abschluss: `/tmp/r-collect-final.py`, `/tmp/r-finalize-docs.py` (prüft Erfolgsstatus vor Schreiben), `/tmp/r-make-gallery.py`, `/tmp/r-check-gallery.py`; aktuelle öffentliche Quellen, Galerie und Schlussbelege sichern. Vorbereiteter PR-Text `/tmp/r-prepare-pr.py` erst am endgültigen Commit erzeugen. Kein Merge.
+
+---
+
 # Aktueller Prüfstand: Anwendung unverändert bei b806579
 
 Der fokussierte WebKit-Offlinelauf für Expertenmodus, Tutorial, historische CSV, Zurück/Vorwärts, wiederholte Ressourcenbestände und Speichernotfall ist bestanden (`/tmp/r-offline-tail/webkit/report.json`, ausdrücklich Teilumfang tools).

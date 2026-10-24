@@ -1066,5 +1066,155 @@
     "source": "/tmp/r-release-tweezers/desktop-mouse-free-saved.png",
     "sha256": "b1d694a25fa3243814b94d786bffe82ac032a52f7ec656b74679a83f51afe25b",
     "bytes": 331397
+  },
+  {
+    "path": "reports/offline-webkit-strict.json",
+    "source": "/tmp/r-strict-offline/webkit/report.json",
+    "sha256": "d76c7c0eb3659b0c78ff08e6cd86cec3d0ebd047e3c4b9f1b5b74c6d34375ee7",
+    "bytes": 168953
+  },
+  {
+    "path": "images/offline-webkit-strict-m1-complete.png",
+    "source": "/tmp/r-strict-offline/webkit/m1-complete.png",
+    "sha256": "d6cb4649fc59ef3015401c7a5847b6c5b506cf438db4b0d937eaaacf15b8a60d",
+    "bytes": 357533
+  },
+  {
+    "path": "images/offline-webkit-strict-m3-complete.png",
+    "source": "/tmp/r-strict-offline/webkit/m3-complete.png",
+    "sha256": "c1fc3cbdd47c13fbaa2f3ff5310b5de2f5f1f571d25bd0a725492feb2be63844",
+    "bytes": 242035
+  },
+  {
+    "path": "images/offline-webkit-strict-historical-tools-reachable.png",
+    "source": "/tmp/r-strict-offline/webkit/historical-tools-reachable.png",
+    "sha256": "864fe527a0b5dcc5196c38f9ae0c6257061c61a4dc938356b190d8bde4a55140",
+    "bytes": 185707
+  },
+  {
+    "path": "images/offline-webkit-strict-free-reachable.png",
+    "source": "/tmp/r-strict-offline/webkit/free-reachable.png",
+    "sha256": "9ef0cc805f1023fe6997b357d85ee3be08decfafdeb22fb61972f6205c3a6020",
+    "bytes": 115258
+  },
+  {
+    "path": "images/offline-webkit-strict-tutorial-reachable.png",
+    "source": "/tmp/r-strict-offline/webkit/tutorial-reachable.png",
+    "sha256": "f3ae71c1ce38aff256c6e51689c6e4ba4872fb276c05cbcd4514c5b22e82d0cd",
+    "bytes": 126151
+  },
+  {
+    "path": "downloads/offline-webkit-strict-m3-result.json.gz",
+    "source": "/tmp/r-strict-offline/webkit/m3-result.json",
+    "sha256": "abf015ddfce9b96b45765b0a97ed3e568e31736b1efa47cf6ce405b1f03120c2",
+    "bytes": 6995,
+    "uncompressedSHA256": "5176b68da259d83c47e3f8c5378a05d93b3a77cf83253021a6e9b736e3bfd7d4",
+    "uncompressedBytes": 95579
+  },
+  {
+    "path": "downloads/offline-webkit-strict-m1-result.json.gz",
+    "source": "/tmp/r-strict-offline/webkit/m1-result.json",
+    "sha256": "31ea8a476b31b158cac55b5377906f14cc891a7edbb91bafc5f73b9797973850",
+    "bytes": 26802,
+    "uncompressedSHA256": "3513b4156f9bb0c6d24dbb36a0d47987a772675d389443ca33b17034bc76c2ce",
+    "uncompressedBytes": 404454
+  },
+  {
+    "path": "reports/offline-webkit.json",
+    "source": "/tmp/r-network-blocked-offline/webkit/report.json",
+    "sha256": "5fde59784c6af1629c6ca4a853dbf5709d57bd7e7b807540c0857fdc03276f1f",
+    "bytes": 592359
+  },
+  {
+    "path": "images/offline-webkit-m1-complete.png",
+    "source": "/tmp/r-network-blocked-offline/webkit/m1-complete.png",
+    "sha256": "2301565eb07b5a19b1ce88bae8c99dc303b94cf09a82f58eb0e122dd20b9a7d1",
+    "bytes": 259537
+  },
+  {
+    "path": "images/offline-webkit-m3-complete.png",
+    "source": "/tmp/r-network-blocked-offline/webkit/m3-complete.png",
+    "sha256": "7aaccd68385fdb4e6f84587e2af81f091eece7c95b66dbcba49ae1aec07006ea",
+    "bytes": 176139
+  },
+  {
+    "path": "images/offline-webkit-offline-historical.png",
+    "source": "/tmp/r-network-blocked-offline/webkit/offline-historical.png",
+    "sha256": "7011b9dfacfdf73e59112f1e793ce2484775a5f37ccdea4b35c399a397c25587",
+    "bytes": 152210
+  },
+  {
+    "path": "images/offline-webkit-offline-expert.png",
+    "source": "/tmp/r-network-blocked-offline/webkit/offline-expert.png",
+    "sha256": "fc2da6e569afdc1ee8a8176389aea6a063df8746fd240ce8939506877dc4d3a5",
+    "bytes": 101970
+  },
+  {
+    "path": "downloads/offline-webkit-offline-storage-emergency.json.gz",
+    "source": "/tmp/r-network-blocked-offline/webkit/offline-storage-emergency.json",
+    "sha256": "cf62438ada16e00a6eb5e33bb34874cdaaaa74d9c431568f02b4748441ced265",
+    "bytes": 3914,
+    "uncompressedSHA256": "7f7a48c04de50594283fbeb8c7f8d01cc1593a6f4ea259a840a6f31e01ce5d43",
+    "uncompressedBytes": 32594
+  },
+  {
+    "path": "downloads/offline-webkit-offline-research-10.json.gz",
+    "source": "/tmp/r-network-blocked-offline/webkit/offline-research-10.json",
+    "sha256": "cf62438ada16e00a6eb5e33bb34874cdaaaa74d9c431568f02b4748441ced265",
+    "bytes": 3914,
+    "uncompressedSHA256": "7f7a48c04de50594283fbeb8c7f8d01cc1593a6f4ea259a840a6f31e01ce5d43",
+    "uncompressedBytes": 32594
+  },
+  {
+    "path": "downloads/offline-webkit-offline-research-9.json.gz",
+    "source": "/tmp/r-network-blocked-offline/webkit/offline-research-9.json",
+    "sha256": "85bd810cd3b30b6afc3ae8dc9c50796d8e7ab05c9fd01ea4e9c62b0dd7d751c3",
+    "bytes": 3310,
+    "uncompressedSHA256": "b03aaab5994aa1c174fe6e51212a659cddb90f2b3c4bc42cbda4ab8470c72e25",
+    "uncompressedBytes": 23521
+  },
+  {
+    "path": "downloads/offline-webkit-offline-research-8.json.gz",
+    "source": "/tmp/r-network-blocked-offline/webkit/offline-research-8.json",
+    "sha256": "7a803ef1b17ab735314a19473ca2a0acc7184f6efd4a94ac0bd4e544d5758eb1",
+    "bytes": 3911,
+    "uncompressedSHA256": "2b568b5cfcfd6ed9be559ef8ea353d8ce99c86ad5a6d1b39241d68a07f3fc539",
+    "uncompressedBytes": 32591
+  },
+  {
+    "path": "downloads/offline-webkit-m3-result.json.gz",
+    "source": "/tmp/r-network-blocked-offline/webkit/m3-result.json",
+    "sha256": "d0a9199eac95d9fb4a4829a8d49aad68cc7c0f57eeb5abb5721e3372e7a59eb6",
+    "bytes": 7055,
+    "uncompressedSHA256": "76f40eb059eea5d3fb017ad9ed8de4bc90f3e565556cf1d16881049aed8970c0",
+    "uncompressedBytes": 98325
+  },
+  {
+    "path": "downloads/offline-webkit-m3-empty-parents.json.gz",
+    "source": "/tmp/r-network-blocked-offline/webkit/m3-empty-parents.json",
+    "sha256": "b9cd66d6520b275d43f1c2dc6dd3ce789500274d641f71b7ea0783c7c1f4b559",
+    "bytes": 2571,
+    "uncompressedSHA256": "04a9a90ce31fb3bf9e2cb8748e75ca4021517c2ef6fda04ebb27d0d1e040213a",
+    "uncompressedBytes": 21914
+  },
+  {
+    "path": "downloads/offline-webkit-m1-result.json.gz",
+    "source": "/tmp/r-network-blocked-offline/webkit/m1-result.json",
+    "sha256": "06d5431b12cf25d6e774d6c656dd9919d483a8eaf761f448398706765df84557",
+    "bytes": 26817,
+    "uncompressedSHA256": "1b144908a72ded3f733d405f3bb643d1c9c53b09dc6705cf4f1a2736dbb797a6",
+    "uncompressedBytes": 405352
+  },
+  {
+    "path": "downloads/offline-webkit-offline-v1-grade-9.csv",
+    "source": "/tmp/r-network-blocked-offline/webkit/offline-v1-grade-9.csv",
+    "sha256": "e06057b04bfb0b979343a081b1ebd6de5cdd811e51d3e8cf3036d1636b5bcae7",
+    "bytes": 965
+  },
+  {
+    "path": "downloads/offline-webkit-offline-v1-grade-8.csv",
+    "source": "/tmp/r-network-blocked-offline/webkit/offline-v1-grade-8.csv",
+    "sha256": "ea161b56578b78016d2189edaa4d56cc56d2a6775e4f95b197ccfa1d527575f3",
+    "bytes": 2113
   }
 ]

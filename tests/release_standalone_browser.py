@@ -32,7 +32,7 @@ class GameView:
   if name in ['mouse','touchscreen','keyboard','url','viewport_size','screenshot','set_viewport_size','expect_download','expect_file_chooser','wait_for_timeout']:return getattr(self.page,name)
   return getattr(self.frame,name)
  def ready(self,selector=None):
-  self.page.frame_locator('#aquarium-view').locator(selector or 'body').wait_for(timeout=180000);self.frame.wait_for_function('typeof window.aquariumLearningSnapshot==="function"',timeout=180000)
+  self.page.frame_locator('#aquarium-view').locator(selector or 'body').wait_for(state='visible' if selector else 'attached',timeout=180000);self.frame.wait_for_function('typeof window.aquariumLearningSnapshot==="function"',timeout=180000)
   if selector:self.frame.locator(selector).wait_for(timeout=180000)
   self.frame.wait_for_load_state('networkidle',timeout=180000)
   self.frame.wait_for_function('window.aquariumStandaloneLifecycle.snapshot().webglContexts===1',timeout=180000)

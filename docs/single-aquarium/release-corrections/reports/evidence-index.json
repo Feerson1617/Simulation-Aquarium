@@ -13,14 +13,14 @@
   },
   {
     "path": "reports/module-tests.txt",
-    "source": "/tmp/r-final-unit.log",
-    "sha256": "239edfee49fa0ed6dd536963c6e8ae94cf650ae80fdd3bc63c255a565174ef17",
-    "bytes": 21341
+    "source": "/tmp/r-last-unit.log",
+    "sha256": "987311dd71a0783fded8d68f0b33d9e6adfde553dbcea0e80f24039cafdb817e",
+    "bytes": 21385
   },
   {
     "path": "reports/standalone-download.json",
     "source": "/tmp/final-html-download/report.json",
-    "sha256": "02b3fdbe7330b3914d3fe197bdf2272aea9f6f6d74cfb637fbf9cc92fea8e9e3",
+    "sha256": "3a7cc3946a0771157676cbf7515a7e1871853303b2ccc3fbd7e1013368e5df52",
     "bytes": 348
   },
   {
@@ -436,5 +436,167 @@
     "source": "/tmp/r-release-research/webkit/report.json",
     "sha256": "1eca4fc5014ede858c29662a559abe02b8e3e75965322dc410fc15bc775a04f1",
     "bytes": 1109
+  },
+  {
+    "path": "reports/webkit-file-api-limitation.json",
+    "source": "/tmp/r-file-api-probe.json",
+    "sha256": "6e436b9a1205b3a59546207dc34c4676c735c6512f5bd0ea61d65ea135c5ee08",
+    "bytes": 577
+  },
+  {
+    "path": "reports/public-browser.json",
+    "source": "/tmp/r-public-browser/report.json",
+    "sha256": "e93c77669218994e9c50eb83b3a91fcd0e0840960ae4b73a04ae78800e206383",
+    "bytes": 858
+  },
+  {
+    "path": "images/public-reader.png",
+    "source": "/tmp/r-public-browser/public-reader.png",
+    "sha256": "05b5573d5786bafca8d553829c1d5ff03c4349e2d09d5387cc4f12f02229ab92",
+    "bytes": 198274
+  },
+  {
+    "path": "downloads/public-v1-grade8.csv",
+    "source": "/tmp/r-public-browser/public-v1-grade8.csv",
+    "sha256": "ea161b56578b78016d2189edaa4d56cc56d2a6775e4f95b197ccfa1d527575f3",
+    "bytes": 2113
+  },
+  {
+    "path": "reports/operations-webkit.json",
+    "source": "/tmp/r-release-operations/webkit/report.json",
+    "sha256": "321e8a3558847ca0b2c50e55dec40d65d860677013843fc85804f3942cb27e11",
+    "bytes": 189149
+  },
+  {
+    "path": "reports/previous-products-webkit.json",
+    "source": "/tmp/r-release-previous-products/webkit/report.json",
+    "sha256": "6372bfebfbd780e96ec115feb18e663ff72a172adf44e0d8118ee6943ef6362b",
+    "bytes": 6378
+  },
+  {
+    "path": "reports/expert-tools-webkit.json",
+    "source": "/tmp/r-expert-tools/report.json",
+    "sha256": "c49f6b77f13b62a7c67d6d335bc2d959e07874b5f5c0e6b9861c70ca9ec5d351",
+    "bytes": 684
+  },
+  {
+    "path": "reports/genetics-webkit.json",
+    "source": "/tmp/r-release-genetics/report.json",
+    "sha256": "f2a16f1c8b18b7025fd9582852df418498beb94c91f98255402fb1ec18b56145",
+    "bytes": 16958
+  },
+  {
+    "path": "reports/readiness-chromium.json",
+    "source": "/tmp/r-release-readiness/results/20261024T073050.532333Z/report.json",
+    "sha256": "5541c1bbda8b4cc5a253ceb55d55f55c524ce8b2b348355bcb3e7e5e3ec2345a",
+    "bytes": 5319
+  },
+  {
+    "path": "images/expert-analysis-tabs.png",
+    "source": "/tmp/r-expert-tools/analysis-tabs.png",
+    "sha256": "3ed370e4af7110593cad9b83e95a2e599c067394ba1cb50a29cc2eecd1d5975e",
+    "bytes": 130416
+  },
+  {
+    "path": "images/expert-devices-persisted.png",
+    "source": "/tmp/r-expert-tools/devices-persisted.png",
+    "sha256": "40d84e40e6fda4201e8e3fc04c82a340fad194f8ec04842f6bb1e9d4e629dc7c",
+    "bytes": 224072
+  },
+  {
+    "path": "downloads/previous-missions-webkit-rest-m6-result.json.gz",
+    "source": "/tmp/r-release-previous-products/webkit/missions-webkit-rest-m6-result.json",
+    "sha256": "75c8b2fe177a5dc381ff17c2d07444a3dad84a7db1764aafcbf0374bf31ae4bd",
+    "payloadSHA256": "854208a5915a3dc8c894933089ef5b98dd5ac23eab763638bd656788d944ae07",
+    "bytes": 16266,
+    "encoding": "gzip, original payload unchanged"
+  },
+  {
+    "path": "downloads/previous-missions-chromium-m6-result.json.gz",
+    "source": "/tmp/r-release-previous-products/webkit/missions-chromium-m6-result.json",
+    "sha256": "4405ee7bb3ba736af60104c90ab5c42974d6867bda021e81ba510380bab808e8",
+    "payloadSHA256": "5af8912fb9111088f7459c2c385929f3f562eab6400d82ac19c4d4fca2845c69",
+    "bytes": 16269,
+    "encoding": "gzip, original payload unchanged"
+  },
+  {
+    "path": "downloads/previous-missions-webkit-rest-m5-result.json.gz",
+    "source": "/tmp/r-release-previous-products/webkit/missions-webkit-rest-m5-result.json",
+    "sha256": "2564a782296358fc0fc95c10c65c62796537a5ae01f3760a3139bb8e9024b6f9",
+    "payloadSHA256": "42ca89db474bd3ae6be2ae41812e954f11823281cc84ddba10bc0aeb93fc9c21",
+    "bytes": 136506,
+    "encoding": "gzip, original payload unchanged"
+  },
+  {
+    "path": "downloads/previous-missions-chromium-m5-result.json.gz",
+    "source": "/tmp/r-release-previous-products/webkit/missions-chromium-m5-result.json",
+    "sha256": "721067bb5e9c576ff536421c89a7c83ba5fee7c658c96e3b828dfae1fe520446",
+    "payloadSHA256": "43b43720a3a9dae0be7d27ac3d76ec5775abba85a44088027194e0813c55026d",
+    "bytes": 136504,
+    "encoding": "gzip, original payload unchanged"
+  },
+  {
+    "path": "downloads/previous-missions-webkit-rest-m4-result.json.gz",
+    "source": "/tmp/r-release-previous-products/webkit/missions-webkit-rest-m4-result.json",
+    "sha256": "d24c0d72d4e491223de29ad36af9d3a3559cca306ff5629f5e218eb0850ae50c",
+    "payloadSHA256": "394f2620d417c28f5589eed04319c52bb04d813634af9a1f3296e7f57754f2b1",
+    "bytes": 66052,
+    "encoding": "gzip, original payload unchanged"
+  },
+  {
+    "path": "downloads/previous-missions-chromium-m4-result.json.gz",
+    "source": "/tmp/r-release-previous-products/webkit/missions-chromium-m4-result.json",
+    "sha256": "63275bd87f0d934980fab14b9b6ab680830fc8a9b23107aef622c1a61604e159",
+    "payloadSHA256": "63986c4f60548fbb30e37d7aefa9d3bf6926fe14ffbc9bc3b8e3ae994d4f998b",
+    "bytes": 66091,
+    "encoding": "gzip, original payload unchanged"
+  },
+  {
+    "path": "downloads/previous-missions-webkit-m3-result.json.gz",
+    "source": "/tmp/r-release-previous-products/webkit/missions-webkit-m3-result.json",
+    "sha256": "1d42dc14bbd12522d7824e6aba5809be42c5dd59302be16c7de61a11c33e49fc",
+    "payloadSHA256": "f0f1b4b5e6f983dd6663b2904249d423c8c068742ccaa946a3a3751788c5e1db",
+    "bytes": 7047,
+    "encoding": "gzip, original payload unchanged"
+  },
+  {
+    "path": "downloads/previous-missions-chromium-m3-result.json.gz",
+    "source": "/tmp/r-release-previous-products/webkit/missions-chromium-m3-result.json",
+    "sha256": "2af3cf8c3626ddea3ea2c30df8c6f9971638463c1b5aac29e21fdb20a3ed0b8e",
+    "payloadSHA256": "96901af7e483e4788d3c11e0ac1ec3d7e4cc74a2156c4630f9e33870943ffd34",
+    "bytes": 7052,
+    "encoding": "gzip, original payload unchanged"
+  },
+  {
+    "path": "downloads/previous-missions-webkit-m2-result.json.gz",
+    "source": "/tmp/r-release-previous-products/webkit/missions-webkit-m2-result.json",
+    "sha256": "bd5761117d87be2bcb44284fb2915325f457f2d7377bf6b0acf4911a152e2e92",
+    "payloadSHA256": "9ce7845b3df4f940f18cb3e8be304a99673b6db04574f727147847cf44aad532",
+    "bytes": 16400,
+    "encoding": "gzip, original payload unchanged"
+  },
+  {
+    "path": "downloads/previous-missions-chromium-m2-result.json.gz",
+    "source": "/tmp/r-release-previous-products/webkit/missions-chromium-m2-result.json",
+    "sha256": "f7f5a0c47ae62603b348be925d881c822b3ccc9ee3292b7733c6981eb999c621",
+    "payloadSHA256": "b2d522a8a9a9cd776363c84efb046d914565cae9341891f44d6f39c31b0654ce",
+    "bytes": 16408,
+    "encoding": "gzip, original payload unchanged"
+  },
+  {
+    "path": "downloads/previous-missions-webkit-m1-result.json.gz",
+    "source": "/tmp/r-release-previous-products/webkit/missions-webkit-m1-result.json",
+    "sha256": "75708fe4829205bfba59c3d22b402424b33bab56c0ad5bf6804fe120c0edd766",
+    "payloadSHA256": "3e81b82190710cbda377e664a3f03a126df157fc25b344c3026eff749269de9f",
+    "bytes": 26821,
+    "encoding": "gzip, original payload unchanged"
+  },
+  {
+    "path": "downloads/previous-missions-chromium-m1-result.json.gz",
+    "source": "/tmp/r-release-previous-products/webkit/missions-chromium-m1-result.json",
+    "sha256": "a77d24aa29969fdf858ae4203968e965f9c0142f3ad83a51b1d903436ffde606",
+    "payloadSHA256": "9919f5cfaa4c9d935201cc15190621b9a07cfab86abbacf43014e24af1b625dc",
+    "bytes": 26831,
+    "encoding": "gzip, original payload unchanged"
   }
 ]

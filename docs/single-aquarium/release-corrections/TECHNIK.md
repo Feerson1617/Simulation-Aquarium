@@ -24,6 +24,12 @@ Die Prüfung hat eine zusätzliche WebKit-Eigenschaft gezeigt: Im automatisierte
 
 Der endgültige Standalone-Bündler kodiert die bereits vorhandenen GLTF-Bildpuffer direkt als Daten-URLs. Er verwendet dabei den vorhandenen HTML-Bild-Ladepfad des enthaltenen Three-Laders. Die Bildbytes, Modelle und Materialien bleiben unverändert. Der normale Online-Lader bleibt unverändert. Die beiden gezielten Anpassungspunkte werden beim Bündeln auf genau ein Vorkommen geprüft; passt eine spätere Lader-Version nicht mehr, bricht der Downloadbau mit verständlicher Meldung ab. Ein ungeprüfter Ersatzlader oder eine allgemeine Überschreibung der Browser-Bild-API wird nicht eingeführt.
 
+## Zwei getrennte Offline-Prüfungen in Linux-WebKit
+
+Der strikte Browser-Offlineschalter (`set_offline(True)`) wird für alle internen Wege sowie vollständige M1/M3-Durchgänge mit echten Downloads verwendet. Die Wiederöffnung lokaler Dateien ist in dieser konkreten WebKit-26.5-Automatisierung dagegen eingeschränkt: Schon eine unabhängige Minimal-Seite ohne Aquariumcode kann dieselbe unveränderte V1-Datei bei gesetztem Schalter nicht lesen (`NotReadableError`). Online und bei vollständig gesperrten HTTP-Zugriffen liest sie dieselben Bytes erfolgreich.
+
+Deshalb prüft ein zusätzlicher vollständiger Lauf Datei-Rückkehr, historische Importe und erneuten HTML-Download bei blockierten HTTP- und HTTPS-Zugriffen. Jeder versuchte Netzwerkaufruf würde dort fehlschlagen und den Test scheitern lassen. Die Berichte benennen das jeweilige Verfahren; dieser zweite Lauf wird nicht als gesetzter WebKit-Offlineschalter ausgegeben. Chromium verwendet den vollständigen Weg einschließlich Datei-Rückkehr mit gesetztem Offlineschalter. Der gescheiterte erste WebKit-Dateiimport bleibt als Entwicklungsbefund dokumentiert. Auf Verhalten echter Safari-iPads wird daraus nicht geschlossen.
+
 ## Größe und Grenzen
 
 Der tatsächlich über die Spieloberfläche heruntergeladene Stand umfasst **151.602.143 Bytes**, rund 121,3 kB mehr als die unabhängig geprüfte Ausgangsdatei. SHA-256: `576980d23a6c9407fc8e7fd60a8d3231d71dfd1b03d7c0f3443c8091c1af618f`. Der genaue Anwendungscommit steht im Downloadnachweis. Die große generierte Datei liegt außerhalb Git.

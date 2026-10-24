@@ -1,3 +1,17 @@
+# Wiederaufnahme: Anwendung b806579 ist eingefroren, Endprüfungen laufen
+
+Kein neuer Spielcode nach b806579. Standalone-HTML ist tatsächlich heruntergeladen (151.602.143 Bytes, SHA 576980d23a6c9407fc8e7fd60a8d3231d71dfd1b03d7c0f3443c8091c1af618f). Alle 201 Modultests bestanden.
+
+Ein Testharness-Fehler ist behoben: `GameView.ready()` wartete im Expertenmodus auf einen sichtbaren body; dessen absolut positionierte Oberfläche ist sichtbar, der body selbst hat absichtlich Höhe 0. Jetzt attached für den Container, weiterhin sichtbare konkrete Zielkontrollen sowie echte App-/WebGL-/Fehlerprüfungen. Kein Spielcode wurde dafür geändert. Fehlgeschlagene/abgebrochene Läufe bleiben in `*-body-readiness-development` erhalten.
+
+Aktive Läufe nach dieser Testkorrektur (nicht doppelt starten): reguläre Chromium-Missionen `/tmp/r-release-missions-chromium.log` (M1–M4 bereits abgeschlossen oder im Abschluss); vollständiger Chromium-Offlinelauf `/tmp/r-release-offline-chromium.log`; strikter WebKit-Offlinelauf `/tmp/r-strict-offline-webkit.log`; vollständiger WebKit-Lauf mit HTTP-Sperre `/tmp/r-network-blocked-offline-webkit.log`. Die alte Datei `/tmp/r-final-offline-queue.json` enthält noch die erledigten ersten Harness-Fehler; maßgeblich sind die aktuellen report.json in den genannten Ausgabeverzeichnissen. Deren letzte Queue-Abschnitte prüfen noch Native-/Lebenszyklusfälle auf b806579; `/tmp/r-native-docwrite` und `/tmp/r-lifecycle-docwrite` sind die passenden Endstandpfade.
+
+Pinzette in allen drei Formaten inzwischen beendet: `/tmp/r-release-tweezers/report.json` auf Status prüfen und Belege übernehmen. Expertengeräte/6 Analysetabs, freie Fortpflanzung, beide Reader, WebKit sechs Missionen, 8 Tutorials, 5 Szenarien/14 Aquariumoriginale und 12 ältere Ergebnisdateien bestanden; Belege weitgehend schon in release-corrections kopiert. Sie nicht erneut prüfen, wenn der Anwendungscode unverändert bleibt.
+
+Zum Abschluss noch: aktuelle Browserläufe vollständig auswerten, tatsächliche Bild-/Downloadbelege kopieren, TESTS.md vom ausdrücklich markierten Zwischenstand zum ehrlichen Endbericht aktualisieren, REVIEW.html mit /tmp/r-make-gallery.py neu erzeugen, 73 veröffentlichte Anwendungsdateien mit lokalem Code vergleichen (/tmp/r-public-source-check.py), Galerie im Browser prüfen, PR #9-Beschreibung aktualisieren, Commit/Push nur auf bestehendem Branch, main unverändert bestätigen. Keine Gesamtfreigabe bei offenem Pflichtfehler.
+
+---
+
 # Neuester Stand: Standalone-Host nochmals gezielt korrigiert
 
 Die große srcdoc-Übergabe ließ den Chromium-Testprozess abstürzen (kein System-OOM). Der Host schreibt jetzt direkt in ein frisches gleichursprüngliches Dokument. Linkwechsel laufen nach Ende des Kind-Klicks in einem Host-Task, weil Chromium Schreiben aus dem gerade entfernten Kind ignoriert. Kandidat: Chromium startet und erreicht M2; WebKit zeigt alle 19 Detailmodelle ohne Textur-/Konsolenfehler. Die vollständigen Standalone-Prüfungen müssen mit dieser neuen Datei erneut abgeschlossen werden. Normale Missionsmodelle und Website-Steuerung wurden dadurch nicht geändert.

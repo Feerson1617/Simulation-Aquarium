@@ -4,7 +4,7 @@ from datetime import datetime,timezone
 from playwright.sync_api import sync_playwright,expect
 import os,json,csv,hashlib,subprocess,xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1];ENGINE=os.environ.get('AQUARIUM_BROWSER','chromium');OUT=Path(os.environ.get('AQUARIUM_RELEASE_READER_RESULTS','/tmp/aquarium-release-reader'))/ENGINE;OUT.mkdir(parents=True,exist_ok=True);URL=os.environ.get('AQUARIUM_URL','http://127.0.0.1:8000/aquarium-simulation/')
-r={'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'engine':ENGINE,'captures':[],'downloads':[],'checks':[],'errors':[],'failed_requests':[]}
+r={'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'engine':ENGINE,'sources':{f.name:hashlib.sha256(f.read_bytes()).hexdigest() for f in ROOT.iterdir() if f.suffix in ['.html','.mjs','.css']},'captures':[],'downloads':[],'checks':[],'errors':[],'failed_requests':[]}
 def record(): (OUT/'report.json').write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n')
 def shot(p,name):
  p.screenshot(path=str(OUT/(name+'.png')));r['captures'].append({'name':name,'url':p.url,'at':datetime.now(timezone.utc).isoformat(),'viewport':p.viewport_size,'field':p.locator('[data-learning-manual-metric=imported]').bounding_box() if p.locator('[data-learning-manual-metric=imported]').count() else None});record()

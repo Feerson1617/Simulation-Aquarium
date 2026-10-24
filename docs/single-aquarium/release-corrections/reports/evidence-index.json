@@ -1,0 +1,440 @@
+[
+  {
+    "path": "reports/before.json",
+    "source": "/tmp/r-before-browser/report.json",
+    "sha256": "ac1bbc82fe6f6954ce179b4ec6d66b564a900a921f8ad7474df636071a431faa",
+    "bytes": 22437
+  },
+  {
+    "path": "reports/protected-sources.json",
+    "source": "/tmp/r-source-audit.json",
+    "sha256": "3189199ac01c4d59792c5176696cea38335d55f0e28b4a0482737ac0f64d2d02",
+    "bytes": 2620
+  },
+  {
+    "path": "reports/module-tests.txt",
+    "source": "/tmp/r-final-unit.log",
+    "sha256": "239edfee49fa0ed6dd536963c6e8ae94cf650ae80fdd3bc63c255a565174ef17",
+    "bytes": 21341
+  },
+  {
+    "path": "reports/standalone-download.json",
+    "source": "/tmp/final-html-download/report.json",
+    "sha256": "02b3fdbe7330b3914d3fe197bdf2272aea9f6f6d74cfb637fbf9cc92fea8e9e3",
+    "bytes": 348
+  },
+  {
+    "path": "images/standalone-download-control.png",
+    "source": "/tmp/final-html-download/download-control.png",
+    "sha256": "a4418f02bfa35850858361091a2ed19e2ca400ab75b207ae5fa6d145d293fa4b",
+    "bytes": 167659
+  },
+  {
+    "path": "reports/reader-chromium.json",
+    "source": "/tmp/r-final-reader/chromium/report.json",
+    "sha256": "103535e84c031bafbde44f28c348bddfa5bfc972291bed2a22d8d674eecd0090",
+    "bytes": 16942
+  },
+  {
+    "path": "downloads/chromium-portrait-grade9-comparison.csv",
+    "source": "/tmp/r-final-reader/chromium/portrait-grade9-comparison.csv",
+    "sha256": "af30cb33f101680698cda115a852e59e437ae01e1d0cb9d6992ed24c6d883846",
+    "bytes": 48105
+  },
+  {
+    "path": "downloads/chromium-portrait-grade9-changed.csv",
+    "source": "/tmp/r-final-reader/chromium/portrait-grade9-changed.csv",
+    "sha256": "e06057b04bfb0b979343a081b1ebd6de5cdd811e51d3e8cf3036d1636b5bcae7",
+    "bytes": 965
+  },
+  {
+    "path": "downloads/chromium-portrait-grade9.svg",
+    "source": "/tmp/r-final-reader/chromium/portrait-grade9.svg",
+    "sha256": "83a3d5ce8879e4c1d72caf6cb4b890dd29855dca35024ee6174299e7b9307e6c",
+    "bytes": 1212
+  },
+  {
+    "path": "downloads/chromium-portrait-grade9-initial.csv",
+    "source": "/tmp/r-final-reader/chromium/portrait-grade9-initial.csv",
+    "sha256": "e06057b04bfb0b979343a081b1ebd6de5cdd811e51d3e8cf3036d1636b5bcae7",
+    "bytes": 965
+  },
+  {
+    "path": "downloads/chromium-portrait-grade8-comparison.csv",
+    "source": "/tmp/r-final-reader/chromium/portrait-grade8-comparison.csv",
+    "sha256": "3b94af874bb6a00a4e9c89bc0aa990c0db15e2f3955ab74cc406d4ba521531db",
+    "bytes": 188395
+  },
+  {
+    "path": "downloads/chromium-portrait-grade8-changed.csv",
+    "source": "/tmp/r-final-reader/chromium/portrait-grade8-changed.csv",
+    "sha256": "ea161b56578b78016d2189edaa4d56cc56d2a6775e4f95b197ccfa1d527575f3",
+    "bytes": 2113
+  },
+  {
+    "path": "downloads/chromium-portrait-grade8.svg",
+    "source": "/tmp/r-final-reader/chromium/portrait-grade8.svg",
+    "sha256": "e6422e5f2c9805d8bcd569560f3c80492c37d022ab86bdac4b3b188b16247d9d",
+    "bytes": 1213
+  },
+  {
+    "path": "downloads/chromium-portrait-grade8-initial.csv",
+    "source": "/tmp/r-final-reader/chromium/portrait-grade8-initial.csv",
+    "sha256": "ea161b56578b78016d2189edaa4d56cc56d2a6775e4f95b197ccfa1d527575f3",
+    "bytes": 2113
+  },
+  {
+    "path": "downloads/chromium-desktop-grade9-comparison.csv",
+    "source": "/tmp/r-final-reader/chromium/desktop-grade9-comparison.csv",
+    "sha256": "af30cb33f101680698cda115a852e59e437ae01e1d0cb9d6992ed24c6d883846",
+    "bytes": 48105
+  },
+  {
+    "path": "downloads/chromium-desktop-grade9-changed.csv",
+    "source": "/tmp/r-final-reader/chromium/desktop-grade9-changed.csv",
+    "sha256": "e06057b04bfb0b979343a081b1ebd6de5cdd811e51d3e8cf3036d1636b5bcae7",
+    "bytes": 965
+  },
+  {
+    "path": "downloads/chromium-desktop-grade9.svg",
+    "source": "/tmp/r-final-reader/chromium/desktop-grade9.svg",
+    "sha256": "83a3d5ce8879e4c1d72caf6cb4b890dd29855dca35024ee6174299e7b9307e6c",
+    "bytes": 1212
+  },
+  {
+    "path": "downloads/chromium-desktop-grade9-initial.csv",
+    "source": "/tmp/r-final-reader/chromium/desktop-grade9-initial.csv",
+    "sha256": "e06057b04bfb0b979343a081b1ebd6de5cdd811e51d3e8cf3036d1636b5bcae7",
+    "bytes": 965
+  },
+  {
+    "path": "downloads/chromium-desktop-grade8-comparison.csv",
+    "source": "/tmp/r-final-reader/chromium/desktop-grade8-comparison.csv",
+    "sha256": "3b94af874bb6a00a4e9c89bc0aa990c0db15e2f3955ab74cc406d4ba521531db",
+    "bytes": 188395
+  },
+  {
+    "path": "downloads/chromium-desktop-grade8-changed.csv",
+    "source": "/tmp/r-final-reader/chromium/desktop-grade8-changed.csv",
+    "sha256": "ea161b56578b78016d2189edaa4d56cc56d2a6775e4f95b197ccfa1d527575f3",
+    "bytes": 2113
+  },
+  {
+    "path": "downloads/chromium-desktop-grade8.svg",
+    "source": "/tmp/r-final-reader/chromium/desktop-grade8.svg",
+    "sha256": "e6422e5f2c9805d8bcd569560f3c80492c37d022ab86bdac4b3b188b16247d9d",
+    "bytes": 1213
+  },
+  {
+    "path": "downloads/chromium-desktop-grade8-initial.csv",
+    "source": "/tmp/r-final-reader/chromium/desktop-grade8-initial.csv",
+    "sha256": "ea161b56578b78016d2189edaa4d56cc56d2a6775e4f95b197ccfa1d527575f3",
+    "bytes": 2113
+  },
+  {
+    "path": "images/chromium-desktop-grade8-before.png",
+    "source": "/tmp/r-final-reader/chromium/desktop-grade8-before.png",
+    "sha256": "f25d468b6eda1dba80fe8146ee5bbafe9c589c9b6700b9013dd6460f769e50fa",
+    "bytes": 283459
+  },
+  {
+    "path": "images/chromium-desktop-grade8-after-keyboard.png",
+    "source": "/tmp/r-final-reader/chromium/desktop-grade8-after-keyboard.png",
+    "sha256": "d8e9dd835fd7e003f8019eda632f72834c4d14ab10ce535227670f6b4110e5b0",
+    "bytes": 309556
+  },
+  {
+    "path": "images/chromium-desktop-grade8-after-pointer.png",
+    "source": "/tmp/r-final-reader/chromium/desktop-grade8-after-pointer.png",
+    "sha256": "f25d468b6eda1dba80fe8146ee5bbafe9c589c9b6700b9013dd6460f769e50fa",
+    "bytes": 283459
+  },
+  {
+    "path": "images/chromium-desktop-grade8-downloads.png",
+    "source": "/tmp/r-final-reader/chromium/desktop-grade8-downloads.png",
+    "sha256": "37898022a17001aa170b868100402f0504956751f25772c686166994501f1ee5",
+    "bytes": 282977
+  },
+  {
+    "path": "images/chromium-portrait-grade8-before.png",
+    "source": "/tmp/r-final-reader/chromium/portrait-grade8-before.png",
+    "sha256": "f7e0feaa774435e99d26c461bb5540a5ab968fb112eaecde7d83e4abfc482b0e",
+    "bytes": 207223
+  },
+  {
+    "path": "images/chromium-portrait-grade8-after-keyboard.png",
+    "source": "/tmp/r-final-reader/chromium/portrait-grade8-after-keyboard.png",
+    "sha256": "9a512eb452f621a4d8e556881290d8a40f9c4b7f520d33e2df9d33a5d85da303",
+    "bytes": 227996
+  },
+  {
+    "path": "images/chromium-portrait-grade8-after-pointer.png",
+    "source": "/tmp/r-final-reader/chromium/portrait-grade8-after-pointer.png",
+    "sha256": "f7e0feaa774435e99d26c461bb5540a5ab968fb112eaecde7d83e4abfc482b0e",
+    "bytes": 207223
+  },
+  {
+    "path": "images/chromium-portrait-grade8-downloads.png",
+    "source": "/tmp/r-final-reader/chromium/portrait-grade8-downloads.png",
+    "sha256": "f5c1c5625badfd457817ffeb64a33f04a10ca22c53815f8a8eeba224fbd84e17",
+    "bytes": 228901
+  },
+  {
+    "path": "reports/reader-webkit.json",
+    "source": "/tmp/r-final-reader/webkit/report.json",
+    "sha256": "8c00ff6cdb83c248884b699066ed2c8bacf60e86fe6fa55a543ecc503a5806ee",
+    "bytes": 16955
+  },
+  {
+    "path": "downloads/webkit-portrait-grade9-comparison.csv",
+    "source": "/tmp/r-final-reader/webkit/portrait-grade9-comparison.csv",
+    "sha256": "af30cb33f101680698cda115a852e59e437ae01e1d0cb9d6992ed24c6d883846",
+    "bytes": 48105
+  },
+  {
+    "path": "downloads/webkit-portrait-grade9-changed.csv",
+    "source": "/tmp/r-final-reader/webkit/portrait-grade9-changed.csv",
+    "sha256": "e06057b04bfb0b979343a081b1ebd6de5cdd811e51d3e8cf3036d1636b5bcae7",
+    "bytes": 965
+  },
+  {
+    "path": "downloads/webkit-portrait-grade9.svg",
+    "source": "/tmp/r-final-reader/webkit/portrait-grade9.svg",
+    "sha256": "83a3d5ce8879e4c1d72caf6cb4b890dd29855dca35024ee6174299e7b9307e6c",
+    "bytes": 1212
+  },
+  {
+    "path": "downloads/webkit-portrait-grade9-initial.csv",
+    "source": "/tmp/r-final-reader/webkit/portrait-grade9-initial.csv",
+    "sha256": "e06057b04bfb0b979343a081b1ebd6de5cdd811e51d3e8cf3036d1636b5bcae7",
+    "bytes": 965
+  },
+  {
+    "path": "downloads/webkit-portrait-grade8-comparison.csv",
+    "source": "/tmp/r-final-reader/webkit/portrait-grade8-comparison.csv",
+    "sha256": "3b94af874bb6a00a4e9c89bc0aa990c0db15e2f3955ab74cc406d4ba521531db",
+    "bytes": 188395
+  },
+  {
+    "path": "downloads/webkit-portrait-grade8-changed.csv",
+    "source": "/tmp/r-final-reader/webkit/portrait-grade8-changed.csv",
+    "sha256": "ea161b56578b78016d2189edaa4d56cc56d2a6775e4f95b197ccfa1d527575f3",
+    "bytes": 2113
+  },
+  {
+    "path": "downloads/webkit-portrait-grade8.svg",
+    "source": "/tmp/r-final-reader/webkit/portrait-grade8.svg",
+    "sha256": "e6422e5f2c9805d8bcd569560f3c80492c37d022ab86bdac4b3b188b16247d9d",
+    "bytes": 1213
+  },
+  {
+    "path": "downloads/webkit-portrait-grade8-initial.csv",
+    "source": "/tmp/r-final-reader/webkit/portrait-grade8-initial.csv",
+    "sha256": "ea161b56578b78016d2189edaa4d56cc56d2a6775e4f95b197ccfa1d527575f3",
+    "bytes": 2113
+  },
+  {
+    "path": "downloads/webkit-desktop-grade9-comparison.csv",
+    "source": "/tmp/r-final-reader/webkit/desktop-grade9-comparison.csv",
+    "sha256": "af30cb33f101680698cda115a852e59e437ae01e1d0cb9d6992ed24c6d883846",
+    "bytes": 48105
+  },
+  {
+    "path": "downloads/webkit-desktop-grade9-changed.csv",
+    "source": "/tmp/r-final-reader/webkit/desktop-grade9-changed.csv",
+    "sha256": "e06057b04bfb0b979343a081b1ebd6de5cdd811e51d3e8cf3036d1636b5bcae7",
+    "bytes": 965
+  },
+  {
+    "path": "downloads/webkit-desktop-grade9.svg",
+    "source": "/tmp/r-final-reader/webkit/desktop-grade9.svg",
+    "sha256": "83a3d5ce8879e4c1d72caf6cb4b890dd29855dca35024ee6174299e7b9307e6c",
+    "bytes": 1212
+  },
+  {
+    "path": "downloads/webkit-desktop-grade9-initial.csv",
+    "source": "/tmp/r-final-reader/webkit/desktop-grade9-initial.csv",
+    "sha256": "e06057b04bfb0b979343a081b1ebd6de5cdd811e51d3e8cf3036d1636b5bcae7",
+    "bytes": 965
+  },
+  {
+    "path": "downloads/webkit-desktop-grade8-comparison.csv",
+    "source": "/tmp/r-final-reader/webkit/desktop-grade8-comparison.csv",
+    "sha256": "3b94af874bb6a00a4e9c89bc0aa990c0db15e2f3955ab74cc406d4ba521531db",
+    "bytes": 188395
+  },
+  {
+    "path": "downloads/webkit-desktop-grade8-changed.csv",
+    "source": "/tmp/r-final-reader/webkit/desktop-grade8-changed.csv",
+    "sha256": "ea161b56578b78016d2189edaa4d56cc56d2a6775e4f95b197ccfa1d527575f3",
+    "bytes": 2113
+  },
+  {
+    "path": "downloads/webkit-desktop-grade8.svg",
+    "source": "/tmp/r-final-reader/webkit/desktop-grade8.svg",
+    "sha256": "e6422e5f2c9805d8bcd569560f3c80492c37d022ab86bdac4b3b188b16247d9d",
+    "bytes": 1213
+  },
+  {
+    "path": "downloads/webkit-desktop-grade8-initial.csv",
+    "source": "/tmp/r-final-reader/webkit/desktop-grade8-initial.csv",
+    "sha256": "ea161b56578b78016d2189edaa4d56cc56d2a6775e4f95b197ccfa1d527575f3",
+    "bytes": 2113
+  },
+  {
+    "path": "images/webkit-desktop-grade8-before.png",
+    "source": "/tmp/r-final-reader/webkit/desktop-grade8-before.png",
+    "sha256": "cadd8541211193d45c960abcf62d0a6cc10769cd68826ea3196a5f3d25baee22",
+    "bytes": 168857
+  },
+  {
+    "path": "images/webkit-desktop-grade8-after-keyboard.png",
+    "source": "/tmp/r-final-reader/webkit/desktop-grade8-after-keyboard.png",
+    "sha256": "cd3dff9c8292f415b1748ca8ccd7128b08895833f90cf3895f1e4f577af69eed",
+    "bytes": 199101
+  },
+  {
+    "path": "images/webkit-desktop-grade8-after-pointer.png",
+    "source": "/tmp/r-final-reader/webkit/desktop-grade8-after-pointer.png",
+    "sha256": "f408c7fc406bc3f725532219f764bd6c504191bd3ef2801a7b50a66b539fc61d",
+    "bytes": 168853
+  },
+  {
+    "path": "images/webkit-desktop-grade8-downloads.png",
+    "source": "/tmp/r-final-reader/webkit/desktop-grade8-downloads.png",
+    "sha256": "99833ace59a69a619f56ad62e09ceef0b8f07ad19a176aeee675a602e5484440",
+    "bytes": 168219
+  },
+  {
+    "path": "images/webkit-portrait-grade8-before.png",
+    "source": "/tmp/r-final-reader/webkit/portrait-grade8-before.png",
+    "sha256": "a4825d9f153cf779e91a500070ad99168974f742ed6128af95e216a468e65ab5",
+    "bytes": 148324
+  },
+  {
+    "path": "images/webkit-portrait-grade8-after-keyboard.png",
+    "source": "/tmp/r-final-reader/webkit/portrait-grade8-after-keyboard.png",
+    "sha256": "e0c685d89ac7540ec88acab6822e41aea3987ca78bcb7837260c85032a3cbc98",
+    "bytes": 173200
+  },
+  {
+    "path": "images/webkit-portrait-grade8-after-pointer.png",
+    "source": "/tmp/r-final-reader/webkit/portrait-grade8-after-pointer.png",
+    "sha256": "be99251444a5e0e33fcf02568f76ed364ca66529b9f3975a2f468bba5fd5605a",
+    "bytes": 148306
+  },
+  {
+    "path": "images/webkit-portrait-grade8-downloads.png",
+    "source": "/tmp/r-final-reader/webkit/portrait-grade8-downloads.png",
+    "sha256": "92f1a7fb02324bc13c2d01a12cc88c83fbc2ae0271870771c50e556239b67408",
+    "bytes": 186983
+  },
+  {
+    "path": "images/before-desktop-csv-error.png",
+    "source": "/tmp/r-before-browser/desktop-csv-error.png",
+    "sha256": "263664a3c8ca7c26311ffec633998d40b38b1bd582e6dd67699ff83a2cdd55e7",
+    "bytes": 209858
+  },
+  {
+    "path": "images/before-portrait-csv-error.png",
+    "source": "/tmp/r-before-browser/portrait-csv-error.png",
+    "sha256": "fae6e150c221b1ca53494155e2b3b8751442b82d2250e45a1372f94a738f9383",
+    "bytes": 182846
+  },
+  {
+    "path": "images/before-desktop-metric-before.png",
+    "source": "/tmp/r-before-browser/desktop-metric-before.png",
+    "sha256": "f368d08149613afb2cc9809e86d82e6e93902be12fe3b9b535c0caf423829ae4",
+    "bytes": 168129
+  },
+  {
+    "path": "images/before-desktop-metric-jump.png",
+    "source": "/tmp/r-before-browser/desktop-metric-jump.png",
+    "sha256": "864fe527a0b5dcc5196c38f9ae0c6257061c61a4dc938356b190d8bde4a55140",
+    "bytes": 185707
+  },
+  {
+    "path": "images/before-portrait-metric-before.png",
+    "source": "/tmp/r-before-browser/portrait-metric-before.png",
+    "sha256": "24dc334b9ca5acbdfa714cbf3c882da061f6776557d258284f96e5d96208a036",
+    "bytes": 148351
+  },
+  {
+    "path": "images/before-portrait-metric-jump.png",
+    "source": "/tmp/r-before-browser/portrait-metric-jump.png",
+    "sha256": "8f82493c921775a0a18f170a12de1e6818c11798dee4c3a66470e65e8b42f872",
+    "bytes": 151644
+  },
+  {
+    "path": "images/before-chromium-offline-failure.png",
+    "source": "/tmp/r-before-browser/chromium-offline-failure.png",
+    "sha256": "0421bafa5843b537be0e627de466d7688ca400149e9ee98110f6b410c5f9808f",
+    "bytes": 20693
+  },
+  {
+    "path": "images/before-webkit-offline-failure.png",
+    "source": "/tmp/r-before-browser/webkit-offline-failure.png",
+    "sha256": "d84f7443e4736eaf3a0e35e6ccab48ff6fb0c47da8a18de5a619b8ebfc1efdb2",
+    "bytes": 83327
+  },
+  {
+    "path": "downloads/before-portrait-grade9.csv",
+    "source": "/tmp/r-before-browser/portrait-grade9.csv",
+    "sha256": "e06057b04bfb0b979343a081b1ebd6de5cdd811e51d3e8cf3036d1636b5bcae7",
+    "bytes": 965
+  },
+  {
+    "path": "downloads/before-desktop-grade9.csv",
+    "source": "/tmp/r-before-browser/desktop-grade9.csv",
+    "sha256": "e06057b04bfb0b979343a081b1ebd6de5cdd811e51d3e8cf3036d1636b5bcae7",
+    "bytes": 965
+  },
+  {
+    "path": "reports/missions-webkit.json",
+    "source": "/tmp/r-release-missions/webkit/report.json",
+    "sha256": "db5ba38e2c7ea920af3448c144eaf83349068b1c29de6137a1a48b4b6746a35f",
+    "bytes": 1094970
+  },
+  {
+    "path": "images/webkit-online-m1-complete.png",
+    "source": "/tmp/r-release-missions/webkit/m1-complete.png",
+    "sha256": "045be5c392b3bbc95b1e6106b9cd5ac13ce24bcf012a63544520b4b1f20a2e15",
+    "bytes": 259721
+  },
+  {
+    "path": "images/webkit-online-m2-complete.png",
+    "source": "/tmp/r-release-missions/webkit/m2-complete.png",
+    "sha256": "35be41d929941dd487398687fa47810868e8f825d6a435374a8b75cbccd66a54",
+    "bytes": 269660
+  },
+  {
+    "path": "images/webkit-online-m3-complete.png",
+    "source": "/tmp/r-release-missions/webkit/m3-complete.png",
+    "sha256": "396edb5f7694e12b9246b2d261f2ef4ed2c173235f18705771afd1a801bd424b",
+    "bytes": 175868
+  },
+  {
+    "path": "images/webkit-online-m4-complete.png",
+    "source": "/tmp/r-release-missions/webkit/m4-complete.png",
+    "sha256": "8d2a00dea7b7c9bc5dcc76dee89819589223e0b59bc70bc48fa5b7c5c0604c87",
+    "bytes": 184914
+  },
+  {
+    "path": "images/webkit-online-m5-complete.png",
+    "source": "/tmp/r-release-missions/webkit/m5-complete.png",
+    "sha256": "9818121462e136921b81e7d6e23b6414e862b0ba427ce0db41a94da0fdefb68e",
+    "bytes": 293813
+  },
+  {
+    "path": "images/webkit-online-m6-complete.png",
+    "source": "/tmp/r-release-missions/webkit/m6-complete.png",
+    "sha256": "1b0462c239bd66f2a928355408c48bd7037c5c8d81538cca585a8a3386956595",
+    "bytes": 273543
+  },
+  {
+    "path": "reports/research-webkit.json",
+    "source": "/tmp/r-release-research/webkit/report.json",
+    "sha256": "1eca4fc5014ede858c29662a559abe02b8e3e75965322dc410fc15bc775a04f1",
+    "bytes": 1109
+  }
+]

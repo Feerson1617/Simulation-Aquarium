@@ -15,7 +15,7 @@ URL=os.environ.get('AQUARIUM_OFFLINE_URL','http://127.0.0.1:8000/standalone-m1/'
 HTML=Path(os.environ.get('AQUARIUM_OFFLINE_HTML','/tmp/final-html-download/Aquarium.html'))
 TRANSPORT=os.environ.get('AQUARIUM_OFFLINE_TRANSPORT','context')
 R=mission.R;mission.OUT=OUT
-R.update(offlineTransport=TRANSPORT,artifact={'path':str(HTML),'bytes':HTML.stat().st_size,'sha256':hashlib.sha256(HTML.read_bytes()).hexdigest()},url=URL,requests=[],console_errors=[],routes=[],downloads=[],offline=False,reloadImplementation='visible internal leave/return with fresh document, not HTTP reload')
+R.update(offlineTransport=TRANSPORT,section=os.environ.get('AQUARIUM_OFFLINE_SECTION','all'),artifact={'path':str(HTML),'bytes':HTML.stat().st_size,'sha256':hashlib.sha256(HTML.read_bytes()).hexdigest()},url=URL,requests=[],console_errors=[],routes=[],downloads=[],offline=False,reloadImplementation='visible internal leave/return with fresh document, not HTTP reload')
 origins={}
 def save():mission.save()
 def route_report(p,label):
@@ -54,7 +54,7 @@ class GameView:
   else:self.get_by_role('link',name='Zur Missionsauswahl').tap()
   self.ready('[data-single=start]')
  def open_route(self,query,selector):
-  self.locator(f'a[href="{query}"]').tap();self.ready(selector);route_report(self.page,query)
+  self.tap(f'a[href="{query}"]');self.ready(selector);route_report(self.page,query)
  def reload(self):
   s=self.evaluate('aquariumLearningSnapshot()');is_m1=self.locator('[data-single-stage]').count()>0
   self.home()
@@ -82,18 +82,20 @@ def run():
    elif TRANSPORT=='http-block':ctx.route(re.compile(r'^https?://'),lambda route:route.abort('internetdisconnected'))
    else:raise ValueError('Unknown isolation method')
    R['offline']=True
-   mission.run(v,'m1');v.home();route_report(p,'M1 completed offline and home')
-   for id in ['m2','m3','m4','m5','m6']:
-    v.open_route('?mission='+mission.MISSIONS[id],'[data-class-stage]');assert v.locator('canvas').count()==1
-    if id=='m3':mission.run(v,id)
-    else:
-     mission.choice(v,'unsure');mission.c(v,'help');mission.shot(v,id+'-offline-help');mission.c(v,'close')
-    v.home();route_report(p,id+' returned home')
-   for grade in [8,9,10]:
-    v.open_route('?research='+str(grade),'[data-class-stage=free]');before=v.evaluate('aquariumLearningSnapshot().session.tank.day');v.tap('[data-class=free-day]');assert v.evaluate('aquariumLearningSnapshot().session.tank.day')==before+1
-    v.tap('[data-class=menu]')
-    with p.expect_download() as d:v.tap('[data-class=export]')
-    f=OUT/f'offline-research-{grade}.json';d.value.save_as(str(f));raw=json.loads(f.read_text());assert raw['tank']['day']==before+1;R['downloads'].append({'file':f.name,'sha256':hashlib.sha256(f.read_bytes()).hexdigest()});v.tap('[data-class=close]');v.home()
+   if R['section']=='tools':v.home()
+   else:
+    mission.run(v,'m1');v.home();route_report(p,'M1 completed offline and home')
+    for id in ['m2','m3','m4','m5','m6']:
+     v.open_route('?mission='+mission.MISSIONS[id],'[data-class-stage]');assert v.locator('canvas').count()==1
+     if id=='m3':mission.run(v,id)
+     else:
+      mission.choice(v,'unsure');mission.c(v,'help');mission.shot(v,id+'-offline-help');mission.c(v,'close')
+     v.home();route_report(p,id+' returned home')
+    for grade in [8,9,10]:
+     v.open_route('?research='+str(grade),'[data-class-stage=free]');before=v.evaluate('aquariumLearningSnapshot().session.tank.day');v.tap('[data-class=free-day]');assert v.evaluate('aquariumLearningSnapshot().session.tank.day')==before+1
+     v.tap('[data-class=menu]')
+     with p.expect_download() as d:v.tap('[data-class=export]')
+     f=OUT/f'offline-research-{grade}.json';d.value.save_as(str(f));raw=json.loads(f.read_text());assert raw['tank']['day']==before+1;R['downloads'].append({'file':f.name,'sha256':hashlib.sha256(f.read_bytes()).hexdigest()});v.tap('[data-class=close]');v.home()
    v.open_route('?expert=1','[data-start=free]');v.tap('[data-start=free]');v.ready();p.screenshot(path=str(OUT/'offline-expert.png'));route_report(p,'offline expert free')
    v.locator('[data-panel=time]').filter(visible=True).first.click()
    with p.expect_download(timeout=240000) as d:v.tap('[data-act=download-html]')
@@ -114,10 +116,10 @@ def run():
    assert all(r['intervals']==repeated[0]['intervals'] and r['animationCallbacks']==repeated[0]['animationCallbacks'] and r['registeredListeners']==repeated[0]['registeredListeners'] for r in repeated),repeated
    # Storage failure must keep the current view and data available for export.
    v.open_route('?research=10','[data-class-stage=free]');saved=v.evaluate('JSON.stringify(localStorage)');route=p.url
-   v.evaluate("window.releaseOriginalSet=Storage.prototype.setItem;Storage.prototype.setItem=function(){throw new DOMException('test quota','QuotaExceededError')}")
+   v.evaluate("()=>{window.releaseOriginalSet=Storage.prototype.setItem;Storage.prototype.setItem=function(){throw new DOMException('test quota','QuotaExceededError')};}")
    v.tap('[data-class=menu]');v.get_by_role('link',name='Zur Missionsauswahl').tap();assert p.url==route;expect(v.locator('.single-storage')).to_be_visible();assert v.evaluate('JSON.stringify(localStorage)')==saved
    with p.expect_download() as d:v.tap('[data-class=export]')
-   f=OUT/'offline-storage-emergency.json';d.value.save_as(str(f));assert json.loads(f.read_text())['tank'];v.evaluate('Storage.prototype.setItem=window.releaseOriginalSet');v.tap('[data-class=close]');v.home();route_report(p,'storage failure stayed in view; file saved; retry worked')
+   f=OUT/'offline-storage-emergency.json';d.value.save_as(str(f));assert json.loads(f.read_text())['tank'];v.evaluate('()=>{Storage.prototype.setItem=window.releaseOriginalSet;}');v.tap('[data-class=close]');v.home();route_report(p,'storage failure stayed in view; file saved; retry worked')
    assert not [q for q in R['requests'] if q['offline'] and q['scheme'] in ['http','https']],R['requests'];assert not R['errors'];assert not R['requests_failed'],R['requests_failed'];assert not R['console_errors'],R['console_errors']
    R['status']='passed'
   except Exception as e:

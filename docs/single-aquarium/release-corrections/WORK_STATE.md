@@ -1,3 +1,13 @@
+# Aktueller Prüfstand: Anwendung unverändert bei b806579
+
+Der fokussierte WebKit-Offlinelauf für Expertenmodus, Tutorial, historische CSV, Zurück/Vorwärts, wiederholte Ressourcenbestände und Speichernotfall ist bestanden (`/tmp/r-offline-tail/webkit/report.json`, ausdrücklich Teilumfang tools).
+
+Zwei reine Harness-Korrekturen: Der historische Einstieg besitzt zwei gleichwertige sichtbare Links; die Eingabe verwendet nun denselben sichtbaren ersten Treffer wie andere Testhandlungen. Die Quotenfehler-Injektion ist ein expliziter Funktionsblock, damit Playwright nicht versehentlich die zurückgegebene Fehlerfunktion sofort aufruft. Assertions und vollständiger Standardumfang bleiben erhalten. Frühere fehlgeschlagene Prüfläufe liegen in `*-selector-development` und gelten nicht als bestanden.
+
+Aktuell laufen die abschließenden vollständigen Prüfungen in `/tmp/r-release-offline/chromium`, `/tmp/r-network-blocked-offline/webkit`, `/tmp/r-strict-offline/webkit`; reguläres Chromium steht bei M6 (`/tmp/r-release-missions/chromium`). Erst fertige Reports mit status=passed übernehmen. Nicht doppelt starten. Native WebKit-Dateiprüfung und Lebenszyklusprüfungen beider Engines sind bereits auf der endgültigen Datei bestanden (`/tmp/r-native-docwrite`, `/tmp/r-lifecycle-docwrite`). Nativer Chromium-Dateistart ist durch Browserrichtlinie blockiert. 73 öffentliche Anwendungsdateien erneut bytegleich geprüft.
+
+---
+
 # Wiederaufnahme: Anwendung b806579 ist eingefroren, Endprüfungen laufen
 
 Kein neuer Spielcode nach b806579. Standalone-HTML ist tatsächlich heruntergeladen (151.602.143 Bytes, SHA 576980d23a6c9407fc8e7fd60a8d3231d71dfd1b03d7c0f3443c8091c1af618f). Alle 201 Modultests bestanden.

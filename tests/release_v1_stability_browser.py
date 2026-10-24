@@ -60,30 +60,34 @@ memory_sample();thread=threading.Thread(target=sample_loop,daemon=True);thread.s
 try:
  with sync_playwright() as pw:
   options={'executable_path':'/usr/bin/chromium','args':['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']} if ENGINE=='chromium' else {'executable_path':os.environ['AQUARIUM_WEBKIT']}
-  browser=getattr(pw,ENGINE).launch(**options);r['version']=browser.version;ctx=browser.new_context(viewport=r['viewport'],device_scale_factor=1,has_touch=True,accept_downloads=True)
+  browser=getattr(pw,ENGINE).launch(**options);r['version']=browser.version;ctx=browser.new_context(viewport=r['viewport'],device_scale_factor=1,has_touch=True,accept_downloads=True,ignore_https_errors=True)
   ctx.add_init_script("localStorage.setItem('aquarium-graphics-v1',JSON.stringify({version:1,profile:'ipad'}))")
   page=ctx.new_page();page.set_default_timeout(30000)
   def view():return page if CASE=='A' else next(f for f in page.frames if f.parent_frame==page.main_frame)
+  def ready(selector):
+   scope=page if CASE=='A' else page.frame_locator('#aquarium-view')
+   scope.locator(selector).wait_for(timeout=120000);scope.locator('canvas').wait_for(timeout=120000);view().wait_for_load_state('networkidle',timeout=120000)
   def request(q):
    scheme=q.url.split(':',1)[0];r['requestSchemes'][scheme]=r['requestSchemes'].get(scheme,0)+1
    if scheme in ['http','https']:r['httpRequests'].append({'at':at(),'url':q.url,'type':q.resource_type,'offline':r['offline']})
   page.on('request',request);page.on('pageerror',lambda e:r['errors'].append(str(e)));page.on('console',lambda m:r['consoleErrors'].append(m.text[:1500]) if m.type=='error' else None);page.on('requestfailed',lambda q:r['failedRequests'].append({'url':q.url[:200],'failure':q.failure}));page.on('crash',lambda:r['errors'].append('page crash'))
   try:
-   phase='initial-load';page.goto(URL,wait_until='domcontentloaded',timeout=120000);view().locator('[data-single=start]').wait_for();view().wait_for_load_state('networkidle',timeout=120000);memory_sample('loaded');page.screenshot(path=str(OUT/'initial.png'),timeout=15000)
+   phase='initial-load';page.goto(URL,wait_until='domcontentloaded',timeout=120000);ready('[data-single=start]');memory_sample('loaded');page.screenshot(path=str(OUT/'initial.png'),timeout=15000)
    if CASE=='C':ctx.set_offline(True);r['offline']=True
    for i in range(1,ROUNDS+1):
-    phase=f'round-{i}';guard();mission='m2-food-transformation' if i%2 else 'm6-plant-carbon';start=time.monotonic();action(view(),f'a[href="?mission={mission}"]');view().locator('[data-class-stage]').wait_for();view().wait_for_load_state('networkidle');assert view().locator('canvas').count()==1
+    phase=f'round-{i}';guard();mission='m2-food-transformation' if i%2 else 'm6-plant-carbon';start=time.monotonic();action(view(),f'a[href="?mission={mission}"]');ready('[data-class-stage]');assert view().locator('canvas').count()==1, 'expected one canvas'
     if i in [1,ROUNDS]:page.screenshot(path=str(OUT/f'round-{i}.png'),timeout=15000)
-    action(view(),'[data-class=menu]');view().get_by_role('link',name='Zur Missionsauswahl',exact=True).tap();view().locator('[data-single=start]').wait_for();view().wait_for_load_state('networkidle');r['rounds'].append({'i':i,'mission':mission,'at':at(),'seconds':round(time.monotonic()-start,3),'url':page.url,'frames':len(page.frames),'canvas':view().locator('canvas').count()});memory_sample(f'round-{i}-home');save();print(ENGINE,CASE,'round',i,flush=True)
-   phase='after-rounds-action';action(view(),'a[href="?mission=m2-food-transformation"]');view().locator('[data-class-stage]').wait_for();action(view(),'[data-class-choice=unsure]');action(view(),'[data-class=feed]');action(view(),'[data-class=menu]')
+    action(view(),'[data-class=menu]');view().get_by_role('link',name='Zur Missionsauswahl',exact=True).tap();ready('[data-single=start]');r['rounds'].append({'i':i,'mission':mission,'at':at(),'seconds':round(time.monotonic()-start,3),'url':page.url,'frames':len(page.frames),'canvas':view().locator('canvas').count()});memory_sample(f'round-{i}-home');save();print(ENGINE,CASE,'round',i,flush=True)
+   phase='after-rounds-action';action(view(),'a[href="?mission=m2-food-transformation"]');ready('[data-class-stage]');action(view(),'[data-class-choice=unsure]');action(view(),'[data-class=feed]');action(view(),'[data-class=menu]')
    with page.expect_download() as d:action(view(),'[data-class=export]')
    path=OUT/'after-rounds.json';d.value.save_as(str(path));data=json.loads(path.read_text());assert data['mission']=='m2-food-transformation';assert abs(data['tank']['detritus']-data['baseline']['detritus']-.12)<1e-9
-   action(view(),'[data-class=close]');action(view(),'[data-class=menu]');view().get_by_role('link',name='Zur Missionsauswahl',exact=True).tap();view().locator('[data-single=start]').wait_for();action(view(),'a[href="?mission=m2-food-transformation"]');view().locator('[data-class-stage=food-observe-ready]').wait_for();action(view(),'[data-class=menu]')
+   action(view(),'[data-class=close]');action(view(),'[data-class=menu]');view().get_by_role('link',name='Zur Missionsauswahl',exact=True).tap();ready('[data-single=start]');action(view(),'a[href="?mission=m2-food-transformation"]');ready('[data-class-stage=food-observe-ready]');action(view(),'[data-class=menu]')
    with page.expect_download() as d:action(view(),'[data-class=export]')
    path2=OUT/'restored.json';d.value.save_as(str(path2));assert json.loads(path2.read_text())==data;action(view(),'[data-class=close]');action(view(),'[data-class=help]');view().locator('.single-dialog').wait_for();page.screenshot(path=str(OUT/'after-rounds-responsive.png'),timeout=15000);action(view(),'[data-class=close]');memory_sample('after-final-action');page.wait_for_timeout(3000);memory_sample('settled')
    assert not r['errors'] and not r['consoleErrors'] and not r['failedRequests'];assert not [x for x in r['httpRequests'] if x['offline']];r.update(status='passed',finalAction={'exportSHA256':hashlib.sha256(path.read_bytes()).hexdigest(),'restoredExactly':True,'helpStillResponds':True})
   except Exception as e:
-   text=str(e);r.update(status='blocked-policy' if 'ERR_BLOCKED_BY_ADMINISTRATOR' in text else 'resource-guard' if 'RESOURCE_GUARD' in text else 'failed',failure=text);memory_sample('failure');save()
+   import traceback
+   text=repr(e);r['traceback']=traceback.format_exc();r.update(status='blocked-policy' if 'ERR_BLOCKED_BY_ADMINISTRATOR' in text else 'resource-guard' if 'RESOURCE_GUARD' in text else 'failed',failure=text);memory_sample('failure');save()
    if r['status']=='failed':
     try:
      control=ctx.new_page();control.goto('about:blank',timeout=5000);r['blankControlResponded']=control.title()=='';control.close()

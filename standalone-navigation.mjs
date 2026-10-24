@@ -1,5 +1,5 @@
 /** Only the generated single file gets a local document host. The website stays unchanged. */
-export function createStandaloneShell(applicationHTML) {
+export function createStandaloneShell(applicationHTML,assets=[]) {
   function frameRuntime() {
     const intervals=new Set(),timeouts=new Set(),animations=new Set(),listeners=[],contexts=new Set();
     let disposed=false;
@@ -35,7 +35,10 @@ export function createStandaloneShell(applicationHTML) {
       event.preventDefault();event.stopImmediatePropagation();parent.aquariumStandaloneNavigate(next.href);
     },true);
   }
-  function boot(application,wire,download) {
+  function boot(application,wire,download,assets) {
+    // Primitive strings are shared with each child; no mutable game state or
+    // renderer crosses document lifetimes. The website never uses this host.
+    window.aquariumStandaloneAsset=index=>assets[index];
     let current=null,route=null,switching=false;const retired=[];
     const base=new URL(location.href);base.hash='';
     const decodeRoute=()=>{const u=new URL(location.href);if(u.hash.startsWith('#aquarium=')){u.search=decodeURIComponent(u.hash.slice(10));u.hash='';}return u;};
@@ -77,6 +80,6 @@ export function createStandaloneShell(applicationHTML) {
     addEventListener('popstate',historyNavigation);addEventListener('hashchange',historyNavigation);
     show(decodeRoute());
   }
-  const source=JSON.stringify(applicationHTML).replace(/</g,'\\u003c');
-  return '<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Aquarium</title><link rel="icon" href="data:,"><style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#173a3d}#aquarium-view{display:block;border:0;width:100%;height:100%}</style></head><body><script id="aquarium-source" type="application/json">'+source+'</scr'+'ipt><script>const download=new Blob(["<!doctype html>",document.documentElement.outerHTML],{type:"text/html"});const source=document.getElementById("aquarium-source");const application=JSON.parse(source.textContent);source.textContent="";source.remove();('+boot.toString()+')(application,'+JSON.stringify(frameRuntime.toString()).replace(/</g,'\\u003c')+',download);</scr'+'ipt></body></html>';
+  const json=value=>JSON.stringify(value).replace(/</g,'\\u003c');
+  return '<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Aquarium</title><link rel="icon" href="data:,"><style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#173a3d}#aquarium-view{display:block;border:0;width:100%;height:100%}</style></head><body><script id="aquarium-source" type="application/json">'+json(applicationHTML)+'</scr'+'ipt><script id="aquarium-assets" type="application/json">'+json(assets)+'</scr'+'ipt><script>const download=new Blob(["<!doctype html>",document.documentElement.outerHTML],{type:"text/html"});const read=id=>{const source=document.getElementById(id),value=JSON.parse(source.textContent);source.textContent="";source.remove();return value;};const application=read("aquarium-source"),assets=read("aquarium-assets");('+boot.toString()+')(application,'+json(frameRuntime.toString())+',download,assets);</scr'+'ipt></body></html>';
 }

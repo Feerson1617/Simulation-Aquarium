@@ -99,19 +99,29 @@ export async function createStandaloneDocument(baseURL, fetchResource = fetch) {
   const visit=async path=>{if(modules.has(path))return modules.get(path);let source=await (await read(path)).text();const id='__aquariumModule'+modules.size;modules.set(path,id);for(const match of [...source.matchAll(imports)])await visit(match[2]);ordered.push({path,id,source});return id;};
   for(const match of [...script[1].matchAll(imports)])await visit(match[2]);
   const rewrite=source=>source.replace(imports,(_all,names,path)=>'const {'+names.replace(/\bas\b/g,':')+'}='+modules.get(path)+';');
-  const chunks=[];
+  const chunks=[],sharedAssets=[],assetIDs=new Map();
   for(const module of ordered){let source=module.source;const exports=[...source.matchAll(/^export (?:async )?(?:function|class|const|let) (\w+)/gm)].map(m=>m[1]);
     const assetPattern=/["'](\.\/assets\/(?:catalog|realism|species)\/[^"']+\.(?:webp|glb))["']/g;
-    const assets=[...new Set([...source.matchAll(assetPattern)].map(m=>m[1]))],embedded=new Map();
-    for(let i=0;i<assets.length;i+=4)await Promise.all(assets.slice(i,i+4).map(async path=>{const bytes=new Uint8Array(await (await read(path)).arrayBuffer()),parts=[];for(let j=0;j<bytes.length;j+=16384)parts.push(String.fromCharCode(...bytes.subarray(j,j+16384)));embedded.set(path,(path.endsWith('.glb')?'data:model/gltf-binary;base64,':'data:image/webp;base64,')+btoa(parts.join('')));}));
-    source=source.replace(assetPattern,(_all,path)=>JSON.stringify(embedded.get(path)));
+    const assets=[...new Set([...source.matchAll(assetPattern)].map(m=>m[1]))].filter(path=>!assetIDs.has(path));
+    for(const path of assets){assetIDs.set(path,sharedAssets.length);sharedAssets.push(null);}
+    for(let i=0;i<assets.length;i+=4)await Promise.all(assets.slice(i,i+4).map(async path=>{const bytes=new Uint8Array(await (await read(path)).arrayBuffer()),parts=[];for(let j=0;j<bytes.length;j+=16384)parts.push(String.fromCharCode(...bytes.subarray(j,j+16384)));sharedAssets[assetIDs.get(path)]=(path.endsWith('.glb')?'data:model/gltf-binary;base64,':'data:image/webp;base64,')+btoa(parts.join(''));}));
+    // Keep the immutable image/model strings in the host once. Child documents
+    // reference the same bytes instead of reparsing them on every route change.
+    // Data URLs preserve WebKit's strict offline texture-loading compatibility.
+    source=source.replace(assetPattern,(_all,path)=>'parent.aquariumStandaloneAsset('+assetIDs.get(path)+')');
     source=rewrite(source).replace(/^export (?=(?:async )?(?:function|class|const|let)\b)/gm,'');chunks.push('const '+module.id+'=(()=>{'+source+'\nreturn {'+exports.join(',')+'};})();');
   }
-  const bundled=(chunks.join('\n')+'\n'+rewrite(script[1])).replace(/<\/script/gi,'<\\/script');
+  // The original entry point also contains legacy photo/model data literals.
+  // Only complete, quoted base64 literals in this JS module are extracted;
+  // HTML attributes, CSS, normal strings and the online entry point stay intact.
+  const main=rewrite(script[1]).replace(/(["'])(data:(?:image\/(?:png|jpeg|webp)|model\/gltf-binary);base64,[A-Za-z0-9+/=]+)\1/g,(_all,_quote,url)=>{
+    const index=sharedAssets.length;sharedAssets.push(url);return 'parent.aquariumStandaloneAsset('+index+')';
+  });
+  const bundled=(chunks.join('\n')+'\n'+main).replace(/<\/script/gi,'<\\/script');
   html=html.replace(script[0],()=>'<script type="module">'+bundled+'</script>');
   const links=[...html.matchAll(/<link rel="stylesheet" href="(\.\/[^" ]+\.css)">/g)];
   for(const [tag,path] of links){const css=await (await read(path)).text();html=html.replace(tag,()=>'<style>'+css+'</style>');}
-  return createStandaloneShell(html);
+  return createStandaloneShell(html,sharedAssets);
 }
 
 function surfaceTexture(T, kind, seed) {

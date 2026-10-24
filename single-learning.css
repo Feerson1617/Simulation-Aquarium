@@ -111,4 +111,7 @@ html[data-historical-tools] #learning-root::before {content:"Historische Lehrkra
 @media(max-width:820px){
  /* Three M1 alternatives plus a specific correction need a little more reading room. */
  #learning-root .single-task[data-single-stage=explain]:has(.single-feedback[data-kind=error]) {max-height:46dvh}
+ /* M1 prediction: keep all three answers and the 44px hint inside the card. */
+ #learning-root .single-task[data-single-stage=prediction] .single-options {grid-template-columns:1fr 1fr}
+ #learning-root .single-task[data-single-stage=prediction] .single-options button:last-child {grid-column:1 / -1}
 }

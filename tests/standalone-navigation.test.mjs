@@ -13,3 +13,10 @@ test('standalone source survives JSON/script boundaries exactly and preserves di
   }
  }finally{if(original===undefined)delete globalThis.__aquariumStandaloneRoute;else globalThis.__aquariumStandaloneRoute=original;}
 });
+test('shared standalone assets preserve strings and cannot close their JSON script node',()=>{
+ const assets=['data:image/webp;base64,AA==','literal </script> & Grüße'];
+ const shell=createStandaloneShell('<html><head></head><body></body></html>',assets);
+ const payload=shell.match(/<script id="aquarium-assets" type="application\/json">([\s\S]*?)<\/script>/)[1];
+ assert.deepEqual(JSON.parse(payload),assets);
+ assert(!payload.includes('</script>'));
+});

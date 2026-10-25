@@ -1,0 +1,38 @@
+[
+  {
+    "engine": "webkit",
+    "grade": 8,
+    "file": "/tmp/r-network-blocked-offline/webkit/offline-v1-grade-8.csv",
+    "csvSHA256": "ea161b56578b78016d2189edaa4d56cc56d2a6775e4f95b197ccfa1d527575f3",
+    "sourceSHA256": "057c7d73f0a43a368b490a37fcbab49d6e0e9550376383b66b99a291325f4895",
+    "rows": 6,
+    "status": "passed"
+  },
+  {
+    "engine": "webkit",
+    "grade": 9,
+    "file": "/tmp/r-network-blocked-offline/webkit/offline-v1-grade-9.csv",
+    "csvSHA256": "e06057b04bfb0b979343a081b1ebd6de5cdd811e51d3e8cf3036d1636b5bcae7",
+    "sourceSHA256": "6df5d4d1f05d4b4e35ea4e00edb8b47c7a8f32f78112cbf533dff5ae9cd83a2c",
+    "rows": 2,
+    "status": "passed"
+  },
+  {
+    "engine": "chromium",
+    "grade": 8,
+    "file": "/tmp/r-release-offline/chromium/offline-v1-grade-8.csv",
+    "csvSHA256": "ea161b56578b78016d2189edaa4d56cc56d2a6775e4f95b197ccfa1d527575f3",
+    "sourceSHA256": "057c7d73f0a43a368b490a37fcbab49d6e0e9550376383b66b99a291325f4895",
+    "rows": 6,
+    "status": "passed"
+  },
+  {
+    "engine": "chromium",
+    "grade": 9,
+    "file": "/tmp/r-release-offline/chromium/offline-v1-grade-9.csv",
+    "csvSHA256": "e06057b04bfb0b979343a081b1ebd6de5cdd811e51d3e8cf3036d1636b5bcae7",
+    "sourceSHA256": "6df5d4d1f05d4b4e35ea4e00edb8b47c7a8f32f78112cbf533dff5ae9cd83a2c",
+    "rows": 2,
+    "status": "passed"
+  }
+]

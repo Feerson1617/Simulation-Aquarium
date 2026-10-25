@@ -1,0 +1,502 @@
+<!doctype html><html lang="de"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Aquarium – Gegenprüfung</title><style>body{font:17px/1.6 system-ui,sans-serif;color:#182c2b;background:#f4f5f0;margin:0}main{max-width:1080px;margin:auto;padding:38px 30px;background:white}h1,h2,h3{line-height:1.2;color:#164f49}h1{font-size:2rem}h2{border-bottom:2px solid #dce5de;padding-bottom:10px;margin-top:42px}table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow:auto}th,td{padding:10px;border:1px solid #cedad3;vertical-align:top;min-width:120px}th{background:#e6eee8;text-align:left}code{background:#f0f4f1;padding:2px 4px;overflow-wrap:anywhere}a{color:#1c6157}pre{white-space:pre-wrap;overflow-wrap:anywhere}p{margin:14px 0}@media print{body{background:white}main{padding:0}h2{break-after:avoid}tr{break-inside:avoid}}</style><main><pre># Aquarium – unabhängige Gegenprüfung und Entwicklungsentscheidung
+
+**Stand: 22. Oktober 2026. Haupturteil: Keine pauschale Freigabe für selbstständiges Lernen. Der Rechenkern ist deutlich weiter entwickelt als die sichtbare Untersuchungsführung.**
+
+Die nächste Verbesserung braucht keine neue Sammlung von Fachtexten und auch keinen kompletten neuen Biologiekern. Sie braucht eine gemeinsame, verlässliche Verbindung zwischen Gegenstand, Eingriff, Betrachtungszeitpunkt, Daten und Aufgabe. Eine richtige Kurve neben der falschen oder unbeschrifteten Szene ist keine gelungene Untersuchung.
+
+## 1. Was ich selbst geprüft habe – und was nicht
+
+Die ZIP des Spiels und das Work-Paket wurden vollständig entpackt. Original-Spielquelle und GitHub blieben unverändert. AGENTS.md wurde gelesen. Die neue Prüfung enthält eigene ausführbare Modell-, Funktions- und HTML-Ausgabeproben, eine Quellprüfung aller 14 Questdefinitionen sowie die kritische Lektüre des Work-Berichts, seiner Matrix, Korrekturvorschläge und strukturierten Belege. Repräsentative Work-Bilder aller 14 Missionen und zusätzliche kritische Tabletansichten wurden visuell gesichtet. Das ist ausdrücklich keine manuelle Sichtung sämtlicher 1.087 Bilder.
+
+| Prüfart | Tatsächlicher Umfang | Aussagegrenze |
+|---|---|---|
+| Eigener Browser | Chromium144/Playwright gestartet; lokaler HTTP-Server erreichbar; Navigation liefert `net::ERR_BLOCKED_BY_ADMINISTRATOR` | **0 eigene abgeschlossene Browsermissionen.** Verwaltungsregel nicht umgangen. |
+| Eigene Gegenproben | 15 protokollierte Prüfgruppen plus sechs Zusatzfälle, darunter echte Rechenkernläufe aller neun ökologischen Vergleichsmissionen, 17 Startprofile, F1/F2 mit acht Seeds, Populationen, Abbrüche und konkrete Bedienhandler | Ausführung von Rechen-/Ansichtslogik unter Node, kein Ersatz für Browserpixel oder Kindertests. |
+| Bestehende Tests neu ausgeführt | 139/139 Node-Tests, kein Fehler, kein Skip | Ergänzender technischer Nachweis; die zusätzlich gefundenen Fehler zeigen gerade die Lücken dieser Suite. |
+| Work-Browserbelege | Paket dokumentiert 14 Missionen in Chromium und WebKit/iPad-Querformat, Wiederaufnahme, Zusatzwege, freies Forschen und weitere Funktionen; 1.087 PNG/JSON-Belege | Fremd erzeugte, von mir überprüfte Belege. Kein physisches iPad, keine Unterrichtserprobung, keine vollständige Fingergesten-/Langzeitleistungsabnahme. |
+| Versionsvergleich | main `8e41962132fe3778fe73f8e14c650f42e18d848d`; 19 zentrale ZIP-Dateien mittels Git-Blob-Hash gegen GitHub verglichen, alle identisch | Nicht jedes Bild/GLB einzeln gegen GitHub gehasht. Lokale Integrität aller 1.443 Dateien vor/nach Prüfung unverändert. |
+
+Spiel-ZIP: 157.806.540 Bytes, SHA-256 `45f5a90cda704539bd7048fa33c8b54405ef7608f6dda3babbea809c42a4e555`.
+Work-ZIP: 359.793.591 Bytes, SHA-256 `dc94c154ab280c5cb251422e21bcf6854d2c7bbe25e6c4473e40bdbe5c4ba290`.
+
+Die ausführbaren Gegenproben stehen im Belegpaket. `actual-core.mjs` enthält den unverändert übernommenen relevanten zusammenhängenden Berechnungsabschnitt aus index.html und importiert die Originalmodule. Entnahme und Hash sind dokumentiert. Ich habe keine Biologierate verändert und keine Quest im Browser durch direkten Speicherzugriff erledigt.
+
+## 2. Schwerwiegendste gemeinsame Ursache
+
+Das Spiel hat derzeit mehrere nur teilweise verbundene Wahrheiten: ein aktuelles 3D-Becken, eine gesicherte Ausgangslage, einen bearbeiteten Plan, gespeicherte Vergleichsreihen, eine getrennte Lernpopulation und ein Questobjekt. Sichtbare Bedienung und Aufgaben greifen nicht immer auf denselben Zustand zu.
+
+Deshalb reicht es nicht, ein zweites Aquarium zu zeichnen. Die Darstellung muss wissen, **welcher Versuch, welche Wiederholung, welche Seite, welcher Zeitpunkt und welcher Versuchsdurchgang** gerade gemeint sind. Diese Identität muss in der Szene, den Karten, dem Diagramm, der Antwortprüfung und im Export übereinstimmen.
+
+### P1: Zwei Becken werden berechnet, aber vor der Untersuchung nicht erkennbar gegenübergestellt
+
+Work F01 ist in den gesichteten Bildern nachvollziehbar und im aktuellen Code bestätigt. `runLearningComparison` erzeugt zwei Zustände; die Szene zeigt zunächst weiterhin das Live-Becken. Erst spätere Karten nennen Becken1/2. Das Problem betrifft die neun ökologischen Vergleichsmissionen und entsprechende freie Vergleiche, nicht nur die erste Klasse-8-Mission.
+
+Eine einzelne unbeschriftete Szene plus spätere Kurve genügt nicht. Eine Vollansicht beider Becken oder eine gut erkennbare gleichzeitige Übersicht mit Fokusfunktion ist notwendig. Zwei schwere Renderer sind dafür nicht notwendig.
+
+### P1: Zeit und sichtbare Beobachtung passen nicht zusammen
+
+Work F02 ist bestätigt. In meinem echten Rechenkernlauf startet die Ausgangslage an Tag45; der Vergleich endet48. Der Live-Zustand bleibt45. Genau diese Gegenüberstellung zeigen Work-Bilder. Zusätzlich erzeugt die Original-HTML-Funktion nach einer frühen Inspektion Text für45,25, aber eine große Datenkarte für48,25. Ein Lernender kann damit eine andere Beobachtung auswerten als die, auf die seine Handlung verweist.
+
+### P1: Generationen und untersuchte Fische bleiben eine separate Textwelt
+
+Work F03 ist durch Code und Bilder gestützt. F1/F2 und Populationen funktionieren rechnerisch, aber vier große Hintergrund-Mollys sind nicht die 24 untersuchten Lernindividuen. Es braucht eine direkte, zählbare Kohortenansicht mit identischen IDs in Auswahl, Genotyp, Elternschaft und Ergebnis. Ein eigenes übersichtliches Lernfeld ist besser als eine unpassende 3D-Kulisse.
+
+### P1: Regionale und ökologische Beziehungen sind teilweise nur behauptete Sichtobjekte
+
+Work F04/F05 sind nachvollziehbar. Nahrungskanten, Waldpflanze, Fossilien, Flussweg und Hafen werden oft nur in Antworttexten genannt. Ein kurzes Quiz kann sinnvoll sein, ist aber nicht dasselbe wie das Erkunden einer Beziehung. Nicht jede Mission braucht 3D; eine fachlich klare interaktive Abbildung kann geeigneter sein. Wichtig ist eine Handlung am tatsächlich dargestellten Gegenstand.
+
+## 3. Zusätzliche Befunde der eigenen Gegenprüfung
+
+### N1 · P1 · Falsche Versuchsreihe beim Öffnen einer Beckenansicht
+
+**Eigenständig reproduziert, kein Browserlauf.** `learning-ui.mjs:1687` lädt bei `show-control`/`show-test` stets die erste Wiederholung der neuesten `session.comparison`. Die Ergebnisansicht unterstützt dagegen historische Reihen und andere Wiederholungen.
+
+Konkrete Probe: Ausgewählt ist eine ältere Reihe, Wiederholung2, Tag48 und25,9024°C. Der vorhandene Handler öffnet die neueste Reihe, Wiederholung1, Tag49 und25,5507°C. Der exakt extrahierte Handler bestätigte mit getrennten Zustandskennungen `old-r2` erwartet versus `new-r1` geöffnet. Die Messwerte sind aus echten unterschiedlichen Rechenkernläufen.
+
+**Korrektur:** ein zentraler Selektor für Reihe/Wiederholung/Seite/Zeitpunkt. „Ansehen“ darf nicht gleichzeitig eine historische Kopie als aktuelles Spielbecken übernehmen. Fundstellen: `learning-student.mjs:176ff`, `learning-ui.mjs:1687ff`; Proben I03/I17.
+
+### N2 · P1 · Wasserwechsel ohne Wasser erfüllt den Versuchsschritt
+
+**Eigenständig mit echtem Kern und Questvalidator reproduziert.** In8-health und10-restore akzeptiert die aktuelle Eingriffsdefinition0%. Der Wasserwechsel hinterlässt einen Journaleintrag. Der Vergleich kompletter JSON-Zustände interpretiert diesen Protokolleintrag als wirksame Veränderung.
+
+Ergebnis: Kontroll- und Versuchsreihen sind exakt identisch, dennoch geht der Quest von „Ausprobieren“ zu „Vergleichen“. Die Gegenfälle unveränderte Lichtdauer und Nährstoffzugabe0 wurden korrekt nicht als Änderung akzeptiert; der Befund gilt daher spezifisch, nicht pauschal für sämtliche Eingriffe.
+
+**Korrektur:** betroffene Fachgröße/Ereignistyp statt Gesamt-JSON vergleichen. Null-Eingriff darf als bewusste Kontrolle existieren, aber nicht als ausgeführter Wasserwechsel. Umgekehrt darf ein echter Eingriff mit gleichem Endwert kein automatischer Fehler sein. Proben I16; `learning-ui.mjs:210ff`.
+
+### N3 · P2 · „Noch einmal“ setzt nicht den ganzen Versuch zurück
+
+**Code und Zustandsprobe; der komplette erneute Browserweg bleibt offen.** `learning-ui.mjs:1460ff` setzt das Questobjekt zurück. Die Population kann dabei bereits Generation2 sein und `mendelEvidence` findet ihre alte vollständige F1/F2 weiterhin. Daraus ergibt sich das Risiko, neue Aufgaben mit alten Ereignissen zu erfüllen.
+
+**Korrektur:** Fortsetzen, Wiederholen mit gleichen Bedingungen und vollständigen Neustart trennen; Ereignisse an einen Versuchsdurchgang binden. Historie sichern, nicht löschen. Probe I14. Die Ausnutzbarkeit jeder konkreten Klickfolge muss Codex im Browser nachweisen.
+
+### N4 · P2 · Netze ausgewählt, Mehrweg als vorgeschriebene Schlusslösung
+
+**Originalfunktionen unabhängig geprüft.** Der Hafenfall akzeptiert eine Sammlung von Netzen und Leinen. Die allgemeine Schlussfrage verlangt weiterhin „Mehrweg nutzen“ und erklärt Rückgabe/Reinigung. Diese Aussage ist nicht generell falsch, aber sie wertet die gewählte Maßnahme nicht aus.
+
+**Korrektur:** branchenspezifischer Nutzen/Aufwand/Erfolgskontrolle. Nicht zwei scheinbare Wahlwege mit identischem unpassendem Abschluss. Probe I13; `learning-activities.mjs:49ff`, `learning-quests.mjs:339ff`.
+
+### N5 · P2 · Ammoniakberechnung hat eine ungeklärte Stoffdefinition
+
+**Mathematische/codebasierte Vertragsprüfung, keine Behauptung eines nachgewiesenen biologischen Schadensfalls.** Der verwendete pH-/Temperaturfaktor beschreibt den Anteil freien Ammoniaks an der Gesamtmenge. Die Funktion multipliziert diesen Faktor mit `params.nh4`, das an anderen Stellen als ionisches Ammonium erscheint. Ist es in Wahrheit ein Gesamtpool in NH4-Äquivalenten, ist die Rechnung entsprechend interpretierbar; ist es ausdrücklich nur ionisches NH4, fehlt die korrekte Verhältnisumrechnung.
+
+Bei25°C, pH9 und0,2mg/L ergibt der Code0,068351mg/L NH3; unter strikt ionischer NH4-Deutung ergäbe sich0,107110mg/L. Das ist kein Grund, die Formel isoliert auszutauschen. Erst Pooldefinition, Einheiten, Labor, Oxidation, Warnung, Schädigung und Altdaten gemeinsam klären. Work prüft die monotone pH-/Temperaturreaktion, setzt dabei jedoch selbst eine Äquivalent-Deutung voraus. Dies beseitigt die Benennungsfrage nicht. Probe I09; `biology-quality.mjs:52ff`. Wissenschaftlicher Vergleich: australische Wasserqualitätsrichtlinie und EPA, Quellen Q4/Q5.
+
+### N6 · P2 · Waldvergleich vergleicht verschiedene Ebenen
+
+**Code und primäre Arteninformation.** „Baumwurzeln im Boden“ gegen „Wasserpest unter Wasser“ legt einen falschen Gegensatz nahe. Egeria densa kann ebenfalls im schlammigen Untergrund wurzeln. Der Satz ist nicht in jedem Teil falsch, aber als Gegenüberstellung ungeeignet. Blätter in Luft/unter Wasser oder vergleichbare Umweltbedingungen wären sauberer. Probe I12, Quelle Q6.
+
+### N7 · P2 · Klasse-8-Reduktion ist noch nicht durchgehend
+
+`OBSERVATION_METRICS` stellt in8-health automatisch `no2` dar; die Schüleransicht zeigt Nitrit mit Konzentration. Das passt nicht zur vereinbarten normalen Klasse-8-Einstiegsansicht. Zudem bleiben nicht eingeführte Begriffe wie „organische Stoffe“ und relative Zahlen teilweise bestehen. Diese Feststellung fordert nicht, den Stoff aus dem Kern zu entfernen: das reale Warnsignal muss erhalten bleiben, zunächst aber verständlich benannt und erst gezielt differenziert werden.
+
+## 4. Was fachlich erhalten bleiben sollte
+
+Die neue Prüfung bestätigt wichtige Fortschritte. Alle17 frischen Lernprofile erfüllen die intern hinterlegten Startansprüche abgesehen von der beabsichtigten Nitritstörung der Problemmissionen. Gespeicherte historische Becken wurden dadurch nicht verändert. Das Frischwasser verwendet25°C unabhängig vom Heizsollwert undGH12.
+
+F1/F2 werden durch tatsächliche Allelziehungen erzeugt. In acht eigenen unterschiedlichen Seeds blieb F1 vollständig Aa; F2 variierte. Die neutrale Population hat gleiche Gewichte, gerichtete Umgebungen verändern systematisch die Elternwahl. Die neutrale Paarung mit gleichem Seed erzeugt innerhalb einer Wiederholung identische Seiten; verschiedene Wiederholungen sind davon zu unterscheiden.
+
+Nitrifizierer wachsen im substratfreien eigenen Kernversuch nicht. Der Fischzustandsindex enthält bei toten Fischen und lebenden Schnecken keinen positiven Fischgesundheitswert. Der14-Tage-Sanierungslauf stoppt die Kontrolle bei48,25, rechnet die andere Seite bis59 weiter und erfindet keine Folgemessungen für die gestoppte Kontrolle.
+
+Die Sauerstoffmission illustriert die notwendige Zurückhaltung besonders gut: Beide Werte steigen von7,8mg/L, die dunkle Seite erreicht8,1639mg/L und liegt unter der hellen Seite8,2839mg/L. „Weniger als im hellen Becken“ ist hier richtig; „weniger als am Anfang“ nicht. Aufgaben sollen das vorhandene Modell korrekt auswerten, nicht seine Raten für erwartete Antworten zurechtbiegen.
+
+Dies ist eine Prüfung ausgewählter interner Zusammenhänge, keine empirische Kalibrierung und keine Gesamtfreigabe aller Arten, Aquarienhaltungen, Anatomien oder Grenzwerte.
+
+## 5. Kritischer Abgleich mit Work
+
+| Work-Bereich | Einordnung | Konsequenz |
+|---|---|---|
+| F01 Sichtbarkeit beider Becken | A-Code/Modell + B-Browser/Bild bestätigt | Zentral reparieren; nicht neun einzelne Panels nachrüsten. |
+| F02 Zeit-/Darstellungskohärenz | A-Kern/HTML + B-Bild bestätigt | Ein gemeinsamer Kontextselektor, echte Zustände statt nur Uhrbeschriftung. |
+| F03 Genetik/Population getrennt | A-Code + B-Bild bestätigt | Lernkohorte sichtbar, irrelevante Aquariumkulisse ersetzen. |
+| F04 Wald/Region/Mechanismen fehlen bildlich | A-Code + B-Bild; notwendige Gestaltung ist begründete Designentscheidung | Geeignete 2D-/3D-Sicht, keine Pflicht zur teuren neuen Spielwelt. |
+| F05 Quizlast statt tatsächlicher Beobachtung | Durch Materialien begründete Unterrichtsbewertung, kein empirischer Nachweis „Schüler lernen nichts“ | Wenige datenbezogene Handlungen statt zusätzlicher Pflichttexte. |
+| F06 Feedback, F07 Dichte/Sprache | A-Code + visuelle B-Belege | Kontextbezogenes Feedback, kein grüner Fehler; Hauptaktion und Gegenstand im Sichtfeld. |
+| F08 behauptete Folgewirkungen | A-Kern + B-Daten bestätigt | Beobachtung, mögliche Folge und offene Erklärung trennen. |
+| Physisches iPad, Lernerfolg, allgemeine Performance | C/offen | Nicht aus WebKit oder Testabschluss ableiten. |
+| Ausgebautes 3D-Minispiel an jedem Gerät | D/Gestaltungswunsch | Nur einsetzen, wenn die Handlung verständlicher wird; kein Selbstzweck. |
+| „Becken 1 bleibt gleich“ ohne Präzisierung | E/ungeeignete pauschale Formulierung | „Einstellung bleibt gleich“; das Kontrollökosystem entwickelt sich weiter. |
+
+Das Work-Paket ist wesentlich belastbarer als frühere bloße Codex-Abschlussberichte. Sein ausführbarer Prüfer verwendet bei manchen Quizwegen jedoch Codewissen zur Wahl richtiger Antworten. Das ist als Funktionstest legitim, beweist aber nicht, dass ein Schüler den Weg selbst findet. Eine lesbare Bildschirmaufnahme ist ebenfalls kein Nachweis von Verständnis. Diese Einschränkung steht im Work-Bericht und darf beim Zusammenfassen nicht verloren gehen.
+
+## 6. Schul- und Landesbezug
+
+Das Originalcurriculum ordnet Klasse8 Ökologie, Klasse9 Genetik/Evolution und Klasse10 menschlichen Ökosystemeinfluss zu. Der Wald ist das reguläre ökologische Referenzbeispiel. Fotosynthese/Zellatmung, Nahrung/Trophie, Energiefluss und Untersuchungen gehören dazu. In9 sind Mendel und Vererbung vorgesehen; eine Ein-Locus-F1/F2-Mission deckt nicht automatisch die Unabhängigkeitsregel oder alle weiteren Genetikinhalte ab. Für10 sind Kohlenstoff einschließlich anthropogener Beeinflussung sowie Meeresschutz/Meeresmüll Nordsee/Wattenmeer ausdrücklich verbindlich.
+
+Die aktuelle IQSH-Seite bestätigt: Biologie2026 tritt ab2026/27 aufwachsend ab Fachbeginn in Kraft,2023 gilt auslaufend weiter. Da das bereitgestellte ETS-Curriculum den Beginn inJahrgang7 nennt, folgt für die gegenwärtigen Jahrgänge8–10 der Abgleich mit2023. Diese Zuordnung ist eine aus beiden Originalquellen abgeleitete Einordnung; bei abweichendem Fachbeginn oder späterem Schuljahr erneut prüfen. Allgemeiner Teil2024 gilt zusätzlich.
+
+Die2023-Fassung wurde im offiziellen PDF-Text geprüft: Eg3/4 betrifft verständliche Kontroll-/Testbedingungen und die Auswertung tatsächlicher Daten; Eg5 Modelle; R4/5 Vererbung; K3 Ökosystemorganisation; SE5–8 Stoff/Energie/Mensch; GV4/5 Evolution und Belege. Die PDF-Bildabfrage des Webwerkzeugs scheiterte; ich behaupte deshalb keine eigene visuelle Prüfung farblicher Anforderungsebenen dieser Landes-PDF. Die schulischen Einheiten wurden zusätzlich aus der vorhandenen Original-PDF gelesen.
+
+Die Themenwahl passt insgesamt. Die schwerwiegende Lücke ist weniger fehlender Themenumfang als die fehlende Einlösung in sichtbaren Handlungen. Mehr Themen oder mehr Fachsprache würden das nicht beheben. Die Simulation ergänzt ausgewählte Unterrichtseinheiten und ersetzt weder Freilandarbeit noch das gesamte Curriculum. Kurze Auswahlaufgaben können unterstützen; begründete Untersuchung und kriteriengeleitete Entscheidung müssen dort, wo beansprucht, tatsächlich ermöglicht werden.
+
+## 7. Empfohlenes gemeinsames Konzept
+
+### Untersuchungsidentität als verbindlicher Zusammenhang
+
+Jeder dargestellte Gegenstand und Messwert trägt dieselbe Versuch-/Wiederholungs-/Seiten-/Zeitidentität. Ein Selector liefert sie an alle Ansichten. Ausgangslage und historische Belege sind unveränderlich. Betrachten ist nicht Übernehmen. Geräte verändern nur die ausdrücklich bezeichnete Seite. Neustart ist nicht Fortsetzen.
+
+### Drei passende Arbeitsbereiche
+
+1. Zwei Aquariumübersichten mit relevanten Geräteeinstellungen, Messkarten und gemeinsamer Zeit. Ein WebGL-Kontext mit geteilten Viewports oder eine sparsame gleichwertige Lösung ist vorzuziehen. Im Detailfokus bleibt der Vergleichspartner sichtbar. Nur Etiketten oder Tabs ohne Vergleichsübersicht beheben F01 nicht.
+2. Direkte Kohortenansicht für Vererbung/Evolution. Sichtbare Individuen und ihre Identität gehören zum tatsächlichen Modell. Generationen statt fachfremder Tage. Farbe, Allel und Häufigkeit nicht verwechseln.
+3. Kleine interaktive Netze und regionale Fälle. Das sichtbare Material muss zur Aufgabe passen; eine Hafenentscheidung benötigt keine erfundene Meeressimulation. Schematische Prozessdarstellungen nicht als beobachtete Mikroskopbilder oder gemessene Flüsse ausgeben.
+
+### Reduktion durch gute Bezugspunkte, nicht durch Weglassen der Belege
+
+Eine Frage, eine primäre Handlung, ein bis zwei Werte. Das wichtigste Gegenstück darf nicht eingespart werden. Hilfen zuerst zur Bedienung und zum Blick auf Daten; zentrale Begriffe nach passender Beobachtung. Keine Pflichtaufsätze oder Zeichnungen. Eine knappe Auswahl eines passenden Datenbelegs mit einer zugehörigen Ursache kann mehr zeigen als ein automatisch gefülltes „Erklärungs“-Textfeld.
+
+### Verbindliches Prototyp-Gate
+
+Zunächst nur die Temperaturmission vollständig zusammenhängend auf Desktop und iPad-Größen umsetzen. Der Auftraggeber erhält eine bedienbare Vorschau und Bilder von Ausgang, Eingriff, Verlauf und Ergebnis. Erst nach ausdrücklicher Sichtfreigabe wird das neue Prinzip auf die anderen Vergleichsmissionen übertragen. Selbst erklärte grüne Tests sind keine Nutzerfreigabe. Genetik- und Regionaldarstellung brauchen eigene passende Muster, nicht dieselbe Aquariumansicht.
+
+## 8. Verbleibende Grenzen und Entscheidung
+
+Kein eigener Browserdurchlauf dieser Sitzung; keine Kindererprobung, kein physisches iPad, keine vollständige Katalog-/Anatomie-/Langzeitperformanceprüfung. Die im Work-Paket dokumentierten Browsererfolge bleiben als solche wertvoll, werden aber nicht als meine eigenen ausgegeben. Zusätzliche Gegenproben weisen trotz139 grüner Tests neue Fehler nach.
+
+**Entscheidung:** Erhaltung des vorhandenen Rechenkerns und bereits korrigierter Funktionen, aber gezielte strukturelle Überarbeitung von Darstellungsidentität, Versuchsdurchgängen und sichtbarer Lernhandlung. Keine weitere pauschale Unterrichtsfreigabe allein aus Tests oder14 Questabschlüssen. Der beigefügte Codex-Auftrag beschreibt die Umsetzung einschließlich verbindlicher Zwischenabnahme.
+
+## 9. Belegindex
+
+- `browser-attempt.json`: eigener gescheiterter Navigationsversuch, nicht umgangen.
+- `version-comparison.json`:19 zentrale GitHub-/ZIP-Dateivergleiche.
+- `source-integrity-before.json`, `source-integrity-after.json`:1443 lokale Quellen unverändert.
+- `core-extraction.json`, `scripts/actual-core.mjs`: reproduzierbare Quelle des tatsächlichen Berechnungskerns.
+- `independent-probes.json`:I01–I15 mit17 Startprofilen, neun ökologischen Paarläufen, acht F1/F2-Seeds und weiteren Gegenproben.
+- `additional-probes.json`:vier No-op-Gegenfälle, exakter Öffnen-Handler, Original-HTML bei früher Inspektion.
+- `existing-tests-rerun.log`:139/139 bestehende Tests neu ausgeführt.
+- `evidence/`:repräsentative Work-Bilder, von mir gesichtete Kontaktbögen; keine neu durchgespielten Browserbilder.
+- `Missionsmatrix.md`/`.json`:alle14 Missionen mit sämtlichen geforderten Abnahmespalten.
+
+## 10. Originalquellen und Reichweite
+
+Q1 ETS: https://ets-toenning.de/wp-content/uploads/2025/07/Schulinternes-Fachcurriculum-Biologie-SJ-2025-26.pdf (S.1,3–5,9–10,14–15,19–20). Die bereitgestellte PDF war lesbar. Themen-/Handlungsmatrix bezieht sich auf diese Inhalte, nicht auf erfundene zusätzliche Anforderungen.
+Q2 IQSH-Geltung: https://fachportal.lernnetz.de/sh/faecher/biologie/fachanforderungen.html (am22.10.2026 abgerufen).
+Q3 Offizielle2023-PDF: https://fachportal.lernnetz.de/sh/faecher/biologie/fachanforderungen.html?cid=29947&amp;file=files%2FFachanforderungen+und+Leitf%C3%A4den%2FSekundarstufe%2FFachanforderungen%2FFachanforderungen+Biologie+Sekundarstufe+%282023%2C+barrierearm%29.pdf (Text geprüft; visueller Web-Screenshotabruf fehlgeschlagen).
+Q4 Australische Behördenrichtlinie: https://www.waterquality.gov.au/anz-guidelines/guideline-values/default/water-quality-toxicants/toxicants/ammonia-2000 (NH3-Anteil an Gesamtammoniak, keine Kalibrierung der Spielschadensschwellen).
+Q5 US EPA: https://www.epa.gov/caddis/ammonia (Formen und Einflussgrößen; ebenfalls keine Bestätigung der Modellraten).
+Q6 San Francisco Estuary Institute: https://www.sfei.org/nis/waterweed.html (Egeria densa kann im Schlamm wurzeln).
+Q7 Kattmann et al.1997, Das Modell der Didaktischen Rekonstruktion: https://www.pedocs.de/frontdoor.php?source_opus=31502 (Rahmenreferenz, keine behauptete Wirksamkeitsstudie dieses Spiels).
+
+Architektur, Wortumfangsrichtwerte und vorgeschlagene Abnahmetests sind aus den Befunden abgeleitete Gestaltungsvorschläge. Die Quellen bestätigen nicht automatisch ihre Wirkung bei dieser Lerngruppe. Eine kurze beobachtete Schülererprobung nach der Korrektur bleibt notwendig.
+
+
+## 8-ecosystem
+
+**Lernziel:** Unbelebte Umweltbedingung; fairer Temperaturvergleich
+
+**Erwartete Handlung:** Lebendes markieren, nur Becken 2 heizen, gleiche Zeitpunkte vergleichen
+
+**Tatsächliche Darstellung:** Eine unbeschriftete Aquariumszene; spätere zwei Zahlen im Questfenster
+
+**Bedienung:** Gerät planen, Paarrechnung starten, später einzelne Endseite laden
+
+**Beobachtbares Ergebnis:** 25 gegenüber 25,9024 °C nach drei Spieltagen im eigenen Kernlauf
+
+**Defizit:** Der Vergleichspartner fehlt vor der Vorhersage; Szene und Ergebnistag können abweichen. Wirkung auf Tiergesundheit wird dabei nicht bewiesen.
+
+**Verbesserung:** Zwei Beckenübersichten, Soll-/Istwerte, eine Versuchsuhr; biologischen Anspruch auf tatsächlich Gezeigtes begrenzen.
+
+**Prüfstatus:** A: eigener Kern/Code. B: Work-Browser beider Engines, Bild selbst gesichtet.
+
+**Abnahme:** Vor der Vermutung beide Starts sichtbar; nur B-Sollwert ändern; Bild, Uhr und Karten stimmen überein.
+
+**Bezug:** ETS9–10; K3, Eg3/4
+
+
+## 8-oxygen
+
+**Lernziel:** Lichtabhängige Sauerstoffbildung bei weiteren gleichzeitig wirkenden Prozessen
+
+**Erwartete Handlung:** Hellen und dunklen Versuch vergleichen; eigene Vermutung an Daten prüfen
+
+**Tatsächliche Darstellung:** Ein Aquarium bleibt sichtbar, obwohl Licht0 im Versuchsplan steht; Zahlen zweier Seiten später
+
+**Bedienung:** Lichtdauer einstellen, Vergleich rechnen und Werte lesen
+
+**Beobachtbares Ergebnis:** Hell8,2839; dunkel8,1639 mg/L, beide über Anfang7,8 im eigenen Lauf
+
+**Defizit:** Weniger als Kontrolle ist nicht weniger als Anfang. Eine reine Endwertfrage zeigt die einzelnen Prozessanteile nicht.
+
+**Verbesserung:** Zwei sichtbare Lichtbedingungen; gleiche Zeitauswahl; Bildung/Verbrauch/Luftaustausch als getrennte Erklärungsebene.
+
+**Prüfstatus:** A: tatsächlicher Kern. B: Work-Browser/Bild.
+
+**Abnahme:** Keine garantierte Abnahme im Dunkeln; richtiger Bezugsvergleich und sichtbare Zuordnung.
+
+**Bezug:** ETS9–10; SE5, Eg3/4
+
+
+## 8-foodweb
+
+**Lernziel:** Nahrungspfeile, Stoffrückweg und gerichteter Energiefluss
+
+**Erwartete Handlung:** Relevante Organismen/Ressourcen verbinden; Futterreste verfolgen
+
+**Tatsächliche Darstellung:** Aquarium plus Text-Zuordnungen; kein aufgebautes sichtbares zusammenhängendes Netz
+
+**Bedienung:** Textziele anklicken und erhöhte Futtergabe berechnen
+
+**Beobachtbares Ergebnis:** Mehr Reste im eigenen Lauf; Zuordnungen werden protokolliert
+
+**Defizit:** Anklicken von richtigen Sätzen ersetzt das Verfolgen einer Beziehung nicht. „Organisch“ wird unvermittelt vorausgesetzt.
+
+**Verbesserung:** Kleines interaktives Netz direkt am Gegenstand, schematische Zersetzervergrößerung; Energie getrennt.
+
+**Prüfstatus:** A: Aufgaben-/Kernprüfung. B: Work-Browser und Bild.
+
+**Abnahme:** Mindestens ein sichtbarer Pfad Nahrung→Tier→Reste→Zersetzer; andere Pfeile für Stoffe/Energie.
+
+**Bezug:** ETS9; K3, SE7
+
+
+## 8-health
+
+**Lernziel:** Lebensbedingungen, Überleben und Wirkung einer Maßnahme
+
+**Erwartete Handlung:** Fische und Wasser ansehen; eine echte Maßnahme mit unbehandelter Kontrolle vergleichen
+
+**Tatsächliche Darstellung:** Ein Aquarium; getrennte Überlebens-/Zustandskarten erst nach Rechnung; Nitrit im Pflichtweg
+
+**Bedienung:** Wasserwechsel einschließlich 0 % eingeben
+
+**Beobachtbares Ergebnis:** 0 % liefert identische Reihen, wird vom aktuellen Questvalidator dennoch als Eingriff akzeptiert
+
+**Defizit:** Fehlende Gegenüberstellung; Journaleintrag wird als Veränderung gezählt; Grade8-Chemiereduktion inkonsequent.
+
+**Verbesserung:** Beide Seiten sichtbar, Überleben zuerst, einfache Wasserwarnung; Null-Eingriff bewusst als Kontrolle behandeln.
+
+**Prüfstatus:** A: eigene 0%-Kern-/Validatorprobe. B: Work-Ablauf/Bild.
+
+**Abnahme:** 0 % erfüllt keinen ausgeführten Wasserwechsel; keine Schnecken im Fischzustand; sichere Datenzuordnung.
+
+**Bezug:** ETS9–10; SR5, Eg3/4
+
+
+## 8-forest
+
+**Lernziel:** Gemeinsamkeiten und Grenzen der Übertragung auf Wald
+
+**Erwartete Handlung:** Gleiche Merkmale zweier Pflanzen vergleichen
+
+**Tatsächliche Darstellung:** Baum-Emoji und Textantworten vor Aquarium
+
+**Bedienung:** Lichtversuch und zwei Textzuordnungen
+
+**Beobachtbares Ergebnis:** Wasserpest wächst mit Licht im Lauf stärker; Baum wird nicht berechnet
+
+**Defizit:** Keine Baum-/Waldbeobachtung; Bodenwurzeln gegen Unterwasserlebensraum ist ein schiefer Vergleich.
+
+**Verbesserung:** Ansichten Wasserpest/Baum mit gleichen Vergleichskriterien; Blätter/Lichtbedarf vergleichen.
+
+**Prüfstatus:** A: eigener Code/Kern; externer Artenbeleg. B: Work-Bild.
+
+**Abnahme:** Gemeinsamkeit und Unterschied am sichtbaren Bild zuordnen; keine Behauptung wurzelloser Wasserpflanzen.
+
+**Bezug:** ETS9–10; K3, Eg5
+
+
+## 9-traits
+
+**Lernziel:** Gleiches Aussehen kann unterschiedliche Erbanlagen haben
+
+**Erwartete Handlung:** Dasselbe Individuum sichtbar wählen und Erbanlagen aufdecken
+
+**Tatsächliche Darstellung:** Vier Hintergrundfische neben separaten Lernfischkarten
+
+**Bedienung:** Hell/dunkel und AA/Aa-Karten ansehen
+
+**Beobachtbares Ergebnis:** AA/Aa werden im einfachen Farbmodell beide dunkel angezeigt
+
+**Defizit:** IDs und sichtbar dominierende Aquariumtiere gehören nicht zur untersuchten Kohorte.
+
+**Verbesserung:** Eine eigene zählbare Lernpopulation; Markierung und Detail zum gleichen Individuum.
+
+**Prüfstatus:** A: Code und Modelldaten. B: Work-Browser/Bild.
+
+**Abnahme:** Auswahl, Farbe und Genotyp zeigen identische ID; keine irrelevante zweite Tierwelt.
+
+**Bezug:** ETS14; R4/5, VA3
+
+
+## 9-mendel
+
+**Lernziel:** Zufällige Weitergabe; F1/F2 und Wahrscheinlichkeit versus Stichprobe
+
+**Erwartete Handlung:** Tatsächliche Eltern wählen, F1 beobachten, F1-Nachkommen zu F2 kreuzen
+
+**Tatsächliche Darstellung:** Eltern-Dropdowns, Textkarten und Zahlen neben unverändertem Vierfisch-Aquarium
+
+**Bedienung:** Echte F1/F2 möglich; Neustart setzt primär Quest zurück
+
+**Beobachtbares Ergebnis:** Acht eigene Seeds: F1 vollständig Aa, unterschiedliche F2-Verteilungen
+
+**Defizit:** Fachkern tragfähig, Sichtbarkeit unzureichend; alte Generation kann nach Neustart noch bestehen.
+
+**Verbesserung:** Sichtbare Eltern/Allelweitergabe/F1/F2; eigener Durchgang mit neuer Identität oder ausdrücklich Fortsetzung.
+
+**Prüfstatus:** A: acht eigene F1/F2-Proben; Restart-Quellprobe. B: Work-Bild.
+
+**Abnahme:** F1/F2 sichtbar zählen; neue Mission rechnet alte Ereignisse nicht still an; keine feste Quote.
+
+**Bezug:** ETS14; R4/5, Eg4/5
+
+
+## 9-population
+
+**Lernziel:** Drift und systematische Fortpflanzungsunterschiede unterscheiden
+
+**Erwartete Handlung:** Neutrale Wiederholungen und gerichtete Umgebung vergleichen
+
+**Tatsächliche Darstellung:** Zwei Kurven, aber keine zwei sichtbaren Populationen
+
+**Bedienung:** Berechnete neutrale/gerichtete Läufe auswählen
+
+**Beobachtbares Ergebnis:** Eigene Probe bestätigt neutrale Gewichte1 und verschiedene Wiederholungen; innerhalb des neutralen Paars identische Zufallsfolge
+
+**Defizit:** Kontrolle versus Wiederholung leicht verwechselbar; falsche Reihenansicht kann neueste Reihe statt Auswahl öffnen.
+
+**Verbesserung:** Zwei sichtbare Gruppen und getrennt erkennbare Wiederholungen; Elternbeiträge verfolgen.
+
+**Prüfstatus:** A: eigene Modelldaten und Selektorfehler. B: Work-Browser.
+
+**Abnahme:** Alle Gruppen/Generationen/Seeds eindeutig; kein Selektionstext bei neutralem Lauf.
+
+**Bezug:** ETS14–15; GV5, R5
+
+
+## 9-darwin
+
+**Lernziel:** Konkurrierende Vorhersagen und Grenzen programmierter Erklärungen
+
+**Erwartete Handlung:** Vorhersagen formulieren, Veränderungen verfolgen, zusätzliche Naturbelege betrachten
+
+**Tatsächliche Darstellung:** Auswahlsätze zu Darwin/Lamarck/Fossilien, kein Fossilmaterial in Pflichtsicht
+
+**Bedienung:** Zwei Läufe und Textzuordnungen
+
+**Beobachtbares Ergebnis:** Modellselektion tatsächlich vorhanden, kein eigenständiger empirischer Beweis
+
+**Defizit:** Fossilien nur benannt; absurde Wunsch-Alternative ersetzt anspruchsvolle Fehlvorstellung.
+
+**Verbesserung:** Gleiche sichtbare Generationenfolge plus wenige echte datierte Fossil-/Merkmalsbelege.
+
+**Prüfstatus:** A: eigener Code/Population. B: Work-Bild.
+
+**Abnahme:** Vorhersage vor Ergebnis; Fossilbild tatsächlich bearbeiten; Familienarchiv nicht als Artstammbaum.
+
+**Bezug:** ETS15; GV4/5, Eg5
+
+
+## 10-enrichment
+
+**Lernziel:** Nährstoffanreicherung und mögliche indirekte Folgen
+
+**Erwartete Handlung:** Algen und anschließend Sauerstoff derselben Reihe beobachten
+
+**Tatsächliche Darstellung:** Ein Becken, Werte zweier Seiten und separate Auswahl weiterer Messgröße
+
+**Bedienung:** Einmalige Nährstoffzugabe, Algen-/Sauerstoffwerte öffnen
+
+**Beobachtbares Ergebnis:** Mehr Algen; keine automatisch eintretende Sauerstoffkrise im dokumentierten kurzen Lauf
+
+**Defizit:** Gefahr einer behaupteten Wirkungskette, die die vorhandenen Daten nicht vollständig zeigen.
+
+**Verbesserung:** Sichtbarer Vergleich/Verlauf; beobachtete von möglichen späteren Folgen unterscheiden.
+
+**Prüfstatus:** A: eigener Kern/Code. B: Work-Browser.
+
+**Abnahme:** Echte Daten bestimmen Auswertung, keine erzwungene Krise oder künstliche Kurve.
+
+**Bezug:** ETS19–20; SE7/8, Eg4
+
+
+## 10-carbon
+
+**Lernziel:** Kohlenstoffwege und anthropogener Zusatzfluss
+
+**Erwartete Handlung:** Speicher/Prozesswege verknüpfen, lokalen Versuch und fossilen Transfer unterscheiden
+
+**Tatsächliche Darstellung:** CO2-Zufuhrfeld, zwei Zahlen, Textpfeil-Zuordnungen vor Aquarium
+
+**Bedienung:** Zufuhr ändern und Zieltexte auswählen
+
+**Beobachtbares Ergebnis:** CO2-Vergleich plausibel; Pflanzenmenge muss trotz stärkerer Zufuhr nicht stärker steigen
+
+**Defizit:** Große Szene bildet weder Speicherwege noch globalen Transfer ab; relative Pools sind keine C-Massenbilanz.
+
+**Verbesserung:** Wenige sichtbare Speicher/Prozesspfeile; getrennte fossile Transferansicht mit Originalquellen.
+
+**Prüfstatus:** A: Kern/Code. B: Work-Browser/Bild.
+
+**Abnahme:** Ein lokaler Datenbefund und ein belegter menschlicher Speicher→Fluss-Transfer; keine globalen Zahlen aus Dosierstufen.
+
+**Bezug:** ETS19–20 verbindlich; SE5/7/8
+
+
+## 10-restore
+
+**Lernziel:** Frühe/späte Wirkung und Grenzen einer Wiederherstellung
+
+**Erwartete Handlung:** Gleiche Zeitpunkte, Überleben und Zustand vergleichen
+
+**Tatsächliche Darstellung:** Frühe Inspektionstextzeile neben späterer Hauptkarte; einzelne geladene Endszene
+
+**Bedienung:** Früh/spät anklicken, Maßnahme rechnen
+
+**Beobachtbares Ergebnis:** Eigener Kern: Kontrolle endet48,25; Versuch erreicht59. Original-HTML zeigt frühe45,25 und Hauptkarte48,25 gleichzeitig.
+
+**Defizit:** Zeitselektor steuert nicht alle Anzeigen; 0%-Eingriff gilt fälschlich als Handlung.
+
+**Verbesserung:** Gemeinsamer Zeitpunktselektor mit tatsächlichen Snapshots; getrennte Ausfall-/Übernahmeregeln.
+
+**Prüfstatus:** A: Originalfunktion ausgeführt und Kernprobe. B: Work-Bild.
+
+**Abnahme:** Früh/spät ändert Bild und Daten gemeinsam; fehlende Daten bleiben fehlend; kein Nullwasser-Erfolg.
+
+**Bezug:** ETS19–20; SR5, Eg4, Bw
+
+
+## 10-northsea
+
+**Lernziel:** Eintragsquelle, Transportweg, Meer und Maßnahmen
+
+**Erwartete Handlung:** Quelle→Fluss→Nordsee verfolgen, Maßnahme am Ursprung begründen
+
+**Tatsächliche Darstellung:** Textweg und Süßwasseraquarium, keine passende Karte
+
+**Bedienung:** Nährstoffversuch plus vorgegebene Weg-/Maßnahmenantworten
+
+**Beobachtbares Ergebnis:** Lokaler experimenteller Teil vorhanden, regionaler Weg nur textlich
+
+**Defizit:** Quelle und Region werden nicht als Untersuchungsgegenstand gesehen.
+
+**Verbesserung:** Kleine belegte Einzugsgebietsansicht; Übergang vom Aquarium zur Karte sichtbar.
+
+**Prüfstatus:** A: Code. B: Work-Browser/Bild.
+
+**Abnahme:** Quelle/Fluss/Mündung anklickbar und belegt; Nutzen/Aufwand ohne erfundene Regionalmengen.
+
+**Bezug:** ETS19–20; SE8, Bw1–3
+
+
+## 10-wadden
+
+**Lernziel:** Maßnahmen anhand unterschiedlicher Folgen bewerten
+
+**Erwartete Handlung:** Maßnahme wählen, Nutzen/Aufwand und Erfolgskontrolle verbinden
+
+**Tatsächliche Darstellung:** Hafenabsatz vor Süßwasseraquarium; irrelevante Geräte-/Zeitkulisse
+
+**Bedienung:** Mehrweg oder Netze/Leinen wählen
+
+**Beobachtbares Ergebnis:** Eigene Gegenprobe: Netzauswahl endet trotzdem bei vorgegebener Mehrweg-Schlussfrage
+
+**Defizit:** Auswahl und Schlussfolgerung nicht zusammenhängend; benannte Personen/Materialien unsichtbar.
+
+**Verbesserung:** Hafenszene und zwei echte Entscheidungszweige mit passenden Folgen, Beteiligten und späterer Kontrolle.
+
+**Prüfstatus:** A: eigene Quell-/Funktionsprobe. B: Work-Zusatzweg und Bild.
+
+**Abnahme:** Beide Maßnahmen erhalten passende eigene Auswertung; keine Plastikmessung im Aquarium.
+
+**Bezug:** ETS19–20 verbindlich; SE8, Bw1–3
+</pre></main></html>

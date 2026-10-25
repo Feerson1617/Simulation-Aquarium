@@ -1,0 +1,40 @@
+[
+  {
+    "run": "normal-chromium",
+    "capturedCommit": "9503d1cdb2d2a0b5f1b47388f6ba13a5bc446413",
+    "changedRootFilesSinceStart": [
+      "aquascaping.mjs",
+      "standalone-navigation.mjs"
+    ],
+    "normalMissionReaderModelsUIUnchanged": true,
+    "validatedAgainstApplication": "1ecd8d0909f8789a3394eb4a413156fd223aa843"
+  },
+  {
+    "run": "normal-webkit",
+    "capturedCommit": "9503d1cdb2d2a0b5f1b47388f6ba13a5bc446413",
+    "changedRootFilesSinceStart": [
+      "aquascaping.mjs",
+      "standalone-navigation.mjs"
+    ],
+    "normalMissionReaderModelsUIUnchanged": true,
+    "validatedAgainstApplication": "1ecd8d0909f8789a3394eb4a413156fd223aa843"
+  },
+  {
+    "run": "reader-chromium",
+    "capturedCommit": "e8b9850724c0d354cfb0b5367c48ca796ba70d95",
+    "changedRootFilesSinceStart": [
+      "standalone-navigation.mjs"
+    ],
+    "normalMissionReaderModelsUIUnchanged": true,
+    "validatedAgainstApplication": "1ecd8d0909f8789a3394eb4a413156fd223aa843"
+  },
+  {
+    "run": "reader-webkit",
+    "capturedCommit": "e8b9850724c0d354cfb0b5367c48ca796ba70d95",
+    "changedRootFilesSinceStart": [
+      "standalone-navigation.mjs"
+    ],
+    "normalMissionReaderModelsUIUnchanged": true,
+    "validatedAgainstApplication": "1ecd8d0909f8789a3394eb4a413156fd223aa843"
+  }
+]

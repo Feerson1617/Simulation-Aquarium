@@ -3,7 +3,7 @@
 Run with the local static server on port 8000. Uses no remote resources.
 The mature starting aquarium is a test fixture, not a change to game scenarios.
 """
-import copy, json, os
+import copy, json, os, subprocess
 from pathlib import Path
 from playwright.sync_api import sync_playwright, expect
 
@@ -11,7 +11,8 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=Path(os.environ.get('AQUARIUM_GENETICS_RESULTS','/tmp/aquarium-genetics-browser'))
 OUT.mkdir(parents=True,exist_ok=True)
 URL=os.environ.get('AQUARIUM_TEST_URL','http://127.0.0.1:8000/aquarium-simulation/?expert=1')
-report={'passed':[],'errors':[],'console_errors':[],'failed_requests':[]}
+ENGINE=os.environ.get('AQUARIUM_BROWSER','chromium')
+report={'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'engine':ENGINE,'passed':[],'errors':[],'console_errors':[],'failed_requests':[],'skipped':[]}
 def passed(message):report['passed'].append(message);print('PASS',message,flush=True)
 def click(page,selector):page.locator(selector).filter(visible=True).first.click()
 def saved(page):return json.loads(page.evaluate('localStorage.getItem("aquarium-werkstatt-v1")'))
@@ -44,7 +45,8 @@ def select_pair(page,mother,father):
 def descendants(snap,parents):return[r for r in snap['genetics']['pedigree'].values()if r['parents']==parents]
 
 with sync_playwright()as p:
- browser=p.chromium.launch(executable_path='/usr/bin/chromium',args=['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'])
+ options={'executable_path':'/usr/bin/chromium','args':['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']} if ENGINE=='chromium' else {'executable_path':os.environ['AQUARIUM_WEBKIT']}
+ browser=getattr(p,ENGINE).launch(**options);report['browser']=browser.version
  context=browser.new_context(viewport={'width':1360,'height':960});page=context.new_page();page.set_default_timeout(90000)
  page.on('pageerror',lambda e:report['errors'].append(str(e)))
  page.on('console',lambda m:report['console_errors'].append({'text':m.text,'url':m.location.get('url','')})if m.type=='error'else None)
@@ -87,11 +89,13 @@ with sync_playwright()as p:
   newborn={r['uid']for r in second};adults=[r for r in view if r.get('fish')and r['uid']in[mother,father]];young=[r for r in view if r.get('fish')and r['uid']in newborn]
   assert young and max(young[0]['basisLengths'])<max(adults[0]['basisLengths']),view
   shot(page,'aquarium-with-f2.png');passed('Newborn fish use inherited appearance and are visibly smaller in the actual aquarium renderer')
-  before=page.evaluate('localStorage.getItem("aquarium-werkstatt-v1")');click(page,'[data-panel="time"]');page.locator('[data-graphics-setting]').select_option('maximum');page.wait_for_function('window.aquariumSnapshot().graphics.graphicsProfile==="maximum"')
-  assert page.evaluate('localStorage.getItem("aquarium-werkstatt-v1")')==before
-  page.locator('[data-graphics-setting]').select_option('ipad');click(page,'[data-act="close-panel"]')
+  if os.environ.get('AQUARIUM_GENETICS_SKIP_MAXIMUM')=='1':report['skipped'].append('Maximum graphics profile switch; this run targets breeding at the iPad graphics profile')
+  else:
+   before=page.evaluate('localStorage.getItem("aquarium-werkstatt-v1")');click(page,'[data-panel="time"]');page.locator('[data-graphics-setting]').select_option('maximum');page.wait_for_function('window.aquariumSnapshot().graphics.graphicsProfile==="maximum"')
+   assert page.evaluate('localStorage.getItem("aquarium-werkstatt-v1")')==before
+   page.locator('[data-graphics-setting]').select_option('ipad');click(page,'[data-act="close-panel"]')
   restore(page,final);assert saved(page)['genetics']==final['genetics'];page.reload();click(page,'[data-start="resume"]');assert saved(page)['genetics']==final['genetics']
-  passed('Profile changes, JSON import and reload preserve genes, colour forms, parents and all generations')
+  passed('JSON import and reload preserve genes, colour forms, parents and all generations')
   restore(page,mature());buy(page,'platy','red-wagtail','♀','AaBb');buy(page,'platy','red-wagtail','♂','AaBb')
   click(page,'#genetics-button');page.locator('[data-gen-species]').select_option('platy');click(page,'[data-gen-action="pair"]');parents=snapshot(page)['parents'];click(page,'[data-gen-days="7"]');platy=descendants(snapshot(page),parents);assert platy
   page.locator('[data-gen-reveal]').check();click(page,'[data-gen-action="theory"]');assert page.locator('.genetics-punnett tbody td').count()==16;expect(page.locator('.genetics-content')).to_contain_text('56,3 %')

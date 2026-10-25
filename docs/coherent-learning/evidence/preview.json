@@ -1,0 +1,64 @@
+{
+  "preview": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/",
+  "build_commit": "d0c4b17096289c18efa63a8b93aa49205c4cb1bd",
+  "workflow": "https://github.com/Feerson1617/Simulation-Aquarium/actions/runs/39763109895",
+  "files": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "bytes": 21244552,
+      "sha256": "69fd77ce6791a037f3d081f4740bc5d82e9a72a612ebf923de88a1605c056813",
+      "matches_local": true
+    },
+    {
+      "path": "coherent-learning.css",
+      "status": 200,
+      "bytes": 6063,
+      "sha256": "ed289604f766320b829bda9d7bbb3e588771714f0a1e4269c50d4f01951c098c",
+      "matches_local": true
+    },
+    {
+      "path": "learning-context.mjs",
+      "status": 200,
+      "bytes": 9918,
+      "sha256": "35f7ba4c5a746187f1ca14d39218aee26ec86bbded1a1057f2faab52bce57b92",
+      "matches_local": true
+    },
+    {
+      "path": "learning-model.mjs",
+      "status": 200,
+      "bytes": 40553,
+      "sha256": "e5feda1d2bf38bff5e7fa74b9d391c4d3d99583eaf44769e2a4afdf94d5075c6",
+      "matches_local": true
+    },
+    {
+      "path": "learning-ui.mjs",
+      "status": 200,
+      "bytes": 123518,
+      "sha256": "c55dda5732fd5ec2b29425984b07c60977c8bf7559558836eee67b5ebfc530e0",
+      "matches_local": true
+    },
+    {
+      "path": "learning-workspace.mjs",
+      "status": 200,
+      "bytes": 6201,
+      "sha256": "a5eabda99c17a3c155b0245fc9d63683fc6f760b4b8b60d188aa81041a0eb152",
+      "matches_local": true
+    },
+    {
+      "path": "learning-tank-views.mjs",
+      "status": 200,
+      "bytes": 6540,
+      "sha256": "0b8ddc005376bf97d8323ebf620bfa1672bed3d744a59798d22eba4b74b01284",
+      "matches_local": true
+    },
+    {
+      "path": "vendor/lz-string.mjs",
+      "status": 200,
+      "bytes": 6169,
+      "sha256": "75e261fa791eeb621a7a2f46ec6318706a3755647b2f957ea9a6da3245744a1e",
+      "matches_local": true
+    }
+  ],
+  "public_root_matches_main": true
+}

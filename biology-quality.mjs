@@ -1,3 +1,4 @@
+import {ammoniaPartition} from "./ammonia-pool.mjs";
 /** Shared biological meanings. Rates remain explicit game assumptions, not calibrated husbandry limits. */
 export function fishStatus(state, types) {
   const fish = (state.entities || []).filter(e => types[e.species]?.category === "fish");
@@ -48,10 +49,9 @@ export function replacementWater(state, salinity = state.water === "salt" ? 34 :
   return {nh4:0,no2:0,no3:salt?2:5,po4:salt?.04:.1,co2:3,fe:salt?.01:.05,
     oxygen:8,temp:25,salinity,kh:salt?8:2.5,gh:salt?8:12,calcium:salt?420:60};
 }
-/** Dissolved compounds in mg/L; NH4 pool -> free NH3 with the same pH/temperature relation everywhere. */
+/** TAN as mg NH4 equivalents/L -> free NH3 as mg NH3/L. Legacy values remain an unverified model assumption. */
 export function ammoniaConcentration(params) {
-  const fraction=1/(1+10**(.09018+2729.92/(params.temp+273.15)-params.ph));
-  return Math.max(0,params.nh4)*fraction*17/18;
+  return ammoniaPartition(params).ammonia;
 }
 export function ammoniaRisk(params) {
   const nh3=ammoniaConcentration(params);

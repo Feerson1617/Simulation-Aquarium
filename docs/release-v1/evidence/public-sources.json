@@ -1,0 +1,23 @@
+{
+  "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/",
+  "commit": "893492bb38480905bb9c6a455af5c176f7c23f66",
+  "atUTC": "2026-10-24T13:00:12.890223+00:00",
+  "files": {
+    "index.html": {
+      "sha256": "c351259f6078fa364ee89d6c2924b099c70a36fc444576eca8bdf3f314c840ff",
+      "bytes": 21245982
+    },
+    "aquascaping.mjs": {
+      "sha256": "bb6534a4f6f8f64d4e1a6de5849efce53476daad8168ffa47380eb11f06930b4",
+      "bytes": 33300
+    },
+    "standalone-navigation.mjs": {
+      "sha256": "ed4db3bfbd4855736870c3087097df4c4ba88a679c1c8fb8b5387887db8149c8",
+      "bytes": 8371
+    },
+    "single-learning.css": {
+      "sha256": "ba8fce412f1b8511931c3fa228a4034b33e66d31ee0fa876778eed07f57a850e",
+      "bytes": 11496
+    }
+  }
+}

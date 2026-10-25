@@ -1,0 +1,9 @@
+{
+  "name": "lz-string",
+  "version": "1.5.0",
+  "license": "MIT",
+  "source": "https://registry.npmjs.org/lz-string/-/lz-string-1.5.0.tgz",
+  "archive_sha256": "ad640cf79fc54bc8035a66edd33974f1334db9ba079c8b845f13e5d54c5e011b",
+  "upstream_sha256": "95f4d1cbf099f57161b664bc048426ec3df92637801a4c79116e83315aa787e7",
+  "modification": "Unchanged minified library with named ESM adapter functions appended; no network or account dependency."
+}

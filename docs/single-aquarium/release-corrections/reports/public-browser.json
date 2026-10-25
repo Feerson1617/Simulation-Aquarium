@@ -1,0 +1,19 @@
+{
+  "commit": "b806579b894de5d6a8ad23057eed7b6bfc46a0fe",
+  "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/",
+  "at": "2026-10-24T07:51:50.889205+00:00",
+  "checks": [
+    "m2-food-transformation: normal public anchor and return, one main canvas, no standalone frame",
+    "m6-plant-carbon: normal public anchor and return, one main canvas, no standalone frame",
+    "m3-hidden-inheritance: direct public mission URL",
+    "m4-dominance-frequency: direct public mission URL",
+    "m5-recurring-input: direct public mission URL",
+    "public V1 grade 8: stable metric switch, actual CSV, unknown fish and all known values checked"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "console_errors": [],
+  "browser": "26.5",
+  "downloadSHA256": "ea161b56578b78016d2189edaa4d56cc56d2a6775e4f95b197ccfa1d527575f3",
+  "status": "passed"
+}

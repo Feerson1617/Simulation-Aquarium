@@ -23,3 +23,10 @@
   #aquascape-instructions { bottom: 116px; gap: 10px; width: calc(100% - 24px); font-size: 11px; }
   #aquascape-instructions strong { display: none; }
 }
+
+/* Keep placement guidance above every HUD; the working tank stays unobstructed. */
+#aquascape-instructions {position:fixed;z-index:70;bottom:18px;font-size:14px;max-width:min(760px,calc(100% - 32px));width:max-content;box-sizing:border-box}
+#aquascape-message {min-width:0;overflow-wrap:anywhere}
+html.single-aquarium.using-tweezers #learning-root .single-task {display:none}
+html.using-tweezers #toast-root {bottom:110px}
+@media(max-width:820px){#aquascape-instructions {width:calc(100% - 32px);max-width:760px;gap:10px}#aquascape-instructions strong{display:none}}

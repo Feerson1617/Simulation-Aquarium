@@ -1,0 +1,457 @@
+{
+  "displayedCommit": "4e59de3beb4d4af8017472301c9d28cc8ade653c",
+  "url": "http://127.0.0.1:8000/baseline-4e59de3/",
+  "engine": "chromium",
+  "checks": [],
+  "inventories": [
+    {
+      "step": "old oxygen initial",
+      "controls": [
+        {
+          "label": "Mehr",
+          "tag": "BUTTON",
+          "width": 67.6875,
+          "height": 45.25
+        },
+        {
+          "label": "?",
+          "tag": "BUTTON",
+          "width": 44,
+          "height": 45.25
+        },
+        {
+          "label": "Fisch zeigen",
+          "tag": "BUTTON",
+          "width": 226,
+          "height": 44
+        },
+        {
+          "label": "Wasser ansehen",
+          "tag": "BUTTON",
+          "width": 226,
+          "height": 44
+        },
+        {
+          "label": "Licht in Becken 2 einstellen",
+          "tag": "BUTTON",
+          "width": 459,
+          "height": 44
+        },
+        {
+          "label": "Fisch zeigen",
+          "tag": "BUTTON",
+          "width": 226,
+          "height": 44
+        },
+        {
+          "label": "Wasser ansehen",
+          "tag": "BUTTON",
+          "width": 226,
+          "height": 44
+        },
+        {
+          "label": "Wege des Sauerstoffs",
+          "tag": "SUMMARY",
+          "width": 958,
+          "height": 44
+        },
+        {
+          "label": "Beleuchtung einstellen",
+          "tag": "BUTTON",
+          "width": 201.421875,
+          "height": 45.25
+        },
+        {
+          "label": "Wert direkt eingeben",
+          "tag": "SUMMARY",
+          "width": 958,
+          "height": 44
+        },
+        {
+          "label": "text",
+          "tag": "INPUT",
+          "width": 958,
+          "height": 44
+        },
+        {
+          "label": "Weitere Werkzeuge",
+          "tag": "SUMMARY",
+          "width": 958,
+          "height": 44
+        },
+        {
+          "label": "Aquarium anschauen",
+          "tag": "BUTTON",
+          "width": 188.203125,
+          "height": 45.25
+        },
+        {
+          "label": "Die spätere Lichtdauer",
+          "tag": "BUTTON",
+          "width": 274,
+          "height": 44
+        },
+        {
+          "label": "Die Tiere und Pflanzen",
+          "tag": "BUTTON",
+          "width": 274,
+          "height": 44
+        },
+        {
+          "label": "Die späteren Messwerte",
+          "tag": "BUTTON",
+          "width": 274,
+          "height": 44
+        },
+        {
+          "label": "Tipp",
+          "tag": "BUTTON",
+          "width": 60.265625,
+          "height": 45.25
+        }
+      ],
+      "sceneGeometry": {
+        "width": 1366,
+        "height": 960,
+        "views": [
+          {
+            "side": "control",
+            "left": 25,
+            "top": 217.6875,
+            "width": 483,
+            "height": 278.390625,
+            "visibleArea": 134462.671875
+          },
+          {
+            "side": "test",
+            "left": 526,
+            "top": 217.6875,
+            "width": 483,
+            "height": 278.390625,
+            "visibleArea": 134462.671875
+          }
+        ],
+        "sceneWindowFraction": 0.20507362108803073,
+        "note": "Two actual non-overlapping viewport rectangles; not the new HUD-union metric"
+      }
+    },
+    {
+      "step": "old generic observation panel",
+      "controls": [
+        {
+          "label": "Mehr",
+          "tag": "BUTTON",
+          "width": 67.6875,
+          "height": 45.25
+        },
+        {
+          "label": "?",
+          "tag": "BUTTON",
+          "width": 44,
+          "height": 45.25
+        },
+        {
+          "label": "Fisch zeigen",
+          "tag": "BUTTON",
+          "width": 226,
+          "height": 44
+        },
+        {
+          "label": "Wasser ansehen",
+          "tag": "BUTTON",
+          "width": 226,
+          "height": 44
+        },
+        {
+          "label": "Licht in Becken 2 einstellen",
+          "tag": "BUTTON",
+          "width": 459,
+          "height": 44
+        },
+        {
+          "label": "Fisch zeigen",
+          "tag": "BUTTON",
+          "width": 226,
+          "height": 44
+        },
+        {
+          "label": "Wasser ansehen",
+          "tag": "BUTTON",
+          "width": 226,
+          "height": 44
+        },
+        {
+          "label": "Wege des Sauerstoffs",
+          "tag": "SUMMARY",
+          "width": 958,
+          "height": 44
+        },
+        {
+          "label": "Beleuchtung einstellen",
+          "tag": "BUTTON",
+          "width": 201.421875,
+          "height": 45.25
+        },
+        {
+          "label": "Wert direkt eingeben",
+          "tag": "SUMMARY",
+          "width": 958,
+          "height": 44
+        },
+        {
+          "label": "text",
+          "tag": "INPUT",
+          "width": 958,
+          "height": 44
+        },
+        {
+          "label": "Weitere Werkzeuge",
+          "tag": "SUMMARY",
+          "width": 958,
+          "height": 44
+        },
+        {
+          "label": "Aquarium anschauen",
+          "tag": "BUTTON",
+          "width": 188.203125,
+          "height": 45.25
+        },
+        {
+          "label": "Die spätere Lichtdauer",
+          "tag": "BUTTON",
+          "width": 274,
+          "height": 44
+        },
+        {
+          "label": "Die Tiere und Pflanzen",
+          "tag": "BUTTON",
+          "width": 274,
+          "height": 44
+        },
+        {
+          "label": "Die späteren Messwerte",
+          "tag": "BUTTON",
+          "width": 274,
+          "height": 44
+        },
+        {
+          "label": "Tipp",
+          "tag": "BUTTON",
+          "width": 60.265625,
+          "height": 45.25
+        },
+        {
+          "label": "?",
+          "tag": "BUTTON",
+          "width": 36.59375,
+          "height": 49.890625
+        },
+        {
+          "label": "Zur Aufgabe",
+          "tag": "BUTTON",
+          "width": 120.1875,
+          "height": 45.25
+        }
+      ],
+      "sceneGeometry": {
+        "width": 1366,
+        "height": 960,
+        "views": [
+          {
+            "side": "control",
+            "left": 25,
+            "top": 217.6875,
+            "width": 483,
+            "height": 278.390625,
+            "visibleArea": 134462.671875
+          },
+          {
+            "side": "test",
+            "left": 526,
+            "top": 217.6875,
+            "width": 483,
+            "height": 278.390625,
+            "visibleArea": 134462.671875
+          }
+        ],
+        "sceneWindowFraction": 0.20507362108803073,
+        "note": "Two actual non-overlapping viewport rectangles; not the new HUD-union metric"
+      }
+    },
+    {
+      "step": "old lamp setting for comparison side",
+      "controls": [
+        {
+          "label": "Mehr",
+          "tag": "BUTTON",
+          "width": 67.6875,
+          "height": 45.25
+        },
+        {
+          "label": "?",
+          "tag": "BUTTON",
+          "width": 44,
+          "height": 45.25
+        },
+        {
+          "label": "Fisch zeigen",
+          "tag": "BUTTON",
+          "width": 226,
+          "height": 44
+        },
+        {
+          "label": "Wasser ansehen",
+          "tag": "BUTTON",
+          "width": 226,
+          "height": 44
+        },
+        {
+          "label": "Licht in Becken 2 einstellen",
+          "tag": "BUTTON",
+          "width": 459,
+          "height": 44
+        },
+        {
+          "label": "Fisch zeigen",
+          "tag": "BUTTON",
+          "width": 226,
+          "height": 44
+        },
+        {
+          "label": "Wasser ansehen",
+          "tag": "BUTTON",
+          "width": 226,
+          "height": 44
+        },
+        {
+          "label": "Wege des Sauerstoffs",
+          "tag": "SUMMARY",
+          "width": 958,
+          "height": 44
+        },
+        {
+          "label": "Beleuchtung einstellen",
+          "tag": "BUTTON",
+          "width": 201.421875,
+          "height": 45.25
+        },
+        {
+          "label": "Wert direkt eingeben",
+          "tag": "SUMMARY",
+          "width": 958,
+          "height": 44
+        },
+        {
+          "label": "text",
+          "tag": "INPUT",
+          "width": 958,
+          "height": 44
+        },
+        {
+          "label": "Weitere Werkzeuge",
+          "tag": "SUMMARY",
+          "width": 958,
+          "height": 44
+        },
+        {
+          "label": "Aquarium anschauen",
+          "tag": "BUTTON",
+          "width": 188.203125,
+          "height": 45.25
+        },
+        {
+          "label": "Die spätere Lichtdauer",
+          "tag": "BUTTON",
+          "width": 274,
+          "height": 44
+        },
+        {
+          "label": "Die Tiere und Pflanzen",
+          "tag": "BUTTON",
+          "width": 274,
+          "height": 44
+        },
+        {
+          "label": "Die späteren Messwerte",
+          "tag": "BUTTON",
+          "width": 274,
+          "height": 44
+        },
+        {
+          "label": "Tipp",
+          "tag": "BUTTON",
+          "width": 60.265625,
+          "height": 45.25
+        },
+        {
+          "label": "×",
+          "tag": "BUTTON",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "Beleuchtungsdauer drehen",
+          "tag": "BUTTON",
+          "width": 96,
+          "height": 96
+        },
+        {
+          "label": "−",
+          "tag": "BUTTON",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "+",
+          "tag": "BUTTON",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "Wert eingeben",
+          "tag": "SUMMARY",
+          "width": 270,
+          "height": 44
+        },
+        {
+          "label": "text",
+          "tag": "INPUT",
+          "width": 270,
+          "height": 48
+        },
+        {
+          "label": "Für Versuch übernehmen",
+          "tag": "BUTTON",
+          "width": 270,
+          "height": 48
+        }
+      ],
+      "sceneGeometry": {
+        "width": 1366,
+        "height": 960,
+        "views": [
+          {
+            "side": "control",
+            "left": 25,
+            "top": 217.6875,
+            "width": 483,
+            "height": 278.390625,
+            "visibleArea": 134462.671875
+          },
+          {
+            "side": "test",
+            "left": 526,
+            "top": 217.6875,
+            "width": 483,
+            "height": 278.390625,
+            "visibleArea": 134462.671875
+          }
+        ],
+        "sceneWindowFraction": 0.20507362108803073,
+        "note": "Two actual non-overlapping viewport rectangles; not the new HUD-union metric"
+      }
+    }
+  ],
+  "errors": [],
+  "status": "passed"
+}

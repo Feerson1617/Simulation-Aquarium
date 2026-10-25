@@ -1,0 +1,25 @@
+[
+  {
+    "name": "Eingefügter Text.txt",
+    "sha256": "2b61a2b30b197dceb5f4a0bccf33044267e78ce5260cf91811c08c7aaf2194f9",
+    "bytes": 12996,
+    "read": true
+  },
+  {
+    "name": "Codex-Korrekturprompt.txt",
+    "sha256": "b8e3bcdf384b8d04c8e28cb0192914b939aa65e666d5849d2d3bfc840ef18789",
+    "bytes": 17700,
+    "read": true
+  },
+  {
+    "name": "Abnahmebericht-23-10-2026.html",
+    "sha256": "b16c7ea64845a9c036ee45c03492c7294d115d04331d5de803fbe360a081027c",
+    "bytes": 95086,
+    "read": true
+  },
+  {
+    "name": "Aquarium-Abnahmepaket-aktuell.zip",
+    "read": false,
+    "reason": "Available download tool rejects files larger than 32 MiB."
+  }
+]

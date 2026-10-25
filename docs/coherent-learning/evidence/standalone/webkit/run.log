@@ -1,0 +1,2 @@
+PASS webkit single HTTP HTML: two actual scenes, full mission, export, no child HTTP resources, loaded document continues offline
+REPORT /tmp/coherent-release-standalone/webkit/report.json

@@ -1,0 +1,634 @@
+{
+  "engine": "webkit",
+  "commit": "9a9c7b31ef0c9ed400cb326680b69e6479411919",
+  "checks": [
+    {
+      "viewport": [
+        1366,
+        960
+      ],
+      "input": "mouse",
+      "species": "waterweed",
+      "uid": 3,
+      "bounds": {
+        "left": 755.0752462695215,
+        "right": 890.4970260199592,
+        "top": 395.8430631093287,
+        "bottom": 633.6141672143976,
+        "width": 135.42177975043774,
+        "height": 237.77110410506896,
+        "x": 822.7861361447403,
+        "y": 514.7286151618632
+      },
+      "card": "Wasserpest\nSchließen\n\nAusgewählt im Aquarium: Wasserpest · 3\n\nDiese Pflanze braucht Licht und Stoffe aus dem Wasser zum Wachsen.\n\nTemperaturbereich im Katalog: 20 bis 28 Grad.\n\nDieses Lebewesen gehört zu deinem aktuellen Aquarium.\n\nMit Pinzette bewegen",
+      "marker": true
+    },
+    {
+      "viewport": [
+        1366,
+        960
+      ],
+      "input": "mouse",
+      "species": "guppy",
+      "uid": 12,
+      "bounds": {
+        "left": 1005.1891038253872,
+        "right": 1035.0337819376934,
+        "top": 466.1424690236732,
+        "bottom": 489.5896191661467,
+        "width": 29.84467811230627,
+        "height": 23.447150142473504,
+        "x": 1020.1114428815404,
+        "y": 477.86604409490997
+      },
+      "card": "Guppy\nSchließen\n\nAusgewählt im Aquarium: Guppy · 12\n\nDieses Tier braucht passende Nahrung und Wasserbedingungen.\n\nTemperaturbereich im Katalog: 22 bis 28 Grad.\n\nDieses Lebewesen gehört zu deinem aktuellen Aquarium.\n\nMit Pinzette bewegen",
+      "marker": true
+    },
+    {
+      "viewport": [
+        1366,
+        960
+      ],
+      "input": "mouse",
+      "emptySpaceNoFalseSelection": true,
+      "point": [
+        683.0,
+        274.76093712803134
+      ]
+    },
+    {
+      "viewport": [
+        1366,
+        960
+      ],
+      "input": "mouse",
+      "emptySpaceNoFalseSelection": true,
+      "point": [
+        1024.5,
+        274.76093712803134
+      ]
+    },
+    {
+      "viewport": [
+        1366,
+        960
+      ],
+      "input": "touch",
+      "species": "waterweed",
+      "uid": 3,
+      "bounds": {
+        "left": 755.0752462695216,
+        "right": 890.4970260199592,
+        "top": 395.84306310932874,
+        "bottom": 633.6141672143974,
+        "width": 135.42177975043762,
+        "height": 237.77110410506867,
+        "x": 822.7861361447403,
+        "y": 514.7286151618631
+      },
+      "card": "Wasserpest\nSchließen\n\nAusgewählt im Aquarium: Wasserpest · 3\n\nDiese Pflanze braucht Licht und Stoffe aus dem Wasser zum Wachsen.\n\nTemperaturbereich im Katalog: 20 bis 28 Grad.\n\nDieses Lebewesen gehört zu deinem aktuellen Aquarium.\n\nMit Pinzette bewegen",
+      "marker": true
+    },
+    {
+      "viewport": [
+        1366,
+        960
+      ],
+      "input": "touch",
+      "species": "guppy",
+      "uid": 12,
+      "bounds": {
+        "left": 970.5862358184531,
+        "right": 1004.8505068829861,
+        "top": 468.6685432796249,
+        "bottom": 491.0549738601959,
+        "width": 34.26427106453298,
+        "height": 22.386430580571016,
+        "x": 987.7183713507196,
+        "y": 479.8617585699104
+      },
+      "card": "Guppy\nSchließen\n\nAusgewählt im Aquarium: Guppy · 12\n\nDieses Tier braucht passende Nahrung und Wasserbedingungen.\n\nTemperaturbereich im Katalog: 22 bis 28 Grad.\n\nDieses Lebewesen gehört zu deinem aktuellen Aquarium.\n\nMit Pinzette bewegen",
+      "marker": true
+    },
+    {
+      "viewport": [
+        1366,
+        960
+      ],
+      "input": "touch",
+      "emptySpaceNoFalseSelection": true,
+      "point": [
+        683.0,
+        274.76093712803134
+      ]
+    },
+    {
+      "viewport": [
+        1366,
+        960
+      ],
+      "input": "touch",
+      "emptySpaceNoFalseSelection": true,
+      "point": [
+        1024.5,
+        274.76093712803134
+      ]
+    },
+    {
+      "viewport": [
+        768,
+        1024
+      ],
+      "input": "mouse",
+      "species": "waterweed",
+      "uid": 3,
+      "bounds": {
+        "left": 272.7059714847398,
+        "right": 385.4798420601193,
+        "top": 361.17833052709426,
+        "bottom": 560.7476292615297,
+        "width": 112.77387057537953,
+        "height": 199.56929873443545,
+        "x": 329.09290677242956,
+        "y": 460.96297989431196
+      },
+      "card": "Wasserpest\nSchließen\n\nAusgewählt im Aquarium: Wasserpest · 3\n\nDiese Pflanze braucht Licht und Stoffe aus dem Wasser zum Wachsen.\n\nTemperaturbereich im Katalog: 20 bis 28 Grad.\n\nDieses Lebewesen gehört zu deinem aktuellen Aquarium.\n\nMit Pinzette bewegen",
+      "marker": true
+    },
+    {
+      "viewport": [
+        768,
+        1024
+      ],
+      "input": "mouse",
+      "species": "guppy",
+      "uid": 13,
+      "bounds": {
+        "left": 300.07171259065353,
+        "right": 330.09440262164435,
+        "top": 421.52542382411696,
+        "bottom": 443.30989952673684,
+        "width": 30.022690030990816,
+        "height": 21.784475702619886,
+        "x": 315.08305760614894,
+        "y": 432.41766167542687
+      },
+      "card": "Guppy\nSchließen\n\nAusgewählt im Aquarium: Guppy · 13\n\nDieses Tier braucht passende Nahrung und Wasserbedingungen.\n\nTemperaturbereich im Katalog: 22 bis 28 Grad.\n\nDieses Lebewesen gehört zu deinem aktuellen Aquarium.\n\nMit Pinzette bewegen",
+      "marker": true
+    },
+    {
+      "viewport": [
+        768,
+        1024
+      ],
+      "input": "mouse",
+      "emptySpaceNoFalseSelection": true,
+      "point": [
+        384.0,
+        252.88719350018528
+      ]
+    },
+    {
+      "viewport": [
+        768,
+        1024
+      ],
+      "input": "mouse",
+      "emptySpaceNoFalseSelection": true,
+      "point": [
+        576.0,
+        252.88719350018528
+      ]
+    },
+    {
+      "viewport": [
+        768,
+        1024
+      ],
+      "input": "touch",
+      "species": "waterweed",
+      "uid": 3,
+      "bounds": {
+        "left": 272.70597148473985,
+        "right": 385.4798420601193,
+        "top": 361.1783305270942,
+        "bottom": 560.7476292615297,
+        "width": 112.77387057537948,
+        "height": 199.5692987344355,
+        "x": 329.0929067724296,
+        "y": 460.96297989431196
+      },
+      "card": "Wasserpest\nSchließen\n\nAusgewählt im Aquarium: Wasserpest · 3\n\nDiese Pflanze braucht Licht und Stoffe aus dem Wasser zum Wachsen.\n\nTemperaturbereich im Katalog: 20 bis 28 Grad.\n\nDieses Lebewesen gehört zu deinem aktuellen Aquarium.\n\nMit Pinzette bewegen",
+      "marker": true
+    },
+    {
+      "viewport": [
+        768,
+        1024
+      ],
+      "input": "touch",
+      "species": "guppy",
+      "uid": 12,
+      "bounds": {
+        "left": 387.47593930712674,
+        "right": 416.82311437790554,
+        "top": 426.3001697625589,
+        "bottom": 444.46972969625165,
+        "width": 29.347175070778803,
+        "height": 18.169559933692767,
+        "x": 402.14952684251614,
+        "y": 435.38494972940526
+      },
+      "card": "Guppy\nSchließen\n\nAusgewählt im Aquarium: Guppy · 12\n\nDieses Tier braucht passende Nahrung und Wasserbedingungen.\n\nTemperaturbereich im Katalog: 22 bis 28 Grad.\n\nDieses Lebewesen gehört zu deinem aktuellen Aquarium.\n\nMit Pinzette bewegen",
+      "marker": true
+    },
+    {
+      "viewport": [
+        768,
+        1024
+      ],
+      "input": "touch",
+      "emptySpaceNoFalseSelection": true,
+      "point": [
+        384.0,
+        252.88719350018528
+      ]
+    },
+    {
+      "viewport": [
+        768,
+        1024
+      ],
+      "input": "touch",
+      "emptySpaceNoFalseSelection": true,
+      "point": [
+        576.0,
+        252.88719350018528
+      ]
+    },
+    {
+      "viewport": [
+        1366,
+        1024
+      ],
+      "input": "mouse",
+      "species": "waterweed",
+      "uid": 3,
+      "bounds": {
+        "left": 755.397517241341,
+        "right": 891.3921410951411,
+        "top": 428.349942203726,
+        "bottom": 667.6241750509885,
+        "width": 135.99462385380014,
+        "height": 239.27423284726245,
+        "x": 823.3948291682411,
+        "y": 547.9870586273572
+      },
+      "card": "Wasserpest\nSchließen\n\nAusgewählt im Aquarium: Wasserpest · 3\n\nDiese Pflanze braucht Licht und Stoffe aus dem Wasser zum Wachsen.\n\nTemperaturbereich im Katalog: 20 bis 28 Grad.\n\nDieses Lebewesen gehört zu deinem aktuellen Aquarium.\n\nMit Pinzette bewegen",
+      "marker": true
+    },
+    {
+      "viewport": [
+        1366,
+        1024
+      ],
+      "input": "mouse",
+      "species": "guppy",
+      "uid": 12,
+      "bounds": {
+        "left": 852.011082008777,
+        "right": 886.8588558773446,
+        "top": 507.3069117238198,
+        "bottom": 528.7370504004704,
+        "width": 34.84777386856763,
+        "height": 21.430138676650586,
+        "x": 869.4349689430608,
+        "y": 518.0219810621451
+      },
+      "card": "Guppy\nSchließen\n\nAusgewählt im Aquarium: Guppy · 12\n\nDieses Tier braucht passende Nahrung und Wasserbedingungen.\n\nTemperaturbereich im Katalog: 22 bis 28 Grad.\n\nDieses Lebewesen gehört zu deinem aktuellen Aquarium.\n\nMit Pinzette bewegen",
+      "marker": true
+    },
+    {
+      "viewport": [
+        1366,
+        1024
+      ],
+      "input": "mouse",
+      "emptySpaceNoFalseSelection": true,
+      "point": [
+        683.0,
+        305.55392622616085
+      ]
+    },
+    {
+      "viewport": [
+        1366,
+        1024
+      ],
+      "input": "mouse",
+      "emptySpaceNoFalseSelection": true,
+      "point": [
+        1024.5,
+        305.55392622616085
+      ]
+    },
+    {
+      "viewport": [
+        1366,
+        1024
+      ],
+      "input": "touch",
+      "species": "waterweed",
+      "uid": 3,
+      "bounds": {
+        "left": 755.397517241341,
+        "right": 891.3921410951411,
+        "top": 428.3499422037261,
+        "bottom": 667.6241750509886,
+        "width": 135.99462385380014,
+        "height": 239.2742328472625,
+        "x": 823.3948291682411,
+        "y": 547.9870586273573
+      },
+      "card": "Wasserpest\nSchließen\n\nAusgewählt im Aquarium: Wasserpest · 3\n\nDiese Pflanze braucht Licht und Stoffe aus dem Wasser zum Wachsen.\n\nTemperaturbereich im Katalog: 20 bis 28 Grad.\n\nDieses Lebewesen gehört zu deinem aktuellen Aquarium.\n\nMit Pinzette bewegen",
+      "marker": true
+    },
+    {
+      "viewport": [
+        1366,
+        1024
+      ],
+      "input": "touch",
+      "species": "guppy",
+      "uid": 12,
+      "bounds": {
+        "left": 824.0386989753408,
+        "right": 858.9266894883041,
+        "top": 507.93477030028333,
+        "bottom": 529.3170512625906,
+        "width": 34.887990512963256,
+        "height": 21.38228096230722,
+        "x": 841.4826942318225,
+        "y": 518.6259107814369
+      },
+      "card": "Guppy\nSchließen\n\nAusgewählt im Aquarium: Guppy · 12\n\nDieses Tier braucht passende Nahrung und Wasserbedingungen.\n\nTemperaturbereich im Katalog: 22 bis 28 Grad.\n\nDieses Lebewesen gehört zu deinem aktuellen Aquarium.\n\nMit Pinzette bewegen",
+      "marker": true
+    },
+    {
+      "viewport": [
+        1366,
+        1024
+      ],
+      "input": "touch",
+      "emptySpaceNoFalseSelection": true,
+      "point": [
+        683.0,
+        305.55392622616085
+      ]
+    },
+    {
+      "viewport": [
+        1366,
+        1024
+      ],
+      "input": "touch",
+      "emptySpaceNoFalseSelection": true,
+      "point": [
+        1024.5,
+        305.55392622616085
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "atUTC": "2026-10-25T06:14:34.317621+00:00",
+      "input": "mouse",
+      "point": {
+        "x": 822.7861361447403,
+        "y": 514.7286151618632
+      },
+      "intendedUid": 3,
+      "actualUid": 3
+    },
+    {
+      "atUTC": "2026-10-25T06:14:35.692012+00:00",
+      "input": "mouse",
+      "point": {
+        "x": 1020.1114428815404,
+        "y": 477.86604409490997
+      },
+      "intendedUid": 12,
+      "actualUid": 12
+    },
+    {
+      "atUTC": "2026-10-25T06:14:36.901118+00:00",
+      "input": "mouse",
+      "point": {
+        "x": 683.0,
+        "y": 274.76093712803134
+      }
+    },
+    {
+      "atUTC": "2026-10-25T06:14:37.092029+00:00",
+      "input": "mouse",
+      "point": {
+        "x": 1024.5,
+        "y": 274.76093712803134
+      }
+    },
+    {
+      "atUTC": "2026-10-25T06:14:37.611873+00:00",
+      "input": "touch",
+      "point": {
+        "x": 822.7861361447403,
+        "y": 514.7286151618631
+      },
+      "intendedUid": 3,
+      "actualUid": 3
+    },
+    {
+      "atUTC": "2026-10-25T06:14:38.608399+00:00",
+      "input": "touch",
+      "point": {
+        "x": 987.7183713507196,
+        "y": 479.8617585699104
+      },
+      "intendedUid": 12,
+      "actualUid": 12
+    },
+    {
+      "atUTC": "2026-10-25T06:14:39.765302+00:00",
+      "input": "touch",
+      "point": {
+        "x": 683.0,
+        "y": 274.76093712803134
+      }
+    },
+    {
+      "atUTC": "2026-10-25T06:14:39.796594+00:00",
+      "input": "touch",
+      "point": {
+        "x": 1024.5,
+        "y": 274.76093712803134
+      }
+    },
+    {
+      "atUTC": "2026-10-25T06:14:41.007673+00:00",
+      "input": "mouse",
+      "point": {
+        "x": 329.09290677242956,
+        "y": 460.96297989431196
+      },
+      "intendedUid": 3,
+      "actualUid": 3
+    },
+    {
+      "atUTC": "2026-10-25T06:14:42.105396+00:00",
+      "input": "mouse",
+      "point": {
+        "x": 433.1762548616156,
+        "y": 434.10576892318
+      },
+      "intendedUid": 12,
+      "actualUid": 1
+    },
+    {
+      "atUTC": "2026-10-25T06:14:42.315019+00:00",
+      "input": "mouse",
+      "point": {
+        "x": 315.08305760614894,
+        "y": 432.41766167542687
+      },
+      "intendedUid": 13,
+      "actualUid": 13
+    },
+    {
+      "atUTC": "2026-10-25T06:14:43.498729+00:00",
+      "input": "mouse",
+      "point": {
+        "x": 384.0,
+        "y": 252.88719350018528
+      }
+    },
+    {
+      "atUTC": "2026-10-25T06:14:43.647976+00:00",
+      "input": "mouse",
+      "point": {
+        "x": 576.0,
+        "y": 252.88719350018528
+      }
+    },
+    {
+      "atUTC": "2026-10-25T06:14:44.382342+00:00",
+      "input": "touch",
+      "point": {
+        "x": 329.0929067724296,
+        "y": 460.96297989431196
+      },
+      "intendedUid": 3,
+      "actualUid": 3
+    },
+    {
+      "atUTC": "2026-10-25T06:14:45.546073+00:00",
+      "input": "touch",
+      "point": {
+        "x": 402.14952684251614,
+        "y": 435.38494972940526
+      },
+      "intendedUid": 12,
+      "actualUid": 12
+    },
+    {
+      "atUTC": "2026-10-25T06:14:47.045110+00:00",
+      "input": "touch",
+      "point": {
+        "x": 384.0,
+        "y": 252.88719350018528
+      }
+    },
+    {
+      "atUTC": "2026-10-25T06:14:47.632743+00:00",
+      "input": "touch",
+      "point": {
+        "x": 576.0,
+        "y": 252.88719350018528
+      }
+    },
+    {
+      "atUTC": "2026-10-25T06:14:50.391232+00:00",
+      "input": "mouse",
+      "point": {
+        "x": 823.3948291682411,
+        "y": 547.9870586273572
+      },
+      "intendedUid": 3,
+      "actualUid": 3
+    },
+    {
+      "atUTC": "2026-10-25T06:14:52.054898+00:00",
+      "input": "mouse",
+      "point": {
+        "x": 869.4349689430608,
+        "y": 518.0219810621451
+      },
+      "intendedUid": 12,
+      "actualUid": 12
+    },
+    {
+      "atUTC": "2026-10-25T06:14:53.592306+00:00",
+      "input": "mouse",
+      "point": {
+        "x": 683.0,
+        "y": 305.55392622616085
+      }
+    },
+    {
+      "atUTC": "2026-10-25T06:14:53.854764+00:00",
+      "input": "mouse",
+      "point": {
+        "x": 1024.5,
+        "y": 305.55392622616085
+      }
+    },
+    {
+      "atUTC": "2026-10-25T06:14:54.301369+00:00",
+      "input": "touch",
+      "point": {
+        "x": 823.3948291682411,
+        "y": 547.9870586273573
+      },
+      "intendedUid": 3,
+      "actualUid": 3
+    },
+    {
+      "atUTC": "2026-10-25T06:14:55.586822+00:00",
+      "input": "touch",
+      "point": {
+        "x": 841.4826942318225,
+        "y": 518.6259107814369
+      },
+      "intendedUid": 12,
+      "actualUid": 12
+    },
+    {
+      "atUTC": "2026-10-25T06:14:56.681556+00:00",
+      "input": "touch",
+      "point": {
+        "x": 683.0,
+        "y": 305.55392622616085
+      }
+    },
+    {
+      "atUTC": "2026-10-25T06:14:56.883828+00:00",
+      "input": "touch",
+      "point": {
+        "x": 1024.5,
+        "y": 305.55392622616085
+      }
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "version": "26.5",
+  "status": "passed"
+}

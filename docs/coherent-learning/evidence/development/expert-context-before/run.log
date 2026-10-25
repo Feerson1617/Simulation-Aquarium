@@ -1,0 +1,109 @@
+Traceback (most recent call last):
+  File "/workspace/Simulation-Aquarium/tests/coherent_expert_context_browser.py", line 28, in <module>
+    expect(p.locator('.learn-results')).to_have_attribute('data-series-id',v['seriesId'])
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 22107, in to_have_attribute
+    self._sync(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 349, in to_have_attribute
+    await self._expect_impl(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to have attribute '92405f56-bf58-475d-8615-3da58bb25cac'
+Actual value: None 
+Call log:
+  - Expect "to_have_attribute" with timeout 5000ms
+  - waiting for locator(".learn-results")
+
+Aria snapshot:
+- heading "Tatsächlich berechnete Daten" [level=3]
+- status: Plan geändert – neu berechnen. Gezeigt und exportiert wird weiterhin der ältere Lauf mit seiner unten festgehaltenen Konfiguration.
+- paragraph:
+  - strong: "Festgehaltener Lauf:"
+  - text: "Berechneter Lauf: Zieltemperatur 26 °C; geplante Dauer 4; Ausgangszeit 45; Kennung fe101904; Seeds 47291, 152020. control: vollständig berechnet, Ende 49; ; test: vollständig berechnet, Ende 49; ; control: vollständig berechnet, Ende 49; ; test: vollständig berechnet, Ende 49;"
+- paragraph: "Klasse 8 · 8-ecosystem · Modellstand learning-biology-5-views · 2 Wiederholung(en). Zeitschritt: 0,25 Modelltage."
+- group: Planung vor genau diesem Lauf
+- paragraph: Gleicher bestehender biologischer Rechenkern, gleiche Anfangszustände je Paar; nur ein definierter Eingriff. Wiederholungen unterscheiden den Zufallsstart, keine Messfehler vorgetäuscht.
+- text: Messgröße
+- combobox "Messgröße":
+  - option "Sauerstoff · mg/L"
+  - option "Kondition lebender Fische · Modellindex %"
+  - option "Algenbestand · relativ"
+  - option "Pflanzenbiomasse · relativ"
+  - option "Organische Reste · relativ"
+  - option "Temperatur · °C" [selected]
+  - option "Lebende Fische · Anzahl"
+- 'img "Verlauf Temperatur · °C: Kontrolle und Versuch"': Temperatur · °C 25,55 0 45 49 Tag · Modellzeit (Wiederholung 1) Kontrolle Versuch
+- paragraph: "Kontrolle: durchgezogen · Versuch: gestrichelt. Diagramm: Wiederholung 1. „—“ bedeutet unbekannt; „keine Folgemessung“ bedeutet: diese Seite wurde beendet. Nach Ausfall einer Seite gibt es keinen vollständigen Paarvergleich mehr."
+- group: Wiederholung 1 · Kontrolle 17, Versuch 17 Zeitpunkte
+- group: Wiederholung 2 · Kontrolle 17, Versuch 17 Zeitpunkte
+- button "Gewählten Zeitpunkt als CSV"
+- button "Diese Reihe vollständig als CSV"
+- button "Protokoll mit Daten"
+- button "Diagramm als SVG"
+- button "Kontrollbecken ansehen"
+- button "Versuchsbecken ansehen"
+- text: "Beobachtung: Was zeigen meine Daten?"
+- 'textbox "Beobachtung: Was zeigen meine Daten?"'
+- text: "Deutung: Wie erkläre ich die Daten?"
+- 'textbox "Deutung: Wie erkläre ich die Daten?"'
+- text: "Rückblick: Was denke ich jetzt anders? Welche Grenze hat das Modell?"
+- 'textbox "Rückblick: Was denke ich jetzt anders? Welche Grenze hat das Modell?"'
+REPORT /tmp/coherent-expert-before/chromium/report.json
+Traceback (most recent call last):
+  File "/workspace/Simulation-Aquarium/tests/coherent_expert_context_browser.py", line 28, in <module>
+    expect(p.locator('.learn-results')).to_have_attribute('data-series-id',v['seriesId'])
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 22107, in to_have_attribute
+    self._sync(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 349, in to_have_attribute
+    await self._expect_impl(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to have attribute '92405f56-bf58-475d-8615-3da58bb25cac'
+Actual value: None 
+Call log:
+  - Expect "to_have_attribute" with timeout 5000ms
+  - waiting for locator(".learn-results")
+
+Aria snapshot:
+- heading "Tatsächlich berechnete Daten" [level=3]
+- status: Plan geändert – neu berechnen. Gezeigt und exportiert wird weiterhin der ältere Lauf mit seiner unten festgehaltenen Konfiguration.
+- paragraph:
+  - strong: "Festgehaltener Lauf:"
+  - text: "Berechneter Lauf: Zieltemperatur 26 °C; geplante Dauer 4; Ausgangszeit 45; Kennung fe101904; Seeds 47291, 152020. control: vollständig berechnet, Ende 49; ; test: vollständig berechnet, Ende 49; ; control: vollständig berechnet, Ende 49; ; test: vollständig berechnet, Ende 49;"
+- paragraph: "Klasse 8 · 8-ecosystem · Modellstand learning-biology-5-views · 2 Wiederholung(en). Zeitschritt: 0,25 Modelltage."
+- group: Planung vor genau diesem Lauf
+- paragraph: Gleicher bestehender biologischer Rechenkern, gleiche Anfangszustände je Paar; nur ein definierter Eingriff. Wiederholungen unterscheiden den Zufallsstart, keine Messfehler vorgetäuscht.
+- text: Messgröße
+- combobox "Messgröße":
+  - option "Sauerstoff · mg/L"
+  - option "Kondition lebender Fische · Modellindex %"
+  - option "Algenbestand · relativ"
+  - option "Pflanzenbiomasse · relativ"
+  - option "Organische Reste · relativ"
+  - option "Temperatur · °C" [selected]
+  - option "Lebende Fische · Anzahl"
+- 'img "Verlauf Temperatur · °C: Kontrolle und Versuch"': Temperatur · °C 25,55 0 45 49 Tag · Modellzeit (Wiederholung 1) Kontrolle Versuch
+- paragraph: "Kontrolle: durchgezogen · Versuch: gestrichelt. Diagramm: Wiederholung 1. „—“ bedeutet unbekannt; „keine Folgemessung“ bedeutet: diese Seite wurde beendet. Nach Ausfall einer Seite gibt es keinen vollständigen Paarvergleich mehr."
+- group: Wiederholung 1 · Kontrolle 17, Versuch 17 Zeitpunkte
+- group: Wiederholung 2 · Kontrolle 17, Versuch 17 Zeitpunkte
+- button "Gewählten Zeitpunkt als CSV"
+- button "Diese Reihe vollständig als CSV"
+- button "Protokoll mit Daten"
+- button "Diagramm als SVG"
+- button "Kontrollbecken ansehen"
+- button "Versuchsbecken ansehen"
+- text: "Beobachtung: Was zeigen meine Daten?"
+- 'textbox "Beobachtung: Was zeigen meine Daten?"'
+- text: "Deutung: Wie erkläre ich die Daten?"
+- 'textbox "Deutung: Wie erkläre ich die Daten?"'
+- text: "Rückblick: Was denke ich jetzt anders? Welche Grenze hat das Modell?"
+- 'textbox "Rückblick: Was denke ich jetzt anders? Welche Grenze hat das Modell?"'

@@ -1,0 +1,13 @@
+{
+  "atUTC": "2026-10-25T04:29:27.876960+00:00",
+  "meminfo": "MemTotal:       34906016 kB\nMemFree:        32896428 kB\nMemAvailable:   33432860 kB\nBuffers:            5944 kB\nCached:           918072 kB\nSwapCached:            0 kB\nActive:           609540 kB\nInactive:         821664 kB\nActive(anon):       1316 kB\nInactive(anon):   539980 kB\nActive(file):     608224 kB\nInactive(file):   281684 kB\nUnevictable:       29924 kB\nMlocked:               0 kB\nSwapTotal:             0 kB\nSwapFree:              0 kB\nDirty:               708 kB\nWriteback:             0 kB\nAnonPages:        537072 kB\nMapped:           239964 kB\nShmem:              4264 kB\nKReclaimable:      52336 kB\nSlab:             102036 kB\nSReclaimable:      52336 kB\nSUnreclaim:        49700 kB\nKernelStack:        4232 kB\nPageTables:        14468 kB\nSecPageTables:         0 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    17453008 kB\nCommitted_AS:    3469324 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:        6572 kB\nVmallocChunk:          0 kB\nPercpu:             1296 kB\nAnonHugePages:         0 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:     51200 kB\nFilePmdMapped:         0 kB\nBalloon:               0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:      196608 kB\nDirectMap2M:    13232128 kB\nDirectMap1G:    41943040 kB\n",
+  "disk": {
+    "total": 33770192896,
+    "used": 899092480,
+    "free": 31136337920
+  },
+  "browserPolicy": "one own browser at a time; no foreign processes stopped",
+  "hardware": "Linux cloud; software GPU; no physical iPad or native Safari",
+  "acceptedIndependentPacketSHA256": "9bec34c59ad514f56aecd6955fe83d47532856d50339e19f408b8337eb8a3b6b",
+  "acceptedPacketManifestEntries": 125
+}

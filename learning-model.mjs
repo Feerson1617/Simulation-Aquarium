@@ -1,4 +1,6 @@
 import {OBSERVATION_METRICS} from "./learning-activities.mjs";
+import {SINGLE_MISSIONS} from "./single-learning-missions.mjs";
+import {tankArchive, appendTankFrame, interventionEvent, validateTankArchive, resolveComparisonView, packTankArchive, stateId} from "./learning-context.mjs";
 import {validateProvenance} from "./learning-provenance.mjs";
 import {fishStatus,ammoniaConcentration} from "./biology-quality.mjs";
 import { validateQuest } from "./learning-quests.mjs";
@@ -10,9 +12,9 @@ import {
 } from "./learning-content.mjs";
 import { createScenario } from "./scenarios.mjs";
 import { initializeIndividual } from "./genetics.mjs";
-import { validateLearningPopulation } from "./learning-population.mjs";
+import { validateLearningPopulation, populationCohort, repeatLearningPopulation } from "./learning-population.mjs";
 import { controlNumber, requireControlValue, validControlValue, applyEquipmentSetting } from "./control-values.mjs";
-export const LEARNING_MODEL_REVISION = "learning-biology-4";
+export const LEARNING_MODEL_REVISION = "learning-biology-6-coherent";
 export const POPULATION_METRICS = {
   AA: ["Genotyp AA", "Anzahl"],
   Aa: ["Genotyp Aa", "Anzahl"],
@@ -120,11 +122,27 @@ export const LEARNING_METRICS = {
 };
 export function comparisonMetricDefinitions(comp) {
   if (comp.kind === "population") return POPULATION_METRICS;
+  if(comp.displayProjection === "plant-initial-one")return {...LEARNING_METRICS,plantBiomass:["Pflanzenmasse (Anfang = 1)","Vielfaches des Anfangs"]};
   const samples = comp.runs.flatMap(r => [...r.control,...r.test]);
   if (samples.some(s => s.metricsVersion === 2)) return LEARNING_METRICS;
   const defs = {...LEARNING_METRICS,health:["Tierkondition (historischer Wert: Fische und Wirbellose)","Modellindex %"]};
   for (const key of ["fishAlive","fishDead","fishOutcome","otherAnimals"]) delete defs[key];
   return defs;
+}
+/** Read-only evidence shared by the historical reader and CSV export. */
+export function measurementEvidence(definitions, key, sample) {
+  const fishMetric = ["fishAlive", "fishDead", "fishOutcome", "otherAnimals"].includes(key);
+  const known = !!definitions[key] && !(sample && fishMetric && sample.metricsVersion !== 2);
+  const definition = !known
+    ? [LEARNING_METRICS[key]?.[0] || key, "historisch unbekannt"]
+    : key === "health" && sample && sample.metricsVersion !== 2
+      ? ["Tierkondition (historischer Wert: Fische und Wirbellose)", "Modellindex %"]
+      : definitions[key];
+  const measured = sample && (!sample.metrics || sample.metrics.includes(key));
+  const value = known && measured && Number.isFinite(sample[key]) ? sample[key] : null;
+  const status = !sample ? "keine Folgemessung" : !known ? "historisch unbekannt"
+    : !measured ? "nicht freigegeben" : value === null ? "unbekannt" : "berechnet";
+  return {definition, value, status, known};
 }
 /** Reconcile only the editable plan; never change the saved tank or baseline. */
 export function reconcileLearningStudy(study, allowed) {
@@ -140,6 +158,12 @@ export function reconcileLearningStudy(study, allowed) {
 }
 export function normalizeLearningTag(tag) {
   if (tag == null) return null;
+  if (tag.version === 2) {
+    if(tag.mode === "free" && tag.mission == null && [8,9,10].includes(tag.grade)) return {version:2,grade:tag.grade,mode:"free",mission:null};
+    const mission=SINGLE_MISSIONS.find(m=>m.id===tag.mission);
+    if (!mission || mission.grade!==tag.grade || tag.mode!=="missions") throw new Error("Ungültiges Einbecken-Lernprofil.");
+    return {version:2,grade:mission.grade,mode:"missions",mission:mission.id};
+  }
   if (
     tag.version !== 1 ||
     ![8, 9, 10].includes(tag.grade) ||
@@ -157,6 +181,7 @@ export function normalizeLearningTag(tag) {
 export function learningSlot(tag) {
   const t = normalizeLearningTag(tag);
   if (!t) throw new Error("Lernprofil fehlt.");
+  if (t.version === 2) return "aquarium-single-tank-v2:"+t.grade+":"+t.mission;
   return "aquarium-learning-tank-v1:" + t.grade + ":" + (t.mission || "free");
 }
 export function learningTools(tag, teacher = {}) {
@@ -322,7 +347,7 @@ export function applyLearningIntervention(payload, key, value, host) {
     s.feedRate = value;
   }
   if (key === "co2") s.co2Dose = value;
-  if (key === "water") host.waterChange(s, value);
+  if (key === "water" && value > 0) host.waterChange(s, value);
   if (key === "nutrients") {
     s.params.no3 += value;
     s.params.po4 += value / 30;
@@ -358,6 +383,9 @@ export function runLearningComparison(
         seed: control.seed,
         initialControl: structuredClone(initial),
         initialTest: structuredClone(initial),
+        preparedTest: structuredClone(test),
+        intervention: interventionEvent(initial, test, tool, value),
+        tanks: {control: tankArchive(control), test: tankArchive(test)},
         control: [learningSample(control, host.types)],
         test: [learningSample(test, host.types)],
         stopped: null,
@@ -396,7 +424,9 @@ export function runLearningComparison(
       };
       for (let n = 0; n < days * 4; n++) {
         if (markFailure()) break;
+        const before = structuredClone(state);
         host.advance(state, 0.25);
+        appendTankFrame(row.tanks[side], before, state);
         row[side].push(learningSample(state, host.types));
         status.end = state.day;
         if (markFailure()) break; // includes failure in the final requested step
@@ -408,6 +438,7 @@ export function runLearningComparison(
       : null;
     row.finalControl = control;
     row.finalTest = test;
+    row.tanks = Object.fromEntries(Object.entries(row.tanks).map(([side,archive])=>[side,packTankArchive(archive)]));
     runs.push(row);
   }
   return {
@@ -439,7 +470,7 @@ export function snapshotLearningPlan({
   notes,
   metrics = [],
 }) {
-  const source = kind === "population" ? population : baseline;
+  const source = kind === "population" ? repeatLearningPopulation(population,population.initialSeed ?? population.seed) : baseline;
   return structuredClone({
     kind,
     profile,
@@ -491,6 +522,7 @@ export function comparisonCSV(comparison) {
     profile = c.profile || comparison.profile || {},
     metrics =
       comparison.kind === "manual" ? comparison.metrics : Object.keys(defs),
+    view = comparison.viewContext,
     rows = [
       [
         "CSV-Schema",
@@ -524,6 +556,7 @@ export function comparisonCSV(comparison) {
         "Wertstatus",
       ],
     ];
+  if (view) rows[0].push("Versuch-ID","Durchgang-ID","Ansicht Zeit","Ansicht Seite",comparison.kind === "population" ? "Kohortenkennung" : "Zustandskennung");
   for (const run of comparison.runs) {
     const times =
       comparison.kind === "manual"
@@ -536,11 +569,10 @@ export function comparisonCSV(comparison) {
         status = run.status?.[side];
       for (const row of times)
         for (const key of metrics) {
+          if (view && (row.time !== view.time || (view.side !== "both" && view.side !== side))) continue;
           const sample = row[side],
-            def = key === "health" && sample && sample.metricsVersion !== 2 ? ["Tierkondition (historischer Wert: Fische und Wirbellose)","Modellindex %"] : defs[key],
-            value = sample?.[key],
-            measured =
-              sample && (!sample.metrics || sample.metrics.includes(key)),
+            evidence = measurementEvidence(defs, key, sample),
+            def = evidence.definition,
             label =
               side === "control"
                 ? comparison.kind === "manual"
@@ -557,7 +589,7 @@ export function comparisonCSV(comparison) {
                     ? "Modellindex"
                     : "Messgröße";
           rows.push([
-            "2",
+            view ? "3" : "2",
             comparison.kind,
             profile.grade,
             profile.mode,
@@ -595,15 +627,10 @@ export function comparisonCSV(comparison) {
             def[0],
             unit,
             type,
-            measured && Number.isFinite(value) ? value : "",
-            !sample
-              ? "keine Folgemessung"
-              : !measured
-                ? "nicht freigegeben"
-                : Number.isFinite(value)
-                  ? "berechnet"
-                  : "unbekannt",
+            evidence.value ?? "",
+            evidence.status,
           ]);
+          if (view) rows.at(-1).push(view.investigationId,view.attemptId,view.time,view.side,view.stateIds?.[side] ?? view.cohortIds?.[side]);
         }
     }
   }
@@ -843,7 +870,7 @@ export function validateLearningProduct(raw) {
         ),
       ],
     );
-  return {
+  const product = {
     version: raw.version,
     type: raw.type,
     profile,
@@ -878,6 +905,61 @@ export function validateLearningProduct(raw) {
       }),
     ),
   };
+  if (raw.attemptId != null) {
+    if (typeof raw.attemptId !== "string" || !/^[a-zA-Z0-9-]{1,80}$/.test(raw.attemptId)) throw new Error("Ungültige Durchgangskennung.");
+    product.attemptId=raw.attemptId;
+  }
+  if (raw.viewContext) {
+    const x=raw.viewContext;
+    if (x.version !== 1 || !["both","control","test"].includes(x.side)) throw new Error("Ungültige Ansichtskennung.");
+    const v=resolveComparisonView({...product,study:{series:x.series,run:x.run},view:x});
+    if (!v || v.context.series !== x.series || v.context.run !== x.run || v.context.repetition !== x.repetition ||
+        v.context.time !== x.time || v.context.seriesId !== x.seriesId || v.context.revision !== x.revision ||
+        v.context.investigationId !== x.investigationId || v.context.attemptId !== x.attemptId ||
+        (x.stateIds && ["control","test"].some(side=>v.context.stateIds[side] !== x.stateIds[side]))) throw new Error("Ansicht und gespeicherter Versuch widersprechen sich.");
+    if (x.cohortIds && ["control","test"].some(side=>x.cohortIds[side] !== v.context.cohortIds?.[side])) throw new Error("Individuen und Generation widersprechen sich.");
+    product.viewContext=v.context;
+  }
+  if([0,1].includes(raw.workspaceEvidenceVersion))product.workspaceEvidenceVersion=raw.workspaceEvidenceVersion;
+  if(raw.visibleDomain && ["regional-northsea","harbour","population","aquarium"].includes(raw.visibleDomain))product.visibleDomain=raw.visibleDomain;
+  if(raw.processEvidence) {
+    const text=JSON.stringify(raw.processEvidence);if(text.length>131072)throw new Error("Prozessbelege sind zu groß.");product.processEvidence=JSON.parse(text);
+  }
+  if(raw.forestEvidence) {
+    if(!Array.isArray(raw.forestEvidence.leaves) || raw.forestEvidence.leaves.length>2 || raw.forestEvidence.leaves.some(x=>!["tree","waterweed"].includes(x)))throw new Error("Ungültiger Blattvergleich.");
+    product.forestEvidence=structuredClone(raw.forestEvidence);
+  }
+  if(raw.cohortPlanView) {
+    const x=raw.cohortPlanView,c=populationCohort(product.population,0);
+    if(!c || x.version!==1 || x.axis!=="generation" || x.time!==0 || x.series!==null || x.run!==0 || x.repetition!==1 || x.attemptId!==product.attemptId || x.revision!==product.modelVersion ||
+      ["control","test"].some(side=>x.cohortIds?.[side]!==stateId(c)) || product.viewContext || product.currentPlan?.kind!=="population")throw new Error("Vorbereitete Gruppen widersprechen den tatsächlichen Gründern.");
+    product.cohortPlanView=structuredClone(x);
+  }
+  if (raw.cohortView) {
+    const v=raw.cohortView,x=v.context,cohort=populationCohort(product.population,x?.time);
+    if(!cohort || x.version !== 1 || x.axis !== "generation" || x.attemptId !== product.attemptId || x.revision !== product.modelVersion || x.side !== "test" || x.series !== null || x.run !== 0 || x.repetition !== 1 ||
+       x.cohortIds?.test !== stateId(cohort) || (v.selected && (v.selected.side !== "test" || v.selected.cohortId !== stateId(cohort) || !cohort.individuals.some(i=>i.uid===v.selected.uid))))
+      throw new Error("Individuenansicht und gespeicherte Population widersprechen sich.");
+    product.cohortView=structuredClone(v);
+  }
+  if (raw.visiblePlan) {
+    const p=raw.visiblePlan,x=p.context;
+    if (p.version !== 1 || !x || x.version !== 1 || x.axis !== "day" || x.side !== "both" || x.series !== null ||
+        x.run !== 0 || x.repetition !== 1 || x.revision !== product.currentPlan?.modelVersion ||
+        x.time !== product.currentPlan?.baseline.time || typeof x.investigationId !== "string" ||
+        !/^[a-zA-Z0-9-]{1,80}$/.test(x.investigationId) || x.attemptId !== product.attemptId)
+      throw new Error("Ungültige Ansicht eines noch nicht durchgeführten Plans.");
+    for (const side of ["control","test"]) {
+      const s=p[side];
+      if (!s || s.day !== x.time || !s.params || !Array.isArray(s.entities) || s.entities.length > 240 ||
+          JSON.stringify(s).length > 2000000 || stateId(s) !== x.stateIds?.[side])
+        throw new Error("Planansicht und vorbereiteter Beckenstand widersprechen sich.");
+    }
+    if (stateId(p.control) !== product.currentPlan.baseline.fingerprint || raw.viewContext)
+      throw new Error("Planansicht darf nicht als ausgeführter Lauf ausgegeben werden.");
+    product.visiblePlan=structuredClone(p);
+  }
+  return product;
 }
 /** Read-only data, metadata and genealogical evidence; imported engine payloads are never executed. */
 export function validateLearningComparison(raw) {
@@ -952,6 +1034,27 @@ export function validateLearningComparison(raw) {
         ),
       };
     }
+    if (!population && run.tanks) {
+      clean.tanks = Object.fromEntries(["control", "test"].map(side =>
+        [side, validateTankArchive(run.tanks[side], clean[side])]));
+    }
+    if (!population && !run.tanks) {
+      for (const side of ["control","test"]) {
+        const key=side === "control" ? "finalControl" : "finalTest",state=run[key],sample=clean[side].at(-1);
+        if (!state) continue;
+        if (state.day !== sample.day || !state.params || !Array.isArray(state.entities) || state.entities.length > 240 ||
+            JSON.stringify(state).length > 2000000 || ["temp","oxygen","no2","no3","co2"].some(k=>Number.isFinite(sample[k]) && state.params[k] !== sample[k]))
+          throw new Error("Früherer Beckenstand und Messreihe widersprechen sich.");
+        // Bounded read-only evidence, never executed as an imported game state.
+        clean[key]=structuredClone(state);
+      }
+    }
+    if (run.intervention) {
+      const ev = run.intervention;
+      if (ev.version !== 1 || !Object.hasOwn(LEARNING_TOOLS, ev.type) || typeof ev.effective !== "boolean")
+        throw new Error("Ungültiger Eingriffsbeleg.");
+      clean.intervention = structuredClone(ev);
+    }
     clean.stopped =
       evidenceText(run.stopped) ||
       (Object.values(clean.status).some((s) => s.state !== "completed")
@@ -989,6 +1092,18 @@ export function validateLearningComparison(raw) {
     assumption: evidenceText(raw.assumption),
     repetitions: runs.length,
   };
+  for (const key of ["id", "attemptId"])
+    if (raw[key] != null) {
+      if (typeof raw[key] !== "string" || !/^[a-zA-Z0-9-]{1,80}$/.test(raw[key])) throw new Error("Ungültige Versuchskennung.");
+      clean[key] = raw[key];
+    }
+  if (raw.viewVersion === 1) clean.viewVersion = 1;
+  if (raw.questEvidence) {
+    const q=validateQuest(raw.questEvidence,configuration?.profile.mission || raw.questEvidence.id);
+    const id=q.result?.viewContext?.investigationId || q.entries.find(e=>e.step===3)?.viewContext?.investigationId || q.entries.find(e=>e.step===2)?.evidence?.context?.investigationId;
+    if (id && id === raw.id) clean.questEvidence=q;else clean.unassignedQuestEvidence=q;
+  }
+  if (raw.unassignedQuestEvidence) clean.unassignedQuestEvidence=validateQuest(raw.unassignedQuestEvidence,configuration?.profile.mission || raw.unassignedQuestEvidence.id);
   if (population) {
     if (
       raw.environment != null &&

@@ -1,0 +1,302 @@
+{
+  "commit": "a89f0f6892dda54d605dd66cefaf3742599b4736",
+  "engine": "webkit",
+  "actions": [
+    {
+      "atUTC": "2026-10-25T05:59:07.639065+00:00",
+      "selector": "[data-start=tutorial]",
+      "label": "Tutorial\nSchritt für Schritt durch die ersten Anschaffungen und Beobachtungen.\nMit Anleitung starten →",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:07.870784+00:00",
+      "selector": "[data-act=tutorial-action]",
+      "label": "Becken auswählen",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:08.156229+00:00",
+      "selector": "[data-buy=tank-120]",
+      "label": "Kaufen",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:08.555862+00:00",
+      "selector": "[data-act=place-tank]",
+      "label": "Kaufen & platzieren · 120 L",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:09.147480+00:00",
+      "selector": "[data-act=tutorial-action]",
+      "label": "Boden auswählen",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:09.778240+00:00",
+      "selector": "[data-buy=substrate-sand]",
+      "label": "3 Säcke kaufen",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:11.860902+00:00",
+      "selector": "[data-act=close-panel]",
+      "label": "",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:12.354659+00:00",
+      "selector": "[data-act=tutorial-next]",
+      "label": "Weiter",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:13.030616+00:00",
+      "selector": "[data-act=tutorial-action]",
+      "label": "Filter auswählen",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:13.579526+00:00",
+      "selector": "[data-buy=filter-internal120]",
+      "label": "Kaufen",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:14.462343+00:00",
+      "selector": "[data-act=close-panel]",
+      "label": "",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:14.966626+00:00",
+      "selector": "[data-act=tutorial-next]",
+      "label": "Weiter",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:15.651962+00:00",
+      "selector": "[data-act=tutorial-action]",
+      "label": "Beleuchtung auswählen",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:16.241584+00:00",
+      "selector": "[data-buy=light-basic]",
+      "label": "Kaufen",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:18.103943+00:00",
+      "selector": "[data-act=close-panel]",
+      "label": "",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:18.955246+00:00",
+      "selector": "[data-act=tutorial-next]",
+      "label": "Weiter",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:19.473248+00:00",
+      "selector": "[data-act=tutorial-action]",
+      "label": "Pflanzen entdecken",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:20.284241+00:00",
+      "selector": "[data-species]",
+      "label": "Modellvorschau\nSÜSS\nAnubias\nAnubias barteri\n20–28 °C\n20 L +",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:21.303597+00:00",
+      "selector": "[data-act=add-species]",
+      "label": "Kaufen & ins Aquarium setzen",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:23.090713+00:00",
+      "selector": "[data-act=close-panel]",
+      "label": "",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:24.182860+00:00",
+      "selector": "[data-act=tutorial-next]",
+      "label": "Weiter",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:25.441683+00:00",
+      "selector": "[data-act=tutorial-action]",
+      "label": "Wasserlabor öffnen",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:27.019896+00:00",
+      "selector": "[data-act=quick-test]",
+      "label": "Alle Werte als Schnelltest messen",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:27.864466+00:00",
+      "selector": "[data-act=close-panel]",
+      "label": "",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:29.252138+00:00",
+      "selector": "[data-act=tutorial-next]",
+      "label": "Weiter",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:30.732381+00:00",
+      "selector": "[data-act=tutorial-action]",
+      "label": "Zeit & Runde öffnen",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:31.478894+00:00",
+      "selector": "[data-advance=\"7\"]",
+      "label": "+ 7 Tage",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:32.413340+00:00",
+      "selector": "[data-act=close-panel]",
+      "label": "",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:33.101769+00:00",
+      "selector": "[data-act=tutorial-next]",
+      "label": "Weiter",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:34.502566+00:00",
+      "selector": "[data-act=tutorial-action]",
+      "label": "Fischarten ansehen",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:35.734564+00:00",
+      "selector": "[data-species]",
+      "label": "Modellvorschau\nSÜSS\nNeonsalmler\nParacheirodon innesi\n20–26 °C\n60 L +",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:36.885934+00:00",
+      "selector": "[data-act=close-modal]",
+      "label": "",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:37.915925+00:00",
+      "selector": "[data-act=close-panel]",
+      "label": "",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:38.587464+00:00",
+      "selector": "[data-act=tutorial-next]",
+      "label": "Tutorial abschließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:39.854090+00:00",
+      "selector": "[data-act=close-modal]",
+      "label": "",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:40.551449+00:00",
+      "selector": "[data-panel=time]",
+      "label": "Zeit & Runde",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:41.672015+00:00",
+      "selector": "[data-act=export]",
+      "label": "Spielstand herunterladen",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:44.065412+00:00",
+      "selector": "[data-start=resume]",
+      "label": "Gespeichertes Spiel fortsetzen →",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:44.869398+00:00",
+      "selector": "[data-panel=time]",
+      "label": "Zeit & Runde",
+      "input": "touchscreen tap"
+    },
+    {
+      "atUTC": "2026-10-25T05:59:46.447519+00:00",
+      "selector": "[data-act=import]",
+      "label": "Datei laden",
+      "input": "touchscreen tap"
+    }
+  ],
+  "stages": [
+    {
+      "step": 0,
+      "day": 0,
+      "entities": 0
+    },
+    {
+      "step": 1,
+      "day": 0,
+      "entities": 0
+    },
+    {
+      "step": 2,
+      "day": 0,
+      "entities": 0
+    },
+    {
+      "step": 3,
+      "day": 0,
+      "entities": 0
+    },
+    {
+      "step": 4,
+      "day": 0,
+      "entities": 0
+    },
+    {
+      "step": 5,
+      "day": 0,
+      "entities": 1
+    },
+    {
+      "step": 6,
+      "day": 0,
+      "entities": 1
+    },
+    {
+      "step": 7,
+      "day": 7,
+      "entities": 1
+    },
+    {
+      "step": 8,
+      "day": 7,
+      "entities": 1
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "version": "26.5",
+  "checks": [
+    "All eight stages completed with real purchases, placement, plant insertion, water test, seven-day advance and species reading",
+    "Actual JSON download, HTTP reload/resume and actual chooser import preserve tutorial and aquarium"
+  ],
+  "status": "passed"
+}

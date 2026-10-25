@@ -1,0 +1,27 @@
+{
+  "engine": "chromium",
+  "commit": "fa03d5981b0c954e5b487be2ded6b5de8a414218",
+  "fixture": "/workspace/Simulation-Aquarium/docs/coherent-learning/evidence/prototype/webkit/selected.json",
+  "expected": {
+    "version": 1,
+    "investigationId": "92405f56-bf58-475d-8615-3da58bb25cac",
+    "attemptId": "42921751-e00c-4e14-b568-6bc01d9a0900",
+    "revision": "learning-biology-5-views",
+    "seriesId": "92405f56-bf58-475d-8615-3da58bb25cac",
+    "series": 0,
+    "run": 1,
+    "repetition": 2,
+    "time": 45.25,
+    "axis": "day",
+    "side": "test",
+    "stateIds": {
+      "control": "35c37056",
+      "test": "aec57175"
+    }
+  },
+  "errors": [],
+  "actual_time_before_assertion": "",
+  "actual_series_before_assertion": "",
+  "status": "failed",
+  "failure": "AssertionError('Locator expected to have attribute \\'92405f56-bf58-475d-8615-3da58bb25cac\\'\\nActual value: None \\nCall log:\\n  - Expect \"to_have_attribute\" with timeout 5000ms\\n  - waiting for locator(\".learn-results\")\\n\\nAria snapshot:\\n- heading \"Tatsächlich berechnete Daten\" [level=3]\\n- status: Plan geändert – neu berechnen. Gezeigt und exportiert wird weiterhin der ältere Lauf mit seiner unten festgehaltenen Konfiguration.\\n- paragraph:\\n  - strong: \"Festgehaltener Lauf:\"\\n  - text: \"Berechneter Lauf: Zieltemperatur 26 °C; geplante Dauer 4; Ausgangszeit 45; Kennung fe101904; Seeds 47291, 152020. control: vollständig berechnet, Ende 49; ; test: vollständig berechnet, Ende 49; ; control: vollständig berechnet, Ende 49; ; test: vollständig berechnet, Ende 49;\"\\n- paragraph: \"Klasse 8 · 8-ecosystem · Modellstand learning-biology-5-views · 2 Wiederholung(en). Zeitschritt: 0,25 Modelltage.\"\\n- group: Planung vor genau diesem Lauf\\n- paragraph: Gleicher bestehender biologischer Rechenkern, gleiche Anfangszustände je Paar; nur ein definierter Eingriff. Wiederholungen unterscheiden den Zufallsstart, keine Messfehler vorgetäuscht.\\n- text: Messgröße\\n- combobox \"Messgröße\":\\n  - option \"Sauerstoff · mg/L\"\\n  - option \"Kondition lebender Fische · Modellindex %\"\\n  - option \"Algenbestand · relativ\"\\n  - option \"Pflanzenbiomasse · relativ\"\\n  - option \"Organische Reste · relativ\"\\n  - option \"Temperatur · °C\" [selected]\\n  - option \"Lebende Fische · Anzahl\"\\n- \\'img \"Verlauf Temperatur · °C: Kontrolle und Versuch\"\\': Temperatur · °C 25,55 0 45 49 Tag · Modellzeit (Wiederholung 1) Kontrolle Versuch\\n- paragraph: \"Kontrolle: durchgezogen · Versuch: gestrichelt. Diagramm: Wiederholung 1. „—“ bedeutet unbekannt; „keine Folgemessung“ bedeutet: diese Seite wurde beendet. Nach Ausfall einer Seite gibt es keinen vollständigen Paarvergleich mehr.\"\\n- group: Wiederholung 1 · Kontrolle 17, Versuch 17 Zeitpunkte\\n- group: Wiederholung 2 · Kontrolle 17, Versuch 17 Zeitpunkte\\n- button \"Gewählten Zeitpunkt als CSV\"\\n- button \"Diese Reihe vollständig als CSV\"\\n- button \"Protokoll mit Daten\"\\n- button \"Diagramm als SVG\"\\n- button \"Kontrollbecken ansehen\"\\n- button \"Versuchsbecken ansehen\"\\n- text: \"Beobachtung: Was zeigen meine Daten?\"\\n- \\'textbox \"Beobachtung: Was zeigen meine Daten?\"\\'\\n- text: \"Deutung: Wie erkläre ich die Daten?\"\\n- \\'textbox \"Deutung: Wie erkläre ich die Daten?\"\\'\\n- text: \"Rückblick: Was denke ich jetzt anders? Welche Grenze hat das Modell?\"\\n- \\'textbox \"Rückblick: Was denke ich jetzt anders? Welche Grenze hat das Modell?\"\\'')"
+}

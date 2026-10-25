@@ -1,0 +1,32 @@
+{
+  "version": "1.0 – Release-Kandidat",
+  "applicationCommit": "893492bb38480905bb9c6a455af5c176f7c23f66",
+  "baselineCommit": "3e6394bf29d21fa8cc685855a84bcc2eb06f57a4",
+  "reportTime": "24.10.2026, 16:30 Uhr (Europe/Berlin)",
+  "decisions": {
+    "web": "FREIGABEFÄHIG",
+    "standalone": "EINGESCHRÄNKT",
+    "physicalIPadSafari": "NOCH NICHT GEPRÜFT"
+  },
+  "standalone": {
+    "bytes": 151612920,
+    "sha256": "13612b42a105290f805bebc545da12adef34d24f5288b239453955f848f1ef1b",
+    "actualUIDownloadsVerified": [
+      "public WebKit",
+      "public Chromium",
+      "offline WebKit",
+      "offline Chromium"
+    ],
+    "embeddedAssets": 476,
+    "childDocumentBytes": 1988231
+  },
+  "moduleTestsPassed": 202,
+  "stabilityRunsPassed": 14,
+  "policyBlockedRuns": 2,
+  "completedRounds": 192,
+  "newRuntimeChangesOnly": [
+    "aquascaping.mjs",
+    "standalone-navigation.mjs",
+    "single-learning.css"
+  ]
+}

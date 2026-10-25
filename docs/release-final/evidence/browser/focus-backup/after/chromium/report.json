@@ -1,0 +1,413 @@
+{
+  "engine": "chromium",
+  "commit": "9a9c7b31ef0c9ed400cb326680b69e6479411919",
+  "sourceSHA256": "9086e776c9c8124b1e7ff2f0413d284748c36aee096885f18abbc76d0d10c4a4",
+  "before": false,
+  "actions": [
+    {
+      "click": "[data-class-choice=unsure]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=reset-trial]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=reset-trial]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "key": "Enter",
+      "on": "parents opener"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "close",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:26.903482+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "SELECT",
+        "key": "trial",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:26.937482+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "SELECT",
+        "key": "generation",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:26.945004+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "close",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:26.955687+00:00"
+    },
+    {
+      "key": "Shift+Tab",
+      "active": {
+        "tag": "SELECT",
+        "key": "generation",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:32.957121+00:00"
+    },
+    {
+      "key": "Shift+Tab",
+      "active": {
+        "tag": "SELECT",
+        "key": "trial",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:32.973921+00:00"
+    },
+    {
+      "key": "ArrowUp",
+      "active": {
+        "tag": "SELECT",
+        "key": "trial",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:33.052216+00:00"
+    },
+    {
+      "key": "ArrowUp",
+      "active": {
+        "tag": "SELECT",
+        "key": "generation",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:33.093313+00:00"
+    },
+    {
+      "key": "Escape",
+      "active": {
+        "tag": "BUTTON",
+        "key": "parents",
+        "inDialog": false
+      },
+      "at": "2026-10-25T06:16:38.802131+00:00"
+    },
+    {
+      "click": "[data-class=parents]"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "positive1",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:42.562468+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "positive2",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:42.572243+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "close",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:42.579484+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "SELECT",
+        "key": "trial",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:42.593468+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "SELECT",
+        "key": "generation",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:42.597350+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "INPUT",
+        "key": "input",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:42.629315+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "TEXTAREA",
+        "key": "text",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:42.637424+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "DIV",
+        "key": "custom",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:42.640849+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "positive1",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:42.652924+00:00"
+    },
+    {
+      "key": "Shift+Tab",
+      "active": {
+        "tag": "DIV",
+        "key": "custom",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:42.656985+00:00"
+    },
+    {
+      "key": "Shift+Tab",
+      "active": {
+        "tag": "TEXTAREA",
+        "key": "text",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:42.664197+00:00"
+    },
+    {
+      "key": "Shift+Tab",
+      "active": {
+        "tag": "INPUT",
+        "key": "input",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:42.670059+00:00"
+    },
+    {
+      "key": "Shift+Tab",
+      "active": {
+        "tag": "SELECT",
+        "key": "generation",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:42.685024+00:00"
+    },
+    {
+      "key": "Shift+Tab",
+      "active": {
+        "tag": "SELECT",
+        "key": "trial",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:42.693473+00:00"
+    },
+    {
+      "key": "Shift+Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "close",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:42.698337+00:00"
+    },
+    {
+      "key": "Shift+Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "positive2",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:42.729562+00:00"
+    },
+    {
+      "key": "Shift+Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "positive1",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:42.733504+00:00"
+    },
+    {
+      "key": "Escape",
+      "active": {
+        "tag": "BUTTON",
+        "key": "parents",
+        "inDialog": false
+      },
+      "at": "2026-10-25T06:16:42.758061+00:00"
+    },
+    {
+      "click": "[data-class=help]"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "close",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:44.780414+00:00"
+    },
+    {
+      "key": "Escape",
+      "active": {
+        "tag": "BUTTON",
+        "key": "help",
+        "inDialog": false
+      },
+      "at": "2026-10-25T06:16:44.786427+00:00"
+    },
+    {
+      "click": "[data-class=menu]"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "close",
+        "inDialog": true
+      },
+      "at": "2026-10-25T06:16:46.684001+00:00"
+    },
+    {
+      "key": "Escape",
+      "active": {
+        "tag": "BUTTON",
+        "key": "menu",
+        "inDialog": false
+      },
+      "at": "2026-10-25T06:16:46.692554+00:00"
+    }
+  ],
+  "checks": [
+    "Tab/Shift+Tab cycle; keyboard trial/generation changes retain focus; Escape restores actual opener; all session/archive data unchanged",
+    "DOM-only fixture: input/textarea/custom and positive tab order; hidden file/disabled fieldset/inert/negative tabindex/invisible/non-link excluded in both directions",
+    "Existing help and menu dialogs retain wrapping and opener restoration"
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "version": "154.0.8037.57",
+  "offline": "All HTTP(S) blocked after initial load",
+  "captures": [
+    {
+      "name": "archive-open",
+      "url": "http://127.0.0.1:8000/standalone-final/?mission=m4-dominance-frequency",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "at": "2026-10-25T06:16:26.880147+00:00",
+      "active": {
+        "tag": "H2",
+        "key": null,
+        "inDialog": true
+      }
+    },
+    {
+      "name": "tab-cycle",
+      "url": "http://127.0.0.1:8000/standalone-final/?mission=m4-dominance-frequency",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "at": "2026-10-25T06:16:32.898875+00:00",
+      "active": {
+        "tag": "BUTTON",
+        "key": "close",
+        "inDialog": true
+      }
+    },
+    {
+      "name": "keyboard-selected-archive",
+      "url": "http://127.0.0.1:8000/standalone-final/?mission=m4-dominance-frequency",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "at": "2026-10-25T06:16:38.781924+00:00",
+      "active": {
+        "tag": "SELECT",
+        "key": "generation",
+        "inDialog": true
+      }
+    }
+  ],
+  "initialCycle": [
+    {
+      "tag": "BUTTON",
+      "key": "close",
+      "inDialog": true
+    },
+    {
+      "tag": "SELECT",
+      "key": "trial",
+      "inDialog": true
+    },
+    {
+      "tag": "SELECT",
+      "key": "generation",
+      "inDialog": true
+    },
+    {
+      "tag": "BUTTON",
+      "key": "close",
+      "inDialog": true
+    }
+  ],
+  "status": "passed"
+}

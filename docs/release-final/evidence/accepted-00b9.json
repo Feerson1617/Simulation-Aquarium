@@ -1,0 +1,52 @@
+{
+  "classification": "H: supplied independent evidence, explicitly accepted by the overriding final instruction; not newly executed by Codex",
+  "baseline": "00b9f7874e18646786e6e9d273f3abc9d9c3feec",
+  "packageSHA256": "9bec34c59ad514f56aecd6955fe83d47532856d50339e19f408b8337eb8a3b6b",
+  "verifiedManifestFiles": 125,
+  "accepted": {
+    "moduleTests": 202,
+    "fullMissions": [
+      "M1",
+      "M2",
+      "M3",
+      "M4"
+    ],
+    "longWebKitOfflineNavigationRounds": 24,
+    "U01": "confirmed corrected, both engines and three sizes",
+    "embeddedResourceCount": 476
+  },
+  "priorMajorGameDefects": "No new P0/P1/P2 defect established in the reviewed routes",
+  "lastConfirmedCorrection": "K01 P3 dialog keyboard focus",
+  "thenMissing": [
+    "complete current M5",
+    "complete current M6",
+    "actual continuation after M6",
+    "targeted current mode and save regressions"
+  ],
+  "sourceDocuments": [
+    {
+      "name": "Abnahmestatus.json",
+      "sha256": "de7a505b5fd9b305d7a447be6e0ee45ddef604ebeb56e9496dbf5e0d2d99dda1"
+    },
+    {
+      "name": "independent-data-audit.json",
+      "sha256": "b679e932f5ecf8ffdcbba93cbb199472eb7866f5c5d62cd96a651ec78495af29"
+    },
+    {
+      "name": "navigation-checks-initial24.json",
+      "sha256": "192add2d3156e9162f4a5e1976ff0814aae5f0d34309941c5766231e5bf4e38e"
+    },
+    {
+      "name": "hint-checks.json",
+      "sha256": "da8f2ab531cd8c7316ac2799139056d364712d595e94f0e2f39d31b80072bad9"
+    },
+    {
+      "name": "m4-keyboard-focus-audit.json",
+      "sha256": "bb072b001cc82bf965fe355a4514843b2e6736f01be265a56f921d98d25b11af"
+    },
+    {
+      "name": "runtime-difference-audit.json",
+      "sha256": "b7516e37e2af19061e8acd6d9e7c44b9a529a19f8476ef9d2667f17b615fb2db"
+    }
+  ]
+}

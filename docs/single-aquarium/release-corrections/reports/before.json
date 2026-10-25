@@ -1,0 +1,148 @@
+{
+  "commit": "5b661044cc85f640518572b5cd8fb4974d9d213b",
+  "captures": [
+    {
+      "name": "desktop-metric-before",
+      "url": "http://127.0.0.1:8000/r-before/?expert=1&archive-tools=1",
+      "at": "2026-10-24T06:55:36.626831+00:00",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "Eintrag.\n\nreflection · Herkunft nicht dokumentiert\n\nNoch kein Eintrag.\n\ntransfer · Herkunft nicht dokumentiert\n\nNoch kein Eintrag.\n\nassessment · Herkunft nicht dokumentiert\n\nNoch kein Eintrag.\n\nAltprodukt: Urheberschaft vorhandener Texte ist nicht dokumentiert. Sie gelten nicht automatisch als selbst formulierte Schülerleistung.\n\nDatenbezug prüfen\n\nFestgehaltener Lauf: Berechneter Lauf: Beleuchtungsdauer 0 h/Tag; geplante Dauer 3; Ausgangszeit nicht dokumentiert; Kennung Altbestand; Seeds 47291, 152020. control: vollständig berechnet, Ende 48; ; test: vollständig berechnet, Ende 48; ; control: vollständig berechnet, Ende 48; ; test: vollständig berechnet, Ende 48;\n\nÄlterer Export: keine vollständige feste Konfiguration vorhanden. Fehlende Angaben werden nicht nachträglich erfunden.\n\nPlanung vor genau diesem Lauf\n\nGleicher bestehender biologischer Rechenkern, gleiche Anfangszustände je Paar; nur ein definierter Eingriff. Wiederholungen unterscheiden den Zufallsstart, keine Messfehler vorgetäuscht.\n\nUntersuchte Messgröße\n\nSauerstoff · mg/L\n8,35\n0\n45\n48\nTag · Modellzeit (Wiederholung 1)\nKontrolle\nVersuch\nAlle importierten Messreihen als CSV\nWiederholung 1 · Kontrolle 13, Versuch 13 Zeitpunkte\nWiederholung 2 · Kontrolle 13, Versuch 13 Zeitpunkte\nEigene Messreihe · 1 Zeitpunkte\n\nAufeinanderfolgende Beobachtungen desselben Beckens. Kein automatischer Kontrollversuch; mehrere Eingriffe oder Zeitabstände können sich unterscheiden.\n\nEigene Messgröße\n\nSauerstoff · mg/L\n7,8\n0\n45\n45\nTag · Modellzeit (eigene Messreihe)\nEigenes Becken\nSauerstoff · mg/L\nTag · Modellzeit\tEigenes Becken\n45\t7,8\n\n„—“: unbekannt oder zum Aufnahmezeitpunkt nicht freigegeben. Reale Nullwerte stehen als 0.\n\nEigene Messreihe als CSV\nEigene Messreihe als SVG\nAlle Missionshintergründe und Modellgrenzen\nVersuche verwalten\n\nEin Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.\n\nAusgewählte Mission neu beginnenGesicherte Mission wiederherstellen\nFachliche und curriculare Grundlage"
+    },
+    {
+      "name": "desktop-metric-jump",
+      "url": "http://127.0.0.1:8000/r-before/?expert=1&archive-tools=1",
+      "at": "2026-10-24T06:55:36.774356+00:00",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "erkunft nicht dokumentiert\n\nNoch kein Eintrag.\n\nassessment · Herkunft nicht dokumentiert\n\nNoch kein Eintrag.\n\nAltprodukt: Urheberschaft vorhandener Texte ist nicht dokumentiert. Sie gelten nicht automatisch als selbst formulierte Schülerleistung.\n\nDatenbezug prüfen\n\nFestgehaltener Lauf: Berechneter Lauf: Beleuchtungsdauer 0 h/Tag; geplante Dauer 3; Ausgangszeit nicht dokumentiert; Kennung Altbestand; Seeds 47291, 152020. control: vollständig berechnet, Ende 48; ; test: vollständig berechnet, Ende 48; ; control: vollständig berechnet, Ende 48; ; test: vollständig berechnet, Ende 48;\n\nÄlterer Export: keine vollständige feste Konfiguration vorhanden. Fehlende Angaben werden nicht nachträglich erfunden.\n\nPlanung vor genau diesem Lauf\n\nGleicher bestehender biologischer Rechenkern, gleiche Anfangszustände je Paar; nur ein definierter Eingriff. Wiederholungen unterscheiden den Zufallsstart, keine Messfehler vorgetäuscht.\n\nUntersuchte Messgröße\n\nSauerstoff · mg/L\n8,35\n0\n45\n48\nTag · Modellzeit (Wiederholung 1)\nKontrolle\nVersuch\nAlle importierten Messreihen als CSV\nWiederholung 1 · Kontrolle 13, Versuch 13 Zeitpunkte\nWiederholung 2 · Kontrolle 13, Versuch 13 Zeitpunkte\nEigene Messreihe · 1 Zeitpunkte\n\nDiese historische Messgröße ist nicht eindeutig dokumentiert. Ihre Werte bleiben unbekannt. Aufeinanderfolgende Beobachtungen desselben Beckens. Kein automatischer Kontrollversuch; mehrere Eingriffe oder Zeitabstände können sich unterscheiden.\n\nEigene Messgröße\n\nKeine bekannten Werte für diese Messgröße. Es wird keine Messkurve gezeichnet.\n\nLebende Fische · historisch unbekannt\nTag · Modellzeit\tEigenes Becken\n45\t—\n\n„—“: unbekannt oder zum Aufnahmezeitpunkt nicht freigegeben. Reale Nullwerte stehen als 0.\n\nEigene Messreihe als CSV\nAlle Missionshintergründe und Modellgrenzen\nVersuche verwalten\n\nEin Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.\n\nAusgewählte Mission neu beginnenGesicherte Mission wiederherstellen\nFachliche und curriculare Grundlage"
+    },
+    {
+      "name": "desktop-csv-error",
+      "url": "http://127.0.0.1:8000/r-before/?expert=1&archive-tools=1",
+      "at": "2026-10-24T06:55:37.185581+00:00",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "erkunft nicht dokumentiert\n\nNoch kein Eintrag.\n\nassessment · Herkunft nicht dokumentiert\n\nNoch kein Eintrag.\n\nAltprodukt: Urheberschaft vorhandener Texte ist nicht dokumentiert. Sie gelten nicht automatisch als selbst formulierte Schülerleistung.\n\nDatenbezug prüfen\n\nFestgehaltener Lauf: Berechneter Lauf: Beleuchtungsdauer 0 h/Tag; geplante Dauer 3; Ausgangszeit nicht dokumentiert; Kennung Altbestand; Seeds 47291, 152020. control: vollständig berechnet, Ende 48; ; test: vollständig berechnet, Ende 48; ; control: vollständig berechnet, Ende 48; ; test: vollständig berechnet, Ende 48;\n\nÄlterer Export: keine vollständige feste Konfiguration vorhanden. Fehlende Angaben werden nicht nachträglich erfunden.\n\nPlanung vor genau diesem Lauf\n\nGleicher bestehender biologischer Rechenkern, gleiche Anfangszustände je Paar; nur ein definierter Eingriff. Wiederholungen unterscheiden den Zufallsstart, keine Messfehler vorgetäuscht.\n\nUntersuchte Messgröße\n\nSauerstoff · mg/L\n8,35\n0\n45\n48\nTag · Modellzeit (Wiederholung 1)\nKontrolle\nVersuch\nAlle importierten Messreihen als CSV\nWiederholung 1 · Kontrolle 13, Versuch 13 Zeitpunkte\nWiederholung 2 · Kontrolle 13, Versuch 13 Zeitpunkte\nEigene Messreihe · 1 Zeitpunkte\n\nDiese historische Messgröße ist nicht eindeutig dokumentiert. Ihre Werte bleiben unbekannt. Aufeinanderfolgende Beobachtungen desselben Beckens. Kein automatischer Kontrollversuch; mehrere Eingriffe oder Zeitabstände können sich unterscheiden.\n\nEigene Messgröße\n\nKeine bekannten Werte für diese Messgröße. Es wird keine Messkurve gezeichnet.\n\nLebende Fische · historisch unbekannt\nTag · Modellzeit\tEigenes Becken\n45\t—\n\n„—“: unbekannt oder zum Aufnahmezeitpunkt nicht freigegeben. Reale Nullwerte stehen als 0.\n\nEigene Messreihe als CSV\nAlle Missionshintergründe und Modellgrenzen\nVersuche verwalten\n\nEin Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.\n\nAusgewählte Mission neu beginnenGesicherte Mission wiederherstellen\nFachliche und curriculare Grundlage"
+    },
+    {
+      "name": "desktop-csv-control",
+      "url": "http://127.0.0.1:8000/r-before/?expert=1&archive-tools=1",
+      "at": "2026-10-24T06:55:37.409162+00:00",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": " kein Eintrag.\n\nAltprodukt: Urheberschaft vorhandener Texte ist nicht dokumentiert. Sie gelten nicht automatisch als selbst formulierte Schülerleistung.\n\nDatenbezug prüfen\n\nFestgehaltener Lauf: Berechneter Lauf: Dunkle Modellumwelt; geplante Dauer 5; Ausgangszeit nicht dokumentiert; Kennung Altbestand; Seeds 47291, 152020. control: vollständig berechnet, Ende 5; ; test: vollständig berechnet, Ende 5; ; control: vollständig berechnet, Ende 5; ; test: vollständig berechnet, Ende 5;\n\nÄlterer Export: keine vollständige feste Konfiguration vorhanden. Fehlende Angaben werden nicht nachträglich erfunden.\n\nPlanung vor genau diesem Lauf\n\nHelle/dunkle Modellumwelt: passender Phänotyp erhält Gewicht 1, anderer 0,5 für die Elternwahl. Hypothetische relative Fortpflanzungschance; kein gemessener Molly-Wert.\n\nUntersuchte Messgröße\n\nGenotyp AA · Anzahl\n14\n0\n0\n5\nGeneration (Wiederholung 1)\nKontrolle\nVersuch\nAlle importierten Messreihen als CSV\nWiederholung 1 · Kontrolle 6, Versuch 6 Zeitpunkte\nWiederholung 2 · Kontrolle 6, Versuch 6 Zeitpunkte\nEigene Messreihe · 1 Zeitpunkte\n\nAufeinanderfolgende Beobachtungen desselben Beckens. Kein automatischer Kontrollversuch; mehrere Eingriffe oder Zeitabstände können sich unterscheiden.\n\nEigene Messgröße\n\nTiere · Anzahl\n4\n0\n45\n45\nTag · Modellzeit (eigene Messreihe)\nEigenes Becken\nTiere · Anzahl\nTag · Modellzeit\tEigenes Becken\n45\t4\n\n„—“: unbekannt oder zum Aufnahmezeitpunkt nicht freigegeben. Reale Nullwerte stehen als 0.\n\nEigene Messreihe als CSV\nEigene Messreihe als SVG\nSeparater Zuchtversuch\n\nStartseed nicht dokumentiert; aktueller Zufallszustand 47291. Dieses Archiv ersetzt nicht die Archive der Kontroll-/Selektionsläufe.\n\nEltern, Nachkommen und Fortpflanzungserfolg · separater Mendelversuch\nAlle Missionshintergründe und Modellgrenzen\nVersuche verwalten\n\nEin Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.\n\nAusgewählte Mission neu beginnenGesicherte Mission wiederherstellen\nFachliche und curriculare Grundlage"
+    },
+    {
+      "name": "portrait-metric-before",
+      "url": "http://127.0.0.1:8000/r-before/?expert=1&archive-tools=1",
+      "at": "2026-10-24T06:55:39.119609+00:00",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "text": "Eintrag.\n\nreflection · Herkunft nicht dokumentiert\n\nNoch kein Eintrag.\n\ntransfer · Herkunft nicht dokumentiert\n\nNoch kein Eintrag.\n\nassessment · Herkunft nicht dokumentiert\n\nNoch kein Eintrag.\n\nAltprodukt: Urheberschaft vorhandener Texte ist nicht dokumentiert. Sie gelten nicht automatisch als selbst formulierte Schülerleistung.\n\nDatenbezug prüfen\n\nFestgehaltener Lauf: Berechneter Lauf: Beleuchtungsdauer 0 h/Tag; geplante Dauer 3; Ausgangszeit nicht dokumentiert; Kennung Altbestand; Seeds 47291, 152020. control: vollständig berechnet, Ende 48; ; test: vollständig berechnet, Ende 48; ; control: vollständig berechnet, Ende 48; ; test: vollständig berechnet, Ende 48;\n\nÄlterer Export: keine vollständige feste Konfiguration vorhanden. Fehlende Angaben werden nicht nachträglich erfunden.\n\nPlanung vor genau diesem Lauf\n\nGleicher bestehender biologischer Rechenkern, gleiche Anfangszustände je Paar; nur ein definierter Eingriff. Wiederholungen unterscheiden den Zufallsstart, keine Messfehler vorgetäuscht.\n\nUntersuchte Messgröße\n\nSauerstoff · mg/L\n8,35\n0\n45\n48\nTag · Modellzeit (Wiederholung 1)\nKontrolle\nVersuch\nAlle importierten Messreihen als CSV\nWiederholung 1 · Kontrolle 13, Versuch 13 Zeitpunkte\nWiederholung 2 · Kontrolle 13, Versuch 13 Zeitpunkte\nEigene Messreihe · 1 Zeitpunkte\n\nAufeinanderfolgende Beobachtungen desselben Beckens. Kein automatischer Kontrollversuch; mehrere Eingriffe oder Zeitabstände können sich unterscheiden.\n\nEigene Messgröße\n\nSauerstoff · mg/L\n7,8\n0\n45\n45\nTag · Modellzeit (eigene Messreihe)\nEigenes Becken\nSauerstoff · mg/L\nTag · Modellzeit\tEigenes Becken\n45\t7,8\n\n„—“: unbekannt oder zum Aufnahmezeitpunkt nicht freigegeben. Reale Nullwerte stehen als 0.\n\nEigene Messreihe als CSV\nEigene Messreihe als SVG\nAlle Missionshintergründe und Modellgrenzen\nVersuche verwalten\n\nEin Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.\n\nAusgewählte Mission neu beginnenGesicherte Mission wiederherstellen\nFachliche und curriculare Grundlage"
+    },
+    {
+      "name": "portrait-metric-jump",
+      "url": "http://127.0.0.1:8000/r-before/?expert=1&archive-tools=1",
+      "at": "2026-10-24T06:55:39.213937+00:00",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "text": "erkunft nicht dokumentiert\n\nNoch kein Eintrag.\n\nassessment · Herkunft nicht dokumentiert\n\nNoch kein Eintrag.\n\nAltprodukt: Urheberschaft vorhandener Texte ist nicht dokumentiert. Sie gelten nicht automatisch als selbst formulierte Schülerleistung.\n\nDatenbezug prüfen\n\nFestgehaltener Lauf: Berechneter Lauf: Beleuchtungsdauer 0 h/Tag; geplante Dauer 3; Ausgangszeit nicht dokumentiert; Kennung Altbestand; Seeds 47291, 152020. control: vollständig berechnet, Ende 48; ; test: vollständig berechnet, Ende 48; ; control: vollständig berechnet, Ende 48; ; test: vollständig berechnet, Ende 48;\n\nÄlterer Export: keine vollständige feste Konfiguration vorhanden. Fehlende Angaben werden nicht nachträglich erfunden.\n\nPlanung vor genau diesem Lauf\n\nGleicher bestehender biologischer Rechenkern, gleiche Anfangszustände je Paar; nur ein definierter Eingriff. Wiederholungen unterscheiden den Zufallsstart, keine Messfehler vorgetäuscht.\n\nUntersuchte Messgröße\n\nSauerstoff · mg/L\n8,35\n0\n45\n48\nTag · Modellzeit (Wiederholung 1)\nKontrolle\nVersuch\nAlle importierten Messreihen als CSV\nWiederholung 1 · Kontrolle 13, Versuch 13 Zeitpunkte\nWiederholung 2 · Kontrolle 13, Versuch 13 Zeitpunkte\nEigene Messreihe · 1 Zeitpunkte\n\nDiese historische Messgröße ist nicht eindeutig dokumentiert. Ihre Werte bleiben unbekannt. Aufeinanderfolgende Beobachtungen desselben Beckens. Kein automatischer Kontrollversuch; mehrere Eingriffe oder Zeitabstände können sich unterscheiden.\n\nEigene Messgröße\n\nKeine bekannten Werte für diese Messgröße. Es wird keine Messkurve gezeichnet.\n\nLebende Fische · historisch unbekannt\nTag · Modellzeit\tEigenes Becken\n45\t—\n\n„—“: unbekannt oder zum Aufnahmezeitpunkt nicht freigegeben. Reale Nullwerte stehen als 0.\n\nEigene Messreihe als CSV\nAlle Missionshintergründe und Modellgrenzen\nVersuche verwalten\n\nEin Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.\n\nAusgewählte Mission neu beginnenGesicherte Mission wiederherstellen\nFachliche und curriculare Grundlage"
+    },
+    {
+      "name": "portrait-csv-error",
+      "url": "http://127.0.0.1:8000/r-before/?expert=1&archive-tools=1",
+      "at": "2026-10-24T06:55:39.519682+00:00",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "text": "erkunft nicht dokumentiert\n\nNoch kein Eintrag.\n\nassessment · Herkunft nicht dokumentiert\n\nNoch kein Eintrag.\n\nAltprodukt: Urheberschaft vorhandener Texte ist nicht dokumentiert. Sie gelten nicht automatisch als selbst formulierte Schülerleistung.\n\nDatenbezug prüfen\n\nFestgehaltener Lauf: Berechneter Lauf: Beleuchtungsdauer 0 h/Tag; geplante Dauer 3; Ausgangszeit nicht dokumentiert; Kennung Altbestand; Seeds 47291, 152020. control: vollständig berechnet, Ende 48; ; test: vollständig berechnet, Ende 48; ; control: vollständig berechnet, Ende 48; ; test: vollständig berechnet, Ende 48;\n\nÄlterer Export: keine vollständige feste Konfiguration vorhanden. Fehlende Angaben werden nicht nachträglich erfunden.\n\nPlanung vor genau diesem Lauf\n\nGleicher bestehender biologischer Rechenkern, gleiche Anfangszustände je Paar; nur ein definierter Eingriff. Wiederholungen unterscheiden den Zufallsstart, keine Messfehler vorgetäuscht.\n\nUntersuchte Messgröße\n\nSauerstoff · mg/L\n8,35\n0\n45\n48\nTag · Modellzeit (Wiederholung 1)\nKontrolle\nVersuch\nAlle importierten Messreihen als CSV\nWiederholung 1 · Kontrolle 13, Versuch 13 Zeitpunkte\nWiederholung 2 · Kontrolle 13, Versuch 13 Zeitpunkte\nEigene Messreihe · 1 Zeitpunkte\n\nDiese historische Messgröße ist nicht eindeutig dokumentiert. Ihre Werte bleiben unbekannt. Aufeinanderfolgende Beobachtungen desselben Beckens. Kein automatischer Kontrollversuch; mehrere Eingriffe oder Zeitabstände können sich unterscheiden.\n\nEigene Messgröße\n\nKeine bekannten Werte für diese Messgröße. Es wird keine Messkurve gezeichnet.\n\nLebende Fische · historisch unbekannt\nTag · Modellzeit\tEigenes Becken\n45\t—\n\n„—“: unbekannt oder zum Aufnahmezeitpunkt nicht freigegeben. Reale Nullwerte stehen als 0.\n\nEigene Messreihe als CSV\nAlle Missionshintergründe und Modellgrenzen\nVersuche verwalten\n\nEin Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.\n\nAusgewählte Mission neu beginnenGesicherte Mission wiederherstellen\nFachliche und curriculare Grundlage"
+    },
+    {
+      "name": "portrait-csv-control",
+      "url": "http://127.0.0.1:8000/r-before/?expert=1&archive-tools=1",
+      "at": "2026-10-24T06:55:39.683798+00:00",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "text": " kein Eintrag.\n\nAltprodukt: Urheberschaft vorhandener Texte ist nicht dokumentiert. Sie gelten nicht automatisch als selbst formulierte Schülerleistung.\n\nDatenbezug prüfen\n\nFestgehaltener Lauf: Berechneter Lauf: Dunkle Modellumwelt; geplante Dauer 5; Ausgangszeit nicht dokumentiert; Kennung Altbestand; Seeds 47291, 152020. control: vollständig berechnet, Ende 5; ; test: vollständig berechnet, Ende 5; ; control: vollständig berechnet, Ende 5; ; test: vollständig berechnet, Ende 5;\n\nÄlterer Export: keine vollständige feste Konfiguration vorhanden. Fehlende Angaben werden nicht nachträglich erfunden.\n\nPlanung vor genau diesem Lauf\n\nHelle/dunkle Modellumwelt: passender Phänotyp erhält Gewicht 1, anderer 0,5 für die Elternwahl. Hypothetische relative Fortpflanzungschance; kein gemessener Molly-Wert.\n\nUntersuchte Messgröße\n\nGenotyp AA · Anzahl\n14\n0\n0\n5\nGeneration (Wiederholung 1)\nKontrolle\nVersuch\nAlle importierten Messreihen als CSV\nWiederholung 1 · Kontrolle 6, Versuch 6 Zeitpunkte\nWiederholung 2 · Kontrolle 6, Versuch 6 Zeitpunkte\nEigene Messreihe · 1 Zeitpunkte\n\nAufeinanderfolgende Beobachtungen desselben Beckens. Kein automatischer Kontrollversuch; mehrere Eingriffe oder Zeitabstände können sich unterscheiden.\n\nEigene Messgröße\n\nTiere · Anzahl\n4\n0\n45\n45\nTag · Modellzeit (eigene Messreihe)\nEigenes Becken\nTiere · Anzahl\nTag · Modellzeit\tEigenes Becken\n45\t4\n\n„—“: unbekannt oder zum Aufnahmezeitpunkt nicht freigegeben. Reale Nullwerte stehen als 0.\n\nEigene Messreihe als CSV\nEigene Messreihe als SVG\nSeparater Zuchtversuch\n\nStartseed nicht dokumentiert; aktueller Zufallszustand 47291. Dieses Archiv ersetzt nicht die Archive der Kontroll-/Selektionsläufe.\n\nEltern, Nachkommen und Fortpflanzungserfolg · separater Mendelversuch\nAlle Missionshintergründe und Modellgrenzen\nVersuche verwalten\n\nEin Neustart sichert den bisherigen lokalen Stand. Exporte bleiben auf deinem Gerät.\n\nAusgewählte Mission neu beginnenGesicherte Mission wiederherstellen\nFachliche und curriculare Grundlage"
+    },
+    {
+      "name": "webkit-offline-before",
+      "url": "http://127.0.0.1:8000/standalone-m1/",
+      "at": "2026-10-24T06:55:46.322266+00:00",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "Ökosystem-Werkstatt · Klassen 8–10\n\nBiologie im Aquarium\n\nEine Frage. Dein Aquarium. Deine Beobachtung.\n\nKlasse 8\nWas machen Pflanzen im Dunkeln?\nBeginnen\nWas wird aus den Futterresten?\nUntersuchen\nKlasse 9\nKönnen dunkle Eltern helle Junge bekommen?\nUntersuchen\nSetzt sich die dominante Farbe immer durch?\nUntersuchen\nKlasse 10\nReicht ein Wasserwechsel?\nUntersuchen\nWoher kommt der Kohlenstoff der Pflanze?\nUntersuchen\nFrei forschen · Klasse 8\nKlasse 9\nKlasse 10\nTutorial und Expertenwerkzeuge\nLehrkraft und frühere Ergebnisse"
+    },
+    {
+      "name": "webkit-offline-failure",
+      "url": "http://127.0.0.1:8000/standalone-m1/",
+      "at": "2026-10-24T06:55:47.445970+00:00",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "Ökosystem-Werkstatt · Klassen 8–10\n\nBiologie im Aquarium\n\nEine Frage. Dein Aquarium. Deine Beobachtung.\n\nKlasse 8\nWas machen Pflanzen im Dunkeln?\nBeginnen\nWas wird aus den Futterresten?\nUntersuchen\nKlasse 9\nKönnen dunkle Eltern helle Junge bekommen?\nUntersuchen\nSetzt sich die dominante Farbe immer durch?\nUntersuchen\nKlasse 10\nReicht ein Wasserwechsel?\nUntersuchen\nWoher kommt der Kohlenstoff der Pflanze?\nUntersuchen\nFrei forschen · Klasse 8\nKlasse 9\nKlasse 10\nTutorial und Expertenwerkzeuge\nLehrkraft und frühere Ergebnisse"
+    },
+    {
+      "name": "chromium-offline-before",
+      "url": "http://127.0.0.1:8000/standalone-m1/",
+      "at": "2026-10-24T06:55:52.175866+00:00",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "Ökosystem-Werkstatt · Klassen 8–10\n\nBiologie im Aquarium\n\nEine Frage. Dein Aquarium. Deine Beobachtung.\n\nKlasse 8\nWas machen Pflanzen im Dunkeln?\nBeginnen\nWas wird aus den Futterresten?\nUntersuchen\nKlasse 9\nKönnen dunkle Eltern helle Junge bekommen?\nUntersuchen\nSetzt sich die dominante Farbe immer durch?\nUntersuchen\nKlasse 10\nReicht ein Wasserwechsel?\nUntersuchen\nWoher kommt der Kohlenstoff der Pflanze?\nUntersuchen\nFrei forschen · Klasse 8\nKlasse 9\nKlasse 10\nTutorial und Expertenwerkzeuge\nLehrkraft und frühere Ergebnisse"
+    },
+    {
+      "name": "chromium-offline-failure",
+      "url": "chrome-error://chromewebdata/",
+      "at": "2026-10-24T06:55:53.308292+00:00",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "Tap the dino to play\n\nTry:\n\nChecking the network cables, modem, and router\nReconnecting to Wi-Fi\nERR_INTERNET_DISCONNECTED"
+    }
+  ],
+  "failures": [
+    {
+      "url": "http://127.0.0.1:8000/standalone-m1/?mission=m6-plant-carbon",
+      "type": "document",
+      "failure": "WebKit encountered an internal error"
+    },
+    {
+      "url": "http://127.0.0.1:8000/standalone-m1/?mission=m2-food-transformation",
+      "type": "document",
+      "failure": "net::ERR_INTERNET_DISCONNECTED"
+    },
+    {
+      "url": "http://127.0.0.1:8000/standalone-m1/?mission=m2-food-transformation",
+      "type": "document",
+      "failure": "net::ERR_INTERNET_DISCONNECTED"
+    }
+  ],
+  "downloads": [
+    "desktop-grade9.csv",
+    "portrait-grade9.csv"
+  ],
+  "browser": "26.5",
+  "status": "expected baseline failures reproduced"
+}

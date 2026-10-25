@@ -1,0 +1,41 @@
+{
+  "at": "2026-10-24T09:19:44.244525+00:00",
+  "commit": "c6bb5f5bbf89fd9e9b8ad88b1b2d16fb49a2b39f",
+  "relativeLinks": 75,
+  "missing": [],
+  "captures": [
+    {
+      "name": "desktop",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/docs/single-aquarium/release-corrections/REVIEW.html#offline",
+      "at": "2026-10-24T09:19:45.257791+00:00",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "images": 19
+    },
+    {
+      "name": "portrait",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/docs/single-aquarium/release-corrections/REVIEW.html#offline",
+      "at": "2026-10-24T09:19:45.744258+00:00",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "images": 19
+    },
+    {
+      "name": "landscape",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/docs/single-aquarium/release-corrections/REVIEW.html#offline",
+      "at": "2026-10-24T09:19:46.114804+00:00",
+      "viewport": {
+        "width": 1366,
+        "height": 1024
+      },
+      "images": 19
+    }
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "status": "passed"
+}

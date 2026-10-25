@@ -1,0 +1,316 @@
+{
+  "engine": "chromium",
+  "phase": "after",
+  "url": "http://127.0.0.1:8000/aquarium-simulation/",
+  "hardware": "Linux browser touchscreen emulation; no physical iPad",
+  "checks": [
+    {
+      "viewport": [
+        768,
+        1024
+      ],
+      "task": {
+        "x": 16,
+        "y": 655.25,
+        "width": 390,
+        "height": 352.75,
+        "bottom": 1008,
+        "right": 406
+      },
+      "scrollTop": 0,
+      "glass": {
+        "left": 19.999997420569457,
+        "right": 748.0000025794307,
+        "top": 272.8871935001853,
+        "bottom": 616.9928064998147,
+        "width": 728.0000051588612,
+        "height": 344.10561299962944,
+        "x": 384.00000000000006,
+        "y": 444.94
+      },
+      "controls": [
+        {
+          "text": "Ja",
+          "rect": {
+            "x": 32,
+            "y": 843,
+            "width": 175.5,
+            "height": 44,
+            "bottom": 887,
+            "right": 207.5
+          },
+          "visible": true,
+          "hit": true
+        },
+        {
+          "text": "Nein",
+          "rect": {
+            "x": 214.5,
+            "y": 843,
+            "width": 175.5,
+            "height": 44,
+            "bottom": 887,
+            "right": 390
+          },
+          "visible": true,
+          "hit": true
+        },
+        {
+          "text": "Ich bin unsicher",
+          "rect": {
+            "x": 32,
+            "y": 894,
+            "width": 358,
+            "height": 44,
+            "bottom": 938,
+            "right": 390
+          },
+          "visible": true,
+          "hit": true
+        },
+        {
+          "text": "Tipp",
+          "rect": {
+            "x": 32,
+            "y": 948,
+            "width": 56.671875,
+            "height": 44,
+            "bottom": 992,
+            "right": 88.671875
+          },
+          "visible": true,
+          "hit": true
+        }
+      ],
+      "hintOpens": true,
+      "predictionAccepted": 0
+    },
+    {
+      "viewport": [
+        1366,
+        960
+      ],
+      "task": {
+        "x": 24,
+        "y": 523.75,
+        "width": 410,
+        "height": 412.25,
+        "bottom": 936,
+        "right": 434
+      },
+      "scrollTop": 0,
+      "glass": {
+        "left": 447.9999988196027,
+        "right": 1336.0000011803972,
+        "top": 294.76093712803134,
+        "bottom": 705.2390628719684,
+        "width": 888.0000023607945,
+        "height": 410.478125743937,
+        "x": 892,
+        "y": 499.9999999999999
+      },
+      "controls": [
+        {
+          "text": "Ja",
+          "rect": {
+            "x": 43,
+            "y": 717,
+            "width": 372,
+            "height": 44,
+            "bottom": 761,
+            "right": 415
+          },
+          "visible": true,
+          "hit": true
+        },
+        {
+          "text": "Nein",
+          "rect": {
+            "x": 43,
+            "y": 768,
+            "width": 372,
+            "height": 44,
+            "bottom": 812,
+            "right": 415
+          },
+          "visible": true,
+          "hit": true
+        },
+        {
+          "text": "Ich bin unsicher",
+          "rect": {
+            "x": 43,
+            "y": 819,
+            "width": 372,
+            "height": 44,
+            "bottom": 863,
+            "right": 415
+          },
+          "visible": true,
+          "hit": true
+        },
+        {
+          "text": "Tipp",
+          "rect": {
+            "x": 43,
+            "y": 873,
+            "width": 56.671875,
+            "height": 44,
+            "bottom": 917,
+            "right": 99.671875
+          },
+          "visible": true,
+          "hit": true
+        }
+      ],
+      "hintOpens": true,
+      "predictionAccepted": 1
+    },
+    {
+      "viewport": [
+        1366,
+        1024
+      ],
+      "task": {
+        "x": 24,
+        "y": 587.75,
+        "width": 410,
+        "height": 412.25,
+        "bottom": 1000,
+        "right": 434
+      },
+      "scrollTop": 0,
+      "glass": {
+        "left": 447.999996368721,
+        "right": 1336.000003631279,
+        "top": 325.55392622616085,
+        "bottom": 738.4460737738391,
+        "width": 888.000007262558,
+        "height": 412.89214754767823,
+        "x": 892,
+        "y": 532
+      },
+      "controls": [
+        {
+          "text": "Ja",
+          "rect": {
+            "x": 43,
+            "y": 781,
+            "width": 372,
+            "height": 44,
+            "bottom": 825,
+            "right": 415
+          },
+          "visible": true,
+          "hit": true
+        },
+        {
+          "text": "Nein",
+          "rect": {
+            "x": 43,
+            "y": 832,
+            "width": 372,
+            "height": 44,
+            "bottom": 876,
+            "right": 415
+          },
+          "visible": true,
+          "hit": true
+        },
+        {
+          "text": "Ich bin unsicher",
+          "rect": {
+            "x": 43,
+            "y": 883,
+            "width": 372,
+            "height": 44,
+            "bottom": 927,
+            "right": 415
+          },
+          "visible": true,
+          "hit": true
+        },
+        {
+          "text": "Tipp",
+          "rect": {
+            "x": 43,
+            "y": 937,
+            "width": 56.671875,
+            "height": 44,
+            "bottom": 981,
+            "right": 99.671875
+          },
+          "visible": true,
+          "hit": true
+        }
+      ],
+      "hintOpens": true,
+      "predictionAccepted": 2
+    }
+  ],
+  "actions": [
+    {
+      "viewport": [
+        768,
+        1024
+      ],
+      "input": "touch plant on canvas",
+      "point": {
+        "uid": 3,
+        "x": 329.0929067724296,
+        "y": 460.96297989431196
+      }
+    },
+    {
+      "viewport": [
+        768,
+        1024
+      ],
+      "input": "touch hint, close, prediction",
+      "prediction": 0
+    },
+    {
+      "viewport": [
+        1366,
+        960
+      ],
+      "input": "touch plant on canvas",
+      "point": {
+        "uid": 3,
+        "x": 822.7861361447403,
+        "y": 514.7286151618632
+      }
+    },
+    {
+      "viewport": [
+        1366,
+        960
+      ],
+      "input": "touch hint, close, prediction",
+      "prediction": 1
+    },
+    {
+      "viewport": [
+        1366,
+        1024
+      ],
+      "input": "touch plant on canvas",
+      "point": {
+        "uid": 3,
+        "x": 823.3948291682411,
+        "y": 547.9870586273573
+      }
+    },
+    {
+      "viewport": [
+        1366,
+        1024
+      ],
+      "input": "touch hint, close, prediction",
+      "prediction": 2
+    }
+  ],
+  "errors": [],
+  "version": "154.0.8037.57",
+  "status": "passed"
+}

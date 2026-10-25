@@ -1,0 +1,41 @@
+{
+  "engine": "chromium",
+  "commit": "b2f2cd1a90e120a8d5d1ff6e36a62c7514f0e050",
+  "checks": [
+    {
+      "input": "mouse",
+      "before": [
+        1.4411205869720112,
+        2.6862139692196796,
+        12.009338224766763
+      ],
+      "after": [
+        -0.08163919931346139,
+        3.256796324293087,
+        12.007797536334095
+      ],
+      "selected": 1,
+      "stable": false
+    },
+    {
+      "input": "touch",
+      "before": [
+        1.4411205869720107,
+        2.6862139692196796,
+        12.009338224766763
+      ],
+      "after": [
+        1.44112058697201,
+        2.6862139692196796,
+        12.009338224766763
+      ],
+      "selected": 1,
+      "stable": true
+    }
+  ],
+  "errors": [
+    "Cannot read properties of undefined (reading 'x')"
+  ],
+  "version": "154.0.8037.57",
+  "status": "failed"
+}

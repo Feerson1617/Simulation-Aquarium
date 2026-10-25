@@ -1,0 +1,10 @@
+Original browser-log excerpt from /tmp/r-download-crash-diagnostic.log
+BEFORE {'js': 763497641, 'limit': 4395630592, 'resources': {'route': 'http://127.0.0.1:8000/standalone-m1/?expert=1', 'frames': 1, 'resources': {'intervals': 3, 'timeouts': 0, 'animationCallbacks': 2, 'registeredListeners': 84, 'webglContexts': 1, 'disposed': False}, 'retired': []}}
+2026-10-24T08:51:03.035Z pw:browser [pid=223327][err] 
+2026-10-24T08:51:03.035Z pw:browser [pid=223327][err] <--- Last few GCs --->
+2026-10-24T08:51:03.035Z pw:browser [pid=223327][err] 
+2026-10-24T08:51:03.035Z pw:browser [pid=223327][err] [223420:0x4bc004d0000]     5348 ms: Scavenge (during sweeping) 437.8 (441.6) -> 436.2 (441.9) MB, pooled: 0.0 MB, 0.76 / 0.00 ms (average mu = 0.999, current mu = 0.999) allocation failure; 
+2026-10-24T08:51:03.035Z pw:browser [pid=223327][err] [223420:0x4bc004d0000]     5449 ms: Scavenge 437.9 (441.9) -> 436.4 (441.9) MB, pooled: 0.0 MB, 0.78 / 0.00 ms (average mu = 0.999, current mu = 0.999) allocation failure; 
+2026-10-24T08:51:03.035Z pw:browser [pid=223327][err] 
+2026-10-24T08:51:03.041Z pw:browser [pid=223327][err] [223420:223420:1024/085103.035030:ERROR:third_party/blink/renderer/bindings/core/v8/v8_initializer.cc:965] V8 process OOM (Zone).
+PAGE CRASH

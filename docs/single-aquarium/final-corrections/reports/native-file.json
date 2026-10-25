@@ -1,0 +1,11 @@
+{
+  "engine": "chromium",
+  "applicationHead": "a735a3f57ab62fe41189de2bd19cc24779d86776",
+  "url": "file:///workspace/aquarium-devtools/www/standalone-m1/index.html",
+  "errors": [],
+  "httpRequests": [],
+  "nativeFile": "tested by actual file URL",
+  "checks": [],
+  "status": "blocked",
+  "failure": "Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/aquarium-devtools/www/standalone-m1/index.html\nCall log:\n  - navigating to \"file:///workspace/aquarium-devtools/www/standalone-m1/index.html\", waiting until \"load\"\n"
+}

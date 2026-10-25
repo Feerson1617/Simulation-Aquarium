@@ -1,0 +1,1356 @@
+{
+  "engine": "webkit",
+  "commit": "6d08bec90200c538385489a461779d2a6e3754e0",
+  "sources": {
+    "aquascaping.css": "cbaf61e59b116ad90747d9ea8504b480319a120d0b28594bc42dfabe7cef15b9",
+    "aquascaping.mjs": "7be4508b63d046b8dde5a35fff05416012baa339f513a499541c914a65794d55",
+    "biology-quality.mjs": "89a9bd836e5be0c2a40fa6c0299293399a59213cedc53888e22606fe54384a08",
+    "bioprocesses.mjs": "db390102b09a5e888a504049f3b659bfdea000df400b22d17a234be5998ff8cd",
+    "catalog-assets.mjs": "1725e5493f14bd1ba68cd49251a4be542d24029ccec36cc6ce97c8fdbab0d791",
+    "catalog-studio.mjs": "5c0e58a4c4f74d2b4fabec453acbea7e0056393b5472ad14d5ecb5b1287dcd03",
+    "catalog.css": "85d3ee019ac0aee8cea7e5f058414df06b64809463b658a28ebcd1769a96176a",
+    "catalog.mjs": "eaa4db288f4bd1e5bfe82a2e1daf50f54d16ebdac43635d08258dd880fc37504",
+    "control-dial.mjs": "a7217998cd8bba325c0003419538bdcdcad1774cd0ef755d5281a8bf7fc3f056",
+    "control-values.mjs": "ea918839a5c4136d8b6dc4f0f7743accfff1f6e9287a4649e45a99cb892344f2",
+    "ecology.mjs": "66c11227f26241cf3fcffb00d0f8b28dc957f7a0536de650a80fc8210098429b",
+    "equipment-ui.mjs": "63d1aaf7a68213e8be16a1d8b14329119379dddd965354a3170c71c32c42d823",
+    "equipment.css": "7bbe961ddc163a7484e0f70a2e50c541a5867b61d443be6a19c33728bf66f932",
+    "fish-variants.mjs": "001365c4ae594847c4aec741340734b3c1c43c9058afde6368310adf68e3cac2",
+    "genetics-shop.mjs": "d0cf542391fa1d391e35cb7a9d033b986d08f610b2fa2b9c84a85e3b0b19bb9b",
+    "genetics-ui.mjs": "ffee9241dbda4952847aa51b395b5e45111ef6b23011ed98309967db9d9c5a72",
+    "genetics.css": "458cbc124c9f16cde4b6760c6e8fdfba2978b19f61152c899939c4b9c9de8684",
+    "genetics.mjs": "301b841789853d6ed8dac91d3090f2cc85ab858701577473a35e3ab82122a532",
+    "graphics-profiles.mjs": "5d1f586679fcee3c3316bb3b0ebf952500a8fcaac42449ccf9c67806bd0ed98a",
+    "graphics.css": "17c48328c83603daabc10887a71603e36e51a6d30ceb062a053295f69a890199",
+    "index.html": "24073d9825164ff6aecc0bb768166ddb0301b438ca3a76ac93908002177c0caa",
+    "individual-appearance.mjs": "0a8365eabceca7f2c6e982effe9af498c230aae702f9d44810c6ff0a292e4b58",
+    "learning-activities.mjs": "c430e6c1bf42923b6c48d74870b67a1fb6ad8668fe614c9316b6b552807650e2",
+    "learning-content.mjs": "41120a780c512f8e4c42f601d447da6da0c74acc4697eb027bda287ef60dc726",
+    "learning-model.mjs": "3a65e5c25f88c757b08d0b23150e5a771cf7b2662734015f2e53935b9823891f",
+    "learning-population.mjs": "e57b699f1762996e56af6941c59145ee848df07df7d7aae8e10ae70638a266e8",
+    "learning-provenance.mjs": "569ba626e23973fdf4a8b5f5b32c5d58b137fb929b4ed31bf29e57a175194999",
+    "learning-quests.mjs": "9e0c93381fa7e8088939f0ca46dd01c15d02d0ed4ed3b8ea7fdc666aa1fa9dcc",
+    "learning-student.mjs": "85f440ed1d0ee48f1580fcbe88c3f84361994c9bf516231d8e583e11e5f00ac5",
+    "learning-ui.mjs": "eac53773651ca8a098c75419549bc45079cb7276871482a5fd0c46d43ab9ad80",
+    "learning.css": "b63afc0bd8d49af5844b7e441c3357df3efaabe6e172ff55c7804fad8e2749ff",
+    "organic-shapes.mjs": "8f22e1c4b9a9195a689608a69af0fd0ced1e3173ec2b44e81349129617e3c80e",
+    "photo-volume.mjs": "0d1dbecc908e1ffc04df00d97827b91b70556ea1540bdcb114caf3efa6d9a724",
+    "physical-renderer.mjs": "46ff0ab3bc8cc82faadb798230a15cbf460f04cba9e50e5bfa092925c2360709",
+    "physical-scale.mjs": "a948d0affb65fe354f90dfebb53e0d26b63567a35645714a3b4795f5dc68b041",
+    "realism-assets.mjs": "f0d2b01a660dc9bd96f8ca5902555c129dcbe6cf53d16ec96e0bbe8b303d39dc",
+    "realism-materials.mjs": "32ae354c89791d4d86dc157a8c3ec58b76c3b6b0fd4bfd68f7c8ae363ec8fc54",
+    "realism-renderer.mjs": "1c3fc92567c2dcfc6d42e4cd70b6f77ebf9c4617380d6c9c4b0d17f76218efde",
+    "render-population.mjs": "e0d70fa5cdcd933f325a56fd6d687fbd2f8ef65e59d6b32c84200cff6d8a7304",
+    "scenarios.mjs": "67c3daab3c3d26240514cea933781e1765ddaddd04706e3dd66a2cd905f34463",
+    "species-assets.mjs": "7539167cbf8c92e0bfce1f5efd89c8dd66403a9586da94c0214d3b0b630b7c30",
+    "species-dimensions.mjs": "9aaa6d3e0425998f83652825402b95a569cadd4c914f5e517f319d4afb5fbd0b",
+    "species-provenance.mjs": "7e1324dc173cc0e41a1d23eb216ecfe4165e3eac0e02a650f5046b89bd5f3d58",
+    "study-ui.mjs": "08c1598262db0ab647a225f5b93e6d60cc4bc69113992997c3db25360214ec25",
+    "study.css": "ed534d337c339cb1a1602fcd4412ae8059720b1c4684136e401f870bfda26ee5",
+    "underwater.mjs": "df3c746f19f3f20348cb7442ec7c216b8cd863bab3e7f7e4105785e92223e941",
+    "learning-display.mjs": "43bb2ef8f090797401fa7fe82a1d04f434935b3229726ba78488fe8185fd4e62",
+    "single-classroom-ui.mjs": "a203804eaa01ebf1114ccf7b3813492cbadb0c44104b19d35d52b77f87d48551",
+    "single-learning-ui.mjs": "bb84ce4c877e1f806475ecb4ede7718221506aa4b5870f9e7df95e3ff523ec54",
+    "single-learning-model.mjs": "932d2f36bb15440137f0c31e9ee3cf534ac97d6a606e1f114dcffceec59e0659",
+    "single-learning-missions.mjs": "791656242d9e3b76e905f404d949456538fda810b5f0f658b6c59844d15ab7de",
+    "learning-tank-views.mjs": "3d0034aa1d56b7c731fcb1890961b1b1e3b5ec0f390fd68afdd0f5d6a685e227",
+    "learning-evolution-evidence.mjs": "4202c0796d735f577112fb4508738d37a5d1f597ca44e2512eb8d10a6d56cc08",
+    "learning-regional-workspace.mjs": "deb634808a76b96475cc698472b04d3b0188dd96da2953f4c2f09831200c97ab",
+    "single-teacher-settings.mjs": "c6a29f8a72a7257645895125d899d19cac876ae67ec5c5974427be0120e9de55",
+    "learning-workspace.mjs": "328da7cfb81c20dbc1fe5543ba15771673b242269e00d509fe080aa1884e7aa5",
+    "single-classroom-content.mjs": "403970752e2e4a733e22720aed83a5b7d41a68122a3f7611a144aff8e9ebcc1c",
+    "ammonia-pool.mjs": "694f9bbb231240a44275b611b1c93bfbf8c4fabbc9524129db0edf9975720863",
+    "single-learning.css": "4ac2ef307a25252ba00708db99c0b7298ff618923a406b1e7b76cb472ff6365f",
+    "learning-context.mjs": "017507cde3a4d83a89785b4cb5c4ab67abab83c500512cab6f3165f10aead7ba",
+    "learning-process-workspace.mjs": "39f3d7e367851c17c4e0769818997e685551f764e848fa280e00c28d9a5863dd",
+    "learning-population-workspace.mjs": "950c0ebce30bc8421f18b6d5d2c17b735cbf6dab6ffc09b9133daf2bfa05cb3a",
+    "single-classroom-model.mjs": "7407666b7a0e7b4a43be20d7621edafc62724151d49decaa02ff82ededcb7c42",
+    "coherent-learning.css": "9755e87a9d881e0cde8d5f86f1a279bdc48d7bf34e6973d94b0dedaddcdfa9ee"
+  },
+  "checks": [
+    "portrait-m3: full actual mission, error/help/correction, reload/repeat/export/import",
+    "portrait-m4: full actual mission, error/help/correction, reload/repeat/export/import",
+    "portrait-m5: full actual mission, error/help/correction, reload/repeat/export/import"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "inventories": [
+    {
+      "step": "portrait-m3-start",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.8023089170455933,
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "♀29 dunkel",
+          "width": 85,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "♂30 hell",
+          "width": 85,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "♀31 hell",
+          "width": 85,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "♂32 dunkel",
+          "width": 85,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Nachkommen ansehen",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Zählen",
+          "width": 72.296875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "rects": [
+        {
+          "left": 16,
+          "right": 358.5,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 655.5,
+          "bottom": 1008
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "step": "portrait-m3-parents",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.8023089170455933,
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "♀29 dunkel",
+          "width": 85,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "♂30 hell",
+          "width": 85,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "♀31 hell",
+          "width": 85,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "♂32 dunkel",
+          "width": 85,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Nachkommen ansehen",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Zählen",
+          "width": 72.296875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "rects": [
+        {
+          "left": 16,
+          "right": 358.5,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 655.5,
+          "bottom": 1008
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "step": "portrait-m3-wrong",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.7679671049118042,
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "In dieser Gruppe gibt es dunkle und helle Nachkommen.",
+          "width": 358,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "In dieser Gruppe sind alle Nachkommen dunkel.",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Zählen",
+          "width": 72.296875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "rects": [
+        {
+          "left": 16,
+          "right": 358.5,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 586.25,
+          "bottom": 1008
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "step": "portrait-m3-f1-parents",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.753585696220398,
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "♀33 dunkel",
+          "width": 85,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "♂34 dunkel",
+          "width": 85,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "♀35 dunkel",
+          "width": 85,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "♂36 dunkel",
+          "width": 85,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "♀37 dunkel",
+          "width": 85,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "♂38 dunkel",
+          "width": 85,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "♀39 dunkel",
+          "width": 85,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "♂40 dunkel",
+          "width": 85,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "♀41 dunkel",
+          "width": 85,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "♂42 dunkel",
+          "width": 85,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "♀43 dunkel",
+          "width": 85,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "♂44 dunkel",
+          "width": 85,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Nachkommen ansehen",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Zählen",
+          "width": 72.296875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "rects": [
+        {
+          "left": 16,
+          "right": 358.5,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 557.25,
+          "bottom": 1008
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "step": "portrait-m3-actual-alleles",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.8221453428268433,
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Das Kind hat seine Erbanlagen geändert, weil es eine andere Farbe brauchte.",
+          "width": 358,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Das Kind ist hell: Von beiden Eltern kam a.",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Zählen",
+          "width": 72.296875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Am Aquarium erklären",
+          "width": 180.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "rects": [
+        {
+          "left": 16,
+          "right": 358.5,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 695.5,
+          "bottom": 1008
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "step": "portrait-m3-complete",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.7814806699752808,
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Ergebnis speichern",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Noch einmal untersuchen",
+          "width": 200.859375,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "rects": [
+        {
+          "left": 16,
+          "right": 358.5,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 613.5,
+          "bottom": 1008
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "step": "portrait-m4-start",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.8312736575802168,
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Ja",
+          "width": 44,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Nein",
+          "width": 57.421875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Ich bin unsicher",
+          "width": 133.8125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Zählen",
+          "width": 72.296875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "rects": [
+        {
+          "left": 16,
+          "right": 354.90625,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 713.5,
+          "bottom": 1008
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "step": "portrait-m4-trial-0",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.7878427331646284,
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Gleicher Anfang, neuer Zufall",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Zählen",
+          "width": 72.296875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Elternbeiträge",
+          "width": 124.359375,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "rects": [
+        {
+          "left": 16,
+          "right": 354.90625,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 625.921875,
+          "bottom": 1008
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "step": "portrait-m4-trial-1",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.7700674359997114,
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Gleicher Anfang, andere Regel",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Zählen",
+          "width": 72.296875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Elternbeiträge",
+          "width": 124.359375,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "rects": [
+        {
+          "left": 16,
+          "right": 354.90625,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 590.078125,
+          "bottom": 1008
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "step": "portrait-m4-trial-2",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.7522921388347944,
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Ergebnisse vergleichen",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Zählen",
+          "width": 72.296875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Elternbeiträge",
+          "width": 124.359375,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "rects": [
+        {
+          "left": 16,
+          "right": 354.90625,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 554.234375,
+          "bottom": 1008
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "step": "portrait-m4-wrong",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.72989867379268,
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Bei gleichen Chancen sind die Anzahlen immer gleich.",
+          "width": 358,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Die Anzahlen sind gleich. Auch das ist durch Zufall möglich.",
+          "width": 358,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Zählen",
+          "width": 72.296875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Elternbeiträge",
+          "width": 124.359375,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "rects": [
+        {
+          "left": 16,
+          "right": 354.90625,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 509.078125,
+          "bottom": 1008
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "step": "portrait-m4-complete",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.7601104800899824,
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Ergebnis speichern",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Noch einmal untersuchen",
+          "width": 200.859375,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Elternbeiträge",
+          "width": 124.359375,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "rects": [
+        {
+          "left": 16,
+          "right": 354.90625,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 570,
+          "bottom": 1008
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "step": "portrait-m5-start",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.8627688847482204,
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Ja",
+          "width": 44,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Nein",
+          "width": 57.421875,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Ich bin unsicher",
+          "width": 133.8125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "rects": [
+        {
+          "left": 16,
+          "right": 218.015625,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 761.5,
+          "bottom": 1008
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "step": "portrait-m5-water-paused",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.8078054549793402,
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Anhalten oder weiter beobachten",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "rects": [
+        {
+          "left": 16,
+          "right": 218.015625,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 761.5,
+          "bottom": 1008
+        },
+        {
+          "left": 16,
+          "right": 296,
+          "top": 87,
+          "bottom": 241.375
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "step": "portrait-m5-water-finished",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.8180052004754543,
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Mit gleichem Anfang noch einmal",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "rects": [
+        {
+          "left": 16,
+          "right": 218.015625,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 671.234375,
+          "bottom": 1008
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "step": "portrait-m5-restored",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.8327662907540798,
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Weniger Futter geben",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "rects": [
+        {
+          "left": 16,
+          "right": 218.015625,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 701,
+          "bottom": 1008
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "step": "portrait-m5-feed-paused",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.8078054549793402,
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Anhalten oder weiter beobachten",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "rects": [
+        {
+          "left": 16,
+          "right": 218.015625,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 761.5,
+          "bottom": 1008
+        },
+        {
+          "left": 16,
+          "right": 296,
+          "top": 87,
+          "bottom": 241.375
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "step": "portrait-m5-feed-finished",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.7507163248956203,
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Am Ende sind nach dem Wasserwechsel weniger Reste.",
+          "width": 358,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Am Ende sind nach weniger Futter weniger Reste.",
+          "width": 358,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "rects": [
+        {
+          "left": 16,
+          "right": 218.015625,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 535.546875,
+          "bottom": 1008
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "step": "portrait-m5-wrong",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.7095557413995266,
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Am Ende sind nach dem Wasserwechsel weniger Reste.",
+          "width": 358,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Am Ende sind nach weniger Futter weniger Reste.",
+          "width": 358,
+          "height": 59,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "rects": [
+        {
+          "left": 16,
+          "right": 218.015625,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 452.546875,
+          "bottom": 1008
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "step": "portrait-m5-complete",
+      "width": 768,
+      "height": 1024,
+      "freeAquariumFraction": 0.7785880528390408,
+      "controls": [
+        {
+          "label": "Menü",
+          "width": 65.03125,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Ergebnis speichern",
+          "width": 358,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Noch einmal untersuchen",
+          "width": 200.859375,
+          "height": 44,
+          "tag": "BUTTON"
+        },
+        {
+          "label": "Tipp",
+          "width": 56.96875,
+          "height": 44,
+          "tag": "BUTTON"
+        }
+      ],
+      "rects": [
+        {
+          "left": 16,
+          "right": 218.015625,
+          "top": 15,
+          "bottom": 59.1875
+        },
+        {
+          "left": 686.96875,
+          "right": 752,
+          "top": 15,
+          "bottom": 59
+        },
+        {
+          "left": 16,
+          "right": 406,
+          "top": 591.75,
+          "bottom": 1008
+        }
+      ],
+      "overflow": false
+    }
+  ],
+  "results": [
+    {
+      "id": "m3-hidden-inheritance",
+      "profile": "portrait-m3",
+      "counts": null,
+      "endpoints": []
+    },
+    {
+      "id": "m4-dominance-frequency",
+      "profile": "portrait-m4",
+      "counts": {
+        "n": 12,
+        "dark": 10,
+        "light": 2
+      },
+      "endpoints": []
+    },
+    {
+      "id": "m5-recurring-input",
+      "profile": "portrait-m5",
+      "counts": null,
+      "endpoints": [
+        {
+          "oxygen": 6.733353323213491,
+          "organic": 22.725279816709843,
+          "plantBiomass": 7.47653604277598
+        },
+        {
+          "oxygen": 8.169942555235457,
+          "organic": 1.122695806212293,
+          "plantBiomass": 7.47653604277598
+        }
+      ]
+    }
+  ],
+  "hardware": "Linux software graphics; no physical iPad",
+  "status": "passed"
+}

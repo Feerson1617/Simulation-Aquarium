@@ -1,0 +1,445 @@
+{
+  "engine": "webkit",
+  "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/",
+  "backup": false,
+  "commit": "db9e827c2168a8dbbc49a01d341d1f9953293955",
+  "checks": [
+    "m1-light-oxygen: scene, actual choice, hint, export, exact local restoration and actual JSON import",
+    "m2-food-transformation: scene, actual choice, hint, export, exact local restoration and actual JSON import",
+    "m3-hidden-inheritance: scene, actual choice, hint and existing local save",
+    "m4-dominance-frequency: scene, actual choice, hint and existing local save",
+    "m5-recurring-input: scene, actual choice, hint and existing local save",
+    "m6-plant-carbon: scene, actual choice, hint and existing local save",
+    "free research: actual one-day advance and saved result",
+    "free game: actual choice, purchase and placement of the 120 litre tank",
+    "expert free: real start, one visible canvas, no missing assets",
+    "expert tutorial: real start, one visible canvas, no missing assets",
+    "expert scenario: real start, one visible canvas, no missing assets"
+  ],
+  "actions": [
+    {
+      "selector": "[data-single=start]",
+      "label": "Beginnen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=prediction][data-choice=\"2\"]",
+      "label": "Ich bin unsicher",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=export]",
+      "label": "Stand als Datei speichern",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=home]",
+      "label": "Zur Missionsauswahl",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=start]",
+      "label": "Fortsetzen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=export]",
+      "label": "Stand als Datei speichern",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=load]",
+      "label": "Sicherung öffnen",
+      "input": "touchscreen tap"
+    },
+    {
+      "input": "actual file chooser",
+      "file": "m1-light-oxygen.json"
+    },
+    {
+      "selector": "[data-single=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=export]",
+      "label": "Stand als Datei speichern",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-single=home]",
+      "label": "Zur Missionsauswahl",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "a[href=\"?mission=m2-food-transformation\"]",
+      "label": "Untersuchen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class-choice=unsure]",
+      "label": "Ich bin unsicher",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=feed]",
+      "label": "Einmal füttern",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=export]",
+      "label": "Stand als Datei speichern",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "a[href=\"?mission=m2-food-transformation\"]",
+      "label": "Untersuchen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=export]",
+      "label": "Stand als Datei speichern",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=load]",
+      "label": "Sicherung öffnen",
+      "input": "touchscreen tap"
+    },
+    {
+      "input": "actual file chooser",
+      "file": "m2-food-transformation.json"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=export]",
+      "label": "Stand als Datei speichern",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "a[href=\"?mission=m3-hidden-inheritance\"]",
+      "label": "Untersuchen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=select]",
+      "label": "♀29 dunkel",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "a[href=\"?mission=m4-dominance-frequency\"]",
+      "label": "Untersuchen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class-choice=unsure]",
+      "label": "Ich bin unsicher",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "a[href=\"?mission=m5-recurring-input\"]",
+      "label": "Untersuchen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class-choice=unsure]",
+      "label": "Ich bin unsicher",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "a[href=\"?mission=m6-plant-carbon\"]",
+      "label": "Untersuchen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class-choice=unsure]",
+      "label": "Ich bin unsicher",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=plant]",
+      "label": "Wasserpest auswählen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "a[href=\"?research=8\"]",
+      "label": "Frei forschen · Klasse 8",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=free-day]",
+      "label": "Einen Tag beobachten",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=export]",
+      "label": "Stand als Datei speichern",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "a[href=\"?expert=1\"]",
+      "label": "Tutorial und Expertenwerkzeuge",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-start=free]",
+      "label": "Freies Spiel\nEine leere Fläche. Du wählst Becken, Technik und Lebewesen selbst.\nSelbst entdecken →",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-act=choose-tank]",
+      "label": "Becken im Zooladen kaufen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-buy=tank-120]",
+      "label": "Kaufen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-act=place-tank]",
+      "label": "Kaufen & platzieren · 120 L",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-panel=time]",
+      "label": "Zeit & Runde",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-act=download-html]",
+      "label": "Komplettes HTML-Spiel herunterladen",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": ".learn-expert-entry",
+      "label": "Klassen 8–10",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "a[href=\"?expert=1\"]",
+      "label": "Tutorial und Expertenwerkzeuge",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-start=tutorial]",
+      "label": "Tutorial\nSchritt für Schritt durch die ersten Anschaffungen und Beobachtungen.\nMit Anleitung starten →",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": ".learn-expert-entry",
+      "label": "Klassen 8–10",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "a[href=\"?expert=1\"]",
+      "label": "Tutorial und Expertenwerkzeuge",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-scenarios]",
+      "label": "◎\nSzenarien\nEingerichtete Becken untersuchen und eigene Hypothesen prüfen.\nUntersuchung auswählen →",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": "[data-scenario-start=foodweb]",
+      "label": "Starten",
+      "input": "touchscreen tap"
+    },
+    {
+      "selector": ".learn-expert-entry",
+      "label": "Klassen 8–10",
+      "input": "touchscreen tap"
+    }
+  ],
+  "errors": [],
+  "requestsFailed": [],
+  "networkAfterIsolation": [],
+  "lifecycle": [],
+  "version": "26.5",
+  "backupDownload": {
+    "bytes": 151612920,
+    "sha256": "13612b42a105290f805bebc545da12adef34d24f5288b239453955f848f1ef1b",
+    "actualUI": true
+  },
+  "status": "passed"
+}

@@ -1,0 +1,622 @@
+{
+  "applicationHead": "6d08bec90200c538385489a461779d2a6e3754e0",
+  "recordedFromHead": "dcaa2dc2105061e77f5340a4db19049c9f0cb7a1",
+  "scope": "Current runtime, new tests, documentation and curated evidence. Report source heads are separate; not all baseline reports are at this application head. Manifest excludes its own file. Protected assets are compared with baseline in source-audit.json.",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 9141,
+      "sha256": "d9fc27e65c9de4e172db087a94d5217190cc5cc63fba14971ba8da52b6f476a3"
+    },
+    {
+      "path": "README.md",
+      "bytes": 21856,
+      "sha256": "ace0d84bdef138c499be6df516bdfa8081623a9470e0e6032e0477482aa00fa2"
+    },
+    {
+      "path": "ammonia-pool.mjs",
+      "bytes": 1527,
+      "sha256": "694f9bbb231240a44275b611b1c93bfbf8c4fabbc9524129db0edf9975720863"
+    },
+    {
+      "path": "aquascaping.css",
+      "bytes": 1464,
+      "sha256": "cbaf61e59b116ad90747d9ea8504b480319a120d0b28594bc42dfabe7cef15b9"
+    },
+    {
+      "path": "aquascaping.mjs",
+      "bytes": 31194,
+      "sha256": "7be4508b63d046b8dde5a35fff05416012baa339f513a499541c914a65794d55"
+    },
+    {
+      "path": "biology-quality.mjs",
+      "bytes": 3427,
+      "sha256": "89a9bd836e5be0c2a40fa6c0299293399a59213cedc53888e22606fe54384a08"
+    },
+    {
+      "path": "bioprocesses.mjs",
+      "bytes": 4186,
+      "sha256": "db390102b09a5e888a504049f3b659bfdea000df400b22d17a234be5998ff8cd"
+    },
+    {
+      "path": "catalog-assets.mjs",
+      "bytes": 159787,
+      "sha256": "1725e5493f14bd1ba68cd49251a4be542d24029ccec36cc6ce97c8fdbab0d791"
+    },
+    {
+      "path": "catalog-studio.mjs",
+      "bytes": 1621,
+      "sha256": "5c0e58a4c4f74d2b4fabec453acbea7e0056393b5472ad14d5ecb5b1287dcd03"
+    },
+    {
+      "path": "catalog.css",
+      "bytes": 742,
+      "sha256": "85d3ee019ac0aee8cea7e5f058414df06b64809463b658a28ebcd1769a96176a"
+    },
+    {
+      "path": "catalog.mjs",
+      "bytes": 1213,
+      "sha256": "eaa4db288f4bd1e5bfe82a2e1daf50f54d16ebdac43635d08258dd880fc37504"
+    },
+    {
+      "path": "coherent-learning.css",
+      "bytes": 10058,
+      "sha256": "9755e87a9d881e0cde8d5f86f1a279bdc48d7bf34e6973d94b0dedaddcdfa9ee"
+    },
+    {
+      "path": "control-dial.mjs",
+      "bytes": 4935,
+      "sha256": "a7217998cd8bba325c0003419538bdcdcad1774cd0ef755d5281a8bf7fc3f056"
+    },
+    {
+      "path": "control-values.mjs",
+      "bytes": 3080,
+      "sha256": "ea918839a5c4136d8b6dc4f0f7743accfff1f6e9287a4649e45a99cb892344f2"
+    },
+    {
+      "path": "docs/single-aquarium/CONTROL_AUDIT.md",
+      "bytes": 12028,
+      "sha256": "757ac2177aae63ffdaa6566cd45233cae834f2d0b8fc1cbd947a9933d1af6e09"
+    },
+    {
+      "path": "docs/single-aquarium/CONTROL_FINAL.md",
+      "bytes": 5538,
+      "sha256": "ba21743083d8defd3c0f486d0cc3140c9ce36adf40186dffafe1ef94bd132d14"
+    },
+    {
+      "path": "docs/single-aquarium/CONTROL_MATRIX_SOURCE.md",
+      "bytes": 9628,
+      "sha256": "92743d32b6634449fbeaa3a4a9117ba150130beafede6c160f2acaeb680d4605"
+    },
+    {
+      "path": "docs/single-aquarium/FINAL_VALIDATION.md",
+      "bytes": 14047,
+      "sha256": "8604c875f0245877e2ce067ff4a6f3e9b4de8cdaf1156a1f2ce654f2b7d964f7"
+    },
+    {
+      "path": "docs/single-aquarium/LANGUAGE.md",
+      "bytes": 2868,
+      "sha256": "93a7d16abc019a705296701686f974c0b433690a34249a861d7a6f4e2d687248"
+    },
+    {
+      "path": "docs/single-aquarium/MISSIONS.md",
+      "bytes": 5140,
+      "sha256": "c384024ffdb85d4d15247d5cb45e5413bdeb959d072d8c3de042fc7f15842821"
+    },
+    {
+      "path": "docs/single-aquarium/REQUEST.txt",
+      "bytes": 30065,
+      "sha256": "6e1b2d92752c352dd9169773ec7eec1126d84c16fbdfe33f5aee76b7b60e2001"
+    },
+    {
+      "path": "docs/single-aquarium/REVIEW.html",
+      "bytes": 49201,
+      "sha256": "e801d60e841df7f82fe102229cffbe92c45570fd3233d3ae2f40a7d6ad1fcb9c"
+    },
+    {
+      "path": "docs/single-aquarium/TEACHER.md",
+      "bytes": 6380,
+      "sha256": "f8f7272749574dc939e38547808f1a825315e6d9b4df00fa0d756900354e5b6e"
+    },
+    {
+      "path": "docs/single-aquarium/VALIDATION.md",
+      "bytes": 11620,
+      "sha256": "24c0a98f8f654c228334426749ef7dc3d4457974c8cd8c6f11662e2b0d11a9c6"
+    },
+    {
+      "path": "docs/single-aquarium/WORK_STATE.md",
+      "bytes": 4781,
+      "sha256": "9f6044d165e6aec86c938c128bb3fe0bc9f1455eabd3e7f1127286fa5feafc37"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/chromium-current-m1-portrait-compare.png",
+      "bytes": 154884,
+      "sha256": "08701b138220f36188db9d0b72fbffb4abc3e11e85c178564d3871132a167af1"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/chromium-current-m2-portrait-complete.png",
+      "bytes": 161178,
+      "sha256": "2ab66b2ccdfeb28770f6ee390b3089d6bc095d62ba2c9106cbb0e8dba9b284c3"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/chromium-current-m4-portrait-complete.png",
+      "bytes": 149376,
+      "sha256": "0abafa83dea253cfb473605b53ef0cffa3f67aeb3c755459259c167f810776d6"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/chromium-current-m6-landscape-complete.png",
+      "bytes": 318241,
+      "sha256": "ee4809fe056819c27d65827a25eca3fb75303531c8392f3feb5a8203f07c430f"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/chromium-expert-tutorial.json",
+      "bytes": 5337,
+      "sha256": "bb2f5fdccdd6e4f60fdcc61c887f77b7d6078ac71fa8a0d233c7fdc0459c0675"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/chromium-free-teacher-storage.json",
+      "bytes": 1111,
+      "sha256": "cb32ceaba02b65b89bbf2090f6a666626a01c656386488baa208517ccdcc3625"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/chromium-m1-three-profiles.json",
+      "bytes": 56646,
+      "sha256": "3a0ce2efbc280f609b84df9eb36bee00c5e07965a3462f56dc99fe1db957ca94"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/chromium-new-missions-portrait-landscape.json",
+      "bytes": 89204,
+      "sha256": "92bc26b5be819233339a119384330eeadde5fb1a0a77c0731aca314fc7837161"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/chromium-partial-and-portrait-failure.json",
+      "bytes": 73034,
+      "sha256": "0bd5582b9417c2a8f4c84a8b9854671a7c4b53ab0e9b740c53d1c860643a64b7"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/chromium-single-html-m1.json",
+      "bytes": 569,
+      "sha256": "487f770a8c12a006102db9613f38da53b34073c2c7d68caeb7368b00e4ba327c"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/chromium-single-html-m3-complete.png",
+      "bytes": 265888,
+      "sha256": "9d66c031f589b5276dccb426cca39e9ef77e79899644d90611b9c6f8d16259db"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/chromium-single-html-m3.json",
+      "bytes": 734,
+      "sha256": "6ef24fe6f97555cc5ba367cbb9c6a875f75e7cf6f4a275589d2275afe92a3622"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/control-summary.json",
+      "bytes": 1320,
+      "sha256": "32442d0216974620d4233ebbbb635b65110afe5873e1ef99232ca4bd448d5e01"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/m3-actual-product.json.gz",
+      "bytes": 7022,
+      "sha256": "4cf386edd6800d5eca71acadcd4e2350835f0da50012ab3af6f0afd497dba538"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/m5-actual-product.json.gz",
+      "bytes": 136542,
+      "sha256": "c8437643b46bc551510f45a6a7780d6724ddb1fc58de2a4aa54d4c8058f7dbee"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/node-191.log",
+      "bytes": 20311,
+      "sha256": "80998602a2b84e6364341d43149c75f09b55adf968eb11ddf5d6d542e58beda8"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/preview-runtime-hashes.json",
+      "bytes": 19668,
+      "sha256": "1fbf0699596a40eec044aeb7983324ef924143ee2348cf8d754111fc90ceda86"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/product-files.json",
+      "bytes": 773,
+      "sha256": "5981746793045667d4efa3575f287340325d9b9f86111c712eb5a2423f5b50ed"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/single-html-build.json",
+      "bytes": 241,
+      "sha256": "552269bad7cb641d2b54e54d2c9b9c9e57fabd903443fa4e5052e4563a2f0bf2"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/source-access.json",
+      "bytes": 581,
+      "sha256": "05626e351cb8963c16e5952b6556e1dbd5f76d74e5366fd595e157d4e7bc3297"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/source-audit.json",
+      "bytes": 1634,
+      "sha256": "3097c33436fd8057a63cc5a868ab40f0b04a13c21ad1e1f8f20e0f999e28c448"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/webkit-current-m1-desktop-explanation.png",
+      "bytes": 348427,
+      "sha256": "13e04e6b4d1fac4fd99979a88f159df7b4c51a50f3dbf451808652d43579de4c"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/webkit-current-m1-portrait-compare.png",
+      "bytes": 159751,
+      "sha256": "8f602090a452552fbfdd30e89cea7ddf9083ce71ed2475c18e2cfe94bbf7d8f9"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/webkit-current-m3-f2.png",
+      "bytes": 152834,
+      "sha256": "d1e06eae4df5af4dd7252fd185d201dbf7024781b0fe65f4175f1fed49839a4e"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/webkit-current-m3-m4-m5-portrait.json",
+      "bytes": 33724,
+      "sha256": "a07f73b6852b3640cb69dee1d5f4de84e8b69b2f40f1e4a50fae43124d61425c"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/webkit-current-m4-complete.png",
+      "bytes": 157430,
+      "sha256": "7464b900c745bc1855deee3b76d0a864d53d598e3255ff89f49509fffa663452"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/webkit-current-m5-compare.png",
+      "bytes": 174046,
+      "sha256": "522e9c0ece93a80e8e4a8d6e5c033687cd6943b8221409d5c05bd30c2146795a"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/webkit-five-missions-three-profiles.json",
+      "bytes": 130274,
+      "sha256": "db29b80caf67ecaa9f9c23f908ef476ab0c30558de897ab6d57f95b8b8679481"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/webkit-foundation-m2-complete.png",
+      "bytes": 320666,
+      "sha256": "f5c4f3e4f8533d82c4e6319986a5e5cdcbd9109f6d2a071cbf6026a2af25231a"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/webkit-foundation-m6-complete.png",
+      "bytes": 331657,
+      "sha256": "3339e518aaf03439fe906bb364ba2461e6304cf6c0fe7e0252a2a59ce6ac9c4f"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/webkit-free-teacher-storage.json",
+      "bytes": 1109,
+      "sha256": "2f4ef6f5b9475f0cd3cc6cd5ce8af95c53bdbe73f9d663b25e1de783ab105032"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/webkit-m1-three-profiles.json",
+      "bytes": 56541,
+      "sha256": "8c6c938a8ea2fb9c786c9b79e0193f3186720f5f28530d090e2209098dbc67ae"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/webkit-public-m3-m5.json",
+      "bytes": 25673,
+      "sha256": "77b0452b2b9f42053b55a4c737b48b058613a946df5f6af3d6721e5cdec13334"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/webkit-public-m5-comparison.png",
+      "bytes": 331782,
+      "sha256": "dab75dbea58b9c7766b37dee4756b5d9c1134af9c73dc346e7544dcebdd229a2"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/webkit-single-html-m1.json",
+      "bytes": 567,
+      "sha256": "8a4fb41597b0a4fe661caa482b108ea2c1168027186f383fe876c83640392c49"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/webkit-single-html-m3-complete.png",
+      "bytes": 262719,
+      "sha256": "6bdff4aee32f8989516c3dee7440e231ad2feb8ffde93a5b8be17668b827ab38"
+    },
+    {
+      "path": "docs/single-aquarium/evidence/approved/webkit-single-html-m3.json",
+      "bytes": 732,
+      "sha256": "dbc8e984f772afdc3897c6bb5c2d6a81dce63d262ff3161f6b9f2fdc88762f53"
+    },
+    {
+      "path": "ecology.mjs",
+      "bytes": 8998,
+      "sha256": "66c11227f26241cf3fcffb00d0f8b28dc957f7a0536de650a80fc8210098429b"
+    },
+    {
+      "path": "equipment-ui.mjs",
+      "bytes": 10183,
+      "sha256": "63d1aaf7a68213e8be16a1d8b14329119379dddd965354a3170c71c32c42d823"
+    },
+    {
+      "path": "equipment.css",
+      "bytes": 4301,
+      "sha256": "7bbe961ddc163a7484e0f70a2e50c541a5867b61d443be6a19c33728bf66f932"
+    },
+    {
+      "path": "fish-variants.mjs",
+      "bytes": 6512,
+      "sha256": "001365c4ae594847c4aec741340734b3c1c43c9058afde6368310adf68e3cac2"
+    },
+    {
+      "path": "genetics-shop.mjs",
+      "bytes": 3068,
+      "sha256": "d0cf542391fa1d391e35cb7a9d033b986d08f610b2fa2b9c84a85e3b0b19bb9b"
+    },
+    {
+      "path": "genetics-ui.mjs",
+      "bytes": 16247,
+      "sha256": "ffee9241dbda4952847aa51b395b5e45111ef6b23011ed98309967db9d9c5a72"
+    },
+    {
+      "path": "genetics.css",
+      "bytes": 3894,
+      "sha256": "458cbc124c9f16cde4b6760c6e8fdfba2978b19f61152c899939c4b9c9de8684"
+    },
+    {
+      "path": "genetics.mjs",
+      "bytes": 18859,
+      "sha256": "301b841789853d6ed8dac91d3090f2cc85ab858701577473a35e3ab82122a532"
+    },
+    {
+      "path": "graphics-profiles.mjs",
+      "bytes": 3633,
+      "sha256": "5d1f586679fcee3c3316bb3b0ebf952500a8fcaac42449ccf9c67806bd0ed98a"
+    },
+    {
+      "path": "graphics.css",
+      "bytes": 1560,
+      "sha256": "17c48328c83603daabc10887a71603e36e51a6d30ceb062a053295f69a890199"
+    },
+    {
+      "path": "index.html",
+      "bytes": 21245453,
+      "sha256": "24073d9825164ff6aecc0bb768166ddb0301b438ca3a76ac93908002177c0caa"
+    },
+    {
+      "path": "individual-appearance.mjs",
+      "bytes": 6433,
+      "sha256": "0a8365eabceca7f2c6e982effe9af498c230aae702f9d44810c6ff0a292e4b58"
+    },
+    {
+      "path": "learning-activities.mjs",
+      "bytes": 14359,
+      "sha256": "c430e6c1bf42923b6c48d74870b67a1fb6ad8668fe614c9316b6b552807650e2"
+    },
+    {
+      "path": "learning-content.mjs",
+      "bytes": 29085,
+      "sha256": "41120a780c512f8e4c42f601d447da6da0c74acc4697eb027bda287ef60dc726"
+    },
+    {
+      "path": "learning-context.mjs",
+      "bytes": 10276,
+      "sha256": "017507cde3a4d83a89785b4cb5c4ab67abab83c500512cab6f3165f10aead7ba"
+    },
+    {
+      "path": "learning-display.mjs",
+      "bytes": 1256,
+      "sha256": "43bb2ef8f090797401fa7fe82a1d04f434935b3229726ba78488fe8185fd4e62"
+    },
+    {
+      "path": "learning-evolution-evidence.mjs",
+      "bytes": 2246,
+      "sha256": "4202c0796d735f577112fb4508738d37a5d1f597ca44e2512eb8d10a6d56cc08"
+    },
+    {
+      "path": "learning-model.mjs",
+      "bytes": 43651,
+      "sha256": "3a65e5c25f88c757b08d0b23150e5a771cf7b2662734015f2e53935b9823891f"
+    },
+    {
+      "path": "learning-population-workspace.mjs",
+      "bytes": 7598,
+      "sha256": "950c0ebce30bc8421f18b6d5d2c17b735cbf6dab6ffc09b9133daf2bfa05cb3a"
+    },
+    {
+      "path": "learning-population.mjs",
+      "bytes": 15289,
+      "sha256": "e57b699f1762996e56af6941c59145ee848df07df7d7aae8e10ae70638a266e8"
+    },
+    {
+      "path": "learning-process-workspace.mjs",
+      "bytes": 8433,
+      "sha256": "39f3d7e367851c17c4e0769818997e685551f764e848fa280e00c28d9a5863dd"
+    },
+    {
+      "path": "learning-provenance.mjs",
+      "bytes": 2032,
+      "sha256": "569ba626e23973fdf4a8b5f5b32c5d58b137fb929b4ed31bf29e57a175194999"
+    },
+    {
+      "path": "learning-quests.mjs",
+      "bytes": 26814,
+      "sha256": "9e0c93381fa7e8088939f0ca46dd01c15d02d0ed4ed3b8ea7fdc666aa1fa9dcc"
+    },
+    {
+      "path": "learning-regional-workspace.mjs",
+      "bytes": 6785,
+      "sha256": "deb634808a76b96475cc698472b04d3b0188dd96da2953f4c2f09831200c97ab"
+    },
+    {
+      "path": "learning-student.mjs",
+      "bytes": 29220,
+      "sha256": "85f440ed1d0ee48f1580fcbe88c3f84361994c9bf516231d8e583e11e5f00ac5"
+    },
+    {
+      "path": "learning-tank-views.mjs",
+      "bytes": 6822,
+      "sha256": "3d0034aa1d56b7c731fcb1890961b1b1e3b5ec0f390fd68afdd0f5d6a685e227"
+    },
+    {
+      "path": "learning-ui.mjs",
+      "bytes": 144233,
+      "sha256": "eac53773651ca8a098c75419549bc45079cb7276871482a5fd0c46d43ab9ad80"
+    },
+    {
+      "path": "learning-workspace.mjs",
+      "bytes": 10618,
+      "sha256": "328da7cfb81c20dbc1fe5543ba15771673b242269e00d509fe080aa1884e7aa5"
+    },
+    {
+      "path": "learning.css",
+      "bytes": 17324,
+      "sha256": "b63afc0bd8d49af5844b7e441c3357df3efaabe6e172ff55c7804fad8e2749ff"
+    },
+    {
+      "path": "organic-shapes.mjs",
+      "bytes": 956,
+      "sha256": "8f22e1c4b9a9195a689608a69af0fd0ced1e3173ec2b44e81349129617e3c80e"
+    },
+    {
+      "path": "photo-volume.mjs",
+      "bytes": 1466,
+      "sha256": "0d1dbecc908e1ffc04df00d97827b91b70556ea1540bdcb114caf3efa6d9a724"
+    },
+    {
+      "path": "physical-renderer.mjs",
+      "bytes": 13502,
+      "sha256": "46ff0ab3bc8cc82faadb798230a15cbf460f04cba9e50e5bfa092925c2360709"
+    },
+    {
+      "path": "physical-scale.mjs",
+      "bytes": 11376,
+      "sha256": "a948d0affb65fe354f90dfebb53e0d26b63567a35645714a3b4795f5dc68b041"
+    },
+    {
+      "path": "realism-assets.mjs",
+      "bytes": 1272,
+      "sha256": "f0d2b01a660dc9bd96f8ca5902555c129dcbe6cf53d16ec96e0bbe8b303d39dc"
+    },
+    {
+      "path": "realism-materials.mjs",
+      "bytes": 12233,
+      "sha256": "32ae354c89791d4d86dc157a8c3ec58b76c3b6b0fd4bfd68f7c8ae363ec8fc54"
+    },
+    {
+      "path": "realism-renderer.mjs",
+      "bytes": 12228,
+      "sha256": "1c3fc92567c2dcfc6d42e4cd70b6f77ebf9c4617380d6c9c4b0d17f76218efde"
+    },
+    {
+      "path": "render-population.mjs",
+      "bytes": 1643,
+      "sha256": "e0d70fa5cdcd933f325a56fd6d687fbd2f8ef65e59d6b32c84200cff6d8a7304"
+    },
+    {
+      "path": "scenarios.mjs",
+      "bytes": 3463,
+      "sha256": "67c3daab3c3d26240514cea933781e1765ddaddd04706e3dd66a2cd905f34463"
+    },
+    {
+      "path": "single-classroom-content.mjs",
+      "bytes": 16801,
+      "sha256": "403970752e2e4a733e22720aed83a5b7d41a68122a3f7611a144aff8e9ebcc1c"
+    },
+    {
+      "path": "single-classroom-model.mjs",
+      "bytes": 22321,
+      "sha256": "7407666b7a0e7b4a43be20d7621edafc62724151d49decaa02ff82ededcb7c42"
+    },
+    {
+      "path": "single-classroom-ui.mjs",
+      "bytes": 22148,
+      "sha256": "a203804eaa01ebf1114ccf7b3813492cbadb0c44104b19d35d52b77f87d48551"
+    },
+    {
+      "path": "single-learning-missions.mjs",
+      "bytes": 1368,
+      "sha256": "791656242d9e3b76e905f404d949456538fda810b5f0f658b6c59844d15ab7de"
+    },
+    {
+      "path": "single-learning-model.mjs",
+      "bytes": 9615,
+      "sha256": "932d2f36bb15440137f0c31e9ee3cf534ac97d6a606e1f114dcffceec59e0659"
+    },
+    {
+      "path": "single-learning-ui.mjs",
+      "bytes": 28510,
+      "sha256": "bb84ce4c877e1f806475ecb4ede7718221506aa4b5870f9e7df95e3ff523ec54"
+    },
+    {
+      "path": "single-learning.css",
+      "bytes": 7792,
+      "sha256": "4ac2ef307a25252ba00708db99c0b7298ff618923a406b1e7b76cb472ff6365f"
+    },
+    {
+      "path": "single-teacher-settings.mjs",
+      "bytes": 622,
+      "sha256": "c6a29f8a72a7257645895125d899d19cac876ae67ec5c5974427be0120e9de55"
+    },
+    {
+      "path": "species-assets.mjs",
+      "bytes": 14494,
+      "sha256": "7539167cbf8c92e0bfce1f5efd89c8dd66403a9586da94c0214d3b0b630b7c30"
+    },
+    {
+      "path": "species-dimensions.mjs",
+      "bytes": 67737,
+      "sha256": "9aaa6d3e0425998f83652825402b95a569cadd4c914f5e517f319d4afb5fbd0b"
+    },
+    {
+      "path": "species-provenance.mjs",
+      "bytes": 1241,
+      "sha256": "7e1324dc173cc0e41a1d23eb216ecfe4165e3eac0e02a650f5046b89bd5f3d58"
+    },
+    {
+      "path": "study-ui.mjs",
+      "bytes": 16654,
+      "sha256": "08c1598262db0ab647a225f5b93e6d60cc4bc69113992997c3db25360214ec25"
+    },
+    {
+      "path": "study.css",
+      "bytes": 4060,
+      "sha256": "ed534d337c339cb1a1602fcd4412ae8059720b1c4684136e401f870bfda26ee5"
+    },
+    {
+      "path": "tests/single-classroom.test.mjs",
+      "bytes": 10058,
+      "sha256": "cd053fe8da0fc5d9db1a77f7011e1268ef8b079fef54fe61163877bfe42fa15c"
+    },
+    {
+      "path": "tests/single-learning.test.mjs",
+      "bytes": 5255,
+      "sha256": "571760db7f6162abf7bb3ec82dc35d2e77a4b3e6a3dc1c060306683211c68ee5"
+    },
+    {
+      "path": "tests/single_classroom_browser.py",
+      "bytes": 12537,
+      "sha256": "5c42f57fb8e9a3697a3d80da2cae457c8b3d86a11cc3cfb651e0850bc4cf08d5"
+    },
+    {
+      "path": "tests/single_classroom_standalone.py",
+      "bytes": 4750,
+      "sha256": "6a73bed19856cfbae1281efa858cdf6a1c1cbdc326f0de6a11af4562e7b7249d"
+    },
+    {
+      "path": "tests/single_controls_browser.py",
+      "bytes": 3255,
+      "sha256": "fdd23a59d5b163b9a8ed6ea5fc0e9ae04bdb0830db098badf774c2b0d70cedec"
+    },
+    {
+      "path": "tests/single_m1_browser.py",
+      "bytes": 14082,
+      "sha256": "99b9d7b868a1f9ecc6d2aa85dbb1df7cd53663936028b1b437599587ce14bb9f"
+    },
+    {
+      "path": "tests/single_m1_standalone.py",
+      "bytes": 3234,
+      "sha256": "c541879a518a90649b39a4fac2ef8a6e4b9517673633395593577e4fa5276389"
+    },
+    {
+      "path": "tests/single_research_browser.py",
+      "bytes": 9198,
+      "sha256": "b91e088bf9cd6251ccef66edc3969fb4ada27e5dcb9192baa0612cf7f84e5c07"
+    },
+    {
+      "path": "underwater.mjs",
+      "bytes": 4593,
+      "sha256": "df3c746f19f3f20348cb7442ec7c216b8cd863bab3e7f7e4105785e92223e941"
+    },
+    {
+      "path": "vendor/lz-string.mjs",
+      "bytes": 6169,
+      "sha256": "75e261fa791eeb621a7a2f46ec6318706a3755647b2f957ea9a6da3245744a1e"
+    }
+  ]
+}

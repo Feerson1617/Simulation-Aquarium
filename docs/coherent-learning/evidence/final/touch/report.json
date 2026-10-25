@@ -1,0 +1,960 @@
+{
+  "commit": "f12d5e8789cb70268469df8c6a60ecb15547cf91",
+  "device_scale_factor": 1.0,
+  "checks": [
+    "touch: 8-oxygen completed with required biological actions, actual evidence, retry, provenance and explanation",
+    "touch: 9-mendel completed with required biological actions, actual evidence, retry, provenance and explanation",
+    "touch: 10-carbon completed with required biological actions, actual evidence, retry, provenance and explanation"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "missions": [
+    {
+      "id": "8-oxygen",
+      "touch": true,
+      "quest": {
+        "version": 2,
+        "activities": [],
+        "choiceSeed": 1325333217,
+        "id": "8-oxygen",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was bleibt am Anfang gleich?",
+            "answer": "Die Tiere und Pflanzen",
+            "choiceIndex": 0,
+            "origin": "selection",
+            "at": "2026-10-22T14:56:22.561Z"
+          },
+          {
+            "step": 1,
+            "question": "Nach gleich langer Spielzeit: In welchem Becken gibt es mehr Sauerstoff?",
+            "answer": "Becken 2",
+            "choiceIndex": 1,
+            "origin": "selection",
+            "at": "2026-10-22T14:56:25.588Z"
+          },
+          {
+            "step": 2,
+            "event": "ecology",
+            "origin": "game-action",
+            "evidence": {
+              "changed": true,
+              "intervention": {
+                "version": 1,
+                "type": "light",
+                "value": 0,
+                "effective": true,
+                "before": {
+                  "value": 8
+                },
+                "after": {
+                  "value": 0
+                }
+              },
+              "result": {
+                "kind": "ecology",
+                "key": "oxygen",
+                "repetition": 1,
+                "sampleSize": null,
+                "label": "Sauerstoff",
+                "unit": "mg/L",
+                "time": 48,
+                "control": 8.28389496015925,
+                "test": 8.163889709536656,
+                "fish": null,
+                "statuses": {
+                  "control": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  },
+                  "test": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  }
+                },
+                "configuration": {
+                  "kind": "ecology",
+                  "profile": {
+                    "version": 1,
+                    "grade": 8,
+                    "mode": "missions",
+                    "mission": "8-oxygen"
+                  },
+                  "modelVersion": "learning-biology-6-coherent",
+                  "tool": "light",
+                  "value": 0,
+                  "days": 3,
+                  "environment": null,
+                  "generations": null,
+                  "repetitions": 2,
+                  "baseline": {
+                    "time": 45,
+                    "seed": 47291,
+                    "fingerprint": "71224b78",
+                    "size": 19
+                  },
+                  "planning": {
+                    "question": "",
+                    "hypothesis": "",
+                    "prediction": "",
+                    "plan": ""
+                  },
+                  "metrics": [
+                    "oxygen",
+                    "health",
+                    "algae",
+                    "plantBiomass",
+                    "organic",
+                    "photosynthesis",
+                    "respiration",
+                    "temp"
+                  ]
+                },
+                "viewContext": {
+                  "version": 1,
+                  "investigationId": "34b3ac88-c880-46f5-ae2e-974c93e595df",
+                  "attemptId": "d2d762ce-f416-4932-95c7-7da3086c96cd",
+                  "revision": "learning-biology-6-coherent",
+                  "seriesId": "34b3ac88-c880-46f5-ae2e-974c93e595df",
+                  "series": 1,
+                  "run": 0,
+                  "repetition": 1,
+                  "time": 48,
+                  "axis": "day",
+                  "side": "both",
+                  "stateIds": {
+                    "control": "bdc31a16",
+                    "test": "c923e49b"
+                  }
+                }
+              },
+              "context": {
+                "version": 1,
+                "investigationId": "34b3ac88-c880-46f5-ae2e-974c93e595df",
+                "attemptId": "d2d762ce-f416-4932-95c7-7da3086c96cd",
+                "revision": "learning-biology-6-coherent",
+                "seriesId": "34b3ac88-c880-46f5-ae2e-974c93e595df",
+                "series": 1,
+                "run": 0,
+                "repetition": 1,
+                "time": 48,
+                "axis": "day",
+                "side": "both",
+                "stateIds": {
+                  "control": "bdc31a16",
+                  "test": "c923e49b"
+                }
+              },
+              "observedViewContext": {
+                "version": 1,
+                "investigationId": "34b3ac88-c880-46f5-ae2e-974c93e595df",
+                "attemptId": "d2d762ce-f416-4932-95c7-7da3086c96cd",
+                "revision": "learning-biology-6-coherent",
+                "seriesId": "34b3ac88-c880-46f5-ae2e-974c93e595df",
+                "series": 1,
+                "run": 0,
+                "repetition": 1,
+                "time": 48,
+                "axis": "day",
+                "side": "both",
+                "stateIds": {
+                  "control": "bdc31a16",
+                  "test": "c923e49b"
+                }
+              },
+              "tool": "light",
+              "compatible": true,
+              "value": 0
+            },
+            "at": "2026-10-22T14:56:51.528Z"
+          },
+          {
+            "step": 3,
+            "question": "Wo ist mehr Sauerstoff?",
+            "answer": "In Becken 1",
+            "choiceIndex": 0,
+            "origin": "selection",
+            "at": "2026-10-22T14:57:00.388Z",
+            "viewContext": {
+              "version": 1,
+              "investigationId": "34b3ac88-c880-46f5-ae2e-974c93e595df",
+              "attemptId": "d2d762ce-f416-4932-95c7-7da3086c96cd",
+              "revision": "learning-biology-6-coherent",
+              "seriesId": "34b3ac88-c880-46f5-ae2e-974c93e595df",
+              "series": 1,
+              "run": 0,
+              "repetition": 1,
+              "time": 48,
+              "axis": "day",
+              "side": "both",
+              "stateIds": {
+                "control": "bdc31a16",
+                "test": "c923e49b"
+              }
+            }
+          },
+          {
+            "step": 4,
+            "question": "Was fällt ohne Licht weg?",
+            "answer": "Die Sauerstoffbildung durch Licht",
+            "choiceIndex": 0,
+            "origin": "selection",
+            "at": "2026-10-22T14:57:05.246Z"
+          }
+        ],
+        "result": {
+          "kind": "ecology",
+          "key": "oxygen",
+          "repetition": 1,
+          "sampleSize": null,
+          "label": "Sauerstoff",
+          "unit": "mg/L",
+          "time": 48,
+          "control": 8.28389496015925,
+          "test": 8.163889709536656,
+          "fish": null,
+          "statuses": {
+            "control": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            },
+            "test": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            }
+          },
+          "configuration": {
+            "kind": "ecology",
+            "profile": {
+              "version": 1,
+              "grade": 8,
+              "mode": "missions",
+              "mission": "8-oxygen"
+            },
+            "modelVersion": "learning-biology-6-coherent",
+            "tool": "light",
+            "value": 0,
+            "days": 3,
+            "environment": null,
+            "generations": null,
+            "repetitions": 2,
+            "baseline": {
+              "time": 45,
+              "seed": 47291,
+              "fingerprint": "71224b78",
+              "size": 19
+            },
+            "planning": {
+              "question": "",
+              "hypothesis": "",
+              "prediction": "",
+              "plan": ""
+            },
+            "metrics": [
+              "oxygen",
+              "health",
+              "algae",
+              "plantBiomass",
+              "organic",
+              "photosynthesis",
+              "respiration",
+              "temp"
+            ]
+          },
+          "viewContext": {
+            "version": 1,
+            "investigationId": "34b3ac88-c880-46f5-ae2e-974c93e595df",
+            "attemptId": "d2d762ce-f416-4932-95c7-7da3086c96cd",
+            "revision": "learning-biology-6-coherent",
+            "seriesId": "34b3ac88-c880-46f5-ae2e-974c93e595df",
+            "series": 1,
+            "run": 0,
+            "repetition": 1,
+            "time": 48,
+            "axis": "day",
+            "side": "both",
+            "stateIds": {
+              "control": "bdc31a16",
+              "test": "c923e49b"
+            }
+          }
+        },
+        "feedback": "Pflanzen geben bei Licht Sauerstoff ab. Ohne Licht fällt diese Quelle weg. Tiere und Pflanzen verbrauchen weiter Sauerstoff. Auch die Luft wirkt auf den Wert.",
+        "collapsed": false,
+        "feedbackKind": "success",
+        "predictionCheck": {
+          "selection": "Becken 2",
+          "observed": "Becken 1",
+          "matches": false
+        }
+      },
+      "product": "touch-8-oxygen.json"
+    },
+    {
+      "id": "9-mendel",
+      "touch": true,
+      "quest": {
+        "version": 2,
+        "activities": [
+          {
+            "id": "mendel-probability",
+            "kind": "assignment",
+            "origin": "selection",
+            "from": "Aa × Aa",
+            "to": "Eine Wahrscheinlichkeit; die gezählte Anzahl kann abweichen",
+            "choiceIndex": 0,
+            "at": "2026-10-22T14:57:30.040Z"
+          }
+        ],
+        "choiceSeed": 1184680556,
+        "id": "9-mendel",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was erkennst du in der Population?",
+            "answer": "Ein Fisch",
+            "choiceIndex": 0,
+            "origin": "selection",
+            "at": "2026-10-22T14:57:29.110Z"
+          },
+          {
+            "step": 1,
+            "question": "Welche Farben erwartest du in der F2 aus Aa × Aa?",
+            "answer": "Nur hell",
+            "choiceIndex": 1,
+            "origin": "selection",
+            "at": "2026-10-22T14:57:29.191Z"
+          },
+          {
+            "step": 2,
+            "event": "cross",
+            "origin": "game-action",
+            "evidence": {
+              "generation": 2,
+              "mendel": {
+                "complete": true,
+                "f1": {
+                  "generation": 1,
+                  "parents": [
+                    1,
+                    6
+                  ],
+                  "counts": {
+                    "generation": 1,
+                    "n": 24,
+                    "AA": 0,
+                    "Aa": 24,
+                    "aa": 0,
+                    "A": 0.5,
+                    "a": 0.5,
+                    "dark": 1,
+                    "light": 0
+                  }
+                },
+                "f2": {
+                  "generation": 2,
+                  "parents": [
+                    25,
+                    26
+                  ],
+                  "counts": {
+                    "generation": 2,
+                    "n": 24,
+                    "AA": 6,
+                    "Aa": 10,
+                    "aa": 8,
+                    "A": 0.4583333333333333,
+                    "a": 0.5416666666666666,
+                    "dark": 0.6666666666666666,
+                    "light": 0.3333333333333333
+                  }
+                }
+              },
+              "result": {
+                "kind": "cross",
+                "generation": 2,
+                "n": 24,
+                "AA": 6,
+                "Aa": 10,
+                "aa": 8,
+                "A": 0.4583333333333333,
+                "a": 0.5416666666666666,
+                "dark": 0.6666666666666666,
+                "light": 0.3333333333333333,
+                "mendel": {
+                  "complete": true,
+                  "f1": {
+                    "generation": 1,
+                    "parents": [
+                      1,
+                      6
+                    ],
+                    "counts": {
+                      "generation": 1,
+                      "n": 24,
+                      "AA": 0,
+                      "Aa": 24,
+                      "aa": 0,
+                      "A": 0.5,
+                      "a": 0.5,
+                      "dark": 1,
+                      "light": 0
+                    }
+                  },
+                  "f2": {
+                    "generation": 2,
+                    "parents": [
+                      25,
+                      26
+                    ],
+                    "counts": {
+                      "generation": 2,
+                      "n": 24,
+                      "AA": 6,
+                      "Aa": 10,
+                      "aa": 8,
+                      "A": 0.4583333333333333,
+                      "a": 0.5416666666666666,
+                      "dark": 0.6666666666666666,
+                      "light": 0.3333333333333333
+                    }
+                  }
+                }
+              },
+              "parents": [
+                25,
+                26
+              ]
+            },
+            "at": "2026-10-22T14:57:29.566Z"
+          },
+          {
+            "step": 3,
+            "question": "Welche Farben haben deine Nachkommen?",
+            "answer": "Dunkel und hell",
+            "choiceIndex": 2,
+            "origin": "selection",
+            "at": "2026-10-22T14:57:29.910Z",
+            "viewContext": {
+              "version": 1,
+              "investigationId": "4ed7f4cc-33a2-457e-935f-67987bf52b35",
+              "attemptId": "bd365e13-0817-4aec-88c2-4e1904cb3a7d",
+              "revision": "learning-biology-6-coherent",
+              "seriesId": "4ed7f4cc-33a2-457e-935f-67987bf52b35",
+              "series": null,
+              "run": 0,
+              "repetition": 1,
+              "time": 2,
+              "axis": "generation",
+              "side": "test",
+              "cohortIds": {
+                "test": "f315615f"
+              }
+            }
+          },
+          {
+            "step": 4,
+            "question": "Woher kommen die Erbanlagen eines Nachkommen?",
+            "answer": "Von beiden Eltern",
+            "choiceIndex": 0,
+            "origin": "selection",
+            "at": "2026-10-22T14:57:30.237Z"
+          }
+        ],
+        "result": {
+          "kind": "cross",
+          "generation": 2,
+          "n": 24,
+          "AA": 6,
+          "Aa": 10,
+          "aa": 8,
+          "A": 0.4583333333333333,
+          "a": 0.5416666666666666,
+          "dark": 0.6666666666666666,
+          "light": 0.3333333333333333,
+          "mendel": {
+            "complete": true,
+            "f1": {
+              "generation": 1,
+              "parents": [
+                1,
+                6
+              ],
+              "counts": {
+                "generation": 1,
+                "n": 24,
+                "AA": 0,
+                "Aa": 24,
+                "aa": 0,
+                "A": 0.5,
+                "a": 0.5,
+                "dark": 1,
+                "light": 0
+              }
+            },
+            "f2": {
+              "generation": 2,
+              "parents": [
+                25,
+                26
+              ],
+              "counts": {
+                "generation": 2,
+                "n": 24,
+                "AA": 6,
+                "Aa": 10,
+                "aa": 8,
+                "A": 0.4583333333333333,
+                "a": 0.5416666666666666,
+                "dark": 0.6666666666666666,
+                "light": 0.3333333333333333
+              }
+            }
+          }
+        },
+        "feedback": "Jedes Elternteil gibt eine Genvariante weiter. Eine Genvariante heißt Allel. Welche Variante weitergeht, wird zufällig bestimmt.",
+        "collapsed": false,
+        "feedbackKind": "success",
+        "predictionCheck": {
+          "selection": "Nur hell",
+          "observed": "Dunkel und hell",
+          "matches": false
+        }
+      },
+      "product": "touch-9-mendel.json"
+    },
+    {
+      "id": "10-carbon",
+      "touch": true,
+      "quest": {
+        "version": 2,
+        "activities": [
+          {
+            "id": "carbon-uptake",
+            "kind": "connection",
+            "origin": "game-action",
+            "from": "Kohlenstoffdioxid im Wasser",
+            "to": "In organische Stoffe der Pflanze",
+            "choiceIndex": 0,
+            "at": "2026-10-22T14:57:35.291Z",
+            "connections": [
+              {
+                "from": "water",
+                "to": "plant",
+                "kind": "matter",
+                "origin": "game-action",
+                "context": {
+                  "version": 1,
+                  "investigationId": "3ffc46b0-3b81-48e7-8abe-bd87e8c3a107",
+                  "attemptId": "5d8045d8-a4ea-45e1-aa08-0082dc69e450",
+                  "revision": "learning-biology-6-coherent",
+                  "seriesId": "3ffc46b0-3b81-48e7-8abe-bd87e8c3a107",
+                  "series": null,
+                  "run": 0,
+                  "repetition": 1,
+                  "time": 45,
+                  "axis": "day",
+                  "side": "both",
+                  "stateIds": {
+                    "control": "da9bc647",
+                    "test": "16681040"
+                  }
+                },
+                "activity": "carbon-uptake"
+              }
+            ]
+          },
+          {
+            "id": "carbon-return",
+            "kind": "connection",
+            "origin": "game-action",
+            "from": "Atmung und Abbau",
+            "to": "Organische Stoffe → Kohlenstoffdioxid",
+            "choiceIndex": 0,
+            "at": "2026-10-22T14:57:41.821Z",
+            "connections": [
+              {
+                "from": "animal",
+                "to": "water",
+                "kind": "matter",
+                "origin": "game-action",
+                "context": {
+                  "version": 1,
+                  "investigationId": "d50f9da9-d83c-4d6f-b573-4486192346b9",
+                  "attemptId": "5d8045d8-a4ea-45e1-aa08-0082dc69e450",
+                  "revision": "learning-biology-6-coherent",
+                  "seriesId": "d50f9da9-d83c-4d6f-b573-4486192346b9",
+                  "series": 0,
+                  "run": 0,
+                  "repetition": 1,
+                  "time": 48,
+                  "axis": "day",
+                  "side": "both",
+                  "stateIds": {
+                    "control": "9e5d727d",
+                    "test": "15b79bfb"
+                  }
+                },
+                "activity": "carbon-return"
+              }
+            ]
+          },
+          {
+            "id": "fossil-carbon",
+            "kind": "connection",
+            "origin": "game-action",
+            "from": "Kohle, Erdöl und Erdgas",
+            "to": "Lange gespeicherter Kohlenstoff gelangt zusätzlich als CO₂ in die Luft",
+            "choiceIndex": 0,
+            "at": "2026-10-22T14:57:42.151Z",
+            "connections": [
+              {
+                "from": "fossil",
+                "to": "air",
+                "kind": "matter",
+                "origin": "game-action",
+                "context": {
+                  "version": 1,
+                  "investigationId": "d50f9da9-d83c-4d6f-b573-4486192346b9",
+                  "attemptId": "5d8045d8-a4ea-45e1-aa08-0082dc69e450",
+                  "revision": "learning-biology-6-coherent",
+                  "seriesId": "d50f9da9-d83c-4d6f-b573-4486192346b9",
+                  "series": 0,
+                  "run": 0,
+                  "repetition": 1,
+                  "time": 48,
+                  "axis": "day",
+                  "side": "both",
+                  "stateIds": {
+                    "control": "9e5d727d",
+                    "test": "15b79bfb"
+                  }
+                },
+                "activity": "fossil-carbon"
+              }
+            ]
+          }
+        ],
+        "choiceSeed": 3260220371,
+        "id": "10-carbon",
+        "step": 5,
+        "observed": true,
+        "entries": [
+          {
+            "step": 0,
+            "question": "Was gehört zu Pflanzen und Tieren?",
+            "answer": "Kohlenstoff",
+            "choiceIndex": 0,
+            "origin": "selection",
+            "at": "2026-10-22T14:57:35.493Z"
+          },
+          {
+            "step": 1,
+            "question": "Nach gleich langer Spielzeit: In welchem Becken gibt es mehr Kohlenstoffdioxid?",
+            "answer": "Becken 2",
+            "choiceIndex": 1,
+            "origin": "selection",
+            "at": "2026-10-22T14:57:37.809Z"
+          },
+          {
+            "step": 2,
+            "event": "ecology",
+            "origin": "game-action",
+            "evidence": {
+              "changed": true,
+              "intervention": {
+                "version": 1,
+                "type": "co2",
+                "value": 6,
+                "effective": true,
+                "before": {
+                  "value": 3
+                },
+                "after": {
+                  "value": 6
+                }
+              },
+              "result": {
+                "kind": "ecology",
+                "key": "co2",
+                "repetition": 1,
+                "sampleSize": null,
+                "label": "Kohlenstoffdioxid",
+                "unit": "mg/L",
+                "time": 48,
+                "control": 5.030986046934305,
+                "test": 7.208935886871365,
+                "fish": null,
+                "statuses": {
+                  "control": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  },
+                  "test": {
+                    "state": "completed",
+                    "start": 45,
+                    "end": 48,
+                    "requestedEnd": 48,
+                    "reason": null
+                  }
+                },
+                "configuration": {
+                  "kind": "ecology",
+                  "profile": {
+                    "version": 1,
+                    "grade": 10,
+                    "mode": "missions",
+                    "mission": "10-carbon"
+                  },
+                  "modelVersion": "learning-biology-6-coherent",
+                  "tool": "co2",
+                  "value": 6,
+                  "days": 3,
+                  "environment": null,
+                  "generations": null,
+                  "repetitions": 2,
+                  "baseline": {
+                    "time": 45,
+                    "seed": 47291,
+                    "fingerprint": "da9bc647",
+                    "size": 19
+                  },
+                  "planning": {
+                    "question": "",
+                    "hypothesis": "",
+                    "prediction": "",
+                    "plan": ""
+                  },
+                  "metrics": [
+                    "oxygen",
+                    "health",
+                    "algae",
+                    "plantBiomass",
+                    "organic",
+                    "co2",
+                    "photosynthesis",
+                    "respiration"
+                  ]
+                },
+                "viewContext": {
+                  "version": 1,
+                  "investigationId": "d50f9da9-d83c-4d6f-b573-4486192346b9",
+                  "attemptId": "5d8045d8-a4ea-45e1-aa08-0082dc69e450",
+                  "revision": "learning-biology-6-coherent",
+                  "seriesId": "d50f9da9-d83c-4d6f-b573-4486192346b9",
+                  "series": 0,
+                  "run": 0,
+                  "repetition": 1,
+                  "time": 48,
+                  "axis": "day",
+                  "side": "both",
+                  "stateIds": {
+                    "control": "9e5d727d",
+                    "test": "15b79bfb"
+                  }
+                }
+              },
+              "context": {
+                "version": 1,
+                "investigationId": "d50f9da9-d83c-4d6f-b573-4486192346b9",
+                "attemptId": "5d8045d8-a4ea-45e1-aa08-0082dc69e450",
+                "revision": "learning-biology-6-coherent",
+                "seriesId": "d50f9da9-d83c-4d6f-b573-4486192346b9",
+                "series": 0,
+                "run": 0,
+                "repetition": 1,
+                "time": 48,
+                "axis": "day",
+                "side": "both",
+                "stateIds": {
+                  "control": "9e5d727d",
+                  "test": "15b79bfb"
+                }
+              },
+              "observedViewContext": {
+                "version": 1,
+                "investigationId": "d50f9da9-d83c-4d6f-b573-4486192346b9",
+                "attemptId": "5d8045d8-a4ea-45e1-aa08-0082dc69e450",
+                "revision": "learning-biology-6-coherent",
+                "seriesId": "d50f9da9-d83c-4d6f-b573-4486192346b9",
+                "series": 0,
+                "run": 0,
+                "repetition": 1,
+                "time": 48,
+                "axis": "day",
+                "side": "both",
+                "stateIds": {
+                  "control": "9e5d727d",
+                  "test": "15b79bfb"
+                }
+              },
+              "tool": "co2",
+              "compatible": true,
+              "value": 6
+            },
+            "at": "2026-10-22T14:57:40.100Z"
+          },
+          {
+            "step": 3,
+            "question": "Wo ist mehr Kohlenstoffdioxid?",
+            "answer": "In Becken 2",
+            "choiceIndex": 1,
+            "origin": "selection",
+            "at": "2026-10-22T14:57:41.340Z",
+            "viewContext": {
+              "version": 1,
+              "investigationId": "d50f9da9-d83c-4d6f-b573-4486192346b9",
+              "attemptId": "5d8045d8-a4ea-45e1-aa08-0082dc69e450",
+              "revision": "learning-biology-6-coherent",
+              "seriesId": "d50f9da9-d83c-4d6f-b573-4486192346b9",
+              "series": 0,
+              "run": 0,
+              "repetition": 1,
+              "time": 48,
+              "axis": "day",
+              "side": "both",
+              "stateIds": {
+                "control": "9e5d727d",
+                "test": "15b79bfb"
+              }
+            }
+          },
+          {
+            "step": 4,
+            "question": "Was passiert beim Verbrennen von Kohle?",
+            "answer": "Gespeicherter Kohlenstoff gelangt als Kohlenstoffdioxid in die Luft",
+            "choiceIndex": 0,
+            "origin": "selection",
+            "at": "2026-10-22T14:57:42.642Z"
+          }
+        ],
+        "result": {
+          "kind": "ecology",
+          "key": "co2",
+          "repetition": 1,
+          "sampleSize": null,
+          "label": "Kohlenstoffdioxid",
+          "unit": "mg/L",
+          "time": 48,
+          "control": 5.030986046934305,
+          "test": 7.208935886871365,
+          "fish": null,
+          "statuses": {
+            "control": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            },
+            "test": {
+              "state": "completed",
+              "start": 45,
+              "end": 48,
+              "requestedEnd": 48,
+              "reason": null
+            }
+          },
+          "configuration": {
+            "kind": "ecology",
+            "profile": {
+              "version": 1,
+              "grade": 10,
+              "mode": "missions",
+              "mission": "10-carbon"
+            },
+            "modelVersion": "learning-biology-6-coherent",
+            "tool": "co2",
+            "value": 6,
+            "days": 3,
+            "environment": null,
+            "generations": null,
+            "repetitions": 2,
+            "baseline": {
+              "time": 45,
+              "seed": 47291,
+              "fingerprint": "da9bc647",
+              "size": 19
+            },
+            "planning": {
+              "question": "",
+              "hypothesis": "",
+              "prediction": "",
+              "plan": ""
+            },
+            "metrics": [
+              "oxygen",
+              "health",
+              "algae",
+              "plantBiomass",
+              "organic",
+              "co2",
+              "photosynthesis",
+              "respiration"
+            ]
+          },
+          "viewContext": {
+            "version": 1,
+            "investigationId": "d50f9da9-d83c-4d6f-b573-4486192346b9",
+            "attemptId": "5d8045d8-a4ea-45e1-aa08-0082dc69e450",
+            "revision": "learning-biology-6-coherent",
+            "seriesId": "d50f9da9-d83c-4d6f-b573-4486192346b9",
+            "series": 0,
+            "run": 0,
+            "repetition": 1,
+            "time": 48,
+            "axis": "day",
+            "side": "both",
+            "stateIds": {
+              "control": "9e5d727d",
+              "test": "15b79bfb"
+            }
+          }
+        },
+        "feedback": "Pflanzen nehmen Kohlenstoffdioxid auf. Atmung gibt es wieder ab. Menschen bringen durch Kohle, Öl und Gas zusätzlichen Kohlenstoff in die Luft. Das Aquarium berechnet diese weltweiten Mengen nicht.",
+        "collapsed": false,
+        "feedbackKind": "success",
+        "predictionCheck": {
+          "selection": "Becken 2",
+          "observed": "Becken 2",
+          "matches": true
+        }
+      },
+      "product": "touch-10-carbon.json"
+    }
+  ],
+  "screenshots": [
+    "touch-8-oxygen-compare.png",
+    "touch-8-oxygen-done.png",
+    "touch-9-mendel-compare.png",
+    "touch-9-mendel-done.png",
+    "touch-10-carbon-compare.png",
+    "touch-10-carbon-active-process.png",
+    "touch-10-carbon-done.png"
+  ],
+  "sections": [
+    "touch"
+  ],
+  "engine": "webkit",
+  "status": "passed"
+}

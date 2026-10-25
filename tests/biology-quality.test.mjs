@@ -116,9 +116,9 @@ test('A03: rescue comparison cannot prefer a healthy survivor average over more 
  assert.equal(resultQuestion(d,{fish:{control:{fishAlive:3,health:20},test:{fishAlive:3,health:60}}}).correct,1);
 });
 
-test('A08/A11: each ecological observation starts with at most two relevant values; health includes its actual water cause',()=>{
+test('A08/A11: each ecological observation starts with at most two relevant values; grade 8 chemistry requires teacher unlock and risks remain visible',()=>{
  for(const keys of Object.values(OBSERVATION_METRICS))assert.ok(keys.length>=1&&keys.length<=2);
- assert.deepEqual(OBSERVATION_METRICS['8-health'],['fishAlive','no2']);assert.deepEqual(OBSERVATION_METRICS['10-enrichment'],['algae','oxygen']);assert.deepEqual(OBSERVATION_METRICS['10-carbon'],['co2','plantBiomass']);
+ assert.deepEqual(OBSERVATION_METRICS['8-health'],['fishAlive','oxygen']);assert.deepEqual(OBSERVATION_METRICS['10-enrichment'],['algae','oxygen']);assert.deepEqual(OBSERVATION_METRICS['10-carbon'],['co2','plantBiomass']);
 });
 
 test('A03: mixed old and new health rows retain values and distinct metric meanings in CSV',()=>{

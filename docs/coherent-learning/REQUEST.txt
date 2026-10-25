@@ -1,0 +1,205 @@
+MASTERAUFTRAG FÜR CODEX – AQUARIUM: SICHTBARE, VERSTÄNDLICHE UNTERSUCHUNGEN
+Prüfstand: 22.10.2026. Dieser Auftrag konsolidiert die bisherigen Projektvorgaben, das Work-Prüfpaket und die zusätzliche unabhängige Code-/Modellprüfung.
+
+1. ZIEL, PRIORITÄT UND ARBEITSGRENZEN
+
+Überarbeite Feerson1617/Simulation-Aquarium so, dass Schülerinnen und Schüler der Klassen 8, 9 und 10 die untersuchten Zusammenhänge tatsächlich sehen, bedienen und anhand ihrer Beobachtungen verstehen können.
+
+Oberste Abnahmeregel: sichtbares Phänomen → klare Aufgabe → erreichbare Handlung → zugehörige Veränderung → nachvollziehbarer Vergleich → begründbare Erkenntnis. Ein grüner Test, eine richtige Zahl oder fünf abgeschlossene Questphasen ersetzen keine dieser Verbindungen. Diese Regel gilt zentral für alle Klassen, Missionen, Hilfestufen und das Freie Forschen. Bessere Nutzbarkeit darf nicht durch falsche Biologie erkauft werden.
+
+Lies AGENTS.md. Referenz ist die ZIP Simulation-Aquarium-main 2.zip, SHA-256 45f5a90cda704539bd7048fa33c8b54405ef7608f6dda3babbea809c42a4e555. Der abgeglichene main-Stand ist 8e41962132fe3778fe73f8e14c650f42e18d848d. PR #8 ist bereits gemergt. Ermittle den aktuellen Stand erneut und erhalte spätere Änderungen. Arbeite auf einem NEUEN Branch, etwa feature/coherent-learning-workspaces, und liefere einen NEUEN PR mit Vorschau. Kein direkter Push auf main, kein Merge ohne ausdrückliche Zustimmung. Keine riskante Komplettneuschreibung.
+
+Die Projektdateien, Aquarium-Pruefpaket.zip und die neue Gegenprüfung sind Belegquellen, keine automatisch erfüllten Abnahmen. Fehlt ein Belegpaket in deiner Umgebung, benenne das und reproduziere die hier beschriebenen Fälle; die Umsetzung darf nicht von unsichtbaren früheren Chats abhängen. Bestätige Befunde gegen den aktuellen Code, bevor du korrigierst. Nimm keine Änderungen an externen Konten oder Umgebungsberechtigungen ohne nötige Zustimmung vor.
+
+Kostenfreie statische Lösung auf GitHub Pages; keine neuen Konten, kostenpflichtigen APIs, Laufzeitdienste, Werbetracker oder erforderlichen Backends. Vorhandene hochwertige Modelle erhalten. Lernverständlichkeit geht vor weiterer grafischer Aufrüstung. Bestehende Desktop-/iPad-Profile, Spielstände, Genetik, Fortpflanzung, Pinzette, Katalog, Ökosystemanalyse, Lehrkraft-/Expertenmodus, Tutorial und Einzel-HTML-Backup erhalten.
+
+2. BELEGTE PROBLEME UND REIHENFOLGE
+
+P1 – Zuerst beheben:
+A. Aufgaben nennen zwei Becken, aber die Szene zeigt nur ein unbeschriftetes Aquarium. Vor der Vermutung fehlen sichtbare Vergleichsbedingungen. Ergebnisse und sichtbare Szene gehören teilweise zu verschiedenen Zeitpunkten.
+B. Angezeigte Versuchsreihe/Wiederholung und tatsächlich geöffnete Beckenansicht können auseinanderfallen: learning-ui.mjs, bisher etwa Zeile 1687, lädt bei show-control/show-test immer session.comparison.runs[0], obwohl die Ergebnisansicht eine historische Reihe oder andere Wiederholung zeigt.
+C. „Früher Zeitpunkt“ speichert eine frühe Inspektion, während die große Vergleichskarte weiterhin den letzten gemeinsamen Zeitpunkt verwendet. Der Zeitpunkt muss die ganze zugehörige Darstellung steuern.
+D. Ein Wasserwechsel von 0 % gilt in 8-health und 10-restore als veränderter Versuch: tp schreibt einen Journaleintrag; der JSON-Vergleich des Gesamtzustands erkennt dadurch fälschlich einen Eingriff. Im Gegenversuch bleiben sämtliche gemessenen Reihen identisch, der Questschritt wird dennoch freigegeben.
+E. Die genetischen Lernindividuen und Populationen sind von den großen, weiterhin gezeigten Aquariumtieren getrennt. Nachkommen/Generationen sind nicht die sichtbare Szene.
+F. Wald, Nahrungsbeziehungen, Kohlenstoffwege und Hafenfälle bestehen überwiegend aus Textauswahl vor einer unpassenden Aquariumkulisse.
+
+P2 – Anschließend beziehungsweise mit der Architektur beheben:
+G. Ein Neustart setzt bisher nur das Questobjekt zurück; Population, vorhandene F1/F2-Ereignisse und Versuchsarchiv können erhalten bleiben. Prüfe die konkrete Wiederverwendbarkeit alter Belege und trenne Fortsetzen, Wiederholen und vollständigen Neustart.
+H. Die Auswahl „Sammelstellen für Netze und Leinen“ führt weiterhin zur pauschalen Schlussantwort über Mehrweg/Rückgabe. Schlussfolgerung und Erfolgskontrolle müssen zur gewählten Maßnahme passen.
+I. Rückmeldungen sind auch bei Fehlern grün, Tipps geben häufig die Lösung vor, triviale Spaßalternativen ersetzen Datenverständnis. Fachliche Metatexte bleiben aus der Schüleransicht entfernt.
+J. Teilweise unangemessene Sprache/Anzeige: „organische Stoffe“ ohne Einführung, „Pflanzenmenge 4,277“, „Modellstufe“, unnötige dreistellige Genauigkeit; Nitrit erscheint automatisch in der normalen Klasse-8-Gesundheitsmission. Die Vorgabe lautet dort zunächst verständliche Wasserprobleme, nicht Chemieunterricht.
+K. Stoffvertrag klären: ammoniaConcentration multipliziert params.nh4 mit dem Anteil freien Ammoniaks an der Gesamtmenge. Das ist nur mit einer entsprechend definierten Gesamtpoolgröße konsistent. Kommentare/Labor nennen teilweise ionisches Ammonium. Nicht blind die Formel ändern; Pool, Einheiten, Umrechnungen, Warnung, Schädigung und Altimporte zusammen prüfen.
+L. Der Waldvergleich setzt Baumwurzeln im Boden gegen Wasserpest unter Wasser. Vergleiche dieselbe Ebene: beispielsweise Blätter an der Luft gegenüber Blättern unter Wasser; nicht suggerieren, Wasserpflanzen hätten grundsätzlich keinen Bodenkontakt.
+
+Die damaligen Reparaturen R1–R8 und A01–A11 sind Schutzanforderungen. Gesunde Startbecken, getrennte Fisch-/Wirbellosenkennzahlen, Herkunft von Lernbelegen, echte F1/F2, Zufall/Selektion, unabhängige Abbrüche, endliche Ressourcen und begrenztes Nitrifiziererwachstum nicht zurückbauen.
+
+3. GEMEINSAME DATENGRUNDLAGE FÜR ALLE ANSICHTEN
+
+Führe einen eindeutigen Untersuchungs-/Ansichtskontext ein, mindestens mit Versuch-ID, Versuchsdurchgang/attemptId, Revision, Reihe, Wiederholung, Seite, Zeitpunkt/Generation und Zustandskennung. Alle Komponenten lösen Daten über denselben Selektor auf: Szene, Instrument, Messkarte, Diagramm, Tabelle, Frage, Rückmeldung, Export und Wiederherstellung.
+
+Trenne unveränderliche Ausgangslage, bearbeitbaren Plan, ausgeführten Lauf, historische Belege und aktuell betrachtete Ansicht. Zeige keine alte Messung als Ergebnis eines neuen Plans. Betrachten einer gespeicherten Seite darf weder sie noch den aktuellen Spielstand verändern. „Als eigenes Becken übernehmen“ ist eine gesonderte ausdrückliche Handlung und arbeitet auf einer Kopie.
+
+Speichere vor und nach dem Eingriff unterschiedliche Zustände. initialTest ist im Altmodell eine Kopie vor dem Eingriff und darf nicht ohne Weiteres als eingestelltes Versuchsbecken ausgegeben werden. Gleicher Start bedeutet gleicher Besatz und gleiche Wasserbedingungen; nach dem Einstellen darf nur der definierte Faktor differieren.
+
+Historische Zeitpunkte brauchen tatsächliche zugehörige Zustände: geeignete Checkpoints oder deterministische Wiederberechnung mit gleicher Modellversion und eigenem Zufallszustand. Reine Endzustände und Messkurven reichen nicht, um einen früheren Tierbestand wahrheitsgemäß darzustellen. Animation darf keine Biologiewerte oder Simulationszufallsfolge verändern. Fehlt ein historischer Zustand, kennzeichne die begrenzte Messwertansicht; erfinde kein damaliges Beckenbild.
+
+Bei Ausfall einer Seite endet deren Reihe und dargestellte Entwicklung ehrlich. Die andere Seite darf weiterlaufen. Keine erfundenen Folgemessungen, keine stillstehenden Fische als angeblich weiterlebende Kontrolle und kein vollständiger Paarvergleich nach Ausfall. Gemeinsamer Zeitpunkt und vorhandene Einzelzeitpunkte bleiben unterscheidbar.
+
+Erfasse eine wirksame Manipulation anhand der betroffenen Fachgrößen und eines typisierten Eingriffsereignisses, nicht anhand kompletter JSON-Ungleichheit inklusive Journal. Null-Eingriffe sind zulässige Kontrollen, aber kein Nachweis einer ausgeführten Änderung. Eine echte Handlung darf trotzdem gleiche Ergebnisse erzeugen; gleiche Messwerte sind nicht automatisch ein Fehler.
+
+4. VISUELLE ARBEITSBEREICHE STATT EINER UNIVERSALKULISSE
+
+Nutze einen gemeinsamen Rechenkern und wiederverwendbare Bedienelemente, aber unterschiedliche sachgerechte Darstellungen.
+
+A – Aquariumvergleich: Zwei reale, eindeutig bezeichnete Beckenübersichten bereits vor der Vermutung. Je Seite gleiche Startwerte, relevante Geräteeinstellung und aktueller Messwert. Schülertexte etwa „Becken 1: Heizer bleibt auf 25 °C“ und „Becken 2: Heizer auf 27 °C“. Nicht „Becken 1 bleibt gleich“ verwenden, wenn damit ein biologisch unveränderliches Becken nahegelegt wird. Auch die Kontrolle entwickelt sich weiter.
+
+Bevorzuge einen gemeinsamen WebGL-Kontext mit geteilten Ansichten oder eine gleichwertige sparsame Lösung. Zwei vollständige Renderer sind nicht vorgeschrieben. Ein Fokusmodus vergrößert ein Gerät, hält aber die andere Seite und beide Messkarten als Übersicht sichtbar. Reine Tabs mit verborgenem Vergleichspartner genügen nicht als Standard. Tablet-Hochformat darf anders angeordnet sein, muss aber Vergleichsidentität und relevante Werte erhalten.
+
+Eine gemeinsame Versuchsuhr steuert beide Seiten. Ausgangssituation, Verlauf und Ergebnis sind eindeutig. Wärme wird allmählich übertragen; Heizsollwert ist keine gemessene Wassertemperatur. Lichtveränderungen dürfen sichtbar werden, aber keine erfundenen Sauerstoffblasen oder Farbwechsel als quantitative Messung vortäuschen. Unsichtbare Vorgänge können durch eine klar als Erklärung erkennbare Prozessansicht ergänzt werden.
+
+B – Vererbung und Populationen: Sichtbare, auswählbare Individuen aus dem tatsächlichen Lernbestand. Dieselbe ID verbindet Tierdarstellung, Farbe, Geschlecht, Genotyp, Eltern und Nachkommen. Kein 24-Tiere-Versuch neben vier irrelevanten 3D-Mollys. Eine eigenständige, gut zählbare 2D-/3D-Populationsfläche ist ausdrücklich zulässig. Genotyp erst passend zum Lernschritt aufdecken. Generationen ersetzen hier die fachfremde Aquarium-Tagessteuerung. Zwei Gruppen beziehungsweise Wiederholungen sichtbar nebeneinander vergleichen; kleine Populationen nicht als dekorativen Schwarm ohne Zuordnung darstellen.
+
+C – Beziehungen und regionale Fälle: Kleine interaktive Prozess-/Nahrungsnetze sowie Wald-, Fluss-/Nordsee- und Hafenansichten. Keine aufwendige begehbare 3D-Welt nötig. Bilder, Pfeile und Rollen müssen fachlich aussagekräftig und bedienbar sein. Kennzeichne die Trennung zwischen Aquariumexperiment und externer Fallinformation durch den Ansichtswechsel, nicht durch lange Warntexte. Keine erfundenen Klima- oder Plastik-Schadenssimulationen.
+
+5. QUESTBUCH UND LERNHANDLUNGEN
+
+Das Questbuch führt durch den sichtbaren Arbeitsbereich, nicht durch eine davon getrennte Textwelt. Eine kurze Frage und ein eindeutiger nächster Schritt. Bezugspunkte wie „Becken 2“, „dieser Fisch“, „vorher“ oder „hier“ dürfen nur erscheinen, wenn das bezeichnete Objekt tatsächlich identifizierbar ist.
+
+Eine Aufgabe soll Beobachtung oder Handlung am Gegenstand verlangen: einen relevanten Datenpunkt wählen, denselben Fisch wiederfinden, eine Nahrungskante verbinden, eine Variante weiterverfolgen oder einen Zielkonflikt abwägen. Korrekte Textauswahl bleibt als Unterstützung zulässig, ist aber kein Ersatz für alle Beobachtungen. Mehr Bilder oder Drag-and-drop allein machen ebenfalls noch keine Erkenntnis.
+
+Die bisherigen fünf Phasen dürfen erhalten bleiben, sind aber kein Selbstzweck. Vermeide redundante Einstiegsfragen und endlose Unterquests. Eine Vermutung wird wertungsfrei gespeichert. Erst nach der Untersuchung wird sie mit den tatsächlichen Daten verglichen. Zeige eine allgemeine Erklärung nicht vor der entsprechenden Beobachtung als Lösung.
+
+Hilfen abgestuft: zuerst Ort/Bedienung, dann Blick auf passende Daten, erst danach Zusammenhang. Unterstützungsstufen verändern Hilfen und Offenheit, nicht Ergebnisse oder Naturgesetze. Falsche Antworten bleiben korrigierbar. Unterscheide Erfolg, Fehler und neutralen Hinweis mit verständlichem Text und Symbol; Farbe nur ergänzend. Fehler nicht grün, neutrale Hinweise nicht als richtige Antwort darstellen. Antwortpositionen abwechslungsreich, aber nach Reload stabil.
+
+Jeder neue Versuch bekommt eine eigene Identität. Alte F1/F2-Ereignisse oder Messreihen erfüllen neue Aufgaben nicht unbemerkt. Fortsetzen bewahrt den aktuellen Stand; „Noch einmal“ erklärt und setzt den gewählten Umfang zurück, ohne frühere Produkte zu löschen.
+
+6. SPRACHE UND INFORMATIONSMENGE
+
+Einfach, knapp, nicht kindlich. Als Arbeitsrichtwert: Klasse 8 höchstens etwa 25 Wörter, Klasse 9/10 etwa 40 Wörter im eigentlichen Auftrag; keine Kürzung, die den Bezug zerstört. Vertraute Hauptsätze, eine Handlung pro Schritt. Die Schwierigkeit liegt im Denken, nicht in Schachtelsätzen.
+
+Anfangs ein bis zwei relevante Messgrößen. Weitere Werte erst durch passenden Untersuchungsschritt oder bewusste Lehrkraftfreigabe. Klasse 8: Temperatur, Sauerstoff, Pflanzennährstoffe und Wasserprobleme; Nitrit/Nitrat nur bei gezielter Freigabe, nicht automatisch im Pflichtweg. Belastungsanzeigen dürfen echte Risiken nicht wegmitteln. Kein universeller Gesundheitsbeweis aus einer grünen Ampel.
+
+Klasse 9: sichtbare Merkmale, Erbanlagen, Generationen und Gruppen; Wasserchemie normalerweise unsichtbar. Klasse 10: einzelne Stoffe nur für die jeweilige Frage. Namen ausschreiben, chemische Formeln höchstens optional. Zellatmung, Allel, Produzent und andere zentrale Begriffe nach einer passenden Beobachtung kurz einführen, nicht voraussetzen und nicht dauerhaft fachlich entleeren.
+
+Temperaturen beispielsweise auf 0,1 °C, Anzahlen ganzzahlig, Anteile passend zur Stichprobe. Relative Pools verständlich als Vergleich zum Anfang oder als beschriftete Skala, nicht als vermeintliche reale Grammzahl. Anzeigepräzision, Antworttoleranz und Exportbedeutung zusammen festlegen. Keine unterschiedlichen gerundeten Werte als exakt identisch verlangen.
+
+Fragezeichen erklärt den unmittelbar benachbarten Gegenstand. „Beobachten“ erklärt Beobachten, nicht Wasserbelastung. Kurze Hilfe, Touch/Maus/Tastatur, korrekter Fokus. Keine curricularen, didaktischen oder technischen Verwaltungsbegriffe in der normalen Schüleransicht. Fachlich unverzichtbare Modellgrenzen knapp konkret, etwa „Im Farbversuch betrachten wir nur eine Genvariante“; ausführliche Erläuterung im Lehrkraftbereich.
+
+7. VERBINDLICHE ERGEBNISSE JE MISSION – KLASSE 8
+
+8-ecosystem: Fisch/Pflanze und unbelebte Bedingungen direkt erkennen. Zwei Becken vor der Vorhersage, beide zunächst 25 °C. Nur den Heizstab in Becken 2 höher einstellen, beispielsweise 27 °C innerhalb der Artbereiche. Beide tatsächlichen Temperaturen gemeinsam verfolgen. „Heizer 27 °C“ und „Wasser 25,9 °C“ dürfen nebeneinander stehen, aber klar benannt. Keine ungemessene Erkrankung oder erfundene Verhaltensänderung aus diesem verträglichen Temperaturunterschied ableiten. Der Pflichtkern ist Umweltbedingung und fairer Vergleich.
+
+8-oxygen: Beide Becken mit gleichem Besatz und unterschiedlichen Lichtbedingungen sichtbar. Vorhersage ausdrücklich über den Unterschied zum gleichen Zeitpunkt, nicht unklar über „mehr/weniger als vorher“. Tatsächliche Sauerstoffwerte vergleichen. Dunkles Wasser kann durch Luftaustausch trotzdem mehr Sauerstoff als am Anfang enthalten. Lichtabhängige Bildung, fortlaufender Verbrauch und Gasaustausch in einer kurzen, aufklappbaren Prozessansicht unterscheiden. Keine erzwungene Sauerstoffkrise.
+
+8-foodweb: Drei bis fünf sichtbare Organismen/Ressourcen verbinden. Nahrungspfeil Nahrung→Konsument, Reste→Zersetzer, mineralische Nährstoffe→Pflanze. Lichtzufuhr und Wärmeabgabe getrennt vom Stoffrückweg. Zersetzer bei Bedarf schematisch vergrößern; Schnecken/Garnelen nicht allein als vollständige Destruentengruppe ausgeben. Ein Verbinden per Antippen muss als Alternative zum Ziehen funktionieren. Keine Zeichnung auf Papier.
+
+8-health: Wirkliche Fische, überlebende/verstorbene Tiere und wenige passende Wasserhinweise zusammen sehen. Eine begründbare Maßnahme wählen, mit unbehandeltem Becken vergleichen. Fischzustand nie durch Schnecken verbessern. Kein positiver Fischzustand ohne Fische. Null-Wasserwechsel darf nicht als ausgeführter Wasserwechsel gelten. Ein ungeeigneter Versuch darf scheitern und besprochen werden; nicht ausschließlich die gewünschte Rettung als biologisch erlaubtes Ergebnis zulassen.
+
+8-forest: Aquarium/Wasserpflanze und konkrete Baum-/Walddarstellung gegenüberstellen. Eine Gemeinsamkeit und einen Unterschied am Bild zuordnen. Gleiche Ebenen vergleichen, etwa Lichtnutzung und Lage der Blätter. Wasserpest kann im Untergrund wurzeln; kein falscher Gegensatz „Baum hat Bodenwurzeln, Wasserpflanze nicht“. Transfer ersetzt keine echte Freilanduntersuchung und keine vollständige Waldeinheit.
+
+8. VERBINDLICHE ERGEBNISSE JE MISSION – KLASSE 9
+
+9-traits: Helle und dunkle Individuen direkt auswählen; anschließend AA/Aa/aa desselben Tieres aufdecken. AA und Aa können gleich aussehen. Ausgewählter Fisch, Details und Daten müssen dieselbe Person/ID meinen. Das einfache Farbmodell darf nicht als nachgewiesener Erbgang aller realen Zuchtfarben auftreten.
+
+9-mendel: Reale AA×aa-Eltern aus dem Lernbestand auswählen, deren F1 zählen, zwei tatsächliche Aa-F1-Nachkommen auswählen und F2 erzeugen. Allelweitergabe sichtbar, Elternschaft erhalten. Erwartung und gezählte Stichprobe trennen; keine exakt erzwungene 18:6-Verteilung bei 24 Tieren. Das Ein-Merkmals-Modell illustriert nicht automatisch die dritte Mendelsche Regel. Diese gegebenenfalls als gesonderte, fachlich passende Erweiterung kennzeichnen, nicht die Mission unbemerkt überladen. Erneuter Durchgang darf keine alte F2 als eigene neue Handlung anrechnen.
+
+9-population: Neutrale Wiederholungen und gerichtete Fortpflanzungsbevorzugung mit derselben Ausgangsgenetik sichtbar vergleichen. Gleiche Zufallsfolge innerhalb eines Kontrollpaars ist reproduzierbare Paarung, keine unabhängige zweite Wiederholung. Neue Wiederholungen mit dokumentierten anderen Zufallsstarts. Farben, Allele, Elternbeiträge und Anzahl auseinanderhalten. Erklärung abhängig vom tatsächlichen Lauf: Zufall/Drift ist nicht automatisch Selektion; Dominanz bedeutet keinen Fitnessvorteil. Optional beide Richtungen des Farbvorteils prüfen.
+
+9-darwin: Zwei verständliche unterschiedliche Vorhersagen vor der Untersuchung gegenüberstellen; vorhandene Varianten und unterschiedliche Fortpflanzung über Generationen sichtbar verfolgen. Keine Karikatur „Fisch wünscht neue Gene“ als einzige Darstellung Lamarcks. Zusätzlich wenige reale datierte Fossil-/Merkmalsbelege ansehen und zuordnen. Die programmierte Auswahlregel ist kein eigenständiger empirischer Beweis der Evolutionstheorie; Familienabstammung ist kein Artenstammbaum. Keine erzwungene vollständige Einheit Menschwerdung in diese einzelne Mission pressen.
+
+9. VERBINDLICHE ERGEBNISSE JE MISSION – KLASSE 10
+
+10-enrichment: Beide Becken, Nährstoffeingriff und Algenentwicklung sichtbar. Danach Sauerstoff und gegebenenfalls Reste betrachten. Unterscheide „beobachtet“, „mögliche spätere Folge“ und „hier nicht gezeigt“. Der aktuelle Dreitageslauf darf mehr Algen ohne Sauerstoffkrise ergeben. Keine Kurven nachträglich so verändern, dass eine gewünschte Kette garantiert eintritt.
+
+10-carbon: Wenige sichtbare Speicher und Pfeile: Kohlenstoffdioxid im Wasser/Luft, Pflanzen, Tiere/Reste. Aufnahme, Atmung, Abbau und Luftaustausch passend verknüpfen. Lokalen Zufuhrvergleich vom menschlichen Zusatzfluss aus fossilen Vorräten trennen. Zugefügtes CO₂ und unveränderte Pflanzenmenge sind ein zulässiger Befund; Nährstofflimit nicht überspielen. Keine globale Emissionsmenge, Erwärmungsprognose oder geschlossene Kohlenstoffbilanz aus relativen Biomassewerten errechnen.
+
+10-restore: Wirkung einer Maßnahme früh und später betrachten; beide Beckenbilder, Messkarten und Diagrammzeiger müssen wirklich auf den gewählten Zeitpunkt wechseln. Überleben zuerst, Zustand der Überlebenden zusätzlich. Fehlende Kontrollwerte nach Abbruch offen zeigen. Zweite Maßnahme oder begrenzte Aussage über Dauerhaftigkeit beurteilen; kein Dreitagesergebnis als dauerhafte Sanierung verkaufen.
+
+10-northsea: Quelle am Land, Flussweg und Nordsee in einer übersichtlichen belegten Ansicht. Aquarium als begrenzten experimentellen Teil nutzen, anschließend sichtbar in die regionale Ansicht wechseln. Eintragsminderung am Ursprung auswählen, erwartbare Wirkung und Aufwand unterscheiden. Regionale Quelle mit genauer Fundstelle in Lehrkraftmaterial; keine erfundenen Mengen.
+
+10-wadden: Konkrete Hafen-/Küstenszene mit Müll, betroffenen Tieren und Beteiligten. Mehrweg/Rückgabe und Sammlung ausgedienter Netze/Leinen als sinnvolle, unterschiedlich begründbare Wege. Je gewählter Maßnahme passender Nutzen, Aufwand, Gegenargument und spätere Erfolgskontrolle. Kein erzwungener Mehrweg-Schlusssatz nach Netzsammlung. Keine Aquariumwasserwerte als Müllschaden, keine irrelevante Heizung oder Tagessteuerung. Entscheidung begründen lassen, etwa durch Auswahl eines passenden Belegs und einer zugehörigen Folge statt Pflichtaufsatz.
+
+10. BIOLOGISCHE SCHUTZREGELN UND OFFENE STOFFDEFINITION
+
+Erhalte endliche Ressourcen, Lichtabhängigkeit der Fotosynthese, Atmung auch ohne Licht, Zersetzung/organischen Rückfluss, Sauerstoffbegrenzung und elementare Stickstofferhaltung in der Nitrifikation. Nitrifizierer wachsen nur bei passendem tatsächlichem Umsatz. Stoffkreisläufe und Energiefluss nicht gleichsetzen.
+
+Prüfe neue Ausgangsbecken gegen die bestehenden Artanforderungen; keine heimliche Lockerung der Ansprüche zum Bestehen eines Tests. Vorbereitete Härte12 und Ersatzwasser25 °C sind Modellvorgaben, keine universelle Aquaristikempfehlung. Altspeicher nicht ungefragt auf diese Werte ändern. Ein Heizstab kühlt nicht aktiv unter die Raumtemperatur. Messgröße, relativer Gesundheitsindex und Diagnose unterscheiden.
+
+Klärungsauftrag zu Ammoniak: Lege schriftlich fest, was params.nh4 repräsentiert, welche Masseinheit gilt und wie die Gleichgewichtsformel verwendet wird. Bei echtem ionischem NH4 ist das Verhältnis zu NH3 anders als der NH3-Anteil an der Gesamtmenge. Entscheide fachlich konsistent zwischen Gesamtpool mit geeigneter Speziesableitung und getrennten Spezies; alle Verbraucher/Erzeuger, Laborbezeichnungen, Warnungen, Schäden und gespeicherten Kennzahlen müssen dazu passen. Regressionen bei saurem und alkalischem pH sowie unterschiedlichen Temperaturen; keine bloße Monotonieprüfung. Änderungen historischer Einheiten versionieren, nicht rückwirkend umdeuten. Die Chemie bleibt aus der gewöhnlichen Klasse-8-Ansicht heraus.
+
+Natürliche Selektion, Drift, Vererbung und individuelle Entwicklung unterscheiden. Keine bedarfsgerichtete Alleländerung, keine spontane Wiedererzeugung verlorener Allele ohne expliziten Mutationsmechanismus. Farbgewichte als gesetzte Annahmen behandeln, nicht gemessene Molly-Tarnung. Verkürzte Aufwachs-/Fortpflanzungsdauer als Spielzeit; Generationen nicht mit natürlichen sieben Tagen gleichsetzen. Maßstab bleibt physikalisch konsistent und unabhängig vom Grafikprofil; keine Größen-/Rotationsregler für Lebewesen wieder einführen.
+
+11. FREIES FORSCHEN, LEHRKRAFT UND EXPERTEN
+
+Freies Forschen bleibt je Jahrgang offen, ohne Pflichtquest oder erzwungene Schreibfolge. Wahlweise ein eigenes Becken oder derselbe klare Vergleichsarbeitsbereich. Immer sichtbar, welches Becken/welche Gruppe bedient wird. Null-Eingriffe dürfen als bewusste Kontrollversuche genutzt werden. Die biologischen Regeln sind in allen Hilfestufen/Grafikprofilen gleich.
+
+Lehrkräfte konfigurieren Hilfen, Sichtbarkeit und Startbedingungen ohne neues Konto. Eigene Texte, ausgewählte Antworten, Spielhandlungen, Messwerte und bereitgestellte Erklärungen getrennt dokumentieren. Keine automatische Note aus Fischgesundheit, Klickzahl oder Hilfeaufrufen. Frühere unbekannte Herkunft bleibt unbekannt. Technische Formate nur dort; Schüler sehen „Meine Ergebnisse“, „Ergebnis speichern“ oder „Für die Lehrkraft speichern“.
+
+Expertenmodus, Tutorial, Labor, Katalog, Farbvarianten, korrekte Artbilder auch in Individuenkarten, Pinzettenbedienung sowie eigenständiges freies Becken erhalten. Kontrollen über gemeinsame Handler führen, nicht einzelne Klassen mit Sonderlösungen abzweigen. Alle künftigen Änderungen müssen ausdrücklich auf Auswirkungen in jeder betroffenen Klasse und jedem Modus geprüft werden; diese Regel in der Projektdokumentation dauerhaft festhalten.
+
+12. CURRICULARE BEGRÜNDUNG NUR FÜR LEHRKRÄFTE
+
+Originalgrundlage ETS 2025/26: Ökologie S.9–10, Genetik/Evolution S.14–15, menschliche Eingriffe S.19–20. Kohlenstoffkreislauf einschließlich anthropogener Veränderung sowie Meeresschutz/Meeresmüll Nordsee/Wattenmeer ausdrücklich berücksichtigen. Offizielle Biologie-Fachanforderungen SH2023 für die bestehenden Zieljahrgänge gegenprüfen; die Fassung2026 läuft ab Fachbeginn2026/27 aufwachsend an. Allgemeiner Teil2024 beachten. Bei geändertem Schuljahr/Fachbeginn Geltung erneut prüfen.
+
+Dokumentiere pro Mission: ausgewählter Gegenstand, konkret ausgeführte Schülerhandlung, erreichbare Erkenntnis, vermutete Alltagsvorstellung, kurze Diagnose/Überprüfung und Grenze. Plausible Schülervorstellungen sind zunächst Annahmen, keine an dieser Lerngruppe erhobenen Daten. Das Spiel ergänzt ausgewählte Unterrichtseinheiten, ersetzt nicht das ganze Curriculum. Insbesondere selbstständige Versuchsplanung und kriteriengeleitete Bewertung nicht als bereits nachgewiesen ausweisen, wenn nur ein vorgegebener Weg durchgeklickt wurde.
+
+Quellen:
+https://ets-toenning.de/wp-content/uploads/2025/07/Schulinternes-Fachcurriculum-Biologie-SJ-2025-26.pdf
+https://fachportal.lernnetz.de/sh/faecher/biologie/fachanforderungen.html
+Regionale Tatsachen über institutionelle Originalquellen verifizieren, Lizenz/Fundstelle festhalten. Nicht überprüfte Aussagen markieren oder weglassen; keine Quellen aus der Luft ergänzen.
+
+13. TOUCH, ZUGÄNGLICHKEIT UND LEISTUNG
+
+Desktop und iPad-Hoch-/Querformat müssen denselben sachlichen Vergleich ermöglichen. Touchziele mindestens44×44CSS-Pixel, keine Geräteanker über Antwortflächen. Sichtbarer Tastaturfokus, Escape/Schließen mit Rückkehr an sinnvollen Auslöser, keine gleichzeitige Kamerabewegung beim Drehen. Regler per Touch/Maus/PlusMinus/Tastatur bedienbar; Zahlenalternative freiwillig, Dezimalkomma zulässig.
+
+Ein gemeinsamer Renderer mit wiederverwendeten Assets ist ein bevorzugter Ausgangspunkt, kein vorgeschriebener Rewrite. Lege nach einem gemessenen Prototyp nachvollziehbare Budgets für Ladezeit, Speicher, Bildrate und Auflösung fest. Keine fiktive Hardwareabnahme aus Software-Rendering. Leistung nicht durch falsche Tierzahlen oder unsichtbare Versuchsseiten retten: notwendige Übersicht bewahren, Details/Shader/LOD anpassen. Sichtbare Auswahl muss zur dargestellten Stichprobe passen. Fehler beim Laden/WebGL-Verlust verständlich abfangen.
+
+GitHub-Pages-Unterpfad, Vorschau-Unterpfad und Einzel-HTML separat testen. „Funktioniert über lokalen HTTP-Server“ nicht als bestandenes file:-Offline-Verhalten ausgeben. Ein rund151MB großes Backup ist kein belegter iPad-Offline-Nachweis.
+
+14. SPEICHERSTÄNDE UND LERNBELEGE
+
+Versioniere neue Versuche, Ansichtskontexte und Kennzahlen. Vor Migration Sicherung; keine Tiere, Daten oder frühere Leistungen löschen. Alte Quests als damalige Abschlüsse lesbar halten, nicht nachträglich als neue visuelle Lernhandlung deklarieren. Fehlende Snapshot-/Herkunfts-/Einheitendaten ausdrücklich markieren. Fortsetzen und echter Neustart getrennt prüfen.
+
+Exportierte Reihe, Wiederholung, Seite, Zeitpunkt, Eingriff und Modellrevision müssen genau der betrachteten Untersuchung entsprechen. Unbekannt ist nicht null. Ein „Ansehen“-Klick darf weder Archiv noch aktuelle Population mutieren. JSON/CSV/SVG erhalten ihre nachvollziehbaren Daten; keine Technical-Exportlabels im Schülerbereich.
+
+15. ENTWICKLUNGSPHASEN UND VERBINDLICHES SICHTGATE
+
+Phase1: Stand sichern, P1-Zuordnungsfehler/Null-Eingriffe analysieren und gezielt korrigieren; gemeinsame Zustands-/Ansichtsidentität einführen. Matrix aller14 Missionen und erwarteten sichtbaren Gegenstände anlegen.
+
+Phase2: NUR den repräsentativen Temperaturvergleich vollständig sichtbar prototypisieren. Desktop und iPad-Größen: zwei Becken bereits vor der Vermutung, gleiche Startwerte, Gerätezuordnung, Eingriff nurB, gemeinsame Zeit, Messwerte, Fokus, Speichern/Neuladen und Ergebnisblick. Tatsächliche Browserbilder/kurzer Ablauf und funktionierende PR-Vorschau bereitstellen.
+
+VERBINDLICHES GATE: Den Prototyp dem Auftraggeber zur Sichtabnahme vorlegen. Nicht aus eigenen grünen Tests eine Nutzerfreigabe ableiten. Vor dieser Freigabe keine flächendeckende Neugestaltung aller Missionen. Unabhängige klar begrenzte Datenfehler dürfen parallel korrigiert werden. Der Gesamtauftrag umfasst die weiteren Phasen, sie folgen nach dieser Freigabe. Keine Erfolgsmeldung „alles fertig“ am Gate.
+
+Phase3 nach Freigabe: Vergleichsarchitektur konsistent auf passende Ökologiemissionen und Freies Forschen übertragen. Je eine passende Genetik-/Populations- und regionale Fallansicht vor breiter Wiederverwendung sichtbar prüfen; wesentliche neue Bedienprinzipien ebenfalls kurz vorlegen.
+
+Phase4: Übrige Missionen, Hilfen, Rückmeldungen und Lehrkraftbelege integrieren. Phase5: vollständige Regression, sprachliche Sichtung, visuelle Abnahme und Abschlussbericht.
+
+Nach abgegrenzten Arbeitsschritten Commit und Push; WORK_STATE mit exaktem Head, abgeschlossenen Aufgaben, offenen Fehlern, letzten Befehlen und nächstem Schritt. Bei Unterbrechung nicht neu anfangen. Keine automatischen Hintergrund-Fortsetzungsversprechen.
+
+16. ABNAHMETESTS – SICHTBAR UND VERHALTENSORIENTIERT
+
+AT01 Alle14 Missionen: frisches Profil, Einstieg bis Abschluss, alle nötigen Handlungen, je Phase mindestens eine sinnvolle Fehlantwort und richtige Fortsetzung, Hilfen, Unterbrechung/Reload. Tatsächliche Benutzung der sichtbaren Oberfläche; keine Schreibzugriffe auf Questzustände zum Erledigen. Read-only Zustandsinspektion darf sichtbare Beobachtungen ergänzen.
+AT02 Temperatur: Beide Becken,25°C-Start und Heizeridentität vor Vermutung sichtbar.27°C nurB; Zeitablauf verändert tatsächliche Werte allmählich. Jede Karte und Szene zeigt denselben Zeitpunkt. Auf zwei Viewports fotografieren.
+AT03 Reihenidentität: Zwei verschieden konfigurierte Reihen mit mindestens zwei Wiederholungen erzeugen. Ältere Reihe/Wiederholung2 wählen, dann jede Beckenansicht. IDs, Zeit, Werte, Organismen und Export müssen zur Auswahl gehören, nicht zum neuesten runs[0].
+AT04 Früher/später:45,25 und48,25 beziehungsweise passende tatsächliche Zeitpunkte auswählen. Szene, große Karte, Tabelle und Diagrammzeiger wechseln gemeinsam. Nach Abbruch nur echte verfügbare Daten.
+AT05 Null-Eingriff: Wasser0% in8-health/10-restore nicht als vollzogener Wasserwechsel. Gleiche Lampe ohne Änderung ebenso. Andersherum: echter Eingriff mit identischem Endwert bleibt als Handlung zulässig; kein künstliches Unterschiedserfordernis.
+AT06 Neustart: F1/F2 und zwei Versuche abschließen, „Noch einmal“ wählen. Alte Belege bleiben archiviert, neue Aufgaben verlangen neue zugehörige Ereignisse. Fortsetzen bewahrt dagegen genau den alten Versuch.
+AT07 Mendel/Population: ausgewähltes Bildindividuum in Genotyp und Elternarchiv wiederfinden. Tatsächliche F1 und F2 zählen; unabhängige Wiederholungen, gleiche Seeds reproduzierbar. Neutrale und gerichtete Erklärung abhängig vom Lauf. Keine exakten Quoten erzwingen.
+AT08 Hafen: Beide Maßnahmen separat vollständig bearbeiten; Rückmeldung, Belege, Aufwand und Abschluss passend zur Auswahl. Kein Wasserwechsel als Hafenschutz und kein Mehrwegzwang bei Netzsammlung.
+AT09 Didaktisch sichtbarer Mechanismus: Nahrungskante, Stoffrückweg, Energieabgabe, Waldvergleich, fossiler Zusatzfluss und regionaler Eintragsweg wirklich an sichtbaren Objekten bedienen. Reine Textpräsenz oder Überschrift genügt nicht.
+AT10 Geräte/Bedienung: Maus, Tastatur, Touch-Tap und tatsächliches Ziehen soweit verfügbar, Komma/Punkt/leere/ungültige Zahlen, Abbruch/Speichern/Fokus, aktive Seite, Dauerhaftigkeit, einmalige Aktionen. Keine anklickbare Überdeckung.
+AT11 Biologie: frische Artansprüche, Fisch-/Wirbellosentrennung, Überleben plus Zustand, keine Substratfreiheit als Wachstumsquelle, N-/O2-Teilbilanzen und geklärte Ammoniakeinheiten. Gegenproben mit echtem Kern, nicht ausschließlich vereinfachtem Test-Host.
+AT12 Sprache/Feedback: kurze aufgabenspezifische Texte, keine grüne Fehlerdarstellung, neutral gespeicherte Vermutungen, keine technischen Metaangaben. Vermutungsfrage und Ergebnisfrage müssen dieselbe Bezugsgröße/Zeit meinen; nahe Werte nach konsistenter Auflösung behandeln.
+AT13 Regression: alle drei freien Jahrgänge, Lehrkraftkonfiguration/Import/Export, Expertenstart, komplettes Tutorial, Katalog/Artbilder/Farbformen, Pinzette, Geräte, Spielzeit, historische Dateien, R1–R8/A01–A11. Kein stilles Streichen früherer Assertions, nur begründete Anpassung an geänderte Semantik.
+AT14 Browserumfang: Chromium Desktop sowie WebKit-iPad-Viewport; Hauptwege aller14 in beiden Engines. Zusätzlich Hoch-/Querformat der kritischen Vergleichs-/Populations-/Hafensichten. Emulation klar von physischem Safari-iPad unterscheiden. Fehlende Engine/Hardware nicht durch alte Logs oder Screenbreitenänderung als bestanden ausweisen.
+AT15 Veröffentlichte Fassung: tatsächlich ausgelieferte Hauptdateien/Vorschau gegen geprüften Build hashen; nach Deployment reale Start-/Assetprobe. Grüner Pages-Workflow beweist keine bedienbare Veröffentlichung.
+
+17. BELEGE, GRENZEN UND ABSCHLUSS
+
+Pro Mission eine Abnahmematrix: Lerngegenstand; sichtbare Objekte; konkrete Handlung; tatsächliche Datenquelle/Zeit; beobachtbares Ergebnis; kurze Schlussfolgerung; Fehlerweg; Desktop-/WebKit-Beleg; offene Grenze. Daten und Screenshots exakt an Commit/Build binden.
+
+Neue selbst ausgeführte Tests von alten Work-/Codex-Berichten trennen. Kein getesteter Lernerfolg ohne Schülererprobung behaupten. Automatischer Testorakelzugriff beweist keine intuitive Auffindbarkeit. Abschlussbericht nennt verbleibende P1/P2, tatsächlichen Prüfrahmen und fehlende Geräte. Die spätere Erprobung mit Lernenden braucht Beobachtung ihrer Bedienung und Erklärungen, nicht nur Questabschlusszahlen.
+
+Liefere neuen PR, Vorschau, Änderungen, aktuelle Matrix, kompakte relevante Screenshots und reproduzierbare Tests. Keine unnötige Verdoppelung hunderter historischer Testartefakte in den ausgelieferten Spielassets. Main bleibt bis zur ausdrücklichen Mergefreigabe unverändert.
+
+Der Auftrag ist erst dann vollständig abgeschlossen, wenn die zentrale sichtbare Lernhandlung jeder Mission funktioniert. Falls am Sichtgate, an Werkzeuggrenzen oder an echten Fehlern gestoppt wird, benenne den Teilstand ehrlich. Eine bloße Vermehrung von Textfenstern, Dropdowns oder bestandenen Tests erfüllt diesen Auftrag nicht.

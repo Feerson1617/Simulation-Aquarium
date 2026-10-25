@@ -1,0 +1,4 @@
+Original browser-log excerpt from /tmp/r-cached-download-diagnostic.log
+BEFORE {'js': 613321282, 'limit': 4395630592, 'resources': {'route': 'http://127.0.0.1:8000/standalone-m1/?expert=1', 'frames': 1, 'resources': {'intervals': 3, 'timeouts': 0, 'animationCallbacks': 2, 'registeredListeners': 84, 'webglContexts': 1, 'disposed': False}, 'retired': []}, 'applicationLength': 151486176, 'sourceLength': 0}
+DOWNLOADED 151594853
+BYTE IDENTICAL

@@ -1,0 +1,2 @@
+PASS technical view uses selected historical series/repetition/time in chart, table, CSV, SVG and saved side
+REPORT /tmp/coherent-standalone-expert/webkit/report.json

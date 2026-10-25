@@ -1,0 +1,79 @@
+{
+  "atUTC": "2026-10-25T05:08:44.286Z",
+  "method": "Independent arithmetic over actual downloaded records; shared archive decoder only; no simulation or browser progress injected",
+  "files": [
+    {
+      "file": "m5-feed-result.json",
+      "path": "/workspace/aquarium-devtools/release-final/paths-online/chromium/m5-feed-result.json",
+      "mission": "m5-recurring-input",
+      "attempt": "39d32f31-3c29-44fa-80d3-741d8715b75e",
+      "baselineId": "4fc001db",
+      "runs": [
+        {
+          "condition": "feed",
+          "fieldsIndependentlyChecked": 697,
+          "samples": 41,
+          "initialDay": 48.25,
+          "finalDay": 58.25,
+          "organic": [
+            11.124170744005184,
+            1.122695806212293
+          ],
+          "no3": [
+            13.163908197860849,
+            14.6660634022008
+          ],
+          "fluxSumsMatch": true
+        },
+        {
+          "condition": "water",
+          "fieldsIndependentlyChecked": 697,
+          "samples": 41,
+          "initialDay": 48.25,
+          "finalDay": 58.25,
+          "organic": [
+            11.124170744005184,
+            22.725279816709843
+          ],
+          "no3": [
+            9.081954098930424,
+            26.010862494455385
+          ],
+          "fluxSumsMatch": true
+        }
+      ]
+    },
+    {
+      "file": "m6-result.json",
+      "path": "/workspace/aquarium-devtools/release-final/paths-online/chromium/m6-result.json",
+      "mission": "m6-plant-carbon",
+      "attempt": "c6d25de7-f691-4222-bdff-231c934edc67",
+      "baselineId": "e80f6357",
+      "runs": [
+        {
+          "condition": "m6-plant-carbon",
+          "fieldsIndependentlyChecked": 221,
+          "samples": 13,
+          "initialDay": 45.25,
+          "finalDay": 48.25,
+          "organic": [
+            0.35,
+            0.3910551743786862
+          ],
+          "no3": [
+            12,
+            11.250287664428303
+          ],
+          "fluxSumsMatch": true
+        }
+      ],
+      "individual": {
+        "uid": 3,
+        "species": "waterweed",
+        "initial": 0.6448826230829582,
+        "final": 0.7993327659857855
+      }
+    }
+  ],
+  "status": "passed"
+}

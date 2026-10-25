@@ -1,0 +1,12 @@
+{
+  "commit": "1ecd8d0909f8789a3394eb4a413156fd223aa843",
+  "bytes": 151594853,
+  "sha256": "ea1bd887f8f301d079fb7636c72fd6ec60a83695045b56f79badd43e8f1e1666",
+  "at": "2026-10-24T08:55:28.838908+00:00",
+  "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+  "viewport": {
+    "width": 1366,
+    "height": 960
+  },
+  "status": "passed"
+}

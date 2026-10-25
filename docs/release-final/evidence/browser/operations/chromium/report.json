@@ -1,0 +1,5098 @@
+{
+  "commit": "a89f0f6892dda54d605dd66cefaf3742599b4736",
+  "engine": "chromium",
+  "checks": [
+    {
+      "name": "foodweb: all real objects visible; original size, no unplaced; biological state, identities and positions survive reload",
+      "objects": 24,
+      "geometry": {
+        "unit": "cm",
+        "worldPerCm": 0.05,
+        "glassCm": [
+          100.00000000255447,
+          45.000000579937094,
+          40.00000000255448
+        ],
+        "equipment": [
+          {
+            "name": "equipment:light:basic",
+            "sizeCm": [
+              88.00000000000003,
+              2.9999999999999982,
+              8.000000000000002
+            ],
+            "min": [
+              -2.2000000000000006,
+              2.328641777370591,
+              -0.20000000000000004
+            ],
+            "max": [
+              2.2000000000000006,
+              2.478641777370591,
+              0.20000000000000004
+            ]
+          },
+          {
+            "name": "equipment:filter:external300",
+            "sizeCm": [
+              19.999999999999982,
+              32,
+              20
+            ],
+            "min": [
+              2.650000000000001,
+              -0.36000000000000004,
+              -0.9274809160305344
+            ],
+            "max": [
+              3.65,
+              1.24,
+              0.07251908396946566
+            ]
+          },
+          {
+            "name": "equipment:heater:undefined",
+            "sizeCm": [
+              1.999999999999993,
+              24.000000000000004,
+              2.0000000000000018
+            ],
+            "min": [
+              -2.2924667133847234,
+              0.9017129649785766,
+              -0.9049618320610686
+            ],
+            "max": [
+              -2.1924667133847238,
+              2.1017129649785766,
+              -0.8049618320610685
+            ]
+          },
+          {
+            "name": "equipment:air:undefined",
+            "sizeCm": [
+              5.9999999999999964,
+              3.000000000000002,
+              4.9999999999999964
+            ],
+            "min": [
+              1.84719691660827,
+              0.21629317314867505,
+              0.48568702290076343
+            ],
+            "max": [
+              2.14719691660827,
+              0.36629317314867516,
+              0.7356870229007633
+            ]
+          }
+        ],
+        "tank": {
+          "lengthCm": 100,
+          "depthCm": 40,
+          "heightCm": 45,
+          "glassThicknessCm": 0.6,
+          "innerLengthCm": 98.8,
+          "innerDepthCm": 38.8,
+          "grossLiters": 180,
+          "x": 0.700770847932726,
+          "y": 0.6081081081081081,
+          "z": 0.6106870229007634
+        },
+        "migration": {
+          "version": 1,
+          "unit": "cm",
+          "positions": "tank-normalized-v1",
+          "originalOverrides": {},
+          "relocations": [],
+          "unplaced": [],
+          "layout": "180:external300:true:false:true:canopy-v2"
+        },
+        "objects": [
+          {
+            "uid": 1,
+            "species": "anubias",
+            "visible": true,
+            "axis": "height",
+            "variation": 1.026004,
+            "growth": 0.6703270858678334,
+            "adultCm": null,
+            "lengthCm": 15.13068197099229,
+            "heightCm": 20.632748142262216,
+            "widthCm": 15.13068197099229,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              12.94959134639693,
+              20.632748142262216,
+              10.457921834301784
+            ],
+            "worldHalf": [
+              0.3229891200042067,
+              0.5158187035565555,
+              0.3709839260441482
+            ],
+            "measuredCm": [
+              12.949591346396932,
+              20.632748142262216,
+              10.457921834301784
+            ],
+            "worldBounds": {
+              "min": [
+                -0.9832215936435227,
+                0.23749578302072835,
+                -0.7379388122819756
+              ],
+              "max": [
+                -0.4158998759751421,
+                1.2691331901338392,
+                -0.06573170434293069
+              ]
+            },
+            "worldPosition": [
+              -0.6727400140154169,
+              0.23749578302072835,
+              -0.3944764259541985
+            ]
+          },
+          {
+            "uid": 2,
+            "species": "anubias",
+            "visible": true,
+            "axis": "height",
+            "variation": 1.027936,
+            "growth": 0.7370597461914496,
+            "adultCm": null,
+            "lengthCm": 16.66830543974319,
+            "heightCm": 22.72950741783162,
+            "widthCm": 16.66830543974319,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              14.265566105705657,
+              22.72950741783162,
+              11.520685963348525
+            ],
+            "worldHalf": [
+              0.3248041601512906,
+              0.5682376854457906,
+              0.3856242185609895
+            ],
+            "measuredCm": [
+              14.265566105705659,
+              22.72950741783162,
+              11.520685963348525
+            ],
+            "worldBounds": {
+              "min": [
+                0.1317587391011772,
+                0.24347299250046284,
+                -0.052312977752727086
+              ],
+              "max": [
+                0.7354560363665072,
+                1.379948363392044,
+                0.6790179324910023
+              ]
+            },
+            "worldPosition": [
+              0.4484933426769447,
+              0.24347299250046284,
+              0.31755725190839695
+            ]
+          },
+          {
+            "uid": 3,
+            "species": "waterweed",
+            "visible": true,
+            "axis": "height",
+            "variation": 1.0421319999999998,
+            "growth": 0.664282275407232,
+            "adultCm": null,
+            "lengthCm": 11.076317059755029,
+            "heightCm": 27.69079264938757,
+            "widthCm": 11.076317059755029,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              10.69973188161921,
+              27.69079264938757,
+              10.209567780231948
+            ],
+            "worldHalf": [
+              0.3641715612477008,
+              0.6922698162346893,
+              0.3667641927346021
+            ],
+            "measuredCm": [
+              10.699731881619208,
+              27.690792649387568,
+              10.209567780231952
+            ],
+            "worldBounds": {
+              "min": [
+                0.7868105271392881,
+                0.2315042240496741,
+                0.21630186430539516
+              ],
+              "max": [
+                1.276765188798564,
+                1.6160438565190525,
+                0.6919696690987589
+              ]
+            },
+            "worldPosition": [
+              1.0091100210231254,
+              0.23150422404967413,
+              0.47633587786259546
+            ]
+          },
+          {
+            "uid": 4,
+            "species": "waterweed",
+            "visible": true,
+            "axis": "height",
+            "variation": 0.988312,
+            "growth": 0.7312990856535694,
+            "adultCm": null,
+            "lengthCm": 11.564026591047208,
+            "heightCm": 28.91006647761802,
+            "widthCm": 11.564026591047208,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              11.17085971163565,
+              28.910066477618024,
+              10.659112831166304
+            ],
+            "worldHalf": [
+              0.3816758758528439,
+              0.7227516619404506,
+              0.3785539670481529
+            ],
+            "measuredCm": [
+              11.170859711635647,
+              28.910066477618024,
+              10.659112831166304
+            ],
+            "worldBounds": {
+              "min": [
+                -0.391973033629512,
+                0.2436057891737503,
+                -0.5719891455730393
+              ],
+              "max": [
+                0.16106513193031352,
+                1.6891091130546516,
+                -0.08042543192523968
+              ]
+            },
+            "worldPosition": [
+              -0.11212333566923617,
+              0.2436057891737503,
+              -0.31755725190839695
+            ]
+          },
+          {
+            "uid": 5,
+            "species": "waterweed",
+            "visible": true,
+            "axis": "height",
+            "variation": 0.9587439999999999,
+            "growth": 0.7349586498663604,
+            "adultCm": null,
+            "lengthCm": 11.27419513291958,
+            "heightCm": 28.18548783229895,
+            "widthCm": 11.27419513291958,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              10.890882271833746,
+              28.18548783229895,
+              10.391961403427837
+            ],
+            "worldHalf": [
+              0.36730701145060907,
+              0.7046371958074737,
+              0.37074287509158227
+            ],
+            "measuredCm": [
+              10.890882271833746,
+              28.18548783229895,
+              10.391961403427834
+            ],
+            "worldBounds": {
+              "min": [
+                1.2295533920195265,
+                0.22943478679237023,
+                -0.2717871526183789
+              ],
+              "max": [
+                1.7078296806566506,
+                1.6387091784073178,
+                0.268359130501649
+              ]
+            },
+            "worldPosition": [
+              1.4576033637000703,
+              0.22943478679237025,
+              0
+            ]
+          },
+          {
+            "uid": 6,
+            "species": "waterweed",
+            "visible": true,
+            "axis": "height",
+            "variation": 0.9508239999999999,
+            "growth": 0.6914078685075974,
+            "adultCm": null,
+            "lengthCm": 10.518515122653882,
+            "heightCm": 26.296287806634705,
+            "widthCm": 10.518515122653882,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              10.16089472682923,
+              26.296287806634705,
+              9.695415228074436
+            ],
+            "worldHalf": [
+              0.34444061977772467,
+              0.6574071951658677,
+              0.3408707814677402
+            ],
+            "measuredCm": [
+              10.16089472682923,
+              26.29628780663471,
+              9.695415228074442
+            ],
+            "worldBounds": {
+              "min": [
+                1.2066606498171089,
+                0.24134318373893515,
+                -0.7269969535588103
+              ],
+              "max": [
+                1.6643184059558354,
+                1.5561575740706706,
+                -0.26952727645410707
+              ]
+            },
+            "worldPosition": [
+              1.4576033637000703,
+              0.24134318373893512,
+              -0.47633587786259546
+            ]
+          },
+          {
+            "uid": 7,
+            "species": "javamoss",
+            "visible": true,
+            "axis": "height",
+            "variation": 1.033864,
+            "growth": 0.6499691839556325,
+            "adultCm": null,
+            "lengthCm": 12.095635327219908,
+            "heightCm": 6.71979740401106,
+            "widthCm": 12.095635327219908,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              12.054047602647561,
+              6.719797404011061,
+              8.558344735641716
+            ],
+            "worldHalf": [
+              0.27014842510754034,
+              0.16799493510027652,
+              0.33819771471009596
+            ],
+            "measuredCm": [
+              12.054047602647561,
+              6.719797404011061,
+              8.558344735641716
+            ],
+            "worldBounds": {
+              "min": [
+                1.3432387310336578,
+                0.2153119468811897,
+                0.1925909475658747
+              ],
+              "max": [
+                1.7868587796446231,
+                0.5513018170817428,
+                0.7910146729801865
+              ]
+            },
+            "worldPosition": [
+              1.5697266993693064,
+              0.2153119468811897,
+              0.4935398259541985
+            ]
+          },
+          {
+            "uid": 8,
+            "species": "javamoss",
+            "visible": true,
+            "axis": "height",
+            "variation": 0.9868239999999999,
+            "growth": 0.6728891269352621,
+            "adultCm": null,
+            "lengthCm": 11.952416516377735,
+            "heightCm": 6.64023139798763,
+            "widthCm": 11.952416516377735,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              11.91132121277359,
+              6.64023139798763,
+              8.457009342943685
+            ],
+            "worldHalf": [
+              0.36424681039476003,
+              0.16600578494969076,
+              0.3526007349249358
+            ],
+            "measuredCm": [
+              11.911321212773597,
+              6.64023139798763,
+              8.457009342943689
+            ],
+            "worldBounds": {
+              "min": [
+                1.725057094884931,
+                0.23564970058333615,
+                -0.41998381588846545
+              ],
+              "max": [
+                2.282845129729716,
+                0.5676612704827176,
+                0.08717177343462565
+              ]
+            },
+            "worldPosition": [
+              2.0016194592852137,
+              0.23564970058333615,
+              -0.15877862595419848
+            ]
+          },
+          {
+            "uid": 9,
+            "species": "spiderwood",
+            "visible": true,
+            "axis": "decor",
+            "variation": 0.962692,
+            "growth": 1,
+            "adultCm": null,
+            "lengthCm": 35,
+            "heightCm": 35,
+            "widthCm": 25,
+            "assumption": "Deklarierte Maße des gestalteten Aquascaping-Stücks; keine Artgröße.",
+            "meshCm": [
+              35,
+              35,
+              25
+            ],
+            "worldHalf": [
+              0.6250000000000002,
+              0.875,
+              0.8750000000000001
+            ],
+            "measuredCm": [
+              35,
+              35,
+              25.000000000000007
+            ],
+            "worldBounds": {
+              "min": [
+                -2.3068500350385426,
+                0.25004222984687063,
+                -0.7956106870229007
+              ],
+              "max": [
+                -1.0568500350385421,
+                2.0000422298468705,
+                0.9543893129770992
+              ]
+            },
+            "worldPosition": [
+              -1.6818500350385424,
+              0.25004222984687063,
+              0.07938931297709924
+            ]
+          },
+          {
+            "uid": 10,
+            "species": "stone",
+            "visible": true,
+            "axis": "decor",
+            "variation": 1.046296,
+            "growth": 1,
+            "adultCm": null,
+            "lengthCm": 22,
+            "heightCm": 15,
+            "widthCm": 18,
+            "assumption": "Deklarierte Maße des gestalteten Aquascaping-Stücks; keine Artgröße.",
+            "meshCm": [
+              22,
+              15,
+              18
+            ],
+            "worldHalf": [
+              0.55,
+              0.375,
+              0.45
+            ],
+            "measuredCm": [
+              22,
+              15,
+              18
+            ],
+            "worldBounds": {
+              "min": [
+                -0.9984933426769448,
+                0.21771846613374396,
+                -0.05305343511450378
+              ],
+              "max": [
+                0.10150665732305542,
+                0.9677184661337439,
+                0.8469465648854964
+              ]
+            },
+            "worldPosition": [
+              -0.4484933426769447,
+              0.21771846613374396,
+              0.39694656488549623
+            ]
+          },
+          {
+            "uid": 11,
+            "species": "stone",
+            "visible": true,
+            "axis": "decor",
+            "variation": 0.992752,
+            "growth": 1,
+            "adultCm": null,
+            "lengthCm": 22,
+            "heightCm": 15,
+            "widthCm": 18,
+            "assumption": "Deklarierte Maße des gestalteten Aquascaping-Stücks; keine Artgröße.",
+            "meshCm": [
+              22,
+              15,
+              18
+            ],
+            "worldHalf": [
+              0.55,
+              0.375,
+              0.45
+            ],
+            "measuredCm": [
+              22,
+              15.000000000000002,
+              18
+            ],
+            "worldBounds": {
+              "min": [
+                0.12274001401541679,
+                0.26134384580431813,
+                -0.8469465648854962
+              ],
+              "max": [
+                1.222740014015417,
+                1.0113438458043182,
+                0.05305343511450383
+              ]
+            },
+            "worldPosition": [
+              0.6727400140154169,
+              0.26134384580431813,
+              -0.39694656488549623
+            ]
+          },
+          {
+            "uid": 12,
+            "species": "guppy",
+            "visible": true,
+            "axis": "length",
+            "variation": 0.9503079999999999,
+            "growth": 1,
+            "adultCm": 4,
+            "lengthCm": 3.8012319999999997,
+            "heightCm": 1.5204928,
+            "widthCm": 1.0643449600000001,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+            "meshCm": [
+              3.8012319999999997,
+              1.8844267666098804,
+              0.9478060275669814
+            ],
+            "worldHalf": [
+              0.07305272496682959,
+              0.0486824972379428,
+              0.09275484065482173
+            ],
+            "measuredCm": [
+              3.801232000000001,
+              1.8844267666098835,
+              0.9478060275669797
+            ],
+            "worldBounds": {
+              "min": [
+                0.7709943152896643,
+                1.078840878311676,
+                -0.13789418241545381
+              ],
+              "max": [
+                0.8801850323956427,
+                1.1714942787988234,
+                0.021325756378449343
+              ]
+            },
+            "worldPosition": [
+              0.8264209545039585,
+              1.1245777534093901,
+              -0.057079395738815
+            ]
+          },
+          {
+            "uid": 13,
+            "species": "guppy",
+            "visible": true,
+            "axis": "length",
+            "variation": 1.056112,
+            "growth": 1,
+            "adultCm": 4,
+            "lengthCm": 4.224448,
+            "heightCm": 1.6897792,
+            "widthCm": 1.1828454400000001,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+            "meshCm": [
+              4.224448,
+              2.094232313458262,
+              1.0533314666253677
+            ],
+            "worldHalf": [
+              0.10222900308273089,
+              0.052881058483185535,
+              0.08154837995077177
+            ],
+            "measuredCm": [
+              4.2244480000000015,
+              2.0942323134582574,
+              1.0533314666253712
+            ],
+            "worldBounds": {
+              "min": [
+                -0.7508208955244621,
+                0.942072457786088,
+                -0.48060685512675755
+              ],
+              "max": [
+                -0.574989623322337,
+                1.046264667169617,
+                -0.35763486481906404
+              ]
+            },
+            "worldPosition": [
+              -0.6615326921307423,
+              0.9939720321801976,
+              -0.42004206438404007
+            ]
+          },
+          {
+            "uid": 14,
+            "species": "guppy",
+            "visible": true,
+            "axis": "length",
+            "variation": 0.9703959999999999,
+            "growth": 1,
+            "adultCm": 4,
+            "lengthCm": 3.8815839999999997,
+            "heightCm": 1.5526336,
+            "widthCm": 1.08684352,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+            "meshCm": [
+              3.881584,
+              1.924260551959114,
+              0.9678411398482267
+            ],
+            "worldHalf": [
+              0.09768423523306492,
+              0.04818232183355862,
+              0.026759959339078158
+            ],
+            "measuredCm": [
+              3.881583999999999,
+              1.9242605519591138,
+              0.9678411398482267
+            ],
+            "worldBounds": {
+              "min": [
+                -0.6004640992082045,
+                0.7872475100577756,
+                -0.5643519906389527
+              ],
+              "max": [
+                -0.40638625555812535,
+                0.8833858089526098,
+                -0.515976926741416
+              ]
+            },
+            "worldPosition": [
+              -0.5033679190217301,
+              0.8352883243305903,
+              -0.5412800428696576
+            ]
+          },
+          {
+            "uid": 15,
+            "species": "guppy",
+            "visible": true,
+            "axis": "length",
+            "variation": 1.0429359999999999,
+            "growth": 1,
+            "adultCm": 6,
+            "lengthCm": 6.257615999999999,
+            "heightCm": 2.5030464,
+            "widthCm": 1.75213248,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+            "meshCm": [
+              6.257615999999999,
+              2.3631537661392974,
+              1.33216629641753
+            ],
+            "worldHalf": [
+              0.15936887589630866,
+              0.05945295861350699,
+              0.07866553920281849
+            ],
+            "measuredCm": [
+              6.257615999999998,
+              2.3631537661392943,
+              1.33216629641753
+            ],
+            "worldBounds": {
+              "min": [
+                0.23750063928130613,
+                0.7908093030279704,
+                0.08540190993846385
+              ],
+              "max": [
+                0.5376537949548498,
+                0.908931577552623,
+                0.1907032743859038
+              ]
+            },
+            "worldPosition": [
+              0.3864589450443214,
+              0.849848523705164,
+              0.14283761744783977
+            ]
+          },
+          {
+            "uid": 16,
+            "species": "guppy",
+            "visible": true,
+            "axis": "length",
+            "variation": 0.943468,
+            "growth": 1,
+            "adultCm": 4,
+            "lengthCm": 3.773872,
+            "heightCm": 1.5095488000000001,
+            "widthCm": 1.05668416,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+            "meshCm": [
+              3.7738720000000003,
+              1.8708632913117544,
+              0.9409840359299984
+            ],
+            "worldHalf": [
+              0.09417846945117103,
+              0.047229903024312646,
+              0.06626064834725676
+            ],
+            "measuredCm": [
+              3.773871999999996,
+              1.870863291311755,
+              0.940984035929997
+            ],
+            "worldBounds": {
+              "min": [
+                0.8175841525944508,
+                1.3442840866892811,
+                -0.2893234773806879
+              ],
+              "max": [
+                0.9842458770259871,
+                1.4373740695535329,
+                -0.1959953660892582
+              ]
+            },
+            "worldPosition": [
+              0.9011516758183893,
+              1.3906575955697575,
+              -0.24071529405041878
+            ]
+          },
+          {
+            "uid": 17,
+            "species": "guppy",
+            "visible": true,
+            "axis": "length",
+            "variation": 1.013116,
+            "growth": 1,
+            "adultCm": 4,
+            "lengthCm": 4.052464,
+            "heightCm": 1.6209856,
+            "widthCm": 1.13468992,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+            "meshCm": [
+              4.052464,
+              2.0089727836456555,
+              1.0104486665634194
+            ],
+            "worldHalf": [
+              0.10195889473161479,
+              0.05045184874583054,
+              0.06814267515838193
+            ],
+            "measuredCm": [
+              4.052463999999996,
+              2.008972783645655,
+              1.0104486665634194
+            ],
+            "worldBounds": {
+              "min": [
+                -0.8406129036505227,
+                1.2963434320666,
+                -0.5814774788881618
+              ],
+              "max": [
+                -0.6584360526124147,
+                1.3965675346317696,
+                -0.48586976902474155
+              ]
+            },
+            "worldPosition": [
+              -0.7484881057863787,
+              1.3463704076449536,
+              -0.5350339842461379
+            ]
+          },
+          {
+            "uid": 18,
+            "species": "amanoshrimp",
+            "visible": true,
+            "axis": "body",
+            "variation": 0.955984,
+            "growth": 1,
+            "adultCm": 5,
+            "lengthCm": 4.77992,
+            "heightCm": 1.911968,
+            "widthCm": 1.3383776,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+            "meshCm": [
+              7.6236648828769376,
+              1.8975383503794125,
+              3.0402798647311116
+            ],
+            "worldHalf": [
+              0.1840908797745451,
+              0.04743845875948532,
+              0.19243619815220264
+            ],
+            "measuredCm": [
+              7.623664882876939,
+              1.897538350379413,
+              3.040279864731111
+            ],
+            "worldBounds": {
+              "min": [
+                -0.9635917155406699,
+                0.22013371003771715,
+                0.198186730056908
+              ],
+              "max": [
+                -0.6239017605023599,
+                0.3150106275566878,
+                0.5612528853354173
+              ]
+            },
+            "worldPosition": [
+              -0.8078893137301766,
+              0.26757216879720247,
+              0.390521755200306
+            ]
+          },
+          {
+            "uid": 19,
+            "species": "amanoshrimp",
+            "visible": true,
+            "axis": "body",
+            "variation": 1.030216,
+            "growth": 1,
+            "adultCm": 5,
+            "lengthCm": 5.15108,
+            "heightCm": 2.060432,
+            "widthCm": 1.4423024000000002,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+            "meshCm": [
+              8.21564120422303,
+              2.044881890465193,
+              3.276357095018146
+            ],
+            "worldHalf": [
+              0.08422655724705709,
+              0.051122047261629826,
+              0.20630424285047333
+            ],
+            "measuredCm": [
+              8.215641204223036,
+              2.0448818904651933,
+              3.2763570950181453
+            ],
+            "worldBounds": {
+              "min": [
+                -1.6437343567335836,
+                0.26869010405115756,
+                -0.8995855501199717
+              ],
+              "max": [
+                -1.4799266184711495,
+                0.37093419857441723,
+                -0.4876498877821041
+              ]
+            },
+            "worldPosition": [
+              -1.5641513738345347,
+              0.3198121513127874,
+              -0.693951728121015
+            ]
+          },
+          {
+            "uid": 20,
+            "species": "amanoshrimp",
+            "visible": true,
+            "axis": "body",
+            "variation": 0.989872,
+            "growth": 1,
+            "adultCm": 5,
+            "lengthCm": 4.9493599999999995,
+            "heightCm": 1.979744,
+            "widthCm": 1.3858208,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+            "meshCm": [
+              7.893910781920158,
+              1.9648028439458922,
+              3.1480525932035635
+            ],
+            "worldHalf": [
+              0.21004959474457935,
+              0.04912007109864731,
+              0.16770917629811502
+            ],
+            "measuredCm": [
+              7.893910781920157,
+              1.964802843945893,
+              3.148052593203561
+            ],
+            "worldBounds": {
+              "min": [
+                1.5651728633353819,
+                0.2408209167503499,
+                -0.7028246741516896
+              ],
+              "max": [
+                1.9682111255030192,
+                0.33906105894764454,
+                -0.39982425413761624
+              ]
+            },
+            "worldPosition": [
+              1.7751341023752611,
+              0.2899409878489972,
+              -0.5352084133916228
+            ]
+          },
+          {
+            "uid": 21,
+            "species": "amanoshrimp",
+            "visible": true,
+            "axis": "body",
+            "variation": 1.0116159999999998,
+            "growth": 1,
+            "adultCm": 5,
+            "lengthCm": 5.0580799999999995,
+            "heightCm": 2.0232319999999997,
+            "widthCm": 1.4162624,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+            "meshCm": [
+              8.067312187396897,
+              2.007962639392939,
+              3.217204216430221
+            ],
+            "worldHalf": [
+              0.21147305502124422,
+              0.05019906598482348,
+              0.1812484541512835
+            ],
+            "measuredCm": [
+              8.067312187396904,
+              2.0079626393929395,
+              3.2172042164302206
+            ],
+            "worldBounds": {
+              "min": [
+                -1.96275889713474,
+                0.23377338328040126,
+                0.5678982875152583
+              ],
+              "max": [
+                -1.565129997505745,
+                0.33417151525004823,
+                0.9021621416559698
+              ]
+            },
+            "worldPosition": [
+              -1.751398635597011,
+              0.28397244926522475,
+              0.7210030823036006
+            ]
+          },
+          {
+            "uid": 22,
+            "species": "ramshorn",
+            "visible": true,
+            "axis": "body",
+            "variation": 0.9693639999999999,
+            "growth": 1,
+            "adultCm": 3,
+            "lengthCm": 2.908092,
+            "heightCm": 1.1632368,
+            "widthCm": 0.81426576,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+            "meshCm": [
+              2.9825398950548574,
+              2.2009140651931944,
+              1.4846420810939736
+            ],
+            "worldHalf": [
+              0.03957804536644227,
+              0.055022851629829866,
+              0.07575792649161117
+            ],
+            "measuredCm": [
+              2.9825398950548596,
+              2.200914065193195,
+              1.4846420810939742
+            ],
+            "worldBounds": {
+              "min": [
+                1.1661880838722725,
+                0.24830792302855223,
+                -0.537706592783593
+              ],
+              "max": [
+                1.2403805715101106,
+                0.358353626288212,
+                -0.3878532286575257
+              ]
+            },
+            "worldPosition": [
+              1.20209243685287,
+              0.3033307746583821,
+              -0.4624313243472849
+            ]
+          },
+          {
+            "uid": 23,
+            "species": "ramshorn",
+            "visible": true,
+            "axis": "body",
+            "variation": 1.04524,
+            "growth": 1,
+            "adultCm": 3,
+            "lengthCm": 3.13572,
+            "heightCm": 1.254288,
+            "widthCm": 0.8780016,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+            "meshCm": [
+              3.2159952297662584,
+              2.373188417872476,
+              1.6008509588169821
+            ],
+            "worldHalf": [
+              0.08550267736556004,
+              0.0593297104468119,
+              0.08478510655920815
+            ],
+            "measuredCm": [
+              3.2159952297662597,
+              2.373188417872476,
+              1.6008509588169828
+            ],
+            "worldBounds": {
+              "min": [
+                0.43897416825004115,
+                0.23498075318864914,
+                0.6129481234806798
+              ],
+              "max": [
+                0.5766599795355642,
+                0.35364017408227294,
+                0.7487840483450808
+              ]
+            },
+            "worldPosition": [
+              0.5019283968177205,
+              0.29431046363546104,
+              0.6750275034258384
+            ]
+          },
+          {
+            "uid": 24,
+            "species": "ramshorn",
+            "visible": true,
+            "axis": "body",
+            "variation": 1.0104279999999999,
+            "growth": 1,
+            "adultCm": 3,
+            "lengthCm": 3.0312839999999994,
+            "heightCm": 1.2125136,
+            "widthCm": 0.84875952,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+            "meshCm": [
+              3.108885641596438,
+              2.294148737796152,
+              1.5475341860391159
+            ],
+            "worldHalf": [
+              0.08651175026162934,
+              0.0573537184449038,
+              0.0734228085988263
+            ],
+            "measuredCm": [
+              3.1088856415964417,
+              2.2941487377961525,
+              1.5475341860391167
+            ],
+            "worldBounds": {
+              "min": [
+                -1.082640334099873,
+                0.22340140418703078,
+                0.4319415582920856
+              ],
+              "max": [
+                -0.9360832615812593,
+                0.3381088410768384,
+                0.5434132596104073
+              ]
+            },
+            "worldPosition": [
+              -1.003894932782787,
+              0.2807551226319346,
+              0.4826785469328174
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "supply: all real objects visible; original size, no unplaced; biological state, identities and positions survive reload",
+      "objects": 13,
+      "geometry": {
+        "unit": "cm",
+        "worldPerCm": 0.05,
+        "glassCm": [
+          100.00000000255447,
+          45.000000579937094,
+          40.00000000255448
+        ],
+        "equipment": [
+          {
+            "name": "equipment:light:basic",
+            "sizeCm": [
+              88.00000000000003,
+              2.9999999999999982,
+              8.000000000000002
+            ],
+            "min": [
+              -2.2000000000000006,
+              2.328641777370591,
+              -0.20000000000000004
+            ],
+            "max": [
+              2.2000000000000006,
+              2.478641777370591,
+              0.20000000000000004
+            ]
+          },
+          {
+            "name": "equipment:filter:external300",
+            "sizeCm": [
+              19.999999999999982,
+              32,
+              20
+            ],
+            "min": [
+              2.650000000000001,
+              -0.36000000000000004,
+              -0.9274809160305344
+            ],
+            "max": [
+              3.65,
+              1.24,
+              0.07251908396946566
+            ]
+          },
+          {
+            "name": "equipment:heater:undefined",
+            "sizeCm": [
+              1.999999999999993,
+              24.000000000000004,
+              2.0000000000000018
+            ],
+            "min": [
+              -2.2924667133847234,
+              0.9017129649785766,
+              -0.9049618320610686
+            ],
+            "max": [
+              -2.1924667133847238,
+              2.1017129649785766,
+              -0.8049618320610685
+            ]
+          },
+          {
+            "name": "equipment:air:undefined",
+            "sizeCm": [
+              5.9999999999999964,
+              3.000000000000002,
+              4.9999999999999964
+            ],
+            "min": [
+              1.84719691660827,
+              0.21629317314867505,
+              0.48568702290076343
+            ],
+            "max": [
+              2.14719691660827,
+              0.36629317314867516,
+              0.7356870229007633
+            ]
+          }
+        ],
+        "tank": {
+          "lengthCm": 100,
+          "depthCm": 40,
+          "heightCm": 45,
+          "glassThicknessCm": 0.6,
+          "innerLengthCm": 98.8,
+          "innerDepthCm": 38.8,
+          "grossLiters": 180,
+          "x": 0.700770847932726,
+          "y": 0.6081081081081081,
+          "z": 0.6106870229007634
+        },
+        "migration": {
+          "version": 1,
+          "unit": "cm",
+          "positions": "tank-normalized-v1",
+          "originalOverrides": {},
+          "relocations": [],
+          "unplaced": [],
+          "layout": "180:external300:true:false:true:canopy-v2"
+        },
+        "objects": [
+          {
+            "uid": 1,
+            "species": "anubias",
+            "visible": true,
+            "measuredCm": [
+              9.50928078649375,
+              8.00727330315025,
+              8.898822290909724
+            ],
+            "worldBounds": {
+              "min": [
+                -0.9215478290980845,
+                0.1068989358938088,
+                -0.6452818875223414
+              ],
+              "max": [
+                -0.4423957079322335,
+                0.5072626010513214,
+                -0.1505273672344849
+              ]
+            },
+            "worldPosition": [
+              -0.6727400140154169,
+              0.1641891891891892,
+              -0.3944764259541985
+            ]
+          },
+          {
+            "uid": 2,
+            "species": "anubias",
+            "visible": true,
+            "measuredCm": [
+              9.503925608297095,
+              8.00727330315025,
+              8.880201740138817
+            ],
+            "worldBounds": {
+              "min": [
+                0.21924340201406034,
+                0.1068989358938088,
+                0.0712367415582019
+              ],
+              "max": [
+                0.6820827683878472,
+                0.5072626010513214,
+                0.5598527064451974
+              ]
+            },
+            "worldPosition": [
+              0.4484933426769447,
+              0.1641891891891892,
+              0.31755725190839695
+            ]
+          },
+          {
+            "uid": 3,
+            "species": "waterweed",
+            "visible": true,
+            "axis": "height",
+            "variation": 1.0421319999999998,
+            "growth": 0.664282275407232,
+            "adultCm": null,
+            "lengthCm": 11.076317059755029,
+            "heightCm": 27.69079264938757,
+            "widthCm": 11.076317059755029,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              10.69973188161921,
+              27.69079264938757,
+              10.209567780231948
+            ],
+            "worldHalf": [
+              0.3641715612477008,
+              0.6922698162346893,
+              0.3667641927346021
+            ],
+            "measuredCm": [
+              10.699731881619208,
+              27.690792649387568,
+              10.209567780231952
+            ],
+            "worldBounds": {
+              "min": [
+                0.7868105271392881,
+                0.2315042240496741,
+                0.21630186430539516
+              ],
+              "max": [
+                1.276765188798564,
+                1.6160438565190525,
+                0.6919696690987589
+              ]
+            },
+            "worldPosition": [
+              1.0091100210231254,
+              0.23150422404967413,
+              0.47633587786259546
+            ]
+          },
+          {
+            "uid": 4,
+            "species": "waterweed",
+            "visible": true,
+            "axis": "height",
+            "variation": 0.988312,
+            "growth": 0.7312990856535694,
+            "adultCm": null,
+            "lengthCm": 11.564026591047208,
+            "heightCm": 28.91006647761802,
+            "widthCm": 11.564026591047208,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              11.17085971163565,
+              28.910066477618024,
+              10.659112831166304
+            ],
+            "worldHalf": [
+              0.3816758758528439,
+              0.7227516619404506,
+              0.3785539670481529
+            ],
+            "measuredCm": [
+              11.170859711635647,
+              28.910066477618024,
+              10.659112831166304
+            ],
+            "worldBounds": {
+              "min": [
+                -0.391973033629512,
+                0.2436057891737503,
+                -0.5719891455730393
+              ],
+              "max": [
+                0.16106513193031352,
+                1.6891091130546516,
+                -0.08042543192523968
+              ]
+            },
+            "worldPosition": [
+              -0.11212333566923617,
+              0.2436057891737503,
+              -0.31755725190839695
+            ]
+          },
+          {
+            "uid": 5,
+            "species": "waterweed",
+            "visible": true,
+            "axis": "height",
+            "variation": 0.9587439999999999,
+            "growth": 0.7349586498663604,
+            "adultCm": null,
+            "lengthCm": 11.27419513291958,
+            "heightCm": 28.18548783229895,
+            "widthCm": 11.27419513291958,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              10.890882271833746,
+              28.18548783229895,
+              10.391961403427837
+            ],
+            "worldHalf": [
+              0.36730701145060907,
+              0.7046371958074737,
+              0.37074287509158227
+            ],
+            "measuredCm": [
+              10.890882271833746,
+              28.18548783229895,
+              10.391961403427834
+            ],
+            "worldBounds": {
+              "min": [
+                1.2295533920195265,
+                0.22943478679237023,
+                -0.2717871526183789
+              ],
+              "max": [
+                1.7078296806566506,
+                1.6387091784073178,
+                0.268359130501649
+              ]
+            },
+            "worldPosition": [
+              1.4576033637000703,
+              0.22943478679237025,
+              0
+            ]
+          },
+          {
+            "uid": 6,
+            "species": "waterweed",
+            "visible": true,
+            "axis": "height",
+            "variation": 0.9508239999999999,
+            "growth": 0.6914078685075974,
+            "adultCm": null,
+            "lengthCm": 10.518515122653882,
+            "heightCm": 26.296287806634705,
+            "widthCm": 10.518515122653882,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              10.16089472682923,
+              26.296287806634705,
+              9.695415228074436
+            ],
+            "worldHalf": [
+              0.34444061977772467,
+              0.6574071951658677,
+              0.3408707814677402
+            ],
+            "measuredCm": [
+              10.16089472682923,
+              26.29628780663471,
+              9.695415228074442
+            ],
+            "worldBounds": {
+              "min": [
+                1.2066606498171089,
+                0.24134318373893515,
+                -0.7269969535588103
+              ],
+              "max": [
+                1.6643184059558354,
+                1.5561575740706706,
+                -0.26952727645410707
+              ]
+            },
+            "worldPosition": [
+              1.4576033637000703,
+              0.24134318373893512,
+              -0.47633587786259546
+            ]
+          },
+          {
+            "uid": 7,
+            "species": "javamoss",
+            "visible": true,
+            "axis": "height",
+            "variation": 1.033864,
+            "growth": 0.6499691839556325,
+            "adultCm": null,
+            "lengthCm": 12.095635327219908,
+            "heightCm": 6.71979740401106,
+            "widthCm": 12.095635327219908,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              12.054047602647561,
+              6.719797404011061,
+              8.558344735641716
+            ],
+            "worldHalf": [
+              0.27014842510754034,
+              0.16799493510027652,
+              0.33819771471009596
+            ],
+            "measuredCm": [
+              12.054047602647561,
+              6.719797404011061,
+              8.558344735641716
+            ],
+            "worldBounds": {
+              "min": [
+                1.3432387310336578,
+                0.2153119468811897,
+                0.1925909475658747
+              ],
+              "max": [
+                1.7868587796446231,
+                0.5513018170817428,
+                0.7910146729801865
+              ]
+            },
+            "worldPosition": [
+              1.5697266993693064,
+              0.2153119468811897,
+              0.4935398259541985
+            ]
+          },
+          {
+            "uid": 8,
+            "species": "javamoss",
+            "visible": true,
+            "axis": "height",
+            "variation": 0.9868239999999999,
+            "growth": 0.6728891269352621,
+            "adultCm": null,
+            "lengthCm": 11.952416516377735,
+            "heightCm": 6.64023139798763,
+            "widthCm": 11.952416516377735,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              11.91132121277359,
+              6.64023139798763,
+              8.457009342943685
+            ],
+            "worldHalf": [
+              0.36424681039476003,
+              0.16600578494969076,
+              0.3526007349249358
+            ],
+            "measuredCm": [
+              11.911321212773597,
+              6.64023139798763,
+              8.457009342943689
+            ],
+            "worldBounds": {
+              "min": [
+                1.725057094884931,
+                0.23564970058333615,
+                -0.41998381588846545
+              ],
+              "max": [
+                2.282845129729716,
+                0.5676612704827176,
+                0.08717177343462565
+              ]
+            },
+            "worldPosition": [
+              2.0016194592852137,
+              0.23564970058333615,
+              -0.15877862595419848
+            ]
+          },
+          {
+            "uid": 9,
+            "species": "spiderwood",
+            "visible": true,
+            "axis": "decor",
+            "variation": 0.962692,
+            "growth": 1,
+            "adultCm": null,
+            "lengthCm": 35,
+            "heightCm": 35,
+            "widthCm": 25,
+            "assumption": "Deklarierte Maße des gestalteten Aquascaping-Stücks; keine Artgröße.",
+            "meshCm": [
+              35,
+              35,
+              25
+            ],
+            "worldHalf": [
+              0.6250000000000002,
+              0.875,
+              0.8750000000000001
+            ],
+            "measuredCm": [
+              35,
+              35,
+              25.000000000000007
+            ],
+            "worldBounds": {
+              "min": [
+                -2.3068500350385426,
+                0.25004222984687063,
+                -0.7956106870229007
+              ],
+              "max": [
+                -1.0568500350385421,
+                2.0000422298468705,
+                0.9543893129770992
+              ]
+            },
+            "worldPosition": [
+              -1.6818500350385424,
+              0.25004222984687063,
+              0.07938931297709924
+            ]
+          },
+          {
+            "uid": 10,
+            "species": "stone",
+            "visible": true,
+            "axis": "decor",
+            "variation": 1.046296,
+            "growth": 1,
+            "adultCm": null,
+            "lengthCm": 22,
+            "heightCm": 15,
+            "widthCm": 18,
+            "assumption": "Deklarierte Maße des gestalteten Aquascaping-Stücks; keine Artgröße.",
+            "meshCm": [
+              22,
+              15,
+              18
+            ],
+            "worldHalf": [
+              0.55,
+              0.375,
+              0.45
+            ],
+            "measuredCm": [
+              22,
+              15,
+              18
+            ],
+            "worldBounds": {
+              "min": [
+                -0.9984933426769448,
+                0.21771846613374396,
+                -0.05305343511450378
+              ],
+              "max": [
+                0.10150665732305542,
+                0.9677184661337439,
+                0.8469465648854964
+              ]
+            },
+            "worldPosition": [
+              -0.4484933426769447,
+              0.21771846613374396,
+              0.39694656488549623
+            ]
+          },
+          {
+            "uid": 11,
+            "species": "stone",
+            "visible": true,
+            "axis": "decor",
+            "variation": 0.992752,
+            "growth": 1,
+            "adultCm": null,
+            "lengthCm": 22,
+            "heightCm": 15,
+            "widthCm": 18,
+            "assumption": "Deklarierte Maße des gestalteten Aquascaping-Stücks; keine Artgröße.",
+            "meshCm": [
+              22,
+              15,
+              18
+            ],
+            "worldHalf": [
+              0.55,
+              0.375,
+              0.45
+            ],
+            "measuredCm": [
+              22,
+              15.000000000000002,
+              18
+            ],
+            "worldBounds": {
+              "min": [
+                0.12274001401541679,
+                0.26134384580431813,
+                -0.8469465648854962
+              ],
+              "max": [
+                1.222740014015417,
+                1.0113438458043182,
+                0.05305343511450383
+              ]
+            },
+            "worldPosition": [
+              0.6727400140154169,
+              0.26134384580431813,
+              -0.39694656488549623
+            ]
+          },
+          {
+            "uid": 12,
+            "species": "assassin",
+            "visible": true,
+            "axis": "body",
+            "variation": 0.9427359999999999,
+            "growth": 1,
+            "adultCm": 3,
+            "lengthCm": 2.8282079999999996,
+            "heightCm": 1.1312832000000002,
+            "widthCm": 0.79189824,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+            "meshCm": [
+              3.151138642252547,
+              2.502671765071687,
+              1.6620424280532038
+            ],
+            "worldHalf": [
+              0.08390360932838971,
+              0.06256679412679218,
+              0.05237239996611766
+            ],
+            "measuredCm": [
+              3.1511386422525467,
+              2.5026717650716876,
+              1.6620424280532036
+            ],
+            "worldBounds": {
+              "min": [
+                -1.9186636746899333,
+                0.2502562114740704,
+                -0.01584457461550964
+              ],
+              "max": [
+                -1.759047198430797,
+                0.3753897997276548,
+                0.06768641267802077
+              ]
+            },
+            "worldPosition": [
+              -1.8404387708687115,
+              0.31282300560086257,
+              0.023029489599111427
+            ]
+          },
+          {
+            "uid": 13,
+            "species": "assassin",
+            "visible": true,
+            "axis": "body",
+            "variation": 0.942784,
+            "growth": 1,
+            "adultCm": 3,
+            "lengthCm": 2.8283519999999998,
+            "heightCm": 1.1313408,
+            "widthCm": 0.7919385600000001,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+            "meshCm": [
+              3.1512990844705473,
+              2.5027991901882882,
+              1.662127051995163
+            ],
+            "worldHalf": [
+              0.08398271280633757,
+              0.06256997975470721,
+              0.052555964807152834
+            ],
+            "measuredCm": [
+              3.1512990844705513,
+              2.5027991901882882,
+              1.6621270519951625
+            ],
+            "worldBounds": {
+              "min": [
+                1.1123719525893128,
+                0.252827944752006,
+                -0.6662898322114268
+              ],
+              "max": [
+                1.2720036679882063,
+                0.3779679042614204,
+                -0.5827448810941034
+              ]
+            },
+            "worldPosition": [
+              1.190576739804016,
+              0.31539792450671317,
+              -0.627458875984636
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "water: all real objects visible; original size, no unplaced; biological state, identities and positions survive reload",
+      "objects": 20,
+      "geometry": {
+        "unit": "cm",
+        "worldPerCm": 0.05,
+        "glassCm": [
+          100.00000000255447,
+          45.000000579937094,
+          40.00000000255448
+        ],
+        "equipment": [
+          {
+            "name": "equipment:light:basic",
+            "sizeCm": [
+              88.00000000000003,
+              2.9999999999999982,
+              8.000000000000002
+            ],
+            "min": [
+              -2.2000000000000006,
+              2.328641777370591,
+              -0.20000000000000004
+            ],
+            "max": [
+              2.2000000000000006,
+              2.478641777370591,
+              0.20000000000000004
+            ]
+          },
+          {
+            "name": "equipment:filter:external300",
+            "sizeCm": [
+              19.999999999999982,
+              32,
+              20
+            ],
+            "min": [
+              2.650000000000001,
+              -0.36000000000000004,
+              -0.9274809160305344
+            ],
+            "max": [
+              3.65,
+              1.24,
+              0.07251908396946566
+            ]
+          },
+          {
+            "name": "equipment:heater:undefined",
+            "sizeCm": [
+              1.999999999999993,
+              24.000000000000004,
+              2.0000000000000018
+            ],
+            "min": [
+              -2.2924667133847234,
+              0.9017129649785766,
+              -0.9049618320610686
+            ],
+            "max": [
+              -2.1924667133847238,
+              2.1017129649785766,
+              -0.8049618320610685
+            ]
+          },
+          {
+            "name": "equipment:air:undefined",
+            "sizeCm": [
+              5.9999999999999964,
+              3.000000000000002,
+              4.9999999999999964
+            ],
+            "min": [
+              1.84719691660827,
+              0.21629317314867505,
+              0.48568702290076343
+            ],
+            "max": [
+              2.14719691660827,
+              0.36629317314867516,
+              0.7356870229007633
+            ]
+          }
+        ],
+        "tank": {
+          "lengthCm": 100,
+          "depthCm": 40,
+          "heightCm": 45,
+          "glassThicknessCm": 0.6,
+          "innerLengthCm": 98.8,
+          "innerDepthCm": 38.8,
+          "grossLiters": 180,
+          "x": 0.700770847932726,
+          "y": 0.6081081081081081,
+          "z": 0.6106870229007634
+        },
+        "migration": {
+          "version": 1,
+          "unit": "cm",
+          "positions": "tank-normalized-v1",
+          "originalOverrides": {},
+          "relocations": [],
+          "unplaced": [],
+          "layout": "180:external300:true:false:true:canopy-v2"
+        },
+        "objects": [
+          {
+            "uid": 1,
+            "species": "anubias",
+            "visible": true,
+            "axis": "height",
+            "variation": 1.026004,
+            "growth": 0.6703270858678334,
+            "adultCm": null,
+            "lengthCm": 15.13068197099229,
+            "heightCm": 20.632748142262216,
+            "widthCm": 15.13068197099229,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              12.94959134639693,
+              20.632748142262216,
+              10.457921834301784
+            ],
+            "worldHalf": [
+              0.3229891200042067,
+              0.5158187035565555,
+              0.3709839260441482
+            ],
+            "measuredCm": [
+              12.949591346396932,
+              20.632748142262216,
+              10.457921834301784
+            ],
+            "worldBounds": {
+              "min": [
+                -0.9832215936435227,
+                0.23749578302072835,
+                -0.7379388122819756
+              ],
+              "max": [
+                -0.4158998759751421,
+                1.2691331901338392,
+                -0.06573170434293069
+              ]
+            },
+            "worldPosition": [
+              -0.6727400140154169,
+              0.23749578302072835,
+              -0.3944764259541985
+            ]
+          },
+          {
+            "uid": 2,
+            "species": "anubias",
+            "visible": true,
+            "axis": "height",
+            "variation": 1.027936,
+            "growth": 0.7370597461914496,
+            "adultCm": null,
+            "lengthCm": 16.66830543974319,
+            "heightCm": 22.72950741783162,
+            "widthCm": 16.66830543974319,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              14.265566105705657,
+              22.72950741783162,
+              11.520685963348525
+            ],
+            "worldHalf": [
+              0.3248041601512906,
+              0.5682376854457906,
+              0.3856242185609895
+            ],
+            "measuredCm": [
+              14.265566105705659,
+              22.72950741783162,
+              11.520685963348525
+            ],
+            "worldBounds": {
+              "min": [
+                0.1317587391011772,
+                0.24347299250046284,
+                -0.052312977752727086
+              ],
+              "max": [
+                0.7354560363665072,
+                1.379948363392044,
+                0.6790179324910023
+              ]
+            },
+            "worldPosition": [
+              0.4484933426769447,
+              0.24347299250046284,
+              0.31755725190839695
+            ]
+          },
+          {
+            "uid": 3,
+            "species": "waterweed",
+            "visible": true,
+            "axis": "height",
+            "variation": 1.0421319999999998,
+            "growth": 0.664282275407232,
+            "adultCm": null,
+            "lengthCm": 11.076317059755029,
+            "heightCm": 27.69079264938757,
+            "widthCm": 11.076317059755029,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              10.69973188161921,
+              27.69079264938757,
+              10.209567780231948
+            ],
+            "worldHalf": [
+              0.3641715612477008,
+              0.6922698162346893,
+              0.3667641927346021
+            ],
+            "measuredCm": [
+              10.699731881619208,
+              27.690792649387568,
+              10.209567780231952
+            ],
+            "worldBounds": {
+              "min": [
+                0.7868105271392881,
+                0.2315042240496741,
+                0.21630186430539516
+              ],
+              "max": [
+                1.276765188798564,
+                1.6160438565190525,
+                0.6919696690987589
+              ]
+            },
+            "worldPosition": [
+              1.0091100210231254,
+              0.23150422404967413,
+              0.47633587786259546
+            ]
+          },
+          {
+            "uid": 4,
+            "species": "waterweed",
+            "visible": true,
+            "axis": "height",
+            "variation": 0.988312,
+            "growth": 0.7312990856535694,
+            "adultCm": null,
+            "lengthCm": 11.564026591047208,
+            "heightCm": 28.91006647761802,
+            "widthCm": 11.564026591047208,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              11.17085971163565,
+              28.910066477618024,
+              10.659112831166304
+            ],
+            "worldHalf": [
+              0.3816758758528439,
+              0.7227516619404506,
+              0.3785539670481529
+            ],
+            "measuredCm": [
+              11.170859711635647,
+              28.910066477618024,
+              10.659112831166304
+            ],
+            "worldBounds": {
+              "min": [
+                -0.391973033629512,
+                0.2436057891737503,
+                -0.5719891455730393
+              ],
+              "max": [
+                0.16106513193031352,
+                1.6891091130546516,
+                -0.08042543192523968
+              ]
+            },
+            "worldPosition": [
+              -0.11212333566923617,
+              0.2436057891737503,
+              -0.31755725190839695
+            ]
+          },
+          {
+            "uid": 5,
+            "species": "waterweed",
+            "visible": true,
+            "axis": "height",
+            "variation": 0.9587439999999999,
+            "growth": 0.7349586498663604,
+            "adultCm": null,
+            "lengthCm": 11.27419513291958,
+            "heightCm": 28.18548783229895,
+            "widthCm": 11.27419513291958,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              10.890882271833746,
+              28.18548783229895,
+              10.391961403427837
+            ],
+            "worldHalf": [
+              0.36730701145060907,
+              0.7046371958074737,
+              0.37074287509158227
+            ],
+            "measuredCm": [
+              10.890882271833746,
+              28.18548783229895,
+              10.391961403427834
+            ],
+            "worldBounds": {
+              "min": [
+                1.2295533920195265,
+                0.22943478679237023,
+                -0.2717871526183789
+              ],
+              "max": [
+                1.7078296806566506,
+                1.6387091784073178,
+                0.268359130501649
+              ]
+            },
+            "worldPosition": [
+              1.4576033637000703,
+              0.22943478679237025,
+              0
+            ]
+          },
+          {
+            "uid": 6,
+            "species": "waterweed",
+            "visible": true,
+            "axis": "height",
+            "variation": 0.9508239999999999,
+            "growth": 0.6914078685075974,
+            "adultCm": null,
+            "lengthCm": 10.518515122653882,
+            "heightCm": 26.296287806634705,
+            "widthCm": 10.518515122653882,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              10.16089472682923,
+              26.296287806634705,
+              9.695415228074436
+            ],
+            "worldHalf": [
+              0.34444061977772467,
+              0.6574071951658677,
+              0.3408707814677402
+            ],
+            "measuredCm": [
+              10.16089472682923,
+              26.29628780663471,
+              9.695415228074442
+            ],
+            "worldBounds": {
+              "min": [
+                1.2066606498171089,
+                0.24134318373893515,
+                -0.7269969535588103
+              ],
+              "max": [
+                1.6643184059558354,
+                1.5561575740706706,
+                -0.26952727645410707
+              ]
+            },
+            "worldPosition": [
+              1.4576033637000703,
+              0.24134318373893512,
+              -0.47633587786259546
+            ]
+          },
+          {
+            "uid": 7,
+            "species": "javamoss",
+            "visible": true,
+            "axis": "height",
+            "variation": 1.033864,
+            "growth": 0.6499691839556325,
+            "adultCm": null,
+            "lengthCm": 12.095635327219908,
+            "heightCm": 6.71979740401106,
+            "widthCm": 12.095635327219908,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              12.054047602647561,
+              6.719797404011061,
+              8.558344735641716
+            ],
+            "worldHalf": [
+              0.27014842510754034,
+              0.16799493510027652,
+              0.33819771471009596
+            ],
+            "measuredCm": [
+              12.054047602647561,
+              6.719797404011061,
+              8.558344735641716
+            ],
+            "worldBounds": {
+              "min": [
+                1.3432387310336578,
+                0.2153119468811897,
+                0.1925909475658747
+              ],
+              "max": [
+                1.7868587796446231,
+                0.5513018170817428,
+                0.7910146729801865
+              ]
+            },
+            "worldPosition": [
+              1.5697266993693064,
+              0.2153119468811897,
+              0.4935398259541985
+            ]
+          },
+          {
+            "uid": 8,
+            "species": "javamoss",
+            "visible": true,
+            "axis": "height",
+            "variation": 0.9868239999999999,
+            "growth": 0.6728891269352621,
+            "adultCm": null,
+            "lengthCm": 11.952416516377735,
+            "heightCm": 6.64023139798763,
+            "widthCm": 11.952416516377735,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              11.91132121277359,
+              6.64023139798763,
+              8.457009342943685
+            ],
+            "worldHalf": [
+              0.36424681039476003,
+              0.16600578494969076,
+              0.3526007349249358
+            ],
+            "measuredCm": [
+              11.911321212773597,
+              6.64023139798763,
+              8.457009342943689
+            ],
+            "worldBounds": {
+              "min": [
+                1.725057094884931,
+                0.23564970058333615,
+                -0.41998381588846545
+              ],
+              "max": [
+                2.282845129729716,
+                0.5676612704827176,
+                0.08717177343462565
+              ]
+            },
+            "worldPosition": [
+              2.0016194592852137,
+              0.23564970058333615,
+              -0.15877862595419848
+            ]
+          },
+          {
+            "uid": 9,
+            "species": "spiderwood",
+            "visible": true,
+            "axis": "decor",
+            "variation": 0.962692,
+            "growth": 1,
+            "adultCm": null,
+            "lengthCm": 35,
+            "heightCm": 35,
+            "widthCm": 25,
+            "assumption": "Deklarierte Maße des gestalteten Aquascaping-Stücks; keine Artgröße.",
+            "meshCm": [
+              35,
+              35,
+              25
+            ],
+            "worldHalf": [
+              0.6250000000000002,
+              0.875,
+              0.8750000000000001
+            ],
+            "measuredCm": [
+              35,
+              35,
+              25.000000000000007
+            ],
+            "worldBounds": {
+              "min": [
+                -2.3068500350385426,
+                0.25004222984687063,
+                -0.7956106870229007
+              ],
+              "max": [
+                -1.0568500350385421,
+                2.0000422298468705,
+                0.9543893129770992
+              ]
+            },
+            "worldPosition": [
+              -1.6818500350385424,
+              0.25004222984687063,
+              0.07938931297709924
+            ]
+          },
+          {
+            "uid": 10,
+            "species": "stone",
+            "visible": true,
+            "axis": "decor",
+            "variation": 1.046296,
+            "growth": 1,
+            "adultCm": null,
+            "lengthCm": 22,
+            "heightCm": 15,
+            "widthCm": 18,
+            "assumption": "Deklarierte Maße des gestalteten Aquascaping-Stücks; keine Artgröße.",
+            "meshCm": [
+              22,
+              15,
+              18
+            ],
+            "worldHalf": [
+              0.55,
+              0.375,
+              0.45
+            ],
+            "measuredCm": [
+              22,
+              15,
+              18
+            ],
+            "worldBounds": {
+              "min": [
+                -0.9984933426769448,
+                0.21771846613374396,
+                -0.05305343511450378
+              ],
+              "max": [
+                0.10150665732305542,
+                0.9677184661337439,
+                0.8469465648854964
+              ]
+            },
+            "worldPosition": [
+              -0.4484933426769447,
+              0.21771846613374396,
+              0.39694656488549623
+            ]
+          },
+          {
+            "uid": 11,
+            "species": "stone",
+            "visible": true,
+            "axis": "decor",
+            "variation": 0.992752,
+            "growth": 1,
+            "adultCm": null,
+            "lengthCm": 22,
+            "heightCm": 15,
+            "widthCm": 18,
+            "assumption": "Deklarierte Maße des gestalteten Aquascaping-Stücks; keine Artgröße.",
+            "meshCm": [
+              22,
+              15,
+              18
+            ],
+            "worldHalf": [
+              0.55,
+              0.375,
+              0.45
+            ],
+            "measuredCm": [
+              22,
+              15.000000000000002,
+              18
+            ],
+            "worldBounds": {
+              "min": [
+                0.12274001401541679,
+                0.26134384580431813,
+                -0.8469465648854962
+              ],
+              "max": [
+                1.222740014015417,
+                1.0113438458043182,
+                0.05305343511450383
+              ]
+            },
+            "worldPosition": [
+              0.6727400140154169,
+              0.26134384580431813,
+              -0.39694656488549623
+            ]
+          },
+          {
+            "uid": 12,
+            "species": "guppy",
+            "visible": true,
+            "axis": "length",
+            "variation": 0.9503079999999999,
+            "growth": 1,
+            "adultCm": 4,
+            "lengthCm": 3.8012319999999997,
+            "heightCm": 1.5204928,
+            "widthCm": 1.0643449600000001,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+            "meshCm": [
+              3.8012319999999997,
+              1.8844267666098804,
+              0.9478060275669814
+            ],
+            "worldHalf": [
+              0.05939995929211539,
+              0.04850885682897249,
+              0.0973278735294223
+            ],
+            "measuredCm": [
+              3.8012319999999993,
+              1.884426766609879,
+              0.947806027566982
+            ],
+            "worldBounds": {
+              "min": [
+                0.806481049423373,
+                1.0838623930827562,
+                -0.12299842091806566
+              ],
+              "max": [
+                0.8862558989522478,
+                1.1766909246768522,
+                0.05273299487414389
+              ]
+            },
+            "worldPosition": [
+              0.8480183941472494,
+              1.129752232342257,
+              -0.03430377354138585
+            ]
+          },
+          {
+            "uid": 13,
+            "species": "guppy",
+            "visible": true,
+            "axis": "length",
+            "variation": 1.056112,
+            "growth": 1,
+            "adultCm": 4,
+            "lengthCm": 4.224448,
+            "heightCm": 1.6897792,
+            "widthCm": 1.1828454400000001,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+            "meshCm": [
+              4.224448,
+              2.094232313458262,
+              1.0533314666253677
+            ],
+            "worldHalf": [
+              0.10354591277576289,
+              0.05248662014327916,
+              0.07839204287181659
+            ],
+            "measuredCm": [
+              4.2244480000000015,
+              2.0942323134582597,
+              1.053331466625369
+            ],
+            "worldBounds": {
+              "min": [
+                -0.7130149236135026,
+                0.9358789311631998,
+                -0.5064203889897253
+              ],
+              "max": [
+                -0.5325277236883499,
+                1.0404615526756629,
+                -0.3905824344471593
+              ]
+            },
+            "worldPosition": [
+              -0.6214825109515275,
+              0.988121341955649,
+              -0.44947573363673093
+            ]
+          },
+          {
+            "uid": 14,
+            "species": "guppy",
+            "visible": true,
+            "axis": "length",
+            "variation": 0.9703959999999999,
+            "growth": 1,
+            "adultCm": 4,
+            "lengthCm": 3.8815839999999997,
+            "heightCm": 1.5526336,
+            "widthCm": 1.08684352,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+            "meshCm": [
+              3.881584,
+              1.924260551959114,
+              0.9678411398482267
+            ],
+            "worldHalf": [
+              0.09749070534443068,
+              0.0481576356169065,
+              0.025964987148526818
+            ],
+            "measuredCm": [
+              3.881583999999998,
+              1.924260551959116,
+              0.9678411398482267
+            ],
+            "worldBounds": {
+              "min": [
+                -0.5494998567073832,
+                0.7891545593171783,
+                -0.566416350044556
+              ],
+              "max": [
+                -0.3554070142786982,
+                0.8853172025830994,
+                -0.5180323667196264
+              ]
+            },
+            "worldPosition": [
+              -0.4524139511769589,
+              0.8372167740802262,
+              -0.5429933836292546
+            ]
+          },
+          {
+            "uid": 15,
+            "species": "guppy",
+            "visible": true,
+            "axis": "length",
+            "variation": 1.0429359999999999,
+            "growth": 1,
+            "adultCm": 6,
+            "lengthCm": 6.257615999999999,
+            "heightCm": 2.5030464,
+            "widthCm": 1.75213248,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+            "meshCm": [
+              6.257615999999999,
+              2.3631537661392974,
+              1.33216629641753
+            ],
+            "worldHalf": [
+              0.159526392278232,
+              0.05915513900216058,
+              0.07589225723703674
+            ],
+            "measuredCm": [
+              6.257615999999997,
+              2.3631537661392965,
+              1.3321662964175311
+            ],
+            "worldBounds": {
+              "min": [
+                0.1911335335942785,
+                0.786736377232246,
+                0.10290957454947715
+              ],
+              "max": [
+                0.49295139649710057,
+                0.9048869009304188,
+                0.20284435540533707
+              ]
+            },
+            "worldPosition": [
+              0.34098741438696767,
+              0.8458071711409809,
+              0.15790464770157445
+            ]
+          },
+          {
+            "uid": 16,
+            "species": "guppy",
+            "visible": true,
+            "axis": "length",
+            "variation": 0.943468,
+            "growth": 1,
+            "adultCm": 4,
+            "lengthCm": 3.773872,
+            "heightCm": 1.5095488000000001,
+            "widthCm": 1.05668416,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+            "meshCm": [
+              3.7738720000000003,
+              1.8708632913117544,
+              0.9409840359299984
+            ],
+            "worldHalf": [
+              0.09260347552698256,
+              0.04725537952403373,
+              0.07024229316351666
+            ],
+            "measuredCm": [
+              3.7738720000000003,
+              1.8708632913117507,
+              0.940984035929997
+            ],
+            "worldBounds": {
+              "min": [
+                0.8641891412024238,
+                1.3518547662359084,
+                -0.2724012126371223
+              ],
+              "max": [
+                1.0256241163484985,
+                1.4449194611141116,
+                -0.16985934728126686
+              ]
+            },
+            "worldPosition": [
+              0.9452203228639036,
+              1.3982060868267818,
+              -0.21925431886968702
+            ]
+          },
+          {
+            "uid": 17,
+            "species": "guppy",
+            "visible": true,
+            "axis": "length",
+            "variation": 1.013116,
+            "growth": 1,
+            "adultCm": 4,
+            "lengthCm": 4.052464,
+            "heightCm": 1.6209856,
+            "widthCm": 1.13468992,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+            "meshCm": [
+              4.052464,
+              2.0089727836456555,
+              1.0104486665634194
+            ],
+            "worldHalf": [
+              0.10227944864930202,
+              0.05024379299305535,
+              0.06660051298672988
+            ],
+            "measuredCm": [
+              4.052463999999995,
+              2.008972783645655,
+              1.0104486665634194
+            ],
+            "worldBounds": {
+              "min": [
+                -0.7942334269633209,
+                1.2934862040156483,
+                -0.6044010949276699
+              ],
+              "max": [
+                -0.6104347102625705,
+                1.393915655543314,
+                -0.5119421024114337
+              ]
+            },
+            "worldPosition": [
+              -0.7013363363187178,
+              1.3436936521648324,
+              -0.5596562742007514
+            ]
+          },
+          {
+            "uid": 18,
+            "species": "ramshorn",
+            "visible": true,
+            "axis": "body",
+            "variation": 1.0372599999999998,
+            "growth": 1,
+            "adultCm": 3,
+            "lengthCm": 3.1117799999999995,
+            "heightCm": 1.244712,
+            "widthCm": 0.8712983999999999,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+            "meshCm": [
+              3.191442359675624,
+              2.355070049292415,
+              1.5886290857051995
+            ],
+            "worldHalf": [
+              0.06648475128541927,
+              0.058876751232310384,
+              0.08882683400976517
+            ],
+            "measuredCm": [
+              3.1914423596756256,
+              2.355070049292416,
+              1.5886290857052021
+            ],
+            "worldBounds": {
+              "min": [
+                -0.8508896381470068,
+                0.2201248166402599,
+                0.31576414314357343
+              ],
+              "max": [
+                -0.7537683711108676,
+                0.3378783191048807,
+                0.47362817846812594
+              ]
+            },
+            "worldPosition": [
+              -0.8074904824347904,
+              0.2790015678725703,
+              0.390521755200306
+            ]
+          },
+          {
+            "uid": 19,
+            "species": "ramshorn",
+            "visible": true,
+            "axis": "body",
+            "variation": 1.009936,
+            "growth": 1,
+            "adultCm": 3,
+            "lengthCm": 3.029808,
+            "heightCm": 1.2119232000000002,
+            "widthCm": 0.84834624,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+            "meshCm": [
+              3.107371855620926,
+              2.2930316654476077,
+              1.5467806570201943
+            ],
+            "worldHalf": [
+              0.08662878532860266,
+              0.05732579163619019,
+              0.07216987138858702
+            ],
+            "measuredCm": [
+              3.107371855620933,
+              2.2930316654476077,
+              1.5467806570201992
+            ],
+            "worldBounds": {
+              "min": [
+                -1.6429385785451105,
+                0.26868545603286886,
+                -0.743436577325963
+              ],
+              "max": [
+                -1.4951465553048997,
+                0.38333703930524926,
+                -0.6346532161101928
+              ]
+            },
+            "worldPosition": [
+              -1.5637454976982086,
+              0.32601124766905903,
+              -0.693951728121015
+            ]
+          },
+          {
+            "uid": 20,
+            "species": "ramshorn",
+            "visible": true,
+            "axis": "body",
+            "variation": 0.9416439999999999,
+            "growth": 1,
+            "adultCm": 3,
+            "lengthCm": 2.8249319999999996,
+            "heightCm": 1.1299728,
+            "widthCm": 0.7909809600000001,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+            "meshCm": [
+              2.8972509778979165,
+              2.1379765743361423,
+              1.4421871534425186
+            ],
+            "worldHalf": [
+              0.07526283533217244,
+              0.05344941435840356,
+              0.042148345089338575
+            ],
+            "measuredCm": [
+              2.8972509778979205,
+              2.1379765743361423,
+              1.4421871534425201
+            ],
+            "worldBounds": {
+              "min": [
+                1.702530141888494,
+                0.24081823716279,
+                -0.5742015823817819
+              ],
+              "max": [
+                1.8488872586249145,
+                0.3477170658795971,
+                -0.5021907444683615
+              ]
+            },
+            "worldPosition": [
+              1.7748335470927479,
+              0.29426765152119355,
+              -0.5352084133916228
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "leaves: all real objects visible; original size, no unplaced; biological state, identities and positions survive reload",
+      "objects": 18,
+      "geometry": {
+        "unit": "cm",
+        "worldPerCm": 0.05,
+        "glassCm": [
+          100.00000000255447,
+          45.000000579937094,
+          40.00000000255448
+        ],
+        "equipment": [
+          {
+            "name": "equipment:light:basic",
+            "sizeCm": [
+              88.00000000000003,
+              2.9999999999999982,
+              8.000000000000002
+            ],
+            "min": [
+              -2.2000000000000006,
+              2.328641777370591,
+              -0.20000000000000004
+            ],
+            "max": [
+              2.2000000000000006,
+              2.478641777370591,
+              0.20000000000000004
+            ]
+          },
+          {
+            "name": "equipment:filter:external300",
+            "sizeCm": [
+              19.999999999999982,
+              32,
+              20
+            ],
+            "min": [
+              2.650000000000001,
+              -0.36000000000000004,
+              -0.9274809160305344
+            ],
+            "max": [
+              3.65,
+              1.24,
+              0.07251908396946566
+            ]
+          },
+          {
+            "name": "equipment:heater:undefined",
+            "sizeCm": [
+              1.999999999999993,
+              24.000000000000004,
+              2.0000000000000018
+            ],
+            "min": [
+              -2.2924667133847234,
+              0.9017129649785766,
+              -0.9049618320610686
+            ],
+            "max": [
+              -2.1924667133847238,
+              2.1017129649785766,
+              -0.8049618320610685
+            ]
+          },
+          {
+            "name": "equipment:air:undefined",
+            "sizeCm": [
+              5.9999999999999964,
+              3.000000000000002,
+              4.9999999999999964
+            ],
+            "min": [
+              1.84719691660827,
+              0.21629317314867505,
+              0.48568702290076343
+            ],
+            "max": [
+              2.14719691660827,
+              0.36629317314867516,
+              0.7356870229007633
+            ]
+          }
+        ],
+        "tank": {
+          "lengthCm": 100,
+          "depthCm": 40,
+          "heightCm": 45,
+          "glassThicknessCm": 0.6,
+          "innerLengthCm": 98.8,
+          "innerDepthCm": 38.8,
+          "grossLiters": 180,
+          "x": 0.700770847932726,
+          "y": 0.6081081081081081,
+          "z": 0.6106870229007634
+        },
+        "migration": {
+          "version": 1,
+          "unit": "cm",
+          "positions": "tank-normalized-v1",
+          "originalOverrides": {},
+          "relocations": [],
+          "unplaced": [],
+          "layout": "180:external300:true:false:true:canopy-v2"
+        },
+        "objects": [
+          {
+            "uid": 1,
+            "species": "anubias",
+            "visible": true,
+            "axis": "height",
+            "variation": 1.026004,
+            "growth": 0.6703270858678334,
+            "adultCm": null,
+            "lengthCm": 15.13068197099229,
+            "heightCm": 20.632748142262216,
+            "widthCm": 15.13068197099229,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              12.94959134639693,
+              20.632748142262216,
+              10.457921834301784
+            ],
+            "worldHalf": [
+              0.3229891200042067,
+              0.5158187035565555,
+              0.3709839260441482
+            ],
+            "measuredCm": [
+              12.949591346396932,
+              20.632748142262216,
+              10.457921834301784
+            ],
+            "worldBounds": {
+              "min": [
+                -0.9832215936435227,
+                0.23749578302072835,
+                -0.7379388122819756
+              ],
+              "max": [
+                -0.4158998759751421,
+                1.2691331901338392,
+                -0.06573170434293069
+              ]
+            },
+            "worldPosition": [
+              -0.6727400140154169,
+              0.23749578302072835,
+              -0.3944764259541985
+            ]
+          },
+          {
+            "uid": 2,
+            "species": "anubias",
+            "visible": true,
+            "axis": "height",
+            "variation": 1.027936,
+            "growth": 0.7370597461914496,
+            "adultCm": null,
+            "lengthCm": 16.66830543974319,
+            "heightCm": 22.72950741783162,
+            "widthCm": 16.66830543974319,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              14.265566105705657,
+              22.72950741783162,
+              11.520685963348525
+            ],
+            "worldHalf": [
+              0.3248041601512906,
+              0.5682376854457906,
+              0.3856242185609895
+            ],
+            "measuredCm": [
+              14.265566105705659,
+              22.72950741783162,
+              11.520685963348525
+            ],
+            "worldBounds": {
+              "min": [
+                0.1317587391011772,
+                0.24347299250046284,
+                -0.052312977752727086
+              ],
+              "max": [
+                0.7354560363665072,
+                1.379948363392044,
+                0.6790179324910023
+              ]
+            },
+            "worldPosition": [
+              0.4484933426769447,
+              0.24347299250046284,
+              0.31755725190839695
+            ]
+          },
+          {
+            "uid": 3,
+            "species": "waterweed",
+            "visible": true,
+            "axis": "height",
+            "variation": 1.0421319999999998,
+            "growth": 0.664282275407232,
+            "adultCm": null,
+            "lengthCm": 11.076317059755029,
+            "heightCm": 27.69079264938757,
+            "widthCm": 11.076317059755029,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              10.69973188161921,
+              27.69079264938757,
+              10.209567780231948
+            ],
+            "worldHalf": [
+              0.3641715612477008,
+              0.6922698162346893,
+              0.3667641927346021
+            ],
+            "measuredCm": [
+              10.699731881619208,
+              27.690792649387568,
+              10.209567780231952
+            ],
+            "worldBounds": {
+              "min": [
+                0.7868105271392881,
+                0.2315042240496741,
+                0.21630186430539516
+              ],
+              "max": [
+                1.276765188798564,
+                1.6160438565190525,
+                0.6919696690987589
+              ]
+            },
+            "worldPosition": [
+              1.0091100210231254,
+              0.23150422404967413,
+              0.47633587786259546
+            ]
+          },
+          {
+            "uid": 4,
+            "species": "waterweed",
+            "visible": true,
+            "axis": "height",
+            "variation": 0.988312,
+            "growth": 0.7312990856535694,
+            "adultCm": null,
+            "lengthCm": 11.564026591047208,
+            "heightCm": 28.91006647761802,
+            "widthCm": 11.564026591047208,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              11.17085971163565,
+              28.910066477618024,
+              10.659112831166304
+            ],
+            "worldHalf": [
+              0.3816758758528439,
+              0.7227516619404506,
+              0.3785539670481529
+            ],
+            "measuredCm": [
+              11.170859711635647,
+              28.910066477618024,
+              10.659112831166304
+            ],
+            "worldBounds": {
+              "min": [
+                -0.391973033629512,
+                0.2436057891737503,
+                -0.5719891455730393
+              ],
+              "max": [
+                0.16106513193031352,
+                1.6891091130546516,
+                -0.08042543192523968
+              ]
+            },
+            "worldPosition": [
+              -0.11212333566923617,
+              0.2436057891737503,
+              -0.31755725190839695
+            ]
+          },
+          {
+            "uid": 5,
+            "species": "waterweed",
+            "visible": true,
+            "axis": "height",
+            "variation": 0.9587439999999999,
+            "growth": 0.7349586498663604,
+            "adultCm": null,
+            "lengthCm": 11.27419513291958,
+            "heightCm": 28.18548783229895,
+            "widthCm": 11.27419513291958,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              10.890882271833746,
+              28.18548783229895,
+              10.391961403427837
+            ],
+            "worldHalf": [
+              0.36730701145060907,
+              0.7046371958074737,
+              0.37074287509158227
+            ],
+            "measuredCm": [
+              10.890882271833746,
+              28.18548783229895,
+              10.391961403427834
+            ],
+            "worldBounds": {
+              "min": [
+                1.2295533920195265,
+                0.22943478679237023,
+                -0.2717871526183789
+              ],
+              "max": [
+                1.7078296806566506,
+                1.6387091784073178,
+                0.268359130501649
+              ]
+            },
+            "worldPosition": [
+              1.4576033637000703,
+              0.22943478679237025,
+              0
+            ]
+          },
+          {
+            "uid": 6,
+            "species": "waterweed",
+            "visible": true,
+            "axis": "height",
+            "variation": 0.9508239999999999,
+            "growth": 0.6914078685075974,
+            "adultCm": null,
+            "lengthCm": 10.518515122653882,
+            "heightCm": 26.296287806634705,
+            "widthCm": 10.518515122653882,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              10.16089472682923,
+              26.296287806634705,
+              9.695415228074436
+            ],
+            "worldHalf": [
+              0.34444061977772467,
+              0.6574071951658677,
+              0.3408707814677402
+            ],
+            "measuredCm": [
+              10.16089472682923,
+              26.29628780663471,
+              9.695415228074442
+            ],
+            "worldBounds": {
+              "min": [
+                1.2066606498171089,
+                0.24134318373893515,
+                -0.7269969535588103
+              ],
+              "max": [
+                1.6643184059558354,
+                1.5561575740706706,
+                -0.26952727645410707
+              ]
+            },
+            "worldPosition": [
+              1.4576033637000703,
+              0.24134318373893512,
+              -0.47633587786259546
+            ]
+          },
+          {
+            "uid": 7,
+            "species": "javamoss",
+            "visible": true,
+            "axis": "height",
+            "variation": 1.033864,
+            "growth": 0.6499691839556325,
+            "adultCm": null,
+            "lengthCm": 12.095635327219908,
+            "heightCm": 6.71979740401106,
+            "widthCm": 12.095635327219908,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              12.054047602647561,
+              6.719797404011061,
+              8.558344735641716
+            ],
+            "worldHalf": [
+              0.27014842510754034,
+              0.16799493510027652,
+              0.33819771471009596
+            ],
+            "measuredCm": [
+              12.054047602647561,
+              6.719797404011061,
+              8.558344735641716
+            ],
+            "worldBounds": {
+              "min": [
+                1.3432387310336578,
+                0.2153119468811897,
+                0.1925909475658747
+              ],
+              "max": [
+                1.7868587796446231,
+                0.5513018170817428,
+                0.7910146729801865
+              ]
+            },
+            "worldPosition": [
+              1.5697266993693064,
+              0.2153119468811897,
+              0.4935398259541985
+            ]
+          },
+          {
+            "uid": 8,
+            "species": "javamoss",
+            "visible": true,
+            "axis": "height",
+            "variation": 0.9868239999999999,
+            "growth": 0.6728891269352621,
+            "adultCm": null,
+            "lengthCm": 11.952416516377735,
+            "heightCm": 6.64023139798763,
+            "widthCm": 11.952416516377735,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              11.91132121277359,
+              6.64023139798763,
+              8.457009342943685
+            ],
+            "worldHalf": [
+              0.36424681039476003,
+              0.16600578494969076,
+              0.3526007349249358
+            ],
+            "measuredCm": [
+              11.911321212773597,
+              6.64023139798763,
+              8.457009342943689
+            ],
+            "worldBounds": {
+              "min": [
+                1.725057094884931,
+                0.23564970058333615,
+                -0.41998381588846545
+              ],
+              "max": [
+                2.282845129729716,
+                0.5676612704827176,
+                0.08717177343462565
+              ]
+            },
+            "worldPosition": [
+              2.0016194592852137,
+              0.23564970058333615,
+              -0.15877862595419848
+            ]
+          },
+          {
+            "uid": 9,
+            "species": "spiderwood",
+            "visible": true,
+            "axis": "decor",
+            "variation": 0.962692,
+            "growth": 1,
+            "adultCm": null,
+            "lengthCm": 35,
+            "heightCm": 35,
+            "widthCm": 25,
+            "assumption": "Deklarierte Maße des gestalteten Aquascaping-Stücks; keine Artgröße.",
+            "meshCm": [
+              35,
+              35,
+              25
+            ],
+            "worldHalf": [
+              0.6250000000000002,
+              0.875,
+              0.8750000000000001
+            ],
+            "measuredCm": [
+              35,
+              35,
+              25.000000000000007
+            ],
+            "worldBounds": {
+              "min": [
+                -2.3068500350385426,
+                0.25004222984687063,
+                -0.7956106870229007
+              ],
+              "max": [
+                -1.0568500350385421,
+                2.0000422298468705,
+                0.9543893129770992
+              ]
+            },
+            "worldPosition": [
+              -1.6818500350385424,
+              0.25004222984687063,
+              0.07938931297709924
+            ]
+          },
+          {
+            "uid": 10,
+            "species": "stone",
+            "visible": true,
+            "axis": "decor",
+            "variation": 1.046296,
+            "growth": 1,
+            "adultCm": null,
+            "lengthCm": 22,
+            "heightCm": 15,
+            "widthCm": 18,
+            "assumption": "Deklarierte Maße des gestalteten Aquascaping-Stücks; keine Artgröße.",
+            "meshCm": [
+              22,
+              15,
+              18
+            ],
+            "worldHalf": [
+              0.55,
+              0.375,
+              0.45
+            ],
+            "measuredCm": [
+              22,
+              15,
+              18
+            ],
+            "worldBounds": {
+              "min": [
+                -0.9984933426769448,
+                0.21771846613374396,
+                -0.05305343511450378
+              ],
+              "max": [
+                0.10150665732305542,
+                0.9677184661337439,
+                0.8469465648854964
+              ]
+            },
+            "worldPosition": [
+              -0.4484933426769447,
+              0.21771846613374396,
+              0.39694656488549623
+            ]
+          },
+          {
+            "uid": 11,
+            "species": "stone",
+            "visible": true,
+            "axis": "decor",
+            "variation": 0.992752,
+            "growth": 1,
+            "adultCm": null,
+            "lengthCm": 22,
+            "heightCm": 15,
+            "widthCm": 18,
+            "assumption": "Deklarierte Maße des gestalteten Aquascaping-Stücks; keine Artgröße.",
+            "meshCm": [
+              22,
+              15,
+              18
+            ],
+            "worldHalf": [
+              0.55,
+              0.375,
+              0.45
+            ],
+            "measuredCm": [
+              22,
+              15.000000000000002,
+              18
+            ],
+            "worldBounds": {
+              "min": [
+                0.12274001401541679,
+                0.26134384580431813,
+                -0.8469465648854962
+              ],
+              "max": [
+                1.222740014015417,
+                1.0113438458043182,
+                0.05305343511450383
+              ]
+            },
+            "worldPosition": [
+              0.6727400140154169,
+              0.26134384580431813,
+              -0.39694656488549623
+            ]
+          },
+          {
+            "uid": 12,
+            "species": "guppy",
+            "visible": true,
+            "axis": "length",
+            "variation": 0.9503079999999999,
+            "growth": 1,
+            "adultCm": 4,
+            "lengthCm": 3.8012319999999997,
+            "heightCm": 1.5204928,
+            "widthCm": 1.0643449600000001,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+            "meshCm": [
+              3.8012319999999997,
+              1.8844267666098804,
+              0.9478060275669814
+            ],
+            "worldHalf": [
+              0.07604161592218243,
+              0.048615176978850864,
+              0.09106013419963799
+            ],
+            "measuredCm": [
+              3.801232000000001,
+              1.8844267666098835,
+              0.9478060275669797
+            ],
+            "worldBounds": {
+              "min": [
+                0.7609871830950673,
+                1.0774494634120733,
+                -0.14090619981215302
+              ],
+              "max": [
+                0.8772519720578812,
+                1.170170819179411,
+                0.013316686321815152
+              ]
+            },
+            "worldPosition": [
+              0.819898344943291,
+              1.1232456782877518,
+              -0.06250113991265356
+            ]
+          },
+          {
+            "uid": 13,
+            "species": "guppy",
+            "visible": true,
+            "axis": "length",
+            "variation": 1.056112,
+            "growth": 1,
+            "adultCm": 4,
+            "lengthCm": 4.224448,
+            "heightCm": 1.6897792,
+            "widthCm": 1.1828454400000001,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+            "meshCm": [
+              4.224448,
+              2.094232313458262,
+              1.0533314666253677
+            ],
+            "worldHalf": [
+              0.10165646322752293,
+              0.05294439568362542,
+              0.08267125102572537
+            ],
+            "measuredCm": [
+              4.224447999999999,
+              2.0942323134582597,
+              1.0533314666253668
+            ],
+            "worldBounds": {
+              "min": [
+                -0.7586077569893833,
+                0.943612218971388,
+                -0.4746982521766214
+              ],
+              "max": [
+                -0.5845940768042778,
+                1.0477415333270281,
+                -0.3491163099493202
+              ]
+            },
+            "worldPosition": [
+              -0.6701966995341477,
+              0.9954566144315196,
+              -0.4128088030590642
+            ]
+          },
+          {
+            "uid": 14,
+            "species": "guppy",
+            "visible": true,
+            "axis": "length",
+            "variation": 0.9703959999999999,
+            "growth": 1,
+            "adultCm": 4,
+            "lengthCm": 3.8815839999999997,
+            "heightCm": 1.5526336,
+            "widthCm": 1.08684352,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+            "meshCm": [
+              3.881584,
+              1.924260551959114,
+              0.9678411398482267
+            ],
+            "worldHalf": [
+              0.09773864641566553,
+              0.04818258370381348,
+              0.02700335947364526
+            ],
+            "measuredCm": [
+              3.881584,
+              1.9242605519591138,
+              0.9678411398482267
+            ],
+            "worldBounds": {
+              "min": [
+                -0.6127136065934755,
+                0.7868260853708077,
+                -0.5637271450466392
+              ],
+              "max": [
+                -0.4186432167741162,
+                0.8829641259718012,
+                -0.5153554742207367
+              ]
+            },
+            "worldPosition": [
+              -0.5156156044371187,
+              0.8348666725970261,
+              -0.5407631826464161
+            ]
+          },
+          {
+            "uid": 15,
+            "species": "guppy",
+            "visible": true,
+            "axis": "length",
+            "variation": 1.0429359999999999,
+            "growth": 1,
+            "adultCm": 6,
+            "lengthCm": 6.257615999999999,
+            "heightCm": 2.5030464,
+            "widthCm": 1.75213248,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+            "meshCm": [
+              6.257615999999999,
+              2.3631537661392974,
+              1.33216629641753
+            ],
+            "worldHalf": [
+              0.1592686806964394,
+              0.05949676660355717,
+              0.07969713077323658
+            ],
+            "measuredCm": [
+              6.257616,
+              2.3631537661392965,
+              1.3321662964175318
+            ],
+            "worldBounds": {
+              "min": [
+                0.24824225333383138,
+                0.7916819163126358,
+                0.08069819152427146
+              ],
+              "max": [
+                0.5477352592201572,
+                0.9097999976046006,
+                0.18801311531045986
+              ]
+            },
+            "worldPosition": [
+              0.39684505633158473,
+              0.8507164726925489,
+              0.13904915902416914
+            ]
+          },
+          {
+            "uid": 16,
+            "species": "amanoshrimp",
+            "visible": true,
+            "axis": "body",
+            "variation": 0.970768,
+            "growth": 1,
+            "adultCm": 5,
+            "lengthCm": 4.85384,
+            "heightCm": 1.941536,
+            "widthCm": 1.3590752000000001,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+            "meshCm": [
+              7.741562527218739,
+              1.926883200263939,
+              3.0872968624216433
+            ],
+            "worldHalf": [
+              0.08490059679470022,
+              0.04817208000659848,
+              0.19648545738093448
+            ],
+            "measuredCm": [
+              7.741562527218743,
+              1.9268832002639396,
+              3.0872968624216424
+            ],
+            "worldBounds": {
+              "min": [
+                0.9073933771688489,
+                0.23993576187156504,
+                -0.03519950095365704
+              ],
+              "max": [
+                1.0616346374549563,
+                0.336279921884762,
+                0.35551775637934435
+              ]
+            },
+            "worldPosition": [
+              0.9922879384589192,
+              0.2881078418781635,
+              0.16127790908777076
+            ]
+          },
+          {
+            "uid": 17,
+            "species": "amanoshrimp",
+            "visible": true,
+            "axis": "body",
+            "variation": 0.961216,
+            "growth": 1,
+            "adultCm": 5,
+            "lengthCm": 4.80608,
+            "heightCm": 1.922432,
+            "widthCm": 1.3457024,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+            "meshCm": [
+              7.66538839986803,
+              1.9079233784229626,
+              3.056918997030683
+            ],
+            "worldHalf": [
+              0.1535451036895002,
+              0.04769808446057407,
+              0.20564377068393358
+            ],
+            "measuredCm": [
+              7.6653883998680294,
+              1.9079233784229632,
+              3.056918997030682
+            ],
+            "worldBounds": {
+              "min": [
+                0.35133678981275857,
+                0.2619545349660475,
+                -0.6178320681687315
+              ],
+              "max": [
+                0.6262721044498892,
+                0.35735070388719564,
+                -0.22108790903746775
+              ]
+            },
+            "worldPosition": [
+              0.472806182983809,
+              0.30965261942662153,
+              -0.4122677269100233
+            ]
+          },
+          {
+            "uid": 18,
+            "species": "amanoshrimp",
+            "visible": true,
+            "axis": "body",
+            "variation": 0.955984,
+            "growth": 1,
+            "adultCm": 5,
+            "lengthCm": 4.77992,
+            "heightCm": 1.911968,
+            "widthCm": 1.3383776,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+            "meshCm": [
+              7.6236648828769376,
+              1.8975383503794125,
+              3.0402798647311116
+            ],
+            "worldHalf": [
+              0.1840908797745451,
+              0.04743845875948532,
+              0.19243619815220264
+            ],
+            "measuredCm": [
+              7.623664882876944,
+              1.897538350379413,
+              3.0402798647311133
+            ],
+            "worldBounds": {
+              "min": [
+                -0.9636877237301846,
+                0.22013585268415137,
+                0.198186730056908
+              ],
+              "max": [
+                -0.6239977686918747,
+                0.315012770203122,
+                0.5612528853354173
+              ]
+            },
+            "worldPosition": [
+              -0.8079853219196914,
+              0.2675743114436367,
+              0.390521755200306
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "microbes: all real objects visible; original size, no unplaced; biological state, identities and positions survive reload",
+      "objects": 20,
+      "geometry": {
+        "unit": "cm",
+        "worldPerCm": 0.05,
+        "glassCm": [
+          100.00000000255447,
+          45.000000579937094,
+          40.00000000255448
+        ],
+        "equipment": [
+          {
+            "name": "equipment:light:basic",
+            "sizeCm": [
+              88.00000000000003,
+              2.9999999999999982,
+              8.000000000000002
+            ],
+            "min": [
+              -2.2000000000000006,
+              2.328641777370591,
+              -0.20000000000000004
+            ],
+            "max": [
+              2.2000000000000006,
+              2.478641777370591,
+              0.20000000000000004
+            ]
+          },
+          {
+            "name": "equipment:filter:external300",
+            "sizeCm": [
+              19.999999999999982,
+              32,
+              20
+            ],
+            "min": [
+              2.650000000000001,
+              -0.36000000000000004,
+              -0.9274809160305344
+            ],
+            "max": [
+              3.65,
+              1.24,
+              0.07251908396946566
+            ]
+          },
+          {
+            "name": "equipment:heater:undefined",
+            "sizeCm": [
+              1.999999999999993,
+              24.000000000000004,
+              2.0000000000000018
+            ],
+            "min": [
+              -2.2924667133847234,
+              0.9017129649785766,
+              -0.9049618320610686
+            ],
+            "max": [
+              -2.1924667133847238,
+              2.1017129649785766,
+              -0.8049618320610685
+            ]
+          },
+          {
+            "name": "equipment:air:undefined",
+            "sizeCm": [
+              5.9999999999999964,
+              3.000000000000002,
+              4.9999999999999964
+            ],
+            "min": [
+              1.84719691660827,
+              0.21629317314867505,
+              0.48568702290076343
+            ],
+            "max": [
+              2.14719691660827,
+              0.36629317314867516,
+              0.7356870229007633
+            ]
+          }
+        ],
+        "tank": {
+          "lengthCm": 100,
+          "depthCm": 40,
+          "heightCm": 45,
+          "glassThicknessCm": 0.6,
+          "innerLengthCm": 98.8,
+          "innerDepthCm": 38.8,
+          "grossLiters": 180,
+          "x": 0.700770847932726,
+          "y": 0.6081081081081081,
+          "z": 0.6106870229007634
+        },
+        "migration": {
+          "version": 1,
+          "unit": "cm",
+          "positions": "tank-normalized-v1",
+          "originalOverrides": {},
+          "relocations": [],
+          "unplaced": [],
+          "layout": "180:external300:true:false:true:canopy-v2"
+        },
+        "objects": [
+          {
+            "uid": 1,
+            "species": "anubias",
+            "visible": true,
+            "axis": "height",
+            "variation": 1.026004,
+            "growth": 0.6703270858678334,
+            "adultCm": null,
+            "lengthCm": 15.13068197099229,
+            "heightCm": 20.632748142262216,
+            "widthCm": 15.13068197099229,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              12.94959134639693,
+              20.632748142262216,
+              10.457921834301784
+            ],
+            "worldHalf": [
+              0.3229891200042067,
+              0.5158187035565555,
+              0.3709839260441482
+            ],
+            "measuredCm": [
+              12.949591346396932,
+              20.632748142262216,
+              10.457921834301784
+            ],
+            "worldBounds": {
+              "min": [
+                -0.9832215936435227,
+                0.23749578302072835,
+                -0.7379388122819756
+              ],
+              "max": [
+                -0.4158998759751421,
+                1.2691331901338392,
+                -0.06573170434293069
+              ]
+            },
+            "worldPosition": [
+              -0.6727400140154169,
+              0.23749578302072835,
+              -0.3944764259541985
+            ]
+          },
+          {
+            "uid": 2,
+            "species": "anubias",
+            "visible": true,
+            "axis": "height",
+            "variation": 1.027936,
+            "growth": 0.7370597461914496,
+            "adultCm": null,
+            "lengthCm": 16.66830543974319,
+            "heightCm": 22.72950741783162,
+            "widthCm": 16.66830543974319,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              14.265566105705657,
+              22.72950741783162,
+              11.520685963348525
+            ],
+            "worldHalf": [
+              0.3248041601512906,
+              0.5682376854457906,
+              0.3856242185609895
+            ],
+            "measuredCm": [
+              14.265566105705659,
+              22.72950741783162,
+              11.520685963348525
+            ],
+            "worldBounds": {
+              "min": [
+                0.1317587391011772,
+                0.24347299250046284,
+                -0.052312977752727086
+              ],
+              "max": [
+                0.7354560363665072,
+                1.379948363392044,
+                0.6790179324910023
+              ]
+            },
+            "worldPosition": [
+              0.4484933426769447,
+              0.24347299250046284,
+              0.31755725190839695
+            ]
+          },
+          {
+            "uid": 3,
+            "species": "waterweed",
+            "visible": true,
+            "axis": "height",
+            "variation": 1.0421319999999998,
+            "growth": 0.664282275407232,
+            "adultCm": null,
+            "lengthCm": 11.076317059755029,
+            "heightCm": 27.69079264938757,
+            "widthCm": 11.076317059755029,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              10.69973188161921,
+              27.69079264938757,
+              10.209567780231948
+            ],
+            "worldHalf": [
+              0.3641715612477008,
+              0.6922698162346893,
+              0.3667641927346021
+            ],
+            "measuredCm": [
+              10.699731881619208,
+              27.690792649387568,
+              10.209567780231952
+            ],
+            "worldBounds": {
+              "min": [
+                0.7868105271392881,
+                0.2315042240496741,
+                0.21630186430539516
+              ],
+              "max": [
+                1.276765188798564,
+                1.6160438565190525,
+                0.6919696690987589
+              ]
+            },
+            "worldPosition": [
+              1.0091100210231254,
+              0.23150422404967413,
+              0.47633587786259546
+            ]
+          },
+          {
+            "uid": 4,
+            "species": "waterweed",
+            "visible": true,
+            "axis": "height",
+            "variation": 0.988312,
+            "growth": 0.7312990856535694,
+            "adultCm": null,
+            "lengthCm": 11.564026591047208,
+            "heightCm": 28.91006647761802,
+            "widthCm": 11.564026591047208,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              11.17085971163565,
+              28.910066477618024,
+              10.659112831166304
+            ],
+            "worldHalf": [
+              0.3816758758528439,
+              0.7227516619404506,
+              0.3785539670481529
+            ],
+            "measuredCm": [
+              11.170859711635647,
+              28.910066477618024,
+              10.659112831166304
+            ],
+            "worldBounds": {
+              "min": [
+                -0.391973033629512,
+                0.2436057891737503,
+                -0.5719891455730393
+              ],
+              "max": [
+                0.16106513193031352,
+                1.6891091130546516,
+                -0.08042543192523968
+              ]
+            },
+            "worldPosition": [
+              -0.11212333566923617,
+              0.2436057891737503,
+              -0.31755725190839695
+            ]
+          },
+          {
+            "uid": 5,
+            "species": "waterweed",
+            "visible": true,
+            "axis": "height",
+            "variation": 0.9587439999999999,
+            "growth": 0.7349586498663604,
+            "adultCm": null,
+            "lengthCm": 11.27419513291958,
+            "heightCm": 28.18548783229895,
+            "widthCm": 11.27419513291958,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              10.890882271833746,
+              28.18548783229895,
+              10.391961403427837
+            ],
+            "worldHalf": [
+              0.36730701145060907,
+              0.7046371958074737,
+              0.37074287509158227
+            ],
+            "measuredCm": [
+              10.890882271833746,
+              28.18548783229895,
+              10.391961403427834
+            ],
+            "worldBounds": {
+              "min": [
+                1.2295533920195265,
+                0.22943478679237023,
+                -0.2717871526183789
+              ],
+              "max": [
+                1.7078296806566506,
+                1.6387091784073178,
+                0.268359130501649
+              ]
+            },
+            "worldPosition": [
+              1.4576033637000703,
+              0.22943478679237025,
+              0
+            ]
+          },
+          {
+            "uid": 6,
+            "species": "waterweed",
+            "visible": true,
+            "axis": "height",
+            "variation": 0.9508239999999999,
+            "growth": 0.6914078685075974,
+            "adultCm": null,
+            "lengthCm": 10.518515122653882,
+            "heightCm": 26.296287806634705,
+            "widthCm": 10.518515122653882,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              10.16089472682923,
+              26.296287806634705,
+              9.695415228074436
+            ],
+            "worldHalf": [
+              0.34444061977772467,
+              0.6574071951658677,
+              0.3408707814677402
+            ],
+            "measuredCm": [
+              10.16089472682923,
+              26.29628780663471,
+              9.695415228074442
+            ],
+            "worldBounds": {
+              "min": [
+                1.2066606498171089,
+                0.24134318373893515,
+                -0.7269969535588103
+              ],
+              "max": [
+                1.6643184059558354,
+                1.5561575740706706,
+                -0.26952727645410707
+              ]
+            },
+            "worldPosition": [
+              1.4576033637000703,
+              0.24134318373893512,
+              -0.47633587786259546
+            ]
+          },
+          {
+            "uid": 7,
+            "species": "javamoss",
+            "visible": true,
+            "axis": "height",
+            "variation": 1.033864,
+            "growth": 0.6499691839556325,
+            "adultCm": null,
+            "lengthCm": 12.095635327219908,
+            "heightCm": 6.71979740401106,
+            "widthCm": 12.095635327219908,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              12.054047602647561,
+              6.719797404011061,
+              8.558344735641716
+            ],
+            "worldHalf": [
+              0.27014842510754034,
+              0.16799493510027652,
+              0.33819771471009596
+            ],
+            "measuredCm": [
+              12.054047602647561,
+              6.719797404011061,
+              8.558344735641716
+            ],
+            "worldBounds": {
+              "min": [
+                1.3432387310336578,
+                0.2153119468811897,
+                0.1925909475658747
+              ],
+              "max": [
+                1.7868587796446231,
+                0.5513018170817428,
+                0.7910146729801865
+              ]
+            },
+            "worldPosition": [
+              1.5697266993693064,
+              0.2153119468811897,
+              0.4935398259541985
+            ]
+          },
+          {
+            "uid": 8,
+            "species": "javamoss",
+            "visible": true,
+            "axis": "height",
+            "variation": 0.9868239999999999,
+            "growth": 0.6728891269352621,
+            "adultCm": null,
+            "lengthCm": 11.952416516377735,
+            "heightCm": 6.64023139798763,
+            "widthCm": 11.952416516377735,
+            "assumption": "Aquaristische Wuchsannahme für einen kultivierten Pflanzenbestand; kein festes biologisches Maximum.",
+            "meshCm": [
+              11.91132121277359,
+              6.64023139798763,
+              8.457009342943685
+            ],
+            "worldHalf": [
+              0.36424681039476003,
+              0.16600578494969076,
+              0.3526007349249358
+            ],
+            "measuredCm": [
+              11.911321212773597,
+              6.64023139798763,
+              8.457009342943689
+            ],
+            "worldBounds": {
+              "min": [
+                1.725057094884931,
+                0.23564970058333615,
+                -0.41998381588846545
+              ],
+              "max": [
+                2.282845129729716,
+                0.5676612704827176,
+                0.08717177343462565
+              ]
+            },
+            "worldPosition": [
+              2.0016194592852137,
+              0.23564970058333615,
+              -0.15877862595419848
+            ]
+          },
+          {
+            "uid": 9,
+            "species": "spiderwood",
+            "visible": true,
+            "axis": "decor",
+            "variation": 0.962692,
+            "growth": 1,
+            "adultCm": null,
+            "lengthCm": 35,
+            "heightCm": 35,
+            "widthCm": 25,
+            "assumption": "Deklarierte Maße des gestalteten Aquascaping-Stücks; keine Artgröße.",
+            "meshCm": [
+              35,
+              35,
+              25
+            ],
+            "worldHalf": [
+              0.6250000000000002,
+              0.875,
+              0.8750000000000001
+            ],
+            "measuredCm": [
+              35,
+              35,
+              25.000000000000007
+            ],
+            "worldBounds": {
+              "min": [
+                -2.3068500350385426,
+                0.25004222984687063,
+                -0.7956106870229007
+              ],
+              "max": [
+                -1.0568500350385421,
+                2.0000422298468705,
+                0.9543893129770992
+              ]
+            },
+            "worldPosition": [
+              -1.6818500350385424,
+              0.25004222984687063,
+              0.07938931297709924
+            ]
+          },
+          {
+            "uid": 10,
+            "species": "stone",
+            "visible": true,
+            "axis": "decor",
+            "variation": 1.046296,
+            "growth": 1,
+            "adultCm": null,
+            "lengthCm": 22,
+            "heightCm": 15,
+            "widthCm": 18,
+            "assumption": "Deklarierte Maße des gestalteten Aquascaping-Stücks; keine Artgröße.",
+            "meshCm": [
+              22,
+              15,
+              18
+            ],
+            "worldHalf": [
+              0.55,
+              0.375,
+              0.45
+            ],
+            "measuredCm": [
+              22,
+              15,
+              18
+            ],
+            "worldBounds": {
+              "min": [
+                -0.9984933426769448,
+                0.21771846613374396,
+                -0.05305343511450378
+              ],
+              "max": [
+                0.10150665732305542,
+                0.9677184661337439,
+                0.8469465648854964
+              ]
+            },
+            "worldPosition": [
+              -0.4484933426769447,
+              0.21771846613374396,
+              0.39694656488549623
+            ]
+          },
+          {
+            "uid": 11,
+            "species": "stone",
+            "visible": true,
+            "axis": "decor",
+            "variation": 0.992752,
+            "growth": 1,
+            "adultCm": null,
+            "lengthCm": 22,
+            "heightCm": 15,
+            "widthCm": 18,
+            "assumption": "Deklarierte Maße des gestalteten Aquascaping-Stücks; keine Artgröße.",
+            "meshCm": [
+              22,
+              15,
+              18
+            ],
+            "worldHalf": [
+              0.55,
+              0.375,
+              0.45
+            ],
+            "measuredCm": [
+              22,
+              15.000000000000002,
+              18
+            ],
+            "worldBounds": {
+              "min": [
+                0.12274001401541679,
+                0.26134384580431813,
+                -0.8469465648854962
+              ],
+              "max": [
+                1.222740014015417,
+                1.0113438458043182,
+                0.05305343511450383
+              ]
+            },
+            "worldPosition": [
+              0.6727400140154169,
+              0.26134384580431813,
+              -0.39694656488549623
+            ]
+          },
+          {
+            "uid": 12,
+            "species": "guppy",
+            "visible": true,
+            "axis": "length",
+            "variation": 0.9503079999999999,
+            "growth": 1,
+            "adultCm": 4,
+            "lengthCm": 3.8012319999999997,
+            "heightCm": 1.5204928,
+            "widthCm": 1.0643449600000001,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+            "meshCm": [
+              3.8012319999999997,
+              1.8844267666098804,
+              0.9478060275669814
+            ],
+            "worldHalf": [
+              0.07182766189754769,
+              0.048789359793939585,
+              0.0934119124595806
+            ],
+            "measuredCm": [
+              3.801231999999999,
+              1.8844267666098835,
+              0.947806027566982
+            ],
+            "worldBounds": {
+              "min": [
+                0.775077769480803,
+                1.0794982435847207,
+                -0.1364713326084898
+              ],
+              "max": [
+                0.8813600082221857,
+                1.1720436248333126,
+                0.024658628412366553
+              ]
+            },
+            "worldPosition": [
+              0.8290701955035599,
+              1.125140831206248,
+              -0.05473884491177369
+            ]
+          },
+          {
+            "uid": 13,
+            "species": "guppy",
+            "visible": true,
+            "axis": "length",
+            "variation": 1.056112,
+            "growth": 1,
+            "adultCm": 4,
+            "lengthCm": 4.224448,
+            "heightCm": 1.6897792,
+            "widthCm": 1.1828454400000001,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+            "meshCm": [
+              4.224448,
+              2.094232313458262,
+              1.0533314666253677
+            ],
+            "worldHalf": [
+              0.10242914558592171,
+              0.0528498969159941,
+              0.08113051596499285
+            ],
+            "measuredCm": [
+              4.224448000000001,
+              2.0942323134582574,
+              1.053331466625369
+            ],
+            "worldBounds": {
+              "min": [
+                -0.7472915894098989,
+                0.9414153733193075,
+                -0.4832135294032839
+              ],
+              "max": [
+                -0.5708055410770129,
+                1.045638505934429,
+                -0.3612042999290154
+              ]
+            },
+            "worldPosition": [
+              -0.6576875740710321,
+              0.9933420824596961,
+              -0.42313732412244487
+            ]
+          },
+          {
+            "uid": 14,
+            "species": "guppy",
+            "visible": true,
+            "axis": "length",
+            "variation": 0.9703959999999999,
+            "growth": 1,
+            "adultCm": 4,
+            "lengthCm": 3.8815839999999997,
+            "heightCm": 1.5526336,
+            "widthCm": 1.08684352,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+            "meshCm": [
+              3.881584,
+              1.924260551959114,
+              0.9678411398482267
+            ],
+            "worldHalf": [
+              0.09766891088786467,
+              0.04818946370037218,
+              0.02667609383195503
+            ],
+            "measuredCm": [
+              3.8815840000000033,
+              1.924260551959116,
+              0.967841139848229
+            ],
+            "worldBounds": {
+              "min": [
+                -0.5951916779287013,
+                0.7874429868674371,
+                -0.5645921802239969
+              ],
+              "max": [
+                -0.40111133995182285,
+                0.8835742410582349,
+                -0.516216018024026
+              ]
+            },
+            "worldPosition": [
+              -0.49809626084893255,
+              0.8354776087685151,
+              -0.5414830222056392
+            ]
+          },
+          {
+            "uid": 15,
+            "species": "guppy",
+            "visible": true,
+            "axis": "length",
+            "variation": 1.0429359999999999,
+            "growth": 1,
+            "adultCm": 6,
+            "lengthCm": 6.257615999999999,
+            "heightCm": 2.5030464,
+            "widthCm": 1.75213248,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+            "meshCm": [
+              6.257615999999999,
+              2.3631537661392974,
+              1.33216629641753
+            ],
+            "worldHalf": [
+              0.1594011539762292,
+              0.059430619471064476,
+              0.07828570490861764
+            ],
+            "measuredCm": [
+              6.257615999999998,
+              2.363153766139301,
+              1.3321662964175307
+            ],
+            "worldBounds": {
+              "min": [
+                0.23283610563777454,
+                0.7904208059900291,
+                0.0873492899726367
+              ],
+              "max": [
+                0.5332269417784212,
+                0.9085452150380792,
+                0.1919111218928949
+              ]
+            },
+            "worldPosition": [
+              0.38192243274762044,
+              0.8494624031695932,
+              0.14444875860911396
+            ]
+          },
+          {
+            "uid": 16,
+            "species": "guppy",
+            "visible": true,
+            "axis": "length",
+            "variation": 0.943468,
+            "growth": 1,
+            "adultCm": 4,
+            "lengthCm": 3.773872,
+            "heightCm": 1.5095488000000001,
+            "widthCm": 1.05668416,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+            "meshCm": [
+              3.7738720000000003,
+              1.8708632913117544,
+              0.9409840359299984
+            ],
+            "worldHalf": [
+              0.0940580070151667,
+              0.04727098793568319,
+              0.0666593882342484
+            ],
+            "measuredCm": [
+              3.7738720000000003,
+              1.870863291311755,
+              0.940984035929997
+            ],
+            "worldBounds": {
+              "min": [
+                0.8224291646594156,
+                1.3450887047170337,
+                -0.28765243301170734
+              ],
+              "max": [
+                0.9886160508577589,
+                1.4381379016103593,
+                -0.19343101100656027
+              ]
+            },
+            "worldPosition": [
+              0.9057662032427436,
+              1.3914264282800448,
+              -0.23860407588400737
+            ]
+          },
+          {
+            "uid": 17,
+            "species": "guppy",
+            "visible": true,
+            "axis": "length",
+            "variation": 1.013116,
+            "growth": 1,
+            "adultCm": 4,
+            "lengthCm": 4.052464,
+            "heightCm": 1.6209856,
+            "widthCm": 1.13468992,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung. Geschlechtswerte: aquaristische Orientierungsannahme, nicht individuell gemessen.",
+            "meshCm": [
+              4.052464,
+              2.0089727836456555,
+              1.0104486665634194
+            ],
+            "worldHalf": [
+              0.10201907525532068,
+              0.05045880010375093,
+              0.06794618241997939
+            ],
+            "measuredCm": [
+              4.0524640000000005,
+              2.008972783645664,
+              1.0104486665634171
+            ],
+            "worldBounds": {
+              "min": [
+                -0.835889147426928,
+                1.2960515823271141,
+                -0.5838931966190177
+              ],
+              "max": [
+                -0.6534917595841304,
+                1.3962688130293142,
+                -0.4887024297512183
+              ]
+            },
+            "worldPosition": [
+              -0.7436596159938302,
+              1.3460725212895848,
+              -0.5376745248153417
+            ]
+          },
+          {
+            "uid": 18,
+            "species": "ramshorn",
+            "visible": true,
+            "axis": "body",
+            "variation": 1.0372599999999998,
+            "growth": 1,
+            "adultCm": 3,
+            "lengthCm": 3.1117799999999995,
+            "heightCm": 1.244712,
+            "widthCm": 0.8712983999999999,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+            "meshCm": [
+              3.191442359675624,
+              2.355070049292415,
+              1.5886290857051995
+            ],
+            "worldHalf": [
+              0.06648475128541927,
+              0.058876751232310384,
+              0.08882683400976517
+            ],
+            "measuredCm": [
+              3.1914423596756256,
+              2.355070049292416,
+              1.5886290857052
+            ],
+            "worldBounds": {
+              "min": [
+                -0.8512471640948469,
+                0.22013278842675565,
+                0.31576414314357343
+              ],
+              "max": [
+                -0.7541258970587077,
+                0.33788629089137645,
+                0.47362817846812594
+              ]
+            },
+            "worldPosition": [
+              -0.8078480083826305,
+              0.27900953965906605,
+              0.390521755200306
+            ]
+          },
+          {
+            "uid": 19,
+            "species": "ramshorn",
+            "visible": true,
+            "axis": "body",
+            "variation": 1.009936,
+            "growth": 1,
+            "adultCm": 3,
+            "lengthCm": 3.029808,
+            "heightCm": 1.2119232000000002,
+            "widthCm": 0.84834624,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+            "meshCm": [
+              3.107371855620926,
+              2.2930316654476077,
+              1.5467806570201943
+            ],
+            "worldHalf": [
+              0.08662878532860266,
+              0.05732579163619019,
+              0.07216987138858702
+            ],
+            "measuredCm": [
+              3.107371855620933,
+              2.2930316654476077,
+              1.5467806570202036
+            ],
+            "worldBounds": {
+              "min": [
+                -1.6433024302838422,
+                0.2686896235035831,
+                -0.743436577325963
+              ],
+              "max": [
+                -1.4955104070436314,
+                0.3833412067759635,
+                -0.6346532161101928
+              ]
+            },
+            "worldPosition": [
+              -1.5641093494369402,
+              0.3260154151397733,
+              -0.693951728121015
+            ]
+          },
+          {
+            "uid": 20,
+            "species": "ramshorn",
+            "visible": true,
+            "axis": "body",
+            "variation": 0.9416439999999999,
+            "growth": 1,
+            "adultCm": 3,
+            "lengthCm": 2.8249319999999996,
+            "heightCm": 1.1299728,
+            "widthCm": 0.7909809600000001,
+            "assumption": "Vorhandener aquaristischer Katalogwert; ungefähre adulte Länge, keine Vermessung.",
+            "meshCm": [
+              2.8972509778979165,
+              2.1379765743361423,
+              1.4421871534425186
+            ],
+            "worldHalf": [
+              0.07526283533217244,
+              0.05344941435840356,
+              0.042148345089338575
+            ],
+            "measuredCm": [
+              2.8972509778979205,
+              2.1379765743361423,
+              1.4421871534425201
+            ],
+            "worldBounds": {
+              "min": [
+                1.7027996969179655,
+                0.24082063997300207,
+                -0.5742015823817819
+              ],
+              "max": [
+                1.8491568136543861,
+                0.3477194686898092,
+                -0.5021907444683615
+              ]
+            },
+            "worldPosition": [
+              1.7751031021222194,
+              0.29427005433140563,
+              -0.5352084133916228
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "10-10-carbon.json: unchanged biology, individual records and learning tag; no new completion",
+      "sha256": "77124a03e4fe564ead33eb080a2a78bfcae54bc32fc761e24ce513aab8884bd0"
+    },
+    {
+      "name": "10-10-enrichment.json: unchanged biology, individual records and learning tag; no new completion",
+      "sha256": "e409725b3df574e24aeceea9d82e65057f0eb54a6c25beb28ad83e8e9204530c"
+    },
+    {
+      "name": "10-10-northsea.json: unchanged biology, individual records and learning tag; no new completion",
+      "sha256": "5b4d001452b1a2be242ab731cd91a3cb4677089589479db550191821e3eb4ef6"
+    },
+    {
+      "name": "10-10-restore.json: unchanged biology, individual records and learning tag; no new completion",
+      "sha256": "0103980472b449fb187e27af4eaf9c75b618bb3e7e4f4ef1974b6a47ec144492"
+    },
+    {
+      "name": "10-10-wadden.json: unchanged biology, individual records and learning tag; no new completion",
+      "sha256": "2674ee715db3f06bb7cb0a8b05c0355c3ef4ebfc0d0b3b9b2c4d329a9c176012"
+    },
+    {
+      "name": "8-8-ecosystem.json: unchanged biology, individual records and learning tag; no new completion",
+      "sha256": "8d456a593ff73a00b449803b7d5d87290a25138a81eab5f3e9efc57f0536e55a"
+    },
+    {
+      "name": "8-8-foodweb.json: unchanged biology, individual records and learning tag; no new completion",
+      "sha256": "719f714bb1c5f07e92ecdbe14638581ec31d06ab6ccecfeef118edb4ee36653a"
+    },
+    {
+      "name": "8-8-forest.json: unchanged biology, individual records and learning tag; no new completion",
+      "sha256": "fed4b52a9a3f38e64942cf23500c12769a50127445a2a919b90cd3cbc2ece0d2"
+    },
+    {
+      "name": "8-8-health.json: unchanged biology, individual records and learning tag; no new completion",
+      "sha256": "8d77fc809b41e7faa6302532b48a2a53ee2da7ef959dee3c68042bec037350b7"
+    },
+    {
+      "name": "8-8-oxygen.json: unchanged biology, individual records and learning tag; no new completion",
+      "sha256": "64846d9c597b5870d6357a11cc55a0ec405c42434d727e8ee5dc12ffe94d2452"
+    },
+    {
+      "name": "9-9-darwin.json: unchanged biology, individual records and learning tag; no new completion",
+      "sha256": "b0695f29ab8a8d429c92067870f6442ac74307c67105fa762b5158dfbf3cb281"
+    },
+    {
+      "name": "9-9-mendel.json: unchanged biology, individual records and learning tag; no new completion",
+      "sha256": "e4fb83e134360dcf58017946fb735015798ae8051193145d2881b499d270c7d6"
+    },
+    {
+      "name": "9-9-population.json: unchanged biology, individual records and learning tag; no new completion",
+      "sha256": "ba25e0bbf6272e708ebd0ede327c6935580fb610e49bb49c795986db9ff3b79a"
+    },
+    {
+      "name": "9-9-traits.json: unchanged biology, individual records and learning tag; no new completion",
+      "sha256": "ebc5905e3f938d691ddd4458b188ea73880ef014925a0ce320c97298f0359a50"
+    }
+  ],
+  "captures": [
+    {
+      "name": "foodweb-start",
+      "at": "2026-10-25T05:45:06.955562+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n13 Tiere\n·\n8 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nEin Becken – viele Beziehungen · Versuch 1 · Auftrag & Hinweise\nKlassen 8–10\nHeizstab ↻\nLicht ↻\nFilter ↻\nBelüfter ↻"
+    },
+    {
+      "name": "foodweb-reload",
+      "at": "2026-10-25T05:45:27.059455+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n13 Tiere\n·\n8 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nEin Becken – viele Beziehungen · Versuch 1 · Auftrag & Hinweise\nKlassen 8–10\nHeizstab ↻\nLicht ↻\nFilter ↻\nBelüfter ↻"
+    },
+    {
+      "name": "supply-start",
+      "at": "2026-10-25T05:45:41.643788+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n2 Tiere\n·\n8 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nSpuren der Versorgung · Versuch 1 · Auftrag & Hinweise\nKlassen 8–10\nHeizstab ↻\nLicht ↻\nFilter ↻\nBelüfter ↻"
+    },
+    {
+      "name": "supply-reload",
+      "at": "2026-10-25T05:45:57.939601+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n2 Tiere\n·\n8 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nSpuren der Versorgung · Versuch 1 · Auftrag & Hinweise\nKlassen 8–10\nHeizstab ↻\nLicht ↻\nFilter ↻\nBelüfter ↻"
+    },
+    {
+      "name": "water-start",
+      "at": "2026-10-25T05:46:13.048405+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n9 Tiere\n·\n8 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nVeränderungen im Becken · Versuch 1 · Auftrag & Hinweise\nKlassen 8–10\nHeizstab ↻\nLicht ↻\nFilter ↻\nBelüfter ↻"
+    },
+    {
+      "name": "water-reload",
+      "at": "2026-10-25T05:46:34.428771+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n9 Tiere\n·\n8 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nVeränderungen im Becken · Versuch 1 · Auftrag & Hinweise\nKlassen 8–10\nHeizstab ↻\nLicht ↻\nFilter ↻\nBelüfter ↻"
+    },
+    {
+      "name": "leaves-start",
+      "at": "2026-10-25T05:46:56.698242+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n7 Tiere\n·\n8 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nBlätter im Wandel · Versuch 1 · Auftrag & Hinweise\nKlassen 8–10\nHeizstab ↻\nLicht ↻\nFilter ↻\nBelüfter ↻"
+    },
+    {
+      "name": "leaves-reload",
+      "at": "2026-10-25T05:47:17.387503+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n7 Tiere\n·\n8 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nBlätter im Wandel · Versuch 1 · Auftrag & Hinweise\nKlassen 8–10\nHeizstab ↻\nLicht ↻\nFilter ↻\nBelüfter ↻"
+    },
+    {
+      "name": "microbes-start",
+      "at": "2026-10-25T05:47:36.064881+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n9 Tiere\n·\n8 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nLeben auf Oberflächen · Versuch 1 · Auftrag & Hinweise\nKlassen 8–10\nHeizstab ↻\nLicht ↻\nFilter ↻\nBelüfter ↻"
+    },
+    {
+      "name": "microbes-reload",
+      "at": "2026-10-25T05:47:57.651433+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n9 Tiere\n·\n8 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nLeben auf Oberflächen · Versuch 1 · Auftrag & Hinweise\nKlassen 8–10\nHeizstab ↻\nLicht ↻\nFilter ↻\nBelüfter ↻"
+    },
+    {
+      "name": "legacy-10-carbon",
+      "at": "2026-10-25T05:48:21.143517+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n13 Tiere\n·\n5 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nBEOBACHTE VERÄNDERUNGEN ÜBER TAGE\nZeit & Versuch\n\nDie Zeit startet erst, wenn du sie laufen lässt. Ein Tag dauert bei 1× vier Sekunden. Wasser und Leben verändern sich in kurzen Schritten.\n\n Pause\n1×\n5×\n+ 1 Tag\n+ 7 Tage\n+ 30 Tage\nJetzt: Tag 46 · 0 stabile Tage hintereinander.\nAuch Scheitern gehört dazu. Eine passende Erklärung zählt mehr als ein perfekter erster Versuch.\nNEUE RUNDE\n\nBeobachtungen des laufenden Versuchs werden dabei zurückgesetzt. Deine persönlichen Notizen bleiben erhalten.\n\nNeues freies Spiel\nMit einer leeren Fläche beginnen\nNeues Tutorial\nDie ersten Schritte mit Anleitung\nSPIELSTAND\nAuf diesem Gerät speichern\nSpielstand herunterladen\nDatei laden\nDer Stand wird auch automatisch gespeichert.\nHTML-SPIEL\nKomplettes HTML-Spiel herunterladen\n\nDie HTML-Datei enthält das Spiel, die Fotos und die Detailmodelle. Du kannst sie anschließend direkt im Browser öffnen.\n\nZum Startbildschirm\nGRAFIK & BEDIENUNG\nTouch-Steuerung\nDARSTELLUNG\nGrafikversion und Qualität\niPad · angepasst\nDesktop · Hoch\nDesktop · Ultra\nDesktop · Maximum\n\nÄndert ausschließlich die Darstellung. Desktop verwendet die native Pixeldichte bis zur tatsächlichen Hardwaregrenze; Maximum ist bewusst anspruchsvoll. Biologie und Speicherplätze bleiben gleich.\n\nKlassen 8–10"
+    },
+    {
+      "name": "legacy-10-enrichment",
+      "at": "2026-10-25T05:48:36.032970+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n13 Tiere\n·\n5 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nBEOBACHTE VERÄNDERUNGEN ÜBER TAGE\nZeit & Versuch\n\nDie Zeit startet erst, wenn du sie laufen lässt. Ein Tag dauert bei 1× vier Sekunden. Wasser und Leben verändern sich in kurzen Schritten.\n\n Pause\n1×\n5×\n+ 1 Tag\n+ 7 Tage\n+ 30 Tage\nJetzt: Tag 46 · 0 stabile Tage hintereinander.\nAuch Scheitern gehört dazu. Eine passende Erklärung zählt mehr als ein perfekter erster Versuch.\nNEUE RUNDE\n\nBeobachtungen des laufenden Versuchs werden dabei zurückgesetzt. Deine persönlichen Notizen bleiben erhalten.\n\nNeues freies Spiel\nMit einer leeren Fläche beginnen\nNeues Tutorial\nDie ersten Schritte mit Anleitung\nSPIELSTAND\nAuf diesem Gerät speichern\nSpielstand herunterladen\nDatei laden\nDer Stand wird auch automatisch gespeichert.\nHTML-SPIEL\nKomplettes HTML-Spiel herunterladen\n\nDie HTML-Datei enthält das Spiel, die Fotos und die Detailmodelle. Du kannst sie anschließend direkt im Browser öffnen.\n\nZum Startbildschirm\nGRAFIK & BEDIENUNG\nTouch-Steuerung\nDARSTELLUNG\nGrafikversion und Qualität\niPad · angepasst\nDesktop · Hoch\nDesktop · Ultra\nDesktop · Maximum\n\nÄndert ausschließlich die Darstellung. Desktop verwendet die native Pixeldichte bis zur tatsächlichen Hardwaregrenze; Maximum ist bewusst anspruchsvoll. Biologie und Speicherplätze bleiben gleich.\n\nKlassen 8–10"
+    },
+    {
+      "name": "legacy-10-northsea",
+      "at": "2026-10-25T05:48:50.667681+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n13 Tiere\n·\n5 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nBEOBACHTE VERÄNDERUNGEN ÜBER TAGE\nZeit & Versuch\n\nDie Zeit startet erst, wenn du sie laufen lässt. Ein Tag dauert bei 1× vier Sekunden. Wasser und Leben verändern sich in kurzen Schritten.\n\n Pause\n1×\n5×\n+ 1 Tag\n+ 7 Tage\n+ 30 Tage\nJetzt: Tag 46 · 0 stabile Tage hintereinander.\nAuch Scheitern gehört dazu. Eine passende Erklärung zählt mehr als ein perfekter erster Versuch.\nNEUE RUNDE\n\nBeobachtungen des laufenden Versuchs werden dabei zurückgesetzt. Deine persönlichen Notizen bleiben erhalten.\n\nNeues freies Spiel\nMit einer leeren Fläche beginnen\nNeues Tutorial\nDie ersten Schritte mit Anleitung\nSPIELSTAND\nAuf diesem Gerät speichern\nSpielstand herunterladen\nDatei laden\nDer Stand wird auch automatisch gespeichert.\nHTML-SPIEL\nKomplettes HTML-Spiel herunterladen\n\nDie HTML-Datei enthält das Spiel, die Fotos und die Detailmodelle. Du kannst sie anschließend direkt im Browser öffnen.\n\nZum Startbildschirm\nGRAFIK & BEDIENUNG\nTouch-Steuerung\nDARSTELLUNG\nGrafikversion und Qualität\niPad · angepasst\nDesktop · Hoch\nDesktop · Ultra\nDesktop · Maximum\n\nÄndert ausschließlich die Darstellung. Desktop verwendet die native Pixeldichte bis zur tatsächlichen Hardwaregrenze; Maximum ist bewusst anspruchsvoll. Biologie und Speicherplätze bleiben gleich.\n\nKlassen 8–10"
+    },
+    {
+      "name": "legacy-10-restore",
+      "at": "2026-10-25T05:49:04.865984+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n9 Tiere\n·\n5 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nBEOBACHTE VERÄNDERUNGEN ÜBER TAGE\nZeit & Versuch\n\nDie Zeit startet erst, wenn du sie laufen lässt. Ein Tag dauert bei 1× vier Sekunden. Wasser und Leben verändern sich in kurzen Schritten.\n\n Pause\n1×\n5×\n+ 1 Tag\n+ 7 Tage\n+ 30 Tage\nJetzt: Tag 46 · 0 stabile Tage hintereinander.\nAuch Scheitern gehört dazu. Eine passende Erklärung zählt mehr als ein perfekter erster Versuch.\nNEUE RUNDE\n\nBeobachtungen des laufenden Versuchs werden dabei zurückgesetzt. Deine persönlichen Notizen bleiben erhalten.\n\nNeues freies Spiel\nMit einer leeren Fläche beginnen\nNeues Tutorial\nDie ersten Schritte mit Anleitung\nSPIELSTAND\nAuf diesem Gerät speichern\nSpielstand herunterladen\nDatei laden\nDer Stand wird auch automatisch gespeichert.\nHTML-SPIEL\nKomplettes HTML-Spiel herunterladen\n\nDie HTML-Datei enthält das Spiel, die Fotos und die Detailmodelle. Du kannst sie anschließend direkt im Browser öffnen.\n\nZum Startbildschirm\nGRAFIK & BEDIENUNG\nTouch-Steuerung\nDARSTELLUNG\nGrafikversion und Qualität\niPad · angepasst\nDesktop · Hoch\nDesktop · Ultra\nDesktop · Maximum\n\nÄndert ausschließlich die Darstellung. Desktop verwendet die native Pixeldichte bis zur tatsächlichen Hardwaregrenze; Maximum ist bewusst anspruchsvoll. Biologie und Speicherplätze bleiben gleich.\n\nKlassen 8–10"
+    },
+    {
+      "name": "legacy-10-wadden",
+      "at": "2026-10-25T05:49:19.764218+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n13 Tiere\n·\n5 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nBEOBACHTE VERÄNDERUNGEN ÜBER TAGE\nZeit & Versuch\n\nDie Zeit startet erst, wenn du sie laufen lässt. Ein Tag dauert bei 1× vier Sekunden. Wasser und Leben verändern sich in kurzen Schritten.\n\n Pause\n1×\n5×\n+ 1 Tag\n+ 7 Tage\n+ 30 Tage\nJetzt: Tag 46 · 0 stabile Tage hintereinander.\nAuch Scheitern gehört dazu. Eine passende Erklärung zählt mehr als ein perfekter erster Versuch.\nNEUE RUNDE\n\nBeobachtungen des laufenden Versuchs werden dabei zurückgesetzt. Deine persönlichen Notizen bleiben erhalten.\n\nNeues freies Spiel\nMit einer leeren Fläche beginnen\nNeues Tutorial\nDie ersten Schritte mit Anleitung\nSPIELSTAND\nAuf diesem Gerät speichern\nSpielstand herunterladen\nDatei laden\nDer Stand wird auch automatisch gespeichert.\nHTML-SPIEL\nKomplettes HTML-Spiel herunterladen\n\nDie HTML-Datei enthält das Spiel, die Fotos und die Detailmodelle. Du kannst sie anschließend direkt im Browser öffnen.\n\nZum Startbildschirm\nGRAFIK & BEDIENUNG\nTouch-Steuerung\nDARSTELLUNG\nGrafikversion und Qualität\niPad · angepasst\nDesktop · Hoch\nDesktop · Ultra\nDesktop · Maximum\n\nÄndert ausschließlich die Darstellung. Desktop verwendet die native Pixeldichte bis zur tatsächlichen Hardwaregrenze; Maximum ist bewusst anspruchsvoll. Biologie und Speicherplätze bleiben gleich.\n\nKlassen 8–10"
+    },
+    {
+      "name": "legacy-8-ecosystem",
+      "at": "2026-10-25T05:49:34.442081+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n13 Tiere\n·\n5 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nBEOBACHTE VERÄNDERUNGEN ÜBER TAGE\nZeit & Versuch\n\nDie Zeit startet erst, wenn du sie laufen lässt. Ein Tag dauert bei 1× vier Sekunden. Wasser und Leben verändern sich in kurzen Schritten.\n\n Pause\n1×\n5×\n+ 1 Tag\n+ 7 Tage\n+ 30 Tage\nJetzt: Tag 46 · 0 stabile Tage hintereinander.\nAuch Scheitern gehört dazu. Eine passende Erklärung zählt mehr als ein perfekter erster Versuch.\nNEUE RUNDE\n\nBeobachtungen des laufenden Versuchs werden dabei zurückgesetzt. Deine persönlichen Notizen bleiben erhalten.\n\nNeues freies Spiel\nMit einer leeren Fläche beginnen\nNeues Tutorial\nDie ersten Schritte mit Anleitung\nSPIELSTAND\nAuf diesem Gerät speichern\nSpielstand herunterladen\nDatei laden\nDer Stand wird auch automatisch gespeichert.\nHTML-SPIEL\nKomplettes HTML-Spiel herunterladen\n\nDie HTML-Datei enthält das Spiel, die Fotos und die Detailmodelle. Du kannst sie anschließend direkt im Browser öffnen.\n\nZum Startbildschirm\nGRAFIK & BEDIENUNG\nTouch-Steuerung\nDARSTELLUNG\nGrafikversion und Qualität\niPad · angepasst\nDesktop · Hoch\nDesktop · Ultra\nDesktop · Maximum\n\nÄndert ausschließlich die Darstellung. Desktop verwendet die native Pixeldichte bis zur tatsächlichen Hardwaregrenze; Maximum ist bewusst anspruchsvoll. Biologie und Speicherplätze bleiben gleich.\n\nKlassen 8–10"
+    },
+    {
+      "name": "legacy-8-foodweb",
+      "at": "2026-10-25T05:49:50.904735+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n13 Tiere\n·\n5 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nBEOBACHTE VERÄNDERUNGEN ÜBER TAGE\nZeit & Versuch\n\nDie Zeit startet erst, wenn du sie laufen lässt. Ein Tag dauert bei 1× vier Sekunden. Wasser und Leben verändern sich in kurzen Schritten.\n\n Pause\n1×\n5×\n+ 1 Tag\n+ 7 Tage\n+ 30 Tage\nJetzt: Tag 46 · 0 stabile Tage hintereinander.\nAuch Scheitern gehört dazu. Eine passende Erklärung zählt mehr als ein perfekter erster Versuch.\nNEUE RUNDE\n\nBeobachtungen des laufenden Versuchs werden dabei zurückgesetzt. Deine persönlichen Notizen bleiben erhalten.\n\nNeues freies Spiel\nMit einer leeren Fläche beginnen\nNeues Tutorial\nDie ersten Schritte mit Anleitung\nSPIELSTAND\nAuf diesem Gerät speichern\nSpielstand herunterladen\nDatei laden\nDer Stand wird auch automatisch gespeichert.\nHTML-SPIEL\nKomplettes HTML-Spiel herunterladen\n\nDie HTML-Datei enthält das Spiel, die Fotos und die Detailmodelle. Du kannst sie anschließend direkt im Browser öffnen.\n\nZum Startbildschirm\nGRAFIK & BEDIENUNG\nTouch-Steuerung\nDARSTELLUNG\nGrafikversion und Qualität\niPad · angepasst\nDesktop · Hoch\nDesktop · Ultra\nDesktop · Maximum\n\nÄndert ausschließlich die Darstellung. Desktop verwendet die native Pixeldichte bis zur tatsächlichen Hardwaregrenze; Maximum ist bewusst anspruchsvoll. Biologie und Speicherplätze bleiben gleich.\n\nKlassen 8–10"
+    },
+    {
+      "name": "legacy-8-forest",
+      "at": "2026-10-25T05:50:09.527534+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n13 Tiere\n·\n5 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nBEOBACHTE VERÄNDERUNGEN ÜBER TAGE\nZeit & Versuch\n\nDie Zeit startet erst, wenn du sie laufen lässt. Ein Tag dauert bei 1× vier Sekunden. Wasser und Leben verändern sich in kurzen Schritten.\n\n Pause\n1×\n5×\n+ 1 Tag\n+ 7 Tage\n+ 30 Tage\nJetzt: Tag 46 · 0 stabile Tage hintereinander.\nAuch Scheitern gehört dazu. Eine passende Erklärung zählt mehr als ein perfekter erster Versuch.\nNEUE RUNDE\n\nBeobachtungen des laufenden Versuchs werden dabei zurückgesetzt. Deine persönlichen Notizen bleiben erhalten.\n\nNeues freies Spiel\nMit einer leeren Fläche beginnen\nNeues Tutorial\nDie ersten Schritte mit Anleitung\nSPIELSTAND\nAuf diesem Gerät speichern\nSpielstand herunterladen\nDatei laden\nDer Stand wird auch automatisch gespeichert.\nHTML-SPIEL\nKomplettes HTML-Spiel herunterladen\n\nDie HTML-Datei enthält das Spiel, die Fotos und die Detailmodelle. Du kannst sie anschließend direkt im Browser öffnen.\n\nZum Startbildschirm\nGRAFIK & BEDIENUNG\nTouch-Steuerung\nDARSTELLUNG\nGrafikversion und Qualität\niPad · angepasst\nDesktop · Hoch\nDesktop · Ultra\nDesktop · Maximum\n\nÄndert ausschließlich die Darstellung. Desktop verwendet die native Pixeldichte bis zur tatsächlichen Hardwaregrenze; Maximum ist bewusst anspruchsvoll. Biologie und Speicherplätze bleiben gleich.\n\nKlassen 8–10"
+    },
+    {
+      "name": "legacy-8-health",
+      "at": "2026-10-25T05:50:24.248486+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n9 Tiere\n·\n5 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nBEOBACHTE VERÄNDERUNGEN ÜBER TAGE\nZeit & Versuch\n\nDie Zeit startet erst, wenn du sie laufen lässt. Ein Tag dauert bei 1× vier Sekunden. Wasser und Leben verändern sich in kurzen Schritten.\n\n Pause\n1×\n5×\n+ 1 Tag\n+ 7 Tage\n+ 30 Tage\nJetzt: Tag 46 · 0 stabile Tage hintereinander.\nAuch Scheitern gehört dazu. Eine passende Erklärung zählt mehr als ein perfekter erster Versuch.\nNEUE RUNDE\n\nBeobachtungen des laufenden Versuchs werden dabei zurückgesetzt. Deine persönlichen Notizen bleiben erhalten.\n\nNeues freies Spiel\nMit einer leeren Fläche beginnen\nNeues Tutorial\nDie ersten Schritte mit Anleitung\nSPIELSTAND\nAuf diesem Gerät speichern\nSpielstand herunterladen\nDatei laden\nDer Stand wird auch automatisch gespeichert.\nHTML-SPIEL\nKomplettes HTML-Spiel herunterladen\n\nDie HTML-Datei enthält das Spiel, die Fotos und die Detailmodelle. Du kannst sie anschließend direkt im Browser öffnen.\n\nZum Startbildschirm\nGRAFIK & BEDIENUNG\nTouch-Steuerung\nDARSTELLUNG\nGrafikversion und Qualität\niPad · angepasst\nDesktop · Hoch\nDesktop · Ultra\nDesktop · Maximum\n\nÄndert ausschließlich die Darstellung. Desktop verwendet die native Pixeldichte bis zur tatsächlichen Hardwaregrenze; Maximum ist bewusst anspruchsvoll. Biologie und Speicherplätze bleiben gleich.\n\nKlassen 8–10"
+    },
+    {
+      "name": "legacy-8-oxygen",
+      "at": "2026-10-25T05:50:40.645937+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 47\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n13 Tiere\n·\n5 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nBEOBACHTE VERÄNDERUNGEN ÜBER TAGE\nZeit & Versuch\n\nDie Zeit startet erst, wenn du sie laufen lässt. Ein Tag dauert bei 1× vier Sekunden. Wasser und Leben verändern sich in kurzen Schritten.\n\n Pause\n1×\n5×\n+ 1 Tag\n+ 7 Tage\n+ 30 Tage\nJetzt: Tag 47 · 0 stabile Tage hintereinander.\nAuch Scheitern gehört dazu. Eine passende Erklärung zählt mehr als ein perfekter erster Versuch.\nNEUE RUNDE\n\nBeobachtungen des laufenden Versuchs werden dabei zurückgesetzt. Deine persönlichen Notizen bleiben erhalten.\n\nNeues freies Spiel\nMit einer leeren Fläche beginnen\nNeues Tutorial\nDie ersten Schritte mit Anleitung\nSPIELSTAND\nAuf diesem Gerät speichern\nSpielstand herunterladen\nDatei laden\nDer Stand wird auch automatisch gespeichert.\nHTML-SPIEL\nKomplettes HTML-Spiel herunterladen\n\nDie HTML-Datei enthält das Spiel, die Fotos und die Detailmodelle. Du kannst sie anschließend direkt im Browser öffnen.\n\nZum Startbildschirm\nGRAFIK & BEDIENUNG\nTouch-Steuerung\nDARSTELLUNG\nGrafikversion und Qualität\niPad · angepasst\nDesktop · Hoch\nDesktop · Ultra\nDesktop · Maximum\n\nÄndert ausschließlich die Darstellung. Desktop verwendet die native Pixeldichte bis zur tatsächlichen Hardwaregrenze; Maximum ist bewusst anspruchsvoll. Biologie und Speicherplätze bleiben gleich.\n\nKlassen 8–10"
+    },
+    {
+      "name": "legacy-9-darwin",
+      "at": "2026-10-25T05:50:55.535791+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n4 Tiere\n·\n5 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nBEOBACHTE VERÄNDERUNGEN ÜBER TAGE\nZeit & Versuch\n\nDie Zeit startet erst, wenn du sie laufen lässt. Ein Tag dauert bei 1× vier Sekunden. Wasser und Leben verändern sich in kurzen Schritten.\n\n Pause\n1×\n5×\n+ 1 Tag\n+ 7 Tage\n+ 30 Tage\nJetzt: Tag 46 · 0 stabile Tage hintereinander.\nAuch Scheitern gehört dazu. Eine passende Erklärung zählt mehr als ein perfekter erster Versuch.\nNEUE RUNDE\n\nBeobachtungen des laufenden Versuchs werden dabei zurückgesetzt. Deine persönlichen Notizen bleiben erhalten.\n\nNeues freies Spiel\nMit einer leeren Fläche beginnen\nNeues Tutorial\nDie ersten Schritte mit Anleitung\nSPIELSTAND\nAuf diesem Gerät speichern\nSpielstand herunterladen\nDatei laden\nDer Stand wird auch automatisch gespeichert.\nHTML-SPIEL\nKomplettes HTML-Spiel herunterladen\n\nDie HTML-Datei enthält das Spiel, die Fotos und die Detailmodelle. Du kannst sie anschließend direkt im Browser öffnen.\n\nZum Startbildschirm\nGRAFIK & BEDIENUNG\nTouch-Steuerung\nDARSTELLUNG\nGrafikversion und Qualität\niPad · angepasst\nDesktop · Hoch\nDesktop · Ultra\nDesktop · Maximum\n\nÄndert ausschließlich die Darstellung. Desktop verwendet die native Pixeldichte bis zur tatsächlichen Hardwaregrenze; Maximum ist bewusst anspruchsvoll. Biologie und Speicherplätze bleiben gleich.\n\nKlassen 8–10"
+    },
+    {
+      "name": "legacy-9-mendel",
+      "at": "2026-10-25T05:51:07.954857+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n4 Tiere\n·\n5 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nBEOBACHTE VERÄNDERUNGEN ÜBER TAGE\nZeit & Versuch\n\nDie Zeit startet erst, wenn du sie laufen lässt. Ein Tag dauert bei 1× vier Sekunden. Wasser und Leben verändern sich in kurzen Schritten.\n\n Pause\n1×\n5×\n+ 1 Tag\n+ 7 Tage\n+ 30 Tage\nJetzt: Tag 46 · 0 stabile Tage hintereinander.\nAuch Scheitern gehört dazu. Eine passende Erklärung zählt mehr als ein perfekter erster Versuch.\nNEUE RUNDE\n\nBeobachtungen des laufenden Versuchs werden dabei zurückgesetzt. Deine persönlichen Notizen bleiben erhalten.\n\nNeues freies Spiel\nMit einer leeren Fläche beginnen\nNeues Tutorial\nDie ersten Schritte mit Anleitung\nSPIELSTAND\nAuf diesem Gerät speichern\nSpielstand herunterladen\nDatei laden\nDer Stand wird auch automatisch gespeichert.\nHTML-SPIEL\nKomplettes HTML-Spiel herunterladen\n\nDie HTML-Datei enthält das Spiel, die Fotos und die Detailmodelle. Du kannst sie anschließend direkt im Browser öffnen.\n\nZum Startbildschirm\nGRAFIK & BEDIENUNG\nTouch-Steuerung\nDARSTELLUNG\nGrafikversion und Qualität\niPad · angepasst\nDesktop · Hoch\nDesktop · Ultra\nDesktop · Maximum\n\nÄndert ausschließlich die Darstellung. Desktop verwendet die native Pixeldichte bis zur tatsächlichen Hardwaregrenze; Maximum ist bewusst anspruchsvoll. Biologie und Speicherplätze bleiben gleich.\n\nKlassen 8–10"
+    },
+    {
+      "name": "legacy-9-population",
+      "at": "2026-10-25T05:51:19.354847+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n4 Tiere\n·\n5 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nBEOBACHTE VERÄNDERUNGEN ÜBER TAGE\nZeit & Versuch\n\nDie Zeit startet erst, wenn du sie laufen lässt. Ein Tag dauert bei 1× vier Sekunden. Wasser und Leben verändern sich in kurzen Schritten.\n\n Pause\n1×\n5×\n+ 1 Tag\n+ 7 Tage\n+ 30 Tage\nJetzt: Tag 46 · 0 stabile Tage hintereinander.\nAuch Scheitern gehört dazu. Eine passende Erklärung zählt mehr als ein perfekter erster Versuch.\nNEUE RUNDE\n\nBeobachtungen des laufenden Versuchs werden dabei zurückgesetzt. Deine persönlichen Notizen bleiben erhalten.\n\nNeues freies Spiel\nMit einer leeren Fläche beginnen\nNeues Tutorial\nDie ersten Schritte mit Anleitung\nSPIELSTAND\nAuf diesem Gerät speichern\nSpielstand herunterladen\nDatei laden\nDer Stand wird auch automatisch gespeichert.\nHTML-SPIEL\nKomplettes HTML-Spiel herunterladen\n\nDie HTML-Datei enthält das Spiel, die Fotos und die Detailmodelle. Du kannst sie anschließend direkt im Browser öffnen.\n\nZum Startbildschirm\nGRAFIK & BEDIENUNG\nTouch-Steuerung\nDARSTELLUNG\nGrafikversion und Qualität\niPad · angepasst\nDesktop · Hoch\nDesktop · Ultra\nDesktop · Maximum\n\nÄndert ausschließlich die Darstellung. Desktop verwendet die native Pixeldichte bis zur tatsächlichen Hardwaregrenze; Maximum ist bewusst anspruchsvoll. Biologie und Speicherplätze bleiben gleich.\n\nKlassen 8–10"
+    },
+    {
+      "name": "legacy-9-traits",
+      "at": "2026-10-25T05:51:30.567600+00:00",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "text": "DIE ÖKOSYSTEM-WERKSTATT\nAquarium.\n\nEinrichten. Beobachten. Zusammenhänge entdecken.\n\nTag 46\nSüßwasser\nDEIN EXPERIMENT\nEin stabiles Ökosystem\n\nStimme Licht, Besatz und Wasser aufeinander ab. Beobachte auch, was schiefgeht.\n\n0 / 30 stabile Tage\nLernen durch Ausprobieren\n180 Liter\n·\n4 Tiere\n·\n5 Pflanzen & Korallen\n· Wasser noch nicht getestet\nEin Finger dreht · Zwei Finger zoomen\n· Lebewesen antippen\nArten in 3D\nVorderansicht\nAnsicht zurücksetzen\nZooladen\nWasserlabor\nPflege\nJournal\nZeit & Runde\nPinzette\n◎\nÖkosystem\n♧\nGenetik\n1×\n5×\nZeit pausiert\nBEOBACHTE VERÄNDERUNGEN ÜBER TAGE\nZeit & Versuch\n\nDie Zeit startet erst, wenn du sie laufen lässt. Ein Tag dauert bei 1× vier Sekunden. Wasser und Leben verändern sich in kurzen Schritten.\n\n Pause\n1×\n5×\n+ 1 Tag\n+ 7 Tage\n+ 30 Tage\nJetzt: Tag 46 · 0 stabile Tage hintereinander.\nAuch Scheitern gehört dazu. Eine passende Erklärung zählt mehr als ein perfekter erster Versuch.\nNEUE RUNDE\n\nBeobachtungen des laufenden Versuchs werden dabei zurückgesetzt. Deine persönlichen Notizen bleiben erhalten.\n\nNeues freies Spiel\nMit einer leeren Fläche beginnen\nNeues Tutorial\nDie ersten Schritte mit Anleitung\nSPIELSTAND\nAuf diesem Gerät speichern\nSpielstand herunterladen\nDatei laden\nDer Stand wird auch automatisch gespeichert.\nHTML-SPIEL\nKomplettes HTML-Spiel herunterladen\n\nDie HTML-Datei enthält das Spiel, die Fotos und die Detailmodelle. Du kannst sie anschließend direkt im Browser öffnen.\n\nZum Startbildschirm\nGRAFIK & BEDIENUNG\nTouch-Steuerung\nDARSTELLUNG\nGrafikversion und Qualität\niPad · angepasst\nDesktop · Hoch\nDesktop · Ultra\nDesktop · Maximum\n\nÄndert ausschließlich die Darstellung. Desktop verwendet die native Pixeldichte bis zur tatsächlichen Hardwaregrenze; Maximum ist bewusst anspruchsvoll. Biologie und Speicherplätze bleiben gleich.\n\nKlassen 8–10"
+    }
+  ],
+  "errors": [],
+  "requests_failed": [],
+  "console": [],
+  "version": "154.0.8037.57",
+  "status": "passed"
+}

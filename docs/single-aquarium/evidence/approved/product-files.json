@@ -1,0 +1,18 @@
+[
+  {
+    "path": "m3-actual-product.json.gz",
+    "uncompressedBytes": 95623,
+    "uncompressedSHA256": "f70c50654c9a2c0e104a9710a217832829c1d52d362ccc68a42354f7a65dca9f",
+    "compressedBytes": 7022,
+    "source": "/tmp/classroom-current-webkit/webkit/portrait-m3-result.json",
+    "note": "Lossless compression of the actual downloaded learner product; not generated progress"
+  },
+  {
+    "path": "m5-actual-product.json.gz",
+    "uncompressedBytes": 2344377,
+    "uncompressedSHA256": "defeacfa26c7226604fd89811d6ed9db901805269e42dbe361b3dc9af7f0a738",
+    "compressedBytes": 136542,
+    "source": "/tmp/classroom-current-webkit/webkit/portrait-m5-result.json",
+    "note": "Lossless compression of the actual downloaded learner product; not generated progress"
+  }
+]

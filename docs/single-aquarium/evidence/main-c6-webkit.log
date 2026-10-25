@@ -1,0 +1,5 @@
+PASS desktop: full M1, actual single scene/identity, complete serial reset, real light/net counterexample, wrong answers, hints, import/export, archived repeat and reload
+PASS portrait: full M1, actual single scene/identity, complete serial reset, real light/net counterexample, wrong answers, hints, import/export, archived repeat and reload
+PASS landscape: full M1, actual single scene/identity, complete serial reset, real light/net counterexample, wrong answers, hints, import/export, archived repeat and reload
+PASS quota failure: previous saved investigation unchanged, clock stopped, direct file rescue, reload retains last successful stage
+REPORT /tmp/single-m1-final/webkit/report.json

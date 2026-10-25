@@ -1,0 +1,103 @@
+GEZIELTER KORREKTURAUFTRAG – AQUARIUM-LERNSPIEL
+Unabhängige neue Abnahme vom 23.10.2026
+
+Dieser Text ist ein vorbereiteter Folgeauftrag. Er wurde im Rahmen der unabhängigen Prüfung weder ausgeführt noch an einen anderen Task geschickt. Die Untersuchung selbst hat das GitHub-Repository nicht verändert.
+
+PRÜFBASIS ZUERST NEU FESTSTELLEN
+Repository: https://github.com/Feerson1617/Simulation-Aquarium
+Bei der Abnahme: PR #9 offen, nicht gemergt.
+Entwicklungsbranch: feature/coherent-learning-workspaces
+Eigenständig geprüfter HEAD: ffc061279f01f0030fe35503def0d1b329e5f73b
+main/base: 8e41962132fe3778fe73f8e14c650f42e18d848d
+Preview: https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/
+66 veröffentlichte Laufzeitdateien wurden zweimal unabhängig bytegleich mit diesem HEAD verglichen. Vorherige unabhängige Basis: 7d6f815f2d35dd8a75da1ca8f273724ed1b975c5.
+
+Vor Änderungen tatsächlichen HEAD, PR-Status und Auslieferung erneut bestimmen. Bei abweichendem HEAD die Differenz prüfen und nur noch aktuell reproduzierbare Fehler korrigieren. Nicht aus einer grünen Action, deinem bisherigen Bericht oder der Zahl deiner Tests auf Freigabe schließen. Keine Änderungen an main und kein Merge aus diesem Auftrag ableiten.
+
+VERBINDLICHE EVIDENZ
+Das Paket enthält Abnahmebericht-23-10-2026.html, Schrittprotokoll.html, browser-evidence.json, eigene unveränderte evidence/*.png, eigene Ergebnisdateien und separate Daten-/Modellproben. Die Nummern unten sind die ersten drei Ziffern der Schrittkennungen. Dort stehen URL, Commit, Viewport, Uhrzeit, sichtbare Anweisung, tatsächliche Eingabe und Ergebnis.
+Die Vorher-Bilder im Paket sind eigene neue Aufnahmen des alten Commits. Sie sind keine übernommenen Codex-Screenshots. Alte historische Originaldateien sind ausdrücklich Testeingaben, keine neue Schülerleistung.
+
+PRIORITÄT 1 – F13 / P1: GÜLTIGES ALTES LERNPRODUKT NICHT LESBAR
+Eigener Browsernachweis: 431, Kontrollfall432, Wiederholung433.
+Reproduktion: historischen Lehrkraftmodus öffnen → „Exportiertes Lernprodukt lesen“ → kompatibilitaetsdateien/learning-v1-grade-8.json. Sichtbarer Fehler: Cannot read properties of undefined (reading 'join'). Klasse 9-Datei funktioniert. Nach anschließendem erneutem Klasse 8-Import bleibt die Klasse 9-Ansicht neben dem Fehler bestehen.
+Eigene Codeprobe: validateLearningProduct akzeptiert beide unveränderten V1-Dateien. Das normalisierte Klasse 8-Produkt enthält measurementMetrics mit fishAlive, obwohl comparisonMetricDefinitions für historische Daten diese Definition entfernt. manualData in learning-ui.mjs:954 ruft ungeschützt defs[k].join auf. Siehe legacy-product-root-cause.json.
+Korrigieren: kompatible Normalisierung und robuste historische Anzeige. Fehlende historische Fischmessungen ausdrücklich als unbekannt behandeln. Keine heutigen Fischwerte erfinden, keine Tiere/Gesundheitswerte aus alten uneindeutigen Summen still umdeuten und kein einfaches Wegwerfen des ganzen Altprodukts. Die betroffene Dateiquelle deutlich anzeigen. Bei fehlgeschlagenem Import darf die vorherige Datei nicht wie die neu gewählte wirken; entweder getrennt und ausdrücklich beschriftet erhalten oder die Ansicht leeren.
+Akzeptanz: beide unveränderten V1-Fixtures im echten Leser öffnen, Diagramme/Messreihen kontrollieren, zwischen8 und9 hin- und herwechseln, zusätzlich ungültige Datei mit verständlichem Fehler versuchen. Keine join-Ausnahme; keine unbeschriftete veraltete Ansicht. 14 vorhandene Aquarium-Spielstände bleiben über die dafür richtige Funktion importierbar und unverändert; keine alten Abschlüsse als neue Mission anrechnen.
+Akzeptanzbilder: gültige Klasse 8-Datei mit lesbarer Quelle/Altkennzeichnung; Klasse 9-Kontrolle; fehlgeschlagener Import mit eindeutigem Datei-/Ansichtsstatus. Alle drei mit eigenem Datum/URL/Commit.
+
+PRIORITÄT 2 – F04 / P2: STUFENHILFE UND FEHLERRÜCKMELDUNG
+Nachweise: 004/010/013/016 (M2),021/030/032 (M5),044/052/054 (M1),060/072/078/080 (M3),087/104/106/108 (M4),115/121–124/127 (M6).
+Tipp 1 wiederholt in M2–M6 meist den Auftrag. Die identische Meldung „Schau noch einmal auf deine Beobachtung…“ bearbeitet weder Filter-Verschwinden, Netto=Abbau, Dominanz=Kinderzahl noch Boden als Kohlenstoffquelle.
+Korrigieren: pro Aufgabenstufe kurze, tatsächlich hilfreiche gestufte Hilfen. Erste Stufe auf relevanten Beleg und passende Denkhandlung lenken; zweite gezielt strukturieren; erst spätere fachliche Hilfe ausführlicher. Nicht bloß die Frage wiederholen oder die richtige Wahl sofort vorgeben. In Klasse 8 kurze einfache Sätze, keine Pflichtaufsätze und keine zusätzliche unnötige Chemieoberfläche.
+M1: falsche Dunkelabnahme → Anfang/Ende der konkreten Linie vergleichen; falsche Sauerstoffquelle → Nettoänderung von Photosynthese/Atmung/Luftaustausch unterscheiden.
+M2: Restmengen → richtigen Bezugszeitpunkt nennen; Filter macht nichts mehr daraus → Stoffumwandlung und Lebewesen erläutern; Nettoverlust=Abbau → gleichzeitig neue Reste und integrierten Abbau von Restpool unterscheiden.
+M3: Allele gehen nicht bedarfsgerichtet verloren; ein konkretes Elternpaar gibt reale Allele weiter; kleine Stichproben erzwingen keine Quote.
+M4: Dominanz beeinflusst die Merkmalsausprägung, nicht automatisch Elternchance; neutraler Zufall und gesetzte Elternregel sind verschieden; größere Chance garantiert kein Kind.
+M5: Wasserwechsel kann gelöste Stoffe senken; fortlaufender Eintrag und Bodenreste werden dadurch nicht automatisch beseitigt. Kurz-/Langzeitbefund unterscheiden.
+M6: Wachstum allein beweist keine atomare Quelle. Die Boden-/Düngerfehlvorstellung braucht eine kurze fachliche CO2-Erklärung, keinen erneuten Größenvergleich als scheinbaren Herkunftsbeweis. Wissenschaftliche Erklärung, Modellfluss und tatsächliche individuelle Beobachtung auseinanderhalten.
+Rot mit ✕ für Fehler, Grün mit ✓ für richtige Belege und neutrale Vermutungen erhalten. Hilfe muss bei den tatsächlich aktuellen Daten stimmen, auch wenn eine Kurve steigt, gleich bleibt oder sinkt.
+Akzeptanzbilder: für alle 6 Missionen Tipp 1 sowie eine plausible Fehlantwort mit ihrer spezifischen Rückmeldung; in M2 zusätzlich Pool/Fluss, in M6 Quellenfehler und Evidenzgrenze. Text und relevante Belege gleichzeitig lesbar.
+
+F06 / P2 – M3 ELTERNWAHL
+Nachweise059,066,069,083 und229–235.
+Der gleiche Fehlertext erscheint ohne Eltern, bei zwei dunklen Gründern und nach zwei Weibchen. Das zweite Weibchen ersetzt das erste, ohne den fehlenden Vater konkret zu benennen.
+Korrigieren: fehlende Mutter/fehlenden Vater passend benennen; gleichgeschlechtliche Wahl bzw. Ersetzen eines Elternslots verständlich machen; vorbereitete erste AA×aa-Kreuzung dunkel×hell fachlich begründen, damit echte heterozygote F1-Eltern für den späteren Versuch entstehen. Nicht allgemein behaupten, dunkle Eltern könnten nicht kreuzen oder keine hellen Jungen bekommen.
+Reziproke Kreuzung muss erlaubt bleiben. Tatsächliche F1/F2-Individuen, UID/Eltern/Allele, Zufall und Archive unverändert bewahren. Kein festes3:1, kein nachträgliches Umfärben und kein Erzeugen eines gewünschten hellen Kindes.
+Akzeptanz: alle drei Fehler gezielt spielen, danach beide reziproken Gründerpaare und F1×F1. Mehrere unabhängige F2-Stichproben dürfen unterschiedliche Ergebnisse bis hin zu keinem hellen Kind haben. Bilder: drei spezifische Fehlmeldungen und ein reales Kind mit Eltern/Allelen.
+
+F07 / P2 – M4 ELTERNBEITRÄGE
+Nachweise092/102. Spalte heißt weiter „Gewicht“, nur UID und Kinderzahl; aktuelle Fische65–76 werden nicht eindeutig von archivierten Eltern53–64 unterschieden.
+Korrigieren: sichtbare Spaltenbezeichnung „Chance bei der Elternwahl“. Relative Zahlen als solche erklären;1 bzw.0,5 sind keine Körpermasse und keine Prozentzahl. Farbe/Genotyp, Elterngeneration und konkreten historischen Versuch lesbar darstellen. Gegenwärtige Beckenfische von archivierten Eltern abgrenzen. Frühere Versuchsdaten unverändert lassen. Unterschiedliche Chancen sind kein garantierter Fortpflanzungserfolg.
+Akzeptanz: zwei neutrale und ein gerichteter Versuch ab gleichen Gründern, Beiträge für passende Versuch/Generation öffnen, Zuordnung zu Kind/Eltern nachprüfen. Bild: ganze lesbare Tabelle mit Versuch, Generation, Farbe/Genotyp, Chance und tatsächlichen Nachkommen sowie eindeutiger Archivkennzeichnung.
+
+F09 / P2 – ARCHIV UND DATEITYPEN
+Nachweise137,412–416 und430. Liste zeigt localStorage-Präfixe, UUIDs und Epoch-Zahlen. Historischer Zugriff ist umständlich. Die 14 Altdateien sind Aquarium-Spielstände, keine Lernproduktdateien; ihre Ablehnung im falschen Leser ist korrekt.
+Korrigieren: lesbarer Missionsname, Jahrgang, Datum/Uhrzeit, Versuch und Dateityp pro Eintrag. Technische Schlüssel höchstens in optionalen Details. Vorhandene Schlüssel/Dateien nicht zerstören oder unbemerkt migrieren. Verständlich zum passenden Leser für Aquariumstand bzw. Lernprodukt führen. Alte Erhebungen bleiben unveränderte Archivdaten; kein erneutes Erledigt durch bloßes Laden.
+Akzeptanz: neuer Durchgang und archivierter vorheriger Durchgang parallel als Daten nachvollziehbar;14 Altstände importieren und echte Werte/Individuen/Lernfelder vergleichen. Zusätzlich F13-Fixtures und falschen Dateityp prüfen. Bilder: lesbare aktuelle Archivliste, historischer Importweg mit Dateityp, korrekt als alt markierter Datensatz.
+
+F10 / P2 – PINZETTENLEISTE UND STATUS
+Nachweise155 verdeckte Anleitung;163/164 echter gültiger Mauszug;189/190 gültiger Touchzug;160/161 und193/194 tatsächliche Kollision.
+Wichtig: freies Verschieben funktioniert bereits. Nicht als Algorithmusdefekt behandeln oder Kollisionen abschalten. Die letzte erlaubte Position bei ungültigem Endziel ist im aktuellen Verhalten gesondert ausgewiesen.
+Korrigieren: Anleitung und Ablehnungs-/Erfolgsmeldung außerhalb überdeckender HUD-Bereiche, vollständig sichtbar und verständlich. Erfolgsbehauptung muss zur tatsächlich gespeicherten Position passen. Bei ungültigem Endziel klar erklären, ob Anfang oder letzte gültige Position erhalten bleibt.
+Akzeptanz: Desktop 1366×960, Tablet 768×1024 und 1366×1024. Tatsächliche Maus- und soweit unterstützt Browser-Touchzüge auf freien Boden und absichtlich belegten Boden. Vorher/Vorschau/Nachher-Bilder, gespeicherte Position über Reload/Export/Import prüfen. Kein Ersatz durch bloßen Start oder eine unbestätigte Ziehbehauptung.
+
+F12 / P2 – MITGELIEFERTE EXPERTENSZENARIEN
+Nachweise401–406, scenario-readonly-audit.json. Alle fünf frisch gestarteten Szenarien melden zwei wegen Platzmangels nicht dargestellte Objekte; UID 9 spiderwood und 10 stone. Kein Asset-Downloadfehler, kein importierter fremder Problemstand.
+Korrigieren: die mitgelieferten Starts räumlich gültig vorbereiten, mit realer Objektgröße, Kollisionen und gespeicherten Individuen vereinbar. Nicht die Warnung verstecken, Objekte entfernen oder natürliche Größenrelationen verfälschen. Bei unvermeidlichen alten Importkonflikten ehrlich bleiben; der neue mitgelieferte Standardstart muss ohne verdeckte Objekte funktionieren.
+Akzeptanz: alle fünf Szenarien aus frischem Browserzustand starten, sichtbaren Bestand mit gespeicherten Objekten/Platzierungsdaten vergleichen, Speichern/Laden prüfen. Bilder: ganze Standardbecken ohne Reparaturwarnung und zugehörige gültige Objektplatzierungen.
+
+F03-REST / P2 – FRAGE-/DISTRAKTORQUALITÄT
+Die alte unmittelbare Antwortvorgabe in M2/M6 ist behoben. Keine Rückkehr dazu. Nachweise071/078/080/104/106/108/121/125/127 zeigen verbleibende Schwächen.
+M3: Zählhilfe darf bleiben, aber eine Aufgabe sollte nicht nur „12 dunkel,0hell“ in „alle dunkel“ übersetzen. Angaben zu realen Elternallelen sind sinnvolle Belege, sollten aber nicht als ausgeschriebener Antwortsatz direkt kopiert werden müssen. Mindestens eine kurze eigene Beobachtungs-/Vergleichshandlung und ein begründeter Transfer pro Mission.
+Eigene ergänzende sichtbare Fischklicks in M2/M4/M5 erzeugten keine Individuenauswahl (object-click-scope.json). M2/M5 können sinnvoll über ihre beckenbezogene Mengenansicht bedient werden; eine pauschale direkte Objektbedienung aller sechs Missionen darf daraus nicht behauptet werden. In M4 muss insbesondere der Zusammenhang tatsächlicher Beckenfische und archivierter Elterndaten verständlich zugänglich werden, ohne einen zusätzlichen Werkzeugwald einzubauen.
+Alle sechs: plausible, ähnlich kurze Antwortmöglichkeiten. Nicht immer langer differenzierter Satz richtig und „immer/grundsätzlich/gesamte/für immer“ falsch. Keine künstliche Geheimhaltung notwendiger Daten, keine langen Pflichttexte, keine fachlich falschen Ablenkantworten als allgemeine Lehrsätze.
+Akzeptanz: tatsächliche Belege vor eigenständiger Entscheidung sichtbar, fachlich passende Fehlrückmeldung, Transfer nicht allein durch Abschreiben/Absolutheitswörter lösbar. Ein fachkundiger unabhängiger Mensch prüft dies zusätzlich im Browser; eine Wortliste allein ist kein didaktischer Test.
+
+PRIORITÄT 3 – F11 / P3: SPRACHE
+Nachweis139: „gleich viel als am Anfang“ in Freiem Forschen/Messen. Zu „so viel wie am Anfang“ oder anderem kurzen korrekten Gleichheitsvergleich ändern. M6 verwendet bereits „Die Pflanze ist gewachsen“. Datenabhängige Gleichheit/Abnahme/Zunahme erhalten; kein Wachstum behaupten, wenn keines gemessen wurde.
+Akzeptanz: unveränderte Ausgangslage im echten Browser; passende Anzeige bei Gleichheit, Wachstum und Rückgang zusätzlich mit nachvollziehbaren Datenproben. Klar trennen, welche Grenzfälle real gespielt und welche nur separat geprüft wurden.
+
+UNBEDINGT ERHALTEN – BEREITS EIGENSTÄNDIG NACHGEWIESEN
+1. Genau ein aktuelles Hauptaquarium; kein zweites sichtbares/aktives Vergleichsbecken. Frühere Durchgänge sind eingefrorene Archivdaten. Serielle Versuche starten vollständig aus identischem Anfang; M1 unterscheidet danach nur Licht, M5 danach nur die gewählte Maßnahme. Gleiche Gründer bei M4, neue Zufallsfolge.
+2. Genau sechs Kernmissionen mit den aktuellen Namen und Jahrgängen. Keine alte Heizstab-Pflichtmission wieder einführen; Heizstab als Gerät in freiem/Expertenspiel erhalten.
+3. M2/M5 beckenbezogene echte Mengenansicht mit fester Referenz. Integrierter Abbau ist nicht Netto-Restverlust. Keine erfundenen Krümel-/Bakterien-/Atomzahlen als Messung.
+4. Aktuelle größere Kamera und hellere Rückwand, natürliche Objektgrößen, direkte individuelle Auswahl mit Art/UID-Markierung. Echtes Glas statt Canvasfläche beurteilen. Kleine Fische und negative Leerraumtreffer prüfen.
+5. M1 gemeinsame O2-Skala; beide eigenen Reihen stiegen netto. Keine Ratenänderung, um eine gewünschte Dunkelabnahme zu erzwingen. Photosynthese/Atmung/Luftaustausch korrekt.
+6. Reale Zufallsvererbung/UID-Eltern-Allele, keine erzwungene3:1-Stichprobe. Drift, Dominanz und gesetzte Elternchance getrennt.
+7. M5 Wasserwechsel auf gelöste Stoffe, nicht automatisch Bodenreste. Wechselwasser kann selbst Nitrat enthalten;50% Wasser ist daher nicht pauschal50% Nitrat. Fortlaufender Eintrag und spätes Ergebnis ehrlich.
+8. M6 individuell gewählte Anubias1 bzw. Wasserpest3 mit unveränderlicher Anfangsreferenz. Fallback als anderes Individuum sichtbar. Wachstum kein direkter Herkunftsnachweis einzelner Atome.
+9. Alle eigenen zwölf abgeschlossenen Browserdateien weiter importierbar; Pause/Reload/Neustart/Archiv/Export/Reimport erhalten. Eigene Texte freiwillig und erhalten, alte Texte nicht als neue Eigenleistung.
+10. Freies Forschen8/9/10, Expertengeräte/Katalog und tatsächliche freie Fortpflanzung, alle 8Tutorialschritte sowie Standalone nicht regressieren. Native Chromium-file:-Funktion und HTTP→offline-M1 wurden neu wirklich geprüft und dürfen nicht kaputtgehen.
+
+VERLANGTE NEUE VALIDIERUNG UND ABGABE
+- Zuerst die konkreten Fehler reproduzieren, dann gezielt ändern. Keine pauschale Neuentwicklung und keine Modellmanipulation für didaktisch gewünschte Kurven.
+- Passende Modul-/Datentests zu wirklichen Grenzfällen: historisch fehlende Definition, echte Messungssemantik, unveränderte Archive/Anfänge, Genetikzufall. Keine bloß die Implementierung spiegelnden Scheintests und kein completed per Skript.
+- Danach eigene sichtbare Browserhandlungen. Mindestens gezielte F13/F04/F06/F07/F09/F10/F12/F11-Prüfungen und vollständige sechs Pflichtwege auf endgültigem Laufzeitstand; Chromium und WebKit/Touch im verfügbaren Umfang. Ausnahmen und Geräte-/Touchgrenzen ausdrücklich nennen.
+- Pro behobenem Befund unveränderte Vorher-/Nachher-Bilder mit URL, Commit, UTC-Zeit und Viewport. Drei vorgegebene Viewports. Tatsächliche Glasfläche, Markierung, Fehlertext und gespeicherte Zustandsänderung belegen.
+- Netzwerk/Konsole/Assets/WebGL so vollständig wie möglich erfassen; Harnessfehler von Appfehlern unterscheiden. Kein physisches iPad/Safari und keine echte Lerngruppe behaupten, wenn nicht tatsächlich genutzt.
+- Eigene Ergebnisdateien exportieren und real importieren. Alte Originaldateien unverändert behalten. Ausgelieferte Laufzeitdateien mit endgültigem HEAD vergleichen; aktuellen PR-Status nennen.
+- Neuer Bericht: je Befund bestanden/nicht bestanden/offen, konkrete Restgrenzen, neue Commit-/Deployidentität und klare Mergeempfehlung. Die unabhängige menschliche Abnahme wird durch diesen Arbeitsbericht nicht ersetzt.
+
+ZIELKRITERIUM
+Schülerinnen und Schüler müssen im eigenen Aquarium sehen, verstehen, handeln, Veränderung beobachten, vergleichen und biologisch deuten können. Ein gelöstes Quiz und eine hohe Testzahl reichen nicht. Unterrichtswirksamkeit erst nach realer Erprobung mit Lernenden behaupten.

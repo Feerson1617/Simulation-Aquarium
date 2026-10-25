@@ -1,0 +1,200 @@
+{
+  "url": "http://127.0.0.1:8000/aquarium-simulation/?expert=1",
+  "commit": "24065fd6ec1692c53562083715cf5f4e8ebc1713",
+  "checks": [
+    {
+      "name": "JavaScript syntax",
+      "status": "passed",
+      "modules": 1
+    },
+    {
+      "name": "HTTP project subpath serves exact repository HTML",
+      "status": "passed",
+      "bytes": 21244552
+    },
+    {
+      "name": "Desktop start screen and WebGL",
+      "status": "passed",
+      "screenshot": "/tmp/coherent-release-readiness/results/20261022T095554.177881Z/desktop-start.png"
+    },
+    {
+      "name": "Free game: place 120 litre aquarium",
+      "status": "passed",
+      "snapshot": {
+        "day": 0,
+        "animals": 0,
+        "plants": 0,
+        "entities": 0,
+        "water": "fresh",
+        "params": {
+          "nh4": 0.015,
+          "no2": 0.015,
+          "no3": 12,
+          "po4": 0.4,
+          "co2": 5,
+          "fe": 0.08,
+          "oxygen": 7.5,
+          "ph": 7.15,
+          "temp": 22,
+          "salinity": 0,
+          "kh": 2.5,
+          "gh": 8,
+          "calcium": 60
+        },
+        "failed": false,
+        "stableDays": 0,
+        "deaths": [],
+        "offspring": [],
+        "catalogCount": 144,
+        "graphics": {
+          "graphicsProfile": "ipad",
+          "renderFrame": 47,
+          "textureBudget": {
+            "estimatedBytes": 1398102,
+            "sharedMaps": 1,
+            "kind": "RGBA + mip estimate; not a GPU measurement"
+          },
+          "visualRevision": "realism-1",
+          "drawCalls": 21,
+          "triangles": 1946,
+          "objects": 0,
+          "detailModels": 0
+        }
+      },
+      "screenshot": "/tmp/coherent-release-readiness/results/20261022T095554.177881Z/desktop-tank.png"
+    },
+    {
+      "name": "Plant and animal catalogs, insertion and 3D model loading",
+      "status": "passed",
+      "plant": "anubias",
+      "animal": "neon",
+      "snapshot": {
+        "day": 0,
+        "animals": 1,
+        "plants": 1,
+        "entities": 2,
+        "water": "fresh",
+        "params": {
+          "nh4": 0.015,
+          "no2": 0.015,
+          "no3": 12,
+          "po4": 0.4,
+          "co2": 5,
+          "fe": 0.08,
+          "oxygen": 7.5,
+          "ph": 7.15,
+          "temp": 22,
+          "salinity": 0,
+          "kh": 2.5,
+          "gh": 8,
+          "calcium": 60
+        },
+        "failed": false,
+        "stableDays": 0,
+        "deaths": [],
+        "offspring": [],
+        "catalogCount": 144,
+        "graphics": {
+          "graphicsProfile": "ipad",
+          "renderFrame": 77,
+          "textureBudget": {
+            "estimatedBytes": 4194306,
+            "sharedMaps": 3,
+            "kind": "RGBA + mip estimate; not a GPU measurement"
+          },
+          "visualRevision": "realism-1",
+          "drawCalls": 65,
+          "triangles": 11509,
+          "objects": 2,
+          "detailModels": 2
+        }
+      },
+      "screenshot": "/tmp/coherent-release-readiness/results/20261022T095554.177881Z/desktop-populated.png"
+    },
+    {
+      "name": "Water measurements and one simulated day",
+      "status": "passed"
+    },
+    {
+      "name": "Save export and localStorage restoration after reload",
+      "status": "passed"
+    },
+    {
+      "name": "Save file import into a fresh browser profile",
+      "status": "passed"
+    },
+    {
+      "name": "Tablet touch: tutorial start and aquarium placement",
+      "status": "passed",
+      "screenshot": "/tmp/coherent-release-readiness/results/20261022T095554.177881Z/tablet-tutorial.png"
+    },
+    {
+      "name": "Tablet touch: all eight tutorial stages completed",
+      "status": "passed",
+      "screenshot": "/tmp/coherent-release-readiness/results/20261022T095554.177881Z/tablet-tutorial-complete.png"
+    },
+    {
+      "name": "Tablet portrait resize and touch menu",
+      "status": "passed",
+      "screenshot": "/tmp/coherent-release-readiness/results/20261022T095554.177881Z/tablet-portrait.png"
+    },
+    {
+      "name": "No JavaScript errors, failed game requests or external runtime requests",
+      "status": "passed",
+      "missing_favicon": 0
+    },
+    {
+      "name": "Game file unchanged by validation",
+      "status": "passed"
+    }
+  ],
+  "page_errors": [],
+  "console_errors": [],
+  "warnings": [],
+  "external_requests": [],
+  "failed_requests": [],
+  "http_errors": [],
+  "browser": "154.0.8037.57",
+  "final_snapshot": {
+    "day": 7,
+    "animals": 0,
+    "plants": 1,
+    "entities": 1,
+    "water": "fresh",
+    "params": {
+      "nh4": 0,
+      "no2": 0,
+      "no3": 11.829005410371797,
+      "po4": 0.3920456763763227,
+      "co2": 3.375931589497958,
+      "fe": 0.07940112861375541,
+      "oxygen": 8.755695319445705,
+      "ph": 7.346592427217351,
+      "temp": 22,
+      "salinity": 0,
+      "kh": 2.49956715864247,
+      "gh": 8,
+      "calcium": 60
+    },
+    "failed": false,
+    "stableDays": 0,
+    "deaths": [],
+    "offspring": [],
+    "catalogCount": 144,
+    "graphics": {
+      "graphicsProfile": "ipad",
+      "renderFrame": 211,
+      "textureBudget": {
+        "estimatedBytes": 2796204,
+        "sharedMaps": 4,
+        "kind": "RGBA + mip estimate; not a GPU measurement"
+      },
+      "visualRevision": "realism-1",
+      "drawCalls": 71,
+      "triangles": 29782,
+      "objects": 1,
+      "detailModels": 1
+    }
+  },
+  "status": "passed"
+}

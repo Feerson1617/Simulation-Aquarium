@@ -78,7 +78,8 @@ function weighted(pool, p, environment) {
   return pool.at(-1);
 }
 function child(p, a, b) {
-  const loci = inheritGenotype(a, b, () => populationRandom(p));
+  const draws=[];
+  const loci = inheritGenotype(a, b, () => {const value=populationRandom(p);draws.push(value);return value;});
   return {
     uid: p.nextId++,
     sex: populationRandom(p) < 0.5 ? "♀" : "♂",
@@ -86,6 +87,7 @@ function child(p, a, b) {
     loci,
     phenotype: phenotypeFor("molly-mono", loci),
     parents: [a.uid, b.uid],
+    inheritedAlleles:[a.loci.A[Math.floor(draws[0]*2)],b.loci.A[Math.floor(draws[1]*2)]],
     generation: p.generation + 1,
   };
 }
@@ -290,6 +292,7 @@ export function validateLearningPopulation(raw) {
       loci: { A: [...alleles] },
       phenotype,
       parents,
+      ...(i.inheritedAlleles ? {inheritedAlleles:structuredClone(i.inheritedAlleles)} : {}),
       generation: integer(i.generation, 0, generation),
     };
   });
@@ -307,6 +310,12 @@ export function validateLearningPopulation(raw) {
       (byId.get(i.parents[0]).sex !== "♀" || byId.get(i.parents[1]).sex !== "♂")
     )
       throw new Error("Elternrollen widersprechen dem Modell.");
+  }
+  for(const i of archive) if(i.inheritedAlleles) {
+    const alleles=i.inheritedAlleles;
+    if(i.parents.length !== 2 || !Array.isArray(alleles) || alleles.length !== 2 ||
+       alleles.some((a,k)=>!byId.get(i.parents[k]).loci.A.includes(a)) || [...alleles].sort().join("") !== i.loci.A.join(""))
+      throw new Error("Weitergegebene Allele widersprechen Eltern oder Kind.");
   }
   const individuals = list(raw.individuals, 80).map((i) => {
     const item = byId.get(i?.uid);
@@ -409,4 +418,13 @@ export function validateLearningPopulation(raw) {
     history,
     events,
   };
+}
+
+/** Actual cohort only. Intermediate RNG state is deliberately not inferred. */
+export function populationCohort(population, generation) {
+  const counts=population?.history?.find(h=>h.generation===generation);
+  if (!counts) return null;
+  const individuals=population.archive.filter(i=>i.generation===generation);
+  if (individuals.length !== counts.n) return null;
+  return structuredClone({generation,individuals,counts});
 }

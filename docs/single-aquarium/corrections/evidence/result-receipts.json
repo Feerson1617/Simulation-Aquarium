@@ -1,0 +1,47 @@
+[
+  {
+    "file": "after/chromium/m6-result.json.gz",
+    "originalBytes": 226742,
+    "originalSHA256": "d622e2d13dc638731c6744db9c6e3630fc0a02dd9d2a1b30f689c15694aad442"
+  },
+  {
+    "file": "after/chromium/m5-result.json.gz",
+    "originalBytes": 2344401,
+    "originalSHA256": "3bf50261cb8d79a1f3725b288b8c10352c4600508d19e87939075a0d350a0f4f"
+  },
+  {
+    "file": "after/chromium/m4-result.json.gz",
+    "originalBytes": 1019030,
+    "originalSHA256": "4594de73796767a3282ef73b6199fdf21cb62c1b713b8f623626737775a124a4"
+  },
+  {
+    "file": "after/chromium/m3-result.json.gz",
+    "originalBytes": 96169,
+    "originalSHA256": "c88f34d281f32bca7ce5ead0b97c01f24e8fbe5d0609f34b5facb8fc601b5df1"
+  },
+  {
+    "file": "after/chromium/m2-result.json.gz",
+    "originalBytes": 228536,
+    "originalSHA256": "d6068096f82244951aa69d87ef8e2f7745152f134f826549f6d70ddc3ad0d5b0"
+  },
+  {
+    "file": "after/chromium/m1-result.json.gz",
+    "originalBytes": 405352,
+    "originalSHA256": "922b9df8b77394d0bebc53a7ec7b62686b8f58762b42bfddcbab27d5c8f275b8"
+  },
+  {
+    "file": "after/webkit-final/m5-result.json.gz",
+    "originalBytes": 2344375,
+    "originalSHA256": "81a48ff8e71d59e2d164573853740eb479f44ddd8f724f570334dfd5cc59e601"
+  },
+  {
+    "file": "after/webkit-final/m3-result.json.gz",
+    "originalBytes": 96157,
+    "originalSHA256": "3d6793374a5913381865736c617ff04f4df31f7f5bf9560c17d36f41a12dfe8e"
+  },
+  {
+    "file": "after/webkit-final/m1-result.json.gz",
+    "originalBytes": 405352,
+    "originalSHA256": "bfe0350e666cac3ac768dadcbbce95e0bb6a92711cc43a7f76aa6d78140dd543"
+  }
+]

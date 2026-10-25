@@ -1,0 +1,15 @@
+{
+  "commit": "9a9c7b31ef0c9ed400cb326680b69e6479411919",
+  "checks": [
+    "six real ecosystem tabs use the same actual state without advancing or rewriting it",
+    "filter: actual device edit persisted, focus remains reachable, no invented biology or elapsed day",
+    "light: actual device edit persisted, focus remains reachable, no invented biology or elapsed day",
+    "temperature: actual device edit persisted, focus remains reachable, no invented biology or elapsed day",
+    "expert device values and actual aquarium survive reload in their own scenario slot"
+  ],
+  "errors": [],
+  "console_errors": [],
+  "failed_requests": [],
+  "version": "26.5",
+  "status": "passed"
+}

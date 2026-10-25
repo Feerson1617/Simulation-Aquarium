@@ -2,12 +2,16 @@
 
 Deutschsprachiges Aquariumsimulationsspiel zum Aufbauen, Beobachten und Erforschen eines vereinfachten Ökosystems. Für Desktop-Browser und Touch-Bedienung entwickelt; statisch auf GitHub Pages unter `/Simulation-Aquarium/` nutzbar. Das Spiel und Teile seiner Inhalte wurden mit KI-Unterstützung erstellt.
 
-**Release-Freeze 1.0:** Die letzte Korrektur betrifft den Speicherbedarf der großen
-Offline-Datei bei Ansichtswechseln und den M1-Tipp im Tablet-Hochformat.
-[Aktueller Release-Bericht und Freigabegrenzen](docs/release-v1/REPORT.md),
-[Vorher-/Nachher-Bilder](docs/release-v1/REVIEW.html),
-[gezielte Prüfungen wiederholen](docs/release-v1/REPRODUCE.md).
-Die nachfolgenden älteren Abnahmen bleiben Nachweise ihrer jeweiligen Versionen.
+**Release-Kandidat 1.0: Webversion freigabefähig.** Die letzte Korrektur behebt
+den Tastaturfokus im M4-Elterndialog. M5/M6 sowie die vorgesehenen Modi und
+Speicherwege sind abschließend geprüft. Die große Standalone-Datei bleibt ein
+eingeschränkt freigegebenes Backup; echte iPad-/Safari-Hardware wurde nicht geprüft.
+[Abschlussbericht und Freigabegrenzen](docs/release-final/REPORT.md),
+[Originalbilder](docs/release-final/REVIEW.html),
+[Einsatz und manueller Merge](docs/release-final/CHECKLIST.md),
+[Prüfungen reproduzieren](docs/release-final/REPRODUCE.md).
+Die [vorherige Release-Prüfung](docs/release-v1/REPORT.md) und die nachfolgenden
+älteren Abnahmen bleiben Nachweise ihrer jeweiligen Versionen.
 
 ## Ein Aquarium, sechs Kernfragen
 

@@ -1,0 +1,1931 @@
+{
+  "engine": "chromium",
+  "commit": "9a9c7b31ef0c9ed400cb326680b69e6479411919",
+  "checks": [
+    {
+      "viewport": [
+        1366,
+        960
+      ],
+      "input": "mouse",
+      "species": "waterweed",
+      "uid": 3,
+      "bounds": {
+        "left": 755.0752462695215,
+        "right": 890.4970260199592,
+        "top": 395.8430631093288,
+        "bottom": 633.6141672143976,
+        "width": 135.42177975043774,
+        "height": 237.77110410506884,
+        "x": 822.7861361447403,
+        "y": 514.7286151618632
+      },
+      "card": "Wasserpest\nSchließen\n\nAusgewählt im Aquarium: Wasserpest · 3\n\nDiese Pflanze braucht Licht und Stoffe aus dem Wasser zum Wachsen.\n\nTemperaturbereich im Katalog: 20 bis 28 Grad.\n\nDieses Lebewesen gehört zu deinem aktuellen Aquarium.\n\nMit Pinzette bewegen",
+      "marker": true
+    },
+    {
+      "viewport": [
+        1366,
+        960
+      ],
+      "input": "mouse",
+      "species": "guppy",
+      "uid": 12,
+      "bounds": {
+        "left": 1015.8873143210686,
+        "right": 1040.3962261279312,
+        "top": 465.2195680364782,
+        "bottom": 489.3954927152544,
+        "width": 24.508911806862557,
+        "height": 24.175924678776198,
+        "x": 1028.1417702244999,
+        "y": 477.30753037586635
+      },
+      "card": "Guppy\nSchließen\n\nAusgewählt im Aquarium: Guppy · 12\n\nDieses Tier braucht passende Nahrung und Wasserbedingungen.\n\nTemperaturbereich im Katalog: 22 bis 28 Grad.\n\nDieses Lebewesen gehört zu deinem aktuellen Aquarium.\n\nMit Pinzette bewegen",
+      "marker": true
+    },
+    {
+      "viewport": [
+        1366,
+        960
+      ],
+      "input": "mouse",
+      "emptySpaceNoFalseSelection": true,
+      "point": [
+        683.0,
+        274.76093712803134
+      ]
+    },
+    {
+      "viewport": [
+        1366,
+        960
+      ],
+      "input": "mouse",
+      "emptySpaceNoFalseSelection": true,
+      "point": [
+        1024.5,
+        274.76093712803134
+      ]
+    },
+    {
+      "viewport": [
+        1366,
+        960
+      ],
+      "input": "touch",
+      "species": "waterweed",
+      "uid": 3,
+      "bounds": {
+        "left": 755.0752462695216,
+        "right": 890.4970260199592,
+        "top": 395.84306310932874,
+        "bottom": 633.6141672143974,
+        "width": 135.42177975043762,
+        "height": 237.77110410506867,
+        "x": 822.7861361447403,
+        "y": 514.7286151618631
+      },
+      "card": "Wasserpest\nSchließen\n\nAusgewählt im Aquarium: Wasserpest · 3\n\nDiese Pflanze braucht Licht und Stoffe aus dem Wasser zum Wachsen.\n\nTemperaturbereich im Katalog: 20 bis 28 Grad.\n\nDieses Lebewesen gehört zu deinem aktuellen Aquarium.\n\nMit Pinzette bewegen",
+      "marker": true
+    },
+    {
+      "viewport": [
+        1366,
+        960
+      ],
+      "input": "touch",
+      "species": "guppy",
+      "uid": 12,
+      "bounds": {
+        "left": 1007.793111829026,
+        "right": 1036.6811677444305,
+        "top": 465.93959175081477,
+        "bottom": 489.5210641614927,
+        "width": 28.888055915404493,
+        "height": 23.581472410677918,
+        "x": 1022.2371397867282,
+        "y": 477.7303279561537
+      },
+      "card": "Guppy\nSchließen\n\nAusgewählt im Aquarium: Guppy · 12\n\nDieses Tier braucht passende Nahrung und Wasserbedingungen.\n\nTemperaturbereich im Katalog: 22 bis 28 Grad.\n\nDieses Lebewesen gehört zu deinem aktuellen Aquarium.\n\nMit Pinzette bewegen",
+      "marker": true
+    },
+    {
+      "viewport": [
+        1366,
+        960
+      ],
+      "input": "touch",
+      "emptySpaceNoFalseSelection": true,
+      "point": [
+        683.0,
+        274.76093712803134
+      ]
+    },
+    {
+      "viewport": [
+        1366,
+        960
+      ],
+      "input": "touch",
+      "emptySpaceNoFalseSelection": true,
+      "point": [
+        1024.5,
+        274.76093712803134
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "atUTC": "2026-10-25T06:11:11.899634+00:00",
+      "input": "mouse",
+      "point": {
+        "x": 822.7861361447403,
+        "y": 514.7286151618632
+      },
+      "intendedUid": 3,
+      "actualUid": 3
+    },
+    {
+      "atUTC": "2026-10-25T06:11:14.769719+00:00",
+      "input": "mouse",
+      "point": {
+        "x": 1028.1417702244999,
+        "y": 477.30753037586635
+      },
+      "intendedUid": 12,
+      "actualUid": 12
+    },
+    {
+      "atUTC": "2026-10-25T06:11:15.854117+00:00",
+      "input": "mouse",
+      "point": {
+        "x": 683.0,
+        "y": 274.76093712803134
+      }
+    },
+    {
+      "atUTC": "2026-10-25T06:11:15.895587+00:00",
+      "input": "mouse",
+      "point": {
+        "x": 1024.5,
+        "y": 274.76093712803134
+      }
+    },
+    {
+      "atUTC": "2026-10-25T06:11:18.555639+00:00",
+      "input": "touch",
+      "point": {
+        "x": 822.7861361447403,
+        "y": 514.7286151618631
+      },
+      "intendedUid": 3,
+      "actualUid": 3
+    },
+    {
+      "atUTC": "2026-10-25T06:11:22.694402+00:00",
+      "input": "touch",
+      "point": {
+        "x": 1022.2371397867282,
+        "y": 477.7303279561537
+      },
+      "intendedUid": 12,
+      "actualUid": 12
+    },
+    {
+      "atUTC": "2026-10-25T06:11:26.747499+00:00",
+      "input": "touch",
+      "point": {
+        "x": 683.0,
+        "y": 274.76093712803134
+      }
+    },
+    {
+      "atUTC": "2026-10-25T06:11:29.452443+00:00",
+      "input": "touch",
+      "point": {
+        "x": 1024.5,
+        "y": 274.76093712803134
+      }
+    },
+    {
+      "atUTC": "2026-10-25T06:11:35.883709+00:00",
+      "input": "mouse",
+      "point": {
+        "x": 822.7861361447403,
+        "y": 514.7286151618631
+      },
+      "intendedUid": 3,
+      "actualUid": 12
+    },
+    {
+      "atUTC": "2026-10-25T06:11:35.929277+00:00",
+      "input": "mouse",
+      "point": {
+        "x": 1063.7939680418483,
+        "y": 502.5969485604875
+      },
+      "intendedUid": 4,
+      "actualUid": 12
+    },
+    {
+      "atUTC": "2026-10-25T06:11:35.975728+00:00",
+      "input": "mouse",
+      "point": {
+        "x": 769.1688027438059,
+        "y": 497.50485808763824
+      },
+      "intendedUid": 5,
+      "actualUid": 12
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "version": "154.0.8037.57",
+  "status": "failed",
+  "failure": "(768, 1024, 'mouse', 'waterweed')",
+  "last": {
+    "presentation": {
+      "glass": {
+        "left": 19.999997420569457,
+        "right": 748.0000025794307,
+        "top": 272.8871935001853,
+        "bottom": 616.9928064998147,
+        "width": 728.0000051588612,
+        "height": 344.10561299962944,
+        "x": 384.00000000000006,
+        "y": 444.94
+      },
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "camera": [
+        1.44112058697201,
+        2.6862139692196796,
+        12.009338224766763
+      ],
+      "selection": 12,
+      "lastPick": {
+        "uid": 12,
+        "input": "touch",
+        "x": 1022.2371215820312,
+        "y": 477.7303161621094,
+        "method": "mesh"
+      },
+      "markerVisible": true,
+      "objects": [
+        {
+          "uid": 1,
+          "bounds": {
+            "left": 408.56780045921795,
+            "right": 493.1429177453011,
+            "top": 402.30854644074054,
+            "bottom": 553.1708004020791,
+            "width": 84.57511728608313,
+            "height": 150.86225396133852,
+            "x": 450.8553591022595,
+            "y": 477.7396734214098
+          }
+        },
+        {
+          "uid": 3,
+          "bounds": {
+            "left": 272.70597148473985,
+            "right": 385.4798420601193,
+            "top": 361.1783305270942,
+            "bottom": 560.7476292615297,
+            "width": 112.77387057537948,
+            "height": 199.5692987344355,
+            "x": 329.0929067724296,
+            "y": 460.96297989431196
+          }
+        },
+        {
+          "uid": 4,
+          "bounds": {
+            "left": 477.23331291762,
+            "right": 584.0403339244597,
+            "top": 348.34214053681023,
+            "bottom": 553.2910799838927,
+            "width": 106.80702100683965,
+            "height": 204.94893944708247,
+            "x": 530.6368234210398,
+            "y": 450.81661026035147
+          }
+        },
+        {
+          "uid": 5,
+          "bounds": {
+            "left": 226.74318386401586,
+            "right": 338.6537545225275,
+            "top": 349.97827822516024,
+            "bottom": 543.5506512280941,
+            "width": 111.91057065851163,
+            "height": 193.5723730029339,
+            "x": 282.69846919327165,
+            "y": 446.7644647266272
+          }
+        },
+        {
+          "uid": 7,
+          "bounds": {
+            "left": 563.5335380123518,
+            "right": 639.5604560830575,
+            "top": 502.62109430507786,
+            "bottom": 566.7355261921172,
+            "width": 76.02691807070573,
+            "height": 64.1144318870393,
+            "x": 601.5469970477046,
+            "y": 534.6783102485975
+          }
+        },
+        {
+          "uid": 9,
+          "bounds": {
+            "left": 34.18511092547202,
+            "right": 260.8305783546544,
+            "top": 304.84660435660203,
+            "bottom": 566.2099717592574,
+            "width": 226.64546742918236,
+            "height": 261.3633674026554,
+            "x": 147.5078446400632,
+            "y": 435.52828805792973
+          }
+        },
+        {
+          "uid": 12,
+          "bounds": {
+            "left": 454.4306923671447,
+            "right": 483.4217747309682,
+            "top": 422.79405238009804,
+            "bottom": 441.7236560283135,
+            "width": 28.991082363823523,
+            "height": 18.929603648215448,
+            "x": 468.9262335490564,
+            "y": 432.25885420420576
+          }
+        },
+        {
+          "uid": 13,
+          "bounds": {
+            "left": 289.9038088110764,
+            "right": 305.04143129073884,
+            "top": 423.4801392295051,
+            "bottom": 446.05727423035864,
+            "width": 15.137622479662468,
+            "height": 22.57713500085356,
+            "x": 297.4726200509076,
+            "y": 434.76870672993186
+          }
+        },
+        {
+          "uid": 14,
+          "bounds": {
+            "left": 283.0473156250109,
+            "right": 312.6055139494525,
+            "top": 447.2314341642217,
+            "bottom": 465.4272136834556,
+            "width": 29.55819832444155,
+            "height": 18.195779519233895,
+            "x": 297.82641478723167,
+            "y": 456.3293239238386
+          }
+        },
+        {
+          "uid": 15,
+          "bounds": {
+            "left": 439.37910719900515,
+            "right": 486.695831836607,
+            "top": 447.33981527109404,
+            "bottom": 487.0500330166085,
+            "width": 47.31672463760185,
+            "height": 39.710217745514456,
+            "x": 463.0374695178061,
+            "y": 467.19492414385127
+          }
+        },
+        {
+          "uid": 16,
+          "bounds": {
+            "left": 462.6338200265553,
+            "right": 491.53340198867187,
+            "top": 386.6094337414088,
+            "bottom": 404.7210430963092,
+            "width": 28.899581962116542,
+            "height": 18.111609354900395,
+            "x": 477.0836110076136,
+            "y": 395.66523841885896
+          }
+        },
+        {
+          "uid": 17,
+          "bounds": {
+            "left": 257.59300702118577,
+            "right": 282.56427079224784,
+            "top": 379.4189791744266,
+            "bottom": 399.6990926921273,
+            "width": 24.97126377106207,
+            "height": 20.28011351770067,
+            "x": 270.07863890671683,
+            "y": 389.55903593327696
+          }
+        },
+        {
+          "uid": 18,
+          "bounds": {
+            "left": 250.70207717921488,
+            "right": 305.78660144033995,
+            "top": 537.0413165260147,
+            "bottom": 560.5373756265367,
+            "width": 55.08452426112507,
+            "height": 23.49605910052196,
+            "x": 278.2443393097774,
+            "y": 548.7893460762757
+          }
+        },
+        {
+          "uid": 19,
+          "bounds": {
+            "left": 194.13316148556936,
+            "right": 225.97344060120327,
+            "top": 502.77889219753234,
+            "bottom": 524.7144590284446,
+            "width": 31.840279115633905,
+            "height": 21.93556683091225,
+            "x": 210.0533010433863,
+            "y": 513.7466756129885
+          }
+        },
+        {
+          "uid": 20,
+          "bounds": {
+            "left": 599.5003128354772,
+            "right": 652.9658697412497,
+            "top": 519.4704430670548,
+            "bottom": 540.4833397356856,
+            "width": 53.46555690577247,
+            "height": 21.012896668630788,
+            "x": 626.2330912883634,
+            "y": 529.9768914013703
+          }
+        },
+        {
+          "uid": 21,
+          "bounds": {
+            "left": 105.0066774984803,
+            "right": 171.99068613424942,
+            "top": 541.0481876531037,
+            "bottom": 565.3046318110556,
+            "width": 66.98400863576911,
+            "height": 24.256444157951933,
+            "x": 138.49868181636486,
+            "y": 553.1764097320797
+          }
+        },
+        {
+          "uid": 22,
+          "bounds": {
+            "left": 547.4356427137202,
+            "right": 558.1470630763714,
+            "top": 519.7762254381731,
+            "bottom": 537.5771856993604,
+            "width": 10.71142036265121,
+            "height": 17.800960261187242,
+            "x": 552.7913528950457,
+            "y": 528.6767055687667
+          }
+        },
+        {
+          "uid": 23,
+          "bounds": {
+            "left": 437.5204405415925,
+            "right": 462.7574337278717,
+            "top": 546.8207741280371,
+            "bottom": 568.4708102657735,
+            "width": 25.23699318627922,
+            "height": 21.65003613773638,
+            "x": 450.13893713473215,
+            "y": 557.6457921969053
+          }
+        },
+        {
+          "uid": 24,
+          "bounds": {
+            "left": 234.75263438052883,
+            "right": 261.31933276625506,
+            "top": 539.1461672980123,
+            "bottom": 558.8967148980074,
+            "width": 26.566698385726227,
+            "height": 19.750547599995116,
+            "x": 248.03598357339195,
+            "y": 549.0214410980099
+          }
+        }
+      ]
+    },
+    "screen": "classroom",
+    "session": {
+      "version": 1,
+      "type": "aquarium-classroom-investigation",
+      "mission": "research-8",
+      "revision": "one-aquarium-lessons-v1",
+      "id": "7a1a6018-6785-49de-9be6-5faba1a8e919",
+      "attemptId": "1fe87c71-343f-407e-91a8-f5be3cb72491",
+      "stage": "free",
+      "tank": {
+        "version": 1,
+        "chemistry": {
+          "version": 1,
+          "ammoniaPool": "tan-nh4-equivalent-v1"
+        },
+        "seed": 47291,
+        "nextId": 25,
+        "day": 45.25,
+        "liters": 180,
+        "water": "fresh",
+        "filter": "external300",
+        "light": "basic",
+        "substrate": "sand",
+        "hours": 8,
+        "intensity": 80,
+        "flow": 75,
+        "heater": true,
+        "setTemp": 25,
+        "air": true,
+        "skimmer": false,
+        "co2Dose": 3,
+        "feedRate": 0.65,
+        "autoFeed": true,
+        "params": {
+          "nh4": 0.015,
+          "no2": 0.015,
+          "no3": 12,
+          "po4": 0.4,
+          "co2": 8,
+          "fe": 0.08,
+          "oxygen": 7.8,
+          "ph": 7.15,
+          "temp": 25,
+          "salinity": 0,
+          "kh": 2.5,
+          "gh": 12,
+          "calcium": 60
+        },
+        "bacteria": 0.85,
+        "bacteria2": 0.82,
+        "detritus": 0.35,
+        "algae": 0.1,
+        "entities": [
+          {
+            "uid": 1,
+            "species": "anubias",
+            "x": 0.6752526538912207,
+            "z": -0.0743689581751823,
+            "rotation": 4.503158909655608,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.6626481435494497,
+            "age": 30,
+            "sex": "♀",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          },
+          {
+            "uid": 3,
+            "species": "waterweed",
+            "x": -0.6259306988213211,
+            "z": 0.25110032632946966,
+            "rotation": 5.34761901494054,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.6448826230829582,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          },
+          {
+            "uid": 4,
+            "species": "waterweed",
+            "x": 1.4877068500965833,
+            "z": -0.3168686185032129,
+            "rotation": 2.5296104046705024,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.8604146019089967,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          },
+          {
+            "uid": 5,
+            "species": "waterweed",
+            "x": -1.2624803386162966,
+            "z": -0.5735009789466858,
+            "rotation": 0.9814335449814505,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.8733964000130072,
+            "age": 30,
+            "sex": "♀",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          },
+          {
+            "uid": 7,
+            "species": "javamoss",
+            "x": 2.24,
+            "z": 0.26,
+            "rotation": 4.91470754727587,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.6040890735341236,
+            "age": 30,
+            "sex": "♀",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          },
+          {
+            "uid": 9,
+            "species": "spiderwood",
+            "x": -2.5599999999999996,
+            "z": 0.13718750000000002,
+            "rotation": 1.5707963267948966,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.6938406915636733,
+            "age": 30,
+            "sex": "♀",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null,
+            "aquascapePlaced": true
+          },
+          {
+            "uid": 12,
+            "species": "guppy",
+            "x": -2.7061880788533017,
+            "z": 0.03771078921854496,
+            "rotation": 0.5397256178867256,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.862468290142715,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null,
+            "variant": "multicolor",
+            "genetics": {
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                12
+              ],
+              "founder": true,
+              "bornDay": null
+            }
+          },
+          {
+            "uid": 13,
+            "species": "guppy",
+            "x": 1.7659024929162115,
+            "z": -1.0274639094248414,
+            "rotation": 6.079610103226968,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.6219722993904725,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null,
+            "variant": "multicolor",
+            "genetics": {
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                13
+              ],
+              "founder": true,
+              "bornDay": null
+            }
+          },
+          {
+            "uid": 14,
+            "species": "guppy",
+            "x": -1.3697179249720648,
+            "z": -1.0606648474931717,
+            "rotation": 1.5915308383085882,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.6658469618763775,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null,
+            "variant": "multicolor",
+            "genetics": {
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                14
+              ],
+              "founder": true,
+              "bornDay": null
+            }
+          },
+          {
+            "uid": 15,
+            "species": "guppy",
+            "x": -0.9735607304610312,
+            "z": -0.16428951155394314,
+            "rotation": 5.389716356498645,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.7647371066501364,
+            "age": 30,
+            "sex": "♀",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null,
+            "variant": "multicolor",
+            "genetics": {
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                15
+              ],
+              "founder": true,
+              "bornDay": null
+            }
+          },
+          {
+            "uid": 16,
+            "species": "guppy",
+            "x": 1.3533162955427542,
+            "z": 0.2640925761312246,
+            "rotation": 0.18158405537749145,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.7055864752270281,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null,
+            "variant": "multicolor",
+            "genetics": {
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                16
+              ],
+              "founder": true,
+              "bornDay": null
+            }
+          },
+          {
+            "uid": 17,
+            "species": "guppy",
+            "x": 0.7288092125672847,
+            "z": -0.6750884028151631,
+            "rotation": 3.82834480766452,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.7918670385377481,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null,
+            "variant": "multicolor",
+            "genetics": {
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                17
+              ],
+              "founder": true,
+              "bornDay": null
+            }
+          },
+          {
+            "uid": 18,
+            "species": "amanoshrimp",
+            "x": -1.1743553463602439,
+            "z": 0.639479374140501,
+            "rotation": 0.8369202829163208,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.6257575240451843,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          },
+          {
+            "uid": 19,
+            "species": "amanoshrimp",
+            "x": -2.2479799957945943,
+            "z": -1.136345954798162,
+            "rotation": 4.723698713937617,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.634987160260789,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          },
+          {
+            "uid": 20,
+            "species": "amanoshrimp",
+            "x": 2.4778124048607424,
+            "z": -0.8764037769287825,
+            "rotation": 2.6112918136638377,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.6286911237984896,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          },
+          {
+            "uid": 21,
+            "species": "amanoshrimp",
+            "x": -2.422454209299758,
+            "z": 1.1806425472721458,
+            "rotation": 3.749804991324772,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.8399773692945018,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          },
+          {
+            "uid": 22,
+            "species": "ramshorn",
+            "x": 1.7655955700902268,
+            "z": -0.757231293618679,
+            "rotation": 1.537495444666842,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.6745954252313823,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          },
+          {
+            "uid": 23,
+            "species": "ramshorn",
+            "x": 0.6473355670459569,
+            "z": 1.1053575368598103,
+            "rotation": 5.510353514396497,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.7278204407310113,
+            "age": 30,
+            "sex": "♀",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          },
+          {
+            "uid": 24,
+            "species": "ramshorn",
+            "x": -1.4277974119177088,
+            "z": 0.7903861206024885,
+            "rotation": 3.687601456783696,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.7134708068333566,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          }
+        ],
+        "events": [
+          {
+            "day": 45,
+            "title": "Spielstand geladen",
+            "text": "Dein Becken wurde wiederhergestellt. Prüfe die Wasserwerte erneut.",
+            "type": "info",
+            "cause": null
+          }
+        ],
+        "measurements": {},
+        "history": [],
+        "stableDays": 0,
+        "failed": false,
+        "won": false,
+        "hadLife": true,
+        "deaths": [],
+        "offspring": [],
+        "quizDone": false,
+        "feedReserve": 0,
+        "topup": true,
+        "selected": null,
+        "tankPlaced": true,
+        "mode": "free",
+        "tutorialStep": 0,
+        "tutorialReadSpecies": false,
+        "tutorialCompleted": false,
+        "ownedEquipment": [
+          "heater",
+          "air"
+        ],
+        "foodType": "flakes",
+        "failureCause": "nutrients",
+        "genetics": {
+          "version": 1,
+          "enabled": true,
+          "pairs": {},
+          "pedigree": {
+            "12": {
+              "uid": 12,
+              "species": "guppy",
+              "sex": "♂",
+              "variant": "multicolor",
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                12
+              ],
+              "founder": true,
+              "bornDay": null,
+              "status": "lebend",
+              "recordedDay": 45
+            },
+            "13": {
+              "uid": 13,
+              "species": "guppy",
+              "sex": "♂",
+              "variant": "multicolor",
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                13
+              ],
+              "founder": true,
+              "bornDay": null,
+              "status": "lebend",
+              "recordedDay": 45
+            },
+            "14": {
+              "uid": 14,
+              "species": "guppy",
+              "sex": "♂",
+              "variant": "multicolor",
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                14
+              ],
+              "founder": true,
+              "bornDay": null,
+              "status": "lebend",
+              "recordedDay": 45
+            },
+            "15": {
+              "uid": 15,
+              "species": "guppy",
+              "sex": "♀",
+              "variant": "multicolor",
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                15
+              ],
+              "founder": true,
+              "bornDay": null,
+              "status": "lebend",
+              "recordedDay": 45
+            },
+            "16": {
+              "uid": 16,
+              "species": "guppy",
+              "sex": "♂",
+              "variant": "multicolor",
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                16
+              ],
+              "founder": true,
+              "bornDay": null,
+              "status": "lebend",
+              "recordedDay": 45
+            },
+            "17": {
+              "uid": 17,
+              "species": "guppy",
+              "sex": "♂",
+              "variant": "multicolor",
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                17
+              ],
+              "founder": true,
+              "bornDay": null,
+              "status": "lebend",
+              "recordedDay": 45
+            }
+          },
+          "clutches": [],
+          "notes": "",
+          "lastProcessedDay": 45
+        },
+        "spatial": {
+          "version": 1,
+          "unit": "cm",
+          "positions": "tank-normalized-v1",
+          "originalOverrides": {},
+          "relocations": [
+            {
+              "uid": 7,
+              "from": {
+                "x": 2.0103169396053997,
+                "z": 0.2236112885177136
+              },
+              "to": {
+                "x": 2.24,
+                "z": 0.26
+              }
+            }
+          ],
+          "unplaced": [],
+          "layout": "180:external300:true:false:true:canopy-v2"
+        },
+        "ecology": {
+          "version": 1,
+          "heterotrophs": 0.5,
+          "microfauna": 0.22,
+          "plankton": 0.12,
+          "nitrogenGas": 0,
+          "lastFlux": null,
+          "trace": []
+        },
+        "learning": {
+          "version": 2,
+          "grade": 8,
+          "mode": "free",
+          "mission": null
+        }
+      },
+      "baseline": {
+        "version": 1,
+        "chemistry": {
+          "version": 1,
+          "ammoniaPool": "tan-nh4-equivalent-v1"
+        },
+        "seed": 47291,
+        "nextId": 25,
+        "day": 45.25,
+        "liters": 180,
+        "water": "fresh",
+        "filter": "external300",
+        "light": "basic",
+        "substrate": "sand",
+        "hours": 8,
+        "intensity": 80,
+        "flow": 75,
+        "heater": true,
+        "setTemp": 25,
+        "air": true,
+        "skimmer": false,
+        "co2Dose": 3,
+        "feedRate": 0.65,
+        "autoFeed": true,
+        "params": {
+          "nh4": 0.015,
+          "no2": 0.015,
+          "no3": 12,
+          "po4": 0.4,
+          "co2": 8,
+          "fe": 0.08,
+          "oxygen": 7.8,
+          "ph": 7.15,
+          "temp": 25,
+          "salinity": 0,
+          "kh": 2.5,
+          "gh": 12,
+          "calcium": 60
+        },
+        "bacteria": 0.85,
+        "bacteria2": 0.82,
+        "detritus": 0.35,
+        "algae": 0.1,
+        "entities": [
+          {
+            "uid": 1,
+            "species": "anubias",
+            "x": 0.6752526538912207,
+            "z": -0.0743689581751823,
+            "rotation": 4.503158909655608,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.6626481435494497,
+            "age": 30,
+            "sex": "♀",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          },
+          {
+            "uid": 3,
+            "species": "waterweed",
+            "x": -0.6259306988213211,
+            "z": 0.25110032632946966,
+            "rotation": 5.34761901494054,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.6448826230829582,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          },
+          {
+            "uid": 4,
+            "species": "waterweed",
+            "x": 1.4877068500965833,
+            "z": -0.3168686185032129,
+            "rotation": 2.5296104046705024,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.8604146019089967,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          },
+          {
+            "uid": 5,
+            "species": "waterweed",
+            "x": -1.2624803386162966,
+            "z": -0.5735009789466858,
+            "rotation": 0.9814335449814505,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.8733964000130072,
+            "age": 30,
+            "sex": "♀",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          },
+          {
+            "uid": 7,
+            "species": "javamoss",
+            "x": 2.24,
+            "z": 0.26,
+            "rotation": 4.91470754727587,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.6040890735341236,
+            "age": 30,
+            "sex": "♀",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          },
+          {
+            "uid": 9,
+            "species": "spiderwood",
+            "x": -2.5599999999999996,
+            "z": 0.13718750000000002,
+            "rotation": 1.5707963267948966,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.6938406915636733,
+            "age": 30,
+            "sex": "♀",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null,
+            "aquascapePlaced": true
+          },
+          {
+            "uid": 12,
+            "species": "guppy",
+            "x": -2.7061880788533017,
+            "z": 0.03771078921854496,
+            "rotation": 0.5397256178867256,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.862468290142715,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null,
+            "variant": "multicolor",
+            "genetics": {
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                12
+              ],
+              "founder": true,
+              "bornDay": null
+            }
+          },
+          {
+            "uid": 13,
+            "species": "guppy",
+            "x": 1.7659024929162115,
+            "z": -1.0274639094248414,
+            "rotation": 6.079610103226968,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.6219722993904725,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null,
+            "variant": "multicolor",
+            "genetics": {
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                13
+              ],
+              "founder": true,
+              "bornDay": null
+            }
+          },
+          {
+            "uid": 14,
+            "species": "guppy",
+            "x": -1.3697179249720648,
+            "z": -1.0606648474931717,
+            "rotation": 1.5915308383085882,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.6658469618763775,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null,
+            "variant": "multicolor",
+            "genetics": {
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                14
+              ],
+              "founder": true,
+              "bornDay": null
+            }
+          },
+          {
+            "uid": 15,
+            "species": "guppy",
+            "x": -0.9735607304610312,
+            "z": -0.16428951155394314,
+            "rotation": 5.389716356498645,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.7647371066501364,
+            "age": 30,
+            "sex": "♀",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null,
+            "variant": "multicolor",
+            "genetics": {
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                15
+              ],
+              "founder": true,
+              "bornDay": null
+            }
+          },
+          {
+            "uid": 16,
+            "species": "guppy",
+            "x": 1.3533162955427542,
+            "z": 0.2640925761312246,
+            "rotation": 0.18158405537749145,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.7055864752270281,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null,
+            "variant": "multicolor",
+            "genetics": {
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                16
+              ],
+              "founder": true,
+              "bornDay": null
+            }
+          },
+          {
+            "uid": 17,
+            "species": "guppy",
+            "x": 0.7288092125672847,
+            "z": -0.6750884028151631,
+            "rotation": 3.82834480766452,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.7918670385377481,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null,
+            "variant": "multicolor",
+            "genetics": {
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                17
+              ],
+              "founder": true,
+              "bornDay": null
+            }
+          },
+          {
+            "uid": 18,
+            "species": "amanoshrimp",
+            "x": -1.1743553463602439,
+            "z": 0.639479374140501,
+            "rotation": 0.8369202829163208,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.6257575240451843,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          },
+          {
+            "uid": 19,
+            "species": "amanoshrimp",
+            "x": -2.2479799957945943,
+            "z": -1.136345954798162,
+            "rotation": 4.723698713937617,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.634987160260789,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          },
+          {
+            "uid": 20,
+            "species": "amanoshrimp",
+            "x": 2.4778124048607424,
+            "z": -0.8764037769287825,
+            "rotation": 2.6112918136638377,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.6286911237984896,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          },
+          {
+            "uid": 21,
+            "species": "amanoshrimp",
+            "x": -2.422454209299758,
+            "z": 1.1806425472721458,
+            "rotation": 3.749804991324772,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.8399773692945018,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          },
+          {
+            "uid": 22,
+            "species": "ramshorn",
+            "x": 1.7655955700902268,
+            "z": -0.757231293618679,
+            "rotation": 1.537495444666842,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.6745954252313823,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          },
+          {
+            "uid": 23,
+            "species": "ramshorn",
+            "x": 0.6473355670459569,
+            "z": 1.1053575368598103,
+            "rotation": 5.510353514396497,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.7278204407310113,
+            "age": 30,
+            "sex": "♀",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          },
+          {
+            "uid": 24,
+            "species": "ramshorn",
+            "x": -1.4277974119177088,
+            "z": 0.7903861206024885,
+            "rotation": 3.687601456783696,
+            "scale": 1,
+            "health": 100,
+            "biomass": 0.7134708068333566,
+            "age": 30,
+            "sex": "♂",
+            "genotype": null,
+            "pregnancy": 0,
+            "acclimation": 0,
+            "dead": false,
+            "cause": null
+          }
+        ],
+        "events": [
+          {
+            "day": 45,
+            "title": "Spielstand geladen",
+            "text": "Dein Becken wurde wiederhergestellt. Prüfe die Wasserwerte erneut.",
+            "type": "info",
+            "cause": null
+          }
+        ],
+        "measurements": {},
+        "history": [],
+        "stableDays": 0,
+        "failed": false,
+        "won": false,
+        "hadLife": true,
+        "deaths": [],
+        "offspring": [],
+        "quizDone": false,
+        "feedReserve": 0,
+        "topup": true,
+        "selected": null,
+        "tankPlaced": true,
+        "mode": "free",
+        "tutorialStep": 0,
+        "tutorialReadSpecies": false,
+        "tutorialCompleted": false,
+        "ownedEquipment": [
+          "heater",
+          "air"
+        ],
+        "foodType": "flakes",
+        "failureCause": "nutrients",
+        "genetics": {
+          "version": 1,
+          "enabled": true,
+          "pairs": {},
+          "pedigree": {
+            "12": {
+              "uid": 12,
+              "species": "guppy",
+              "sex": "♂",
+              "variant": "multicolor",
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                12
+              ],
+              "founder": true,
+              "bornDay": null,
+              "status": "lebend",
+              "recordedDay": 45
+            },
+            "13": {
+              "uid": 13,
+              "species": "guppy",
+              "sex": "♂",
+              "variant": "multicolor",
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                13
+              ],
+              "founder": true,
+              "bornDay": null,
+              "status": "lebend",
+              "recordedDay": 45
+            },
+            "14": {
+              "uid": 14,
+              "species": "guppy",
+              "sex": "♂",
+              "variant": "multicolor",
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                14
+              ],
+              "founder": true,
+              "bornDay": null,
+              "status": "lebend",
+              "recordedDay": 45
+            },
+            "15": {
+              "uid": 15,
+              "species": "guppy",
+              "sex": "♀",
+              "variant": "multicolor",
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                15
+              ],
+              "founder": true,
+              "bornDay": null,
+              "status": "lebend",
+              "recordedDay": 45
+            },
+            "16": {
+              "uid": 16,
+              "species": "guppy",
+              "sex": "♂",
+              "variant": "multicolor",
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                16
+              ],
+              "founder": true,
+              "bornDay": null,
+              "status": "lebend",
+              "recordedDay": 45
+            },
+            "17": {
+              "uid": 17,
+              "species": "guppy",
+              "sex": "♂",
+              "variant": "multicolor",
+              "model": null,
+              "loci": null,
+              "parents": [],
+              "generation": 0,
+              "filial": "P",
+              "roots": [
+                17
+              ],
+              "founder": true,
+              "bornDay": null,
+              "status": "lebend",
+              "recordedDay": 45
+            }
+          },
+          "clutches": [],
+          "notes": "",
+          "lastProcessedDay": 45
+        },
+        "spatial": {
+          "version": 1,
+          "unit": "cm",
+          "positions": "tank-normalized-v1",
+          "originalOverrides": {},
+          "relocations": [
+            {
+              "uid": 7,
+              "from": {
+                "x": 2.0103169396053997,
+                "z": 0.2236112885177136
+              },
+              "to": {
+                "x": 2.24,
+                "z": 0.26
+              }
+            }
+          ],
+          "unplaced": [],
+          "layout": "180:external300:true:false:true:canopy-v2"
+        },
+        "ecology": {
+          "version": 1,
+          "heterotrophs": 0.5,
+          "microfauna": 0.22,
+          "plankton": 0.12,
+          "nitrogenGas": 0,
+          "lastFlux": null,
+          "trace": []
+        },
+        "learning": {
+          "version": 2,
+          "grade": 8,
+          "mode": "free",
+          "mission": null
+        }
+      },
+      "runs": [],
+      "currentRun": null,
+      "events": [],
+      "answers": {},
+      "prediction": null,
+      "selection": 12,
+      "parents": [],
+      "generation": 0,
+      "history": [],
+      "trials": [],
+      "ownText": "",
+      "ownTextOrigin": "absent",
+      "seed": 1945974195,
+      "baselineId": "ac810ae7",
+      "initialSeed": 1945974195,
+      "currentContext": {
+        "version": 1,
+        "investigationId": "7a1a6018-6785-49de-9be6-5faba1a8e919",
+        "attemptId": "1fe87c71-343f-407e-91a8-f5be3cb72491",
+        "revision": "one-aquarium-lessons-v1",
+        "runId": null,
+        "time": 45.25,
+        "timeKind": "day",
+        "stateId": "ac810ae7"
+      },
+      "provenance": {
+        "prediction": "selection",
+        "answers": "selection",
+        "actions": "game-action",
+        "measurements": "simulation",
+        "ownText": "absent",
+        "explanation": "game-explanation"
+      }
+    },
+    "context": {
+      "version": 1,
+      "investigationId": "7a1a6018-6785-49de-9be6-5faba1a8e919",
+      "attemptId": "1fe87c71-343f-407e-91a8-f5be3cb72491",
+      "revision": "one-aquarium-lessons-v1",
+      "runId": null,
+      "time": 45.25,
+      "timeKind": "day",
+      "stateId": "ac810ae7"
+    },
+    "running": false,
+    "dialog": null,
+    "tweezers": false,
+    "storageError": "",
+    "assetErrors": [],
+    "renderer": {
+      "sameState": true,
+      "mainStateId": "ac810ae7",
+      "objects": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        9,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "appearances": [
+        {
+          "uid": 12,
+          "species": "guppy",
+          "variant": "multicolor",
+          "sex": "♂"
+        },
+        {
+          "uid": 13,
+          "species": "guppy",
+          "variant": "multicolor",
+          "sex": "♂"
+        },
+        {
+          "uid": 14,
+          "species": "guppy",
+          "variant": "multicolor",
+          "sex": "♂"
+        },
+        {
+          "uid": 15,
+          "species": "guppy",
+          "variant": "multicolor",
+          "sex": "♀"
+        },
+        {
+          "uid": 16,
+          "species": "guppy",
+          "variant": "multicolor",
+          "sex": "♂"
+        },
+        {
+          "uid": 17,
+          "species": "guppy",
+          "variant": "multicolor",
+          "sex": "♂"
+        }
+      ],
+      "stats": {
+        "graphicsProfile": "ipad",
+        "renderFrame": 67,
+        "textureBudget": {
+          "estimatedBytes": 9786714,
+          "sharedMaps": 8,
+          "kind": "RGBA + mip estimate; not a GPU measurement"
+        },
+        "visualRevision": "realism-1",
+        "drawCalls": 303,
+        "triangles": 233036,
+        "objects": 19,
+        "detailModels": 19
+      }
+    }
+  }
+}

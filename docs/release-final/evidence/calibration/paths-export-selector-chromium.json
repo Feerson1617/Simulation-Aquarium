@@ -1,0 +1,941 @@
+{
+  "engine": "chromium",
+  "commit": "4ed42e089bf7ecb32a05946bde15293c28b0c494",
+  "sources": {
+    "ammonia-pool.mjs": "694f9bbb231240a44275b611b1c93bfbf8c4fabbc9524129db0edf9975720863",
+    "aquascaping.css": "92680024f89ffc4994f7748865e0be31df18147ecc3494da9ec3715dfa82f8d4",
+    "aquascaping.mjs": "bb6534a4f6f8f64d4e1a6de5849efce53476daad8168ffa47380eb11f06930b4",
+    "biology-quality.mjs": "89a9bd836e5be0c2a40fa6c0299293399a59213cedc53888e22606fe54384a08",
+    "bioprocesses.mjs": "db390102b09a5e888a504049f3b659bfdea000df400b22d17a234be5998ff8cd",
+    "catalog-assets.mjs": "1725e5493f14bd1ba68cd49251a4be542d24029ccec36cc6ce97c8fdbab0d791",
+    "catalog-studio.mjs": "5c0e58a4c4f74d2b4fabec453acbea7e0056393b5472ad14d5ecb5b1287dcd03",
+    "catalog.css": "85d3ee019ac0aee8cea7e5f058414df06b64809463b658a28ebcd1769a96176a",
+    "catalog.mjs": "eaa4db288f4bd1e5bfe82a2e1daf50f54d16ebdac43635d08258dd880fc37504",
+    "coherent-learning.css": "9755e87a9d881e0cde8d5f86f1a279bdc48d7bf34e6973d94b0dedaddcdfa9ee",
+    "control-dial.mjs": "a7217998cd8bba325c0003419538bdcdcad1774cd0ef755d5281a8bf7fc3f056",
+    "control-values.mjs": "ea918839a5c4136d8b6dc4f0f7743accfff1f6e9287a4649e45a99cb892344f2",
+    "ecology.mjs": "66c11227f26241cf3fcffb00d0f8b28dc957f7a0536de650a80fc8210098429b",
+    "equipment-ui.mjs": "63d1aaf7a68213e8be16a1d8b14329119379dddd965354a3170c71c32c42d823",
+    "equipment.css": "7bbe961ddc163a7484e0f70a2e50c541a5867b61d443be6a19c33728bf66f932",
+    "fish-variants.mjs": "001365c4ae594847c4aec741340734b3c1c43c9058afde6368310adf68e3cac2",
+    "game-route.mjs": "c143aebecf66612edaca3f687c332e57b772e6aa3f36be39460f04c99f9c593f",
+    "genetics-shop.mjs": "d0cf542391fa1d391e35cb7a9d033b986d08f610b2fa2b9c84a85e3b0b19bb9b",
+    "genetics-ui.mjs": "ffee9241dbda4952847aa51b395b5e45111ef6b23011ed98309967db9d9c5a72",
+    "genetics.css": "458cbc124c9f16cde4b6760c6e8fdfba2978b19f61152c899939c4b9c9de8684",
+    "genetics.mjs": "301b841789853d6ed8dac91d3090f2cc85ab858701577473a35e3ab82122a532",
+    "graphics-profiles.mjs": "5d1f586679fcee3c3316bb3b0ebf952500a8fcaac42449ccf9c67806bd0ed98a",
+    "graphics.css": "17c48328c83603daabc10887a71603e36e51a6d30ceb062a053295f69a890199",
+    "index.html": "c351259f6078fa364ee89d6c2924b099c70a36fc444576eca8bdf3f314c840ff",
+    "individual-appearance.mjs": "0a8365eabceca7f2c6e982effe9af498c230aae702f9d44810c6ff0a292e4b58",
+    "learning-activities.mjs": "c430e6c1bf42923b6c48d74870b67a1fb6ad8668fe614c9316b6b552807650e2",
+    "learning-content.mjs": "41120a780c512f8e4c42f601d447da6da0c74acc4697eb027bda287ef60dc726",
+    "learning-context.mjs": "017507cde3a4d83a89785b4cb5c4ab67abab83c500512cab6f3165f10aead7ba",
+    "learning-display.mjs": "43bb2ef8f090797401fa7fe82a1d04f434935b3229726ba78488fe8185fd4e62",
+    "learning-evolution-evidence.mjs": "4202c0796d735f577112fb4508738d37a5d1f597ca44e2512eb8d10a6d56cc08",
+    "learning-model.mjs": "dc07bd53496053e279d0563907554440f3b3e8d0642f83da35f8915def542956",
+    "learning-population-workspace.mjs": "950c0ebce30bc8421f18b6d5d2c17b735cbf6dab6ffc09b9133daf2bfa05cb3a",
+    "learning-population.mjs": "e57b699f1762996e56af6941c59145ee848df07df7d7aae8e10ae70638a266e8",
+    "learning-process-workspace.mjs": "39f3d7e367851c17c4e0769818997e685551f764e848fa280e00c28d9a5863dd",
+    "learning-product-display.mjs": "803b0f5ded89212165ba002373f07ba190b53c55edef11b0759f68760ec3c0f8",
+    "learning-provenance.mjs": "569ba626e23973fdf4a8b5f5b32c5d58b137fb929b4ed31bf29e57a175194999",
+    "learning-quests.mjs": "9e0c93381fa7e8088939f0ca46dd01c15d02d0ed4ed3b8ea7fdc666aa1fa9dcc",
+    "learning-regional-workspace.mjs": "deb634808a76b96475cc698472b04d3b0188dd96da2953f4c2f09831200c97ab",
+    "learning-student.mjs": "85f440ed1d0ee48f1580fcbe88c3f84361994c9bf516231d8e583e11e5f00ac5",
+    "learning-tank-views.mjs": "3d0034aa1d56b7c731fcb1890961b1b1e3b5ec0f390fd68afdd0f5d6a685e227",
+    "learning-ui.mjs": "df2e8e261eed59109392a3a65f2949272268e0b8cc4e9c5e3ef382bfd94924b8",
+    "learning-workspace.mjs": "328da7cfb81c20dbc1fe5543ba15771673b242269e00d509fe080aa1884e7aa5",
+    "learning.css": "b63afc0bd8d49af5844b7e441c3357df3efaabe6e172ff55c7804fad8e2749ff",
+    "organic-shapes.mjs": "8f22e1c4b9a9195a689608a69af0fd0ced1e3173ec2b44e81349129617e3c80e",
+    "photo-volume.mjs": "0d1dbecc908e1ffc04df00d97827b91b70556ea1540bdcb114caf3efa6d9a724",
+    "physical-renderer.mjs": "46ff0ab3bc8cc82faadb798230a15cbf460f04cba9e50e5bfa092925c2360709",
+    "physical-scale.mjs": "a948d0affb65fe354f90dfebb53e0d26b63567a35645714a3b4795f5dc68b041",
+    "realism-assets.mjs": "f0d2b01a660dc9bd96f8ca5902555c129dcbe6cf53d16ec96e0bbe8b303d39dc",
+    "realism-materials.mjs": "32ae354c89791d4d86dc157a8c3ec58b76c3b6b0fd4bfd68f7c8ae363ec8fc54",
+    "realism-renderer.mjs": "1c3fc92567c2dcfc6d42e4cd70b6f77ebf9c4617380d6c9c4b0d17f76218efde",
+    "render-population.mjs": "e0d70fa5cdcd933f325a56fd6d687fbd2f8ef65e59d6b32c84200cff6d8a7304",
+    "scenario-layout.mjs": "428426ba0429543619bf9bc32b887ac5ffe47b90d4e8d5e6f8598ab58b584f23",
+    "scenarios.mjs": "62e0d9bff4be5b8008f10191d2090d6c0e7a5c02a3968ffc4786ef5aa74a8d02",
+    "single-aquarium-view.mjs": "32e5382372445b8917427e4d5f7651636bc549bbb6e4d98daf0b7f2e867cc2fd",
+    "single-archive-display.mjs": "3ce28abaa911b9137671bdb6b2660a9865ced49e25219ae2699c233a1000cb08",
+    "single-classroom-content.mjs": "edab6d6bad07e1f59d88f7892ff0045c2a5880f9215feff5d329b98381a1b29d",
+    "single-classroom-model.mjs": "7407666b7a0e7b4a43be20d7621edafc62724151d49decaa02ff82ededcb7c42",
+    "single-classroom-ui.mjs": "9086e776c9c8124b1e7ff2f0413d284748c36aee096885f18abbc76d0d10c4a4",
+    "single-learning-missions.mjs": "791656242d9e3b76e905f404d949456538fda810b5f0f658b6c59844d15ab7de",
+    "single-learning-model.mjs": "932d2f36bb15440137f0c31e9ee3cf534ac97d6a606e1f114dcffceec59e0659",
+    "single-learning-ui.mjs": "9867075506cfaba4ff89f431885c55916f372b54d53b83fabe1adae81acbc929",
+    "single-learning.css": "ba8fce412f1b8511931c3fa228a4034b33e66d31ee0fa876778eed07f57a850e",
+    "single-lesson-support.mjs": "ad8836cc73552695e3314b21ba019ea6be72df100faec5f2b731715317dfdba3",
+    "single-observation.mjs": "b70ec88aa5df11a68325613ae2d164b0ac6613dabc6993218343d77ebdb9bb34",
+    "single-parent-history.mjs": "e483a06264b68bebdd82f02be4ecb3661f283536b5e9356c8022060ae3b767e3",
+    "single-teacher-settings.mjs": "c6a29f8a72a7257645895125d899d19cac876ae67ec5c5974427be0120e9de55",
+    "species-assets.mjs": "7539167cbf8c92e0bfce1f5efd89c8dd66403a9586da94c0214d3b0b630b7c30",
+    "species-dimensions.mjs": "9aaa6d3e0425998f83652825402b95a569cadd4c914f5e517f319d4afb5fbd0b",
+    "species-provenance.mjs": "7e1324dc173cc0e41a1d23eb216ecfe4165e3eac0e02a650f5046b89bd5f3d58",
+    "standalone-navigation.mjs": "ed4db3bfbd4855736870c3087097df4c4ba88a679c1c8fb8b5387887db8149c8",
+    "study-ui.mjs": "08c1598262db0ab647a225f5b93e6d60cc4bc69113992997c3db25360214ec25",
+    "study.css": "ed534d337c339cb1a1602fcd4412ae8059720b1c4684136e401f870bfda26ee5",
+    "underwater.mjs": "df3c746f19f3f20348cb7442ec7c216b8cd863bab3e7f7e4105785e92223e941"
+  },
+  "hardware": "Linux software GPU; Playwright touchscreen and mouse, not physical iPad",
+  "actions": [
+    {
+      "at": "2026-10-25T04:38:48.748749+00:00",
+      "selector": "a[href=\"?mission=m5-recurring-input\"]",
+      "label": "Untersuchen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:39:12.539960+00:00",
+      "selector": "[data-class-choice=unsure]",
+      "label": "Ich bin unsicher",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:39:18.227497+00:00",
+      "selector": "[data-class-choice=water]",
+      "label": "Einmal Wasser wechseln",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:39:30.443327+00:00",
+      "selector": "[data-class=play]",
+      "label": "Spätere Wirkung ansehen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:39:37.457705+00:00",
+      "selector": "[data-class=toggle]",
+      "label": "Anhalten oder weiter beobachten",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:39:43.108087+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:39:50.320001+00:00",
+      "selector": "[data-class=export]",
+      "label": "Stand als Datei speichern",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:39:58.048071+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:40:04.310247+00:00",
+      "selector": "[data-class=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:40:11.455034+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:40:36.511022+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:40:42.493006+00:00",
+      "selector": "[data-class=load]",
+      "label": "Sicherung öffnen",
+      "input": "touchscreen tap"
+    },
+    {
+      "input": "actual file chooser",
+      "file": "m5-water-water-late-pause.json"
+    },
+    {
+      "at": "2026-10-25T04:40:54.580345+00:00",
+      "selector": "[data-class=toggle]",
+      "label": "Anhalten oder weiter beobachten",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:41:31.180604+00:00",
+      "selector": "[data-class=reset-measure]",
+      "label": "Mit gleichem Anfang noch einmal",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:41:49.191393+00:00",
+      "selector": "[data-class-choice=feed]",
+      "label": "Weniger Futter geben",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:42:03.733331+00:00",
+      "selector": "[data-class=play]",
+      "label": "Spätere Wirkung ansehen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:42:10.571696+00:00",
+      "selector": "[data-class=toggle]",
+      "label": "Anhalten oder weiter beobachten",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:42:17.514448+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:42:24.740580+00:00",
+      "selector": "[data-class=export]",
+      "label": "Stand als Datei speichern",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:42:31.239680+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:42:37.844647+00:00",
+      "selector": "[data-class=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:42:45.204730+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:43:13.185309+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:43:17.678663+00:00",
+      "selector": "[data-class=load]",
+      "label": "Sicherung öffnen",
+      "input": "touchscreen tap"
+    },
+    {
+      "input": "actual file chooser",
+      "file": "m5-water-feed-late-pause.json"
+    },
+    {
+      "at": "2026-10-25T04:43:31.856268+00:00",
+      "selector": "[data-class=toggle]",
+      "label": "Anhalten oder weiter beobachten",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:44:14.532155+00:00",
+      "selector": "[data-class-choice=swap]",
+      "label": "Am Ende sind nach dem Wasserwechsel weniger Reste.",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:44:26.389795+00:00",
+      "selector": "[data-class=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:44:33.075697+00:00",
+      "selector": "[data-class=more-help]",
+      "label": "Weiterer Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:44:40.290610+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:44:47.532908+00:00",
+      "selector": "[data-class-choice=actual-late]",
+      "label": "Am Ende sind nach weniger Futter weniger Reste.",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:44:53.529279+00:00",
+      "selector": "[data-class-choice=never]",
+      "label": "Die späteren Reste zeigen, dass auch gelöste Stoffe direkt nach dem Wechsel gleich blieben.",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:45:05.544540+00:00",
+      "selector": "[data-class=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:45:12.536613+00:00",
+      "selector": "[data-class=more-help]",
+      "label": "Weiterer Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:45:19.329456+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:45:26.804750+00:00",
+      "selector": "[data-class-choice=source]",
+      "label": "Der Wasserwechsel wirkt auf gelöste Stoffe. Neues Futter kann weiter Reste bilden.",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T04:45:40.817139+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    }
+  ],
+  "captures": [
+    {
+      "name": "m5-water-start",
+      "atUTC": "2026-10-25T04:39:12.683647+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m5-recurring-input",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "measure-ready",
+      "attempt": "4c91fd0b-800f-4127-8ba9-963b5aa328b1",
+      "task": "Dein Auftrag\nWas möchtest du zuerst erproben?\n\n• Deine Vermutung ist gespeichert.\n\nEs kommt täglich zu viel Futter ins Aquarium. Wähle eine Maßnahme.\nEinmal Wasser wechselnWeniger Futter geben\nTipp",
+      "meter": "Reste in diesem Aquarium\nGleicher Anfang\n100\nJetzt\n100\nVergleichszahl: gleicher Anfang = 100. Vergleich im Modell, keine Krümelzahl.",
+      "selection": null,
+      "markerVisible": false,
+      "amounts": [
+        {
+          "uid": null,
+          "reference": 11.124170744005184,
+          "values": [
+            {
+              "value": 11.124170744005184,
+              "index": 100
+            },
+            {
+              "value": 11.124170744005184,
+              "index": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "m5-water-water-immediate",
+      "atUTC": "2026-10-25T04:39:18.460327+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m5-recurring-input",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "measure-observe-ready",
+      "attempt": "4c91fd0b-800f-4127-8ba9-963b5aa328b1",
+      "task": "Dein Auftrag\nSchau zuerst auf die direkte Wirkung.\nDie Hälfte des Wassers wurde gewechselt. Der Boden wurde nicht abgesaugt. Danach beobachten wir zehn Tage.\nSpätere Wirkung ansehen\nTipp",
+      "meter": "Reste in diesem Aquarium\nGleicher Anfang\n100\nWasserwechsel · jetzt\n100\nVergleichszahl: gleicher Anfang = 100. Vergleich im Modell, keine Krümelzahl.\nGelöste Nährstoffe direkt nach der Maßnahme (Anfang = 100): danach: 69",
+      "selection": null,
+      "markerVisible": false,
+      "amounts": [
+        {
+          "uid": null,
+          "reference": 11.124170744005184,
+          "values": [
+            {
+              "value": 11.124170744005184,
+              "index": 100
+            },
+            {
+              "value": 11.124170744005184,
+              "index": 100
+            }
+          ]
+        }
+      ],
+      "image": "m5-water-water-immediate.png"
+    },
+    {
+      "name": "m5-water-water-late",
+      "atUTC": "2026-10-25T04:41:16.910486+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m5-recurring-input",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "first-measure-finished",
+      "attempt": "4c91fd0b-800f-4127-8ba9-963b5aa328b1",
+      "task": "Dein Auftrag\nDie erste Maßnahme ist gespeichert.\n\nVergleiche die Balken am Aquarium. Beide Versuche starteten gleich.\n\nMit gleichem Anfang noch einmal\nTipp",
+      "meter": "Reste in diesem Aquarium\nGleicher Anfang\n100\nWasserwechsel · jetzt\n204,3\nVergleichszahl: gleicher Anfang = 100. Vergleich im Modell, keine Krümelzahl.\nGelöste Nährstoffe direkt nach der Maßnahme (Anfang = 100): danach: 69",
+      "selection": null,
+      "markerVisible": false,
+      "amounts": [
+        {
+          "uid": null,
+          "reference": 11.124170744005184,
+          "values": [
+            {
+              "value": 11.124170744005184,
+              "index": 100
+            },
+            {
+              "value": 22.725279816709843,
+              "index": 204.287405683309
+            }
+          ]
+        }
+      ],
+      "image": "m5-water-water-late.png"
+    },
+    {
+      "name": "m5-water-restored-start",
+      "atUTC": "2026-10-25T04:41:33.284088+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m5-recurring-input",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "reset-measure-ready",
+      "attempt": "4c91fd0b-800f-4127-8ba9-963b5aa328b1",
+      "task": "Dein Auftrag\nDer gleiche Anfang ist wieder da.\n\n• Der vollständige gleiche Anfang ist wieder da.\n\nTiere, Wasser, Reste und Uhrzeit sind gleich. Erprobe jetzt die andere Maßnahme.\nWeniger Futter geben\nTipp",
+      "meter": "Reste in diesem Aquarium\nGleicher Anfang\n100\nJetzt\n100\nVergleichszahl: gleicher Anfang = 100. Vergleich im Modell, keine Krümelzahl.",
+      "selection": null,
+      "markerVisible": false,
+      "amounts": [
+        {
+          "uid": null,
+          "reference": 11.124170744005184,
+          "values": [
+            {
+              "value": 11.124170744005184,
+              "index": 100
+            },
+            {
+              "value": 11.124170744005184,
+              "index": 100
+            }
+          ]
+        }
+      ],
+      "image": "m5-water-restored-start.png"
+    },
+    {
+      "name": "m5-water-feed-immediate",
+      "atUTC": "2026-10-25T04:41:50.531408+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m5-recurring-input",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "measure-observe-ready",
+      "attempt": "4c91fd0b-800f-4127-8ba9-963b5aa328b1",
+      "task": "Dein Auftrag\nSchau zuerst auf die direkte Wirkung.\nTäglich wird jetzt ein Drittel der bisherigen Futtermenge gegeben. Danach beobachten wir zehn Tage.\nSpätere Wirkung ansehen\nTipp",
+      "meter": "Reste in diesem Aquarium\nGleicher Anfang\n100\nWeniger Futter · jetzt\n100\nVergleichszahl: gleicher Anfang = 100. Vergleich im Modell, keine Krümelzahl.\nGelöste Nährstoffe direkt nach der Maßnahme (Anfang = 100): danach: 100",
+      "selection": null,
+      "markerVisible": false,
+      "amounts": [
+        {
+          "uid": null,
+          "reference": 11.124170744005184,
+          "values": [
+            {
+              "value": 11.124170744005184,
+              "index": 100
+            },
+            {
+              "value": 11.124170744005184,
+              "index": 100
+            }
+          ]
+        }
+      ],
+      "image": "m5-water-feed-immediate.png"
+    },
+    {
+      "name": "m5-water-feed-late",
+      "atUTC": "2026-10-25T04:43:54.841749+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m5-recurring-input",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "measure-comparison",
+      "attempt": "4c91fd0b-800f-4127-8ba9-963b5aa328b1",
+      "task": "Dein Auftrag\nWas zeigt dein Vergleich?\n\nVergleiche die Balken am Aquarium. Beide Versuche starteten gleich.\n\nAm Ende sind nach dem Wasserwechsel weniger Reste.\nAm Ende sind nach weniger Futter weniger Reste.\nTipp",
+      "meter": "Reste im Aquarium · Tag 10\nGleicher Anfang\n100\nWasserwechsel\n204,3\nWeniger Futter\n10,1\nVergleichszahl: gleicher Anfang = 100. Vergleich im Modell, keine Krümelzahl.\nGelöste Nährstoffe direkt nach der Maßnahme (Anfang = 100): Wasserwechsel: 69 · Weniger Futter: 100",
+      "selection": null,
+      "markerVisible": false,
+      "amounts": [
+        {
+          "uid": null,
+          "reference": 11.124170744005184,
+          "values": [
+            {
+              "value": 11.124170744005184,
+              "index": 100
+            },
+            {
+              "value": 22.725279816709843,
+              "index": 204.287405683309
+            },
+            {
+              "value": 1.122695806212293,
+              "index": 10.092399982419487
+            }
+          ]
+        }
+      ],
+      "image": "m5-water-feed-late.png"
+    },
+    {
+      "name": "m5-water-comparison",
+      "atUTC": "2026-10-25T04:44:02.500460+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m5-recurring-input",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "measure-comparison",
+      "attempt": "4c91fd0b-800f-4127-8ba9-963b5aa328b1",
+      "task": "Dein Auftrag\nWas zeigt dein Vergleich?\n\nVergleiche die Balken am Aquarium. Beide Versuche starteten gleich.\n\nAm Ende sind nach dem Wasserwechsel weniger Reste.\nAm Ende sind nach weniger Futter weniger Reste.\nTipp",
+      "meter": "Reste im Aquarium · Tag 10\nGleicher Anfang\n100\nWasserwechsel\n204,3\nWeniger Futter\n10,1\nVergleichszahl: gleicher Anfang = 100. Vergleich im Modell, keine Krümelzahl.\nGelöste Nährstoffe direkt nach der Maßnahme (Anfang = 100): Wasserwechsel: 69 · Weniger Futter: 100",
+      "selection": null,
+      "markerVisible": false,
+      "amounts": [
+        {
+          "uid": null,
+          "reference": 11.124170744005184,
+          "values": [
+            {
+              "value": 11.124170744005184,
+              "index": 100
+            },
+            {
+              "value": 22.725279816709843,
+              "index": 204.287405683309
+            },
+            {
+              "value": 1.122695806212293,
+              "index": 10.092399982419487
+            }
+          ]
+        }
+      ],
+      "image": "m5-water-comparison.png"
+    },
+    {
+      "name": "m5-water-late-answer-wrong",
+      "atUTC": "2026-10-25T04:44:15.559326+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m5-recurring-input",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "measure-comparison",
+      "attempt": "4c91fd0b-800f-4127-8ba9-963b5aa328b1",
+      "task": "Dein Auftrag\nWas zeigt dein Vergleich?\n\n✕ Vergleiche beide Restemengen an Tag 10 auf derselben Skala. Die direkte Wasserwirkung ist ein anderer Zeitpunkt.\n\nVergleiche die Balken am Aquarium. Beide Versuche starteten gleich.\n\nAm Ende sind nach dem Wasserwechsel weniger Reste.\nAm Ende sind nach weniger Futter weniger Reste.\nTipp",
+      "meter": "Reste im Aquarium · Tag 10\nGleicher Anfang\n100\nWasserwechsel\n204,3\nWeniger Futter\n10,1\nVergleichszahl: gleicher Anfang = 100. Vergleich im Modell, keine Krümelzahl.\nGelöste Nährstoffe direkt nach der Maßnahme (Anfang = 100): Wasserwechsel: 69 · Weniger Futter: 100",
+      "selection": null,
+      "markerVisible": false,
+      "amounts": [
+        {
+          "uid": null,
+          "reference": 11.124170744005184,
+          "values": [
+            {
+              "value": 11.124170744005184,
+              "index": 100
+            },
+            {
+              "value": 22.725279816709843,
+              "index": 204.287405683309
+            },
+            {
+              "value": 1.122695806212293,
+              "index": 10.092399982419487
+            }
+          ]
+        }
+      ],
+      "image": "m5-water-late-answer-wrong.png"
+    },
+    {
+      "name": "m5-water-late-answer-tip-1",
+      "atUTC": "2026-10-25T04:44:27.356626+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m5-recurring-input",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "measure-comparison",
+      "attempt": "4c91fd0b-800f-4127-8ba9-963b5aa328b1",
+      "task": "Dein Auftrag\nWas zeigt dein Vergleich?\n\n✕ Vergleiche beide Restemengen an Tag 10 auf derselben Skala. Die direkte Wasserwirkung ist ein anderer Zeitpunkt.\n\nVergleiche die Balken am Aquarium. Beide Versuche starteten gleich.\n\nAm Ende sind nach dem Wasserwechsel weniger Reste.\nAm Ende sind nach weniger Futter weniger Reste.\nTipp",
+      "meter": "Reste im Aquarium · Tag 10\nGleicher Anfang\n100\nWasserwechsel\n204,3\nWeniger Futter\n10,1\nVergleichszahl: gleicher Anfang = 100. Vergleich im Modell, keine Krümelzahl.\nGelöste Nährstoffe direkt nach der Maßnahme (Anfang = 100): Wasserwechsel: 69 · Weniger Futter: 100",
+      "selection": null,
+      "markerVisible": false,
+      "amounts": [
+        {
+          "uid": null,
+          "reference": 11.124170744005184,
+          "values": [
+            {
+              "value": 11.124170744005184,
+              "index": 100
+            },
+            {
+              "value": 22.725279816709843,
+              "index": 204.287405683309
+            },
+            {
+              "value": 1.122695806212293,
+              "index": 10.092399982419487
+            }
+          ]
+        },
+        {
+          "uid": null,
+          "reference": 11.124170744005184,
+          "values": [
+            {
+              "value": 11.124170744005184,
+              "index": 100
+            },
+            {
+              "value": 22.725279816709843,
+              "index": 204.287405683309
+            },
+            {
+              "value": 1.122695806212293,
+              "index": 10.092399982419487
+            }
+          ]
+        }
+      ],
+      "dialog": "Tipp zu deiner Aufgabe\nSchließen\n\nVergleiche die zwei Endwerte an Tag 10, nicht Anfang mit Ende verschiedener Versuche.\n\nWeiterer Tipp\nReste im Aquarium · Tag 10\nGleicher Anfang\n100\nWasserwechsel\n204,3\nWeniger Futter\n10,1\nVergleichszahl: gleicher Anfang = 100. Vergleich im Modell, keine Krümelzahl.\nGelöste Nährstoffe direkt nach der Maßnahme (Anfang = 100): Wasserwechsel: 69 · Weniger Futter: 100"
+    },
+    {
+      "name": "m5-water-late-answer-help",
+      "atUTC": "2026-10-25T04:44:34.365897+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m5-recurring-input",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "measure-comparison",
+      "attempt": "4c91fd0b-800f-4127-8ba9-963b5aa328b1",
+      "task": "Dein Auftrag\nWas zeigt dein Vergleich?\n\nVergleiche die Balken am Aquarium. Beide Versuche starteten gleich.\n\nAm Ende sind nach dem Wasserwechsel weniger Reste.\nAm Ende sind nach weniger Futter weniger Reste.\nTipp",
+      "meter": "Reste im Aquarium · Tag 10\nGleicher Anfang\n100\nWasserwechsel\n204,3\nWeniger Futter\n10,1\nVergleichszahl: gleicher Anfang = 100. Vergleich im Modell, keine Krümelzahl.\nGelöste Nährstoffe direkt nach der Maßnahme (Anfang = 100): Wasserwechsel: 69 · Weniger Futter: 100",
+      "selection": null,
+      "markerVisible": false,
+      "amounts": [
+        {
+          "uid": null,
+          "reference": 11.124170744005184,
+          "values": [
+            {
+              "value": 11.124170744005184,
+              "index": 100
+            },
+            {
+              "value": 22.725279816709843,
+              "index": 204.287405683309
+            },
+            {
+              "value": 1.122695806212293,
+              "index": 10.092399982419487
+            }
+          ]
+        },
+        {
+          "uid": null,
+          "reference": 11.124170744005184,
+          "values": [
+            {
+              "value": 11.124170744005184,
+              "index": 100
+            },
+            {
+              "value": 22.725279816709843,
+              "index": 204.287405683309
+            },
+            {
+              "value": 1.122695806212293,
+              "index": 10.092399982419487
+            }
+          ]
+        }
+      ],
+      "dialog": "Tipp zu deiner Aufgabe\nSchließen\n\nBeide Balken verwenden denselben Anfang als 100. Welcher Endbalken ist kleiner?\n\nWeiterer Tipp\nReste im Aquarium · Tag 10\nGleicher Anfang\n100\nWasserwechsel\n204,3\nWeniger Futter\n10,1\nVergleichszahl: gleicher Anfang = 100. Vergleich im Modell, keine Krümelzahl.\nGelöste Nährstoffe direkt nach der Maßnahme (Anfang = 100): Wasserwechsel: 69 · Weniger Futter: 100"
+    },
+    {
+      "name": "m5-water-dissolved-vs-residue-wrong",
+      "atUTC": "2026-10-25T04:44:54.703035+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m5-recurring-input",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "measure-explanation",
+      "attempt": "4c91fd0b-800f-4127-8ba9-963b5aa328b1",
+      "task": "Dein Auftrag\nWarum reicht eine kurze Wirkung nicht als Beleg?\n\n✕ Wasserwechsel kann gelöste Stoffe verringern. Bodenreste und neues Futter bleiben davon zu unterscheiden. Schau auf die direkte und die spätere Wirkung.\n\nDie späteren Reste zeigen, dass auch gelöste Stoffe direkt nach dem Wechsel gleich blieben.\nDer Wasserwechsel wirkt auf gelöste Stoffe. Neues Futter kann weiter Reste bilden.\nTipp",
+      "meter": "Reste im Aquarium · Tag 10\nGleicher Anfang\n100\nWasserwechsel\n204,3\nWeniger Futter\n10,1\nVergleichszahl: gleicher Anfang = 100. Vergleich im Modell, keine Krümelzahl.\nGelöste Nährstoffe direkt nach der Maßnahme (Anfang = 100): Wasserwechsel: 69 · Weniger Futter: 100",
+      "selection": null,
+      "markerVisible": false,
+      "amounts": [
+        {
+          "uid": null,
+          "reference": 11.124170744005184,
+          "values": [
+            {
+              "value": 11.124170744005184,
+              "index": 100
+            },
+            {
+              "value": 22.725279816709843,
+              "index": 204.287405683309
+            },
+            {
+              "value": 1.122695806212293,
+              "index": 10.092399982419487
+            }
+          ]
+        }
+      ],
+      "image": "m5-water-dissolved-vs-residue-wrong.png"
+    },
+    {
+      "name": "m5-water-dissolved-vs-residue-tip-1",
+      "atUTC": "2026-10-25T04:45:06.699150+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m5-recurring-input",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "measure-explanation",
+      "attempt": "4c91fd0b-800f-4127-8ba9-963b5aa328b1",
+      "task": "Dein Auftrag\nWarum reicht eine kurze Wirkung nicht als Beleg?\n\n✕ Wasserwechsel kann gelöste Stoffe verringern. Bodenreste und neues Futter bleiben davon zu unterscheiden. Schau auf die direkte und die spätere Wirkung.\n\nDie späteren Reste zeigen, dass auch gelöste Stoffe direkt nach dem Wechsel gleich blieben.\nDer Wasserwechsel wirkt auf gelöste Stoffe. Neues Futter kann weiter Reste bilden.\nTipp",
+      "meter": "Reste im Aquarium · Tag 10\nGleicher Anfang\n100\nWasserwechsel\n204,3\nWeniger Futter\n10,1\nVergleichszahl: gleicher Anfang = 100. Vergleich im Modell, keine Krümelzahl.\nGelöste Nährstoffe direkt nach der Maßnahme (Anfang = 100): Wasserwechsel: 69 · Weniger Futter: 100",
+      "selection": null,
+      "markerVisible": false,
+      "amounts": [
+        {
+          "uid": null,
+          "reference": 11.124170744005184,
+          "values": [
+            {
+              "value": 11.124170744005184,
+              "index": 100
+            },
+            {
+              "value": 22.725279816709843,
+              "index": 204.287405683309
+            },
+            {
+              "value": 1.122695806212293,
+              "index": 10.092399982419487
+            }
+          ]
+        },
+        {
+          "uid": null,
+          "reference": 11.124170744005184,
+          "values": [
+            {
+              "value": 11.124170744005184,
+              "index": 100
+            },
+            {
+              "value": 22.725279816709843,
+              "index": 204.287405683309
+            },
+            {
+              "value": 1.122695806212293,
+              "index": 10.092399982419487
+            }
+          ]
+        }
+      ],
+      "dialog": "Tipp zu deiner Aufgabe\nSchließen\n\nPrüfe getrennt die gelösten Stoffe direkt danach und die Reste an Tag 10.\n\nWeiterer Tipp\nReste im Aquarium · Tag 10\nGleicher Anfang\n100\nWasserwechsel\n204,3\nWeniger Futter\n10,1\nVergleichszahl: gleicher Anfang = 100. Vergleich im Modell, keine Krümelzahl.\nGelöste Nährstoffe direkt nach der Maßnahme (Anfang = 100): Wasserwechsel: 69 · Weniger Futter: 100"
+    },
+    {
+      "name": "m5-water-dissolved-vs-residue-help",
+      "atUTC": "2026-10-25T04:45:13.676998+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m5-recurring-input",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "measure-explanation",
+      "attempt": "4c91fd0b-800f-4127-8ba9-963b5aa328b1",
+      "task": "Dein Auftrag\nWarum reicht eine kurze Wirkung nicht als Beleg?\nDie späteren Reste zeigen, dass auch gelöste Stoffe direkt nach dem Wechsel gleich blieben.\nDer Wasserwechsel wirkt auf gelöste Stoffe. Neues Futter kann weiter Reste bilden.\nTipp",
+      "meter": "Reste im Aquarium · Tag 10\nGleicher Anfang\n100\nWasserwechsel\n204,3\nWeniger Futter\n10,1\nVergleichszahl: gleicher Anfang = 100. Vergleich im Modell, keine Krümelzahl.\nGelöste Nährstoffe direkt nach der Maßnahme (Anfang = 100): Wasserwechsel: 69 · Weniger Futter: 100",
+      "selection": null,
+      "markerVisible": false,
+      "amounts": [
+        {
+          "uid": null,
+          "reference": 11.124170744005184,
+          "values": [
+            {
+              "value": 11.124170744005184,
+              "index": 100
+            },
+            {
+              "value": 22.725279816709843,
+              "index": 204.287405683309
+            },
+            {
+              "value": 1.122695806212293,
+              "index": 10.092399982419487
+            }
+          ]
+        },
+        {
+          "uid": null,
+          "reference": 11.124170744005184,
+          "values": [
+            {
+              "value": 11.124170744005184,
+              "index": 100
+            },
+            {
+              "value": 22.725279816709843,
+              "index": 204.287405683309
+            },
+            {
+              "value": 1.122695806212293,
+              "index": 10.092399982419487
+            }
+          ]
+        }
+      ],
+      "dialog": "Tipp zu deiner Aufgabe\nSchließen\n\nWelche Maßnahme verändert auch das Futter, das morgen wieder hineinkommt?\n\nWeiterer Tipp\nReste im Aquarium · Tag 10\nGleicher Anfang\n100\nWasserwechsel\n204,3\nWeniger Futter\n10,1\nVergleichszahl: gleicher Anfang = 100. Vergleich im Modell, keine Krümelzahl.\nGelöste Nährstoffe direkt nach der Maßnahme (Anfang = 100): Wasserwechsel: 69 · Weniger Futter: 100"
+    },
+    {
+      "name": "m5-water-complete",
+      "atUTC": "2026-10-25T04:45:29.131434+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m5-recurring-input",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "complete",
+      "attempt": "4c91fd0b-800f-4127-8ba9-963b5aa328b1",
+      "task": "Dein Auftrag\nDein Ergebnis ist gespeichert.\n\n✓ Dein Beleg ist gespeichert.\n\nNach weniger Futter gab es am Ende weniger Reste als nach dem einmaligen Wasserwechsel. Ein Wasserwechsel verändert gelöste Stoffe. Weiterer Futtereintrag kann aber neue Reste verursachen. Eine kurze Wirkung belegt keine dauerhafte Lösung.\nErgebnis speichernNoch einmal untersuchen\nTipp",
+      "meter": "Reste im Aquarium · Tag 10\nGleicher Anfang\n100\nWasserwechsel\n204,3\nWeniger Futter\n10,1\nVergleichszahl: gleicher Anfang = 100. Vergleich im Modell, keine Krümelzahl.\nGelöste Nährstoffe direkt nach der Maßnahme (Anfang = 100): Wasserwechsel: 69 · Weniger Futter: 100",
+      "selection": null,
+      "markerVisible": false,
+      "amounts": [
+        {
+          "uid": null,
+          "reference": 11.124170744005184,
+          "values": [
+            {
+              "value": 11.124170744005184,
+              "index": 100
+            },
+            {
+              "value": 22.725279816709843,
+              "index": 204.287405683309
+            },
+            {
+              "value": 1.122695806212293,
+              "index": 10.092399982419487
+            }
+          ]
+        }
+      ],
+      "image": "m5-water-complete.png"
+    },
+    {
+      "name": "failure",
+      "atUTC": "2026-10-25T04:47:42.283609+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m5-recurring-input",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "complete",
+      "attempt": "4c91fd0b-800f-4127-8ba9-963b5aa328b1",
+      "task": "Dein Auftrag\nDein Ergebnis ist gespeichert.\n\n✓ Dein Beleg ist gespeichert.\n\nNach weniger Futter gab es am Ende weniger Reste als nach dem einmaligen Wasserwechsel. Ein Wasserwechsel verändert gelöste Stoffe. Weiterer Futtereintrag kann aber neue Reste verursachen. Eine kurze Wirkung belegt keine dauerhafte Lösung.\nErgebnis speichernNoch einmal untersuchen\nTipp",
+      "meter": "Reste im Aquarium · Tag 10\nGleicher Anfang\n100\nWasserwechsel\n204,3\nWeniger Futter\n10,1\nVergleichszahl: gleicher Anfang = 100. Vergleich im Modell, keine Krümelzahl.\nGelöste Nährstoffe direkt nach der Maßnahme (Anfang = 100): Wasserwechsel: 69 · Weniger Futter: 100",
+      "selection": null,
+      "markerVisible": false,
+      "amounts": [
+        {
+          "uid": null,
+          "reference": 11.124170744005184,
+          "values": [
+            {
+              "value": 11.124170744005184,
+              "index": 100
+            },
+            {
+              "value": 22.725279816709843,
+              "index": 204.287405683309
+            },
+            {
+              "value": 1.122695806212293,
+              "index": 10.092399982419487
+            }
+          ]
+        }
+      ],
+      "dialog": "Menü\nSchließen\nZur Missionsauswahl\nStand als Datei speichern\nSicherung öffnen\nDarstellung\nLehrkraft und frühere Ergebnisse\nWeitere Expertenwerkzeuge und Tutorial\nDeine eigene Erklärung (freiwillig)",
+      "image": "failure.png"
+    }
+  ],
+  "checks": [
+    "m5-water-water-late",
+    "m5-water-feed-late"
+  ],
+  "errors": [],
+  "requests_failed": [],
+  "backup": false,
+  "consoleErrors": [],
+  "networkAfterIsolation": [],
+  "downloads": [
+    {
+      "file": "m5-water-water-late-pause.json",
+      "sha256": "cbdc738699a8c56797f538b8df9044d853057b9b5ff26a2200959c2693448c0f",
+      "identicalToSession": true
+    },
+    {
+      "file": "m5-water-feed-late-pause.json",
+      "sha256": "a5efe319a4c24bfb068315607d48e930219949339a059312356801d5d733078e",
+      "identicalToSession": true
+    }
+  ],
+  "restorations": [
+    {
+      "mission": "m5-recurring-input",
+      "attempt": "4c91fd0b-800f-4127-8ba9-963b5aa328b1",
+      "stage": "observing",
+      "method": "actual HTTP reload",
+      "identical": true
+    },
+    {
+      "mission": "m5-recurring-input",
+      "attempt": "4c91fd0b-800f-4127-8ba9-963b5aa328b1",
+      "stage": "observing",
+      "method": "actual HTTP reload",
+      "identical": true
+    }
+  ],
+  "scenario": "full current M5/M6 plus actual M2 continuation; real controls and file chooser",
+  "version": "154.0.8037.57",
+  "status": "failed",
+  "failure": "Locator.tap: Timeout 120000ms exceeded.\nCall log:\n  - waiting for locator(\"[data-class=export]\").filter(visible=True).first\n    - locator resolved to <button data-class=\"export\" class=\"single-primary\">Ergebnis speichern</button>\n  - attempting tap action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"single-shade\">…</div> intercepts pointer events\n    - retrying tap action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"single-shade\">…</div> intercepts pointer events\n    - retrying tap action\n      - waiting 100ms\n    29 × waiting for element to be visible, enabled and stable\n       - element is visible, enabled and stable\n       - scrolling into view if needed\n       - done scrolling\n       - <div class=\"single-shade\">…</div> intercepts pointer events\n     - retrying tap action\n       - waiting 500ms\n    - waiting for element to be visible, enabled and stable\n"
+}

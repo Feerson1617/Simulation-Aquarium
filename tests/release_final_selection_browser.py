@@ -19,12 +19,15 @@ with sync_playwright() as pw:
  try:
   p.goto(URL+'?research=8');p.wait_for_function('!!aquariumLearningSnapshot()?.presentation?.glass',polling=500)
   for w,h in [(1366,960),(768,1024),(1366,1024)]:
-   p.set_viewport_size({'width':w,'height':h});p.wait_for_timeout(600)
+   p.set_viewport_size({'width':w,'height':h})
+   # The software renderer may finish its resize after the DOM viewport changes.
+   # Read actual current scene geometry before choosing a visible click target.
+   p.wait_for_function('''([w,h])=>{const v=aquariumLearningSnapshot()?.presentation;return v?.viewport.width===w&&v.viewport.height===h&&v.glass?.left>=-1&&v.glass.right<=w+1&&v.glass.width>w*.6}''',arg=[w,h],polling=500)
    for kind in ['mouse','touch']:
     for species in ['waterweed','guppy']:
      success=False
      for uid in [e['uid'] for e in snap()['session']['tank']['entities'] if e['species']==species]:
-      pt=next(x for x in snap()['presentation']['objects'] if x['uid']==uid)['bounds'];input(kind,pt['x'],pt['y'])
+      pt=next(x for x in snap()['presentation']['objects'] if x['uid']==uid)['bounds'];assert 0<=pt['x']<w and 0<=pt['y']<h,('target must be visible in current viewport',pt,w,h);input(kind,pt['x'],pt['y'])
       actual=snap();selected=actual['session']['selection'];r['actions'][-1].update(intendedUid=uid,actualUid=selected)
       if p.locator('.single-dialog').count():
        text=p.locator('.single-dialog').inner_text();actualSpecies=next(e['species'] for e in actual['session']['tank']['entities'] if e['uid']==selected)

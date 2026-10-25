@@ -1,0 +1,191 @@
+[
+  {
+    "sourceCase": "paths-online/chromium",
+    "file": "after-m6-continuation.json",
+    "archive": "evidence/downloads/paths-online/chromium/after-m6-continuation.json.gz",
+    "bytes": 78237,
+    "sha256": "bf7fe95f0699e640b9b3f08de86efccc3c595989f3266a75efbe3a10ae8da55d"
+  },
+  {
+    "sourceCase": "paths-online/chromium",
+    "file": "m6-result.json",
+    "archive": "evidence/downloads/paths-online/chromium/m6-result.json.gz",
+    "bytes": 226750,
+    "sha256": "926a46b7a54e6975976e532b5bf1feadac7b33aa7171ce5032168c51c5b31250"
+  },
+  {
+    "sourceCase": "paths-online/chromium",
+    "file": "m5-feed-water-late-pause.json",
+    "archive": "evidence/downloads/paths-online/chromium/m5-feed-water-late-pause.json.gz",
+    "bytes": 1407084,
+    "sha256": "04711cd091fe1b4def3674d46c617038d8492157e489889a8a61ca31ea912274"
+  },
+  {
+    "sourceCase": "paths-online/chromium",
+    "file": "m6-observation-pause.json",
+    "archive": "evidence/downloads/paths-online/chromium/m6-observation-pause.json.gz",
+    "bytes": 66449,
+    "sha256": "ee95f6c92d3d55cd7619ce1b9a90f1278c680d7bb8e879cd82d4505d5f26784d"
+  },
+  {
+    "sourceCase": "paths-online/chromium",
+    "file": "m6-reimported.json",
+    "archive": "evidence/downloads/paths-online/chromium/m6-reimported.json.gz",
+    "bytes": 226750,
+    "sha256": "926a46b7a54e6975976e532b5bf1feadac7b33aa7171ce5032168c51c5b31250"
+  },
+  {
+    "sourceCase": "paths-online/chromium",
+    "file": "m5-feed-result.json",
+    "archive": "evidence/downloads/paths-online/chromium/m5-feed-result.json.gz",
+    "bytes": 2344912,
+    "sha256": "914c162770aa88d7b88306d925952b894d94036b0fa99f5acf68184ce3616042"
+  },
+  {
+    "sourceCase": "paths-online/chromium",
+    "file": "m5-feed-feed-late-pause.json",
+    "archive": "evidence/downloads/paths-online/chromium/m5-feed-feed-late-pause.json.gz",
+    "bytes": 296513,
+    "sha256": "1f4744a1524a291370508ec311ad1dd931bf9f25a39203e2503bef556b99ce84"
+  },
+  {
+    "sourceCase": "paths-online/chromium",
+    "file": "after-m6-continuation-reimported.json",
+    "archive": "evidence/downloads/paths-online/chromium/after-m6-continuation-reimported.json.gz",
+    "bytes": 78237,
+    "sha256": "bf7fe95f0699e640b9b3f08de86efccc3c595989f3266a75efbe3a10ae8da55d"
+  },
+  {
+    "sourceCase": "paths-online/chromium",
+    "file": "m5-feed-reimported.json",
+    "archive": "evidence/downloads/paths-online/chromium/m5-feed-reimported.json.gz",
+    "bytes": 2344912,
+    "sha256": "914c162770aa88d7b88306d925952b894d94036b0fa99f5acf68184ce3616042"
+  },
+  {
+    "sourceCase": "paths-online/webkit",
+    "file": "after-m6-continuation.json",
+    "archive": "evidence/downloads/paths-online/webkit/after-m6-continuation.json.gz",
+    "bytes": 78237,
+    "sha256": "3406eb80e5beebb16cbf9a7eb0af1804cb2a664c9e36b09efe07d7616561b349"
+  },
+  {
+    "sourceCase": "paths-online/webkit",
+    "file": "m5-water-reimported.json",
+    "archive": "evidence/downloads/paths-online/webkit/m5-water-reimported.json.gz",
+    "bytes": 2344353,
+    "sha256": "7c822880d1bed135d051bf2b773276f69b243af7c462e3977d7db6278707b24e"
+  },
+  {
+    "sourceCase": "paths-online/webkit",
+    "file": "m6-result.json",
+    "archive": "evidence/downloads/paths-online/webkit/m6-result.json.gz",
+    "bytes": 226750,
+    "sha256": "c02a841bdf0eae832c3936aca8423e3a127bafffcb3e1dea8e78e522064d4b2a"
+  },
+  {
+    "sourceCase": "paths-online/webkit",
+    "file": "m5-water-feed-late-pause.json",
+    "archive": "evidence/downloads/paths-online/webkit/m5-water-feed-late-pause.json.gz",
+    "bytes": 1306950,
+    "sha256": "ff1c71ede89aff1103d6916eda7c6c962a692d460cfd2474f78ee90e7355b488"
+  },
+  {
+    "sourceCase": "paths-online/webkit",
+    "file": "m5-water-water-late-pause.json",
+    "archive": "evidence/downloads/paths-online/webkit/m5-water-water-late-pause.json.gz",
+    "bytes": 183413,
+    "sha256": "e60348a69cf34a5c4179baf0622c1d38470cca433b02a7500607073acd07d9ad"
+  },
+  {
+    "sourceCase": "paths-online/webkit",
+    "file": "m6-observation-pause.json",
+    "archive": "evidence/downloads/paths-online/webkit/m6-observation-pause.json.gz",
+    "bytes": 77324,
+    "sha256": "a0442e37698c1cef6871b7b6708f72b94741eec70b910152ff8b8920bea84121"
+  },
+  {
+    "sourceCase": "paths-online/webkit",
+    "file": "m5-water-result.json",
+    "archive": "evidence/downloads/paths-online/webkit/m5-water-result.json.gz",
+    "bytes": 2344353,
+    "sha256": "7c822880d1bed135d051bf2b773276f69b243af7c462e3977d7db6278707b24e"
+  },
+  {
+    "sourceCase": "paths-online/webkit",
+    "file": "m6-reimported.json",
+    "archive": "evidence/downloads/paths-online/webkit/m6-reimported.json.gz",
+    "bytes": 226750,
+    "sha256": "c02a841bdf0eae832c3936aca8423e3a127bafffcb3e1dea8e78e522064d4b2a"
+  },
+  {
+    "sourceCase": "paths-online/webkit",
+    "file": "after-m6-continuation-reimported.json",
+    "archive": "evidence/downloads/paths-online/webkit/after-m6-continuation-reimported.json.gz",
+    "bytes": 78237,
+    "sha256": "3406eb80e5beebb16cbf9a7eb0af1804cb2a664c9e36b09efe07d7616561b349"
+  },
+  {
+    "sourceCase": "paths-backup/webkit",
+    "file": "after-m6-continuation.json",
+    "archive": "evidence/downloads/paths-backup/webkit/after-m6-continuation.json.gz",
+    "bytes": 78237,
+    "sha256": "852e31b236e92f000457f8ad0e7a92f7a00b853884e9c24ced1213a9a4407443"
+  },
+  {
+    "sourceCase": "paths-backup/webkit",
+    "file": "m5-water-reimported.json",
+    "archive": "evidence/downloads/paths-backup/webkit/m5-water-reimported.json.gz",
+    "bytes": 2344353,
+    "sha256": "c90890ab7dcea0f303b7445d2385a3e92c7b547a4a049547442f767e5a5fc6e6"
+  },
+  {
+    "sourceCase": "paths-backup/webkit",
+    "file": "m6-result.json",
+    "archive": "evidence/downloads/paths-backup/webkit/m6-result.json.gz",
+    "bytes": 226752,
+    "sha256": "2bdeefbe763ef43a8d6eaa0b7c3aad988706e49fd3e8ccf6a0b3727880079782"
+  },
+  {
+    "sourceCase": "paths-backup/webkit",
+    "file": "m5-water-feed-late-pause.json",
+    "archive": "evidence/downloads/paths-backup/webkit/m5-water-feed-late-pause.json.gz",
+    "bytes": 1306950,
+    "sha256": "fc1128b7ee4c2faa273406548a62366e6879c5fbfc551536712fdd1afd3ebb01"
+  },
+  {
+    "sourceCase": "paths-backup/webkit",
+    "file": "m5-water-water-late-pause.json",
+    "archive": "evidence/downloads/paths-backup/webkit/m5-water-water-late-pause.json.gz",
+    "bytes": 183413,
+    "sha256": "6295e5866a330190ff6470e17adab083fed8c70b852dd8995b3c8fdad32db8dc"
+  },
+  {
+    "sourceCase": "paths-backup/webkit",
+    "file": "m6-observation-pause.json",
+    "archive": "evidence/downloads/paths-backup/webkit/m6-observation-pause.json.gz",
+    "bytes": 77326,
+    "sha256": "796aa2c7441999cf202f14e4df471497458d9c7043a616ef5a0e46ab6237991e"
+  },
+  {
+    "sourceCase": "paths-backup/webkit",
+    "file": "m5-water-result.json",
+    "archive": "evidence/downloads/paths-backup/webkit/m5-water-result.json.gz",
+    "bytes": 2344353,
+    "sha256": "c90890ab7dcea0f303b7445d2385a3e92c7b547a4a049547442f767e5a5fc6e6"
+  },
+  {
+    "sourceCase": "paths-backup/webkit",
+    "file": "m6-reimported.json",
+    "archive": "evidence/downloads/paths-backup/webkit/m6-reimported.json.gz",
+    "bytes": 226752,
+    "sha256": "2bdeefbe763ef43a8d6eaa0b7c3aad988706e49fd3e8ccf6a0b3727880079782"
+  },
+  {
+    "sourceCase": "paths-backup/webkit",
+    "file": "after-m6-continuation-reimported.json",
+    "archive": "evidence/downloads/paths-backup/webkit/after-m6-continuation-reimported.json.gz",
+    "bytes": 78237,
+    "sha256": "852e31b236e92f000457f8ad0e7a92f7a00b853884e9c24ced1213a9a4407443"
+  }
+]

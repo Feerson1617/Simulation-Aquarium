@@ -1,0 +1,18 @@
+{
+  "engine": "chromium",
+  "commit": "a89f0f6892dda54d605dd66cefaf3742599b4736",
+  "checks": [
+    "free grade 8: one actual aquarium, catalog insertion, care, water/light/time, measurement, export/reload/import, old data unchanged",
+    "free direct selection: object card matches the actual clicked foreground individual",
+    "accessible stock selection and actual arrow-key plant movement: legal position, same camera, immediate authoritative save",
+    "actual pointer grasp and cancellation keep the camera and saved placement unchanged",
+    "local teacher options persist: hints off and optional own text hidden, no mandatory writing",
+    "new controller storage quota: saved bytes preserved, clock stopped, direct file rescue",
+    "free grade 9: one actual aquarium, catalog insertion, care, water/light/time, measurement, export/reload/import, old data unchanged",
+    "free grade 10: one actual aquarium, catalog insertion, care, water/light/time, measurement, export/reload/import, old data unchanged"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "physicalIPad": false,
+  "status": "passed"
+}

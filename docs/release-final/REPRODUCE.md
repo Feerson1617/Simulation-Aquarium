@@ -68,3 +68,29 @@ Die ergänzten unsichtbaren/deaktivierten Felder im Fokus-Skript sind ausdrückl
 eine synthetische DOM-Prüfvorrichtung. Der reale M4-Durchlauf und seine gespeicherten
 Eltern/Generationen werden zuvor mit echten Spielhandlungen erzeugt. Die
 Prüfvorrichtung verändert weder biologische Daten noch den Missionsfortschritt.
+
+## Mit sichtbaren Handlungen nachprüfen
+
+- **K01:** In M4 die Versuche bis zur Archivübersicht durchführen, dann
+  „Elternbeiträge“ öffnen. Tab und Shift+Tab müssen Schließen, Versuch und
+  Generation erreichen. Die Auswahl mit Pfeiltasten ändern; danach weiter mit
+  Tab wechseln. Escape schließt und fokussiert wieder „Elternbeiträge“.
+- **M5:** „Einmal Wasser wechseln“ wählen und die direkten Werte ansehen.
+  „Spätere Wirkung ansehen“, anhalten und über Menü eine Datei speichern.
+  Wieder öffnen und fortsetzen. „Mit gleichem Anfang noch einmal“ wählen,
+  „Weniger Futter geben“ ausführen und anschließend beide Ergebnisse vergleichen.
+  Eine unpassende Deutung wählen, den Tipp öffnen und die Antwort korrigieren.
+  Nach Abschluss exportieren, einen neuen Versuch starten und die Datei laden.
+- **M6:** Eine echte Pflanze direkt antippen. Art, Nummer und Anfangsbalken
+  ansehen; die Entwicklung starten und nach einem Zeitschritt anhalten.
+  Datei speichern, wieder öffnen und prüfen, ob dieselbe Pflanze mit derselben
+  Anfangsreferenz markiert bleibt. Die Beobachtung fortsetzen, Fehlantworten und
+  Hilfen zur Quelle, Rückführung und Aussagekraft testen sowie den fossilen
+  Transfer öffnen. Abschluss speichern und wieder einlesen.
+- **Nach M6:** M2 beginnen, tatsächlich füttern, einen Zeitschritt beobachten und
+  anhalten. Verlassen, wieder öffnen, Datei exportieren und importieren. Die
+  Mengen und der angehaltene Fortschritt müssen gleich bleiben; der Tipp muss
+  weiterhin reagieren.
+
+Die Bildgalerie und die Rohberichte halten die tatsächlich ausgeführten
+Varianten fest. Die Anleitung setzt keinen automatischen Missionsabschluss.

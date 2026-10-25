@@ -10,6 +10,7 @@ from playwright.sync_api import sync_playwright
 ROOT=Path(__file__).resolve().parents[1]
 ENGINE=os.environ.get('AQUARIUM_BROWSER','chromium')
 BEFORE=os.environ.get('AQUARIUM_BEFORE')=='1'
+OFFLINE=os.environ.get('AQUARIUM_BACKUP')=='1'
 OUT=Path(os.environ.get('AQUARIUM_FOCUS_RESULTS','/tmp/aquarium-final-focus'))/('before' if BEFORE else 'after')/ENGINE
 OUT.mkdir(parents=True,exist_ok=True)
 URL=os.environ.get('AQUARIUM_URL','http://127.0.0.1:8000/aquarium-simulation/')
@@ -25,10 +26,20 @@ with sync_playwright() as pw:
  b=getattr(pw,ENGINE).launch(**opts);r['version']=b.version
  ctx=b.new_context(viewport={'width':1366,'height':960},has_touch=True,accept_downloads=True,ignore_https_errors=True)
  ctx.add_init_script("localStorage.setItem('aquarium-graphics-v1',JSON.stringify({version:1,profile:'ipad'}))")
- p=ctx.new_page();p.set_default_timeout(60000)
- p.on('pageerror',lambda e:r['errors'].append(str(e)));p.on('console',lambda m:r['consoleErrors'].append(m.text) if m.type=='error' else None);p.on('requestfailed',lambda q:r['failedRequests'].append(q.url))
+ page=ctx.new_page();page.set_default_timeout(60000)
+ page.on('pageerror',lambda e:r['errors'].append(str(e)));page.on('console',lambda m:r['consoleErrors'].append(m.text) if m.type=='error' else None);page.on('requestfailed',lambda q:r['failedRequests'].append(q.url))
+ class Scene:
+  def __getattr__(self,name):
+   frame=next(x for x in page.frames if x.parent_frame==page.main_frame)
+   return getattr(page if name in ['keyboard','screenshot','url','viewport_size'] else frame,name)
+ p=page
  try:
-  p.goto(URL+'?mission=m4-dominance-frequency');tap(p,'[data-class-choice=unsure]')
+  page.goto(URL+'?mission=m4-dominance-frequency',timeout=240000)
+  if OFFLINE:
+   page.frame_locator('#aquarium-view').locator('[data-class-choice=unsure]').wait_for(timeout=180000);p=Scene()
+   ctx.route('http://**',lambda route:route.abort('internetdisconnected'));ctx.route('https://**',lambda route:route.abort('internetdisconnected'))
+   r['offline']='All HTTP(S) blocked after initial load';assert len(page.frames)==2
+  tap(p,'[data-class-choice=unsure]')
   for trial in range(3):
    for generation in range(3):tap(p,'[data-class=generation]')
    if trial<2:tap(p,'[data-class=reset-trial]')

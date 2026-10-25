@@ -164,5 +164,11 @@
       "inDialog": true
     }
   ],
-  "status": "confirmed original K01"
+  "status": "confirmed original K01",
+  "sourceVerification": {
+    "url": "http://127.0.0.1:8000/final-baseline/single-classroom-ui.mjs",
+    "sha256": "ecb9802bda2d09e0812042a4600610ebb8109fb068464f28edd217ff744c88df",
+    "equalToBaselineCommit": true,
+    "note": "The original harness metadata read the changed working-tree file. This source hash is corrected to the original file actually served at the isolated baseline URL."
+  }
 }

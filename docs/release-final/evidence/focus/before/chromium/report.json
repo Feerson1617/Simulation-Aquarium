@@ -1,0 +1,168 @@
+{
+  "engine": "chromium",
+  "commit": "00b9f7874e18646786e6e9d273f3abc9d9c3feec",
+  "sourceSHA256": "ecb9802bda2d09e0812042a4600610ebb8109fb068464f28edd217ff744c88df",
+  "before": true,
+  "actions": [
+    {
+      "click": "[data-class-choice=unsure]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=reset-trial]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=reset-trial]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "key": "Enter",
+      "on": "parents opener"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "close",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:28:59.295498+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "close",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:28:59.303469+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "close",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:28:59.306689+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "close",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:28:59.312788+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "BODY",
+        "key": null,
+        "inDialog": false
+      },
+      "at": "2026-10-25T04:29:05.065180+00:00"
+    }
+  ],
+  "checks": [
+    "Original Tab cycle does not include both selects",
+    "Tab from actual generation select escaped the parent dialog"
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "version": "154.0.8037.57",
+  "captures": [
+    {
+      "name": "archive-open",
+      "url": "http://127.0.0.1:8000/final-baseline/?mission=m4-dominance-frequency",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "at": "2026-10-25T04:28:59.280984+00:00",
+      "active": {
+        "tag": "H2",
+        "key": null,
+        "inDialog": true
+      }
+    },
+    {
+      "name": "tab-cycle",
+      "url": "http://127.0.0.1:8000/final-baseline/?mission=m4-dominance-frequency",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "at": "2026-10-25T04:29:05.039333+00:00",
+      "active": {
+        "tag": "BUTTON",
+        "key": "close",
+        "inDialog": true
+      }
+    },
+    {
+      "name": "select-tab-escaped",
+      "url": "http://127.0.0.1:8000/final-baseline/?mission=m4-dominance-frequency",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "at": "2026-10-25T04:29:11.168505+00:00",
+      "active": {
+        "tag": "BODY",
+        "key": null,
+        "inDialog": false
+      }
+    }
+  ],
+  "initialCycle": [
+    {
+      "tag": "BUTTON",
+      "key": "close",
+      "inDialog": true
+    },
+    {
+      "tag": "BUTTON",
+      "key": "close",
+      "inDialog": true
+    },
+    {
+      "tag": "BUTTON",
+      "key": "close",
+      "inDialog": true
+    },
+    {
+      "tag": "BUTTON",
+      "key": "close",
+      "inDialog": true
+    }
+  ],
+  "status": "confirmed original K01"
+}

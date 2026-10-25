@@ -1,0 +1,412 @@
+{
+  "engine": "chromium",
+  "commit": "00b9f7874e18646786e6e9d273f3abc9d9c3feec",
+  "sourceSHA256": "9086e776c9c8124b1e7ff2f0413d284748c36aee096885f18abbc76d0d10c4a4",
+  "before": false,
+  "actions": [
+    {
+      "click": "[data-class-choice=unsure]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=reset-trial]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=reset-trial]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "click": "[data-class=generation]"
+    },
+    {
+      "key": "Enter",
+      "on": "parents opener"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "close",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:41.033353+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "SELECT",
+        "key": "trial",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:41.041445+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "SELECT",
+        "key": "generation",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:41.044718+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "close",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:41.057127+00:00"
+    },
+    {
+      "key": "Shift+Tab",
+      "active": {
+        "tag": "SELECT",
+        "key": "generation",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:46.649893+00:00"
+    },
+    {
+      "key": "Shift+Tab",
+      "active": {
+        "tag": "SELECT",
+        "key": "trial",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:46.659456+00:00"
+    },
+    {
+      "key": "ArrowUp",
+      "active": {
+        "tag": "SELECT",
+        "key": "trial",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:46.730015+00:00"
+    },
+    {
+      "key": "ArrowUp",
+      "active": {
+        "tag": "SELECT",
+        "key": "generation",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:46.766878+00:00"
+    },
+    {
+      "key": "Escape",
+      "active": {
+        "tag": "BUTTON",
+        "key": "parents",
+        "inDialog": false
+      },
+      "at": "2026-10-25T04:32:52.287336+00:00"
+    },
+    {
+      "click": "[data-class=parents]"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "positive1",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:54.808682+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "positive2",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:54.833129+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "close",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:54.835778+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "SELECT",
+        "key": "trial",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:54.848327+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "SELECT",
+        "key": "generation",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:54.851729+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "INPUT",
+        "key": "input",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:54.856876+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "TEXTAREA",
+        "key": "text",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:54.868016+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "DIV",
+        "key": "custom",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:54.870638+00:00"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "positive1",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:54.879432+00:00"
+    },
+    {
+      "key": "Shift+Tab",
+      "active": {
+        "tag": "DIV",
+        "key": "custom",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:54.886082+00:00"
+    },
+    {
+      "key": "Shift+Tab",
+      "active": {
+        "tag": "TEXTAREA",
+        "key": "text",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:54.960886+00:00"
+    },
+    {
+      "key": "Shift+Tab",
+      "active": {
+        "tag": "INPUT",
+        "key": "input",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:54.967992+00:00"
+    },
+    {
+      "key": "Shift+Tab",
+      "active": {
+        "tag": "SELECT",
+        "key": "generation",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:54.971299+00:00"
+    },
+    {
+      "key": "Shift+Tab",
+      "active": {
+        "tag": "SELECT",
+        "key": "trial",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:54.976826+00:00"
+    },
+    {
+      "key": "Shift+Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "close",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:54.996082+00:00"
+    },
+    {
+      "key": "Shift+Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "positive2",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:54.999493+00:00"
+    },
+    {
+      "key": "Shift+Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "positive1",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:55.036033+00:00"
+    },
+    {
+      "key": "Escape",
+      "active": {
+        "tag": "BUTTON",
+        "key": "parents",
+        "inDialog": false
+      },
+      "at": "2026-10-25T04:32:55.061065+00:00"
+    },
+    {
+      "click": "[data-class=help]"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "close",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:57.368730+00:00"
+    },
+    {
+      "key": "Escape",
+      "active": {
+        "tag": "BUTTON",
+        "key": "help",
+        "inDialog": false
+      },
+      "at": "2026-10-25T04:32:57.384713+00:00"
+    },
+    {
+      "click": "[data-class=menu]"
+    },
+    {
+      "key": "Tab",
+      "active": {
+        "tag": "BUTTON",
+        "key": "close",
+        "inDialog": true
+      },
+      "at": "2026-10-25T04:32:59.251938+00:00"
+    },
+    {
+      "key": "Escape",
+      "active": {
+        "tag": "BUTTON",
+        "key": "menu",
+        "inDialog": false
+      },
+      "at": "2026-10-25T04:32:59.264776+00:00"
+    }
+  ],
+  "checks": [
+    "Tab/Shift+Tab cycle; keyboard trial/generation changes retain focus; Escape restores actual opener; all session/archive data unchanged",
+    "DOM-only fixture: input/textarea/custom and positive tab order; hidden file/disabled fieldset/inert/negative tabindex/invisible/non-link excluded in both directions",
+    "Existing help and menu dialogs retain wrapping and opener restoration"
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "version": "154.0.8037.57",
+  "captures": [
+    {
+      "name": "archive-open",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m4-dominance-frequency",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "at": "2026-10-25T04:32:40.992078+00:00",
+      "active": {
+        "tag": "H2",
+        "key": null,
+        "inDialog": true
+      }
+    },
+    {
+      "name": "tab-cycle",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m4-dominance-frequency",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "at": "2026-10-25T04:32:46.633898+00:00",
+      "active": {
+        "tag": "BUTTON",
+        "key": "close",
+        "inDialog": true
+      }
+    },
+    {
+      "name": "keyboard-selected-archive",
+      "url": "http://127.0.0.1:8000/aquarium-simulation/?mission=m4-dominance-frequency",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "at": "2026-10-25T04:32:52.273911+00:00",
+      "active": {
+        "tag": "SELECT",
+        "key": "generation",
+        "inDialog": true
+      }
+    }
+  ],
+  "initialCycle": [
+    {
+      "tag": "BUTTON",
+      "key": "close",
+      "inDialog": true
+    },
+    {
+      "tag": "SELECT",
+      "key": "trial",
+      "inDialog": true
+    },
+    {
+      "tag": "SELECT",
+      "key": "generation",
+      "inDialog": true
+    },
+    {
+      "tag": "BUTTON",
+      "key": "close",
+      "inDialog": true
+    }
+  ],
+  "status": "passed"
+}

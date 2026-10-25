@@ -61,6 +61,10 @@ f.reload_exact=reload_exact
 def observe(v,label):
  start=f.snapshot(v)['session']['tank']['day'];f.c(v,'play')
  v.locator('[data-class=toggle]').press('Enter');R['actions'].append({'input':'keyboard Enter','selector':'[data-class=toggle]','purpose':'pause without waiting for touch hit-test stability during the short observation'})
+ if f.snapshot(v)['session']['tank']['day']==start:
+  v.locator('[data-class=toggle]').press('Enter')
+  v.wait_for_function('day=>Number(document.querySelector(".single-meter")?.dataset.time)>day',arg=start,polling=200)
+  v.locator('[data-class=toggle]').press('Enter');R['actions'].append({'input':'keyboard Enter','selector':'[data-class=toggle]','purpose':'pause after a real timer tick, observed through the lightweight displayed time'})
  assert not f.snapshot(v)['running'];path,paused=export(v,label+'-pause')
  f.c(v,'help');v.wait_for_timeout(700);assert f.snapshot(v)['session']==paused;f.c(v,'close')
  reload_exact(v);import_file(v,path,paused)

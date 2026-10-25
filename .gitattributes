@@ -5,3 +5,5 @@ docs/coherent-learning/evidence/**/*.csv linguist-generated=true
 docs/coherent-learning/evidence/node.log linguist-generated=true
 docs/release-v1/evidence/**/*.json linguist-generated=true
 docs/release-v1/evidence/module-tests.txt linguist-generated=true
+docs/release-final/evidence/**/*.json linguist-generated=true
+docs/release-final/evidence/module-tests.txt linguist-generated=true

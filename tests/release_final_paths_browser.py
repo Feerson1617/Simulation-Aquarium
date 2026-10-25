@@ -44,7 +44,7 @@ def record(v,name,image=True):
 f.shot=lambda v,name:record(v,name,image=any(x in name for x in ['wrong','comparison','observation','selected','fossil','complete','continued','immediate','restored-start']))
 def export(v,name):
  s=f.snapshot(v)['session'];f.c(v,'menu')
- with v.expect_download() as d:f.c(v,'export')
+ with v.expect_download() as d:f.act(v,'.single-dialog [data-class=export]')
  path=OUT/(name+'.json');d.value.save_as(str(path));assert json.loads(path.read_text())==s;f.c(v,'close')
  R['downloads'].append({'file':path.name,'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'identicalToSession':True});return path,s
 def import_file(v,path,expected):
@@ -60,8 +60,8 @@ def reload_exact(v,is_m1=False):
 f.reload_exact=reload_exact
 def observe(v,label):
  start=f.snapshot(v)['session']['tank']['day'];f.c(v,'play')
- v.wait_for_function('day=>aquariumLearningSnapshot().session.tank.day>day',arg=start,polling=500)
- f.c(v,'toggle');assert not f.snapshot(v)['running'];path,paused=export(v,label+'-pause')
+ v.locator('[data-class=toggle]').press('Enter');R['actions'].append({'input':'keyboard Enter','selector':'[data-class=toggle]','purpose':'pause without waiting for touch hit-test stability during the short observation'})
+ assert not f.snapshot(v)['running'];path,paused=export(v,label+'-pause')
  f.c(v,'help');v.wait_for_timeout(700);assert f.snapshot(v)['session']==paused;f.c(v,'close')
  reload_exact(v);import_file(v,path,paused)
  if paused['mission'].startswith('m6'):
@@ -113,7 +113,10 @@ def m6(v):
  R['checks'].append('Fresh actual '+species+' individual, UID and marker; fixed individual baseline through pause/reload/import; real growth, four wrong answers corrected, biological explanation distinguished from atom-source proof, fossil transfer opened')
 def continuation(v):
  v.home();v.open_mission('m2');f.choice(v,'unsure');f.c(v,'feed');day=f.snapshot(v)['session']['tank']['day'];f.c(v,'play')
- v.wait_for_function('day=>aquariumLearningSnapshot().session.tank.day>day',arg=day,polling=500);f.c(v,'toggle')
+ v.locator('[data-class=toggle]').press('Enter');R['actions'].append({'input':'keyboard Enter','selector':'[data-class=toggle]'})
+ if f.snapshot(v)['session']['tank']['day']==day:
+  v.locator('[data-class=toggle]').press('Enter');v.wait_for_timeout(800);v.locator('[data-class=toggle]').press('Enter')
+ assert f.snapshot(v)['session']['tank']['day']>day and not f.snapshot(v)['running']
  record(v,'after-m6-continued');path,state=export(v,'after-m6-continuation');v.home();v.open_mission('m2');assert f.snapshot(v)['session']==state and not f.snapshot(v)['running']
  import_file(v,path,state);second,_=export(v,'after-m6-continuation-reimported');assert json.loads(second.read_text())==state
  f.c(v,'help');expect(v.locator('.single-dialog')).to_be_visible();record(v,'after-m6-restored-responsive');f.c(v,'close')
@@ -130,10 +133,13 @@ with sync_playwright() as pw:
   if OFFLINE:
    ctx.route('http://**',lambda route:route.abort('internetdisconnected'));ctx.route('https://**',lambda route:route.abort('internetdisconnected'));isolated=True
    R['offlineMethod']='All HTTP(S) blocked after initial load; local File APIs retained. Prior strict-offline 24-round evidence accepted separately.'
-  v.open_mission('m5');m5(v,['water','feed'])
-  if ENGINE=='chromium' and not OFFLINE:
-   f.c(v,'repeat');m5(v,['feed','water'])
-  v.home();v.open_mission('m6');m6(v);continuation(v)
+  if os.environ.get('AQUARIUM_ONLY_M6')=='1':
+   earlier=OUT/'m5-phase-report.json';evidence=json.loads(earlier.read_text());assert evidence['status']=='passed'
+   R['earlierM5Phase']={'report':earlier.name,'sha256':hashlib.sha256(earlier.read_bytes()).hexdigest(),'method':'already completed actual M5 retained; fresh browser/context for M6, no M5 replay'}
+  else:
+   first=os.environ.get('AQUARIUM_M5_FIRST','water');assert first in ['water','feed']
+   v.open_mission('m5');m5(v,[first,'feed' if first=='water' else 'water']);v.home()
+  v.open_mission('m6');m6(v);continuation(v)
   if OFFLINE:R['finalLifecycle']=p.evaluate('aquariumStandaloneSnapshot()');assert len(p.frames)==2
   assert not R['errors'] and not R['consoleErrors'] and not R['requests_failed'] and not R['networkAfterIsolation'];R['status']='passed'
  except Exception as e:

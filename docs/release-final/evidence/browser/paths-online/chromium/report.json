@@ -1,0 +1,1330 @@
+{
+  "engine": "chromium",
+  "commit": "d016e29b7ebffee19370855777c49be5f10cf59e",
+  "sources": {
+    "ammonia-pool.mjs": "694f9bbb231240a44275b611b1c93bfbf8c4fabbc9524129db0edf9975720863",
+    "aquascaping.css": "92680024f89ffc4994f7748865e0be31df18147ecc3494da9ec3715dfa82f8d4",
+    "aquascaping.mjs": "bb6534a4f6f8f64d4e1a6de5849efce53476daad8168ffa47380eb11f06930b4",
+    "biology-quality.mjs": "89a9bd836e5be0c2a40fa6c0299293399a59213cedc53888e22606fe54384a08",
+    "bioprocesses.mjs": "db390102b09a5e888a504049f3b659bfdea000df400b22d17a234be5998ff8cd",
+    "catalog-assets.mjs": "1725e5493f14bd1ba68cd49251a4be542d24029ccec36cc6ce97c8fdbab0d791",
+    "catalog-studio.mjs": "5c0e58a4c4f74d2b4fabec453acbea7e0056393b5472ad14d5ecb5b1287dcd03",
+    "catalog.css": "85d3ee019ac0aee8cea7e5f058414df06b64809463b658a28ebcd1769a96176a",
+    "catalog.mjs": "eaa4db288f4bd1e5bfe82a2e1daf50f54d16ebdac43635d08258dd880fc37504",
+    "coherent-learning.css": "9755e87a9d881e0cde8d5f86f1a279bdc48d7bf34e6973d94b0dedaddcdfa9ee",
+    "control-dial.mjs": "a7217998cd8bba325c0003419538bdcdcad1774cd0ef755d5281a8bf7fc3f056",
+    "control-values.mjs": "ea918839a5c4136d8b6dc4f0f7743accfff1f6e9287a4649e45a99cb892344f2",
+    "ecology.mjs": "66c11227f26241cf3fcffb00d0f8b28dc957f7a0536de650a80fc8210098429b",
+    "equipment-ui.mjs": "63d1aaf7a68213e8be16a1d8b14329119379dddd965354a3170c71c32c42d823",
+    "equipment.css": "7bbe961ddc163a7484e0f70a2e50c541a5867b61d443be6a19c33728bf66f932",
+    "fish-variants.mjs": "001365c4ae594847c4aec741340734b3c1c43c9058afde6368310adf68e3cac2",
+    "game-route.mjs": "c143aebecf66612edaca3f687c332e57b772e6aa3f36be39460f04c99f9c593f",
+    "genetics-shop.mjs": "d0cf542391fa1d391e35cb7a9d033b986d08f610b2fa2b9c84a85e3b0b19bb9b",
+    "genetics-ui.mjs": "ffee9241dbda4952847aa51b395b5e45111ef6b23011ed98309967db9d9c5a72",
+    "genetics.css": "458cbc124c9f16cde4b6760c6e8fdfba2978b19f61152c899939c4b9c9de8684",
+    "genetics.mjs": "301b841789853d6ed8dac91d3090f2cc85ab858701577473a35e3ab82122a532",
+    "graphics-profiles.mjs": "5d1f586679fcee3c3316bb3b0ebf952500a8fcaac42449ccf9c67806bd0ed98a",
+    "graphics.css": "17c48328c83603daabc10887a71603e36e51a6d30ceb062a053295f69a890199",
+    "index.html": "c351259f6078fa364ee89d6c2924b099c70a36fc444576eca8bdf3f314c840ff",
+    "individual-appearance.mjs": "0a8365eabceca7f2c6e982effe9af498c230aae702f9d44810c6ff0a292e4b58",
+    "learning-activities.mjs": "c430e6c1bf42923b6c48d74870b67a1fb6ad8668fe614c9316b6b552807650e2",
+    "learning-content.mjs": "41120a780c512f8e4c42f601d447da6da0c74acc4697eb027bda287ef60dc726",
+    "learning-context.mjs": "017507cde3a4d83a89785b4cb5c4ab67abab83c500512cab6f3165f10aead7ba",
+    "learning-display.mjs": "43bb2ef8f090797401fa7fe82a1d04f434935b3229726ba78488fe8185fd4e62",
+    "learning-evolution-evidence.mjs": "4202c0796d735f577112fb4508738d37a5d1f597ca44e2512eb8d10a6d56cc08",
+    "learning-model.mjs": "dc07bd53496053e279d0563907554440f3b3e8d0642f83da35f8915def542956",
+    "learning-population-workspace.mjs": "950c0ebce30bc8421f18b6d5d2c17b735cbf6dab6ffc09b9133daf2bfa05cb3a",
+    "learning-population.mjs": "e57b699f1762996e56af6941c59145ee848df07df7d7aae8e10ae70638a266e8",
+    "learning-process-workspace.mjs": "39f3d7e367851c17c4e0769818997e685551f764e848fa280e00c28d9a5863dd",
+    "learning-product-display.mjs": "803b0f5ded89212165ba002373f07ba190b53c55edef11b0759f68760ec3c0f8",
+    "learning-provenance.mjs": "569ba626e23973fdf4a8b5f5b32c5d58b137fb929b4ed31bf29e57a175194999",
+    "learning-quests.mjs": "9e0c93381fa7e8088939f0ca46dd01c15d02d0ed4ed3b8ea7fdc666aa1fa9dcc",
+    "learning-regional-workspace.mjs": "deb634808a76b96475cc698472b04d3b0188dd96da2953f4c2f09831200c97ab",
+    "learning-student.mjs": "85f440ed1d0ee48f1580fcbe88c3f84361994c9bf516231d8e583e11e5f00ac5",
+    "learning-tank-views.mjs": "3d0034aa1d56b7c731fcb1890961b1b1e3b5ec0f390fd68afdd0f5d6a685e227",
+    "learning-ui.mjs": "df2e8e261eed59109392a3a65f2949272268e0b8cc4e9c5e3ef382bfd94924b8",
+    "learning-workspace.mjs": "328da7cfb81c20dbc1fe5543ba15771673b242269e00d509fe080aa1884e7aa5",
+    "learning.css": "b63afc0bd8d49af5844b7e441c3357df3efaabe6e172ff55c7804fad8e2749ff",
+    "organic-shapes.mjs": "8f22e1c4b9a9195a689608a69af0fd0ced1e3173ec2b44e81349129617e3c80e",
+    "photo-volume.mjs": "0d1dbecc908e1ffc04df00d97827b91b70556ea1540bdcb114caf3efa6d9a724",
+    "physical-renderer.mjs": "46ff0ab3bc8cc82faadb798230a15cbf460f04cba9e50e5bfa092925c2360709",
+    "physical-scale.mjs": "a948d0affb65fe354f90dfebb53e0d26b63567a35645714a3b4795f5dc68b041",
+    "realism-assets.mjs": "f0d2b01a660dc9bd96f8ca5902555c129dcbe6cf53d16ec96e0bbe8b303d39dc",
+    "realism-materials.mjs": "32ae354c89791d4d86dc157a8c3ec58b76c3b6b0fd4bfd68f7c8ae363ec8fc54",
+    "realism-renderer.mjs": "1c3fc92567c2dcfc6d42e4cd70b6f77ebf9c4617380d6c9c4b0d17f76218efde",
+    "render-population.mjs": "e0d70fa5cdcd933f325a56fd6d687fbd2f8ef65e59d6b32c84200cff6d8a7304",
+    "scenario-layout.mjs": "428426ba0429543619bf9bc32b887ac5ffe47b90d4e8d5e6f8598ab58b584f23",
+    "scenarios.mjs": "62e0d9bff4be5b8008f10191d2090d6c0e7a5c02a3968ffc4786ef5aa74a8d02",
+    "single-aquarium-view.mjs": "32e5382372445b8917427e4d5f7651636bc549bbb6e4d98daf0b7f2e867cc2fd",
+    "single-archive-display.mjs": "3ce28abaa911b9137671bdb6b2660a9865ced49e25219ae2699c233a1000cb08",
+    "single-classroom-content.mjs": "edab6d6bad07e1f59d88f7892ff0045c2a5880f9215feff5d329b98381a1b29d",
+    "single-classroom-model.mjs": "7407666b7a0e7b4a43be20d7621edafc62724151d49decaa02ff82ededcb7c42",
+    "single-classroom-ui.mjs": "9086e776c9c8124b1e7ff2f0413d284748c36aee096885f18abbc76d0d10c4a4",
+    "single-learning-missions.mjs": "791656242d9e3b76e905f404d949456538fda810b5f0f658b6c59844d15ab7de",
+    "single-learning-model.mjs": "932d2f36bb15440137f0c31e9ee3cf534ac97d6a606e1f114dcffceec59e0659",
+    "single-learning-ui.mjs": "9867075506cfaba4ff89f431885c55916f372b54d53b83fabe1adae81acbc929",
+    "single-learning.css": "ba8fce412f1b8511931c3fa228a4034b33e66d31ee0fa876778eed07f57a850e",
+    "single-lesson-support.mjs": "ad8836cc73552695e3314b21ba019ea6be72df100faec5f2b731715317dfdba3",
+    "single-observation.mjs": "b70ec88aa5df11a68325613ae2d164b0ac6613dabc6993218343d77ebdb9bb34",
+    "single-parent-history.mjs": "e483a06264b68bebdd82f02be4ecb3661f283536b5e9356c8022060ae3b767e3",
+    "single-teacher-settings.mjs": "c6a29f8a72a7257645895125d899d19cac876ae67ec5c5974427be0120e9de55",
+    "species-assets.mjs": "7539167cbf8c92e0bfce1f5efd89c8dd66403a9586da94c0214d3b0b630b7c30",
+    "species-dimensions.mjs": "9aaa6d3e0425998f83652825402b95a569cadd4c914f5e517f319d4afb5fbd0b",
+    "species-provenance.mjs": "7e1324dc173cc0e41a1d23eb216ecfe4165e3eac0e02a650f5046b89bd5f3d58",
+    "standalone-navigation.mjs": "ed4db3bfbd4855736870c3087097df4c4ba88a679c1c8fb8b5387887db8149c8",
+    "study-ui.mjs": "08c1598262db0ab647a225f5b93e6d60cc4bc69113992997c3db25360214ec25",
+    "study.css": "ed534d337c339cb1a1602fcd4412ae8059720b1c4684136e401f870bfda26ee5",
+    "underwater.mjs": "df3c746f19f3f20348cb7442ec7c216b8cd863bab3e7f7e4105785e92223e941"
+  },
+  "hardware": "Linux software GPU; Playwright touchscreen and mouse, not physical iPad",
+  "actions": [
+    {
+      "at": "2026-10-25T05:01:43.164963+00:00",
+      "selector": "a[href=\"?mission=m6-plant-carbon\"]",
+      "label": "Untersuchen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:02:09.499767+00:00",
+      "selector": "[data-class-choice=unsure]",
+      "label": "Ich bin unsicher",
+      "input": "touchscreen tap"
+    },
+    {
+      "input": "direct canvas touchscreen tap",
+      "uid": 3,
+      "point": {
+        "x": 822.7861361447403,
+        "y": 514.7286151618631
+      },
+      "at": "2026-10-25T05:02:12.884214+00:00"
+    },
+    {
+      "at": "2026-10-25T05:02:26.989043+00:00",
+      "selector": "[data-class=play]",
+      "label": "Entwicklung ansehen",
+      "input": "touchscreen tap"
+    },
+    {
+      "input": "keyboard Enter",
+      "selector": "[data-class=toggle]",
+      "purpose": "pause without waiting for touch hit-test stability during the short observation"
+    },
+    {
+      "at": "2026-10-25T05:02:32.797537+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:02:39.457659+00:00",
+      "selector": ".single-dialog [data-class=export]",
+      "label": "Stand als Datei speichern",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:02:46.309611+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:02:52.934068+00:00",
+      "selector": "[data-class=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:02:58.691144+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:03:22.665906+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:03:29.035454+00:00",
+      "selector": "[data-class=load]",
+      "label": "Sicherung öffnen",
+      "input": "touchscreen tap"
+    },
+    {
+      "input": "actual file chooser",
+      "file": "m6-observation-pause.json"
+    },
+    {
+      "at": "2026-10-25T05:03:44.868835+00:00",
+      "selector": "[data-class=toggle]",
+      "label": "Anhalten oder weiter beobachten",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:04:03.856848+00:00",
+      "selector": "[data-class-choice=opposite]",
+      "label": "Die Pflanzenmenge hat abgenommen.",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:04:15.132618+00:00",
+      "selector": "[data-class=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:04:21.381858+00:00",
+      "selector": "[data-class=more-help]",
+      "label": "Weiterer Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:04:28.439762+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:04:34.717088+00:00",
+      "selector": "[data-class-choice=observed]",
+      "label": "Die Pflanze ist gewachsen.",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:04:40.621312+00:00",
+      "selector": "[data-class=process]",
+      "label": "Erklärung als Hilfe",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:04:46.269112+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:04:52.099690+00:00",
+      "selector": "[data-class-choice=ground]",
+      "label": "Aus Sand und Dünger. Die Wurzeln nehmen dort Kohlenstoff auf.",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:05:03.360397+00:00",
+      "selector": "[data-class=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:05:09.352695+00:00",
+      "selector": "[data-class=more-help]",
+      "label": "Weiterer Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:05:16.243397+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:05:22.531764+00:00",
+      "selector": "[data-class-choice=water-carbon]",
+      "label": "Aus gelöstem Kohlenstoffdioxid. Licht liefert Energie für den Aufbau.",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:05:28.250341+00:00",
+      "selector": "[data-class-choice=gone]",
+      "label": "Er kommt erst ins Wasser zurück, wenn die Pflanze abgestorben ist.",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:05:39.399524+00:00",
+      "selector": "[data-class=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:05:45.594439+00:00",
+      "selector": "[data-class=more-help]",
+      "label": "Weiterer Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:05:52.656010+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:05:58.877767+00:00",
+      "selector": "[data-class-choice=respiration]",
+      "label": "Durch Atmung von Lebewesen und durch den Abbau von Resten.",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:06:04.913142+00:00",
+      "selector": "[data-class-choice=proof]",
+      "label": "Die Mengenänderung belegt, dass die Kohlenstoffbausteine aus dem Wasser stammen.",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:06:16.035529+00:00",
+      "selector": "[data-class=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:06:21.947777+00:00",
+      "selector": "[data-class=more-help]",
+      "label": "Weiterer Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:06:29.037415+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:06:35.277736+00:00",
+      "selector": "[data-class-choice=explanation]",
+      "label": "Die Mengenänderung ist beobachtet. Die Herkunft wird biologisch erklärt.",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:06:41.427348+00:00",
+      "selector": "[data-class=fossil]",
+      "label": "Kohle, Erdöl und Erdgas",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:06:53.956626+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:07:08.408802+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:07:14.772831+00:00",
+      "selector": ".single-dialog [data-class=export]",
+      "label": "Stand als Datei speichern",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:07:21.445790+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:07:51.460957+00:00",
+      "selector": "[data-class=repeat]",
+      "label": "Noch einmal untersuchen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:08:02.779873+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:08:08.667073+00:00",
+      "selector": "[data-class=load]",
+      "label": "Sicherung öffnen",
+      "input": "touchscreen tap"
+    },
+    {
+      "input": "actual file chooser",
+      "file": "m6-result.json"
+    },
+    {
+      "at": "2026-10-25T05:08:21.405417+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:08:27.261408+00:00",
+      "selector": ".single-dialog [data-class=export]",
+      "label": "Stand als Datei speichern",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:08:34.130466+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:08:40.547012+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:08:53.869415+00:00",
+      "selector": "a[href=\"?mission=m2-food-transformation\"]",
+      "label": "Untersuchen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:09:14.729215+00:00",
+      "selector": "[data-class-choice=unsure]",
+      "label": "Ich bin unsicher",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:09:20.267533+00:00",
+      "selector": "[data-class=feed]",
+      "label": "Einmal füttern",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:09:25.644867+00:00",
+      "selector": "[data-class=play]",
+      "label": "Entwicklung ansehen",
+      "input": "touchscreen tap"
+    },
+    {
+      "input": "keyboard Enter",
+      "selector": "[data-class=toggle]"
+    },
+    {
+      "at": "2026-10-25T05:09:36.621380+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:09:42.514786+00:00",
+      "selector": ".single-dialog [data-class=export]",
+      "label": "Stand als Datei speichern",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:09:49.068680+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:09:55.447138+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:10:05.498741+00:00",
+      "selector": "a[href=\"?mission=m2-food-transformation\"]",
+      "label": "Untersuchen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:10:24.507728+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:10:30.272170+00:00",
+      "selector": "[data-class=load]",
+      "label": "Sicherung öffnen",
+      "input": "touchscreen tap"
+    },
+    {
+      "input": "actual file chooser",
+      "file": "after-m6-continuation.json"
+    },
+    {
+      "at": "2026-10-25T05:10:41.830119+00:00",
+      "selector": "[data-class=menu]",
+      "label": "Menü",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:10:47.533543+00:00",
+      "selector": ".single-dialog [data-class=export]",
+      "label": "Stand als Datei speichern",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:10:54.036491+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:11:00.199948+00:00",
+      "selector": "[data-class=help]",
+      "label": "Tipp",
+      "input": "touchscreen tap"
+    },
+    {
+      "at": "2026-10-25T05:11:13.416678+00:00",
+      "selector": "[data-class=close]",
+      "label": "Schließen",
+      "input": "touchscreen tap"
+    }
+  ],
+  "captures": [
+    {
+      "name": "m6-selected",
+      "atUTC": "2026-10-25T05:02:14.362692+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m6-plant-carbon",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "growth-ready",
+      "attempt": "c6d25de7-f691-4222-bdff-231c934edc67",
+      "task": "Dein Auftrag\nBeobachte diese Pflanze.\nWir beobachten drei Tage. Die Frage ist: Woher kommt ihr Kohlenstoff?\nEntwicklung ansehen\nTipp",
+      "meter": "Wasserpest · 3\nAnfang\n100\nJetzt\n100\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung.",
+      "selection": 3,
+      "markerVisible": true,
+      "amounts": [
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            }
+          ]
+        }
+      ],
+      "image": "m6-selected.png"
+    },
+    {
+      "name": "m6-observation-restored-pause",
+      "atUTC": "2026-10-25T05:03:29.604890+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m6-plant-carbon",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "observing",
+      "attempt": "c6d25de7-f691-4222-bdff-231c934edc67",
+      "task": "Dein Auftrag\nBeobachte die Veränderung.\n\n• Dein Stand ist geladen. Die Entwicklung bleibt angehalten.\n\nDu kannst jederzeit anhalten und in Ruhe nachsehen.\nAnhalten oder weiter beobachten\nTipp",
+      "meter": "Wasserpest · 3\nAnfang\n100\nJetzt\n100\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung.\n0 von 3 Tagen · angehalten",
+      "selection": 3,
+      "markerVisible": false,
+      "amounts": [
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            }
+          ]
+        }
+      ],
+      "image": "m6-observation-restored-pause.png"
+    },
+    {
+      "name": "m6-observation",
+      "atUTC": "2026-10-25T05:03:53.497810+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m6-plant-carbon",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "growth-observation",
+      "attempt": "c6d25de7-f691-4222-bdff-231c934edc67",
+      "task": "Dein Auftrag\nWas ist mit deiner Pflanze passiert?\n\nVergleiche Anfang und Ende in der Mengenanzeige am Aquarium.\n\nDie Pflanzenmenge hat abgenommen.\nDie Pflanze ist gewachsen.\nTipp",
+      "meter": "Wasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung.",
+      "selection": 3,
+      "markerVisible": true,
+      "amounts": [
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        }
+      ],
+      "image": "m6-observation.png"
+    },
+    {
+      "name": "m6-growth-wrong",
+      "atUTC": "2026-10-25T05:04:04.103002+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m6-plant-carbon",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "growth-observation",
+      "attempt": "c6d25de7-f691-4222-bdff-231c934edc67",
+      "task": "Dein Auftrag\nWas ist mit deiner Pflanze passiert?\n\n✕ Vergleiche die Menge derselben Pflanze mit ihrer Anfangsmarke. Die Herkunft ihres Kohlenstoffs ist eine andere Frage.\n\nVergleiche Anfang und Ende in der Mengenanzeige am Aquarium.\n\nDie Pflanzenmenge hat abgenommen.\nDie Pflanze ist gewachsen.\nTipp",
+      "meter": "Wasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung.",
+      "selection": 3,
+      "markerVisible": true,
+      "amounts": [
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        }
+      ],
+      "image": "m6-growth-wrong.png"
+    },
+    {
+      "name": "m6-growth-tip-1",
+      "atUTC": "2026-10-25T05:04:15.221368+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m6-plant-carbon",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "growth-observation",
+      "attempt": "c6d25de7-f691-4222-bdff-231c934edc67",
+      "task": "Dein Auftrag\nWas ist mit deiner Pflanze passiert?\n\n✕ Vergleiche die Menge derselben Pflanze mit ihrer Anfangsmarke. Die Herkunft ihres Kohlenstoffs ist eine andere Frage.\n\nVergleiche Anfang und Ende in der Mengenanzeige am Aquarium.\n\nDie Pflanzenmenge hat abgenommen.\nDie Pflanze ist gewachsen.\nTipp",
+      "meter": "Wasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung.",
+      "selection": 3,
+      "markerVisible": true,
+      "amounts": [
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        },
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        }
+      ],
+      "dialog": "Tipp zu deiner Aufgabe\nSchließen\n\nVergleiche den unteren Balken mit der Anfangsmarke 100.\n\nWeiterer Tipp\nWasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung."
+    },
+    {
+      "name": "m6-growth-help",
+      "atUTC": "2026-10-25T05:04:21.651659+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m6-plant-carbon",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "growth-observation",
+      "attempt": "c6d25de7-f691-4222-bdff-231c934edc67",
+      "task": "Dein Auftrag\nWas ist mit deiner Pflanze passiert?\n\nVergleiche Anfang und Ende in der Mengenanzeige am Aquarium.\n\nDie Pflanzenmenge hat abgenommen.\nDie Pflanze ist gewachsen.\nTipp",
+      "meter": "Wasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung.",
+      "selection": 3,
+      "markerVisible": false,
+      "amounts": [
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        },
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        }
+      ],
+      "dialog": "Tipp zu deiner Aufgabe\nSchließen\n\nPrüfe auch die Kennung: Gehören beide Werte zu derselben Pflanze?\n\nWeiterer Tipp\nWasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung."
+    },
+    {
+      "name": "m6-source-limit",
+      "atUTC": "2026-10-25T05:04:41.034820+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m6-plant-carbon",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "carbon-source",
+      "attempt": "c6d25de7-f691-4222-bdff-231c934edc67",
+      "task": "Dein Auftrag\nWoher kommt der Kohlenstoff?\n\n✓ Dein Beleg ist gespeichert.\n\nKohlenstoff ist ein Baustein der Pflanze. Die Erklärung an deiner Pflanze hilft dir.\nAus gelöstem Kohlenstoffdioxid. Licht liefert Energie für den Aufbau.\nAus Sand und Dünger. Die Wurzeln nehmen dort Kohlenstoff auf.\nTipp\nErklärung als Hilfe",
+      "meter": "Wasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung.",
+      "selection": 3,
+      "markerVisible": true,
+      "amounts": [
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        }
+      ],
+      "dialog": "Am Aquarium erklärt\nSchließen\nAn deiner Pflanze erklärt\n\nIm Wasser ist Kohlenstoffdioxid gelöst. Mit Licht baut die Pflanze dessen Kohlenstoff in eigene Stoffe ein.\n\nWasser → Pflanze → Atmung und Abbau → Wasser.\n\nEine Größenänderung allein beweist nicht, woher die einzelnen Bausteine kommen."
+    },
+    {
+      "name": "m6-source-wrong",
+      "atUTC": "2026-10-25T05:04:52.484150+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m6-plant-carbon",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "carbon-source",
+      "attempt": "c6d25de7-f691-4222-bdff-231c934edc67",
+      "task": "Dein Auftrag\nWoher kommt der Kohlenstoff?\n\n✕ Sand und Dünger liefern mineralische Nährstoffe. Wasserpflanzen nutzen Kohlenstoff aus Kohlenstoffdioxid im Wasser. Die Mengenanzeige allein beweist diese Herkunft nicht.\n\nKohlenstoff ist ein Baustein der Pflanze. Die Erklärung an deiner Pflanze hilft dir.\nAus gelöstem Kohlenstoffdioxid. Licht liefert Energie für den Aufbau.\nAus Sand und Dünger. Die Wurzeln nehmen dort Kohlenstoff auf.\nTipp\nErklärung als Hilfe",
+      "meter": "Wasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung.",
+      "selection": 3,
+      "markerVisible": true,
+      "amounts": [
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        }
+      ],
+      "image": "m6-source-wrong.png"
+    },
+    {
+      "name": "m6-source-tip-1",
+      "atUTC": "2026-10-25T05:05:03.560974+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m6-plant-carbon",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "carbon-source",
+      "attempt": "c6d25de7-f691-4222-bdff-231c934edc67",
+      "task": "Dein Auftrag\nWoher kommt der Kohlenstoff?\n\n✕ Sand und Dünger liefern mineralische Nährstoffe. Wasserpflanzen nutzen Kohlenstoff aus Kohlenstoffdioxid im Wasser. Die Mengenanzeige allein beweist diese Herkunft nicht.\n\nKohlenstoff ist ein Baustein der Pflanze. Die Erklärung an deiner Pflanze hilft dir.\nAus gelöstem Kohlenstoffdioxid. Licht liefert Energie für den Aufbau.\nAus Sand und Dünger. Die Wurzeln nehmen dort Kohlenstoff auf.\nTipp\nErklärung als Hilfe",
+      "meter": "Wasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung.",
+      "selection": 3,
+      "markerVisible": true,
+      "amounts": [
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        },
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        }
+      ],
+      "dialog": "Tipp zu deiner Aufgabe\nSchließen\n\nDie Größenanzeige zeigt eine Menge. Woher die Bausteine stammen, erklärt sie noch nicht.\n\nWeiterer Tipp\nWasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung."
+    },
+    {
+      "name": "m6-source-help",
+      "atUTC": "2026-10-25T05:05:09.567961+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m6-plant-carbon",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "carbon-source",
+      "attempt": "c6d25de7-f691-4222-bdff-231c934edc67",
+      "task": "Dein Auftrag\nWoher kommt der Kohlenstoff?\nKohlenstoff ist ein Baustein der Pflanze. Die Erklärung an deiner Pflanze hilft dir.\nAus gelöstem Kohlenstoffdioxid. Licht liefert Energie für den Aufbau.\nAus Sand und Dünger. Die Wurzeln nehmen dort Kohlenstoff auf.\nTipp\nErklärung als Hilfe",
+      "meter": "Wasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung.",
+      "selection": 3,
+      "markerVisible": false,
+      "amounts": [
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        },
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        }
+      ],
+      "dialog": "Tipp zu deiner Aufgabe\nSchließen\n\nUnterscheide mineralische Nährstoffe aus Dünger und den Baustein Kohlenstoff.\n\nWeiterer Tipp\nWasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung."
+    },
+    {
+      "name": "m6-return-wrong",
+      "atUTC": "2026-10-25T05:05:28.402163+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m6-plant-carbon",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "carbon-return",
+      "attempt": "c6d25de7-f691-4222-bdff-231c934edc67",
+      "task": "Dein Auftrag\nWie kommt Kohlenstoff wieder ins Wasser?\n\n✕ Auch eine lebende Pflanze atmet. Atmung und der Abbau von Resten geben Kohlenstoff wieder als Kohlenstoffdioxid ab.\n\nEr kommt erst ins Wasser zurück, wenn die Pflanze abgestorben ist.\nDurch Atmung von Lebewesen und durch den Abbau von Resten.\nTipp\nErklärung als Hilfe",
+      "meter": "Wasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung.",
+      "selection": 3,
+      "markerVisible": true,
+      "amounts": [
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        }
+      ],
+      "image": "m6-return-wrong.png"
+    },
+    {
+      "name": "m6-return-tip-1",
+      "atUTC": "2026-10-25T05:05:39.664415+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m6-plant-carbon",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "carbon-return",
+      "attempt": "c6d25de7-f691-4222-bdff-231c934edc67",
+      "task": "Dein Auftrag\nWie kommt Kohlenstoff wieder ins Wasser?\n\n✕ Auch eine lebende Pflanze atmet. Atmung und der Abbau von Resten geben Kohlenstoff wieder als Kohlenstoffdioxid ab.\n\nEr kommt erst ins Wasser zurück, wenn die Pflanze abgestorben ist.\nDurch Atmung von Lebewesen und durch den Abbau von Resten.\nTipp\nErklärung als Hilfe",
+      "meter": "Wasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung.",
+      "selection": 3,
+      "markerVisible": true,
+      "amounts": [
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        },
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        }
+      ],
+      "dialog": "Tipp zu deiner Aufgabe\nSchließen\n\nDenke an lebende Pflanzen und an Pflanzenreste: Welche Vorgänge laufen dort ab?\n\nWeiterer Tipp\nWasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung."
+    },
+    {
+      "name": "m6-return-help",
+      "atUTC": "2026-10-25T05:05:45.942474+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m6-plant-carbon",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "carbon-return",
+      "attempt": "c6d25de7-f691-4222-bdff-231c934edc67",
+      "task": "Dein Auftrag\nWie kommt Kohlenstoff wieder ins Wasser?\nEr kommt erst ins Wasser zurück, wenn die Pflanze abgestorben ist.\nDurch Atmung von Lebewesen und durch den Abbau von Resten.\nTipp\nErklärung als Hilfe",
+      "meter": "Wasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung.",
+      "selection": 3,
+      "markerVisible": false,
+      "amounts": [
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        },
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        }
+      ],
+      "dialog": "Tipp zu deiner Aufgabe\nSchließen\n\nWachstum bindet Kohlenstoff. Prüfe, ob Atmung und Abbau in die andere Richtung wirken.\n\nWeiterer Tipp\nWasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung."
+    },
+    {
+      "name": "m6-evidence-wrong",
+      "atUTC": "2026-10-25T05:06:05.143748+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m6-plant-carbon",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "carbon-evidence",
+      "attempt": "c6d25de7-f691-4222-bdff-231c934edc67",
+      "task": "Dein Auftrag\nWas zeigt die Beobachtung?\n\n✕ Die Mengenänderung zeigt keine einzelnen Kohlenstoffbausteine. Ihre Herkunft wird hier biologisch erklärt, nicht direkt gemessen.\n\nDie Mengenänderung ist beobachtet. Die Herkunft wird biologisch erklärt.\nDie Mengenänderung belegt, dass die Kohlenstoffbausteine aus dem Wasser stammen.\nTipp\nErklärung als Hilfe",
+      "meter": "Wasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung.",
+      "selection": 3,
+      "markerVisible": true,
+      "amounts": [
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        }
+      ],
+      "image": "m6-evidence-wrong.png"
+    },
+    {
+      "name": "m6-evidence-tip-1",
+      "atUTC": "2026-10-25T05:06:16.234695+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m6-plant-carbon",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "carbon-evidence",
+      "attempt": "c6d25de7-f691-4222-bdff-231c934edc67",
+      "task": "Dein Auftrag\nWas zeigt die Beobachtung?\n\n✕ Die Mengenänderung zeigt keine einzelnen Kohlenstoffbausteine. Ihre Herkunft wird hier biologisch erklärt, nicht direkt gemessen.\n\nDie Mengenänderung ist beobachtet. Die Herkunft wird biologisch erklärt.\nDie Mengenänderung belegt, dass die Kohlenstoffbausteine aus dem Wasser stammen.\nTipp\nErklärung als Hilfe",
+      "meter": "Wasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung.",
+      "selection": 3,
+      "markerVisible": true,
+      "amounts": [
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        },
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        }
+      ],
+      "dialog": "Tipp zu deiner Aufgabe\nSchließen\n\nTrenne deine eigene Beobachtung von der Erklärung aus der Biologie.\n\nWeiterer Tipp\nWasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung."
+    },
+    {
+      "name": "m6-evidence-help",
+      "atUTC": "2026-10-25T05:06:22.169019+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m6-plant-carbon",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "carbon-evidence",
+      "attempt": "c6d25de7-f691-4222-bdff-231c934edc67",
+      "task": "Dein Auftrag\nWas zeigt die Beobachtung?\nDie Mengenänderung ist beobachtet. Die Herkunft wird biologisch erklärt.\nDie Mengenänderung belegt, dass die Kohlenstoffbausteine aus dem Wasser stammen.\nTipp\nErklärung als Hilfe",
+      "meter": "Wasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung.",
+      "selection": 3,
+      "markerVisible": false,
+      "amounts": [
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        },
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        }
+      ],
+      "dialog": "Tipp zu deiner Aufgabe\nSchließen\n\nHast du nur eine Mengenänderung gesehen oder einzelne Kohlenstoffbausteine verfolgt?\n\nWeiterer Tipp\nWasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung."
+    },
+    {
+      "name": "m6-fossil",
+      "atUTC": "2026-10-25T05:06:41.651083+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m6-plant-carbon",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "complete",
+      "attempt": "c6d25de7-f691-4222-bdff-231c934edc67",
+      "task": "Dein Auftrag\nDein Ergebnis ist gespeichert.\n\n✓ Dein Beleg ist gespeichert.\n\nDie Pflanzenmenge hat sich gegenüber dem Anfang vergrößert. Pflanzen bauen mit Licht Kohlenstoff aus Kohlenstoffdioxid im Wasser in eigene Stoffe ein. Atmung und Abbau geben Kohlenstoff wieder ab. Wachstum allein beweist nicht die Herkunft jedes Bausteins.\nErgebnis speichernNoch einmal untersuchen\nTipp\nKohle, Erdöl und Erdgas",
+      "meter": "Wasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung.",
+      "selection": 3,
+      "markerVisible": true,
+      "amounts": [
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        }
+      ],
+      "dialog": "Kohlenstoff außerhalb des Aquariums\nSchließen\n\nIn Kohle, Erdöl und Erdgas steckt lange gespeicherter Kohlenstoff. Beim Verbrennen kommt er zusätzlich als Kohlenstoffdioxid in die Luft. Das Aquarium berechnet daraus weder Weltklima noch globale Mengen.\n\nQuellen und weiterführendes Unterrichtsmaterial",
+      "image": "m6-fossil.png"
+    },
+    {
+      "name": "m6-complete",
+      "atUTC": "2026-10-25T05:06:54.410661+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m6-plant-carbon",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "complete",
+      "attempt": "c6d25de7-f691-4222-bdff-231c934edc67",
+      "task": "Dein Auftrag\nDein Ergebnis ist gespeichert.\n\n✓ Dein Beleg ist gespeichert.\n\nDie Pflanzenmenge hat sich gegenüber dem Anfang vergrößert. Pflanzen bauen mit Licht Kohlenstoff aus Kohlenstoffdioxid im Wasser in eigene Stoffe ein. Atmung und Abbau geben Kohlenstoff wieder ab. Wachstum allein beweist nicht die Herkunft jedes Bausteins.\nErgebnis speichernNoch einmal untersuchen\nTipp\nKohle, Erdöl und Erdgas",
+      "meter": "Wasserpest · 3\nAnfang\n100\nNach 3 Tagen\n124\nVergleichszahl: Anfang = 100. Pflanzenmenge im Modell, keine Wägung.",
+      "selection": 3,
+      "markerVisible": false,
+      "amounts": [
+        {
+          "uid": "3",
+          "reference": 0.6448826230829582,
+          "values": [
+            {
+              "value": 0.6448826230829582,
+              "index": 100
+            },
+            {
+              "value": 0.7993327659857855,
+              "index": 123.95011702508828
+            }
+          ]
+        }
+      ],
+      "image": "m6-complete.png"
+    },
+    {
+      "name": "after-m6-continued",
+      "atUTC": "2026-10-25T05:09:26.906742+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m2-food-transformation",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "observing",
+      "attempt": "fc6f9f14-c3df-4dc9-9860-fff01efa8a68",
+      "task": "Dein Auftrag\nBeobachte die Veränderung.\nDu kannst jederzeit anhalten und in Ruhe nachsehen.\nAnhalten oder weiter beobachten\nTipp",
+      "meter": "Reste in diesem Aquarium\nVor dem Füttern\n100\nNach dem Füttern\n134,3\nJetzt\n134,6\nVergleichszahl: vor dem Füttern = 100. Vergleich im Modell, keine Krümelzahl.\n0,25 von 3 Tagen · angehalten",
+      "selection": null,
+      "markerVisible": false,
+      "amounts": [
+        {
+          "uid": null,
+          "reference": 0.35,
+          "values": [
+            {
+              "value": 0.35,
+              "index": 100
+            },
+            {
+              "value": 0.47,
+              "index": 134.2857142857143
+            },
+            {
+              "value": 0.47103547823237496,
+              "index": 134.58156520925
+            }
+          ]
+        }
+      ],
+      "image": "after-m6-continued.png"
+    },
+    {
+      "name": "after-m6-restored-responsive",
+      "atUTC": "2026-10-25T05:11:00.265806+00:00",
+      "url": "https://feerson1617.github.io/Simulation-Aquarium/pr-preview/pr-9/?mission=m2-food-transformation",
+      "viewport": {
+        "width": 1366,
+        "height": 960
+      },
+      "stage": "observing",
+      "attempt": "fc6f9f14-c3df-4dc9-9860-fff01efa8a68",
+      "task": "Dein Auftrag\nBeobachte die Veränderung.\n\n• Dein Stand ist geladen. Die Entwicklung bleibt angehalten.\n\nDu kannst jederzeit anhalten und in Ruhe nachsehen.\nAnhalten oder weiter beobachten\nTipp",
+      "meter": "Reste in diesem Aquarium\nVor dem Füttern\n100\nNach dem Füttern\n134,3\nJetzt\n134,6\nVergleichszahl: vor dem Füttern = 100. Vergleich im Modell, keine Krümelzahl.\n0,25 von 3 Tagen · angehalten",
+      "selection": null,
+      "markerVisible": false,
+      "amounts": [
+        {
+          "uid": null,
+          "reference": 0.35,
+          "values": [
+            {
+              "value": 0.35,
+              "index": 100
+            },
+            {
+              "value": 0.47,
+              "index": 134.2857142857143
+            },
+            {
+              "value": 0.47103547823237496,
+              "index": 134.58156520925
+            }
+          ]
+        },
+        {
+          "uid": null,
+          "reference": 0.35,
+          "values": [
+            {
+              "value": 0.35,
+              "index": 100
+            },
+            {
+              "value": 0.47,
+              "index": 134.2857142857143
+            },
+            {
+              "value": 0.47103547823237496,
+              "index": 134.58156520925
+            }
+          ]
+        }
+      ],
+      "dialog": "Tipp zu deiner Aufgabe\nSchließen\n\nHalte die Entwicklung an. Vergleiche die beschrifteten Werte am Aquarium.\n\nWeiterer Tipp\nReste in diesem Aquarium\nVor dem Füttern\n100\nNach dem Füttern\n134,3\nJetzt\n134,6\nVergleichszahl: vor dem Füttern = 100. Vergleich im Modell, keine Krümelzahl.\n0,25 von 3 Tagen · angehalten",
+      "image": "after-m6-restored-responsive.png"
+    }
+  ],
+  "checks": [
+    "m6-observation",
+    "m6: raw evidence separated from offered interpretation",
+    "m6: actual completion, HTTP reload or labelled offline return, new attempt, actual chooser import, identical re-export",
+    "Fresh actual waterweed individual, UID and marker; fixed individual baseline through pause/reload/import; real growth, four wrong answers corrected, biological explanation distinguished from atom-source proof, fossil transfer opened",
+    "After complete M6: new M2, real feed and time step, paused leave/reopen, actual export/import/re-export identical, help still responds"
+  ],
+  "errors": [],
+  "requests_failed": [],
+  "backup": false,
+  "consoleErrors": [],
+  "networkAfterIsolation": [],
+  "downloads": [
+    {
+      "file": "m6-observation-pause.json",
+      "sha256": "ee95f6c92d3d55cd7619ce1b9a90f1278c680d7bb8e879cd82d4505d5f26784d",
+      "identicalToSession": true
+    },
+    {
+      "file": "m6-result.json",
+      "sha256": "926a46b7a54e6975976e532b5bf1feadac7b33aa7171ce5032168c51c5b31250",
+      "identicalToSession": true
+    },
+    {
+      "file": "m6-reimported.json",
+      "sha256": "926a46b7a54e6975976e532b5bf1feadac7b33aa7171ce5032168c51c5b31250",
+      "identicalToSession": true
+    },
+    {
+      "file": "after-m6-continuation.json",
+      "sha256": "bf7fe95f0699e640b9b3f08de86efccc3c595989f3266a75efbe3a10ae8da55d",
+      "identicalToSession": true
+    },
+    {
+      "file": "after-m6-continuation-reimported.json",
+      "sha256": "bf7fe95f0699e640b9b3f08de86efccc3c595989f3266a75efbe3a10ae8da55d",
+      "identicalToSession": true
+    }
+  ],
+  "restorations": [
+    {
+      "mission": "m6-plant-carbon",
+      "attempt": "c6d25de7-f691-4222-bdff-231c934edc67",
+      "stage": "observing",
+      "method": "actual HTTP reload",
+      "identical": true
+    },
+    {
+      "mission": "m6-plant-carbon",
+      "attempt": "c6d25de7-f691-4222-bdff-231c934edc67",
+      "stage": "complete",
+      "method": "actual HTTP reload",
+      "identical": true
+    }
+  ],
+  "scenario": "full current M5/M6 plus actual M2 continuation; real controls and file chooser",
+  "version": "154.0.8037.57",
+  "earlierM5Phase": {
+    "report": "m5-phase-report.json",
+    "sha256": "452e5287603d2da8c9fc1ef327e83b4d231b941f4d027e7e1abf2b3ff5612de4",
+    "method": "already completed actual M5 retained; fresh browser/context for M6, no M5 replay"
+  },
+  "individual": {
+    "species": "waterweed",
+    "uid": 3,
+    "initialBiomass": 0.6448826230829582,
+    "selectionMethod": "actual direct aquarium touchscreen tap",
+    "freshCurrentAttempt": "c6d25de7-f691-4222-bdff-231c934edc67"
+  },
+  "status": "passed"
+}
